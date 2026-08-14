@@ -6,36 +6,32 @@
 
 ---
 
-## 1. Executive Summary & Covariant Formulation
+## 1. Executive Summary & Epistemic Demarcation
 
-In Milestone **D6**, we formalize the covariant 4-dimensional relativistic completion of the dual-channel theory and audit its Hamiltonian energy structure for classical and quantum stability.
+In Milestone **D6**, we formalize the stability of the dual-channel action potential $\mathcal{F}_{\text{dual}}(y) = \frac{1}{2}y^2 - y + \ln(1+y)$ and establish its exact epistemic boundary.
 
-### 1.1 The Relativistic Action
-Let $g_{\mu\nu}$ be the spacetime metric and $\chi$ the gravitational scalar field. The covariant kinetic invariant is defined as:
-$$X \equiv -\frac{1}{2a_0^2} g^{\mu\nu} \nabla_\mu \chi \nabla_\nu \chi.$$
+### 1.1 Non-Relativistic Convexity & Kinetic Stability $\mathbf{[P]}$
+The non-relativistic AQUAL kinetic Lagrangian $\mathcal{L}_{\text{kin}} = -\frac{a_0^2}{8\pi G} \mathcal{F}_{\text{dual}}\left(\frac{|\nabla\Phi|}{a_0}\right)$ satisfies:
+1. **Flux Positivity:** $\mathcal{F}'(y) = \frac{y^2}{1+y} > 0$ for all $y > 0$.
+2. **Strict Convexity / Positive Kinetic Hessian:** $\mathcal{F}''(y) = \frac{y(y+2)}{(1+y)^2} > 0$ for all $y > 0$.
 
-The total action is:
-$$S = \int d^4x \sqrt{-g} \left[ \frac{R}{16\pi G} - \frac{a_0^2}{8\pi G} \mathcal{F}_{\text{dual}}(\sqrt{2X}) \right] + S_m[g_{\mu\nu}, \psi_m],$$
-where:
-$$\mathcal{F}_{\text{dual}}(y) = \frac{1}{2}y^2 - y + \ln(1+y), \qquad y \equiv \sqrt{2X} = \frac{|\nabla\chi|}{a_0}.$$
+This mathematically proves that the quasistatic scalar field possesses no tachyonic instabilities, negative gradient modes, or ill-posed elliptic degeneracies.
+
+### 1.2 Epistemic Quarantine: Relativistic Completion Outstanding $\mathbf{[O]}$
+**CRITICAL REFEREE DISCLOSURE:** While strict convexity is a *necessary* condition for physical stability, proving full **ghost-freedom and Hamiltonian non-negativity $\mathcal{H} \ge 0$ in 4D spacetime requires a complete, covariant metric-scalar tensor theory** (such as a full TeVeS or covariant disformal completion). In the absence of an explicit covariant metric action in the present corpus, the claim of full Ostrogradsky ghost-freedom is formally unproved and remains an open research boundary $\mathbf{[O]}$.
 
 ---
 
-## 2. Hamiltonian Stability & Ghost-Freedom Proof $\mathbf{[P]}$
+## 2. Mathematical Stability Proof $\mathbf{[P]}$
 
-### 2.1 The Kinetic Hessian Condition
-A generalized scalar-tensor or k-essence theory is ghost-free (lacks Ostrogradsky and negative-energy ghosts) if and only if its kinetic Lagrangian $\mathcal{L}(y)$ satisfies two conditions:
-1. **Null Energy Condition / Flux Positivity:** $\mathcal{F}'(y) > 0$ for all $y > 0$.
-2. **Strict Convexity / Positive Kinetic Hessian:** $\mathcal{F}''(y) > 0$ for all $y > 0$.
-
-### 2.2 Symbolic Computation:
+### 2.1 The Kinetic Hessian Calculation:
 $$\mathcal{F}'(y) = \frac{y^2}{1+y} > 0 \quad (\forall y > 0),$$
 $$\mathcal{F}''(y) = \frac{d}{dy}\left[\frac{y^2}{1+y}\right] = \frac{2y(1+y) - y^2}{(1+y)^2} = \mathbf{\frac{y(y+2)}{(1+y)^2}}.$$
 
 Since $y > 0$, both the numerator $y(y+2) > 0$ and the denominator $(1+y)^2 > 0$ are strictly positive. Thus:
 $$\mathcal{F}''(y) > 0 \qquad \forall y \in (0, \infty).$$
 
-**Conclusion:** The kinetic matrix is everywhere positive-definite. The canonical momentum $\pi_\chi = \frac{\partial \mathcal{L}}{\partial \dot{\chi}}$ has an invertible, monotonic Legendre transform, guaranteeing that the Hamiltonian density $\mathcal{H} = \pi_\chi \dot{\chi} - \mathcal{L}$ is **strictly bounded from below ($\mathcal{H} \ge 0$) with zero ghost modes**.
+**Verdict:** The non-relativistic kinetic functional is everywhere strictly convex, ruling out gradient and ghost instabilities in the quasistatic scalar Poisson sector $\mathbf{[P]}$. Covariant 4D Hamiltonian constraint analysis remains open $\mathbf{[O]}$.
 
 ---
 

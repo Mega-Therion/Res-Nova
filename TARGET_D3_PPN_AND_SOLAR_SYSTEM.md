@@ -6,20 +6,20 @@
 
 ---
 
-## 1. Executive Summary & Epistemic Boundary
+## 1. Executive Summary & Epistemic Demarcation
 
-In this milestone, we audit the behavior of the derived dual-channel weak-field constitutive relation:
+In this milestone, we audit the non-relativistic strong-acceleration regime of the derived dual-channel constitutive relation:
 $$\mu_{\text{derived}}(x) = \frac{x}{1+x}, \qquad x \equiv \frac{|\nabla\Phi|}{a_0}$$
-in the strong-acceleration regime of the Solar System ($x \gg 1$).
+in the planetary domain ($x \gg 1$).
 
-We establish three key results:
-1. **PPN Metric Parameter $\gamma_{\text{PPN}} = 1$ Recovery $\mathbf{[P]}$:**  
-   In the strong-field limit ($x \to \infty$), the dual-channel theory asymptotically approaches General Relativity with $\mu(x) \to 1$, preserving standard light deflection and Shapiro time delay.
-2. **Solar System Precision Audit $\mathbf{[D]}$:**  
-   At Earth-Sun orbital distances ($1\text{ AU}$), the dimensionless acceleration ratio is $x \approx 6.29 \times 10^7$. The fractional gravitational deviation is:
-   $$\frac{|\nabla\Phi - \nabla\Phi_N|}{|\nabla\Phi_N|} = 1 - \mu(x) = \frac{1}{1+x} \approx 1.59 \times 10^{-8}.$$
-3. **Cassini Radar-Delay Compliance $\mathbf{[P]}$:**  
-   The experimental bound from the Cassini spacecraft tracking is $|\gamma_{\text{PPN}} - 1| \le 2.3 \times 10^{-5}$. The dual-channel prediction ($1.59 \times 10^{-8}$) is **over three orders of magnitude below the observational constraint threshold**.
+We establish two verified results and enforce one critical epistemic boundary:
+1. **Asymptotic Newtonian Recovery $\mathbf{[P]}$:**  
+   In the strong-field regime ($x \to \infty$), the dual-channel constitutive relation strictly approaches unity:
+   $$\lim_{x \to \infty} \mu(x) = 1, \qquad 1 - \mu(x) = \frac{1}{1+x} \to 0.$$
+2. **Solar System Planetary Acceleration Audit $\mathbf{[D]}$:**  
+   At Earth-Sun orbit ($1\text{ AU}$), the dimensionless acceleration ratio is $x \approx 6.29 \times 10^7$, yielding a fractional deviation of $\sim 1.59 \times 10^{-8}$. Like all MOND-type interpolation functions, Newtonian gravity is preserved by construction.
+3. **Epistemic Quarantine: Relativistic Metric PPN Formulation Outstanding $\mathbf{[O]}$:**  
+   **REFEREE AUDIT NOTICE:** Calculating true Parameterized Post-Newtonian parameters ($\gamma_{\text{PPN}}, \beta_{\text{PPN}}$) requires a complete 4D metric-scalar tensor Lagrangian. While non-relativistic AQUAL guarantees that the scalar force is suppressed by $\sim 10^{-8}$ at $1\text{ AU}$, asserting $\gamma_{\text{PPN}} = 1$ is premature until a covariant metric completion is formalized. We retain the mathematical Newtonian limit $\mathbf{[P]}$ and quarantine the metric PPN claim $\mathbf{[O]}$.
 
 ---
 
