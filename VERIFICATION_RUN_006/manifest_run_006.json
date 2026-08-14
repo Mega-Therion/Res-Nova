@@ -1,0 +1,8 @@
+{
+  "run_id": "VERIFICATION_RUN_006",
+  "description": "Target D9 Skordis-Zlosnik Relativistic MOND Parent Verification Manifest",
+  "artifacts": {
+    "SKORDIS_ZLOSNIK_EVALUATION.json": "a33014dbc51ee8180f757cb9aca956530150c96f62629128ad955bd60ba5ebf5",
+    "SkordisZlosnikEmbedding.lean": "f93326858dc8747a084fa9acf2ffa47679ff39853af65e46bf720f1a52fe59d3"
+  }
+}

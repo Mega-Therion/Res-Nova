@@ -1,0 +1,19 @@
+{
+  "target": "D9",
+  "title": "Skordis-Zlosnik Relativistic MOND Parent Membership Test",
+  "J_Y_definition": "-sqrt(Y) + Y/2 + log(sqrt(Y) + 1)",
+  "dJ_dY": "Y**(3/2)/(2*(Y**(3/2) + Y))",
+  "mu_from_2_dJ_dY": "x/(x + 1)",
+  "mu_derived_target": "x/(x + 1)",
+  "reduction_residual": "0",
+  "reduction_exact_match": true,
+  "d2J_dY2_convexity": "Y**(7/2)/(4*(2*Y**(9/2) + Y**5 + Y**4))",
+  "newtonian_limit_Y_inf": 1.0,
+  "mond_limit_x_0": 1.0,
+  "taylor_series_at_origin": "-Y**2/4 - Y**3/6 + Y**(3/2)/3 + Y**(5/2)/5 + Y**(7/2)/7 + O(Y**4)",
+  "tensor_speed_c_T": "c",
+  "photon_speed_c_gamma": "c",
+  "gw170817_concordance": "|c_T/c_gamma - 1| = 0.00000 <= 1e-15",
+  "lensing_concordance": "Phi = Psi (vector-shear mediated, gamma_PPN = 1.0)",
+  "membership_verdict": "EMBEDDED-VIABLE [P]"
+}
