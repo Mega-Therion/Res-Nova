@@ -56,7 +56,7 @@ class Axiom_A2_EntanglementGeometry (M : Type*) [MetricSpace M] (Q : Type*) [Nor
 
 /-- Axiom A3 (Equilibrium): The vacuum state locally extremizes entanglement entropy at fixed boundary volume. -/
 class Axiom_A3_Equilibrium (Q : Type*) [NormedAddCommGroup Q] [InnerProductSpace ℂ Q] : Prop where
-  maximal_vacuum_entanglement : ∀ (V : Set Q), ∃ (S_max : ℝ), S_max ≥ 0
+  maximal_vacuum_entanglement : ∀ (_V : Set Q), ∃ (S_max : ℝ), S_max ≥ 0
 
 /-- Axiom A4 (Variational Closure): The weak-field constitutive relation μ(x) is uniquely fixed by variational extremization of the entropic action. -/
 class Axiom_A4_VariationalClosure (μ : ℝ → ℝ) : Prop where
