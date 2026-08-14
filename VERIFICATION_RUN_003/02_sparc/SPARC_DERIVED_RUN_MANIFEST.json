@@ -1,0 +1,1606 @@
+{
+  "work_order": "D4",
+  "date": "2026-08-14",
+  "sample": "175 SPARC galaxies (3,391 points)",
+  "model": "Derived mu(x) = x / (1 + x)",
+  "fitted_parameters": {
+    "a0_posterior": {
+      "median_m_s2": 9.500000000000001e-11,
+      "sigma_m_s2": 3.7036541181957447e-13,
+      "cH0_2pi_value": 1.042e-10,
+      "tension_sigma": 24.84033256453716
+    },
+    "Ydisk_distribution": {
+      "mean": 0.5563398827854756,
+      "std": 0.38975997819824476,
+      "median": 0.49612193287256273,
+      "prior_mean": 0.5,
+      "prior_std": 0.125
+    }
+  },
+  "statistics": {
+    "n_galaxies": 175,
+    "n_points": 3391,
+    "nominal_dof": 3215,
+    "total_chi2_data": 36115.55467252027,
+    "median_chi2_per_point": 2.9396280892812583,
+    "aggregate_chi2_nom_dof": 11.23345401944643
+  },
+  "per_galaxy_table": [
+    {
+      "galaxy": "CamB",
+      "n_points": 9,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 312.9599288541802,
+      "chi2_per_pt_derived": 34.773325428242245,
+      "chi2_legacy_zeroparam": 1293.0182890215974,
+      "chi2_per_pt_legacy": 143.6686987801775
+    },
+    {
+      "galaxy": "D512-2",
+      "n_points": 4,
+      "fitted_Ydisk": 0.3688315620099461,
+      "chi2_derived": 0.9670944553683858,
+      "chi2_per_pt_derived": 0.24177361384209645,
+      "chi2_legacy_zeroparam": 34.45072714404657,
+      "chi2_per_pt_legacy": 8.612681786011642
+    },
+    {
+      "galaxy": "D564-8",
+      "n_points": 6,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 14.498167074279866,
+      "chi2_per_pt_derived": 2.4163611790466444,
+      "chi2_legacy_zeroparam": 175.12027489147084,
+      "chi2_per_pt_legacy": 29.18671248191181
+    },
+    {
+      "galaxy": "D631-7",
+      "n_points": 16,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 175.83446501177878,
+      "chi2_per_pt_derived": 10.989654063236173,
+      "chi2_legacy_zeroparam": 542.0315724370308,
+      "chi2_per_pt_legacy": 33.87697327731443
+    },
+    {
+      "galaxy": "DDO064",
+      "n_points": 14,
+      "fitted_Ydisk": 0.4967263045154035,
+      "chi2_derived": 3.7046815035293257,
+      "chi2_per_pt_derived": 0.26462010739495184,
+      "chi2_legacy_zeroparam": 12.527014529920693,
+      "chi2_per_pt_legacy": 0.8947867521371924
+    },
+    {
+      "galaxy": "DDO154",
+      "n_points": 12,
+      "fitted_Ydisk": 0.2138273397014222,
+      "chi2_derived": 38.45851066443141,
+      "chi2_per_pt_derived": 3.204875888702617,
+      "chi2_legacy_zeroparam": 975.4106186768382,
+      "chi2_per_pt_legacy": 81.28421822306986
+    },
+    {
+      "galaxy": "DDO161",
+      "n_points": 31,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 1839.795076707448,
+      "chi2_per_pt_derived": 59.34822828088542,
+      "chi2_legacy_zeroparam": 4436.440031221559,
+      "chi2_per_pt_legacy": 143.11096874908256
+    },
+    {
+      "galaxy": "DDO168",
+      "n_points": 10,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 133.10061670798072,
+      "chi2_per_pt_derived": 13.310061670798072,
+      "chi2_legacy_zeroparam": 273.83155275377766,
+      "chi2_per_pt_legacy": 27.383155275377767
+    },
+    {
+      "galaxy": "DDO170",
+      "n_points": 8,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 361.495918149318,
+      "chi2_per_pt_derived": 45.18698976866475,
+      "chi2_legacy_zeroparam": 1345.5924939809022,
+      "chi2_per_pt_legacy": 168.19906174761277
+    },
+    {
+      "galaxy": "ESO079-G014",
+      "n_points": 15,
+      "fitted_Ydisk": 0.69143834735207,
+      "chi2_derived": 46.52511688459226,
+      "chi2_per_pt_derived": 3.101674458972817,
+      "chi2_legacy_zeroparam": 116.09382605957168,
+      "chi2_per_pt_legacy": 7.739588403971445
+    },
+    {
+      "galaxy": "ESO116-G012",
+      "n_points": 15,
+      "fitted_Ydisk": 0.8846295202010429,
+      "chi2_derived": 88.52208745093405,
+      "chi2_per_pt_derived": 5.901472496728937,
+      "chi2_legacy_zeroparam": 72.81723599507593,
+      "chi2_per_pt_legacy": 4.854482399671729
+    },
+    {
+      "galaxy": "ESO444-G084",
+      "n_points": 7,
+      "fitted_Ydisk": 1.2740463808427345,
+      "chi2_derived": 173.91326217073754,
+      "chi2_per_pt_derived": 24.84475173867679,
+      "chi2_legacy_zeroparam": 200.07144509215559,
+      "chi2_per_pt_legacy": 28.581635013165084
+    },
+    {
+      "galaxy": "ESO563-G021",
+      "n_points": 30,
+      "fitted_Ydisk": 0.8740025113071722,
+      "chi2_derived": 503.38406171698523,
+      "chi2_per_pt_derived": 16.77946872389951,
+      "chi2_legacy_zeroparam": 548.4052586102456,
+      "chi2_per_pt_legacy": 18.280175287008188
+    },
+    {
+      "galaxy": "F561-1",
+      "n_points": 6,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 44.18122823278753,
+      "chi2_per_pt_derived": 7.363538038797922,
+      "chi2_legacy_zeroparam": 344.61158999847805,
+      "chi2_per_pt_legacy": 57.435264999746344
+    },
+    {
+      "galaxy": "F563-1",
+      "n_points": 17,
+      "fitted_Ydisk": 0.8737079501099883,
+      "chi2_derived": 39.47130047589952,
+      "chi2_per_pt_derived": 2.3218412044646777,
+      "chi2_legacy_zeroparam": 32.60218010909168,
+      "chi2_per_pt_legacy": 1.9177753005348046
+    },
+    {
+      "galaxy": "F563-V1",
+      "n_points": 6,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 88.17723971206834,
+      "chi2_per_pt_derived": 14.696206618678056,
+      "chi2_legacy_zeroparam": 260.4570172872294,
+      "chi2_per_pt_legacy": 43.4095028812049
+    },
+    {
+      "galaxy": "F563-V2",
+      "n_points": 10,
+      "fitted_Ydisk": 0.8709264780226739,
+      "chi2_derived": 29.84093115399195,
+      "chi2_per_pt_derived": 2.9840931153991948,
+      "chi2_legacy_zeroparam": 28.46614402640221,
+      "chi2_per_pt_legacy": 2.846614402640221
+    },
+    {
+      "galaxy": "F565-V2",
+      "n_points": 7,
+      "fitted_Ydisk": 0.6634214420647712,
+      "chi2_derived": 11.547248158481988,
+      "chi2_per_pt_derived": 1.6496068797831411,
+      "chi2_legacy_zeroparam": 5.246096857064055,
+      "chi2_per_pt_legacy": 0.7494424081520078
+    },
+    {
+      "galaxy": "F567-2",
+      "n_points": 5,
+      "fitted_Ydisk": 0.3438964931749145,
+      "chi2_derived": 12.320086559872001,
+      "chi2_per_pt_derived": 2.4640173119744,
+      "chi2_legacy_zeroparam": 60.41858543135547,
+      "chi2_per_pt_legacy": 12.083717086271093
+    },
+    {
+      "galaxy": "F568-1",
+      "n_points": 12,
+      "fitted_Ydisk": 1.055101820861109,
+      "chi2_derived": 41.46950135828684,
+      "chi2_per_pt_derived": 3.4557917798572366,
+      "chi2_legacy_zeroparam": 52.94975949820031,
+      "chi2_per_pt_legacy": 4.412479958183359
+    },
+    {
+      "galaxy": "F568-3",
+      "n_points": 18,
+      "fitted_Ydisk": 0.5019676416202813,
+      "chi2_derived": 46.15327382944988,
+      "chi2_per_pt_derived": 2.5640707683027713,
+      "chi2_legacy_zeroparam": 96.35060796347346,
+      "chi2_per_pt_legacy": 5.352811553526304
+    },
+    {
+      "galaxy": "F568-V1",
+      "n_points": 15,
+      "fitted_Ydisk": 1.221681926910181,
+      "chi2_derived": 43.499140822276495,
+      "chi2_per_pt_derived": 2.8999427214850995,
+      "chi2_legacy_zeroparam": 78.24330779845621,
+      "chi2_per_pt_legacy": 5.216220519897081
+    },
+    {
+      "galaxy": "F571-8",
+      "n_points": 13,
+      "fitted_Ydisk": 0.5266507497354803,
+      "chi2_derived": 586.6289853063442,
+      "chi2_per_pt_derived": 45.12530656202648,
+      "chi2_legacy_zeroparam": 671.8053367877885,
+      "chi2_per_pt_legacy": 51.67733359906065
+    },
+    {
+      "galaxy": "F571-V1",
+      "n_points": 7,
+      "fitted_Ydisk": 0.47193987043621227,
+      "chi2_derived": 1.1369437410699956,
+      "chi2_per_pt_derived": 0.1624205344385708,
+      "chi2_legacy_zeroparam": 13.585496960290808,
+      "chi2_per_pt_legacy": 1.940785280041544
+    },
+    {
+      "galaxy": "F574-1",
+      "n_points": 14,
+      "fitted_Ydisk": 0.7819302949495653,
+      "chi2_derived": 24.908572149584543,
+      "chi2_per_pt_derived": 1.7791837249703246,
+      "chi2_legacy_zeroparam": 31.08637255938057,
+      "chi2_per_pt_legacy": 2.220455182812898
+    },
+    {
+      "galaxy": "F574-2",
+      "n_points": 5,
+      "fitted_Ydisk": 0.09109264850082407,
+      "chi2_derived": 45.46983192060113,
+      "chi2_per_pt_derived": 9.093966384120225,
+      "chi2_legacy_zeroparam": 145.80764942444526,
+      "chi2_per_pt_legacy": 29.161529884889053
+    },
+    {
+      "galaxy": "F579-V1",
+      "n_points": 14,
+      "fitted_Ydisk": 0.7929114220467771,
+      "chi2_derived": 32.332423435361086,
+      "chi2_per_pt_derived": 2.309458816811506,
+      "chi2_legacy_zeroparam": 32.75696389678543,
+      "chi2_per_pt_legacy": 2.3397831354846734
+    },
+    {
+      "galaxy": "F583-1",
+      "n_points": 25,
+      "fitted_Ydisk": 0.9372327407608473,
+      "chi2_derived": 46.38574620351359,
+      "chi2_per_pt_derived": 1.8554298481405436,
+      "chi2_legacy_zeroparam": 43.37070070618838,
+      "chi2_per_pt_legacy": 1.7348280282475352
+    },
+    {
+      "galaxy": "F583-4",
+      "n_points": 12,
+      "fitted_Ydisk": 0.43371457562484894,
+      "chi2_derived": 1.2606552509804345,
+      "chi2_per_pt_derived": 0.10505460424836954,
+      "chi2_legacy_zeroparam": 84.46948173294423,
+      "chi2_per_pt_legacy": 7.039123477745353
+    },
+    {
+      "galaxy": "IC2574",
+      "n_points": 34,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 51.61056446921264,
+      "chi2_per_pt_derived": 1.5179577785062541,
+      "chi2_legacy_zeroparam": 14703.656018097137,
+      "chi2_per_pt_legacy": 432.46047112050405
+    },
+    {
+      "galaxy": "IC4202",
+      "n_points": 32,
+      "fitted_Ydisk": 0.6514378255435491,
+      "chi2_derived": 1171.1444868272754,
+      "chi2_per_pt_derived": 36.598265213352356,
+      "chi2_legacy_zeroparam": 1078.751901524552,
+      "chi2_per_pt_legacy": 33.71099692264225
+    },
+    {
+      "galaxy": "KK98-251",
+      "n_points": 15,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 193.6340420966008,
+      "chi2_per_pt_derived": 12.908936139773386,
+      "chi2_legacy_zeroparam": 465.27501474230235,
+      "chi2_per_pt_legacy": 31.01833431615349
+    },
+    {
+      "galaxy": "NGC0024",
+      "n_points": 29,
+      "fitted_Ydisk": 1.233859964990296,
+      "chi2_derived": 24.2894367197636,
+      "chi2_per_pt_derived": 0.8375667834401241,
+      "chi2_legacy_zeroparam": 124.30846524948295,
+      "chi2_per_pt_legacy": 4.286498801706308
+    },
+    {
+      "galaxy": "NGC0055",
+      "n_points": 21,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 29.14214382967212,
+      "chi2_per_pt_derived": 1.3877211347462914,
+      "chi2_legacy_zeroparam": 1432.7509126409273,
+      "chi2_per_pt_legacy": 68.22623393528225
+    },
+    {
+      "galaxy": "NGC0100",
+      "n_points": 21,
+      "fitted_Ydisk": 0.49032686570791956,
+      "chi2_derived": 32.62143789933848,
+      "chi2_per_pt_derived": 1.553401804730404,
+      "chi2_legacy_zeroparam": 150.39484330997107,
+      "chi2_per_pt_legacy": 7.161659205236718
+    },
+    {
+      "galaxy": "NGC0247",
+      "n_points": 26,
+      "fitted_Ydisk": 0.6467305375109519,
+      "chi2_derived": 84.98256120010116,
+      "chi2_per_pt_derived": 3.268560046157737,
+      "chi2_legacy_zeroparam": 370.607145671535,
+      "chi2_per_pt_legacy": 14.254120987366731
+    },
+    {
+      "galaxy": "NGC0289",
+      "n_points": 28,
+      "fitted_Ydisk": 0.4355793272195869,
+      "chi2_derived": 131.13725103233193,
+      "chi2_per_pt_derived": 4.6834732511547115,
+      "chi2_legacy_zeroparam": 768.694143747391,
+      "chi2_per_pt_legacy": 27.453362276692534
+    },
+    {
+      "galaxy": "NGC0300",
+      "n_points": 25,
+      "fitted_Ydisk": 0.761145197157049,
+      "chi2_derived": 48.8849371784517,
+      "chi2_per_pt_derived": 1.955397487138068,
+      "chi2_legacy_zeroparam": 48.41805422280763,
+      "chi2_per_pt_legacy": 1.9367221689123053
+    },
+    {
+      "galaxy": "NGC0801",
+      "n_points": 13,
+      "fitted_Ydisk": 0.3553418809025415,
+      "chi2_derived": 314.75357598385847,
+      "chi2_per_pt_derived": 24.211813537219882,
+      "chi2_legacy_zeroparam": 3178.6846327438398,
+      "chi2_per_pt_legacy": 244.51420251875692
+    },
+    {
+      "galaxy": "NGC0891",
+      "n_points": 18,
+      "fitted_Ydisk": 0.40999650130668613,
+      "chi2_derived": 223.93905496483956,
+      "chi2_per_pt_derived": 12.441058609157754,
+      "chi2_legacy_zeroparam": 4488.17021415998,
+      "chi2_per_pt_legacy": 249.34278967555443
+    },
+    {
+      "galaxy": "NGC1003",
+      "n_points": 36,
+      "fitted_Ydisk": 0.43928047640229556,
+      "chi2_derived": 174.66451334651475,
+      "chi2_per_pt_derived": 4.851792037403188,
+      "chi2_legacy_zeroparam": 1436.720392389158,
+      "chi2_per_pt_legacy": 39.90889978858772
+    },
+    {
+      "galaxy": "NGC1090",
+      "n_points": 24,
+      "fitted_Ydisk": 0.37664829270535705,
+      "chi2_derived": 111.05099540591935,
+      "chi2_per_pt_derived": 4.627124808579973,
+      "chi2_legacy_zeroparam": 3514.6804370385516,
+      "chi2_per_pt_legacy": 146.44501820993966
+    },
+    {
+      "galaxy": "NGC1705",
+      "n_points": 14,
+      "fitted_Ydisk": 1.343329042327113,
+      "chi2_derived": 32.95636579817517,
+      "chi2_per_pt_derived": 2.3540261284410837,
+      "chi2_legacy_zeroparam": 115.29202541847296,
+      "chi2_per_pt_legacy": 8.235144672748069
+    },
+    {
+      "galaxy": "NGC2366",
+      "n_points": 26,
+      "fitted_Ydisk": 0.06116987433125772,
+      "chi2_derived": 91.88188712180578,
+      "chi2_per_pt_derived": 3.533918735454068,
+      "chi2_legacy_zeroparam": 835.9250658167076,
+      "chi2_per_pt_legacy": 32.15096406987337
+    },
+    {
+      "galaxy": "NGC2403",
+      "n_points": 73,
+      "fitted_Ydisk": 0.7460605295191648,
+      "chi2_derived": 2369.2622275267954,
+      "chi2_per_pt_derived": 32.45564695242186,
+      "chi2_legacy_zeroparam": 2393.882493504871,
+      "chi2_per_pt_legacy": 32.79291086992974
+    },
+    {
+      "galaxy": "NGC2683",
+      "n_points": 11,
+      "fitted_Ydisk": 0.5511113188330033,
+      "chi2_derived": 15.364761639986499,
+      "chi2_per_pt_derived": 1.3967965127260453,
+      "chi2_legacy_zeroparam": 153.8722357019366,
+      "chi2_per_pt_legacy": 13.988385063812418
+    },
+    {
+      "galaxy": "NGC2841",
+      "n_points": 50,
+      "fitted_Ydisk": 1.320407138362941,
+      "chi2_derived": 224.1313520346777,
+      "chi2_per_pt_derived": 4.482627040693554,
+      "chi2_legacy_zeroparam": 2198.811600361296,
+      "chi2_per_pt_legacy": 43.97623200722592
+    },
+    {
+      "galaxy": "NGC2903",
+      "n_points": 34,
+      "fitted_Ydisk": 0.5363937267635903,
+      "chi2_derived": 711.0518943375396,
+      "chi2_per_pt_derived": 20.913291009927633,
+      "chi2_legacy_zeroparam": 8936.671788687467,
+      "chi2_per_pt_legacy": 262.84328790257257
+    },
+    {
+      "galaxy": "NGC2915",
+      "n_points": 30,
+      "fitted_Ydisk": 1.2835642140486385,
+      "chi2_derived": 145.84572226555417,
+      "chi2_per_pt_derived": 4.8615240755184725,
+      "chi2_legacy_zeroparam": 164.07772549742353,
+      "chi2_per_pt_legacy": 5.469257516580784
+    },
+    {
+      "galaxy": "NGC2955",
+      "n_points": 24,
+      "fitted_Ydisk": 0.3665992540672848,
+      "chi2_derived": 86.29368954675913,
+      "chi2_per_pt_derived": 3.5955703977816302,
+      "chi2_legacy_zeroparam": 704.1419926897647,
+      "chi2_per_pt_legacy": 29.339249695406863
+    },
+    {
+      "galaxy": "NGC2976",
+      "n_points": 27,
+      "fitted_Ydisk": 0.4261308927191365,
+      "chi2_derived": 31.572477425727683,
+      "chi2_per_pt_derived": 1.169351015767692,
+      "chi2_legacy_zeroparam": 320.08102065395093,
+      "chi2_per_pt_legacy": 11.854852616812998
+    },
+    {
+      "galaxy": "NGC2998",
+      "n_points": 13,
+      "fitted_Ydisk": 0.4904812070511949,
+      "chi2_derived": 57.57908379911859,
+      "chi2_per_pt_derived": 4.429160292239891,
+      "chi2_legacy_zeroparam": 1079.3116174128381,
+      "chi2_per_pt_legacy": 83.02397057021832
+    },
+    {
+      "galaxy": "NGC3109",
+      "n_points": 25,
+      "fitted_Ydisk": 0.688279167166681,
+      "chi2_derived": 172.85095566593327,
+      "chi2_per_pt_derived": 6.914038226637331,
+      "chi2_legacy_zeroparam": 178.93183393545624,
+      "chi2_per_pt_legacy": 7.15727335741825
+    },
+    {
+      "galaxy": "NGC3198",
+      "n_points": 43,
+      "fitted_Ydisk": 0.5180123814696816,
+      "chi2_derived": 183.39192720939866,
+      "chi2_per_pt_derived": 4.264928539753457,
+      "chi2_legacy_zeroparam": 4201.208740340142,
+      "chi2_per_pt_legacy": 97.70252884511957
+    },
+    {
+      "galaxy": "NGC3521",
+      "n_points": 41,
+      "fitted_Ydisk": 0.5311140538508573,
+      "chi2_derived": 31.682213358089026,
+      "chi2_per_pt_derived": 0.7727369111729031,
+      "chi2_legacy_zeroparam": 1175.292937697291,
+      "chi2_per_pt_legacy": 28.665681407251004
+    },
+    {
+      "galaxy": "NGC3726",
+      "n_points": 12,
+      "fitted_Ydisk": 0.3280650855935747,
+      "chi2_derived": 30.410826576212493,
+      "chi2_per_pt_derived": 2.534235548017708,
+      "chi2_legacy_zeroparam": 881.6306275369907,
+      "chi2_per_pt_legacy": 73.46921896141589
+    },
+    {
+      "galaxy": "NGC3741",
+      "n_points": 21,
+      "fitted_Ydisk": 0.5339136392369953,
+      "chi2_derived": 58.58508601639703,
+      "chi2_per_pt_derived": 2.7897660007808107,
+      "chi2_legacy_zeroparam": 50.39716118517288,
+      "chi2_per_pt_legacy": 2.3998648183415656
+    },
+    {
+      "galaxy": "NGC3769",
+      "n_points": 12,
+      "fitted_Ydisk": 0.3911273012691803,
+      "chi2_derived": 8.937225399118685,
+      "chi2_per_pt_derived": 0.7447687832598904,
+      "chi2_legacy_zeroparam": 207.49724932812808,
+      "chi2_per_pt_legacy": 17.291437444010672
+    },
+    {
+      "galaxy": "NGC3877",
+      "n_points": 13,
+      "fitted_Ydisk": 0.4159715307327485,
+      "chi2_derived": 87.83701462564103,
+      "chi2_per_pt_derived": 6.756693432741618,
+      "chi2_legacy_zeroparam": 669.0444832858817,
+      "chi2_per_pt_legacy": 51.46496025276013
+    },
+    {
+      "galaxy": "NGC3893",
+      "n_points": 10,
+      "fitted_Ydisk": 0.5513013510202502,
+      "chi2_derived": 14.233454142728334,
+      "chi2_per_pt_derived": 1.4233454142728335,
+      "chi2_legacy_zeroparam": 158.4009908843227,
+      "chi2_per_pt_legacy": 15.840099088432272
+    },
+    {
+      "galaxy": "NGC3917",
+      "n_points": 17,
+      "fitted_Ydisk": 0.591243280298656,
+      "chi2_derived": 44.581515493384906,
+      "chi2_per_pt_derived": 2.6224420878461707,
+      "chi2_legacy_zeroparam": 203.0922528891049,
+      "chi2_per_pt_legacy": 11.94660311112382
+    },
+    {
+      "galaxy": "NGC3949",
+      "n_points": 7,
+      "fitted_Ydisk": 0.43519815699283404,
+      "chi2_derived": 2.6106858313557035,
+      "chi2_per_pt_derived": 0.3729551187651005,
+      "chi2_legacy_zeroparam": 248.752065915999,
+      "chi2_per_pt_legacy": 35.53600941657128
+    },
+    {
+      "galaxy": "NGC3953",
+      "n_points": 8,
+      "fitted_Ydisk": 0.5370478319501781,
+      "chi2_derived": 14.89276169946843,
+      "chi2_per_pt_derived": 1.8615952124335537,
+      "chi2_legacy_zeroparam": 242.03999280847563,
+      "chi2_per_pt_legacy": 30.254999101059454
+    },
+    {
+      "galaxy": "NGC3972",
+      "n_points": 10,
+      "fitted_Ydisk": 0.6390940957364044,
+      "chi2_derived": 13.750885107172447,
+      "chi2_per_pt_derived": 1.3750885107172448,
+      "chi2_legacy_zeroparam": 35.41130391115027,
+      "chi2_per_pt_legacy": 3.541130391115027
+    },
+    {
+      "galaxy": "NGC3992",
+      "n_points": 9,
+      "fitted_Ydisk": 0.689463226215364,
+      "chi2_derived": 17.371095947860777,
+      "chi2_per_pt_derived": 1.9301217719845307,
+      "chi2_legacy_zeroparam": 64.99156741224893,
+      "chi2_per_pt_legacy": 7.221285268027659
+    },
+    {
+      "galaxy": "NGC4010",
+      "n_points": 12,
+      "fitted_Ydisk": 0.45109507278587135,
+      "chi2_derived": 26.260320947698517,
+      "chi2_per_pt_derived": 2.1883600789748763,
+      "chi2_legacy_zeroparam": 173.68781022064414,
+      "chi2_per_pt_legacy": 14.473984185053679
+    },
+    {
+      "galaxy": "NGC4013",
+      "n_points": 36,
+      "fitted_Ydisk": 0.43596702999876713,
+      "chi2_derived": 79.13339630414795,
+      "chi2_per_pt_derived": 2.198149897337443,
+      "chi2_legacy_zeroparam": 1315.3629417664395,
+      "chi2_per_pt_legacy": 36.53785949351221
+    },
+    {
+      "galaxy": "NGC4051",
+      "n_points": 7,
+      "fitted_Ydisk": 0.3573571605537681,
+      "chi2_derived": 10.880563974526044,
+      "chi2_per_pt_derived": 1.5543662820751492,
+      "chi2_legacy_zeroparam": 291.95977406828274,
+      "chi2_per_pt_legacy": 41.70853915261182
+    },
+    {
+      "galaxy": "NGC4068",
+      "n_points": 6,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 4.833991300630581,
+      "chi2_per_pt_derived": 0.8056652167717635,
+      "chi2_legacy_zeroparam": 223.21003520762633,
+      "chi2_per_pt_legacy": 37.20167253460439
+    },
+    {
+      "galaxy": "NGC4085",
+      "n_points": 7,
+      "fitted_Ydisk": 0.3606005077664409,
+      "chi2_derived": 27.54468207629379,
+      "chi2_per_pt_derived": 3.934954582327684,
+      "chi2_legacy_zeroparam": 356.6192229015914,
+      "chi2_per_pt_legacy": 50.94560327165591
+    },
+    {
+      "galaxy": "NGC4088",
+      "n_points": 12,
+      "fitted_Ydisk": 0.26238102325945367,
+      "chi2_derived": 7.867292063900832,
+      "chi2_per_pt_derived": 0.655607671991736,
+      "chi2_legacy_zeroparam": 1216.5662493478553,
+      "chi2_per_pt_legacy": 101.38052077898794
+    },
+    {
+      "galaxy": "NGC4100",
+      "n_points": 24,
+      "fitted_Ydisk": 0.6297843489181527,
+      "chi2_derived": 34.17483799205176,
+      "chi2_per_pt_derived": 1.4239515830021567,
+      "chi2_legacy_zeroparam": 208.80300261467292,
+      "chi2_per_pt_legacy": 8.700125108944706
+    },
+    {
+      "galaxy": "NGC4138",
+      "n_points": 7,
+      "fitted_Ydisk": 0.5918470543147304,
+      "chi2_derived": 6.145038444472819,
+      "chi2_per_pt_derived": 0.8778626349246884,
+      "chi2_legacy_zeroparam": 19.496586145359327,
+      "chi2_per_pt_legacy": 2.7852265921941894
+    },
+    {
+      "galaxy": "NGC4157",
+      "n_points": 17,
+      "fitted_Ydisk": 0.37597828175806997,
+      "chi2_derived": 10.293494760243057,
+      "chi2_per_pt_derived": 0.6054996917790033,
+      "chi2_legacy_zeroparam": 688.1801497620296,
+      "chi2_per_pt_legacy": 40.48118528011939
+    },
+    {
+      "galaxy": "NGC4183",
+      "n_points": 23,
+      "fitted_Ydisk": 0.4793840309401094,
+      "chi2_derived": 42.192998867799616,
+      "chi2_per_pt_derived": 1.8344782116434615,
+      "chi2_legacy_zeroparam": 212.62656330535697,
+      "chi2_per_pt_legacy": 9.244633187189434
+    },
+    {
+      "galaxy": "NGC4214",
+      "n_points": 14,
+      "fitted_Ydisk": 0.9579061032825266,
+      "chi2_derived": 24.705905188167588,
+      "chi2_per_pt_derived": 1.7647075134405419,
+      "chi2_legacy_zeroparam": 29.620027766587523,
+      "chi2_per_pt_legacy": 2.115716269041966
+    },
+    {
+      "galaxy": "NGC4217",
+      "n_points": 19,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 812.8206938526956,
+      "chi2_per_pt_derived": 42.78003651856293,
+      "chi2_legacy_zeroparam": 758.0734061439434,
+      "chi2_per_pt_legacy": 39.89860032336544
+    },
+    {
+      "galaxy": "NGC4389",
+      "n_points": 6,
+      "fitted_Ydisk": 0.11903743782017087,
+      "chi2_derived": 19.334018558647962,
+      "chi2_per_pt_derived": 3.222336426441327,
+      "chi2_legacy_zeroparam": 626.4646464387332,
+      "chi2_per_pt_legacy": 104.41077440645553
+    },
+    {
+      "galaxy": "NGC4559",
+      "n_points": 32,
+      "fitted_Ydisk": 0.32406545778935225,
+      "chi2_derived": 27.226555294204875,
+      "chi2_per_pt_derived": 0.8508298529439023,
+      "chi2_legacy_zeroparam": 1144.130891919465,
+      "chi2_per_pt_legacy": 35.75409037248328
+    },
+    {
+      "galaxy": "NGC5005",
+      "n_points": 18,
+      "fitted_Ydisk": 0.4587951350787077,
+      "chi2_derived": 12.226137860890447,
+      "chi2_per_pt_derived": 0.6792298811605804,
+      "chi2_legacy_zeroparam": 146.46438014701133,
+      "chi2_per_pt_legacy": 8.136910008167296
+    },
+    {
+      "galaxy": "NGC5033",
+      "n_points": 22,
+      "fitted_Ydisk": 0.6995971177757107,
+      "chi2_derived": 185.84471812870657,
+      "chi2_per_pt_derived": 8.44748718766848,
+      "chi2_legacy_zeroparam": 400.0497063375134,
+      "chi2_per_pt_legacy": 18.184077560796062
+    },
+    {
+      "galaxy": "NGC5055",
+      "n_points": 28,
+      "fitted_Ydisk": 0.3630816720381243,
+      "chi2_derived": 370.56271764974593,
+      "chi2_per_pt_derived": 13.234382773205212,
+      "chi2_legacy_zeroparam": 127892.66280491445,
+      "chi2_per_pt_legacy": 4567.595100175516
+    },
+    {
+      "galaxy": "NGC5371",
+      "n_points": 19,
+      "fitted_Ydisk": 0.33484894955911554,
+      "chi2_derived": 799.1355138283743,
+      "chi2_per_pt_derived": 42.05976388570391,
+      "chi2_legacy_zeroparam": 9176.540834966454,
+      "chi2_per_pt_legacy": 482.975833419287
+    },
+    {
+      "galaxy": "NGC5585",
+      "n_points": 24,
+      "fitted_Ydisk": 0.35692378891974785,
+      "chi2_derived": 243.19423085378136,
+      "chi2_per_pt_derived": 10.13309295224089,
+      "chi2_legacy_zeroparam": 1702.3056789784885,
+      "chi2_per_pt_legacy": 70.92940329077035
+    },
+    {
+      "galaxy": "NGC5907",
+      "n_points": 19,
+      "fitted_Ydisk": 0.5142100326153284,
+      "chi2_derived": 312.56520787888854,
+      "chi2_per_pt_derived": 16.450800414678344,
+      "chi2_legacy_zeroparam": 3072.982281492551,
+      "chi2_per_pt_legacy": 161.73590955223952
+    },
+    {
+      "galaxy": "NGC5985",
+      "n_points": 33,
+      "fitted_Ydisk": 1.1592981539043719,
+      "chi2_derived": 769.9598902689407,
+      "chi2_per_pt_derived": 23.3321178869376,
+      "chi2_legacy_zeroparam": 2454.145551542878,
+      "chi2_per_pt_legacy": 74.36804701645084
+    },
+    {
+      "galaxy": "NGC6015",
+      "n_points": 44,
+      "fitted_Ydisk": 0.7119852758028672,
+      "chi2_derived": 485.2710925788373,
+      "chi2_per_pt_derived": 11.028888467700847,
+      "chi2_legacy_zeroparam": 711.9820965042942,
+      "chi2_per_pt_legacy": 16.181411284188503
+    },
+    {
+      "galaxy": "NGC6195",
+      "n_points": 23,
+      "fitted_Ydisk": 0.21979531157502596,
+      "chi2_derived": 42.94992874793189,
+      "chi2_per_pt_derived": 1.8673882064318215,
+      "chi2_legacy_zeroparam": 1024.1813162889225,
+      "chi2_per_pt_legacy": 44.52962244734446
+    },
+    {
+      "galaxy": "NGC6503",
+      "n_points": 31,
+      "fitted_Ydisk": 0.5900160140899555,
+      "chi2_derived": 173.8328234866777,
+      "chi2_per_pt_derived": 5.607510435054119,
+      "chi2_legacy_zeroparam": 2521.682743997127,
+      "chi2_per_pt_legacy": 81.34460464506861
+    },
+    {
+      "galaxy": "NGC6674",
+      "n_points": 15,
+      "fitted_Ydisk": 0.7089473148494712,
+      "chi2_derived": 132.61676246329418,
+      "chi2_per_pt_derived": 8.841117497552945,
+      "chi2_legacy_zeroparam": 578.391053714062,
+      "chi2_per_pt_legacy": 38.55940358093746
+    },
+    {
+      "galaxy": "NGC6789",
+      "n_points": 4,
+      "fitted_Ydisk": 0.7269052561392509,
+      "chi2_derived": 20.962738653686433,
+      "chi2_per_pt_derived": 5.240684663421608,
+      "chi2_legacy_zeroparam": 18.79880467113857,
+      "chi2_per_pt_legacy": 4.699701167784642
+    },
+    {
+      "galaxy": "NGC6946",
+      "n_points": 58,
+      "fitted_Ydisk": 0.4239803456766652,
+      "chi2_derived": 131.03818025500152,
+      "chi2_per_pt_derived": 2.259278969913819,
+      "chi2_legacy_zeroparam": 10494.403288036985,
+      "chi2_per_pt_legacy": 180.9379877247756
+    },
+    {
+      "galaxy": "NGC7331",
+      "n_points": 36,
+      "fitted_Ydisk": 0.39779722013955243,
+      "chi2_derived": 146.2441498859261,
+      "chi2_per_pt_derived": 4.06233749683128,
+      "chi2_legacy_zeroparam": 8703.74406072831,
+      "chi2_per_pt_legacy": 241.77066835356416
+    },
+    {
+      "galaxy": "NGC7793",
+      "n_points": 46,
+      "fitted_Ydisk": 0.5114686198078884,
+      "chi2_derived": 34.51434223507581,
+      "chi2_per_pt_derived": 0.7503117877190393,
+      "chi2_legacy_zeroparam": 192.5681677780695,
+      "chi2_per_pt_legacy": 4.186264516914554
+    },
+    {
+      "galaxy": "NGC7814",
+      "n_points": 18,
+      "fitted_Ydisk": 1.2707788500605286,
+      "chi2_derived": 85.7241323947795,
+      "chi2_per_pt_derived": 4.7624517997099725,
+      "chi2_legacy_zeroparam": 707.5373313112594,
+      "chi2_per_pt_legacy": 39.30762951729219
+    },
+    {
+      "galaxy": "PGC51017",
+      "n_points": 6,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 353.4769059575198,
+      "chi2_per_pt_derived": 58.912817659586636,
+      "chi2_legacy_zeroparam": 962.6661410532024,
+      "chi2_per_pt_legacy": 160.4443568422004
+    },
+    {
+      "galaxy": "UGC00128",
+      "n_points": 22,
+      "fitted_Ydisk": 0.7437573966122142,
+      "chi2_derived": 1227.2047972537587,
+      "chi2_per_pt_derived": 55.782036238807216,
+      "chi2_legacy_zeroparam": 2900.8830833295974,
+      "chi2_per_pt_legacy": 131.85832196952717
+    },
+    {
+      "galaxy": "UGC00191",
+      "n_points": 9,
+      "fitted_Ydisk": 0.48660373753807334,
+      "chi2_derived": 107.89260880155258,
+      "chi2_per_pt_derived": 11.988067644616955,
+      "chi2_legacy_zeroparam": 456.09840292678587,
+      "chi2_per_pt_legacy": 50.677600325198426
+    },
+    {
+      "galaxy": "UGC00634",
+      "n_points": 4,
+      "fitted_Ydisk": 0.8423312778577081,
+      "chi2_derived": 9.140200323019712,
+      "chi2_per_pt_derived": 2.285050080754928,
+      "chi2_legacy_zeroparam": 7.083756148910611,
+      "chi2_per_pt_legacy": 1.7709390372276528
+    },
+    {
+      "galaxy": "UGC00731",
+      "n_points": 12,
+      "fitted_Ydisk": 1.0825318978392267,
+      "chi2_derived": 127.34972825011378,
+      "chi2_per_pt_derived": 10.612477354176148,
+      "chi2_legacy_zeroparam": 128.06918747621137,
+      "chi2_per_pt_legacy": 10.67243228968428
+    },
+    {
+      "galaxy": "UGC00891",
+      "n_points": 5,
+      "fitted_Ydisk": 0.3143573024157718,
+      "chi2_derived": 48.207025685394825,
+      "chi2_per_pt_derived": 9.641405137078966,
+      "chi2_legacy_zeroparam": 344.6677405578394,
+      "chi2_per_pt_legacy": 68.93354811156789
+    },
+    {
+      "galaxy": "UGC01230",
+      "n_points": 11,
+      "fitted_Ydisk": 0.6030292351082663,
+      "chi2_derived": 32.258163672026335,
+      "chi2_per_pt_derived": 2.9325603338205757,
+      "chi2_legacy_zeroparam": 40.29217367850165,
+      "chi2_per_pt_legacy": 3.662924879863786
+    },
+    {
+      "galaxy": "UGC01281",
+      "n_points": 25,
+      "fitted_Ydisk": 0.501470921454895,
+      "chi2_derived": 8.559384114444864,
+      "chi2_per_pt_derived": 0.34237536457779455,
+      "chi2_legacy_zeroparam": 35.46384063627589,
+      "chi2_per_pt_legacy": 1.4185536254510356
+    },
+    {
+      "galaxy": "UGC02023",
+      "n_points": 5,
+      "fitted_Ydisk": 0.3192354750272807,
+      "chi2_derived": 4.127238476631449,
+      "chi2_per_pt_derived": 0.8254476953262898,
+      "chi2_legacy_zeroparam": 22.760639342106927,
+      "chi2_per_pt_legacy": 4.552127868421385
+    },
+    {
+      "galaxy": "UGC02259",
+      "n_points": 8,
+      "fitted_Ydisk": 1.1993500134697737,
+      "chi2_derived": 37.66213777991134,
+      "chi2_per_pt_derived": 4.7077672224889175,
+      "chi2_legacy_zeroparam": 132.7234880621001,
+      "chi2_per_pt_legacy": 16.590436007762513
+    },
+    {
+      "galaxy": "UGC02455",
+      "n_points": 8,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 54.591869418404976,
+      "chi2_per_pt_derived": 6.823983677300622,
+      "chi2_legacy_zeroparam": 1442.7737085715528,
+      "chi2_per_pt_legacy": 180.3467135714441
+    },
+    {
+      "galaxy": "UGC02487",
+      "n_points": 17,
+      "fitted_Ydisk": 1.1766641910728128,
+      "chi2_derived": 65.16758446173222,
+      "chi2_per_pt_derived": 3.833387321278366,
+      "chi2_legacy_zeroparam": 1667.604496321787,
+      "chi2_per_pt_legacy": 98.09438213657572
+    },
+    {
+      "galaxy": "UGC02885",
+      "n_points": 19,
+      "fitted_Ydisk": 0.6412429278518458,
+      "chi2_derived": 41.7588288160312,
+      "chi2_per_pt_derived": 2.1978330955805894,
+      "chi2_legacy_zeroparam": 89.82541718023086,
+      "chi2_per_pt_legacy": 4.7276535358016245
+    },
+    {
+      "galaxy": "UGC02916",
+      "n_points": 43,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 2356.2918107864675,
+      "chi2_per_pt_derived": 54.79748397177831,
+      "chi2_legacy_zeroparam": 1617.4848638600542,
+      "chi2_per_pt_legacy": 37.61592706651289
+    },
+    {
+      "galaxy": "UGC02953",
+      "n_points": 115,
+      "fitted_Ydisk": 0.7587176857011828,
+      "chi2_derived": 1864.5051876772104,
+      "chi2_per_pt_derived": 16.21308858849748,
+      "chi2_legacy_zeroparam": 3958.2337134826203,
+      "chi2_per_pt_legacy": 34.419423595501044
+    },
+    {
+      "galaxy": "UGC03205",
+      "n_points": 48,
+      "fitted_Ydisk": 0.6853958499735879,
+      "chi2_derived": 275.25065953282933,
+      "chi2_per_pt_derived": 5.734388740267278,
+      "chi2_legacy_zeroparam": 536.6409611067127,
+      "chi2_per_pt_legacy": 11.180020023056514
+    },
+    {
+      "galaxy": "UGC03546",
+      "n_points": 30,
+      "fitted_Ydisk": 0.5106819391266784,
+      "chi2_derived": 107.07758468679195,
+      "chi2_per_pt_derived": 3.569252822893065,
+      "chi2_legacy_zeroparam": 3115.6301734467806,
+      "chi2_per_pt_legacy": 103.85433911489268
+    },
+    {
+      "galaxy": "UGC03580",
+      "n_points": 47,
+      "fitted_Ydisk": 0.20190669740859687,
+      "chi2_derived": 1680.1105522290998,
+      "chi2_per_pt_derived": 35.74703302615106,
+      "chi2_legacy_zeroparam": 5946.610609446756,
+      "chi2_per_pt_legacy": 126.52362998822885
+    },
+    {
+      "galaxy": "UGC04278",
+      "n_points": 25,
+      "fitted_Ydisk": 0.7689642170398071,
+      "chi2_derived": 61.873859327496184,
+      "chi2_per_pt_derived": 2.4749543730998473,
+      "chi2_legacy_zeroparam": 63.23297003034874,
+      "chi2_per_pt_legacy": 2.5293188012139494
+    },
+    {
+      "galaxy": "UGC04305",
+      "n_points": 22,
+      "fitted_Ydisk": 0.06593109461271292,
+      "chi2_derived": 644.6068900659483,
+      "chi2_per_pt_derived": 29.30031318481583,
+      "chi2_legacy_zeroparam": 1826.4447822918598,
+      "chi2_per_pt_legacy": 83.02021737690272
+    },
+    {
+      "galaxy": "UGC04325",
+      "n_points": 8,
+      "fitted_Ydisk": 1.1995182447411803,
+      "chi2_derived": 49.8715447058305,
+      "chi2_per_pt_derived": 6.233943088228813,
+      "chi2_legacy_zeroparam": 123.3767477221106,
+      "chi2_per_pt_legacy": 15.422093465263824
+    },
+    {
+      "galaxy": "UGC04483",
+      "n_points": 8,
+      "fitted_Ydisk": 0.0956054790116884,
+      "chi2_derived": 23.517024714250066,
+      "chi2_per_pt_derived": 2.9396280892812583,
+      "chi2_legacy_zeroparam": 99.91917534238164,
+      "chi2_per_pt_legacy": 12.489896917797704
+    },
+    {
+      "galaxy": "UGC04499",
+      "n_points": 9,
+      "fitted_Ydisk": 0.3281891407555702,
+      "chi2_derived": 15.131303883358838,
+      "chi2_per_pt_derived": 1.681255987039871,
+      "chi2_legacy_zeroparam": 162.55026840542848,
+      "chi2_per_pt_legacy": 18.0611409339365
+    },
+    {
+      "galaxy": "UGC05005",
+      "n_points": 11,
+      "fitted_Ydisk": 0.2751606925327189,
+      "chi2_derived": 4.2130633278627005,
+      "chi2_per_pt_derived": 0.3830057570784273,
+      "chi2_legacy_zeroparam": 49.590976993923256,
+      "chi2_per_pt_legacy": 4.508270635811205
+    },
+    {
+      "galaxy": "UGC05253",
+      "n_points": 73,
+      "fitted_Ydisk": 0.6382123702190109,
+      "chi2_derived": 612.3116401792753,
+      "chi2_per_pt_derived": 8.387830687387332,
+      "chi2_legacy_zeroparam": 505.20344269726183,
+      "chi2_per_pt_legacy": 6.920595105441943
+    },
+    {
+      "galaxy": "UGC05414",
+      "n_points": 6,
+      "fitted_Ydisk": 0.2616949303245788,
+      "chi2_derived": 1.5691773501822783,
+      "chi2_per_pt_derived": 0.26152955836371305,
+      "chi2_legacy_zeroparam": 141.3089046139176,
+      "chi2_per_pt_legacy": 23.551484102319602
+    },
+    {
+      "galaxy": "UGC05716",
+      "n_points": 12,
+      "fitted_Ydisk": 0.8474191171133483,
+      "chi2_derived": 171.52865943420304,
+      "chi2_per_pt_derived": 14.294054952850253,
+      "chi2_legacy_zeroparam": 300.0757091603498,
+      "chi2_per_pt_legacy": 25.006309096695816
+    },
+    {
+      "galaxy": "UGC05721",
+      "n_points": 23,
+      "fitted_Ydisk": 1.3472054719714373,
+      "chi2_derived": 98.47432991928228,
+      "chi2_per_pt_derived": 4.281492605186187,
+      "chi2_legacy_zeroparam": 197.4559957720346,
+      "chi2_per_pt_legacy": 8.585043294436288
+    },
+    {
+      "galaxy": "UGC05750",
+      "n_points": 11,
+      "fitted_Ydisk": 0.28426585748918276,
+      "chi2_derived": 9.974164109400332,
+      "chi2_per_pt_derived": 0.9067421917636665,
+      "chi2_legacy_zeroparam": 69.59938830838962,
+      "chi2_per_pt_legacy": 6.327217118944511
+    },
+    {
+      "galaxy": "UGC05764",
+      "n_points": 10,
+      "fitted_Ydisk": 2.4999944217265777,
+      "chi2_derived": 574.0924568382076,
+      "chi2_per_pt_derived": 57.40924568382076,
+      "chi2_legacy_zeroparam": 2134.358013248251,
+      "chi2_per_pt_legacy": 213.43580132482512
+    },
+    {
+      "galaxy": "UGC05829",
+      "n_points": 11,
+      "fitted_Ydisk": 0.4399251272405966,
+      "chi2_derived": 15.636125965253608,
+      "chi2_per_pt_derived": 1.421465996841237,
+      "chi2_legacy_zeroparam": 35.37777278597274,
+      "chi2_per_pt_legacy": 3.216161162361158
+    },
+    {
+      "galaxy": "UGC05918",
+      "n_points": 8,
+      "fitted_Ydisk": 0.5038124441468755,
+      "chi2_derived": 5.941270269688907,
+      "chi2_per_pt_derived": 0.7426587837111134,
+      "chi2_legacy_zeroparam": 19.30695246481767,
+      "chi2_per_pt_legacy": 2.4133690581022087
+    },
+    {
+      "galaxy": "UGC05986",
+      "n_points": 15,
+      "fitted_Ydisk": 1.0023568871637,
+      "chi2_derived": 100.36645707645327,
+      "chi2_per_pt_derived": 6.6910971384302185,
+      "chi2_legacy_zeroparam": 142.86215019249985,
+      "chi2_per_pt_legacy": 9.524143346166657
+    },
+    {
+      "galaxy": "UGC05999",
+      "n_points": 5,
+      "fitted_Ydisk": 0.38216352255896,
+      "chi2_derived": 12.413049504331124,
+      "chi2_per_pt_derived": 2.482609900866225,
+      "chi2_legacy_zeroparam": 45.658269906460504,
+      "chi2_per_pt_legacy": 9.1316539812921
+    },
+    {
+      "galaxy": "UGC06399",
+      "n_points": 9,
+      "fitted_Ydisk": 0.7047702425785904,
+      "chi2_derived": 3.491057550625303,
+      "chi2_per_pt_derived": 0.3878952834028115,
+      "chi2_legacy_zeroparam": 6.609410999358874,
+      "chi2_per_pt_legacy": 0.7343789999287638
+    },
+    {
+      "galaxy": "UGC06446",
+      "n_points": 17,
+      "fitted_Ydisk": 1.069942277097268,
+      "chi2_derived": 17.215018669761914,
+      "chi2_per_pt_derived": 1.0126481570448185,
+      "chi2_legacy_zeroparam": 31.21773609392962,
+      "chi2_per_pt_legacy": 1.8363374172899776
+    },
+    {
+      "galaxy": "UGC06614",
+      "n_points": 13,
+      "fitted_Ydisk": 0.13757494607552134,
+      "chi2_derived": 42.57958518808844,
+      "chi2_per_pt_derived": 3.2753527067760335,
+      "chi2_legacy_zeroparam": 80.88932807962865,
+      "chi2_per_pt_legacy": 6.222256006125281
+    },
+    {
+      "galaxy": "UGC06628",
+      "n_points": 7,
+      "fitted_Ydisk": 0.057024074466375294,
+      "chi2_derived": 29.62974251546825,
+      "chi2_per_pt_derived": 4.2328203593526075,
+      "chi2_legacy_zeroparam": 158.07907582525058,
+      "chi2_per_pt_legacy": 22.58272511789294
+    },
+    {
+      "galaxy": "UGC06667",
+      "n_points": 9,
+      "fitted_Ydisk": 1.4762726321576611,
+      "chi2_derived": 112.76987224125631,
+      "chi2_per_pt_derived": 12.529985804584035,
+      "chi2_legacy_zeroparam": 178.0986923107591,
+      "chi2_per_pt_legacy": 19.788743590084344
+    },
+    {
+      "galaxy": "UGC06786",
+      "n_points": 45,
+      "fitted_Ydisk": 1.1902694322566882,
+      "chi2_derived": 1099.6988970234506,
+      "chi2_per_pt_derived": 24.43775326718779,
+      "chi2_legacy_zeroparam": 3869.132047851206,
+      "chi2_per_pt_legacy": 85.98071217447125
+    },
+    {
+      "galaxy": "UGC06787",
+      "n_points": 71,
+      "fitted_Ydisk": 1.308427062671776,
+      "chi2_derived": 2996.3708157132396,
+      "chi2_per_pt_derived": 42.20240585511605,
+      "chi2_legacy_zeroparam": 12790.10439298033,
+      "chi2_per_pt_legacy": 180.14231539408917
+    },
+    {
+      "galaxy": "UGC06818",
+      "n_points": 8,
+      "fitted_Ydisk": 0.2483242734303629,
+      "chi2_derived": 22.639256342712248,
+      "chi2_per_pt_derived": 2.829907042839031,
+      "chi2_legacy_zeroparam": 130.31002076175596,
+      "chi2_per_pt_legacy": 16.288752595219496
+    },
+    {
+      "galaxy": "UGC06917",
+      "n_points": 11,
+      "fitted_Ydisk": 0.6664840513296755,
+      "chi2_derived": 10.833759139597284,
+      "chi2_per_pt_derived": 0.984887194508844,
+      "chi2_legacy_zeroparam": 33.17032880133961,
+      "chi2_per_pt_legacy": 3.0154844364854188
+    },
+    {
+      "galaxy": "UGC06923",
+      "n_points": 6,
+      "fitted_Ydisk": 0.42596363137403154,
+      "chi2_derived": 4.553641091668887,
+      "chi2_per_pt_derived": 0.7589401819448146,
+      "chi2_legacy_zeroparam": 39.0683395085304,
+      "chi2_per_pt_legacy": 6.5113899180884
+    },
+    {
+      "galaxy": "UGC06930",
+      "n_points": 10,
+      "fitted_Ydisk": 0.48718425374270713,
+      "chi2_derived": 12.661576321449216,
+      "chi2_per_pt_derived": 1.2661576321449215,
+      "chi2_legacy_zeroparam": 64.8209070439875,
+      "chi2_per_pt_legacy": 6.48209070439875
+    },
+    {
+      "galaxy": "UGC06973",
+      "n_points": 9,
+      "fitted_Ydisk": 0.23266755828007485,
+      "chi2_derived": 155.9891231487895,
+      "chi2_per_pt_derived": 17.332124794309944,
+      "chi2_legacy_zeroparam": 3345.1389293241846,
+      "chi2_per_pt_legacy": 371.6821032582427
+    },
+    {
+      "galaxy": "UGC06983",
+      "n_points": 17,
+      "fitted_Ydisk": 0.8549610060953499,
+      "chi2_derived": 15.950960312992926,
+      "chi2_per_pt_derived": 0.9382917831172309,
+      "chi2_legacy_zeroparam": 15.929774722474983,
+      "chi2_per_pt_legacy": 0.9370455719102931
+    },
+    {
+      "galaxy": "UGC07089",
+      "n_points": 12,
+      "fitted_Ydisk": 0.20584087495222536,
+      "chi2_derived": 2.0898260236730586,
+      "chi2_per_pt_derived": 0.17415216863942154,
+      "chi2_legacy_zeroparam": 254.23242935794212,
+      "chi2_per_pt_legacy": 21.18603577982851
+    },
+    {
+      "galaxy": "UGC07125",
+      "n_points": 13,
+      "fitted_Ydisk": 0.05000557827342189,
+      "chi2_derived": 592.6289312699021,
+      "chi2_per_pt_derived": 45.586840866915544,
+      "chi2_legacy_zeroparam": 2401.064800865944,
+      "chi2_per_pt_legacy": 184.6972923743034
+    },
+    {
+      "galaxy": "UGC07151",
+      "n_points": 11,
+      "fitted_Ydisk": 0.5249604202665755,
+      "chi2_derived": 27.927667937494235,
+      "chi2_per_pt_derived": 2.5388789034085666,
+      "chi2_legacy_zeroparam": 146.51244458184735,
+      "chi2_per_pt_legacy": 13.319313143804305
+    },
+    {
+      "galaxy": "UGC07232",
+      "n_points": 4,
+      "fitted_Ydisk": 0.5378729813722937,
+      "chi2_derived": 7.218123599291141,
+      "chi2_per_pt_derived": 1.8045308998227851,
+      "chi2_legacy_zeroparam": 9.98438396575881,
+      "chi2_per_pt_legacy": 2.4960959914397023
+    },
+    {
+      "galaxy": "UGC07261",
+      "n_points": 7,
+      "fitted_Ydisk": 0.5714643679057569,
+      "chi2_derived": 3.6235607167862884,
+      "chi2_per_pt_derived": 0.5176515309694698,
+      "chi2_legacy_zeroparam": 13.831828015888354,
+      "chi2_per_pt_legacy": 1.9759754308411934
+    },
+    {
+      "galaxy": "UGC07323",
+      "n_points": 10,
+      "fitted_Ydisk": 0.35227320862629513,
+      "chi2_derived": 3.5813651359238485,
+      "chi2_per_pt_derived": 0.35813651359238485,
+      "chi2_legacy_zeroparam": 175.6831969413565,
+      "chi2_per_pt_legacy": 17.56831969413565
+    },
+    {
+      "galaxy": "UGC07399",
+      "n_points": 10,
+      "fitted_Ydisk": 1.914311237527621,
+      "chi2_derived": 110.36573390819696,
+      "chi2_per_pt_derived": 11.036573390819695,
+      "chi2_legacy_zeroparam": 548.6664471118117,
+      "chi2_per_pt_legacy": 54.86664471118117
+    },
+    {
+      "galaxy": "UGC07524",
+      "n_points": 31,
+      "fitted_Ydisk": 0.447993165169963,
+      "chi2_derived": 80.79823299467265,
+      "chi2_per_pt_derived": 2.6063946127313757,
+      "chi2_legacy_zeroparam": 336.79610317815946,
+      "chi2_per_pt_legacy": 10.864390425101918
+    },
+    {
+      "galaxy": "UGC07559",
+      "n_points": 7,
+      "fitted_Ydisk": 0.05250381982888179,
+      "chi2_derived": 9.592616891514957,
+      "chi2_per_pt_derived": 1.370373841644994,
+      "chi2_legacy_zeroparam": 106.91844060473753,
+      "chi2_per_pt_legacy": 15.274062943533933
+    },
+    {
+      "galaxy": "UGC07577",
+      "n_points": 9,
+      "fitted_Ydisk": 0.09598481792873992,
+      "chi2_derived": 56.15921256686562,
+      "chi2_per_pt_derived": 6.239912507429513,
+      "chi2_legacy_zeroparam": 211.53136134497552,
+      "chi2_per_pt_legacy": 23.50348459388617
+    },
+    {
+      "galaxy": "UGC07603",
+      "n_points": 12,
+      "fitted_Ydisk": 0.8897502043477677,
+      "chi2_derived": 46.02884924142491,
+      "chi2_per_pt_derived": 3.835737436785409,
+      "chi2_legacy_zeroparam": 36.66881582986999,
+      "chi2_per_pt_legacy": 3.055734652489166
+    },
+    {
+      "galaxy": "UGC07608",
+      "n_points": 8,
+      "fitted_Ydisk": 0.6539632181061455,
+      "chi2_derived": 13.512371587442235,
+      "chi2_per_pt_derived": 1.6890464484302794,
+      "chi2_legacy_zeroparam": 7.939385611628424,
+      "chi2_per_pt_legacy": 0.992423201453553
+    },
+    {
+      "galaxy": "UGC07690",
+      "n_points": 7,
+      "fitted_Ydisk": 0.48839045811260295,
+      "chi2_derived": 7.955703640488731,
+      "chi2_per_pt_derived": 1.13652909149839,
+      "chi2_legacy_zeroparam": 33.451702392450095,
+      "chi2_per_pt_legacy": 4.778814627492871
+    },
+    {
+      "galaxy": "UGC07866",
+      "n_points": 7,
+      "fitted_Ydisk": 0.25178002704621577,
+      "chi2_derived": 6.518610432255349,
+      "chi2_per_pt_derived": 0.9312300617507641,
+      "chi2_legacy_zeroparam": 45.98652304669136,
+      "chi2_per_pt_legacy": 6.56950329238448
+    },
+    {
+      "galaxy": "UGC08286",
+      "n_points": 17,
+      "fitted_Ydisk": 1.2298061643595906,
+      "chi2_derived": 33.369483406541676,
+      "chi2_per_pt_derived": 1.9629107886200985,
+      "chi2_legacy_zeroparam": 155.88501842867987,
+      "chi2_per_pt_legacy": 9.169706966392933
+    },
+    {
+      "galaxy": "UGC08490",
+      "n_points": 30,
+      "fitted_Ydisk": 1.136426335582,
+      "chi2_derived": 14.425805496888232,
+      "chi2_per_pt_derived": 0.4808601832296077,
+      "chi2_legacy_zeroparam": 60.01394389706152,
+      "chi2_per_pt_legacy": 2.0004647965687172
+    },
+    {
+      "galaxy": "UGC08550",
+      "n_points": 11,
+      "fitted_Ydisk": 0.8031438732994373,
+      "chi2_derived": 12.218305352944741,
+      "chi2_per_pt_derived": 1.1107550320858854,
+      "chi2_legacy_zeroparam": 12.25709697840363,
+      "chi2_per_pt_legacy": 1.1142815434912392
+    },
+    {
+      "galaxy": "UGC08699",
+      "n_points": 41,
+      "fitted_Ydisk": 0.7472288608838573,
+      "chi2_derived": 42.065499169885975,
+      "chi2_per_pt_derived": 1.0259877846313652,
+      "chi2_legacy_zeroparam": 39.72197957154644,
+      "chi2_per_pt_legacy": 0.9688287700377181
+    },
+    {
+      "galaxy": "UGC08837",
+      "n_points": 8,
+      "fitted_Ydisk": 0.11404393471924223,
+      "chi2_derived": 33.11924081349485,
+      "chi2_per_pt_derived": 4.139905101686856,
+      "chi2_legacy_zeroparam": 466.6812435620288,
+      "chi2_per_pt_legacy": 58.3351554452536
+    },
+    {
+      "galaxy": "UGC09037",
+      "n_points": 22,
+      "fitted_Ydisk": 0.20605287490404778,
+      "chi2_derived": 38.186942483912,
+      "chi2_per_pt_derived": 1.7357701129050909,
+      "chi2_legacy_zeroparam": 2113.3936098572044,
+      "chi2_per_pt_legacy": 96.0633459026002
+    },
+    {
+      "galaxy": "UGC09133",
+      "n_points": 68,
+      "fitted_Ydisk": 0.44032863743440476,
+      "chi2_derived": 1273.506338163661,
+      "chi2_per_pt_derived": 18.72803438475972,
+      "chi2_legacy_zeroparam": 13107.009729820531,
+      "chi2_per_pt_legacy": 192.75014308559605
+    },
+    {
+      "galaxy": "UGC09992",
+      "n_points": 5,
+      "fitted_Ydisk": 0.2226972592836885,
+      "chi2_derived": 14.706360330310233,
+      "chi2_per_pt_derived": 2.9412720660620466,
+      "chi2_legacy_zeroparam": 50.95432122337512,
+      "chi2_per_pt_legacy": 10.190864244675023
+    },
+    {
+      "galaxy": "UGC10310",
+      "n_points": 7,
+      "fitted_Ydisk": 0.49612193287256273,
+      "chi2_derived": 10.521380405696105,
+      "chi2_per_pt_derived": 1.503054343670872,
+      "chi2_legacy_zeroparam": 30.698519575510684,
+      "chi2_per_pt_legacy": 4.385502796501526
+    },
+    {
+      "galaxy": "UGC11455",
+      "n_points": 36,
+      "fitted_Ydisk": 0.4733737841302503,
+      "chi2_derived": 175.18831451058247,
+      "chi2_per_pt_derived": 4.866342069738402,
+      "chi2_legacy_zeroparam": 2116.2017566951536,
+      "chi2_per_pt_legacy": 58.78338213042093
+    },
+    {
+      "galaxy": "UGC11557",
+      "n_points": 12,
+      "fitted_Ydisk": 0.10944594386553229,
+      "chi2_derived": 12.623926107866952,
+      "chi2_per_pt_derived": 1.051993842322246,
+      "chi2_legacy_zeroparam": 409.94336595436477,
+      "chi2_per_pt_legacy": 34.16194716286373
+    },
+    {
+      "galaxy": "UGC11820",
+      "n_points": 10,
+      "fitted_Ydisk": 0.13491062326660783,
+      "chi2_derived": 411.97481009007345,
+      "chi2_per_pt_derived": 41.19748100900735,
+      "chi2_legacy_zeroparam": 1270.7943389883421,
+      "chi2_per_pt_legacy": 127.07943389883421
+    },
+    {
+      "galaxy": "UGC11914",
+      "n_points": 65,
+      "fitted_Ydisk": 0.8206896449691282,
+      "chi2_derived": 600.0134187043527,
+      "chi2_per_pt_derived": 9.230975672374656,
+      "chi2_legacy_zeroparam": 658.4033308355024,
+      "chi2_per_pt_legacy": 10.129282012853883
+    },
+    {
+      "galaxy": "UGC12506",
+      "n_points": 31,
+      "fitted_Ydisk": 0.9603954499148322,
+      "chi2_derived": 62.99063784337439,
+      "chi2_per_pt_derived": 2.03195605946369,
+      "chi2_legacy_zeroparam": 106.40762779902691,
+      "chi2_per_pt_legacy": 3.4325041225492554
+    },
+    {
+      "galaxy": "UGC12632",
+      "n_points": 15,
+      "fitted_Ydisk": 0.5131453825671358,
+      "chi2_derived": 64.710220817876,
+      "chi2_per_pt_derived": 4.314014721191734,
+      "chi2_legacy_zeroparam": 148.85727401651718,
+      "chi2_per_pt_legacy": 9.923818267767812
+    },
+    {
+      "galaxy": "UGC12732",
+      "n_points": 16,
+      "fitted_Ydisk": 0.7240464183935854,
+      "chi2_derived": 27.63431564925594,
+      "chi2_per_pt_derived": 1.7271447280784962,
+      "chi2_legacy_zeroparam": 48.08221821238855,
+      "chi2_per_pt_legacy": 3.005138638274284
+    },
+    {
+      "galaxy": "UGCA281",
+      "n_points": 7,
+      "fitted_Ydisk": 0.3700042850370058,
+      "chi2_derived": 1.3872008385468222,
+      "chi2_per_pt_derived": 0.19817154836383175,
+      "chi2_legacy_zeroparam": 67.74995295704349,
+      "chi2_per_pt_legacy": 9.67856470814907
+    },
+    {
+      "galaxy": "UGCA442",
+      "n_points": 8,
+      "fitted_Ydisk": 0.7992496019907281,
+      "chi2_derived": 48.12967378814234,
+      "chi2_per_pt_derived": 6.016209223517793,
+      "chi2_legacy_zeroparam": 28.93578513112188,
+      "chi2_per_pt_legacy": 3.616973141390235
+    },
+    {
+      "galaxy": "UGCA444",
+      "n_points": 36,
+      "fitted_Ydisk": 0.4146880825124284,
+      "chi2_derived": 37.316840766933225,
+      "chi2_per_pt_derived": 1.0365789101925895,
+      "chi2_legacy_zeroparam": 48.85458053380605,
+      "chi2_per_pt_legacy": 1.3570716814946124
+    }
+  ]
+}

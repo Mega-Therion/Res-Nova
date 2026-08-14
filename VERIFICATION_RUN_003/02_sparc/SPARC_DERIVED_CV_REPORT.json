@@ -1,0 +1,53 @@
+{
+  "work_order": "D4_5_Fold_Cross_Validation",
+  "date": "2026-08-14",
+  "closure": "Derived mu(x) = x / (1 + x)",
+  "folds": [
+    {
+      "fold": 1,
+      "train_size": 140,
+      "test_size": 35,
+      "trained_a0_ms2": 1.454915028125263e-10,
+      "test_median_chi2_per_pt": 9.779296336023018,
+      "test_aggregate_chi2_dof": 57.1256930622466
+    },
+    {
+      "fold": 2,
+      "train_size": 140,
+      "test_size": 35,
+      "trained_a0_ms2": 1.454915028125263e-10,
+      "test_median_chi2_per_pt": 21.565633661524746,
+      "test_aggregate_chi2_dof": 68.04713320437054
+    },
+    {
+      "fold": 3,
+      "train_size": 140,
+      "test_size": 35,
+      "trained_a0_ms2": 1.454915028125263e-10,
+      "test_median_chi2_per_pt": 16.810431681547662,
+      "test_aggregate_chi2_dof": 85.431853498498
+    },
+    {
+      "fold": 4,
+      "train_size": 140,
+      "test_size": 35,
+      "trained_a0_ms2": 1.454915028125263e-10,
+      "test_median_chi2_per_pt": 15.136420755135072,
+      "test_aggregate_chi2_dof": 50.84277412465859
+    },
+    {
+      "fold": 5,
+      "train_size": 140,
+      "test_size": 35,
+      "trained_a0_ms2": 1.454915028125263e-10,
+      "test_median_chi2_per_pt": 5.894462510905712,
+      "test_aggregate_chi2_dof": 22.5831506603045
+    }
+  ],
+  "aggregate_out_of_sample": {
+    "median_chi2_per_point": 14.333432674056867,
+    "mean_chi2_per_point": 45.23947476956974,
+    "aggregate_chi2_dof": 56.112597953518666,
+    "total_out_points": 3391
+  }
+}
