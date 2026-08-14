@@ -1,57 +1,34 @@
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.SpecialFunctions.Exp
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Ring
-
-/-!
-# Target D8: Tensor-Mode Speed vs GW170817 & Disformal Null Cone Theorems
-Author: Ryan W. Yett
-Date: 2026-08-14
-Repository: Mega-Therion/Res-Nova v1.3.0
-
-Formal mechanical certification of Target D8 claims:
-1. Einstein-Aether / Khronometric Dictionary for Tensor Speed [P]
-2. Maxwellian Vector Kinetic Identity c₁₃ = 0 [P]
-3. Einstein-Frame Tensor Speed Luminality c_T(g) = c [P]
-4. Disformal TT Perturbation Alignment on FLRW [P]
-5. Physical-Frame Tensor Speed Luminality c_T(g̃) = c_γ(g̃) = c [P]
-6. GW170817 Observational Concordance |c_T(g̃)/c_γ(g̃) - 1| = 0 ≤ 10⁻¹⁵ [P]
--/
 
 namespace ResNova.TensorSpeed
 
 noncomputable section
 
 /-!
-## 1. Einstein-Aether Tensor Speed Dictionary
-In standard Einstein-Aether theory (Jacobson & Mattingly 2004), the quadratic action
-for transverse-traceless (TT) metric perturbations h_ij^{TT} yields the characteristic speed:
-  c_T²(g) = 1 / (1 - c₁₃), where c₁₃ ≡ c₁ + c₃.
+# Target D8 & D8b: Formal Evaluation of Tensor Speeds, Null Cones, and GW170817 Bound
+
+Epistemic Status:
+- `c13 = 0` identity for Maxwellian vector kinetic term: [P] PROVED.
+- Einstein-frame tensor mode speed c_T(g) = 1: [P] PROVED.
+- Foster-Jacobson PPN alpha_1 = -2*K: [P] PROVED (places observational bound |K| <= 10^-4 on vector coupling).
+- Disformal null cone split: c_gamma^2 = exp(4*phi) != 1 for phi != 0: [P] PROVED.
+- Speed ratio c_T(g) / c_gamma(g_tilde) = 1 iff phi = 0: [P] PROVED.
+- Confrontation with GW170817: Disformal map e^{-2*phi} g - 2*sinh(2*phi) u u is FALSIFIED [P]
+  in the non-zero scalar field regime (c_T != c_gamma when phi != 0).
 -/
 
-/-- Einstein-Aether tensor propagation speed squared as a function of c₁₃ -/
+/-- Einstein-Aether tensor speed squared from Jacobson-Mattingly parameter c13 -/
 def c_T_sq (c13 : ℝ) : ℝ := 1 / (1 - c13)
 
-/-- Definitional lemma: when c₁₃ = 0, c_T²(g) = 1 -/
+/-- Theorem: When c13 = 0, Einstein-frame tensor speed squared is identically unity -/
 theorem c_T_sq_at_zero : c_T_sq 0 = 1 := by
   dsimp [c_T_sq]
   ring
 
-/-!
-## 2. Maxwell-like Vector Kinetic Action
-The vector action in Res-Nova v1.2.0 is:
-  S_u = - (K / 32πG) ∫ d⁴x √{-g} F_{μν}^{(u)} F_{(u)}^{μν}
-where F_{μν}^{(u)} = ∇_μ u_ν - ∇_ν u_μ.
-Expanding F_{μν} F^{μν} = 2 ∇_a u_b ∇^a u^b - 2 ∇_a u_b ∇^b u^a.
-Matching against the general 4-parameter Jacobson-Mattingly kinetic tensor:
-  K^{ab}_{cd} = c₁ g^{ab} g_{cd} + c₂ δ^a_c δ^b_d + c₃ δ^a_d δ^b_c + c₄ u^a u^b g_{cd}
-uniquely yields:
-  c₁ = +K/2,  c₃ = -K/2,  c₂ = 0,  c₄ = 0.
-Thus, c₁₃ ≡ c₁ + c₃ = K/2 + (-K/2) = 0 is forced algebraically by the Maxwell structure.
--/
-
-/-- Theorem D8.1 (Maxwellian Vector Kinetic Coupling Identity):
-    For any vector kinetic coupling coefficient K, the antisymmetric Maxwellian term
-    forces c₁ = K/2 and c₃ = -K/2, which strictly implies c₁₃ = 0. -/
+/-- Theorem: For a purely Maxwellian vector kinetic term F_ab F^ab, c13 vanishes identically -/
 theorem maxwellian_c13_vanishes (K : ℝ) :
     let c1 := K / 2
     let c3 := -K / 2
@@ -60,58 +37,100 @@ theorem maxwellian_c13_vanishes (K : ℝ) :
   dsimp [c1, c3]
   ring
 
-/-- Theorem D8.2 (Einstein-Frame Tensor Speed Luminality):
-    Because c₁₃ = 0 is identically forced by the Maxwellian vector action,
-    the tensor mode speed on the Einstein metric g_{μν} is strictly luminal: c_T²(g) = 1. -/
+/-- Theorem: Einstein-frame tensor propagation is strictly luminal for any coupling K -/
 theorem einstein_frame_tensor_speed_luminal (K : ℝ) :
     c_T_sq ((K / 2) + (-K / 2)) = 1 := by
   have h_zero : (K / 2) + (-K / 2) = 0 := by ring
   rw [h_zero]
   exact c_T_sq_at_zero
 
-/-!
-## 3. Disformal Metric Transformation & TT Tensor Sector
-The physical metric is g̃_{μν} = e^{-2φ} g_{μν} - 2 sinh(2φ) u_μ u_ν.
-On a cosmological FLRW or static isotropic background where u^μ = (1, 0, 0, 0) and u_i = 0:
-  g̃_{ij} = e^{-2φ} g_{ij}.
-The transverse-traceless (TT) perturbation of the physical metric is:
-  h̃_{ij}^{TT} = e^{-2φ} h_{ij}^{TT}.
-The conformal factor e^{-2φ} drops out of the null characteristic equation for massless fields.
--/
+/-- Foster-Jacobson PPN alpha_1 numerator and denominator -/
+def alpha_1_num (K : ℝ) : ℝ := -8 * ((-K / 2)^2 + (K / 2) * 0)
+def alpha_1_den (K : ℝ) : ℝ := 2 * (K / 2) - (K / 2)^2 + (-K / 2)^2
 
-/-- Conformal factor preserving spatial wave equation propagation speed -/
-def conformal_speed_scale (phi : ℝ) : ℝ := Real.exp (-2 * phi)
+/-- Theorem: The numerator of alpha_1 simplifies to -2 * K^2 -/
+theorem alpha_1_num_eq (K : ℝ) : alpha_1_num K = -2 * K^2 := by
+  dsimp [alpha_1_num]
+  ring
 
-/-- Theorem D8.3 (Conformal Invariance of Characteristic Speed Ratio):
-    Scaling both the kinetic and gradient coefficients by the same positive conformal factor
-    leaves the characteristic speed c_T² = F_TT / G_TT strictly invariant. -/
-theorem conformal_preserves_tensor_speed (F_TT G_TT A : ℝ) (hA : A > 0) (_hG : G_TT > 0) :
-    (A * F_TT) / (A * G_TT) = F_TT / G_TT := by
-  rw [mul_div_mul_left F_TT G_TT hA.ne']
+/-- Theorem: The denominator of alpha_1 simplifies to K -/
+theorem alpha_1_den_eq (K : ℝ) : alpha_1_den K = K := by
+  dsimp [alpha_1_den]
+  ring
 
-/-- Theorem D8.4 (Physical-Frame Tensor Mode Luminality):
-    Because h̃_{ij}^{TT} = e^{-2φ} h_{ij}^{TT} on FLRW backgrounds (u_i = 0),
-    the physical-frame tensor mode speed c_T(g̃) is identical to the Einstein-frame speed c_T(g) = 1. -/
-theorem physical_frame_tensor_speed_unity (c_T_g : ℝ) (h_lum : c_T_g = 1) :
-    c_T_g = 1 := h_lum
+/-- Theorem: Foster-Jacobson alpha_1 evaluates algebraically to -2*K for non-zero K -/
+theorem foster_jacobson_alpha_1_eval (K : ℝ) (hK : K ≠ 0) :
+    alpha_1_num K / alpha_1_den K = -2 * K := by
+  rw [alpha_1_num_eq, alpha_1_den_eq]
+  have h_mul : -2 * K^2 = (-2 * K) * K := by ring
+  rw [h_mul]
+  exact mul_div_cancel_right₀ (-2 * K) hK
 
-/-!
-## 4. GW170817 Observational Confrontation
-The GW170817 / GRB 170817A constraint bounds the fractional difference between the
-gravitational wave speed c_T(g̃) and photon speed c_γ(g̃) on the physical metric:
-  | c_T(g̃) / c_γ(g̃) - 1 | ≤ 10⁻¹⁵.
-Since photons and TT gravitons propagate on the exact same null cone of g̃_{μν},
-c_T(g̃) = c_γ(g̃) = 1, giving |1/1 - 1| = 0.
--/
+/-- Definition of sinh via exponential differences -/
+def my_sinh (x : ℝ) : ℝ := (Real.exp x - Real.exp (-x)) / 2
 
-/-- Theorem D8.5 (GW170817 Exact Concordance):
-    The fractional speed difference |c_T(g̃)/c_γ(g̃) - 1| vanishes identically,
-    satisfying the GW170817 bound for any positive tolerance ε > 0. -/
-theorem gw170817_concordance (c_T c_gamma : ℝ) (hT : c_T = 1) (hGamma : c_gamma = 1) (eps : ℝ) (heps : eps > 0) :
-    |c_T / c_gamma - 1| < eps := by
-  rw [hT, hGamma]
-  norm_num
-  exact heps
+/-- Photon coordinate speed squared on disformal metric g_tilde = A*g + B*u*u -/
+def c_gamma_coord_sq (phi : ℝ) : ℝ :=
+  let A := Real.exp (-2 * phi)
+  let B := -2 * my_sinh (2 * phi)
+  (A - B) / A
+
+/-- Lemma: (A - B)/A simplifies to exp(4*phi) -/
+theorem disformal_photon_speed_sq (phi : ℝ) :
+    c_gamma_coord_sq phi = Real.exp (4 * phi) := by
+  dsimp [c_gamma_coord_sq, my_sinh]
+  have h_neg : -(2 * phi) = -2 * phi := by ring
+  rw [h_neg]
+  have h_alg : Real.exp (-2 * phi) - -2 * ((Real.exp (2 * phi) - Real.exp (-2 * phi)) / 2) = Real.exp (2 * phi) := by ring
+  rw [h_alg]
+  have hDiv : Real.exp (2 * phi) / Real.exp (-2 * phi) = Real.exp (2 * phi - (-2 * phi)) := by
+    rw [← Real.exp_sub]
+  rw [hDiv]
+  ring_nf
+
+/-- Speed ratio between Einstein-frame graviton (c_T = 1) and Jordan-frame photon (c_gamma = exp(2*phi)) -/
+def speed_ratio (phi : ℝ) : ℝ := Real.exp (-2 * phi)
+
+/-- Theorem: Disformal speed ratio equals unity IF AND ONLY IF phi = 0 -/
+theorem speed_ratio_unity_iff (phi : ℝ) :
+    speed_ratio phi = 1 ↔ phi = 0 := by
+  dsimp [speed_ratio]
+  constructor
+  · intro h
+    have hLog := congr_arg Real.log h
+    rw [Real.log_exp, Real.log_one] at hLog
+    linarith
+  · intro h
+    rw [h]
+    ring_nf
+    exact Real.exp_zero
+
+/-- Theorem: For any phi > 0, the speed ratio is strictly subluminal relative to photons -/
+theorem speed_ratio_lt_one_of_pos (phi : ℝ) (hphi : phi > 0) :
+    speed_ratio phi < 1 := by
+  dsimp [speed_ratio]
+  rw [← Real.exp_zero]
+  apply Real.exp_lt_exp.mpr
+  linarith
+
+/-- Theorem: When phi > 0, the deviation |c_T/c_gamma - 1| is strictly positive -/
+theorem gw170817_deviation_of_pos (phi : ℝ) (hphi : phi > 0) :
+    |speed_ratio phi - 1| = 1 - Real.exp (-2 * phi) := by
+  have hLt : speed_ratio phi < 1 := speed_ratio_lt_one_of_pos phi hphi
+  dsimp [speed_ratio] at hLt ⊢
+  rw [abs_sub_comm, abs_of_pos]
+  linarith
+
+#print axioms c_T_sq_at_zero
+#print axioms maxwellian_c13_vanishes
+#print axioms einstein_frame_tensor_speed_luminal
+#print axioms alpha_1_num_eq
+#print axioms alpha_1_den_eq
+#print axioms foster_jacobson_alpha_1_eval
+#print axioms disformal_photon_speed_sq
+#print axioms speed_ratio_unity_iff
+#print axioms speed_ratio_lt_one_of_pos
+#print axioms gw170817_deviation_of_pos
 
 end
 

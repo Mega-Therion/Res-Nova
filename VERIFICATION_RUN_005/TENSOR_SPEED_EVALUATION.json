@@ -1,15 +1,21 @@
 {
-  "target": "D8",
-  "title": "Tensor-Mode Speed vs GW170817 Concordance",
-  "c1": "K/2",
-  "c3": "-K/2",
-  "c13_sum": "0",
+  "target": "D8 & D8b",
+  "title": "Disformal Cone Split & GW170817 Confrontation",
+  "c13_identity": "0",
   "c_T_Einstein_frame": "1",
-  "c_T_Physical_frame": "1",
-  "c_gamma_Physical_frame": "1",
-  "speed_ratio": 1.0,
-  "fractional_difference": 0.0,
-  "gw170817_tolerance": 1e-15,
-  "gw170817_satisfied": true,
-  "verdict": "LUMINAL [P]"
+  "foster_jacobson_alpha_1": "-2*K",
+  "c_gamma_physical_frame": "sqrt(2*exp(2*phi)*sinh(2*phi) + 1)",
+  "speed_ratio": "1/sqrt(2*exp(2*phi)*sinh(2*phi) + 1)",
+  "gw170817_bound": 1e-15,
+  "eval_phi_1e_6_halo": {
+    "phi": 1e-06,
+    "deviation": 1.9999979999907325e-06,
+    "gw170817_satisfied": false
+  },
+  "eval_phi_0_1_cosmo": {
+    "phi": 0.1,
+    "deviation": 0.18126924692201818,
+    "gw170817_satisfied": false
+  },
+  "verdict": "DISFORMAL MAP FALSIFIED [P] (c_T != c_gamma for phi != 0)"
 }
