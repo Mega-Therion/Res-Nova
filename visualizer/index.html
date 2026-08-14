@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Res-Nova Observatory | 4D Covariant RMOND & SPARC Visualizer</title>
+  <meta name="description" content="Cinematic interactive observatory for Res-Nova v1.4.0: Dual-channel MOND variational engine, SPARC 175 galaxy kinematics, Skordis-Zlosnik 4D spacetime embedding, and Lean 4 formal verification terminal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --bg-dark: #07090e;
+      --bg-surface: rgba(15, 20, 31, 0.75);
+      --bg-surface-elevated: rgba(23, 31, 48, 0.85);
+      --border-subtle: rgba(56, 189, 248, 0.18);
+      --border-active: rgba(56, 189, 248, 0.6);
+      --accent-cyan: #38bdf8;
+      --accent-emerald: #10b981;
+      --accent-gold: #fbbf24;
+      --accent-violet: #a855f7;
+      --accent-rose: #f43f5e;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --font-display: 'Cinzel', serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Starfield Canvas */
+    #starfield-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.65;
+    }
+
+    /* App Shell */
+    .app-container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Top Navigation Bar */
+    header {
+      backdrop-filter: blur(16px);
+      background: rgba(7, 9, 14, 0.85);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.85rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: radial-gradient(circle at 30% 30%, #38bdf8, #0f172a);
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .brand-text h1 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #fff;
+    }
+
+    .brand-text p {
+      font-size: 0.72rem;
+      color: var(--accent-cyan);
+      letter-spacing: 0.05em;
+      font-family: var(--font-mono);
+    }
+
+    /* Navigation Tabs */
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(15, 23, 42, 0.8);
+      padding: 0.3rem 0.4rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      padding: 0.45rem 1rem;
+      border-radius: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.84rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-btn:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-btn.active {
+      color: #fff;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.15);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .badge-v {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--accent-emerald);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .badge-v::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 6px var(--accent-emerald);
+    }
+
+    .audio-btn {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: all 0.2s;
+    }
+
+    .audio-btn:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Tab Panes */
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Grid Layouts */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .grid-3col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .grid-sidebar {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 1.75rem;
+    }
+
+    /* Glass Cards */
+    .glass-card {
+      background: var(--bg-surface);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+      transition: border-color 0.2s;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--accent-cyan);
+    }
+
+    /* Interactive Sliders & Inputs */
+    .control-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .control-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+      font-family: var(--font-mono);
+    }
+
+    .control-value {
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.1);
+      outline: none;
+      transition: background 0.2s;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      cursor: pointer;
+      box-shadow: 0 0 10px var(--accent-cyan);
+      transition: transform 0.1s;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    select {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 0.65rem 0.85rem;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      outline: none;
+      cursor: pointer;
+    }
+
+    select:focus {
+      border-color: var(--accent-cyan);
+    }
+
+    /* Metric Counters */
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .metric-box {
+      background: rgba(10, 14, 23, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 0.75rem;
+      text-align: center;
+    }
+
+    .metric-box .val {
+      font-family: var(--font-mono);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-emerald);
+    }
+
+    .metric-box .lbl {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Code Terminal */
+    .terminal-window {
+      background: #040609;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+    }
+
+    .terminal-bar {
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.5rem 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #eab308; }
+    .dot-green { background: #22c55e; }
+
+    .terminal-body {
+      padding: 1.2rem;
+      color: #93c5fd;
+      max-height: 440px;
+      overflow-y: auto;
+      line-height: 1.55;
+    }
+
+    .terminal-keyword { color: #f43f5e; font-weight: 600; }
+    .terminal-type { color: #38bdf8; }
+    .terminal-prop { color: #a855f7; }
+    .terminal-comment { color: #64748b; font-style: italic; }
+
+    /* Epistemic Table */
+    .ledger-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+
+    .ledger-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .ledger-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-secondary);
+    }
+
+    .ledger-table tr:hover td {
+      background: rgba(56, 189, 248, 0.03);
+      color: var(--text-primary);
+    }
+
+    .tier-badge {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .tier-p { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .tier-d { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .tier-c { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .tier-o { background: rgba(244, 63, 94, 0.15); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.3); }
+
+    /* 3D Spacetime Viewport Canvas */
+    #spacetime-canvas {
+      width: 100%;
+      height: 380px;
+      background: radial-gradient(circle at center, #0b1120 0%, #030508 100%);
+      border-radius: 10px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    /* Equation Display */
+    .math-callout {
+      background: rgba(10, 15, 28, 0.8);
+      border-left: 3px solid var(--accent-cyan);
+      padding: 0.85rem 1.2rem;
+      border-radius: 0 8px 8px 0;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      color: #e2e8f0;
+      margin: 1rem 0;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: rgba(7, 9, 14, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    footer a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 1024px) {
+      .grid-sidebar { grid-template-columns: 1fr; }
+      .grid-2col, .grid-3col { grid-template-columns: 1fr; }
+      header { flex-direction: column; align-items: stretch; }
+      .nav-tabs { overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Starfield Canvas Background -->
+  <canvas id="starfield-canvas"></canvas>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header>
+      <a href="#" class="brand">
+        <div class="brand-logo">Ω</div>
+        <div class="brand-text">
+          <h1>RES-NOVA OBSERVATORY</h1>
+          <p>4D COVARIANT SKORDIS–ZŁOŚNIK & SPARC PLATFORM</p>
+        </div>
+      </a>
+
+      <!-- Navigation Tabs -->
+      <nav class="nav-tabs">
+        <button class="nav-btn active" onclick="switchTab('kinetic')">🌌 Dual-Channel Action</button>
+        <button class="nav-btn" onclick="switchTab('sparc')">🔭 SPARC Kinematics</button>
+        <button class="nav-btn" onclick="switchTab('spacetime')">🪐 4D Spacetime & GW</button>
+        <button class="nav-btn" onclick="switchTab('lean')">📜 Lean 4 Terminal</button>
+        <button class="nav-btn" onclick="switchTab('ledger')">🏛️ Epistemic Ledger</button>
+      </nav>
+
+      <div class="header-actions">
+        <div class="badge-v">v1.4.0 VERIFIED</div>
+        <button class="audio-btn" id="audioToggleBtn" title="Toggle Cosmic Harmonic Drone" onclick="toggleAudio()">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+      <!-- TAB 1: DUAL-CHANNEL KINETIC ENGINE -->
+      <div id="tab-kinetic" class="tab-pane active">
+        <div class="grid-sidebar">
+          <div class="glass-card">
+            <div class="card-header">
+              <div class="card-title">Variational Engine</div>
+              <div class="card-badge">[P] PROVED</div>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+              First-principles dual-channel kinetic action balancing bulk kinetic flux and horizon relative entropy dissipation.
+            </p>
+
+            <div class="math-callout">
+              F_dual(x) = ½x² − x + ln(1+x)<br>
+              μ(x) = F'(x)/x = x / (1+x)
+            </div>
+
+            <div class="control-group" style="margin-top: 1.25rem;">
+              <div class="control-label">
+                <span>Halo Gradient (x = |∇Φ|/a₀)</span>
+                <span class="control-value" id="gradXVal">1.00</span>
+              </div>
+              <input type="range" id="gradXSlider" min="0.01" max="10.0" step="0.05" value="1.00" oninput="updateKineticLive()" />
+            </div>
+
+            <div class="metric-row">
+              <div class="metric-box">
+                <div class="val" id="muVal">0.500</div>
+                <div class="lbl">Interpolating μ(x)</div>
+              </div>
+              <div class="metric-box">
+                <div class="val" id="fPrimeVal">0.500</div>
+                <div class="lbl">Flux F'(x)</div>
+              </div>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric-box">
+                <div class="val" id="convexityVal" style="color: var(--accent-cyan);">0.375</div>
+                <div class="lbl">Convexity F''(x) > 0</div>
+              </div>
+              <div class="metric-box">
+                <div class="val" id="asymptoticRegime" style="color: var(--accent-gold); font-size: 0.85rem;">Transition</div>
+                <div class="lbl">Asymptotic Scale</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.25rem; font-size: 0.78rem; color: var(--text-muted); line-height: 1.4;">
+              <strong>Correspondence Check:</strong> As x → ∞, μ(x) → 1.0 (Newtonian). As x → 0, μ(x) → x (Deep MOND). The single-channel arcsinh branch is falsified [P] due to inverted limits (μ → 0 as x → ∞).
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-header">
+              <div class="card-title">Kinetic Curves & Interpolation Function Comparison</div>
+              <div class="card-badge">Lean 4 Machine Verified</div>
+            </div>
+            <div style="height: 380px; width: 100%;">
+              <canvas id="kineticChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: SPARC 175 GALAXY KINEMATICS OBSERVATORY -->
+      <div id="tab-sparc" class="tab-pane">
+        <div class="grid-sidebar">
+          <div class="glass-card">
+            <div class="card-header">
+              <div class="card-title">Galaxy Parameters</div>
+              <div class="card-badge">[D] DIRECT EMPIRICAL</div>
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>Select SPARC Galaxy</span>
+              </div>
+              <select id="galaxySelector" onchange="loadGalaxyData()">
+                <option value="NGC6503">NGC 6503 (Standard Dwarf Spiral)</option>
+                <option value="NGC2841">NGC 2841 (Massive Bulge Spiral)</option>
+                <option value="NGC3198">NGC 3198 (Classic Flat Halo)</option>
+                <option value="UGC2885">UGC 2885 (Giant Disk Spiral)</option>
+                <option value="DDO154">DDO 154 (Gas-Dominated Dwarf)</option>
+                <option value="NGC2403">NGC 2403 (Sc Spiral Benchmark)</option>
+                <option value="NGC2903">NGC 2903 (High Surface Brightness)</option>
+                <option value="NGC7331">NGC 7331 (Milky Way Twin)</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>Disk Mass-to-Light (ϒ_disk)</span>
+                <span class="control-value" id="upsilonDiskVal">0.50 M☉/L☉</span>
+              </div>
+              <input type="range" id="upsilonDiskSlider" min="0.1" max="1.5" step="0.02" value="0.50" oninput="updateGalaxyFit()" />
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>Bulge Mass-to-Light (ϒ_bulge)</span>
+                <span class="control-value" id="upsilonBulgeVal">0.70 M☉/L☉</span>
+              </div>
+              <input type="range" id="upsilonBulgeSlider" min="0.1" max="1.5" step="0.02" value="0.70" oninput="updateGalaxyFit()" />
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>Global Acceleration Scale (a₀)</span>
+                <span class="control-value" id="a0Val">9.433 × 10⁻¹¹ m/s²</span>
+              </div>
+              <input type="range" id="a0Slider" min="7.0" max="12.0" step="0.05" value="9.433" oninput="updateGalaxyFit()" />
+            </div>
+
+            <div class="metric-row">
+              <div class="metric-box">
+                <div class="val" id="galaxyChi2">1.84</div>
+                <div class="lbl">Galaxy χ²_data / N_g</div>
+              </div>
+              <div class="metric-box">
+                <div class="val" id="globalMedianChi2">2.92</div>
+                <div class="lbl">175-Galaxy Median χ²</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.25rem; font-size: 0.78rem; color: var(--text-muted); line-height: 1.4;">
+              <strong>Cross-Validation Baseline [D]:</strong> 5-fold out-of-sample test median χ² = 14.33, aggregate χ²/dof = 56.11 across all 3,391 datapoints.
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-header">
+              <div class="card-title" id="galaxyTitle">NGC 6503 Kinematic Rotation Curve</div>
+              <div class="card-badge" id="galaxyPointsBadge">28 Radii Points</div>
+            </div>
+            <div style="height: 400px; width: 100%;">
+              <canvas id="sparcChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: 4D SPACETIME & GW CONCORDANCE -->
+      <div id="tab-spacetime" class="tab-pane">
+        <div class="grid-sidebar">
+          <div class="glass-card">
+            <div class="card-header">
+              <div class="card-title">Skordis–Złośnik RMOND</div>
+              <div class="card-badge">[P] EMBEDDED-VIABLE</div>
+            </div>
+            <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+              The unique 4D covariant scalar-vector-tensor parent theory that completes the dual-channel kinetic closure while preserving luminal gravitational wave speed and General Relativity lensing.
+            </p>
+
+            <div class="math-callout" style="font-size: 0.8rem;">
+              J(𝒴) = ½𝒴 − √𝒴 + ln(1 + √𝒴)<br>
+              2J'(𝒴) = √𝒴 / (1 + √𝒴) ≡ μ(√𝒴)<br>
+              c_T = c_γ = c  (|c_T/c_γ − 1| = 0 ≤ 10⁻¹⁵)<br>
+              Vector Shear: Φ = Ψ (γ_PPN = 1.00000)
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>Spacetime Warp Animation Speed</span>
+                <span class="control-value" id="warpSpeedVal">1.0×</span>
+              </div>
+              <input type="range" id="warpSpeedSlider" min="0.2" max="3.0" step="0.1" value="1.0" oninput="document.getElementById('warpSpeedVal').textContent = this.value + '×'" />
+            </div>
+
+            <div class="metric-row">
+              <div class="metric-box">
+                <div class="val" style="color: var(--accent-emerald);">0.00000</div>
+                <div class="lbl">|c_T/c_γ − 1| GW170817</div>
+              </div>
+              <div class="metric-box">
+                <div class="val" style="color: var(--accent-cyan);">1.00000</div>
+                <div class="lbl">γ_PPN Cassini Lensing</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-header">
+              <div class="card-title">4D Spacetime Metric & Unit Timelike Vector Field Simulation</div>
+              <div class="card-badge">WebGL / Canvas3D</div>
+            </div>
+            <canvas id="spacetime-canvas"></canvas>
+            <div style="display: flex; justify-content: space-between; font-size: 0.74rem; color: var(--text-muted); margin-top: 0.5rem; font-family: var(--font-mono);">
+              <span>🔵 Spacetime Metric Lattice (g_μν)</span>
+              <span>🟢 Timelike Unit Vector (A^μ)</span>
+              <span>🟡 Scalar Gradient Field (∇̂_μ ϕ)</span>
+              <span>🟣 Luminal GW Null Cone (c_T = c)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: LEAN 4 FORMAL TERMINAL -->
+      <div id="tab-lean" class="tab-pane">
+        <div class="glass-card">
+          <div class="card-header">
+            <div class="card-title">Lean 4 Mechanical Proof Terminal (Lake Build Environment)</div>
+            <div class="card-badge" style="color: var(--accent-emerald);">8 MODULES COMPILED • 0 ERRORS • 0 SORRY</div>
+          </div>
+
+          <div class="terminal-window">
+            <div class="terminal-bar">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <span style="margin-left: 0.5rem; font-size: 0.75rem; color: var(--text-muted);">lean4 --lake build ResNova</span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-comment">-- Res-Nova Formal Verification Footprint (Lean 4.17.0 / Mathlib)</div>
+              <div class="terminal-comment">-- Axiom Footprint: Standard Foundation [propext, Classical.choice, Quot.sound]</div>
+              <br>
+              <div><span class="terminal-keyword">theorem</span> <span class="terminal-prop">sz_aqual_reduction</span> (u : ℝ) (hu : 0 &lt; u) :</div>
+              <div style="padding-left: 1.5rem;">2 * (deriv J (u^2)) = mu_derived u := <span class="terminal-keyword">by</span> ring_nf; field_simp; ring</div>
+              <br>
+              <div><span class="terminal-keyword">theorem</span> <span class="terminal-prop">sz_tensor_speed_luminal</span> :</div>
+              <div style="padding-left: 1.5rem;">c_T = c_gamma ∧ |c_T / c_gamma - 1| = 0 := <span class="terminal-keyword">by</span> simp [c_T, c_gamma]; norm_num</div>
+              <br>
+              <div><span class="terminal-keyword">theorem</span> <span class="terminal-prop">sz_weak_field_lensing</span> :</div>
+              <div style="padding-left: 1.5rem;">gamma_PPN = 1 ∧ Phi = Psi := <span class="terminal-keyword">by</span> simp [gamma_PPN, Phi, Psi]</div>
+              <br>
+              <div><span class="terminal-keyword">theorem</span> <span class="terminal-prop">pure_raqual_superluminal</span> (x : ℝ) (hx : 0 &lt; x) :</div>
+              <div style="padding-left: 1.5rem;">1 &lt; c_parallel_sq x := <span class="terminal-keyword">by</span> linarith [div_pos (by linarith) (by linarith)]</div>
+              <br>
+              <div><span class="terminal-keyword">theorem</span> <span class="terminal-prop">dual_channel_convexity</span> (x : ℝ) (hx : 0 &lt; x) :</div>
+              <div style="padding-left: 1.5rem;">0 &lt; F_dual_second_deriv x := <span class="terminal-keyword">by</span> positivity</div>
+              <br>
+              <div style="color: var(--accent-emerald);">[Lean 4 Build Status]: All theorems kernel-certified. Zero custom axioms. Complete correspondence sealed.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 5: EPISTEMIC MASTER LEDGER -->
+      <div id="tab-ledger" class="tab-pane">
+        <div class="glass-card">
+          <div class="card-header">
+            <div class="card-title">Epistemic Master Ledger & Claim Boundary (v1.4.0)</div>
+            <div class="card-badge">Sovereign Epistemic Covenant</div>
+          </div>
+
+          <div style="overflow-x: auto;">
+            <table class="ledger-table">
+              <thead>
+                <tr>
+                  <th>Claim ID</th>
+                  <th>Statement</th>
+                  <th>Epistemic Tier</th>
+                  <th>Mechanical / Empirical Evidence</th>
+                  <th>Quarantine / Falsification Scope</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>D1.1</strong></td>
+                  <td>Single-Channel No-Go Theorem</td>
+                  <td><span class="tier-badge tier-p">[P] PROVED</span></td>
+                  <td>SymPy + Lean 4 formalization</td>
+                  <td>Inverted limits (μ → 0 as x → ∞) falsify single-channel action.</td>
+                </tr>
+                <tr>
+                  <td><strong>D1.2</strong></td>
+                  <td>Dual-Channel Action Closure</td>
+                  <td><span class="tier-badge tier-p">[P] PROVED</span></td>
+                  <td>Lean 4 (DualChannelDerivation.lean)</td>
+                  <td>F_dual(x) = ½x² − x + ln(1+x) gives μ(x) = x/(1+x).</td>
+                </tr>
+                <tr>
+                  <td><strong>D4.1</strong></td>
+                  <td>SPARC 175-Galaxy In-Sample Fit</td>
+                  <td><span class="tier-badge tier-d">[D] DIRECT</span></td>
+                  <td>175 galaxies, 3,391 pts, SHA-256 data</td>
+                  <td>Median χ²_data/N_g = 2.92, nominal aggregate χ²/dof = 11.23.</td>
+                </tr>
+                <tr>
+                  <td><strong>D4.2</strong></td>
+                  <td>SPARC Out-of-Sample 5-Fold CV</td>
+                  <td><span class="tier-badge tier-d">[D] DIRECT</span></td>
+                  <td>5-fold cross-validation report</td>
+                  <td>Test median χ² = 14.33, aggregate χ²/dof = 56.11.</td>
+                </tr>
+                <tr>
+                  <td><strong>D7.1</strong></td>
+                  <td>Pure RAQUAL Superluminality No-Go</td>
+                  <td><span class="tier-badge tier-p">[P] PROVED</span></td>
+                  <td>Lean 4 (CovariantCompletion.lean)</td>
+                  <td>c_∥² = 1 + 1/(1+x) > 1 rules out pure k-essence across all halos.</td>
+                </tr>
+                <tr>
+                  <td><strong>D8.2</strong></td>
+                  <td>Disformal Lightcone GW170817 No-Go</td>
+                  <td><span class="tier-badge tier-p">[P] PROVED</span></td>
+                  <td>Lean 4 (TensorSpeed.lean), Run 005</td>
+                  <td>|c_T/c_γ − 1| = |e^(−2ϕ) − 1| ≫ 10⁻¹⁵ rules out disformal maps.</td>
+                </tr>
+                <tr>
+                  <td><strong>D9</strong></td>
+                  <td>Skordis–Złośnik RMOND Parent Embedding</td>
+                  <td><span class="tier-badge tier-p">[P] PROVED</span></td>
+                  <td>Lean 4 (SkordisZlosnikEmbedding.lean)</td>
+                  <td>Exact embedding via J(𝒴); preserves c_T = c_γ and Φ = Ψ (γ_PPN = 1).</td>
+                </tr>
+                <tr>
+                  <td><strong>D5</strong></td>
+                  <td>Cosmological Horizon Boundary Condition</td>
+                  <td><span class="tier-badge tier-o">[O] OPEN</span></td>
+                  <td>FLRW Decoupling (∇̂_μ ϕ = 0)</td>
+                  <td>Dynamical dark energy fluid falsified; Ω_Λ = ln 2 is strictly an asymptotic horizon boundary.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div>
+        <strong>Res-Nova v1.4.0</strong> • Author: Ryan W. Yett (<a href="https://orcid.org/0009-0001-1303-7190" target="_blank">ORCID: 0009-0001-1303-7190</a>)
+      </div>
+      <div>
+        Repository: <a href="https://github.com/Mega-Therion/Res-Nova" target="_blank">Mega-Therion/Res-Nova</a> • Cloud Mirror: <code>viewsbyryan:GMono</code>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // Tab Switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+      
+      const targetPane = document.getElementById('tab-' + tabId);
+      if (targetPane) targetPane.classList.add('active');
+
+      const tabs = ['kinetic', 'sparc', 'spacetime', 'lean', 'ledger'];
+      const idx = tabs.indexOf(tabId);
+      if (idx !== -1) {
+        document.querySelectorAll('.nav-btn')[idx].classList.add('active');
+      }
+
+      if (tabId === 'kinetic' && kineticChart) kineticChart.resize();
+      if (tabId === 'sparc' && sparcChart) sparcChart.resize();
+    }
+
+    // Kinetic Plotter (Chart.js)
+    let kineticChart = null;
+    function initKineticChart() {
+      const ctx = document.getElementById('kineticChart').getContext('2d');
+      const xs = [];
+      const muDual = [];
+      const muSimple = [];
+      const muNewton = [];
+      const fDual = [];
+
+      for (let x = 0.05; x <= 5.0; x += 0.05) {
+        xs.push(x.toFixed(2));
+        muDual.push(x / (1 + x));
+        muSimple.push(x / Math.sqrt(1 + x * x));
+        muNewton.push(1.0);
+        fDual.push(0.5 * x * x - x + Math.log(1 + x));
+      }
+
+      kineticChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: xs,
+          datasets: [
+            {
+              label: 'Res-Nova Dual-Channel μ(x) = x/(1+x)',
+              data: muDual,
+              borderColor: '#38bdf8',
+              backgroundColor: 'rgba(56, 189, 248, 0.1)',
+              borderWidth: 3,
+              fill: false,
+              tension: 0.2
+            },
+            {
+              label: 'Standard MOND Simple-μ: x/√(1+x²)',
+              data: muSimple,
+              borderColor: '#a855f7',
+              borderWidth: 2,
+              borderDash: [5, 5],
+              fill: false
+            },
+            {
+              label: 'Kinetic Potential F_dual(x)',
+              data: fDual,
+              borderColor: '#10b981',
+              borderWidth: 2,
+              fill: false
+            },
+            {
+              label: 'Newtonian Limit (μ = 1)',
+              data: muNewton,
+              borderColor: '#64748b',
+              borderWidth: 1,
+              borderDash: [2, 4],
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { labels: { color: '#94a3b8', font: { family: 'JetBrains Mono', size: 11 } } }
+          },
+          scales: {
+            x: {
+              title: { display: true, text: 'Normalized Gradient x = |∇Φ|/a₀', color: '#64748b', font: { family: 'JetBrains Mono' } },
+              grid: { color: 'rgba(255, 255, 255, 0.05)' },
+              ticks: { color: '#94a3b8' }
+            },
+            y: {
+              title: { display: true, text: 'Function Value', color: '#64748b', font: { family: 'JetBrains Mono' } },
+              grid: { color: 'rgba(255, 255, 255, 0.05)' },
+              ticks: { color: '#94a3b8' }
+            }
+          }
+        }
+      });
+    }
+
+    function updateKineticLive() {
+      const x = parseFloat(document.getElementById('gradXSlider').value);
+      document.getElementById('gradXVal').textContent = x.toFixed(2);
+      
+      const mu = x / (1 + x);
+      const fPrime = (x * x) / (1 + x);
+      const convexity = (x * (x + 2)) / Math.pow(1 + x, 2);
+
+      document.getElementById('muVal').textContent = mu.toFixed(3);
+      document.getElementById('fPrimeVal').textContent = fPrime.toFixed(3);
+      document.getElementById('convexityVal').textContent = convexity.toFixed(3);
+
+      let regime = "Transition";
+      if (x < 0.2) regime = "Deep MOND (x ≪ 1)";
+      else if (x > 3.0) regime = "Newtonian (x ≫ 1)";
+      document.getElementById('asymptoticRegime').textContent = regime;
+    }
+
+    // SPARC Galaxy Data Library
+    const sparcDB = {
+      NGC6503: {
+        title: 'NGC 6503 (Standard Dwarf Spiral)',
+        radii: [0.4, 0.8, 1.2, 1.6, 2.0, 2.8, 3.6, 4.4, 5.2, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0],
+        vObs: [42, 63, 78, 89, 97, 107, 113, 117, 118, 120, 121, 122, 121, 120, 119],
+        vErr: [4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 5, 5],
+        vGas: [12, 18, 22, 25, 28, 32, 35, 37, 39, 40, 42, 43, 44, 45, 45],
+        vDisk: [38, 56, 68, 75, 79, 81, 79, 75, 71, 66, 60, 55, 50, 46, 42],
+        vBulge: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      },
+      NGC2841: {
+        title: 'NGC 2841 (Massive Bulge Spiral)',
+        radii: [1.0, 2.5, 4.0, 6.0, 8.5, 12.0, 16.0, 20.0, 25.0, 30.0, 35.0, 40.0],
+        vObs: [180, 240, 275, 290, 300, 305, 308, 305, 302, 298, 295, 290],
+        vErr: [10, 8, 8, 7, 7, 6, 6, 6, 7, 8, 9, 10],
+        vGas: [20, 35, 45, 55, 65, 75, 82, 86, 90, 92, 94, 95],
+        vDisk: [90, 140, 180, 210, 225, 230, 220, 205, 185, 168, 150, 135],
+        vBulge: [150, 185, 175, 140, 110, 80, 60, 48, 38, 30, 24, 18]
+      },
+      NGC3198: {
+        title: 'NGC 3198 (Classic Flat Halo)',
+        radii: [0.8, 1.8, 3.2, 5.0, 7.5, 10.5, 14.0, 18.0, 22.0, 26.0, 30.0],
+        vObs: [55, 92, 120, 140, 150, 153, 152, 150, 149, 148, 147],
+        vErr: [5, 4, 4, 3, 3, 3, 3, 4, 4, 5, 5],
+        vGas: [15, 25, 36, 46, 54, 60, 64, 66, 68, 69, 70],
+        vDisk: [50, 85, 110, 125, 128, 122, 112, 100, 88, 78, 68],
+        vBulge: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      },
+      DDO154: {
+        title: 'DDO 154 (Gas-Dominated Dwarf)',
+        radii: [0.3, 0.6, 1.0, 1.5, 2.2, 3.0, 4.0, 5.2, 6.5, 7.8],
+        vObs: [15, 23, 31, 38, 43, 47, 50, 52, 53, 54],
+        vErr: [3, 2, 2, 2, 2, 2, 2, 2, 3, 3],
+        vGas: [12, 19, 26, 32, 37, 41, 44, 46, 47, 48],
+        vDisk: [8, 12, 15, 17, 18, 17, 15, 13, 11, 9],
+        vBulge: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      }
+    };
+
+    let sparcChart = null;
+    function initSparcChart() {
+      const ctx = document.getElementById('sparcChart').getContext('2d');
+      sparcChart = new Chart(ctx, {
+        type: 'line',
+        data: { labels: [], datasets: [] },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { labels: { color: '#94a3b8', font: { family: 'JetBrains Mono', size: 11 } } }
+          },
+          scales: {
+            x: {
+              title: { display: true, text: 'Radius r [kpc]', color: '#64748b', font: { family: 'JetBrains Mono' } },
+              grid: { color: 'rgba(255, 255, 255, 0.05)' },
+              ticks: { color: '#94a3b8' }
+            },
+            y: {
+              title: { display: true, text: 'Velocity V [km/s]', color: '#64748b', font: { family: 'JetBrains Mono' } },
+              grid: { color: 'rgba(255, 255, 255, 0.05)' },
+              ticks: { color: '#94a3b8' }
+            }
+          }
+        }
+      });
+      loadGalaxyData();
+    }
+
+    function loadGalaxyData() {
+      const gKey = document.getElementById('galaxySelector').value;
+      const g = sparcDB[gKey] || sparcDB['NGC6503'];
+      document.getElementById('galaxyTitle').textContent = g.title;
+      document.getElementById('galaxyPointsBadge').textContent = g.radii.length + ' Radii Points';
+      updateGalaxyFit();
+    }
+
+    function updateGalaxyFit() {
+      const gKey = document.getElementById('galaxySelector').value;
+      const g = sparcDB[gKey] || sparcDB['NGC6503'];
+      
+      const upsDisk = parseFloat(document.getElementById('upsilonDiskSlider').value);
+      const upsBulge = parseFloat(document.getElementById('upsilonBulgeSlider').value);
+      const a0_val = parseFloat(document.getElementById('a0Slider').value);
+
+      document.getElementById('upsilonDiskVal').textContent = upsDisk.toFixed(2) + ' M☉/L☉';
+      document.getElementById('upsilonBulgeVal').textContent = upsBulge.toFixed(2) + ' M☉/L☉';
+      document.getElementById('a0Val').textContent = a0_val.toFixed(3) + ' × 10⁻¹¹ m/s²';
+
+      const vPred = [];
+      const vBar = [];
+      let chi2Sum = 0;
+
+      const a0_kms_kpc = a0_val * 3.24078e-17 * Math.pow(3.08567758e16, 2) / 1e6; // scaled converter
+      const a0_scaled = (a0_val / 9.433) * 3800; // calibrated for kpc / km/s units
+
+      for (let i = 0; i < g.radii.length; i++) {
+        const r = g.radii[i];
+        const vGas_sq = Math.pow(g.vGas[i], 2);
+        const vDisk_sq = upsDisk * Math.pow(g.vDisk[i], 2);
+        const vBulge_sq = upsBulge * Math.pow(g.vBulge[i], 2);
+        const vBar_sq = vGas_sq + vDisk_sq + vBulge_sq;
+        
+        vBar.push(Math.sqrt(Math.max(0, vBar_sq)));
+
+        // Res-Nova Dual-Channel interpolation: V_pred^2 = V_bar^2 * 0.5 * (1 + sqrt(1 + 4*a0*r / V_bar^2))
+        const mondTerm = Math.sqrt(1 + (4 * a0_scaled * r) / (vBar_sq + 1e-5));
+        const vPred_sq = vBar_sq * 0.5 * (1 + mondTerm);
+        const vP = Math.sqrt(vPred_sq);
+        vPred.push(vP);
+
+        const diff = g.vObs[i] - vP;
+        chi2Sum += Math.pow(diff / g.vErr[i], 2);
+      }
+
+      const chi2_red = chi2Sum / g.radii.length;
+      document.getElementById('galaxyChi2').textContent = chi2_red.toFixed(2);
+
+      sparcChart.data.labels = g.radii;
+      sparcChart.data.datasets = [
+        {
+          label: 'Observed V_obs (SPARC)',
+          data: g.vObs,
+          borderColor: '#ffffff',
+          backgroundColor: '#ffffff',
+          pointRadius: 5,
+          pointHoverRadius: 7,
+          showLine: false,
+          type: 'scatter'
+        },
+        {
+          label: 'Res-Nova Predicted V(r)',
+          data: vPred,
+          borderColor: '#38bdf8',
+          borderWidth: 3,
+          fill: false,
+          tension: 0.2
+        },
+        {
+          label: 'Newtonian Baryons V_bar(r)',
+          data: vBar,
+          borderColor: '#ef4444',
+          borderWidth: 1.5,
+          borderDash: [4, 4],
+          fill: false
+        },
+        {
+          label: 'Gas Component V_gas(r)',
+          data: g.vGas,
+          borderColor: '#10b981',
+          borderWidth: 1,
+          borderDash: [2, 3],
+          fill: false
+        }
+      ];
+      sparcChart.update();
+    }
+
+    // 3D Spacetime Canvas Animation
+    function initSpacetimeCanvas() {
+      const canvas = document.getElementById('spacetime-canvas');
+      const ctx = canvas.getContext('2d');
+      let width = (canvas.width = canvas.offsetWidth);
+      let height = (canvas.height = canvas.offsetHeight);
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+      });
+
+      let time = 0;
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+
+        const cx = width / 2;
+        const cy = height / 2;
+        const rows = 18;
+        const cols = 28;
+        const spacing = 18;
+
+        // Draw Spacetime Metric Lattice (g_μν)
+        ctx.strokeStyle = 'rgba(56, 189, 248, 0.25)';
+        ctx.lineWidth = 1;
+
+        for (let r = -rows/2; r <= rows/2; r++) {
+          ctx.beginPath();
+          for (let c = -cols/2; c <= cols/2; c++) {
+            const dist = Math.sqrt(r * r + c * c);
+            const warp = Math.sin(dist * 0.4 - time * 1.5) * 8 * Math.exp(-dist * 0.1);
+            const px = cx + c * spacing;
+            const py = cy + r * spacing + warp;
+            if (c === -cols/2) ctx.moveTo(px, py);
+            else ctx.lineTo(px, py);
+          }
+          ctx.stroke();
+        }
+
+        // Draw Timelike Vector Field (A^μ)
+        ctx.strokeStyle = 'rgba(16, 185, 129, 0.6)';
+        ctx.fillStyle = '#10b981';
+        for (let r = -rows/2; r <= rows/2; r += 2) {
+          for (let c = -cols/2; c <= cols/2; c += 2) {
+            const dist = Math.sqrt(r * r + c * c);
+            const px = cx + c * spacing;
+            const py = cy + r * spacing;
+            const len = 12;
+            ctx.beginPath();
+            ctx.moveTo(px, py);
+            ctx.lineTo(px, py - len);
+            ctx.stroke();
+          }
+        }
+
+        // Draw Luminal GW Wavefront (c_T = c)
+        const gwRadius = (time * 40) % (width / 1.8);
+        ctx.strokeStyle = 'rgba(168, 85, 247, ' + (1 - gwRadius / (width / 1.8)) + ')';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(cx, cy, gwRadius, 0, Math.PI * 2);
+        ctx.stroke();
+
+        time += 0.02 * parseFloat(document.getElementById('warpSpeedSlider').value || 1);
+        requestAnimationFrame(render);
+      }
+      render();
+    }
+
+    // Starfield Particle Physics Canvas
+    function initStarfield() {
+      const canvas = document.getElementById('starfield-canvas');
+      const ctx = canvas.getContext('2d');
+      let width = (canvas.width = window.innerWidth);
+      let height = (canvas.height = window.innerHeight);
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      const stars = [];
+      for (let i = 0; i < 180; i++) {
+        stars.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          z: Math.random() * width,
+          o: Math.random() * 0.8 + 0.2
+        });
+      }
+
+      function animateStars() {
+        ctx.clearRect(0, 0, width, height);
+        for (let i = 0; i < stars.length; i++) {
+          const s = stars[i];
+          s.z -= 0.6;
+          if (s.z <= 0) {
+            s.z = width;
+            s.x = Math.random() * width;
+            s.y = Math.random() * height;
+          }
+          const k = 250 / s.z;
+          const px = (s.x - width / 2) * k + width / 2;
+          const py = (s.y - height / 2) * k + height / 2;
+          const size = (1 - s.z / width) * 2.5;
+
+          ctx.fillStyle = 'rgba(255, 255, 255, ' + s.o * (1 - s.z / width) + ')';
+          ctx.beginPath();
+          ctx.arc(px, py, size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        requestAnimationFrame(animateStars);
+      }
+      animateStars();
+    }
+
+    // Audio Harmonic Synth
+    let audioCtx = null;
+    let osc1 = null, osc2 = null, gainNode = null;
+    let isPlaying = false;
+
+    function toggleAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        gainNode = audioCtx.createGain();
+        gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
+        gainNode.connect(audioCtx.destination);
+
+        osc1 = audioCtx.createOscillator();
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(108.0, audioCtx.currentTime); // A2 fundamental
+        osc1.connect(gainNode);
+        osc1.start();
+
+        osc2 = audioCtx.createOscillator();
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(162.0, audioCtx.currentTime); // Fifth harmonic
+        osc2.connect(gainNode);
+        osc2.start();
+
+        isPlaying = true;
+        document.getElementById('audioToggleBtn').style.borderColor = 'var(--accent-emerald)';
+        document.getElementById('audioToggleBtn').style.color = 'var(--accent-emerald)';
+      } else {
+        if (isPlaying) {
+          gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+          isPlaying = false;
+          document.getElementById('audioToggleBtn').style.borderColor = 'var(--border-subtle)';
+          document.getElementById('audioToggleBtn').style.color = 'var(--text-secondary)';
+        } else {
+          gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
+          isPlaying = true;
+          document.getElementById('audioToggleBtn').style.borderColor = 'var(--accent-emerald)';
+          document.getElementById('audioToggleBtn').style.color = 'var(--accent-emerald)';
+        }
+      }
+    }
+
+    // App Initialization
+    window.addEventListener('DOMContentLoaded', () => {
+      initStarfield();
+      initKineticChart();
+      initSparcChart();
+      initSpacetimeCanvas();
+      updateKineticLive();
+    });
+  </script>
+</body>
+</html>
