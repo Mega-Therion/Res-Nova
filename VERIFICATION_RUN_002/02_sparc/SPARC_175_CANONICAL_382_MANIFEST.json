@@ -1,0 +1,30 @@
+{
+  "audit_run": "VERIFICATION_RUN_002",
+  "date": "2026-08-14",
+  "input_data_directory": "/home/mega/file_organizer_output/final_organized/documents/general_docs",
+  "input_files_count": 175,
+  "data_sha256": "e76e6752164b80b14a20c1d6c05f96d095456e067bdd5c6da59d2be4ec70c1eb",
+  "fitting_protocol": {
+    "objective_minimized": "chi2_total = chi2_data(v_obs, v_model, v_err) + sum(Gaussian_priors)",
+    "displayed_data_residual_statistic": "sum(chi2_data) / dof (Gaussian priors used during optimization but excluded from data-residual numerator)",
+    "morphological_partition": {
+      "bulge_galaxies": 32,
+      "bulge_params_per_galaxy": 3,
+      "non_bulge_galaxies": 143,
+      "non_bulge_params_per_galaxy": 2,
+      "total_fitted_parameters": 382,
+      "residual_degrees_of_freedom": 3009
+    }
+  },
+  "aggregate_statistics": {
+    "total_data_points": 3391,
+    "sum_chi2_data": 23863.7768,
+    "sum_prior_penalties": 1559.3796,
+    "sum_chi2_total_posterior": 25423.1564,
+    "canonical_nuisance_aggregate_chi2_dof": 7.9308,
+    "canonical_nuisance_median_chi2_reduced": 2.8759,
+    "canonical_nuisance_mean_chi2_reduced": 7.4691,
+    "strict_god_median_chi2_reduced": 29.1241,
+    "strict_god_aggregate_chi2_dof": 144.0435
+  }
+}

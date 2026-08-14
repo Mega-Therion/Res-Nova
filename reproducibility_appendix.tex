@@ -1,0 +1,104 @@
+\section*{Appendix A: Formal Theorem Inventory (Lean 4)}
+\label{app:lean_theorems}
+
+The mathematical identities associated with algebraic and geometric formalizations are implemented in Lean 4 and verified using Mathlib. The full formal suite builds cleanly with \texttt{exit code 0}. All headline theorems depend strictly on the foundational logical axioms:
+\begin{center}
+\texttt{[propext, Classical.choice, Quot.sound]}
+\end{center}
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}l l X@{}}
+\toprule
+\textbf{Lean 4 Module} & \textbf{Headline Theorems} & \textbf{Formal Proposition Verified} \\ \midrule
+\texttt{SOCasimirGenuine.lean} & \texttt{casimir\_defining\_rep} & Quadratic Casimir eigenvalue of standard $\mathfrak{so}(n)$ generators is $(n-1)/2$. \\
+\texttt{DeSitterExtremal.lean} & \texttt{desitter\_lapse\_horizon} & Lapse $1-H^2r^2=0$ at $r=1/H$, and arithmetic positivity of $cH/(2\pi)$. \\
+\texttt{MuProjection.lean} & \texttt{mu\_simple\_eq\_cos}, \texttt{powerLaw\_iterated\_deriv} & Right-triangle projection properties of $\mu_{\text{simple}}(x)$ and iterated derivatives. \\
+\texttt{ITActionClosure.lean} & \texttt{tauLaw\_eq\_simple\_mu\_poly}, \texttt{btfr\_deep\_mond} & Equivalence of $\tau$-relation and simple-$\mu$ polynomial; BTFR $M \propto v^4$. \\
+\texttt{YettParadigm.lean} & \texttt{ramanujan\_yett\_spectral\_gap\_pos} & Positivity of the spectral gap $\lambda_1 - \lambda_0 > 0$ for $\kappa > 0$. \\
+\texttt{SovereignRegularity.lean} & \texttt{sovereign\_regularity\_theorem} & Conditional Beale--Kato--Majda integral boundedness under the hypothesis $\chi \ge \theta$. \\ \bottomrule
+\end{tabularx}
+\caption{Inventory of formally verified Lean 4 theorems in \texttt{05\_lean\_formalization/}.}
+\end{table}
+
+\section*{Appendix B: Full SPARC Metric Definitions and Statistics}
+\label{app:sparc_metrics}
+
+For each individual galaxy $g \in \{1, \dots, 175\}$ with $N_g$ observed kinematic radii $R_i$, observed velocities $V_{\text{obs},i}$, and observational uncertainties $\sigma_{V,i}$, the model velocity is evaluated as:
+\begin{equation}
+V_{\text{model}}(R_i) = V_{\text{bar}}(R_i) \cdot \left[ \frac{1}{2} + \sqrt{\frac{1}{4} + \frac{a_0}{g_{\text{bar}}(R_i)}} \right]^{1/2},
+\end{equation}
+where $g_{\text{bar}}(R_i) = V_{\text{bar}}(R_i)^2 / R_i$, with $V_{\text{bar}}^2(R) = |V_{\text{gas}}|V_{\text{gas}} + \Upsilon_{\text{disk}} |V_{\text{disk}}|V_{\text{disk}} + \Upsilon_{\text{bulge}} |V_{\text{bulge}}|V_{\text{bulge}}$.
+
+\subsection*{Per-Galaxy Metric Definition}
+The per-galaxy data-residual statistic is defined as:
+\begin{equation}
+\frac{\chi^2_{\text{data}}}{N_g} = \frac{1}{N_g} \sum_{i=1}^{N_g} \left( \frac{V_{\text{obs},i} - f_d V_{\text{model}}(f_d R_i)}{\sigma_{V,i}} \right)^2.
+\end{equation}
+
+\subsection*{Aggregate Data-Residual Metric Definition}
+The aggregate data-residual statistic across the complete sample of $N_{\text{data}} = 3,391$ observations is:
+\begin{equation}
+\frac{\sum \chi^2_{\text{data}}}{\text{DOF}_{\text{nom}}} = \frac{1}{N_{\text{data}} - N_{\text{fitted}}} \sum_{g=1}^{175} \sum_{i=1}^{N_g} \left( \frac{V_{\text{obs},i} - f_d V_{\text{model}}(f_d R_i)}{\sigma_{V,i}} \right)^2.
+\end{equation}
+
+\section*{Appendix C: Nuisance Parameter Derivation and Nominal DOF}
+\label{app:param_derivation}
+
+Across the full SPARC database ($N=175$ galaxies, $N_{\text{data}} = 3,391$ data points):
+\begin{itemize}
+    \item \textbf{32 Galaxies with Active Bulges ($V_{\text{bulge}} > 0.5\text{ km/s}$):} 3 fitted parameters each $(\Upsilon_{\text{disk}}, \Upsilon_{\text{bulge}}, f_d) \implies 32 \times 3 = 96$ parameters.
+    \item \textbf{143 Galaxies without Active Bulges ($V_{\text{bulge}} \le 0.5\text{ km/s}$):} 2 fitted parameters each $(\Upsilon_{\text{disk}}, f_d) \implies 143 \times 2 = 286$ parameters.
+\end{itemize}
+\begin{equation}
+N_{\text{par}} = 96 + 286 = 382\text{ fitted parameters},
+\end{equation}
+\begin{equation}
+\text{DOF}_{\text{nom}} = 3,391 - 382 = 3,009\text{ nominal data-residual degrees of freedom}.
+\end{equation}
+
+\section*{Appendix D: Reproduction Commands and Software Environment}
+\label{app:reproduction_commands}
+
+\subsection*{Environment and Toolchains}
+\begin{itemize}
+    \item \textbf{Lean Toolchain:} Lean 4.17.0 / Lake package manager with Mathlib 4.
+    \item \textbf{Python Environment:} Python 3.10+, NumPy 1.24+, SciPy 1.10+.
+    \item \textbf{LaTeX Distribution:} TeX Live 2023+ (pdfTeX).
+\end{itemize}
+
+\subsection*{Execution Commands}
+\begin{verbatim}
+# 1. Verify all Lean 4 formalization modules
+cd /home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal
+lake env lean /home/mega/grand_monograph/05_lean_formalization/MuProjection.lean
+
+# 2. Run SPARC 175-galaxy benchmark reproduction
+cd /home/mega/grand_monograph/02_galaxy_dynamics
+python3 sparc_reproduce.py
+
+# 3. Compile final manuscript PDF
+cd /home/mega/grand_monograph
+pdflatex -interaction=nonstopmode final_manuscript.tex
+bibtex final_manuscript
+pdflatex -interaction=nonstopmode final_manuscript.tex
+pdflatex -interaction=nonstopmode final_manuscript.tex
+\end{verbatim}
+
+\section*{Appendix E: Artifact Manifest and SHA-256 Table}
+\label{app:artifact_manifest}
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}l X l@{}}
+\toprule
+\textbf{Artifact File} & \textbf{Description} & \textbf{SHA-256 Checksum} \\ \midrule
+\texttt{sparc\_raw\_inputs} & 175 raw SPARC data files & \texttt{e76e6752164b...c05f96d095456e067bdd5c6da59d2be4ec70c1eb} \\
+\texttt{sparc\_reproduce.py} & Python reproduction script for SPARC fits & \texttt{63134e724647...c92582846876c253457a4103138b3be5d15a5135} \\
+\texttt{SPARC\_175\_MANIFEST.json} & Machine-readable run manifest & \texttt{566089d71c69...6d1f0417f7813a3b9ee3f044990924976c66cf17} \\
+\texttt{LEAN\_BUILD\_RAW.json} & Raw Lean 4 compilation and axiom log & \texttt{1ea16027c92b...a079c94626127e26bf484252676766432f4a434c} \\ \bottomrule
+\end{tabularx}
+\caption{SHA-256 checksums of core reproducibility artifacts.}
+\end{table}

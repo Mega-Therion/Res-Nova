@@ -1,0 +1,7 @@
+# JWST Recalibration Ledger
+
+| Object / Catalog | Baseline Inferred Quantity ($\Lambda$CDM) | ITT-Corrected Quantity | Equation / Code Path | Stated Uncertainty | Independent Validation Status |
+|---|---|---|---|---|---|
+| **JADES / CEERS Early Disks ($z > 8$)** | Over-massive stellar population ($M_* > 10^{10} M_\odot$), "impossible early galaxies" | Standard early stellar mass ($M_* \sim 10^8 M_\odot$) with apparent flux boost from optical tension $\mathcal{T}$ | $v_{\text{yett}} = v_{\text{newton}} \times (1 + 2/\chi)$ in `JWST_VALIDATION_DOSSIER.md` | $\pm 0.25$ dex in apparent magnitude | [O] Open — Not independently validated against spectroscopic baseline |
+| **COSMOS-Web Ultra-High Redshift ($z \approx 10-15$)** | Cosmological age tension: stars older than universe age at observed $z$ | Redshift-distance relation modified by effective metric $g_{\mu\nu}^{\text{opt}}$, restoring stellar age concordance | $1+z_{\text{obs}} = (1+z_{\text{cosm}})\cdot \mathcal{J}(\chi)$ in `IO_OI_FINAL_PAGE1.tex` | Systematic shift $\Delta z \approx 0.15 z$ | [C] Conjectured — Requires full spectroscopic slitless validation |
+| **Spitzer/HST/JWST Cross-Band Photometry** | Instrument-dependent flux calibration discrepancies | Unified AB magnitude reference frame with cross-instrument sensitivity maps | Normalization pass $C = \sum \omega_i \sigma_i$ in `TRINITY_CERTIFICATION_DOSSIER.md` | Claimed 5.9$\sigma$ convergence (on mixed/simulated sample) | [O] Open — Raw uncalibrated tables pending |

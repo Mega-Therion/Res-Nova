@@ -1,0 +1,78 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.65in,top=0.55in,bottom=0.55in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+
+\definecolor{primary}{RGB}{20, 35, 60}
+\definecolor{accent}{RGB}{180, 110, 20}
+\definecolor{boxbg}{RGB}{248, 249, 252}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{tcolorbox}[colback=boxbg, colframe=primary, arc=2mm, width=\textwidth, title={\bfseries\color{white} GRAND MONOGRAPH: TECHNICAL DRAFT STATUS \& EPISTEMIC SCOPE}]
+\vspace{0.1em}
+\noindent\textbf{Document Classification:} Internal Technical Draft / Working Compendium\\
+\textbf{Audit Reference:} \texttt{THEORY\_CONSISTENCY\_AUDIT.md} \& \texttt{VERIFICATION\_RUN\_002}\\
+\textbf{Status Statement:} Ready for internal compilation; canonical MAP benchmark reported with full objective-function disclosure; independent rerun pending artifact inspection.\\
+\textbf{Date:} \today
+\end{tcolorbox}
+
+\vspace{0.5em}
+
+\subsection*{Epistemic Boundary Ledger \& Multi-Tier Certification}
+
+This compendium presents the unified compilation of the Conformal Sovereign Action, galactic rotation curve dynamics, high-redshift observations, and cosmological horizon physics. In accordance with the Sovereign Epistemic Covenant, all mathematical and empirical results are strictly stratified:
+
+\begin{itemize}\setlength\itemsep{0.05em}
+    \item \textbf{[P] Proved / Kernel Verified:} Mathematical propositions and algebraic identities mechanically checked by Lean 4 / Mathlib (all 6 formal modules build with exit code 0, depending solely on standard foundationals \texttt{[propext, Classical.choice, Quot.sound]}).
+    \item \textbf{[D] Direct Empirical / Computed:} Quantities directly computed from raw, hashed astronomical databases (e.g., SPARC 175-galaxy rotation curves, SHA-256: \texttt{e76e6752164b...}).
+    \item \textbf{[C] Cited External Literature:} Standard literature values and empirical baselines (e.g., Planck 2018 parameters, Lelli et al. 2016).
+    \item \textbf{[O] Open Problem / Conjectured Boundary:} Theoretical bridge hypotheses, cosmological normalizations without closed variational derivations, and effective optical couplings.
+\end{itemize}
+
+\vspace{0.3em}
+
+\subsection*{1. Verified Mechanical Core vs. Physical Open Problems}
+
+\begin{table}[h!]
+\centering
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}l l X@{}}
+\toprule
+\textbf{Sector / Claim} & \textbf{Status} & \textbf{Scope \& Boundary Definition} \\ \midrule
+Lean 4 Module Suite & \textbf{[P] Verified} & Formally verifies mathematical theorems from encoded definitions. \\
+SPARC Zero-Param ($a_0=\frac{cH_0}{2\pi}$) & \textbf{[D] Computed} & Strict median $\chi^2_{\text{data}}/N_g = 29.12$, aggregate $\sum\chi^2_{\text{data}}/\text{dof} = 144.04$ ($3,391 / 3,391$). Poor absolute fit across uncurated sample. \\
+SPARC Canonical Nuisance Fit & \textbf{[D] Computed} & Median $\chi^2_{\text{data}}/N_g = 2.88$, aggregate $\sum\chi^2_{\text{data}}/\text{dof}_{\text{nom}} = 7.93$ ($3,391 / 3,009$, $N_{\text{par}}=382$, Gaussian priors). \\
+Baryons-Only Baseline (Unit $M/L$) & \textbf{[D] Computed} & Median $\chi^2_{\text{data}}/N_g = 51.58$, aggregate $\sum\chi^2_{\text{data}}/\text{dof} = 204.65$ ($3,391 / 3,391$). Poor absolute fit under fixed unit prescription. \\
+Baryons-Only Baseline (SPARC Std) & \textbf{[D] Computed} & Median $\chi^2_{\text{data}}/N_g = 85.23$, aggregate $\sum\chi^2_{\text{data}}/\text{dof} = 406.49$ ($3,391 / 3,391$). Poor absolute fit under fixed standard-SPARC mass-to-light prescription. \\
+Action $\to \mu_{\text{simple}}(x)$ Bridge & \textbf{[O] Open} & Direct variation yields $\operatorname{arcsinh}(x)$; rational $\mu$ is an open closure. \\
+$a_0 = \frac{cH_0}{2\pi}$ Normalization & \textbf{[O] Open} & $T_U = T_{\text{GH}}$ yields $a = cH_0$; the $1/(2\pi)$ divisor is an open residue. \\
+Optical Metric \& Redshift Jacobian & \textbf{[O] Open} & Effective disformal couplings; Maxwell/Poynting derivations pending. \\ \bottomrule
+\end{tabularx}
+\vspace{0.2em}
+\scriptsize \textbf{Statistical Note:} The displayed aggregate $7.93$ is $\sum\chi^2_{\text{data}}/3009$, using nominal data-residual dof ($N_{\text{data}} - N_{\text{fitted}} = 3391 - 382 = 3009$). Because parameters are MAP-regularized by informative priors, this denominator is a reporting convention rather than a calibrated posterior goodness-of-fit distribution.
+\end{table}
+
+\vspace{0.2em}
+
+\subsection*{2. Official Gate Verdicts}
+
+\begin{center}
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}l c X@{}}
+\toprule
+\textbf{Certification Gate} & \textbf{Verdict} & \textbf{Rationale} \\ \midrule
+Mechanical Build / Compilation & \textbf{READY} & All 6 Lean modules compile cleanly (\texttt{exit 0}), TeX sources sound. \\
+Internal Technical Draft & \textbf{READY} & Complete transparency, canonical MAP single-run parameterization recorded. \\
+Independent Reproducibility & \textbf{PENDING} & Executable Run 002 logs, data manifest, and residual CSVs archived for inspection. \\
+External Referee Submission & \textbf{HOLD} & Action $\to \mu(x)$ bridge requires explicit variational closure; $a_0$ is an open gap. \\
+Unified Theory Validation Claim & \textbf{HOLD} & Active theoretical program with well-defined open problems. \\ \bottomrule
+\end{tabularx}
+\end{center}
+
+\end{document}

@@ -1,0 +1,1587 @@
+{
+  "n_galaxies": 175,
+  "total_chi2_itt": 488451.3685147002,
+  "total_chi2_baryons": 693952.9190061911,
+  "total_dof": 3391,
+  "aggregate_chi2_dof_itt": 144.04345871857865,
+  "aggregate_chi2_dof_bary": 204.64550840642616,
+  "median_chi2_N_itt": 29.1241,
+  "mean_chi2_N_itt": 100.40343657142857,
+  "per_galaxy": [
+    {
+      "id": "CamB",
+      "n": 9,
+      "chi2_itt": 1406.4143,
+      "chi2_baryons_only": 85.2602,
+      "dof": 9,
+      "chi2_red_itt": 156.2683,
+      "chi2_red_bary": 9.4734
+    },
+    {
+      "id": "D512-2",
+      "n": 4,
+      "chi2_itt": 40.8914,
+      "chi2_baryons_only": 44.4258,
+      "dof": 4,
+      "chi2_red_itt": 10.2229,
+      "chi2_red_bary": 11.1064
+    },
+    {
+      "id": "D564-8",
+      "n": 6,
+      "chi2_itt": 174.7448,
+      "chi2_baryons_only": 171.0847,
+      "dof": 6,
+      "chi2_red_itt": 29.1241,
+      "chi2_red_bary": 28.5141
+    },
+    {
+      "id": "D631-7",
+      "n": 16,
+      "chi2_itt": 658.8864,
+      "chi2_baryons_only": 1408.0997,
+      "dof": 16,
+      "chi2_red_itt": 41.1804,
+      "chi2_red_bary": 88.0062
+    },
+    {
+      "id": "DDO064",
+      "n": 14,
+      "chi2_itt": 18.3149,
+      "chi2_baryons_only": 117.3247,
+      "dof": 14,
+      "chi2_red_itt": 1.3082,
+      "chi2_red_bary": 8.3803
+    },
+    {
+      "id": "DDO154",
+      "n": 12,
+      "chi2_itt": 309.9802,
+      "chi2_baryons_only": 5837.2786,
+      "dof": 12,
+      "chi2_red_itt": 25.8317,
+      "chi2_red_bary": 486.4399
+    },
+    {
+      "id": "DDO161",
+      "n": 31,
+      "chi2_itt": 4588.5836,
+      "chi2_baryons_only": 8842.6035,
+      "dof": 31,
+      "chi2_red_itt": 148.0188,
+      "chi2_red_bary": 285.2453
+    },
+    {
+      "id": "DDO168",
+      "n": 10,
+      "chi2_itt": 392.0404,
+      "chi2_baryons_only": 1249.1038,
+      "dof": 10,
+      "chi2_red_itt": 39.204,
+      "chi2_red_bary": 124.9104
+    },
+    {
+      "id": "DDO170",
+      "n": 8,
+      "chi2_itt": 1452.5885,
+      "chi2_baryons_only": 3927.7522,
+      "dof": 8,
+      "chi2_red_itt": 181.5736,
+      "chi2_red_bary": 490.969
+    },
+    {
+      "id": "ESO079-G014",
+      "n": 15,
+      "chi2_itt": 601.3859,
+      "chi2_baryons_only": 1654.38,
+      "dof": 15,
+      "chi2_red_itt": 40.0924,
+      "chi2_red_bary": 110.292
+    },
+    {
+      "id": "ESO116-G012",
+      "n": 15,
+      "chi2_itt": 112.0521,
+      "chi2_baryons_only": 2783.6586,
+      "dof": 15,
+      "chi2_red_itt": 7.4701,
+      "chi2_red_bary": 185.5772
+    },
+    {
+      "id": "ESO444-G084",
+      "n": 7,
+      "chi2_itt": 174.8087,
+      "chi2_baryons_only": 1807.7727,
+      "dof": 7,
+      "chi2_red_itt": 24.9727,
+      "chi2_red_bary": 258.2532
+    },
+    {
+      "id": "ESO563-G021",
+      "n": 30,
+      "chi2_itt": 664.7098,
+      "chi2_baryons_only": 1805.2605,
+      "dof": 30,
+      "chi2_red_itt": 22.157,
+      "chi2_red_bary": 60.1754
+    },
+    {
+      "id": "F561-1",
+      "n": 6,
+      "chi2_itt": 401.883,
+      "chi2_baryons_only": 3.7274,
+      "dof": 6,
+      "chi2_red_itt": 66.9805,
+      "chi2_red_bary": 0.6212
+    },
+    {
+      "id": "F563-1",
+      "n": 17,
+      "chi2_itt": 29.305,
+      "chi2_baryons_only": 453.4335,
+      "dof": 17,
+      "chi2_red_itt": 1.7238,
+      "chi2_red_bary": 26.6726
+    },
+    {
+      "id": "F563-V1",
+      "n": 6,
+      "chi2_itt": 272.1883,
+      "chi2_baryons_only": 0.8705,
+      "dof": 6,
+      "chi2_red_itt": 45.3647,
+      "chi2_red_bary": 0.1451
+    },
+    {
+      "id": "F563-V2",
+      "n": 10,
+      "chi2_itt": 21.236,
+      "chi2_baryons_only": 163.9413,
+      "dof": 10,
+      "chi2_red_itt": 2.1236,
+      "chi2_red_bary": 16.3941
+    },
+    {
+      "id": "F565-V2",
+      "n": 7,
+      "chi2_itt": 4.3085,
+      "chi2_baryons_only": 259.9151,
+      "dof": 7,
+      "chi2_red_itt": 0.6155,
+      "chi2_red_bary": 37.1307
+    },
+    {
+      "id": "F567-2",
+      "n": 5,
+      "chi2_itt": 77.1287,
+      "chi2_baryons_only": 17.7389,
+      "dof": 5,
+      "chi2_red_itt": 15.4257,
+      "chi2_red_bary": 3.5478
+    },
+    {
+      "id": "F568-1",
+      "n": 12,
+      "chi2_itt": 39.211,
+      "chi2_baryons_only": 345.2185,
+      "dof": 12,
+      "chi2_red_itt": 3.2676,
+      "chi2_red_bary": 28.7682
+    },
+    {
+      "id": "F568-3",
+      "n": 18,
+      "chi2_itt": 126.6527,
+      "chi2_baryons_only": 273.7192,
+      "dof": 18,
+      "chi2_red_itt": 7.0363,
+      "chi2_red_bary": 15.2066
+    },
+    {
+      "id": "F568-V1",
+      "n": 15,
+      "chi2_itt": 59.3479,
+      "chi2_baryons_only": 473.5293,
+      "dof": 15,
+      "chi2_red_itt": 3.9565,
+      "chi2_red_bary": 31.5686
+    },
+    {
+      "id": "F571-8",
+      "n": 13,
+      "chi2_itt": 937.8986,
+      "chi2_baryons_only": 1600.7566,
+      "dof": 13,
+      "chi2_red_itt": 72.146,
+      "chi2_red_bary": 123.1351
+    },
+    {
+      "id": "F571-V1",
+      "n": 7,
+      "chi2_itt": 18.4509,
+      "chi2_baryons_only": 206.2281,
+      "dof": 7,
+      "chi2_red_itt": 2.6358,
+      "chi2_red_bary": 29.4612
+    },
+    {
+      "id": "F574-1",
+      "n": 14,
+      "chi2_itt": 50.4596,
+      "chi2_baryons_only": 889.9511,
+      "dof": 14,
+      "chi2_red_itt": 3.6043,
+      "chi2_red_bary": 63.5679
+    },
+    {
+      "id": "F574-2",
+      "n": 5,
+      "chi2_itt": 160.439,
+      "chi2_baryons_only": 3.357,
+      "dof": 5,
+      "chi2_red_itt": 32.0878,
+      "chi2_red_bary": 0.6714
+    },
+    {
+      "id": "F579-V1",
+      "n": 14,
+      "chi2_itt": 32.4266,
+      "chi2_baryons_only": 192.0979,
+      "dof": 14,
+      "chi2_red_itt": 2.3162,
+      "chi2_red_bary": 13.7213
+    },
+    {
+      "id": "F583-1",
+      "n": 25,
+      "chi2_itt": 45.6607,
+      "chi2_baryons_only": 905.9755,
+      "dof": 25,
+      "chi2_red_itt": 1.8264,
+      "chi2_red_bary": 36.239
+    },
+    {
+      "id": "F583-4",
+      "n": 12,
+      "chi2_itt": 116.3118,
+      "chi2_baryons_only": 209.2957,
+      "dof": 12,
+      "chi2_red_itt": 9.6926,
+      "chi2_red_bary": 17.4413
+    },
+    {
+      "id": "IC2574",
+      "n": 34,
+      "chi2_itt": 4987.9388,
+      "chi2_baryons_only": 3566.1704,
+      "dof": 34,
+      "chi2_red_itt": 146.7041,
+      "chi2_red_bary": 104.8874
+    },
+    {
+      "id": "IC4202",
+      "n": 32,
+      "chi2_itt": 3418.5935,
+      "chi2_baryons_only": 1850.474,
+      "dof": 32,
+      "chi2_red_itt": 106.831,
+      "chi2_red_bary": 57.8273
+    },
+    {
+      "id": "KK98-251",
+      "n": 15,
+      "chi2_itt": 514.6231,
+      "chi2_baryons_only": 228.241,
+      "dof": 15,
+      "chi2_red_itt": 34.3082,
+      "chi2_red_bary": 15.2161
+    },
+    {
+      "id": "NGC0024",
+      "n": 29,
+      "chi2_itt": 52.3382,
+      "chi2_baryons_only": 1588.6853,
+      "dof": 29,
+      "chi2_red_itt": 1.8048,
+      "chi2_red_bary": 54.7823
+    },
+    {
+      "id": "NGC0055",
+      "n": 21,
+      "chi2_itt": 1830.4291,
+      "chi2_baryons_only": 1074.0388,
+      "dof": 21,
+      "chi2_red_itt": 87.1633,
+      "chi2_red_bary": 51.1447
+    },
+    {
+      "id": "NGC0100",
+      "n": 21,
+      "chi2_itt": 271.9562,
+      "chi2_baryons_only": 473.5003,
+      "dof": 21,
+      "chi2_red_itt": 12.9503,
+      "chi2_red_bary": 22.5476
+    },
+    {
+      "id": "NGC0247",
+      "n": 26,
+      "chi2_itt": 691.2795,
+      "chi2_baryons_only": 3366.9564,
+      "dof": 26,
+      "chi2_red_itt": 26.5877,
+      "chi2_red_bary": 129.4983
+    },
+    {
+      "id": "NGC0289",
+      "n": 28,
+      "chi2_itt": 1277.0051,
+      "chi2_baryons_only": 2037.1472,
+      "dof": 28,
+      "chi2_red_itt": 45.6073,
+      "chi2_red_bary": 72.7553
+    },
+    {
+      "id": "NGC0300",
+      "n": 25,
+      "chi2_itt": 122.599,
+      "chi2_baryons_only": 2506.837,
+      "dof": 25,
+      "chi2_red_itt": 4.904,
+      "chi2_red_bary": 100.2735
+    },
+    {
+      "id": "NGC0801",
+      "n": 13,
+      "chi2_itt": 5460.5158,
+      "chi2_baryons_only": 686.6402,
+      "dof": 13,
+      "chi2_red_itt": 420.0397,
+      "chi2_red_bary": 52.8185
+    },
+    {
+      "id": "NGC0891",
+      "n": 18,
+      "chi2_itt": 10402.2382,
+      "chi2_baryons_only": 3702.4594,
+      "dof": 18,
+      "chi2_red_itt": 577.9021,
+      "chi2_red_bary": 205.6922
+    },
+    {
+      "id": "NGC1003",
+      "n": 36,
+      "chi2_itt": 2152.1085,
+      "chi2_baryons_only": 15107.9743,
+      "dof": 36,
+      "chi2_red_itt": 59.7808,
+      "chi2_red_bary": 419.666
+    },
+    {
+      "id": "NGC1090",
+      "n": 24,
+      "chi2_itt": 6430.0998,
+      "chi2_baryons_only": 2278.5321,
+      "dof": 24,
+      "chi2_red_itt": 267.9208,
+      "chi2_red_bary": 94.9388
+    },
+    {
+      "id": "NGC1705",
+      "n": 14,
+      "chi2_itt": 71.7418,
+      "chi2_baryons_only": 922.9765,
+      "dof": 14,
+      "chi2_red_itt": 5.1244,
+      "chi2_red_bary": 65.9269
+    },
+    {
+      "id": "NGC2366",
+      "n": 26,
+      "chi2_itt": 1081.3346,
+      "chi2_baryons_only": 1674.4881,
+      "dof": 26,
+      "chi2_red_itt": 41.5898,
+      "chi2_red_bary": 64.4034
+    },
+    {
+      "id": "NGC2403",
+      "n": 73,
+      "chi2_itt": 8380.7164,
+      "chi2_baryons_only": 33375.6546,
+      "dof": 73,
+      "chi2_red_itt": 114.8043,
+      "chi2_red_bary": 457.2007
+    },
+    {
+      "id": "NGC2683",
+      "n": 11,
+      "chi2_itt": 440.5136,
+      "chi2_baryons_only": 136.7851,
+      "dof": 11,
+      "chi2_red_itt": 40.0467,
+      "chi2_red_bary": 12.435
+    },
+    {
+      "id": "NGC2841",
+      "n": 50,
+      "chi2_itt": 329.8685,
+      "chi2_baryons_only": 20497.6736,
+      "dof": 50,
+      "chi2_red_itt": 6.5974,
+      "chi2_red_bary": 409.9535
+    },
+    {
+      "id": "NGC2903",
+      "n": 34,
+      "chi2_itt": 21710.3475,
+      "chi2_baryons_only": 7660.3509,
+      "dof": 34,
+      "chi2_red_itt": 638.5396,
+      "chi2_red_bary": 225.3044
+    },
+    {
+      "id": "NGC2915",
+      "n": 30,
+      "chi2_itt": 160.4409,
+      "chi2_baryons_only": 1501.8842,
+      "dof": 30,
+      "chi2_red_itt": 5.348,
+      "chi2_red_bary": 50.0628
+    },
+    {
+      "id": "NGC2955",
+      "n": 24,
+      "chi2_itt": 2983.2248,
+      "chi2_baryons_only": 1386.1382,
+      "dof": 24,
+      "chi2_red_itt": 124.301,
+      "chi2_red_bary": 57.7558
+    },
+    {
+      "id": "NGC2976",
+      "n": 27,
+      "chi2_itt": 775.459,
+      "chi2_baryons_only": 28.2704,
+      "dof": 27,
+      "chi2_red_itt": 28.7207,
+      "chi2_red_bary": 1.0471
+    },
+    {
+      "id": "NGC2998",
+      "n": 13,
+      "chi2_itt": 2578.01,
+      "chi2_baryons_only": 2009.129,
+      "dof": 13,
+      "chi2_red_itt": 198.3085,
+      "chi2_red_bary": 154.5484
+    },
+    {
+      "id": "NGC3109",
+      "n": 25,
+      "chi2_itt": 156.3876,
+      "chi2_baryons_only": 3121.1172,
+      "dof": 25,
+      "chi2_red_itt": 6.2555,
+      "chi2_red_bary": 124.8447
+    },
+    {
+      "id": "NGC3198",
+      "n": 43,
+      "chi2_itt": 9382.7078,
+      "chi2_baryons_only": 12645.2392,
+      "dof": 43,
+      "chi2_red_itt": 218.2025,
+      "chi2_red_bary": 294.0753
+    },
+    {
+      "id": "NGC3521",
+      "n": 41,
+      "chi2_itt": 1809.0985,
+      "chi2_baryons_only": 1205.6354,
+      "dof": 41,
+      "chi2_red_itt": 44.1244,
+      "chi2_red_bary": 29.4057
+    },
+    {
+      "id": "NGC3726",
+      "n": 12,
+      "chi2_itt": 1714.2062,
+      "chi2_baryons_only": 257.3266,
+      "dof": 12,
+      "chi2_red_itt": 142.8505,
+      "chi2_red_bary": 21.4439
+    },
+    {
+      "id": "NGC3741",
+      "n": 21,
+      "chi2_itt": 64.3884,
+      "chi2_baryons_only": 2401.3262,
+      "dof": 21,
+      "chi2_red_itt": 3.0661,
+      "chi2_red_bary": 114.3489
+    },
+    {
+      "id": "NGC3769",
+      "n": 12,
+      "chi2_itt": 401.5923,
+      "chi2_baryons_only": 267.8811,
+      "dof": 12,
+      "chi2_red_itt": 33.466,
+      "chi2_red_bary": 22.3234
+    },
+    {
+      "id": "NGC3877",
+      "n": 13,
+      "chi2_itt": 1446.4122,
+      "chi2_baryons_only": 278.2138,
+      "dof": 13,
+      "chi2_red_itt": 111.2625,
+      "chi2_red_bary": 21.4011
+    },
+    {
+      "id": "NGC3893",
+      "n": 10,
+      "chi2_itt": 379.2158,
+      "chi2_baryons_only": 167.3619,
+      "dof": 10,
+      "chi2_red_itt": 37.9216,
+      "chi2_red_bary": 16.7362
+    },
+    {
+      "id": "NGC3917",
+      "n": 17,
+      "chi2_itt": 584.7756,
+      "chi2_baryons_only": 636.6436,
+      "dof": 17,
+      "chi2_red_itt": 34.3986,
+      "chi2_red_bary": 37.4496
+    },
+    {
+      "id": "NGC3949",
+      "n": 7,
+      "chi2_itt": 467.2255,
+      "chi2_baryons_only": 196.6137,
+      "dof": 7,
+      "chi2_red_itt": 66.7465,
+      "chi2_red_bary": 28.0877
+    },
+    {
+      "id": "NGC3953",
+      "n": 8,
+      "chi2_itt": 715.8159,
+      "chi2_baryons_only": 69.0729,
+      "dof": 8,
+      "chi2_red_itt": 89.477,
+      "chi2_red_bary": 8.6341
+    },
+    {
+      "id": "NGC3972",
+      "n": 10,
+      "chi2_itt": 149.9214,
+      "chi2_baryons_only": 186.3231,
+      "dof": 10,
+      "chi2_red_itt": 14.9921,
+      "chi2_red_bary": 18.6323
+    },
+    {
+      "id": "NGC3992",
+      "n": 9,
+      "chi2_itt": 328.4662,
+      "chi2_baryons_only": 591.9175,
+      "dof": 9,
+      "chi2_red_itt": 36.4962,
+      "chi2_red_bary": 65.7686
+    },
+    {
+      "id": "NGC4010",
+      "n": 12,
+      "chi2_itt": 390.5533,
+      "chi2_baryons_only": 155.1318,
+      "dof": 12,
+      "chi2_red_itt": 32.5461,
+      "chi2_red_bary": 12.9277
+    },
+    {
+      "id": "NGC4013",
+      "n": 36,
+      "chi2_itt": 3881.3804,
+      "chi2_baryons_only": 2146.4852,
+      "dof": 36,
+      "chi2_red_itt": 107.8161,
+      "chi2_red_bary": 59.6246
+    },
+    {
+      "id": "NGC4051",
+      "n": 7,
+      "chi2_itt": 596.7298,
+      "chi2_baryons_only": 104.7054,
+      "dof": 7,
+      "chi2_red_itt": 85.2471,
+      "chi2_red_bary": 14.9579
+    },
+    {
+      "id": "NGC4068",
+      "n": 6,
+      "chi2_itt": 285.3516,
+      "chi2_baryons_only": 27.2257,
+      "dof": 6,
+      "chi2_red_itt": 47.5586,
+      "chi2_red_bary": 4.5376
+    },
+    {
+      "id": "NGC4085",
+      "n": 7,
+      "chi2_itt": 677.3864,
+      "chi2_baryons_only": 219.1782,
+      "dof": 7,
+      "chi2_red_itt": 96.7695,
+      "chi2_red_bary": 31.3112
+    },
+    {
+      "id": "NGC4088",
+      "n": 12,
+      "chi2_itt": 2123.5729,
+      "chi2_baryons_only": 619.0068,
+      "dof": 12,
+      "chi2_red_itt": 176.9644,
+      "chi2_red_bary": 51.5839
+    },
+    {
+      "id": "NGC4100",
+      "n": 24,
+      "chi2_itt": 863.8974,
+      "chi2_baryons_only": 538.9521,
+      "dof": 24,
+      "chi2_red_itt": 35.9957,
+      "chi2_red_bary": 22.4563
+    },
+    {
+      "id": "NGC4138",
+      "n": 7,
+      "chi2_itt": 76.7012,
+      "chi2_baryons_only": 29.0065,
+      "dof": 7,
+      "chi2_red_itt": 10.9573,
+      "chi2_red_bary": 4.1438
+    },
+    {
+      "id": "NGC4157",
+      "n": 17,
+      "chi2_itt": 1443.0639,
+      "chi2_baryons_only": 360.6636,
+      "dof": 17,
+      "chi2_red_itt": 84.8861,
+      "chi2_red_bary": 21.2155
+    },
+    {
+      "id": "NGC4183",
+      "n": 23,
+      "chi2_itt": 361.0256,
+      "chi2_baryons_only": 799.6446,
+      "dof": 23,
+      "chi2_red_itt": 15.6968,
+      "chi2_red_bary": 34.7672
+    },
+    {
+      "id": "NGC4214",
+      "n": 14,
+      "chi2_itt": 19.6383,
+      "chi2_baryons_only": 354.1152,
+      "dof": 14,
+      "chi2_red_itt": 1.4027,
+      "chi2_red_bary": 25.2939
+    },
+    {
+      "id": "NGC4217",
+      "n": 19,
+      "chi2_itt": 2938.2859,
+      "chi2_baryons_only": 1595.2946,
+      "dof": 19,
+      "chi2_red_itt": 154.6466,
+      "chi2_red_bary": 83.9629
+    },
+    {
+      "id": "NGC4389",
+      "n": 6,
+      "chi2_itt": 916.7163,
+      "chi2_baryons_only": 479.2147,
+      "dof": 6,
+      "chi2_red_itt": 152.786,
+      "chi2_red_bary": 79.8691
+    },
+    {
+      "id": "NGC4559",
+      "n": 32,
+      "chi2_itt": 2067.6388,
+      "chi2_baryons_only": 789.7056,
+      "dof": 32,
+      "chi2_red_itt": 64.6137,
+      "chi2_red_bary": 24.6783
+    },
+    {
+      "id": "NGC5005",
+      "n": 18,
+      "chi2_itt": 384.4823,
+      "chi2_baryons_only": 251.4165,
+      "dof": 18,
+      "chi2_red_itt": 21.3601,
+      "chi2_red_bary": 13.9676
+    },
+    {
+      "id": "NGC5033",
+      "n": 22,
+      "chi2_itt": 2189.0508,
+      "chi2_baryons_only": 8013.52,
+      "dof": 22,
+      "chi2_red_itt": 99.5023,
+      "chi2_red_bary": 364.2509
+    },
+    {
+      "id": "NGC5055",
+      "n": 28,
+      "chi2_itt": 95202.9068,
+      "chi2_baryons_only": 44575.167,
+      "dof": 28,
+      "chi2_red_itt": 3400.1038,
+      "chi2_red_bary": 1591.9703
+    },
+    {
+      "id": "NGC5371",
+      "n": 19,
+      "chi2_itt": 17089.7451,
+      "chi2_baryons_only": 2412.5446,
+      "dof": 19,
+      "chi2_red_itt": 899.4603,
+      "chi2_red_bary": 126.976
+    },
+    {
+      "id": "NGC5585",
+      "n": 24,
+      "chi2_itt": 2954.5971,
+      "chi2_baryons_only": 4179.1299,
+      "dof": 24,
+      "chi2_red_itt": 123.1082,
+      "chi2_red_bary": 174.1304
+    },
+    {
+      "id": "NGC5907",
+      "n": 19,
+      "chi2_itt": 7517.9989,
+      "chi2_baryons_only": 4802.4148,
+      "dof": 19,
+      "chi2_red_itt": 395.6842,
+      "chi2_red_bary": 252.7587
+    },
+    {
+      "id": "NGC5985",
+      "n": 33,
+      "chi2_itt": 727.3672,
+      "chi2_baryons_only": 8469.008,
+      "dof": 33,
+      "chi2_red_itt": 22.0414,
+      "chi2_red_bary": 256.6366
+    },
+    {
+      "id": "NGC6015",
+      "n": 44,
+      "chi2_itt": 3120.3994,
+      "chi2_baryons_only": 4753.1675,
+      "dof": 44,
+      "chi2_red_itt": 70.9182,
+      "chi2_red_bary": 108.0265
+    },
+    {
+      "id": "NGC6195",
+      "n": 23,
+      "chi2_itt": 4703.8556,
+      "chi2_baryons_only": 1354.4576,
+      "dof": 23,
+      "chi2_red_itt": 204.5155,
+      "chi2_red_bary": 58.8895
+    },
+    {
+      "id": "NGC6503",
+      "n": 31,
+      "chi2_itt": 5741.768,
+      "chi2_baryons_only": 25645.0689,
+      "dof": 31,
+      "chi2_red_itt": 185.2183,
+      "chi2_red_bary": 827.2603
+    },
+    {
+      "id": "NGC6674",
+      "n": 15,
+      "chi2_itt": 2061.0361,
+      "chi2_baryons_only": 15435.4532,
+      "dof": 15,
+      "chi2_red_itt": 137.4024,
+      "chi2_red_bary": 1029.0302
+    },
+    {
+      "id": "NGC6789",
+      "n": 4,
+      "chi2_itt": 13.1714,
+      "chi2_baryons_only": 57.5114,
+      "dof": 4,
+      "chi2_red_itt": 3.2929,
+      "chi2_red_bary": 14.3778
+    },
+    {
+      "id": "NGC6946",
+      "n": 58,
+      "chi2_itt": 27898.568,
+      "chi2_baryons_only": 5002.157,
+      "dof": 58,
+      "chi2_red_itt": 481.0098,
+      "chi2_red_bary": 86.2441
+    },
+    {
+      "id": "NGC7331",
+      "n": 36,
+      "chi2_itt": 17761.6293,
+      "chi2_baryons_only": 5836.34,
+      "dof": 36,
+      "chi2_red_itt": 493.3786,
+      "chi2_red_bary": 162.1206
+    },
+    {
+      "id": "NGC7793",
+      "n": 46,
+      "chi2_itt": 517.3817,
+      "chi2_baryons_only": 116.8925,
+      "dof": 46,
+      "chi2_red_itt": 11.2474,
+      "chi2_red_bary": 2.5411
+    },
+    {
+      "id": "NGC7814",
+      "n": 18,
+      "chi2_itt": 310.3093,
+      "chi2_baryons_only": 2811.539,
+      "dof": 18,
+      "chi2_red_itt": 17.2394,
+      "chi2_red_bary": 156.1966
+    },
+    {
+      "id": "PGC51017",
+      "n": 6,
+      "chi2_itt": 1041.4158,
+      "chi2_baryons_only": 19.4669,
+      "dof": 6,
+      "chi2_red_itt": 173.5693,
+      "chi2_red_bary": 3.2445
+    },
+    {
+      "id": "UGC00128",
+      "n": 22,
+      "chi2_itt": 2254.0341,
+      "chi2_baryons_only": 54677.4577,
+      "dof": 22,
+      "chi2_red_itt": 102.4561,
+      "chi2_red_bary": 2485.339
+    },
+    {
+      "id": "UGC00191",
+      "n": 9,
+      "chi2_itt": 472.7538,
+      "chi2_baryons_only": 3196.3941,
+      "dof": 9,
+      "chi2_red_itt": 52.5282,
+      "chi2_red_bary": 355.1549
+    },
+    {
+      "id": "UGC00634",
+      "n": 4,
+      "chi2_itt": 24.5212,
+      "chi2_baryons_only": 4690.2385,
+      "dof": 4,
+      "chi2_red_itt": 6.1303,
+      "chi2_red_bary": 1172.5596
+    },
+    {
+      "id": "UGC00731",
+      "n": 12,
+      "chi2_itt": 137.4369,
+      "chi2_baryons_only": 2089.646,
+      "dof": 12,
+      "chi2_red_itt": 11.4531,
+      "chi2_red_bary": 174.1372
+    },
+    {
+      "id": "UGC00891",
+      "n": 5,
+      "chi2_itt": 230.0171,
+      "chi2_baryons_only": 3115.2161,
+      "dof": 5,
+      "chi2_red_itt": 46.0034,
+      "chi2_red_bary": 623.0432
+    },
+    {
+      "id": "UGC01230",
+      "n": 11,
+      "chi2_itt": 41.3697,
+      "chi2_baryons_only": 168.8446,
+      "dof": 11,
+      "chi2_red_itt": 3.7609,
+      "chi2_red_bary": 15.3495
+    },
+    {
+      "id": "UGC01281",
+      "n": 25,
+      "chi2_itt": 63.1715,
+      "chi2_baryons_only": 432.6345,
+      "dof": 25,
+      "chi2_red_itt": 2.5269,
+      "chi2_red_bary": 17.3054
+    },
+    {
+      "id": "UGC02023",
+      "n": 5,
+      "chi2_itt": 29.9712,
+      "chi2_baryons_only": 5.1807,
+      "dof": 5,
+      "chi2_red_itt": 5.9942,
+      "chi2_red_bary": 1.0361
+    },
+    {
+      "id": "UGC02259",
+      "n": 8,
+      "chi2_itt": 60.507,
+      "chi2_baryons_only": 3456.0906,
+      "dof": 8,
+      "chi2_red_itt": 7.5634,
+      "chi2_red_bary": 432.0113
+    },
+    {
+      "id": "UGC02455",
+      "n": 8,
+      "chi2_itt": 1978.8534,
+      "chi2_baryons_only": 755.7111,
+      "dof": 8,
+      "chi2_red_itt": 247.3567,
+      "chi2_red_bary": 94.4639
+    },
+    {
+      "id": "UGC02487",
+      "n": 17,
+      "chi2_itt": 92.5686,
+      "chi2_baryons_only": 22944.5671,
+      "dof": 17,
+      "chi2_red_itt": 5.4452,
+      "chi2_red_bary": 1349.6804
+    },
+    {
+      "id": "UGC02885",
+      "n": 19,
+      "chi2_itt": 355.5585,
+      "chi2_baryons_only": 913.9792,
+      "dof": 19,
+      "chi2_red_itt": 18.7136,
+      "chi2_red_bary": 48.1042
+    },
+    {
+      "id": "UGC02916",
+      "n": 43,
+      "chi2_itt": 22458.9108,
+      "chi2_baryons_only": 10156.5206,
+      "dof": 43,
+      "chi2_red_itt": 522.3003,
+      "chi2_red_bary": 236.1982
+    },
+    {
+      "id": "UGC02953",
+      "n": 115,
+      "chi2_itt": 29239.032,
+      "chi2_baryons_only": 51665.5623,
+      "dof": 115,
+      "chi2_red_itt": 254.2525,
+      "chi2_red_bary": 449.2658
+    },
+    {
+      "id": "UGC03205",
+      "n": 48,
+      "chi2_itt": 3408.2194,
+      "chi2_baryons_only": 7923.8771,
+      "dof": 48,
+      "chi2_red_itt": 71.0046,
+      "chi2_red_bary": 165.0808
+    },
+    {
+      "id": "UGC03546",
+      "n": 30,
+      "chi2_itt": 12154.5474,
+      "chi2_baryons_only": 2190.1373,
+      "dof": 30,
+      "chi2_red_itt": 405.1516,
+      "chi2_red_bary": 73.0046
+    },
+    {
+      "id": "UGC03580",
+      "n": 47,
+      "chi2_itt": 13993.363,
+      "chi2_baryons_only": 14681.8423,
+      "dof": 47,
+      "chi2_red_itt": 297.7311,
+      "chi2_red_bary": 312.3796
+    },
+    {
+      "id": "UGC04278",
+      "n": 25,
+      "chi2_itt": 105.592,
+      "chi2_baryons_only": 789.474,
+      "dof": 25,
+      "chi2_red_itt": 4.2237,
+      "chi2_red_bary": 31.579
+    },
+    {
+      "id": "UGC04305",
+      "n": 22,
+      "chi2_itt": 2116.3708,
+      "chi2_baryons_only": 51.495,
+      "dof": 22,
+      "chi2_red_itt": 96.1987,
+      "chi2_red_bary": 2.3407
+    },
+    {
+      "id": "UGC04325",
+      "n": 8,
+      "chi2_itt": 68.0053,
+      "chi2_baryons_only": 1071.7265,
+      "dof": 8,
+      "chi2_red_itt": 8.5007,
+      "chi2_red_bary": 133.9658
+    },
+    {
+      "id": "UGC04483",
+      "n": 8,
+      "chi2_itt": 124.3506,
+      "chi2_baryons_only": 171.8107,
+      "dof": 8,
+      "chi2_red_itt": 15.5438,
+      "chi2_red_bary": 21.4763
+    },
+    {
+      "id": "UGC04499",
+      "n": 9,
+      "chi2_itt": 250.5276,
+      "chi2_baryons_only": 552.482,
+      "dof": 9,
+      "chi2_red_itt": 27.8364,
+      "chi2_red_bary": 61.3869
+    },
+    {
+      "id": "UGC05005",
+      "n": 11,
+      "chi2_itt": 59.8537,
+      "chi2_baryons_only": 117.8879,
+      "dof": 11,
+      "chi2_red_itt": 5.4412,
+      "chi2_red_bary": 10.7171
+    },
+    {
+      "id": "UGC05253",
+      "n": 73,
+      "chi2_itt": 19218.8685,
+      "chi2_baryons_only": 12200.7798,
+      "dof": 73,
+      "chi2_red_itt": 263.2722,
+      "chi2_red_bary": 167.134
+    },
+    {
+      "id": "UGC05414",
+      "n": 6,
+      "chi2_itt": 216.7182,
+      "chi2_baryons_only": 156.6806,
+      "dof": 6,
+      "chi2_red_itt": 36.1197,
+      "chi2_red_bary": 26.1134
+    },
+    {
+      "id": "UGC05716",
+      "n": 12,
+      "chi2_itt": 275.2048,
+      "chi2_baryons_only": 11985.499,
+      "dof": 12,
+      "chi2_red_itt": 22.9337,
+      "chi2_red_bary": 998.7916
+    },
+    {
+      "id": "UGC05721",
+      "n": 23,
+      "chi2_itt": 135.7399,
+      "chi2_baryons_only": 1439.4237,
+      "dof": 23,
+      "chi2_red_itt": 5.9017,
+      "chi2_red_bary": 62.5836
+    },
+    {
+      "id": "UGC05750",
+      "n": 11,
+      "chi2_itt": 79.3441,
+      "chi2_baryons_only": 86.201,
+      "dof": 11,
+      "chi2_red_itt": 7.2131,
+      "chi2_red_bary": 7.8365
+    },
+    {
+      "id": "UGC05764",
+      "n": 10,
+      "chi2_itt": 472.353,
+      "chi2_baryons_only": 5957.6429,
+      "dof": 10,
+      "chi2_red_itt": 47.2353,
+      "chi2_red_bary": 595.7643
+    },
+    {
+      "id": "UGC05829",
+      "n": 11,
+      "chi2_itt": 46.953,
+      "chi2_baryons_only": 187.509,
+      "dof": 11,
+      "chi2_red_itt": 4.2685,
+      "chi2_red_bary": 17.0463
+    },
+    {
+      "id": "UGC05918",
+      "n": 8,
+      "chi2_itt": 21.9718,
+      "chi2_baryons_only": 174.9504,
+      "dof": 8,
+      "chi2_red_itt": 2.7465,
+      "chi2_red_bary": 21.8688
+    },
+    {
+      "id": "UGC05986",
+      "n": 15,
+      "chi2_itt": 98.4444,
+      "chi2_baryons_only": 2612.3773,
+      "dof": 15,
+      "chi2_red_itt": 6.563,
+      "chi2_red_bary": 174.1585
+    },
+    {
+      "id": "UGC05999",
+      "n": 5,
+      "chi2_itt": 61.6605,
+      "chi2_baryons_only": 276.6667,
+      "dof": 5,
+      "chi2_red_itt": 12.3321,
+      "chi2_red_bary": 55.3333
+    },
+    {
+      "id": "UGC06399",
+      "n": 9,
+      "chi2_itt": 19.1753,
+      "chi2_baryons_only": 354.4886,
+      "dof": 9,
+      "chi2_red_itt": 2.1306,
+      "chi2_red_bary": 39.3876
+    },
+    {
+      "id": "UGC06446",
+      "n": 17,
+      "chi2_itt": 17.2924,
+      "chi2_baryons_only": 1211.5741,
+      "dof": 17,
+      "chi2_red_itt": 1.0172,
+      "chi2_red_bary": 71.2691
+    },
+    {
+      "id": "UGC06614",
+      "n": 13,
+      "chi2_itt": 446.2158,
+      "chi2_baryons_only": 209.3746,
+      "dof": 13,
+      "chi2_red_itt": 34.3243,
+      "chi2_red_bary": 16.1057
+    },
+    {
+      "id": "UGC06628",
+      "n": 7,
+      "chi2_itt": 187.9546,
+      "chi2_baryons_only": 6.6703,
+      "dof": 7,
+      "chi2_red_itt": 26.8507,
+      "chi2_red_bary": 0.9529
+    },
+    {
+      "id": "UGC06667",
+      "n": 9,
+      "chi2_itt": 162.4018,
+      "chi2_baryons_only": 1737.8592,
+      "dof": 9,
+      "chi2_red_itt": 18.0446,
+      "chi2_red_bary": 193.0955
+    },
+    {
+      "id": "UGC06786",
+      "n": 45,
+      "chi2_itt": 1306.6893,
+      "chi2_baryons_only": 27137.8208,
+      "dof": 45,
+      "chi2_red_itt": 29.0375,
+      "chi2_red_bary": 603.0627
+    },
+    {
+      "id": "UGC06787",
+      "n": 71,
+      "chi2_itt": 5562.1562,
+      "chi2_baryons_only": 40128.369,
+      "dof": 71,
+      "chi2_red_itt": 78.3402,
+      "chi2_red_bary": 565.1883
+    },
+    {
+      "id": "UGC06818",
+      "n": 8,
+      "chi2_itt": 172.1373,
+      "chi2_baryons_only": 106.9577,
+      "dof": 8,
+      "chi2_red_itt": 21.5172,
+      "chi2_red_bary": 13.3697
+    },
+    {
+      "id": "UGC06917",
+      "n": 11,
+      "chi2_itt": 110.3357,
+      "chi2_baryons_only": 596.9613,
+      "dof": 11,
+      "chi2_red_itt": 10.0305,
+      "chi2_red_bary": 54.2692
+    },
+    {
+      "id": "UGC06923",
+      "n": 6,
+      "chi2_itt": 83.3127,
+      "chi2_baryons_only": 58.347,
+      "dof": 6,
+      "chi2_red_itt": 13.8854,
+      "chi2_red_bary": 9.7245
+    },
+    {
+      "id": "UGC06930",
+      "n": 10,
+      "chi2_itt": 114.9464,
+      "chi2_baryons_only": 260.0467,
+      "dof": 10,
+      "chi2_red_itt": 11.4946,
+      "chi2_red_bary": 26.0047
+    },
+    {
+      "id": "UGC06973",
+      "n": 9,
+      "chi2_itt": 4648.9537,
+      "chi2_baryons_only": 3515.0921,
+      "dof": 9,
+      "chi2_red_itt": 516.5504,
+      "chi2_red_bary": 390.5658
+    },
+    {
+      "id": "UGC06983",
+      "n": 17,
+      "chi2_itt": 28.5689,
+      "chi2_baryons_only": 1103.9394,
+      "dof": 17,
+      "chi2_red_itt": 1.6805,
+      "chi2_red_bary": 64.9376
+    },
+    {
+      "id": "UGC07089",
+      "n": 12,
+      "chi2_itt": 350.1411,
+      "chi2_baryons_only": 76.0828,
+      "dof": 12,
+      "chi2_red_itt": 29.1784,
+      "chi2_red_bary": 6.3402
+    },
+    {
+      "id": "UGC07125",
+      "n": 13,
+      "chi2_itt": 2691.3495,
+      "chi2_baryons_only": 475.0171,
+      "dof": 13,
+      "chi2_red_itt": 207.0269,
+      "chi2_red_bary": 36.5398
+    },
+    {
+      "id": "UGC07151",
+      "n": 11,
+      "chi2_itt": 329.7248,
+      "chi2_baryons_only": 394.9794,
+      "dof": 11,
+      "chi2_red_itt": 29.975,
+      "chi2_red_bary": 35.9072
+    },
+    {
+      "id": "UGC07232",
+      "n": 4,
+      "chi2_itt": 17.9329,
+      "chi2_baryons_only": 30.4581,
+      "dof": 4,
+      "chi2_red_itt": 4.4832,
+      "chi2_red_bary": 7.6145
+    },
+    {
+      "id": "UGC07261",
+      "n": 7,
+      "chi2_itt": 29.226,
+      "chi2_baryons_only": 108.2967,
+      "dof": 7,
+      "chi2_red_itt": 4.1751,
+      "chi2_red_bary": 15.471
+    },
+    {
+      "id": "UGC07323",
+      "n": 10,
+      "chi2_itt": 310.1254,
+      "chi2_baryons_only": 71.4624,
+      "dof": 10,
+      "chi2_red_itt": 31.0125,
+      "chi2_red_bary": 7.1462
+    },
+    {
+      "id": "UGC07399",
+      "n": 10,
+      "chi2_itt": 408.0487,
+      "chi2_baryons_only": 2380.2208,
+      "dof": 10,
+      "chi2_red_itt": 40.8049,
+      "chi2_red_bary": 238.0221
+    },
+    {
+      "id": "UGC07524",
+      "n": 31,
+      "chi2_itt": 474.0024,
+      "chi2_baryons_only": 1932.5549,
+      "dof": 31,
+      "chi2_red_itt": 15.2904,
+      "chi2_red_bary": 62.3405
+    },
+    {
+      "id": "UGC07559",
+      "n": 7,
+      "chi2_itt": 123.8996,
+      "chi2_baryons_only": 30.9048,
+      "dof": 7,
+      "chi2_red_itt": 17.6999,
+      "chi2_red_bary": 4.415
+    },
+    {
+      "id": "UGC07577",
+      "n": 9,
+      "chi2_itt": 225.7665,
+      "chi2_baryons_only": 2.7906,
+      "dof": 9,
+      "chi2_red_itt": 25.0852,
+      "chi2_red_bary": 0.3101
+    },
+    {
+      "id": "UGC07603",
+      "n": 12,
+      "chi2_itt": 41.152,
+      "chi2_baryons_only": 952.3454,
+      "dof": 12,
+      "chi2_red_itt": 3.4293,
+      "chi2_red_bary": 79.3621
+    },
+    {
+      "id": "UGC07608",
+      "n": 8,
+      "chi2_itt": 6.5761,
+      "chi2_baryons_only": 167.7777,
+      "dof": 8,
+      "chi2_red_itt": 0.822,
+      "chi2_red_bary": 20.9722
+    },
+    {
+      "id": "UGC07690",
+      "n": 7,
+      "chi2_itt": 66.0675,
+      "chi2_baryons_only": 63.7467,
+      "dof": 7,
+      "chi2_red_itt": 9.4382,
+      "chi2_red_bary": 9.1067
+    },
+    {
+      "id": "UGC07866",
+      "n": 7,
+      "chi2_itt": 54.7487,
+      "chi2_baryons_only": 23.6458,
+      "dof": 7,
+      "chi2_red_itt": 7.8212,
+      "chi2_red_bary": 3.378
+    },
+    {
+      "id": "UGC08286",
+      "n": 17,
+      "chi2_itt": 67.6051,
+      "chi2_baryons_only": 5407.4571,
+      "dof": 17,
+      "chi2_red_itt": 3.9768,
+      "chi2_red_bary": 318.0857
+    },
+    {
+      "id": "UGC08490",
+      "n": 30,
+      "chi2_itt": 16.8173,
+      "chi2_baryons_only": 3224.2462,
+      "dof": 30,
+      "chi2_red_itt": 0.5606,
+      "chi2_red_bary": 107.4749
+    },
+    {
+      "id": "UGC08550",
+      "n": 11,
+      "chi2_itt": 26.1423,
+      "chi2_baryons_only": 1594.9406,
+      "dof": 11,
+      "chi2_red_itt": 2.3766,
+      "chi2_red_bary": 144.9946
+    },
+    {
+      "id": "UGC08699",
+      "n": 41,
+      "chi2_itt": 1697.2329,
+      "chi2_baryons_only": 1875.1075,
+      "dof": 41,
+      "chi2_red_itt": 41.3959,
+      "chi2_red_bary": 45.7343
+    },
+    {
+      "id": "UGC08837",
+      "n": 8,
+      "chi2_itt": 564.6327,
+      "chi2_baryons_only": 56.2234,
+      "dof": 8,
+      "chi2_red_itt": 70.5791,
+      "chi2_red_bary": 7.0279
+    },
+    {
+      "id": "UGC09037",
+      "n": 22,
+      "chi2_itt": 3605.3344,
+      "chi2_baryons_only": 813.1866,
+      "dof": 22,
+      "chi2_red_itt": 163.8788,
+      "chi2_red_bary": 36.963
+    },
+    {
+      "id": "UGC09133",
+      "n": 68,
+      "chi2_itt": 30737.0416,
+      "chi2_baryons_only": 54430.7981,
+      "dof": 68,
+      "chi2_red_itt": 452.0153,
+      "chi2_red_bary": 800.4529
+    },
+    {
+      "id": "UGC09992",
+      "n": 5,
+      "chi2_itt": 59.4823,
+      "chi2_baryons_only": 5.4118,
+      "dof": 5,
+      "chi2_red_itt": 11.8965,
+      "chi2_red_bary": 1.0824
+    },
+    {
+      "id": "UGC10310",
+      "n": 7,
+      "chi2_itt": 47.7355,
+      "chi2_baryons_only": 138.4747,
+      "dof": 7,
+      "chi2_red_itt": 6.8194,
+      "chi2_red_bary": 19.7821
+    },
+    {
+      "id": "UGC11455",
+      "n": 36,
+      "chi2_itt": 4675.9593,
+      "chi2_baryons_only": 1415.4862,
+      "dof": 36,
+      "chi2_red_itt": 129.8878,
+      "chi2_red_bary": 39.3191
+    },
+    {
+      "id": "UGC11557",
+      "n": 12,
+      "chi2_itt": 588.8458,
+      "chi2_baryons_only": 79.3798,
+      "dof": 12,
+      "chi2_red_itt": 49.0705,
+      "chi2_red_bary": 6.615
+    },
+    {
+      "id": "UGC11820",
+      "n": 10,
+      "chi2_itt": 744.3035,
+      "chi2_baryons_only": 5597.7148,
+      "dof": 10,
+      "chi2_red_itt": 74.4303,
+      "chi2_red_bary": 559.7715
+    },
+    {
+      "id": "UGC11914",
+      "n": 65,
+      "chi2_itt": 4156.8527,
+      "chi2_baryons_only": 961.6181,
+      "dof": 65,
+      "chi2_red_itt": 63.9516,
+      "chi2_red_bary": 14.7941
+    },
+    {
+      "id": "UGC12506",
+      "n": 31,
+      "chi2_itt": 70.4025,
+      "chi2_baryons_only": 1070.7165,
+      "dof": 31,
+      "chi2_red_itt": 2.271,
+      "chi2_red_bary": 34.5392
+    },
+    {
+      "id": "UGC12632",
+      "n": 15,
+      "chi2_itt": 186.9055,
+      "chi2_baryons_only": 1266.4818,
+      "dof": 15,
+      "chi2_red_itt": 12.4604,
+      "chi2_red_bary": 84.4321
+    },
+    {
+      "id": "UGC12732",
+      "n": 16,
+      "chi2_itt": 70.4379,
+      "chi2_baryons_only": 1975.1693,
+      "dof": 16,
+      "chi2_red_itt": 4.4024,
+      "chi2_red_bary": 123.4481
+    },
+    {
+      "id": "UGCA281",
+      "n": 7,
+      "chi2_itt": 111.2983,
+      "chi2_baryons_only": 108.2993,
+      "dof": 7,
+      "chi2_red_itt": 15.8998,
+      "chi2_red_bary": 15.4713
+    },
+    {
+      "id": "UGCA442",
+      "n": 8,
+      "chi2_itt": 39.2593,
+      "chi2_baryons_only": 2098.7291,
+      "dof": 8,
+      "chi2_red_itt": 4.9074,
+      "chi2_red_bary": 262.3411
+    },
+    {
+      "id": "UGCA444",
+      "n": 36,
+      "chi2_itt": 59.855,
+      "chi2_baryons_only": 426.1635,
+      "dof": 36,
+      "chi2_red_itt": 1.6626,
+      "chi2_red_bary": 11.8379
+    }
+  ]
+}

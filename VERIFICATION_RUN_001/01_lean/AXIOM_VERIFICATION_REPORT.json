@@ -1,0 +1,97 @@
+{
+  "SOCasimirGenuine.lean": {
+    "exit_code": 0,
+    "theorems_checked": [
+      "casimir_defining_rep",
+      "casimir_scalar_eq"
+    ],
+    "axiom_output": [
+      "'ChyrenLogic.SOCasimirGenuine.casimir_defining_rep' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'ChyrenLogic.SOCasimirGenuine.casimir_scalar_eq' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    ]
+  },
+  "DeSitterExtremal.lean": {
+    "exit_code": 0,
+    "theorems_checked": [
+      "desitter_lapse_horizon",
+      "expr_cH_over_2pi_pos",
+      "desitter_flat_limit",
+      "volume_law_weight_nonneg"
+    ],
+    "axiom_output": [
+      "/tmp/eval_DeSitterExtremal.lean:74:57: warning: Variable name `hr` is not explicitly referenced.",
+      "",
+      "Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:",
+      "  [apply] _hr",
+      "",
+      "Note: This linter can be disabled with `set_option linter.unusedVariables false`",
+      "'Chyren.DeSitterExtremal.desitter_lapse_horizon' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'Chyren.DeSitterExtremal.expr_cH_over_2pi_pos' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'Chyren.DeSitterExtremal.desitter_flat_limit' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'Chyren.DeSitterExtremal.volume_law_weight_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    ]
+  },
+  "ITActionClosure.lean": {
+    "exit_code": 0,
+    "theorems_checked": [
+      "tauLaw_eq_simple_mu_poly",
+      "tauLaw_simple_mu_dictionary",
+      "btfr_deep_mond",
+      "flat_rotation_curve_n2"
+    ],
+    "axiom_output": [
+      "'GOD_Theory.ITAction.tauLaw_eq_simple_mu_poly' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'GOD_Theory.ITAction.tauLaw_simple_mu_dictionary' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'GOD_Theory.ITAction.btfr_deep_mond' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'GOD_Theory.ITAction.flat_rotation_curve_n2' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    ]
+  },
+  "YettParadigm.lean": {
+    "exit_code": 0,
+    "theorems_checked": [
+      "ramanujan_yett_spectral_gap_pos",
+      "adccl_trajectory_bounded",
+      "adccl_non_singular"
+    ],
+    "axiom_output": [
+      "'YettParadigm.ramanujan_yett_spectral_gap_pos' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'YettParadigm.adccl_trajectory_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'YettParadigm.adccl_non_singular' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    ]
+  },
+  "SovereignRegularity.lean": {
+    "exit_code": 0,
+    "theorems_checked": [
+      "lipschitz_implies_angle_modulus",
+      "chiral_iff_lipschitz_constant",
+      "bkm_vorticity_integral_finite",
+      "bkm_no_blowup",
+      "sovereign_regularity_theorem"
+    ],
+    "axiom_output": [
+      "/tmp/eval_SovereignRegularity.lean:71:43: warning: Variable name `hL` is not explicitly referenced.",
+      "",
+      "Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:",
+      "  [apply] _hL",
+      "",
+      "Note: This linter can be disabled with `set_option linter.unusedVariables false`",
+      "/tmp/eval_SovereignRegularity.lean:85:22: warning: Variable name `h\u03b8_low` is not explicitly referenced.",
+      "",
+      "Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:",
+      "  [apply] _h\u03b8_low",
+      "",
+      "Note: This linter can be disabled with `set_option linter.unusedVariables false`",
+      "/tmp/eval_SovereignRegularity.lean:85:39: warning: Variable name `h\u03b8_high` is not explicitly referenced.",
+      "",
+      "Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:",
+      "  [apply] _h\u03b8_high",
+      "",
+      "Note: This linter can be disabled with `set_option linter.unusedVariables false`",
+      "'SovereignRegularity.lipschitz_implies_angle_modulus' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'SovereignRegularity.chiral_iff_lipschitz_constant' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'SovereignRegularity.bkm_vorticity_integral_finite' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'SovereignRegularity.bkm_no_blowup' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'SovereignRegularity.sovereign_regularity_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    ]
+  }
+}
