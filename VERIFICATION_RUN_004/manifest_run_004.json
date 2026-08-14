@@ -1,0 +1,10 @@
+{
+  "run_id": "VERIFICATION_RUN_004",
+  "target": "D7",
+  "files": {
+    "CovariantCompletion.lean": {
+      "path": "/home/mega/grand_monograph/05_lean_formalization/CovariantCompletion.lean",
+      "sha256": "6a55ee9eead4ec06fff15c477d81bad9e29c201cc800dfdea87556af16e12a8b"
+    }
+  }
+}
