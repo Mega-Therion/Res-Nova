@@ -1,0 +1,1930 @@
+{
+  "nodes": [
+    {
+      "id": "IO_OI_UNIFIED_TRANSMISSION_MONOGRAPH.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/IO_OI_UNIFIED_TRANSMISSION_MONOGRAPH.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "COVER_LETTER.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/COVER_LETTER.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "CHYREN_GRAND_UNIFIED_MASTER_MONOGRAPH.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/CHYREN_GRAND_UNIFIED_MASTER_MONOGRAPH.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_PRD.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/io_oi_v4/manuscript/IO_OI_PRD.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_PRD_local.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/io_oi_v4/manuscript/IO_OI_PRD_local.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_Research_Note_2026-08-09.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/io_oi_v4/manuscript/IO_OI_Research_Note_2026-08-09.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_CODEX_PAGE5.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/IO_OI_CODEX_PAGE5.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "SOVEREIGN_GEOMETRODYNAMICS_MANUSCRIPT.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/SOVEREIGN_GEOMETRODYNAMICS_MANUSCRIPT.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_ACADEMIC.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/IO_OI_ACADEMIC.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "_codex_preamble.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/_codex_preamble.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "IO_OI_CODEX_PAGE1.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/IO_OI_CODEX_PAGE1.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_PLEROMA_PAGE6.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/IO_OI_PLEROMA_PAGE6.tex",
+      "type": "Leaf",
+      "claims": [
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_CODEX_PAGE4.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/IO_OI_CODEX_PAGE4.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_CODEX_PAGE2.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/IO_OI_CODEX_PAGE2.tex",
+      "type": "Leaf",
+      "claims": [
+        "a\u2080 Horizon Normalization",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "De Sitter Thermal Equilibrium"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_FINAL_PAGE5.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/IO_OI_FINAL_PAGE5.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_FINAL_PAGE3.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/IO_OI_FINAL_PAGE3.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_FINAL.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/IO_OI_FINAL.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "IO_OI_FINAL_PAGE6.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/IO_OI_FINAL_PAGE6.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_CODEX_PAGE3.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/IO_OI_CODEX_PAGE3.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_PLEROMA_PAGE1.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/IO_OI_PLEROMA_PAGE1.tex",
+      "type": "Bridge",
+      "claims": [
+        "a\u2080 Horizon Normalization",
+        "\u03a9_\u039b = ln 2 Holographic Bound"
+      ],
+      "depends_on": [
+        "De Sitter Thermal Equilibrium",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": []
+    },
+    {
+      "id": "IO_OI_FINAL_PAGE1.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/IO_OI_FINAL_PAGE1.tex",
+      "type": "Leaf",
+      "claims": [
+        "a\u2080 Horizon Normalization",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "De Sitter Thermal Equilibrium",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_FINAL_PAGE2.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/IO_OI_FINAL_PAGE2.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "codex_paper.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/codex_paper.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "IO_OI_FINAL_PAGE4.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/IO_OI_FINAL_PAGE4.tex",
+      "type": "Leaf",
+      "claims": [
+        "a\u2080 Horizon Normalization",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "De Sitter Thermal Equilibrium",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_PLEROMA_PAGE5.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/IO_OI_PLEROMA_PAGE5.tex",
+      "type": "Bridge",
+      "claims": [
+        "a\u2080 Horizon Normalization",
+        "\u03a9_\u039b = ln 2 Holographic Bound"
+      ],
+      "depends_on": [
+        "De Sitter Thermal Equilibrium",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": []
+    },
+    {
+      "id": "example_paper.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/04_Publications_and_Outreach/codex/chyren-codex-skill/examples/example_paper.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "h.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/h.tex",
+      "type": "Bridge",
+      "claims": [
+        "a\u2080 Horizon Normalization"
+      ],
+      "depends_on": [
+        "De Sitter Thermal Equilibrium"
+      ],
+      "supports": []
+    },
+    {
+      "id": "101__acl_latex.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/101__acl_latex.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "086__06_yang_mills_ff4a826c32ea_v2.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/086__06_yang_mills_ff4a826c32ea_v2.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "abstract_11.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/abstract_11.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "047__The_Weinstein_Yett_Unification.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/047__The_Weinstein_Yett_Unification.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "extra_pkgs.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/extra_pkgs.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "adccl_v5_codex.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/adccl_v5_codex.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "the_final_opus_1.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/the_final_opus_1.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "yett_theory_v1.0_12.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/yett_theory_v1.0_12.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "iclr2026_conference.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/iclr2026_conference.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "024__Yett_Theory_Technical_Note_Galactic_Dynamics.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/024__Yett_Theory_Technical_Note_Galactic_Dynamics.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "ea125a2efbb18346.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/ea125a2efbb18346.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "062__04_cosmology.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/062__04_cosmology.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "014__back_theorems.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/014__back_theorems.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "051__06_yang_mills.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/051__06_yang_mills.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "14_formal_floor_6.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/14_formal_floor_6.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "052__09_neuro.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/052__09_neuro.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "038__The_Invariant_Manifold_Final_Refinement.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/038__The_Invariant_Manifold_Final_Refinement.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "064__14_formal_floor.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/064__14_formal_floor.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "back_reproducibility_12.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/back_reproducibility_12.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "math_commands.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/math_commands.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "miller_executive_brief_4.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/miller_executive_brief_4.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "holonomery_v5_codex.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/holonomery_v5_codex.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "f6dab8afbd0628ae.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/f6dab8afbd0628ae.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "Yett_Quantum_Gravity_ArXiv_8.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/Yett_Quantum_Gravity_ArXiv_8.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "00_preface_3.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/00_preface_3.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "068__back_doi_manifest.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/068__back_doi_manifest.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "079__The_Weinstein_Yett_Unification_2b601a546423_v2.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/079__The_Weinstein_Yett_Unification_2b601a546423_v2.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "081__manuscript_9803e37195d2_v2.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/081__manuscript_9803e37195d2_v2.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "latex2_1.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/latex2_1.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "geometric_accretion_limits_v2.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/geometric_accretion_limits_v2.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "app_lean_listing_2.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/app_lean_listing_2.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "012__11_adccl.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/012__11_adccl.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "3296e7d77dda030a.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/3296e7d77dda030a.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "geometric_accretion_limits_FINAL.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/geometric_accretion_limits_FINAL.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "049__02_operator.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/049__02_operator.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "34da38d7b9c448b4.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/34da38d7b9c448b4.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "Supplementary_Material.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/Supplementary_Material.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "023__app_lean_listing.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/023__app_lean_listing.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "5a034c34656929c1.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/5a034c34656929c1.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "aaai2026-unified-supp.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/aaai2026-unified-supp.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "16_predictions_8.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/16_predictions_8.tex",
+      "type": "Bridge",
+      "claims": [
+        "SPARC Kinematic Fitting"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": []
+    },
+    {
+      "id": "057__lagrangian_derivation_extended.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/057__lagrangian_derivation_extended.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "04_cosmology_3.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/04_cosmology_3.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "latex3.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/latex3.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "039__The_Invariant_Manifold_Harmonic_Geometry_Final.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/039__The_Invariant_Manifold_Harmonic_Geometry_Final.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "03_invariants_8.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/03_invariants_8.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "acl_lualatex.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/acl_lualatex.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "fa64ebc1f6368f3d.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/fa64ebc1f6368f3d.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "035__aleph1.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/035__aleph1.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "011__08_riemann_zeros.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/011__08_riemann_zeros.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "header.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/header.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "3abbe6365c054546.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/3abbe6365c054546.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "acknowledgements_3.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/acknowledgements_3.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "9a068ffb3f6bcc37.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/9a068ffb3f6bcc37.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "chyren_aeon_v5_codex.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/chyren_aeon_v5_codex.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "92c26d21f4d400ae.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/92c26d21f4d400ae.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "latex1_2.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/latex1_2.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "ab0de9a363d86c5f.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/ab0de9a363d86c5f.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "template.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/template.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "096__The_Law_of_Geometrically_Ordered_Dynamics_MASTER.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/096__The_Law_of_Geometrically_Ordered_Dynamics_MASTER.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "7e4d64227a062cbc.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/7e4d64227a062cbc.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "b357d2c229bef757.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/b357d2c229bef757.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "013__back_axioms.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/013__back_axioms.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "lagrangian_derivation_extended.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/lagrangian_derivation_extended.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "fe0b007fa4705e08.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/fe0b007fa4705e08.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "f71d754f32dd0020.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/f71d754f32dd0020.tex",
+      "type": "Bridge",
+      "claims": [
+        "a\u2080 Horizon Normalization"
+      ],
+      "depends_on": [
+        "De Sitter Thermal Equilibrium"
+      ],
+      "supports": []
+    },
+    {
+      "id": "056__preamble.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/056__preamble.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "060__00_preface.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/060__00_preface.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "colm2025_conference.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/colm2025_conference.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "053__15_coda.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/053__15_coda.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "PYWK.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/PYWK.tex",
+      "type": "Bridge",
+      "claims": [
+        "SPARC Kinematic Fitting"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": []
+    },
+    {
+      "id": "043__Yett_Quantum_Gravity_ArXiv.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/043__Yett_Quantum_Gravity_ArXiv.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "80535c2a91306081.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/80535c2a91306081.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "005__The_Law_of_Geometrically_Ordered_Dynamics_SUBMISSION.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/005__The_Law_of_Geometrically_Ordered_Dynamics_SUBMISSION.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "aaai2026-unified-template.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/aaai2026-unified-template.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "040__The_Purity_of_the_Manifold_Weinstein_Style.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/040__The_Purity_of_the_Manifold_Weinstein_Style.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "main.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/main.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "010__07_quantum.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/010__07_quantum.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "UIG_codex.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/UIG_codex.tex",
+      "type": "Leaf",
+      "claims": [
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "069__back_reproducibility.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/069__back_reproducibility.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "063__13_convergence.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/063__13_convergence.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "065__16_predictions.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/065__16_predictions.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "050__05_navier_stokes.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/050__05_navier_stokes.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "088__cover_letter.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/088__cover_letter.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "061__03_invariants.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/061__03_invariants.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "004__manuscript_v3_hardened_527e61c179c7_v2.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/004__manuscript_v3_hardened_527e61c179c7_v2.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "094__G.O.D_986a52ff4998_v2.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/094__G.O.D_986a52ff4998_v2.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "095__05_navier_stokes_89a3edccb36f_v2.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/095__05_navier_stokes_89a3edccb36f_v2.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "e6a566ad7d876b8c.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/e6a566ad7d876b8c.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "Yett_Equations_Pure.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/Yett_Equations_Pure.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "c1f5eba08f3c2f6a.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/c1f5eba08f3c2f6a.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "b3977a422c47d5b6.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/b3977a422c47d5b6.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "391d1e0aa46100e5.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/391d1e0aa46100e5.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "066__acknowledgements.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/066__acknowledgements.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "054__abstract.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/054__abstract.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "041__Yett_Equations_Pure.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/041__Yett_Equations_Pure.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "055__back_notation.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/055__back_notation.tex",
+      "type": "Leaf",
+      "claims": [
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "34438c4e4d476bf9.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/34438c4e4d476bf9.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "048__01_ground.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/048__01_ground.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "711ab062245acc0c.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/711ab062245acc0c.tex",
+      "type": "Bridge",
+      "claims": [],
+      "depends_on": [],
+      "supports": []
+    },
+    {
+      "id": "supplementary_information_7.tex",
+      "path": "/home/mega/Chyren/Research_and_Data/Master_Corpus_Archive/06_Notes_and_General_Corpus/supplementary_information_7.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "reproducibility_appendix.tex",
+      "path": "/home/mega/grand_monograph/reproducibility_appendix.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "final_manuscript.tex",
+      "path": "/home/mega/grand_monograph/final_manuscript.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_ACADEMIC.tex",
+      "path": "/home/mega/grand_monograph/03_observer_jwst/IO_OI_ACADEMIC.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "IO_OI_UNIFIED_TRANSMISSION_MONOGRAPH.tex",
+      "path": "/home/mega/grand_monograph/03_observer_jwst/IO_OI_UNIFIED_TRANSMISSION_MONOGRAPH.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "STATUS_AND_SCOPE.tex",
+      "path": "/home/mega/grand_monograph/build/STATUS_AND_SCOPE.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "PAPER_02_ZERO_PARAMETER_ROTATION_CURVE_FITTING_SPARC_175_ANALYSIS.tex",
+      "path": "/home/mega/grand_monograph/02_galaxy_dynamics/PAPER_02_ZERO_PARAMETER_ROTATION_CURVE_FITTING_SPARC_175_ANALYSIS.tex",
+      "type": "Leaf",
+      "claims": [
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "PAPER_01_MU_DERIVATION_ACTION.tex",
+      "path": "/home/mega/grand_monograph/01_foundational_action/PAPER_01_MU_DERIVATION_ACTION.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "PRD_Relativistic_Extension.tex",
+      "path": "/home/mega/grand_monograph/01_foundational_action/PRD_Relativistic_Extension.tex",
+      "type": "Leaf",
+      "claims": [
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "Res_Nova_Geometrically_Ordered_Dynamics_and_Information_Tension.tex",
+      "path": "/home/mega/grand_monograph/01_foundational_action/Res_Nova_Geometrically_Ordered_Dynamics_and_Information_Tension.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "SPARC Kinematic Fitting",
+        "\u03a9_\u039b = ln 2 Holographic Bound",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "De Sitter Thermal Equilibrium",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization",
+        "Single-Qubit Shannon Ceiling"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    },
+    {
+      "id": "PAPER_09_ALGEBRAIC_EQUIVALENCE_OF_TAU_TENSION_AND_AQUAL_SIMPLE_MU.tex",
+      "path": "/home/mega/grand_monograph/01_foundational_action/PAPER_09_ALGEBRAIC_EQUIVALENCE_OF_TAU_TENSION_AND_AQUAL_SIMPLE_MU.tex",
+      "type": "Leaf",
+      "claims": [
+        "\u03bc(x) Constitutive Closure",
+        "SPARC Kinematic Fitting",
+        "Lean 4 Formal Proof"
+      ],
+      "depends_on": [
+        "A4 (Variational Action)",
+        "\u03bc(x) Constitutive Closure",
+        "a\u2080 Horizon Normalization"
+      ],
+      "supports": [
+        "Algebraic Soundness [P]"
+      ]
+    }
+  ],
+  "total_documents": 138
+}
