@@ -1,0 +1,24 @@
+{
+  "n_galaxies": 175,
+  "n_points": 3391,
+  "derived_zero_param": {
+    "mu_function": "mu(x) = x / (1 + x) [Derived D1]",
+    "a0": 1.042e-10,
+    "median_chi2_per_point": 30.31178651410259,
+    "aggregate_chi2_dof": 194.11065935654526
+  },
+  "derived_2parameter_global_a0": {
+    "mu_function": "mu(x) = x / (1 + x) [Derived D1]",
+    "best_a0_ms2": 9.433002260108502e-11,
+    "n_params": 176,
+    "nominal_dof": 3215,
+    "median_chi2_per_point": 2.9213910535528065,
+    "aggregate_chi2_nom_dof": 11.232449945879578
+  },
+  "legacy_control_standard_mond": {
+    "mu_function": "mu(x) = x / sqrt(1 + x^2) [Standard Pythagorean MOND]",
+    "a0": 1.2e-10,
+    "median_chi2_per_point": 17.012610076671276,
+    "aggregate_chi2_dof": 105.3882312991154
+  }
+}
