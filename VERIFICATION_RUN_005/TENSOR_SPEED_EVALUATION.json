@@ -1,0 +1,15 @@
+{
+  "target": "D8",
+  "title": "Tensor-Mode Speed vs GW170817 Concordance",
+  "c1": "K/2",
+  "c3": "-K/2",
+  "c13_sum": "0",
+  "c_T_Einstein_frame": "1",
+  "c_T_Physical_frame": "1",
+  "c_gamma_Physical_frame": "1",
+  "speed_ratio": 1.0,
+  "fractional_difference": 0.0,
+  "gw170817_tolerance": 1e-15,
+  "gw170817_satisfied": true,
+  "verdict": "LUMINAL [P]"
+}

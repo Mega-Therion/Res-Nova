@@ -1,0 +1,9 @@
+{
+  "run_id": "VERIFICATION_RUN_005",
+  "description": "Target D8 Tensor Speed Evaluation and Lean Proof Manifest",
+  "artifacts": {
+    "TENSOR_SPEED_EVALUATION.json": "0698fa829466d9b0feb24ffbc00d82db407057b720252a8d5e78d0742f00686a",
+    "TensorSpeed.lean": "431b3232fc897b27d94632b05381a04cfdc81d02e20754eee6c400952565dd92",
+    "TARGET_D8_TENSOR_SPEED.md": "6462a27ee68c77d72a52da6f514ad448b97b60b55c8c40b4a4fd6e29e04339ad"
+  }
+}
