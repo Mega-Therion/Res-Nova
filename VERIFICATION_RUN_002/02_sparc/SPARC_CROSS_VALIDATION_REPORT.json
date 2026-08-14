@@ -1,0 +1,19 @@
+{
+  "n_galaxies": 175,
+  "n_data_points": 3391,
+  "strict_zero_param": {
+    "median_chi2_per_point": 29.12,
+    "aggregate_chi2_dof": 144.04,
+    "description": "Zero free parameters, a0=cH0/(2pi), Yd=Yb=1, fd=1"
+  },
+  "in_sample_map_382": {
+    "median_chi2_per_point": 2.54,
+    "aggregate_chi2_nom_dof": 8.61,
+    "description": "In-sample MAP fit with 382 nuisance parameters (3009 nominal dof)"
+  },
+  "out_of_sample_5fold_cv": {
+    "median_chi2_per_point": 14.68,
+    "aggregate_chi2_dof": 110.18,
+    "description": "5-Fold cross-validation out-of-sample test across 175 galaxies with fixed population priors (Yd=0.5, Yb=0.7, fd=1.0, a0=1.2e-10)"
+  }
+}
