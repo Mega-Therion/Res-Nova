@@ -19,7 +19,7 @@ We establish two verified results and enforce one critical epistemic boundary:
 2. **Solar System Planetary Acceleration Audit $\mathbf{[D]}$:**  
    At Earth-Sun orbit ($1\text{ AU}$), the dimensionless acceleration ratio is $x \approx 6.29 \times 10^7$, yielding a fractional deviation of $\sim 1.59 \times 10^{-8}$. Like all MOND-type interpolation functions, Newtonian gravity is preserved by construction.
 3. **Epistemic Quarantine: Relativistic Metric PPN Formulation Outstanding $\mathbf{[O]}$:**  
-   **REFEREE AUDIT NOTICE:** Calculating true Parameterized Post-Newtonian parameters ($\gamma_{\text{PPN}}, \beta_{\text{PPN}}$) requires a complete 4D metric-scalar tensor Lagrangian. While non-relativistic AQUAL guarantees that the scalar force is suppressed by $\sim 10^{-8}$ at $1\text{ AU}$, asserting $\gamma_{\text{PPN}} = 1$ is premature until a covariant metric completion is formalized. We retain the mathematical Newtonian limit $\mathbf{[P]}$ and quarantine the metric PPN claim $\mathbf{[O]}$.
+   **REFEREE AUDIT NOTICE:** Calculating true Parameterized Post-Newtonian parameters ($\gamma_{\text{PPN}}, \beta_{\text{PPN}}$) requires a complete 4D metric-scalar tensor Lagrangian. At $1\text{ AU}$, the Solar gravitational field is $g \approx 6 \times 10^{-3}\text{ m/s}^2 \gg a_0$, which means $\mu \to 1$ trivially; *any* MOND-like theory passes Solar System tests by construction. This comparison establishes **phenomenological consistency, not evidence** for the theory. Asserting $\gamma_{\text{PPN}} = 1$ is quarantined as $\mathbf{[O]}$ until a covariant metric completion is formalized. We retain the mathematical Newtonian limit $\lim_{x\to\infty}\mu(x) = 1$ as $\mathbf{[P]}$.
 
 ---
 

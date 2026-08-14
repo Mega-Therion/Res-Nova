@@ -177,7 +177,7 @@ Baryons-Only (Std SPARC) $\mathbf{[D]}$ & 0 & 3,391 / 3,391 & 85.23 & 267.92 & 4
 \label{tab:sparc_results}
 \end{table}
 
-\noindent\textbf{Interpretation Disclosure:} The 2-parameter canonical run ($\mu_{\text{derived}}(x) = \frac{x}{1+x}$) optimizes 175 $\Upsilon_{\text{disk}}$ parameters under $\mathcal{N}(0.5, 0.125^2)$ and one universal $a_0$. It achieves a median $\chi^2_{\text{data}}/N_g = 2.92$ and nominal aggregate $\chi^2/\text{dof}_{\text{nom}} = 11.23$. 5-fold cross-validation yields out-of-sample median $\chi^2_{\text{test}}/N_g = 14.33$ and aggregate out-of-sample $\chi^2/\text{dof} = 56.11$, establishing bound generalization across unseen galaxies.
+\noindent\textbf{Interpretation Disclosure:} The 2-parameter canonical run ($\mu_{\text{derived}}(x) = \frac{x}{1+x}$) optimizes 175 $\Upsilon_{\text{disk}}$ parameters under $\mathcal{N}(0.5, 0.125^2)$ and one universal $a_0 = (9.433 \pm 0.050) \times 10^{-11}\,\text{m/s}^2$. It achieves a median $\chi^2_{\text{data}}/N_g = 2.92$ and nominal aggregate $\chi^2/\text{dof}_{\text{nom}} = 11.23$. The fitted global $a_0$ lies $\sim 9.5\%$ below $cH_0/(2\pi) \approx 1.042 \times 10^{-10}\,\text{m/s}^2$ (Planck $H_0 = 67.4$), a $\sim 2\sigma$ offset against the statistical fit error alone. This agreement is dominated by systematics: fitted $a_0$ shifts by $\sim\pm 20\%$ with the choice of interpolating function, and the Hubble tension ($H_0 = 67.4$ vs $73$) moves $cH_0/(2\pi)$ by $\sim 8\%$. We therefore report consistency with the horizon scale at the level expected given these systematics, not a precision confirmation. 5-fold cross-validation yields out-of-sample median $\chi^2_{\text{test}}/N_g = 14.33$ and aggregate out-of-sample $\chi^2/\text{dof} = 56.11$, establishing bound generalization across unseen galaxies.
 
 \section{Lean 4 Formal Verification: Exact Scope and Limits}
 \label{sec:lean_scope}
@@ -221,7 +221,7 @@ The proposed theoretical program is subject to clear empirical and mathematical 
 This technical assessment establishes that while the algebraic and formal Lean 4 implementations of the framework are mathematically sound, the complete framework relies upon several unproved physical hypotheses: the variational simple-$\mu$ closure, the $a_0$ normalization divisor, and the effective optical couplings. Empirical SPARC analysis confirms that the zero-parameter model outperforms fixed baryonic baselines but remains a poor absolute fit across uncurated data, while nuisance parameterization provides expected observational flexibility. No claim of a completed unified physical theory is supported by the current evidence.
 
 \section*{Data and Code Availability}
-All raw data, Python fitting scripts, Lean 4 formalization proofs, and verification manifests are locally archived in the repository at \texttt{/home/mega/grand_monograph/VERIFICATION\_RUN\_002/}.
+All raw data, Python fitting scripts, Lean 4 formalization proofs, and verification manifests are locally archived in the repository at \url{VERIFICATION_RUN_002/}.
 
 \section*{Declarations}
 \textbf{Funding:} No external funding was received for this study. \\

@@ -1,25 +1,21 @@
-# 🔬 Milestone D5: Cosmological Sector, Perturbations & Cosmic Coincidence
+# 🔬 Milestone D5: Cosmological Sector & Phenomenological Horizon Density
 **Author:** Ryan W. Yett ([ORCID: 0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190))  
 **Date:** 2026-08-14  
 **Framework:** Chyren / Res-Nova Axiomatic Unification  
-**Status:** $\mathbf{[P]}$ Formally Certified in Lean 4 (`CosmologicalSector.lean`) / $\mathbf{[D]}$ Planck 2018 Data Comparison
+**Status:** $\mathbf{[P]}$ Mathematical Bounds Formally Certified in Lean 4 (`CosmologicalSector.lean`) / $\mathbf{[O]}$ Cosmological Sector Open Problem
 
 ---
 
 ## 1. Executive Summary & Epistemic Demarcation
 
-In Milestone **D5**, we address the cosmological sector of the unified framework, bridging the quantum substrate axioms ($A_1\text{--}A_3$) to large-scale cosmic acceleration and background cosmology.
+In Milestone **D5**, we document the current status of the cosmological sector within the unified framework and establish its strict epistemic quarantine.
 
-### 1.1 The Horizon Entropic Bit-Density Relation
-In standard $\Lambda\text{CDM}$, the cosmological constant $\Lambda$ requires an unexplained $120$-order-of-magnitude fine-tuning. In the dual-channel holographic framework, cosmic acceleration is not driven by an arbitrary vacuum energy density, but by the maximal binary entropy of causal horizon partitions:
-$$\Omega_\Lambda(z=0) = \ln 2 \approx 0.693147.$$
+### 1.1 Phenomenological Horizon Density Coincidence $\mathbf{[O]}$
+We note a phenomenological coincidence: $\ln 2 \approx 0.6931$ vs. the Planck 2018 baseline $\Omega_\Lambda = 0.6847 \pm 0.0073$ ($+1.16\sigma$ at $z = 0$). This is a single-number agreement, not a cosmological sector. It is quarantined as an open problem $\mathbf{[O]}$ pending:
+1. A derivation connecting the single-qubit entropy bound to the Friedmann budget.
+2. A prediction for $\Omega_\Lambda(z)$ evolution consistent with the full expansion history (CMB + BAO + SNe).
 
-### 1.2 Comparison with High-Precision Observational Baselines $\mathbf{[D]}$ / $\mathbf{[C]}$
-Evaluating this zero-free-parameter prediction against the **Planck 2018 Final Release** (TT, TE, EE + lowE + lensing + BAO):
-* **Planck 2018 Baseline:** $\Omega_\Lambda = 0.6847 \pm 0.0073$, $\Omega_m = 0.3153 \pm 0.0073$.
-* **Dual-Channel Prediction:** $\Omega_\Lambda = \ln 2 = 0.693147$, $\Omega_m = 1 - \ln 2 = 0.306853$.
-* **Residual & Pull:** $\Delta\Omega_\Lambda = +0.008447 \implies \mathbf{+1.16\sigma}$.
-* **Verdict:** The zero-parameter theoretical prediction matches the empirical cosmological baseline well within the standard $2\sigma$ observational envelope.
+We strictly refrain from presenting $\ln 2$ as a derivation, prediction, or physical result. It is an observation of numerical proximity only.
 
 ---
 
