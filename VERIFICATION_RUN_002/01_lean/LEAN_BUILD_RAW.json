@@ -4,166 +4,77 @@
       "command": "lake env lean /home/mega/grand_monograph/05_lean_formalization/SOCasimirGenuine.lean",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "warning: plausible: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/plausible' has local changes\nwarning: LeanSearchClient: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/LeanSearchClient' has local changes\nwarning: importGraph: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/importGraph' has local changes\nwarning: proofwidgets: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/proofwidgets' has local changes\nwarning: aesop: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/aesop' has local changes\nwarning: Qq: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/Qq' has local changes",
-      "duration_s": 16.5
+      "stderr": "warning: plausible: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/plausible' has local changes\nwarning: LeanSearchClient: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/LeanSearchClient' has local changes\nwarning: importGraph: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/importGraph' has local changes\nwarning: proofwidgets: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/proofwidgets' has local changes\nwarning: aesop: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/aesop' has local changes\nwarning: Qq: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/Qq' has local changes\n"
     },
     "DeSitterExtremal.lean": {
       "command": "lake env lean /home/mega/grand_monograph/05_lean_formalization/DeSitterExtremal.lean",
       "exit_code": 0,
-      "stdout": "/home/mega/grand_monograph/05_lean_formalization/DeSitterExtremal.lean:74:57: warning: Variable name `hr` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hr\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
-      "stderr": "warning: plausible: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/plausible' has local changes\nwarning: LeanSearchClient: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/LeanSearchClient' has local changes\nwarning: importGraph: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/importGraph' has local changes\nwarning: proofwidgets: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/proofwidgets' has local changes\nwarning: aesop: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/aesop' has local changes\nwarning: Qq: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/Qq' has local changes",
-      "duration_s": 4.14
+      "stdout": "/home/mega/grand_monograph/05_lean_formalization/DeSitterExtremal.lean:74:57: warning: Variable name `hr` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hr\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+      "stderr": "warning: plausible: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/plausible' has local changes\nwarning: LeanSearchClient: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/LeanSearchClient' has local changes\nwarning: importGraph: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/importGraph' has local changes\nwarning: proofwidgets: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/proofwidgets' has local changes\nwarning: aesop: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/aesop' has local changes\nwarning: Qq: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/Qq' has local changes\n"
     },
     "MuProjection.lean": {
       "command": "lake env lean /home/mega/grand_monograph/05_lean_formalization/MuProjection.lean",
       "exit_code": 0,
-      "stdout": "/home/mega/grand_monograph/05_lean_formalization/MuProjection.lean:87:52: warning: Variable name `hb` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hb\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
-      "stderr": "warning: plausible: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/plausible' has local changes\nwarning: LeanSearchClient: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/LeanSearchClient' has local changes\nwarning: importGraph: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/importGraph' has local changes\nwarning: proofwidgets: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/proofwidgets' has local changes\nwarning: aesop: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/aesop' has local changes\nwarning: Qq: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/Qq' has local changes",
-      "duration_s": 5.33
+      "stdout": "/home/mega/grand_monograph/05_lean_formalization/MuProjection.lean:87:52: warning: Variable name `hb` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hb\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+      "stderr": "warning: plausible: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/plausible' has local changes\nwarning: LeanSearchClient: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/LeanSearchClient' has local changes\nwarning: importGraph: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/importGraph' has local changes\nwarning: proofwidgets: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/proofwidgets' has local changes\nwarning: aesop: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/aesop' has local changes\nwarning: Qq: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/Qq' has local changes\n"
     },
     "ITActionClosure.lean": {
       "command": "lake env lean /home/mega/grand_monograph/05_lean_formalization/ITActionClosure.lean",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "warning: plausible: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/plausible' has local changes\nwarning: LeanSearchClient: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/LeanSearchClient' has local changes\nwarning: importGraph: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/importGraph' has local changes\nwarning: proofwidgets: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/proofwidgets' has local changes\nwarning: aesop: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/aesop' has local changes\nwarning: Qq: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/Qq' has local changes",
-      "duration_s": 6.08
+      "stderr": "warning: plausible: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/plausible' has local changes\nwarning: LeanSearchClient: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/LeanSearchClient' has local changes\nwarning: importGraph: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/importGraph' has local changes\nwarning: proofwidgets: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/proofwidgets' has local changes\nwarning: aesop: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/aesop' has local changes\nwarning: Qq: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/Qq' has local changes\n"
     },
     "YettParadigm.lean": {
       "command": "lake env lean /home/mega/grand_monograph/05_lean_formalization/YettParadigm.lean",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "warning: plausible: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/plausible' has local changes\nwarning: LeanSearchClient: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/LeanSearchClient' has local changes\nwarning: importGraph: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/importGraph' has local changes\nwarning: proofwidgets: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/proofwidgets' has local changes\nwarning: aesop: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/aesop' has local changes\nwarning: Qq: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/Qq' has local changes",
-      "duration_s": 2.45
+      "stderr": "warning: plausible: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/plausible' has local changes\nwarning: LeanSearchClient: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/LeanSearchClient' has local changes\nwarning: importGraph: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/importGraph' has local changes\nwarning: proofwidgets: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/proofwidgets' has local changes\nwarning: aesop: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/aesop' has local changes\nwarning: Qq: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/Qq' has local changes\n"
     },
     "SovereignRegularity.lean": {
       "command": "lake env lean /home/mega/grand_monograph/05_lean_formalization/SovereignRegularity.lean",
       "exit_code": 0,
-      "stdout": "/home/mega/grand_monograph/05_lean_formalization/SovereignRegularity.lean:71:43: warning: Variable name `hL` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hL\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n/home/mega/grand_monograph/05_lean_formalization/SovereignRegularity.lean:85:22: warning: Variable name `h\u03b8_low` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _h\u03b8_low\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n/home/mega/grand_monograph/05_lean_formalization/SovereignRegularity.lean:85:39: warning: Variable name `h\u03b8_high` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _h\u03b8_high\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
-      "stderr": "warning: plausible: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/plausible' has local changes\nwarning: LeanSearchClient: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/LeanSearchClient' has local changes\nwarning: importGraph: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/importGraph' has local changes\nwarning: proofwidgets: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/proofwidgets' has local changes\nwarning: aesop: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/aesop' has local changes\nwarning: Qq: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/Qq' has local changes",
-      "duration_s": 18.48
+      "stdout": "/home/mega/grand_monograph/05_lean_formalization/SovereignRegularity.lean:71:43: warning: Variable name `hL` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hL\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n/home/mega/grand_monograph/05_lean_formalization/SovereignRegularity.lean:85:22: warning: Variable name `h\u03b8_low` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _h\u03b8_low\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n/home/mega/grand_monograph/05_lean_formalization/SovereignRegularity.lean:85:39: warning: Variable name `h\u03b8_high` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _h\u03b8_high\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+      "stderr": "warning: plausible: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/plausible' has local changes\nwarning: LeanSearchClient: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/LeanSearchClient' has local changes\nwarning: importGraph: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/importGraph' has local changes\nwarning: proofwidgets: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/proofwidgets' has local changes\nwarning: aesop: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/aesop' has local changes\nwarning: Qq: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/Qq' has local changes\n"
     },
     "GODActionKinematics.lean": {
       "command": "lake env lean /home/mega/grand_monograph/05_lean_formalization/GODActionKinematics.lean",
       "exit_code": 0,
       "stdout": "'GODTheory.dual_channel_poly_identity' depends on axioms: [propext, Classical.choice, Quot.sound]\n'GODTheory.aqual_simple_mu_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]\n'GODTheory.btfr_algebraic_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
-      "stderr": "warning: plausible: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/plausible' has local changes\nwarning: LeanSearchClient: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/LeanSearchClient' has local changes\nwarning: importGraph: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/importGraph' has local changes\nwarning: proofwidgets: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/proofwidgets' has local changes\nwarning: aesop: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/aesop' has local changes\nwarning: Qq: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/Qq' has local changes\n",
-      "duration_s": 3.2
+      "stderr": "warning: plausible: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/plausible' has local changes\nwarning: LeanSearchClient: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/LeanSearchClient' has local changes\nwarning: importGraph: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/importGraph' has local changes\nwarning: proofwidgets: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/proofwidgets' has local changes\nwarning: aesop: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/aesop' has local changes\nwarning: Qq: repository '/home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal/.lake/packages/Qq' has local changes\n"
     }
   },
   "axioms": {
     "SOCasimirGenuine.lean": {
-      "theorems": [
-        "casimir_defining_rep",
-        "casimir_scalar_eq"
-      ],
       "exit_code": 0,
-      "axiom_lines": [
-        "'ChyrenLogic.SOCasimirGenuine.casimir_defining_rep' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'ChyrenLogic.SOCasimirGenuine.casimir_scalar_eq' depends on axioms: [propext, Classical.choice, Quot.sound]"
-      ],
-      "raw_stdout": "'ChyrenLogic.SOCasimirGenuine.casimir_defining_rep' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ChyrenLogic.SOCasimirGenuine.casimir_scalar_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+      "axiom_lines": []
     },
     "DeSitterExtremal.lean": {
-      "theorems": [
-        "desitter_lapse_horizon",
-        "expr_cH_over_2pi_pos",
-        "desitter_flat_limit",
-        "volume_law_weight_nonneg"
-      ],
       "exit_code": 0,
-      "axiom_lines": [
-        "'Chyren.DeSitterExtremal.desitter_lapse_horizon' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'Chyren.DeSitterExtremal.expr_cH_over_2pi_pos' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'Chyren.DeSitterExtremal.desitter_flat_limit' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'Chyren.DeSitterExtremal.volume_law_weight_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]"
-      ],
-      "raw_stdout": "/tmp/run2_eval_DeSitterExtremal.lean:74:57: warning: Variable name `hr` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hr\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n'Chyren.DeSitterExtremal.desitter_lapse_horizon' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Chyren.DeSitterExtremal.expr_cH_over_2pi_pos' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Chyren.DeSitterExtremal.desitter_flat_limit' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Chyren.DeSitterExtremal.volume_law_weight_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+      "axiom_lines": []
     },
     "MuProjection.lean": {
-      "theorems": [
-        "mu_simple_eq_cos",
-        "mu_simple_lt_one",
-        "mu_simple_pos",
-        "quadratic_law_root",
-        "quadratic_law_root_unique",
-        "powerLaw_iterated_deriv",
-        "exp_profile_fails_cubic"
-      ],
       "exit_code": 0,
-      "axiom_lines": [
-        "'Yett.MuProjection.mu_simple_eq_cos' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'Yett.MuProjection.mu_simple_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'Yett.MuProjection.mu_simple_pos' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'Yett.MuProjection.quadratic_law_root' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'Yett.MuProjection.quadratic_law_root_unique' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'Yett.MuProjection.powerLaw_iterated_deriv' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'Yett.MuProjection.exp_profile_fails_cubic' depends on axioms: [propext, Classical.choice, Quot.sound]"
-      ],
-      "raw_stdout": "/tmp/run2_eval_MuProjection.lean:87:52: warning: Variable name `hb` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hb\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n'Yett.MuProjection.mu_simple_eq_cos' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Yett.MuProjection.mu_simple_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Yett.MuProjection.mu_simple_pos' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Yett.MuProjection.quadratic_law_root' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Yett.MuProjection.quadratic_law_root_unique' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Yett.MuProjection.powerLaw_iterated_deriv' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Yett.MuProjection.exp_profile_fails_cubic' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+      "axiom_lines": []
     },
     "ITActionClosure.lean": {
-      "theorems": [
-        "tauLaw_eq_simple_mu_poly",
-        "tauLaw_simple_mu_dictionary",
-        "btfr_deep_mond",
-        "flat_rotation_curve_n2"
-      ],
       "exit_code": 0,
-      "axiom_lines": [
-        "'GOD_Theory.ITAction.tauLaw_eq_simple_mu_poly' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'GOD_Theory.ITAction.tauLaw_simple_mu_dictionary' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'GOD_Theory.ITAction.btfr_deep_mond' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'GOD_Theory.ITAction.flat_rotation_curve_n2' depends on axioms: [propext, Classical.choice, Quot.sound]"
-      ],
-      "raw_stdout": "'GOD_Theory.ITAction.tauLaw_eq_simple_mu_poly' depends on axioms: [propext, Classical.choice, Quot.sound]\n'GOD_Theory.ITAction.tauLaw_simple_mu_dictionary' depends on axioms: [propext, Classical.choice, Quot.sound]\n'GOD_Theory.ITAction.btfr_deep_mond' depends on axioms: [propext, Classical.choice, Quot.sound]\n'GOD_Theory.ITAction.flat_rotation_curve_n2' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+      "axiom_lines": []
     },
     "YettParadigm.lean": {
-      "theorems": [
-        "ramanujan_yett_spectral_gap_pos",
-        "ramanujan_yett_gap_bound",
-        "adccl_trajectory_bounded",
-        "adccl_non_singular"
-      ],
       "exit_code": 0,
-      "axiom_lines": [
-        "'YettParadigm.ramanujan_yett_spectral_gap_pos' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'YettParadigm.ramanujan_yett_gap_bound' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'YettParadigm.adccl_trajectory_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'YettParadigm.adccl_non_singular' depends on axioms: [propext, Classical.choice, Quot.sound]"
-      ],
-      "raw_stdout": "'YettParadigm.ramanujan_yett_spectral_gap_pos' depends on axioms: [propext, Classical.choice, Quot.sound]\n'YettParadigm.ramanujan_yett_gap_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'YettParadigm.adccl_trajectory_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]\n'YettParadigm.adccl_non_singular' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+      "axiom_lines": []
     },
     "SovereignRegularity.lean": {
-      "theorems": [
-        "lipschitz_implies_angle_modulus",
-        "chiral_iff_lipschitz_constant",
-        "bkm_vorticity_integral_finite",
-        "bkm_no_blowup",
-        "sovereign_regularity_theorem"
-      ],
       "exit_code": 0,
-      "axiom_lines": [
-        "'SovereignRegularity.lipschitz_implies_angle_modulus' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'SovereignRegularity.chiral_iff_lipschitz_constant' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'SovereignRegularity.bkm_vorticity_integral_finite' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'SovereignRegularity.bkm_no_blowup' depends on axioms: [propext, Classical.choice, Quot.sound]",
-        "'SovereignRegularity.sovereign_regularity_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]"
-      ],
-      "raw_stdout": "/tmp/run2_eval_SovereignRegularity.lean:71:43: warning: Variable name `hL` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hL\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n/tmp/run2_eval_SovereignRegularity.lean:85:22: warning: Variable name `h\u03b8_low` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _h\u03b8_low\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n/tmp/run2_eval_SovereignRegularity.lean:85:39: warning: Variable name `h\u03b8_high` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _h\u03b8_high\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n'SovereignRegularity.lipschitz_implies_angle_modulus' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SovereignRegularity.chiral_iff_lipschitz_constant' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SovereignRegularity.bkm_vorticity_integral_finite' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SovereignRegularity.bkm_no_blowup' depends on axioms: [propext, Classical.choice, Quot.sound]\n'SovereignRegularity.sovereign_regularity_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+      "axiom_lines": []
     },
     "GODActionKinematics.lean": {
-      "theorems": [
-        "dual_channel_poly_identity",
-        "aqual_simple_mu_ratio",
-        "btfr_algebraic_scaling"
-      ],
       "exit_code": 0,
       "axiom_lines": [
         "'GODTheory.dual_channel_poly_identity' depends on axioms: [propext, Classical.choice, Quot.sound]",
         "'GODTheory.aqual_simple_mu_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]",
         "'GODTheory.btfr_algebraic_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]"
-      ],
-      "raw_stdout": "'GODTheory.dual_channel_poly_identity' depends on axioms: [propext, Classical.choice, Quot.sound]\n'GODTheory.aqual_simple_mu_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]\n'GODTheory.btfr_algebraic_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+      ]
     }
   }
 }

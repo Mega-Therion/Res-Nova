@@ -5,7 +5,7 @@ import Mathlib.Analysis.InnerProductSpace.Basic
 import Mathlib.Topology.MetricSpace.Lipschitz
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NormNum
-import ChyrenLogic.Basic
+
 
 /-!
 # Sovereign Regularity for the 3D Navier-Stokes & ADCCL Trajectory Control
@@ -95,11 +95,11 @@ theorem chiral_iff_lipschitz_constant (sup_grad_xi L_max θ : ℝ)
   constructor
   · intro h
     have : sup_grad_xi / L_max ≤ 1 - θ := by linarith
-    have := (div_le_iff hL).mp this
+    have := (div_le_iff₀ hL).mp this
     linarith
   · intro h
     have : sup_grad_xi / L_max ≤ 1 - θ := by
-      rw [div_le_iff hL]; linarith
+      rw [div_le_iff₀ hL]; linarith
     linarith
 
 
