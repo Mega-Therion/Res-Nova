@@ -102,6 +102,8 @@ All foundational propositions are mechanically certified in **Lean 4 / Mathlib**
 
 This is enforced, not asserted: [`05_lean_formalization/verify_all_proofs.sh`](05_lean_formalization/verify_all_proofs.sh) elaborates all 17 modules and exits non-zero on any error, any `sorry`, or any axiom dependency outside those three. Last run: **PASS — 17/17**, against Mathlib pinned at `5eec30bc` (Lean `v4.33.0-rc1`).
 
+> That run used a Mathlib build already present on the author's machine. The `lake exe cache get` step below is the standard fetch but has not itself been re-walked on a fresh clone; if it misbehaves, the pinned revision in `lake-manifest.json` is the authority.
+
 | Module | Headline Theorem | Mechanical Guarantee | Epistemic Status |
 | :--- | :--- | :--- | :---: |
 | [`CovariantCompletion.lean`](05_lean_formalization/CovariantCompletion.lean) | `raqual_superluminal_obstruction` | $c_\parallel^2 = 1 + \frac{1}{1+x} > 1$ (Superluminal cone obstruction) | $\mathbf{[P]}$ |
