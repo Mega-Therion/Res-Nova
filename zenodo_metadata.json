@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "title": "Conditional AQUAL Closures, Formal Verification Boundaries, and a Reproducible SPARC Benchmark: A Technical Assessment",
+    "upload_type": "preprint",
+    "description": "We present a rigorous technical assessment of the weak-field phenomenology arising from modified gravity formulations in the AQUAL family. Variational reduction, horizon thermodynamic scaling, 175-galaxy SPARC database empirical benchmarking, and Lean 4 formal machine-checked proof bounds are systematically documented under the Sovereign Epistemic Covenant.",
+    "creators": [
+      {
+        "name": "Yett, Ryan W.",
+        "affiliation": "Independent Researcher",
+        "orcid": "0009-0000-8803-1250"
+      }
+    ],
+    "keywords": [
+      "Modified Newtonian Dynamics",
+      "AQUAL Lagrangian",
+      "SPARC Galaxy Kinematics",
+      "Formal Verification",
+      "Lean 4",
+      "Horizon Thermodynamics"
+    ],
+    "license": "cc-by-4.0",
+    "access_right": "open"
+  }
+}
