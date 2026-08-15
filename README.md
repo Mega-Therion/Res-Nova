@@ -177,6 +177,33 @@ Res-Nova/
 
 ---
 
+## 📚 Related Publications (Zenodo)
+
+Every link below is a **concept DOI** — it always resolves to the latest version of that record, so citations stay valid as manuscripts are corrected or extended. Author: [Ryan W. Yett](https://orcid.org/0009-0000-8803-1250).
+
+**SPARC / Dark-Matter Alternative — direct Res-Nova lineage**
+- Information Tension: A Zero-Parameter Geometric Alternative to Dark Matter on SPARC — [10.5281/zenodo.21233977](https://doi.org/10.5281/zenodo.21233977)
+- Information Tension: Geometric Projection Replaces Dark Matter at Low Acceleration (v3, audit-corrected) — [10.5281/zenodo.21146462](https://doi.org/10.5281/zenodo.21146462)
+- Parameter-Free Acceleration Scale: A Geometric Derivation of the MOND Scale from the Cosmic Horizon — [10.5281/zenodo.21450424](https://doi.org/10.5281/zenodo.21450424)
+- Pre-Registered Falsifiable Predictions — Information Tension / Geometrodynamics (v2, corrected) — [10.5281/zenodo.21864056](https://doi.org/10.5281/zenodo.21864056)
+
+**Relativistic & Cosmological Completion**
+- Relativistic Formulation of the Information Tension Field: Galactic Dynamics, Large-Scale Structure, and Dark Energy from the Stiefel Manifold Vacuum — [10.5281/zenodo.20822071](https://doi.org/10.5281/zenodo.20822071)
+- ΩCDM: A Pre-Registered Cosmological Prediction — Ω_Λ = ln 2 as a Fixed Constant — [10.5281/zenodo.21867984](https://doi.org/10.5281/zenodo.21867984)
+- Pre-Registration: Ω_Λ = ln(2) — Dark Energy Fraction from Chiral Vacuum Entropy — [10.5281/zenodo.21131485](https://doi.org/10.5281/zenodo.21131485)
+- Geometric Accretion Limits in Early-Universe Supermassive Black Holes: A Falsifiable Prediction from Information Tension Theory — [10.5281/zenodo.20776360](https://doi.org/10.5281/zenodo.20776360)
+
+**Broader Unified Framework**
+- Universal Information Geometry: Topological Primality, the E8 Lattice, and the Origin of Gravitational Stability (v2, corrected) — [10.5281/zenodo.20348354](https://doi.org/10.5281/zenodo.20348354)
+- The Observerse as an E8 Branching: A Group-Theoretic Derivation of the 14 = 4 + 10 Structure and its Metric Fiber — [10.5281/zenodo.20142808](https://doi.org/10.5281/zenodo.20142808)
+- Geometrodynamica: An E8 Stiefel Holonomy Synthesis of Cosmology, Field Theory, and Formal Verification (v5) — [10.5281/zenodo.21539453](https://doi.org/10.5281/zenodo.21539453)
+- Ars Magna: Geometrically Ordered Dynamics — Information Tension, Sovereign Cognition, and Machine-Verified Foundations — [10.5281/zenodo.21302150](https://doi.org/10.5281/zenodo.21302150)
+- The Law of G.O.D.: A Pleroma of Geometrically Ordered Dynamics — [10.5281/zenodo.20117456](https://doi.org/10.5281/zenodo.20117456)
+
+*(Scope note: this list excludes records marked `[SUPERSEDED]`/`[RETRACTED]` by their own titles, restricted-access deposits, and non-physics papers from the same author's broader corpus.)*
+
+---
+
 <div align="center">
 
 **Res-Nova Observatory & Research Program**  
