@@ -15,3 +15,5 @@ build/*.png
 build/*.log
 build/*.aux
 build/*.out
+.vercel
+.env*
