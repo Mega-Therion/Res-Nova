@@ -4,11 +4,12 @@
 [![Lean 4 Verified](https://img.shields.io/badge/Lean4-Verified%20(8%20modules)-success.svg)](file:///home/mega/grand_monograph/05_lean_formalization/)
 [![Epistemic Standard](https://img.shields.io/badge/Epistemic%20Standard-Sovereign%20Covenant%20[P]/[D]/[C]/[O]-gold.svg)](file:///home/mega/grand_monograph/EPISTEMIC_BOUNDARY_v1.4.0.md)
 [![SPARC 175](https://img.shields.io/badge/SPARC%20175-Median%20%CF%87%C2%B2%2FNg%20%3D%202.92-brightgreen.svg)](file:///home/mega/grand_monograph/VERIFICATION_RUN_003/)
-[![Covariant Parent](https://img.shields.io/badge/RMOND%20Parent-Skordis--Z%C5%82o%C5%9Bnik%20[P]-purple.svg)](file:///home/mega/grand_monograph/TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md)
+[![Vercel Live](https://img.shields.io/badge/Vercel-Live%20Observatory-000000.svg?logo=vercel)](https://res-nova-observatory.vercel.app)
 
 **Author:** Ryan W. Yett ([ORCID: 0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190))  
 **Release Status:** `v1.4.0` (Commit [`1d14641`](https://github.com/Mega-Therion/Res-Nova/commit/1d14641))  
 **Repository:** [`Mega-Therion/Res-Nova`](https://github.com/Mega-Therion/Res-Nova)  
+**Live Interactive Observatory:** [res-nova-observatory.vercel.app](https://res-nova-observatory.vercel.app)  
 **Standard:** Sovereign Epistemic Covenant (`[P]` Proved, `[D]` Direct Empirical, `[C]` Cited Literature, `[O]` Open / Quarantined)
 
 ---
@@ -43,6 +44,6 @@ Res-Nova establishes the rigorous mathematical derivation, empirical verificatio
 * [`03_observer_jwst/`](file:///home/mega/grand_monograph/03_observer_jwst/): Observer interfaces and high-$z$ cosmic calibration.
 * [`04_cosmology/`](file:///home/mega/grand_monograph/04_cosmology/): Cosmological decoupling and horizon entropy boundary conditions.
 * [`05_lean_formalization/`](file:///home/mega/grand_monograph/05_lean_formalization/): Lean 4 formal machine proofs (`lake build`).
-* [`VERIFICATION_RUN_006/`](file:///home/mega/grand_monograph/VERIFICATION_RUN_006/): Reproducible Python verification run scripts, JSON evaluations, and SHA-256 manifests.
+* [`visualizer/`](file:///home/mega/grand_monograph/visualizer/): Interactive web dashboard and visualizer ([Live Demo](https://res-nova-observatory.vercel.app)).
 * [`final_manuscript.pdf`](file:///home/mega/grand_monograph/final_manuscript.pdf): Master unified monograph.
 * [`EPISTEMIC_BOUNDARY_v1.4.0.md`](file:///home/mega/grand_monograph/EPISTEMIC_BOUNDARY_v1.4.0.md): Master claim-by-claim verification ledger.
