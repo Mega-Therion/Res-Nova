@@ -7,7 +7,7 @@
 ---
 
 [![Release](https://img.shields.io/badge/Release-v1.4.0-0052FF.svg?style=for-the-badge&logo=github)](https://github.com/Mega-Therion/Res-Nova/releases/tag/v1.4.0)
-[![Lean 4 Verified](https://img.shields.io/badge/Lean_4-15_Modules_Verified-4B32C3.svg?style=for-the-badge&logo=lean)](05_lean_formalization/)
+[![Lean 4 Verified](https://img.shields.io/badge/Lean_4-17_Modules_Verified-4B32C3.svg?style=for-the-badge&logo=lean)](05_lean_formalization/)
 [![Epistemic Covenant](https://img.shields.io/badge/Epistemic_Hygiene-%5BP%5D_%5BD%5D_%5BC%5D_%5BO%5D-D4AF37.svg?style=for-the-badge)](EPISTEMIC_BOUNDARY_v1.4.0.md)
 [![SPARC Benchmark](https://img.shields.io/badge/SPARC_175-Median_%CF%87%C2%B2%2FNg_%3D_2.92-00C781.svg?style=for-the-badge)](02_galaxy_dynamics/)
 [![Vercel Live](https://img.shields.io/badge/Observatory-Live_Deployment-000000.svg?style=for-the-badge&logo=vercel)](https://res-nova-observatory.vercel.app)
@@ -98,7 +98,9 @@ $$\text{Guaranteeing: } \quad c_T \equiv c_\gamma \equiv c, \quad \gamma_{\text{
 
 ## 📐 Machine-Checked Formal Proof Inventory (Lean 4)
 
-All foundational propositions are mechanically certified in **Lean 4 / Mathlib** with **0 warnings, 0 errors, 0 `sorry` shortcuts, and zero custom unproven axioms**:
+All foundational propositions are mechanically certified in **Lean 4 / Mathlib** with **0 errors, 0 `sorry` shortcuts, and zero custom unproven axioms** — every theorem depends only on Lean's three standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
+
+This is enforced, not asserted: [`05_lean_formalization/verify_all_proofs.sh`](05_lean_formalization/verify_all_proofs.sh) elaborates all 17 modules and exits non-zero on any error, any `sorry`, or any axiom dependency outside those three. Last run: **PASS — 17/17**, against Mathlib pinned at `5eec30bc` (Lean `v4.33.0-rc1`).
 
 | Module | Headline Theorem | Mechanical Guarantee | Epistemic Status |
 | :--- | :--- | :--- | :---: |
@@ -139,11 +141,10 @@ $$\begin{aligned}
 git clone https://github.com/Mega-Therion/Res-Nova.git
 cd Res-Nova
 
-# 2. Verify all Lean 4 formal machine proofs
+# 2. Verify all Lean 4 formal machine proofs (17 modules, one command)
 cd 05_lean_formalization
-lake env lean CovariantCompletion.lean
-lake env lean SkordisZlosnikEmbedding.lean
-lake env lean TensorSpeed.lean
+lake exe cache get          # fetch prebuilt Mathlib oleans (~5 GB, first run only)
+./verify_all_proofs.sh      # exits 0 only on: no errors, no sorry, no custom axioms
 
 # 3. Reproduce SPARC 175-Galaxy Benchmark & 5-Fold Cross-Validation
 cd ../02_galaxy_dynamics
