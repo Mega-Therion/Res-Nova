@@ -221,9 +221,9 @@ Consequences (all machine-certified in \texttt{SkordisZlosnikEmbedding.lean}, \t
 \section{Lean~4 Formal Verification: Scope and Limits}
 \label{sec:lean}
 
-The Lean~4 suite (\texttt{05\_lean\_formalization/}) comprises \textbf{17 modules}, 0 \texttt{sorry}, axioms $\{\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}\}$, Lean \texttt{v4.33.0-rc1}, Mathlib pinned at \texttt{5eec30bc}. Gate: \texttt{verify\_all\_proofs.sh}.
+The Lean~4 suite (\texttt{05\_lean\_}\allowbreak\texttt{formalization/}) comprises \textbf{17 modules}, 0 \texttt{sorry}, axioms $\{\texttt{propext}$, $\texttt{Classical.choice}$, $\texttt{Quot.sound}\}$, Lean \texttt{v4.33.0-rc1}, Mathlib pinned at \texttt{5eec30bc}. Gate: \texttt{verify\_}\allowbreak\texttt{all\_proofs.sh}.
 
-\textbf{Important provenance note:} Local PASS on \texttt{109d38b}, Mathlib already present; O6 unwalked. Artifact: \texttt{VERIFICATION\_RUN\_003/01\_lean/} (transcript, per-target exit codes, toolchain and Mathlib revisions, SHA-256 checksums). Cold-clone reproducibility (\texttt{lake exe cache get} on a blank machine) is documented as open problem O6 in \texttt{OPEN\_PROBLEMS\_AND\_TESTS.md} and is not a current claim.
+\textbf{Important provenance note:} O6 --- walked once in a clean worktree at 07185a6 (\texttt{lake exe cache get} + 17/17 PASS, \texttt{VERIFICATION\_RUN\_007}). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate. Artifact: \texttt{VERIFICATION\_RUN\_007/01\_lean/} (transcript, per-target exit codes, toolchain and Mathlib revisions, SHA-256 checksums).
 
 \begin{table}[h!]
 \centering
@@ -266,7 +266,7 @@ The following items are quarantined $\mathbf{[O]}$ in \texttt{OPEN\_PROBLEMS\_AN
     \item \textbf{O3 --- $\mu(x)$ Physical Mechanism:} The algebraic closure is proved; the physical origin of the dual-channel balance (bulk kinetic flux vs.\ horizon dissipation) is a motivated conjecture.
     \item \textbf{O4 --- CMB and Structure Growth on FLRW:} FLRW decoupling is proved in the quasistatic limit. The full nonlinear perturbation treatment (acoustic oscillations, matter power spectrum, CMB) is not done. This is the primary open science frontier.
     \item \textbf{O5 --- Cluster Lensing and Bullet Cluster:} MOND-family theories require additional physics for galaxy cluster mass budgets; applicability of this framework at cluster scales is untested.
-    \item \textbf{O6 --- Cold-Clone Lean Build:} \texttt{lake exe cache get} on a blank machine not yet demonstrated.
+    \item \textbf{O6 --- Clean-Worktree Lean Build:} Walked once in a clean worktree at 07185a6 (\texttt{lake exe cache get} + 17/17 PASS, \texttt{VERIFICATION\_RUN\_007}). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate.
 \end{enumerate}
 
 \section{Cosmological and Optical Extensions (Open Research Program)}
@@ -301,7 +301,7 @@ The Res-Nova v1.5.0 assessment establishes the following proved and computed res
 The remaining open problems (O1--O6) are documented, bounded, and do not retract the proved core. The primary scientific frontier is O4: CMB and structure-growth consistency on FLRW backgrounds. This is the next derivation target in the Res-Nova research program.
 
 \section*{Data and Code Availability}
-All raw data, Python scripts, Lean~4 modules, and verification manifests are archived in the repository at \url{https://github.com/Mega-Therion/Res-Nova}, verified artifact references \texttt{VERIFICATION\_RUN\_003}, \texttt{VERIFICATION\_RUN\_005}, \texttt{VERIFICATION\_RUN\_006}.
+All raw data, Python scripts, Lean~4 modules, and verification manifests are archived in the repository at \url{https://github.com/Mega-Therion/Res-Nova}, verified artifact references \texttt{VERIFICATION\_RUN\_003}, \texttt{VERIFICATION\_RUN\_005}, \texttt{VERIFICATION\_RUN\_006}, \texttt{VERIFICATION\_RUN\_007}.
 
 \section*{Declarations}
 \textbf{Funding:} No external funding. \\

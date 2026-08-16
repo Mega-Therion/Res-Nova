@@ -123,7 +123,7 @@ not $a_0 = \frac{cH_0}{2\pi}$. The additional $1/(2\pi)$ divisor is an open boun
 ### F7. Lean 4 Formal Verification Suite (17 Tracked Modules, Standard Foundational Axioms)
 * **Epistemic Classification:** `[P]` Proved / Diagnostic / Assumption
 * **Target Directory:** [`05_lean_formalization/`](05_lean_formalization/)
-* **Status:** Exit code 0 on local verification gate (`109d38b`, Mathlib `5eec30bc`), recorded in `VERIFICATION_RUN_003/01_lean/`. Blank-machine cache reproduction (O6) remains open.
+* **Status:** O6 — walked once in a clean worktree at 07185a6 (lake exe cache get + 17/17 PASS, VERIFICATION_RUN_007). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate.
 * **Kernel Axiom Footprint:** Exclusively standard foundational axioms `[propext, Classical.choice, Quot.sound]`. (Documented structural/typeclass vacuity in `YettParadigm.lean` and `SovereignRegularity.lean` recorded in `THEORY_ASSUMPTION_AUDIT.md`).
 
 | Lean 4 File | Headline Theorems / Scope Verified on Disk | Axiom Footprint | Role / Status |

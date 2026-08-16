@@ -7,7 +7,7 @@
 ---
 
 ### Phase 1: Mathematical & Formal Kernel Verification
-- [x] **Lean 4 Proofs Build Cleanly:** 17/17 formal modules in `05_lean_formalization/` compiled with exit code 0 via `./05_lean_formalization/verify_all_proofs.sh` (local verification on `109d38b`, Mathlib `5eec30bc`; blank-machine reproduction O6 remains open).
+- [x] **Lean 4 Proofs Build Cleanly:** 17/17 formal modules in `05_lean_formalization/` compiled with exit code 0 via `./05_lean_formalization/verify_all_proofs.sh` (O6 — walked once in a clean worktree at 07185a6 (lake exe cache get + 17/17 PASS, VERIFICATION_RUN_007). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate).
 - [x] **Axiomatic Hygiene Checked:** Run `#print axioms` across all headline declarations; verified exclusive dependence on standard foundational axioms `[propext, Classical.choice, Quot.sound]`. (Documented structural/typeclass vacuity in `YettParadigm.lean` and `SovereignRegularity.lean` noted in `THEORY_ASSUMPTION_AUDIT.md`).
 - [x] **No Forbidden Proof Shortcuts:** Zero instances of unproven `sorry` or `admit` in compiled theorems.
 

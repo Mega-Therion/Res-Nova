@@ -91,9 +91,7 @@ Matched-parameter ledger (`PARAMETER_LEDGER.json`, `NFW_CONSTRAINED.json`):
 
 Seventeen modules, 0 `sorry`, axioms `{propext, Classical.choice, Quot.sound}`, Mathlib `5eec30bc`, Lean `v4.33.0-rc1`. Gate: `05_lean_formalization/verify_all_proofs.sh`.
 
-Local PASS on `109d38b`, Mathlib already present; O6 unwalked. Artifact: `VERIFICATION_RUN_003/01_lean/`.
-
-The recorded PASS used a Mathlib build already on the author machine. `lake exe cache get` on a blank clone is open problem O6, not a claim.
+O6 — walked once in a clean worktree at 07185a6 (lake exe cache get + 17/17 PASS, VERIFICATION_RUN_007). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate.
 
 ---
 
@@ -112,9 +110,9 @@ git clone https://github.com/Mega-Therion/Res-Nova.git
 cd Res-Nova
 python3 scripts/check_claim_consistency.py
 
-# Lean (local Mathlib may already be required; see O6)
+# Lean (see O6)
 cd 05_lean_formalization
-# lake exe cache get    # not claimed as walked on a fresh clone
+# lake exe cache get
 ./verify_all_proofs.sh
 
 # SPARC regeneration needs data that is not in git (see 02_galaxy_dynamics/SPARC_DATA.md)
