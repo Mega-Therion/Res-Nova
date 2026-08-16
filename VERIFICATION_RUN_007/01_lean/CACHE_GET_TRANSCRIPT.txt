@@ -1,0 +1,31 @@
+=== LEAN VERSION ===
+Lean (version 4.33.0-rc1, x86_64-unknown-linux-gnu, commit 62eed1db4d67327ec8120be05f1a1b0847d74561, Release)
+=== LAKE VERSION ===
+Lake version 5.0.0-src+62eed1d (Lean version 4.33.0-rc1)
+=== LEAN TOOLCHAIN ===
+leanprover/lean4:v4.33.0-rc1
+=== RUNNING LAKE EXE CACHE GET ===
+info: mathlib: cloning https://github.com/leanprover-community/mathlib4.git
+info: mathlib: checking out revision '5eec30bc56ed5a23be2e27c544a949ba0bceddeb'
+info: plausible: cloning https://github.com/leanprover-community/plausible
+info: plausible: checking out revision 'b1c4a69a7e247ab7df20460212001673d74f08c0'
+info: LeanSearchClient: cloning https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision '0498c7c070c143a3bf7379f4d99a2c63bb9d9715'
+info: importGraph: cloning https://github.com/leanprover-community/import-graph
+info: importGraph: checking out revision '18a90119a5d316358fde6c86e0ca24e59212e32c'
+info: proofwidgets: cloning https://github.com/leanprover-community/ProofWidgets4
+info: proofwidgets: checking out revision 'b1436dc749e722c9920036b52cdc43b3451d0b69'
+info: aesop: cloning https://github.com/leanprover-community/aesop
+info: aesop: checking out revision '57d3325be72a842920813bcb40f96a6f7393c185'
+info: Qq: cloning https://github.com/leanprover-community/quote4
+info: Qq: checking out revision 'ee41917ae11d38479fb8fb24745f7ca4bf0a784d'
+info: batteries: cloning https://github.com/leanprover-community/batteries
+info: batteries: checking out revision 'd60e6444e6fd881dfa077ff36e96de75753afa28'
+info: Cli: cloning https://github.com/leanprover/lean4-cli
+info: Cli: checking out revision 'da07ca808b6718cb2aed14dba154e5a08b8f8ecf'
+Built cache:exe from source (26/26 jobs).
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Decompressing 8486 already-cached file(s) (192 already decompressed)
+No files to download
+Decompressed 8486 already-cached file(s)
