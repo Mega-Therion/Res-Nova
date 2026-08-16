@@ -18,9 +18,7 @@ from pathlib import Path
 
 _MODULE_DIR = Path(__file__).resolve().parent
 _REPO_ROOT = _MODULE_DIR.parent
-_OLD_FALLBACK = Path(
-    "/home/mega/Chyren/Research_and_Data/07_Domain_Tiers_and_Data/Datasets/data/sparc_data"
-)
+_OLD_FALLBACK = None  # Removed: hardcoded /home/mega path (O5 fix)
 
 
 def resolve_sparc_dir(cli_dir: str | Path | None = None) -> Path:
@@ -62,9 +60,8 @@ def resolve_sparc_dir(cli_dir: str | Path | None = None) -> Path:
         candidates.append(cwd_local)
         tried.append(f"cwd-local: {cwd_local}")
 
-    # 5. Last fallback
-    candidates.append(_OLD_FALLBACK)
-    tried.append(f"legacy fallback: {_OLD_FALLBACK}")
+    # 5. No hardcoded fallback (O5 fix)
+    tried.append("No hardcoded fallback — set SPARC_DATA_DIR or place data in spc_data/")
 
     for candidate in candidates:
         if candidate.is_dir():
