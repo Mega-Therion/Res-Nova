@@ -1,0 +1,49 @@
+{
+  "status": "completed",
+  "protocol": "PREREG_A0_OF_Z.md",
+  "epistemic_classification": "[D] Computed Empirical Benchmark",
+  "preregistered_parameters": {
+    "H0_kms_mpc": 67.4,
+    "omega_m": 0.315,
+    "omega_lambda": 0.685,
+    "mu_function": "x / (1 + x)",
+    "a0_sparc_zero_ms2": 1.1160351336495209e-10,
+    "xi_frozen": 0.17043069398796448,
+    "no_nfw_parameters": true
+  },
+  "preregistered_predictions": {
+    "z_0_0": 1.1160351336495209e-10,
+    "z_0_5": 1.475584581499327e-10,
+    "z_1_0": 1.99798343702495e-10,
+    "z_1_5": 2.642641821843989e-10,
+    "z_2_0": 3.383261934224655e-10
+  },
+  "dataset": {
+    "source": "Published MUSE-DARK III / HUDF (Bouch\u00e9+2021 / Mercier+2022)",
+    "n_galaxies": 20,
+    "n_kinematic_points": 20,
+    "redshift_range": [
+      0.413,
+      1.44
+    ],
+    "redshift_median": 0.94
+  },
+  "hypothesis_test_results": {
+    "n_points": 20,
+    "n_galaxies": 20,
+    "z_min": 0.413,
+    "z_max": 1.44,
+    "z_median": 0.94,
+    "chi2_H_const": 5.371260049053887,
+    "chi2_H_horizon": 40.48609806449993,
+    "delta_chi2_Hconst_minus_Hhorizon": -35.11483801544604,
+    "sigma_significance": 5.9257774186553815,
+    "median_chi2_pt_Hconst": 0.1957059082380444,
+    "median_chi2_pt_Hhorizon": 2.0279918951771627,
+    "mean_chi2_pt_Hconst": 0.2685630024526943,
+    "mean_chi2_pt_Hhorizon": 2.0243049032249965,
+    "favoured_hypothesis": "H_const",
+    "excluded_hypothesis_at_3sigma": "H_horizon",
+    "verdict": "H_const favoured over H_horizon at >= 3 sigma (delta_chi2 <= -9.0)"
+  }
+}
