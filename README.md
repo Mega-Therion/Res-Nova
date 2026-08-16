@@ -6,9 +6,10 @@
 
 ---
 
-[![Release](https://img.shields.io/badge/Release-v1.5.0-0052FF.svg?style=for-the-badge&logo=github)](https://github.com/Mega-Therion/Res-Nova)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21969121.svg)](https://doi.org/10.5281/zenodo.21969121)
+[![Release](https://img.shields.io/badge/Release-v1.6.2-0052FF.svg?style=for-the-badge&logo=github)](https://github.com/Mega-Therion/Res-Nova/releases/tag/v1.6.2)
 [![Lean 4 Verified](https://img.shields.io/badge/Lean_4-17_Modules-4B32C3.svg?style=for-the-badge&logo=lean)](05_lean_formalization/)
-[![Epistemic Covenant](https://img.shields.io/badge/Epistemic-v1.5.0_%5BP%5D_%5BD%5D_%5BC%5D_%5BO%5D-D4AF37.svg?style=for-the-badge)](EPISTEMIC_BOUNDARY_v1.5.0.md)
+[![Epistemic Covenant](https://img.shields.io/badge/Epistemic-v1.6.2_%5BP%5D_%5BD%5D_%5BC%5D_%5BO%5D-D4AF37.svg?style=for-the-badge)](EPISTEMIC_BOUNDARY_v1.5.0.md)
 [![SPARC a0](https://img.shields.io/badge/SPARC_a0-1.116e--10_%C2%B1_14.4%25-00C781.svg?style=for-the-badge)](02_galaxy_dynamics/A0_MEASUREMENT.json)
 [![Vercel Live](https://img.shields.io/badge/Observatory-Live_Deployment-000000.svg?style=for-the-badge&logo=vercel)](https://res-nova-observatory.vercel.app)
 
