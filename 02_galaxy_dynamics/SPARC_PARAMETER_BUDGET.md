@@ -1,23 +1,43 @@
-# SPARC 175 Galaxy Kinematic Parameter Accounting Budget & Verification
+# SPARC parameter budget
 
-**Framework:** Information Tension Theory (ITT) / Geometrically Ordered Dynamics (GOD)  
-**Database:** SPARC (175 rotationally supported galaxies, Lelli et al. 2016c)  
-**Verification Date:** 2026-08-14 (Audited & Re-Gated)  
+**Source of numbers:** `PARAMETER_LEDGER.json`, `NFW_CONSTRAINED.json`, `A0_MEASUREMENT.json` (commit `3c90ef3e`).
+**Script:** `parameter_ledger.py`, `nfw_constrained.py`, `a0_measure.py`.
+**This file replaces the older budget prose that still spoke the withdrawn zero-parameter language.**
 
----
+Shared functional form for GOD and MOND rows: `\tau=1/2+\sqrt{1/4+a0/g}`, i.e. dual-channel `\mu(x)=x/(1+x)`.
 
-## 1. Strict vs. Nuisance Two-Tier Benchmark
+Nuisances `Y_d`, `Y_b`, `f_d` are observational, applied identically when present. They are counted in the free-parameter totals at Tier 1.
 
-| Parameter Tier | Free Parameters / Galaxy | Total Free Params | Evaluated Metric | Result | Physical Interpretation & Controls |
-|---|---|---|---|---|---|
-| **Tier 1: Strict Zero-Parameter** [D] | **0** (Fixed $a_0 = \frac{cH_0}{2\pi}$, $\Upsilon=1.0$, $f_d=1.0$) | **0** | Median $\chi^2/N$ | **29.12** | Global zero-parameter baseline across all 175 galaxies ($H_0 = 67.4$). Aggregate $\chi^2/\text{dof} = 144.04$. |
-| **Tier 2: Nuisance Parameter Fit** [D] | **2 to 3** ($\Upsilon_{\text{disk}}, \Upsilon_{\text{bulge}}, f_d$) | **525** | Median $\chi^2/N$ | **2.88** | Gaussian priors on disk/bulge $M/L$ and distance scale. Aggregate $\chi^2/\text{dof} = 7.93$ (118/175 galaxies with $\chi^2/N < 5$). |
-| **Baryons-Only Baseline** (Control) | **0** (No Dark Matter, No ITT) | **0** | Aggregate $\chi^2/\text{dof}$ | **646.66** | Decisively excluded by empirical rotation curves across all galaxies. |
+## Tier 0 — no per-galaxy freedom
 
----
+| Model | `a0` source | Free params | Median reduced `χ²` | Aggregate `χ²`/`\mathrm{dof}` |
+|---|---|---:|---:|---:|
+| GOD | `cH0/(2π)` `[O]` | 0 | 9.20 | 51.45 |
+| MOND | literature `1.2e-10` | 0 | 11.35 | 50.22 |
+| NFW | — | — | cannot run | a halo with no parameters is not a halo |
 
-## 2. Invalidation of Legacy Global Claims
+This is the only tier that discriminates where `a0` came from.
 
-* **Legacy Citation:** *"All-175 global zero-parameter $\chi^2/N = 1.07$"*
-* **Audit Status:** **PROHIBITED & CORRECTED**.
-* **Reasoning:** Zero-parameter fitting across all 175 galaxies yields median $\chi^2/N = 29.12$ due to dwarf irregulars and non-circular kinematics. A median of $\chi^2/N \sim 1.0$ is only achieved when restricting to high-quality regular disk samples with nuisance parameter optimization.
+## Tier 1 — matched per-galaxy nuisances
+
+| Model | Shape params | Free params | Median reduced `χ²` | Notes |
+|---|---|---:|---:|---|
+| GOD | 0 | 374 | 2.95 | `a0` still horizon `[O]` |
+| MOND | 0 | 374 | 2.89 | `a0` literature |
+| NFW free `c` | 2 per galaxy | 716 | 1.92 | 97/171 railed at `c=1`; **not** the `Λ`CDM row |
+| NFW cosmological `c` prior | 2 per galaxy + Dutton & Macciò 2014 prior | 716 | 5.62 | 3/171 railed; this is the fair `Λ`CDM-like row |
+
+`716 - 374 = 342` extra NFW parameters versus GOD at Tier 1.
+
+Held to its own concentration prior, NFW’s median is 5.62 against GOD’s 2.95. That is the “half as well / 342 more parameters” sentence. It is a reproduction of the cusp-core problem, not a new law of nature.
+
+## Working `a0` (not a budget row, a measurement)
+
+`a0 = 1.116\times 10^{-10}` ± `0.128\times 10^{-10}` (stat) ± `0.097\times 10^{-10}` (syst), `N=171`, 3375 points. Total 14.4%. Horizon `0.46\sigma`. MOND `0.52\sigma`.
+
+## Provenance tags (`PARAMETER_LEDGER.json`)
+
+- GOD `a0`: called “DERIVED, `cH0/2π`” in the JSON, and correctly tagged `[O]` in the same field. The word DERIVED there is historical. This budget treats it as an external cosmological input, not a theorem.
+- GOD `μ`: derived, dual-channel `[P]`.
+- MOND `μ`: chosen; several variants exist in the literature.
+- NFW: two fitted halo numbers per galaxy.
