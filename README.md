@@ -91,6 +91,8 @@ Matched-parameter ledger (`PARAMETER_LEDGER.json`, `NFW_CONSTRAINED.json`):
 
 Seventeen modules, 0 `sorry`, axioms `{propext, Classical.choice, Quot.sound}`, Mathlib `5eec30bc`, Lean `v4.33.0-rc1`. Gate: `05_lean_formalization/verify_all_proofs.sh`.
 
+Local PASS on `109d38b`, Mathlib already present; O6 unwalked. Artifact: `VERIFICATION_RUN_003/01_lean/`.
+
 The recorded PASS used a Mathlib build already on the author machine. `lake exe cache get` on a blank clone is open problem O6, not a claim.
 
 ---

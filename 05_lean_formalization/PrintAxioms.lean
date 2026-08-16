@@ -1,4 +1,9 @@
 
+-- The six constants below are declared in `CovariantCompletion.lean`. Re-opening the
+-- namespace does not bring them into scope; without this import `#print axioms` fails with
+-- `unknown constant` and the gate reports an elaboration error. See open problem O8.
+import CovariantCompletion
+
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Ring
