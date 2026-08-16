@@ -1,0 +1,31 @@
+{
+  "schema_version": "mvpc-claim-manifest-v1",
+  "claim_id": "D3.1",
+  "title": "Asymptotic Newtonian limit of simple mu function",
+  "statement": "lim_{x -> infty} mu(x) = 1",
+  "epistemic_tier": "[O]",
+  "status": "SUSPENDED",
+  "target_backend": "lean4",
+  "artifacts": [
+    {
+      "path": "05_lean_formalization/PPNLimits.lean",
+      "sha256": "d77558cddf57235a5db55148c4019ea312c7dab13edfe0df989ca06b4f50cd4c",
+      "theorems": [
+        "fractional_deviation_eq",
+        "solar_system_precision_bound",
+        "cassini_radar_delay_satisfied"
+      ]
+    }
+  ],
+  "verification": {
+    "prover": "lean4",
+    "pass": false,
+    "suspension_date": "2026-08-16",
+    "defect_type": "source_content_defect",
+    "reason": "Not backed by PPNLimits.lean. The file proves finite-threshold bounds at x >= 10^4 and x >= 6*10^7, not a topological limit. No Filter.Tendsto statement exists in any of the 17 modules. Source-content defect unaffected by gate pass."
+  },
+  "epistemic_boundary": {
+    "scope": "Quarantined / Open.",
+    "closure_path": "Formalize Filter.Tendsto mu atTop (𝓝 1) in Lean 4, or restate the claim as the finite-threshold bound actually proved."
+  }
+}

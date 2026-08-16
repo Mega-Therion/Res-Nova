@@ -1,0 +1,31 @@
+{
+  "schema_version": "mvpc-claim-manifest-v1",
+  "claim_id": "O1",
+  "title": "a0-Horizon Scale Identity",
+  "statement": "a0 = xi * c * H0, with theoretical candidate xi = 1/(2*pi).",
+  "epistemic_tier": "[O]",
+  "status": "OPEN",
+  "target_backend": "cosmology_empirical",
+  "artifacts": [
+    {
+      "path": "02_galaxy_dynamics/A0_MEASUREMENT.json",
+      "sha256": "d71297842f50a9f8f43d5c66855c3ed3b284672178b22808236c28053679f73a"
+    },
+    {
+      "path": "04_cosmology/A0_AND_OMEGA_NORMALIZATION_LEDGER.md",
+      "sha256": "9439efdb2efb32bce03dd620400cd8c5082b0f682d06796d2b131444e3af1d55"
+    }
+  ],
+  "verification": {
+    "empirical_eval": "PASS_AT_CURRENT_EPOCH",
+    "tension_with_cH0_over_2pi": "0.46 sigma",
+    "tension_with_mond_1.2e-10": "0.52 sigma",
+    "systematic_uncertainty_floor": "8.7%",
+    "pass": false,
+    "quarantine_reason": "Consistency at z=0 is an anchor consistency, not a theoretical derivation. The empirical measurement fails to distinguish the horizon formula from empirical MOND a0 at 3 sigma at z=0."
+  },
+  "epistemic_boundary": {
+    "scope": "Quarantined Open Problem [O].",
+    "closure_path": "Measurement of a0(z) at high redshift (z ~ 1-3) via kinematic rotation curves when observational high-redshift data becomes available."
+  }
+}
