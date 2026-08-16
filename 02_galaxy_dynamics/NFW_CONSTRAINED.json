@@ -1,0 +1,16 @@
+{
+  "NFW_free_c": {
+    "median_reduced_chi2": 1.9211250190559346,
+    "frac_under_1": 53,
+    "total_free_params": 716,
+    "median_c": 1.0,
+    "n_railed_c_low": 97
+  },
+  "NFW_cosmological_c_prior": {
+    "median_reduced_chi2": 5.623245912010853,
+    "frac_under_1": 8,
+    "total_free_params": 716,
+    "median_c": 3.5818404499158087,
+    "n_railed_c_low": 3
+  }
+}

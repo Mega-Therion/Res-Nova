@@ -1,0 +1,55 @@
+{
+  "tier0_GOD": {
+    "median_reduced_chi2": 9.199597823916553,
+    "mean_reduced_chi2": 35.11137635961403,
+    "frac_under_1": 9,
+    "frac_under_2": 24,
+    "total_free_params": 0,
+    "total_points": 3375,
+    "aggregate_chi2_per_dof": 51.44863981463308
+  },
+  "tier0_MOND": {
+    "median_reduced_chi2": 11.352357077353233,
+    "mean_reduced_chi2": 37.50049864390468,
+    "frac_under_1": 9,
+    "frac_under_2": 19,
+    "total_free_params": 0,
+    "total_points": 3375,
+    "aggregate_chi2_per_dof": 50.21659144479394
+  },
+  "tier1_GOD": {
+    "median_reduced_chi2": 2.9523097019895777,
+    "mean_reduced_chi2": 5.198191916373632,
+    "frac_under_1": 21,
+    "frac_under_2": 59,
+    "total_free_params": 374,
+    "total_points": 3375,
+    "aggregate_chi2_per_dof": 5.3585296730463
+  },
+  "tier1_MOND": {
+    "median_reduced_chi2": 2.88661830072029,
+    "mean_reduced_chi2": 5.27525810655066,
+    "frac_under_1": 23,
+    "frac_under_2": 60,
+    "total_free_params": 374,
+    "total_points": 3375,
+    "aggregate_chi2_per_dof": 5.362786567133307
+  },
+  "tier1_NFW": {
+    "median_reduced_chi2": 1.9211250190559346,
+    "mean_reduced_chi2": 3.933366055377198,
+    "frac_under_1": 53,
+    "frac_under_2": 88,
+    "total_free_params": 716,
+    "total_points": 3375,
+    "aggregate_chi2_per_dof": 4.581508478469676
+  },
+  "provenance": {
+    "GOD_a0": "DERIVED, cH0/2pi (horizon argument), epistemic tag [O]",
+    "MOND_a0": "FITTED to rotation curves in the literature (1.2e-10)",
+    "GOD_interpolation": "DERIVED, Thm 8.7 dual-channel mu(x)=x/(1+x)",
+    "MOND_interpolation": "CHOSEN by hand; several variants in use",
+    "NFW_halo": "2 FITTED shape params per galaxy (c, V200)",
+    "shared_nuisance": "Yd, Yb, fd - observational unknowns, not model params; identical across all three"
+  }
+}

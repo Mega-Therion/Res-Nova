@@ -1,0 +1,50 @@
+{
+  "generated": "2026-08-15",
+  "n_galaxies": 175,
+  "n_points": 3391,
+  "model": "tau(g) = 1/2 + sqrt(1/4 + a0/g), v = v_bary*sqrt(tau)",
+  "method": "Per-galaxy Yd/Yb/fd profiled at every a0; a0 from total chi2 minimum; uncertainty from 68% bootstrap over galaxies (not points); 5-fold CV with a0 retrained per fold.",
+  "a0_claimed_cH0_over_2pi": 1.0421152108506952e-10,
+  "a0_mond_empirical": 1.2e-10,
+  "a0_best_fit": 1.1070467107089318e-10,
+  "a0_bootstrap_median": 1.1066688136750166e-10,
+  "a0_68CI": [
+    1.0199961608300962e-10,
+    1.2078620656385787e-10
+  ],
+  "a0_sigma": 9.393295240424124e-12,
+  "tension_with_claim_sigma": 0.6912536888950687,
+  "cross_validation": [
+    {
+      "fold": 1,
+      "trained_a0": 1.180511355728493e-10,
+      "test_median_chi2_per_point": 2.7818829844924884,
+      "test_aggregate_chi2_per_point": 5.547800954355575
+    },
+    {
+      "fold": 2,
+      "trained_a0": 1.0774177742482218e-10,
+      "test_median_chi2_per_point": 2.439387316747993,
+      "test_aggregate_chi2_per_point": 6.806463564880809
+    },
+    {
+      "fold": 3,
+      "trained_a0": 1.0288087829826255e-10,
+      "test_median_chi2_per_point": 2.5318047706508007,
+      "test_aggregate_chi2_per_point": 4.75477639982815
+    },
+    {
+      "fold": 4,
+      "trained_a0": 1.1344995300463813e-10,
+      "test_median_chi2_per_point": 2.4510756222897583,
+      "test_aggregate_chi2_per_point": 3.5061532110801332
+    },
+    {
+      "fold": 5,
+      "trained_a0": 1.139500851984003e-10,
+      "test_median_chi2_per_point": 2.0093938875999084,
+      "test_aggregate_chi2_per_point": 2.7122197735946814
+    }
+  ],
+  "cv_trained_a0_distinct": 5
+}

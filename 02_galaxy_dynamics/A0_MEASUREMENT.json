@@ -1,0 +1,57 @@
+{
+  "generated": "2026-08-15",
+  "n_galaxies": 171,
+  "n_points": 3375,
+  "model": "tau(g)=1/2+sqrt(1/4+a0/g), v=v_bary*sqrt(tau)",
+  "priors": "per-galaxy published SPARC distance + inclination errors; Yd~N(0.5,0.125), Yb~N(0.7,0.175)",
+  "a0_best_fit": 1.1162688655613144e-10,
+  "stat_sigma": 1.2804240890979097e-11,
+  "stat_68CI": [
+    9.908522416903484e-11,
+    1.2469370595099303e-10
+  ],
+  "syst_components": {
+    "distance_scale": 7.535957486455974e-12,
+    "M/L_prior": 2.4871447620537766e-13,
+    "inclination_treatment": 6.090002319313808e-12,
+    "sample_selection": 1.0350056644516284e-13
+  },
+  "syst_sigma": 9.69285070270083e-12,
+  "total_sigma": 1.605926335605308e-11,
+  "systematic_variations": {
+    "distance_scale_-5%": {
+      "a0": 1.1897205248807872e-10,
+      "shift": 7.345165931947276e-12,
+      "shift_pct": 6.580104631202599
+    },
+    "distance_scale_+5%": {
+      "a0": 1.0390013751516677e-10,
+      "shift": -7.726749040964672e-12,
+      "shift_pct": -6.921942624530054
+    },
+    "M/L_prior_0.40": {
+      "a0": 1.1140563409825507e-10,
+      "shift": -2.2125245787637935e-13,
+      "shift_pct": -0.19820713871216217
+    },
+    "M/L_prior_0.60": {
+      "a0": 1.1090820514584431e-10,
+      "shift": -7.186814102871347e-13,
+      "shift_pct": -0.6438246487558771
+    },
+    "inclination_fixed": {
+      "a0": 1.0553688423681764e-10,
+      "shift": -6.090002319313808e-12,
+      "shift_pct": -5.455676949523677
+    },
+    "drop_face-on_i<30": {
+      "a0": 1.1152338598968628e-10,
+      "shift": -1.0350056644516284e-13,
+      "shift_pct": -0.09272010501978635
+    }
+  },
+  "a0_claimed_cH0_over_2pi": 1.0421152108506952e-10,
+  "a0_mond_empirical": 1.2e-10,
+  "tension_claim_sigma": 0.46175003838310674,
+  "tension_mond_sigma": 0.5213883886344357
+}
