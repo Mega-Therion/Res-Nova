@@ -21,3 +21,5 @@ build/*.out
 # SPARC rotation curves (public dataset; do not vendor)
 02_galaxy_dynamics/sparc_data/
 *.zip
+node_modules/
+visualizer/node_modules/

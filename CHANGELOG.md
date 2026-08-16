@@ -24,3 +24,16 @@ Epistemic and reproducibility alignment over the v1.4.0 physics seal. No new the
 - High-redshift `a0(z) = ξ c H(z)` remains an unrun test, not a result.
 
 Prior changelog text is the blob `01c42f2b` on `main` (git history). Physics seal: tag `v1.4.0` / commit `651a70d8`.
+
+## [Unreleased] — 2026-08-16
+
+### Repository cleanup
+- Moved `EPISTEMIC_BOUNDARY_v1.1.0`–`v1.4.0` to `archive/epistemic_boundaries/` (v1.5.0 remains canonical).
+- Removed hardcoded `/home/mega` paths from `RELEASE_CHECKLIST.md` (now relative).
+- Untracked `visualizer/node_modules/` from git; added to `.gitignore`.
+- Updated `book/README.md` to reflect the rewritten Part IV-V (actual res-nova physics).
+
+### Knowledge base
+- Created 56 concept pages in Notion knowledge base from the res-nova corpus.
+- Created 25 KnowledgeConcept entity records tracking occurrence counts and cross-links.
+- Concepts tagged by topic: Physics, Mathematics, Methodology, Cosmology, Information Theory.
