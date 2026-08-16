@@ -31,29 +31,16 @@ KM_TO_M = 1000
 A0_HORIZON = C_LIGHT * H0_SI / (2 * math.pi)
 A0_MOND = 1.2e-10
 
+from sparc_paths import resolve_sparc_dir
+
 SCRIPT_DIR = Path(__file__).resolve().parent
 
 
 def _resolve_sparc_data() -> Path:
-    """Portable search: env, package-local, then monorepo-relative — no host-absolute default."""
-    import os
-
-    env = os.environ.get("SPARC_DATA") or os.environ.get("ARS_MAGNA_SPARC_DATA")
-    if env:
-        p = Path(env).expanduser()
-        if p.is_dir():
-            return p
-    candidates = [
-        SCRIPT_DIR / "sparc_data",
-        SCRIPT_DIR.parent / "data" / "sparc_data",
-        SCRIPT_DIR.parent.parent / "data" / "sparc_data",
-        SCRIPT_DIR.parent.parent.parent / "data" / "sparc_data",
-    ]
-    for c in candidates:
-        if c.is_dir() and any(c.glob("*_rotmod.dat")):
-            return c
-    # Last resort: empty path forces clear argparse error if missing
-    return candidates[0]
+    try:
+        return resolve_sparc_dir()
+    except FileNotFoundError:
+        return SCRIPT_DIR / "sparc_data"
 
 
 DEFAULT_DATA = _resolve_sparc_data()

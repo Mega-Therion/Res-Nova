@@ -37,6 +37,8 @@ from pathlib import Path
 import numpy as np
 from scipy.optimize import minimize
 
+from sparc_paths import resolve_sparc_dir
+
 C_LIGHT = 2.998e8
 H0_SI = 67.4 * 1000 / 3.086e22
 A0_HORIZON = C_LIGHT * H0_SI / (2 * math.pi)
@@ -47,9 +49,10 @@ KM_TO_M = 1000.0
 G_SI = 6.674e-11
 MSUN = 1.989e30
 
-SPARC_DIR = Path(
-    "/home/mega/Chyren/Research_and_Data/07_Domain_Tiers_and_Data/Datasets/data/sparc_data"
-)
+try:
+    SPARC_DIR = resolve_sparc_dir()
+except FileNotFoundError:
+    SPARC_DIR = Path("sparc_data")
 
 YD_MEAN, YD_STD = 0.5, 0.125
 YB_MEAN, YB_STD = 0.7, 0.175
@@ -193,10 +196,12 @@ def run(gals, model, a0, tier):
 
 def main() -> None:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--data-dir", default=None, help="Path to SPARC rotmod directory")
     ap.add_argument("--out", default="PARAMETER_LEDGER.json")
     args = ap.parse_args()
 
-    gals = load(SPARC_DIR)
+    sparc_dir = resolve_sparc_dir(args.data_dir)
+    gals = load(sparc_dir)
     print(f"{len(gals)} galaxies, {sum(len(g['r']) for g in gals)} points\n")
 
     res = {}

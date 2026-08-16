@@ -2,27 +2,41 @@
 
 ## What is in git
 
-Scripts and frozen JSON under `02_galaxy_dynamics/`. Rotation-curve tables are **not** in this repository.
+Scripts and frozen JSON under `02_galaxy_dynamics/`. Rotation-curve tables are **not** committed to git and are ignored via `.gitignore` (`02_galaxy_dynamics/sparc_data/`, `*.zip`).
 
-## What the scripts currently assume
+## Data resolution (`sparc_paths.py`)
 
-Hardcoded author-machine paths (defect, open O5):
+All scripts in `02_galaxy_dynamics/` resolve the SPARC data directory dynamically via `sparc_paths.py` in the following priority order:
 
-- `/home/mega/Chyren/Research_and_Data/07_Domain_Tiers_and_Data/Datasets/data/sparc_data` — `*_rotmod.dat`
-- `/tmp/claude-1000/-home-mega/1c65399a-35d8-432b-881b-84d118b9952e/scratchpad/corpus_flat.csv` — published D/`i` errors used by `a0_measure.py`
+1. CLI argument `--data-dir <DIR>` if provided
+2. Environment variable `SPARC_DATA_DIR` (or `SPARC_DATA`)
+3. Repo-local `02_galaxy_dynamics/sparc_data/`
+4. Current working directory `./sparc_data/`
+5. Legacy fallback `/home/mega/Chyren/Research_and_Data/07_Domain_Tiers_and_Data/Datasets/data/sparc_data`
 
-A referee without those paths cannot regenerate `A0_MEASUREMENT.json` from this clone alone. The JSON remains the citable `[D]` artifact of commit `3c90ef3e`.
+If no directory containing `*_rotmod.dat` is found, a clear `FileNotFoundError` is raised listing all tried paths.
+
+For optional per-galaxy published distance and inclination errors, `a0_measure.py` accepts `--meta <CSV>` or `SPARC_META_CSV`. If absent, it runs with standard default priors (10% distance, 5° inclination; `has_meta=false`).
 
 ## How to obtain SPARC
 
-Primary source: Lelli, McGaugh & Schombert 2016, *AJ* 152, 157. Rotation-curve compilation: SPARC (`*_rotmod.dat`). Use the official distribution; do not scrape mirrors of unknown hash.
+Primary source: Lelli, McGaugh & Schombert 2016, *AJ* 152, 157. Official distribution URL: `https://astroweb.cwru.edu/SPARC/Rotmod_LTG.zip`.
 
-Until `SPARC_DATA_DIR` is wired, pass directories only if you edit the scripts locally. Do not commit SPARC binaries unless licensing is checked and SHA-256 sums are listed here.
+To fetch the official dataset into the repo-local directory:
 
-## Reproduction without data
+```bash
+mkdir -p 02_galaxy_dynamics/sparc_data
+cd 02_galaxy_dynamics/sparc_data
+curl -fL -O https://astroweb.cwru.edu/SPARC/Rotmod_LTG.zip
+unzip -o Rotmod_LTG.zip
+if [ -d Rotmod_LTG ]; then shopt -s nullglob; mv Rotmod_LTG/*_rotmod.dat .; rmdir Rotmod_LTG || true; fi
+ls -1 *_rotmod.dat | wc -l
+# Expected: 175 *_rotmod.dat files
+cd ../..
+```
 
-You can still audit:
+Total files downloaded: **175 `*_rotmod.dat` rotation curve tables**.
 
-- the method, in the Python docstrings
-- the frozen numbers, in the JSON
-- the claim hygiene, with `python3 scripts/check_claim_consistency.py`
+## Citable measurement standard
+
+The data directory is gitignored to avoid vendoring public datasets without license modifications. The frozen `[D]` JSON artifacts on `main` (`02_galaxy_dynamics/A0_MEASUREMENT.json`, `PARAMETER_LEDGER.json`, `NFW_CONSTRAINED.json`, `HALO_CONSPIRACY.json`, `A0_ESTIMATE.json`) remain the citable empirical measurements from commit `3c90ef3e` / v1.5.0 seal until a new run is explicitly ledgered.

@@ -17,3 +17,7 @@ build/*.aux
 build/*.out
 .vercel
 .env*
+
+# SPARC rotation curves (public dataset; do not vendor)
+02_galaxy_dynamics/sparc_data/
+*.zip

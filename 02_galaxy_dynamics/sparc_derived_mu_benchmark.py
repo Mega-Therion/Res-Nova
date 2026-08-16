@@ -15,8 +15,12 @@ import json
 import numpy as np
 from pathlib import Path
 from scipy.optimize import minimize, minimize_scalar
+from sparc_paths import resolve_sparc_dir
 
-SPARC_DIR = Path('/home/mega/file_organizer_output/final_organized/documents/general_docs')
+try:
+    SPARC_DIR = resolve_sparc_dir()
+except FileNotFoundError:
+    SPARC_DIR = Path(__file__).resolve().parent / "sparc_data"
 
 def load_galaxy(fpath):
     data = []
@@ -185,7 +189,7 @@ def run_benchmark():
         }
     }
     
-    out_file = Path('/home/mega/grand_monograph/VERIFICATION_RUN_002/02_sparc/SPARC_DERIVED_MU_BENCHMARK_REPORT.json')
+    out_file = Path(__file__).resolve().parents[1] / "VERIFICATION_RUN_002" / "02_sparc" / "SPARC_DERIVED_MU_BENCHMARK_REPORT.json"
     out_file.parent.mkdir(parents=True, exist_ok=True)
     out_file.write_text(json.dumps(results, indent=2))
     print("\n=== BENCHMARK COMPLETE ===")

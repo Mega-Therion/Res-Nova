@@ -48,20 +48,15 @@ A0_MOND = 1.2e-10
 KPC_TO_M = 3.086e19
 KM_TO_M = 1000.0
 
-SPARC_DIR = Path(
-    "/home/mega/Chyren/Research_and_Data/07_Domain_Tiers_and_Data/Datasets/data/sparc_data"
-)
-CORPUS_CSV = Path(
-    "/tmp/claude-1000/-home-mega/1c65399a-35d8-432b-881b-84d118b9952e/scratchpad/corpus_flat.csv"
-)
+from sparc_paths import resolve_sparc_dir, resolve_sparc_meta
 
 
-def load(sparc_dir: Path, corpus_csv: Path):
+def load(sparc_dir: Path, corpus_csv: Path | None = None):
     """SPARC rotation curves joined to published distance/inclination errors."""
     meta = {}
-    if corpus_csv.exists():
+    if corpus_csv is not None and corpus_csv.is_file():
         for row in csv.DictReader(corpus_csv.open()):
-            if row["survey"] != "SPARC":
+            if row.get("survey") != "SPARC":
                 continue
 
             def f(k):
@@ -215,13 +210,22 @@ BASE = dict(
 
 def main() -> None:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--data-dir", default=None, help="Path to SPARC rotmod directory")
+    ap.add_argument("--meta", default=None, help="Path to SPARC metadata CSV (corpus_flat.csv)")
     ap.add_argument("--boot", type=int, default=2000)
     ap.add_argument("--grid", type=int, default=80)
     ap.add_argument("--out", default="A0_MEASUREMENT.json")
     args = ap.parse_args()
 
-    gals = load(SPARC_DIR, CORPUS_CSV)
+    sparc_dir = resolve_sparc_dir(args.data_dir)
+    meta_csv = resolve_sparc_meta(args.meta)
+    gals = load(sparc_dir, meta_csv)
     n_meta = sum(g["has_meta"] for g in gals)
+    if n_meta == 0:
+        print(
+            "No external metadata CSV found (SPARC_META_CSV or --meta); "
+            "running with standard default priors (10% D, 5 deg inc; has_meta=false)."
+        )
     print(
         f"{len(gals)} galaxies, {sum(len(g['r']) for g in gals)} points; "
         f"published D/i errors for {n_meta}"

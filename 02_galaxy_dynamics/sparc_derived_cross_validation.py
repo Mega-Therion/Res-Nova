@@ -9,10 +9,14 @@ Date: 2026-08-14
 import json
 import numpy as np
 from pathlib import Path
-from scipy.optimize import minimize_scalar
+from sparc_paths import resolve_sparc_dir
 
-SPARC_DIR = Path('/home/mega/file_organizer_output/final_organized/documents/general_docs')
-OUT_DIR = Path('/home/mega/grand_monograph/VERIFICATION_RUN_003/02_sparc')
+try:
+    SPARC_DIR = resolve_sparc_dir()
+except FileNotFoundError:
+    SPARC_DIR = Path(__file__).resolve().parent / "sparc_data"
+
+OUT_DIR = Path(__file__).resolve().parents[1] / "VERIFICATION_RUN_003" / "02_sparc"
 
 def load_galaxy(fpath):
     data = []
