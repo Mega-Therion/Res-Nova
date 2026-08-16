@@ -7,16 +7,12 @@ Date: 2026-08-14
 """
 
 import json
+import argparse
 import numpy as np
 from pathlib import Path
+from scipy.optimize import minimize_scalar
 from sparc_paths import resolve_sparc_dir
 
-try:
-    SPARC_DIR = resolve_sparc_dir()
-except FileNotFoundError:
-    SPARC_DIR = Path(__file__).resolve().parent / "sparc_data"
-
-OUT_DIR = Path(__file__).resolve().parents[1] / "VERIFICATION_RUN_003" / "02_sparc"
 
 def load_galaxy(fpath):
     data = []
@@ -39,6 +35,7 @@ def load_galaxy(fpath):
                     continue
     return np.array(data)
 
+
 def predict_v_derived(rad, vgas, vdisk, vbulge, a0, Yd, Yb=0.7, fd=1.0):
     kpc_to_m = 3.085677581491367e19
     km_to_m = 1000.0
@@ -52,6 +49,7 @@ def predict_v_derived(rad, vgas, vdisk, vbulge, a0, Yd, Yb=0.7, fd=1.0):
     v_tot_m = np.sqrt(np.maximum(g_tot * r_m, 0.0))
     return v_tot_m / km_to_m
 
+
 def eval_galaxy(g_data, a0, Yd, Yb=0.7, fd=1.0):
     rad = g_data[:, 0]
     vobs = g_data[:, 1]
@@ -63,8 +61,13 @@ def eval_galaxy(g_data, a0, Yd, Yb=0.7, fd=1.0):
     chi2 = np.sum(((vobs - v_pred) / verr)**2)
     return chi2, len(rad)
 
-def run_cv():
-    files = sorted(list(SPARC_DIR.glob('*_rotmod.dat')))
+
+def run_cv(data_dir=None, out_dir=None):
+    sparc_dir = resolve_sparc_dir(data_dir)
+    out_dir_path = Path(out_dir) if out_dir else Path(__file__).resolve().parents[1] / "VERIFICATION_RUN_003" / "02_sparc"
+    out_dir_path.mkdir(parents=True, exist_ok=True)
+
+    files = sorted(list(sparc_dir.glob('*_rotmod.dat')))
     galaxies = []
     for f in files:
         g = load_galaxy(f)
@@ -145,9 +148,18 @@ def run_cv():
         }
     }
     
-    (OUT_DIR / 'SPARC_DERIVED_CV_REPORT.json').write_text(json.dumps(cv_summary, indent=2))
+    (out_dir_path / 'SPARC_DERIVED_CV_REPORT.json').write_text(json.dumps(cv_summary, indent=2))
     print("\n=== 5-FOLD CROSS VALIDATION COMPLETE ===")
     print(json.dumps(cv_summary, indent=2))
 
+
+def main():
+    ap = argparse.ArgumentParser(description="SPARC 5-Fold Cross Validation for Derived mu(x).")
+    ap.add_argument("--data-dir", default=None, help="Path to SPARC rotmod directory")
+    ap.add_argument("--out-dir", default=None, help="Output directory for reports")
+    args = ap.parse_args()
+    run_cv(args.data_dir, args.out_dir)
+
+
 if __name__ == '__main__':
-    run_cv()
+    main()

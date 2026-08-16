@@ -22,21 +22,18 @@ For optional per-galaxy published distance and inclination errors, `a0_measure.p
 
 Primary source: Lelli, McGaugh & Schombert 2016, *AJ* 152, 157. Official distribution URL: `https://astroweb.cwru.edu/SPARC/Rotmod_LTG.zip`.
 
-To fetch the official dataset into the repo-local directory:
+To fetch and verify the official dataset into the repo-local directory:
 
 ```bash
-mkdir -p 02_galaxy_dynamics/sparc_data
-cd 02_galaxy_dynamics/sparc_data
-curl -fL -O https://astroweb.cwru.edu/SPARC/Rotmod_LTG.zip
-unzip -o Rotmod_LTG.zip
-if [ -d Rotmod_LTG ]; then shopt -s nullglob; mv Rotmod_LTG/*_rotmod.dat .; rmdir Rotmod_LTG || true; fi
-ls -1 *_rotmod.dat | wc -l
-# Expected: 175 *_rotmod.dat files
-
-# Verify the download against the tracked manifest (expect: 175 x OK)
-sha256sum -c ../../VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256
-cd ../..
+# Automated fetch and verification script
+bash 02_galaxy_dynamics/fetch_sparc.sh
 ```
+
+The automated script performs the following operations:
+1. Downloads `https://astroweb.cwru.edu/SPARC/Rotmod_LTG.zip` into `02_galaxy_dynamics/sparc_data/`.
+2. Extracts all 175 `*_rotmod.dat` rotation curve tables.
+3. Automatically verifies each file against the authoritative SHA-256 manifest at `VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256`.
+4. Fails loudly (`exit 1`) if the file count differs from 175 or if any checksum drifts.
 
 The SHA-256 manifest for all 175 `*_rotmod.dat` files is tracked at
 `VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256` (an identical copy sits at

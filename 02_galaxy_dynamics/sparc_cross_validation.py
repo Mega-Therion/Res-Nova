@@ -8,16 +8,11 @@ Performs rigorous 5-fold cross-validation on SPARC 175 galaxies:
 - Compares against in-sample MAP fits and strict zero-parameter models.
 """
 
-import os, json, re, math
+import os, json, re, math, argparse
 from pathlib import Path
 import numpy as np
 
 from sparc_paths import resolve_sparc_dir
-
-try:
-    DATA_DIR = resolve_sparc_dir()
-except FileNotFoundError:
-    DATA_DIR = Path(__file__).resolve().parent / "sparc_data"
 
 C_LIGHT = 2.998e8
 H0_KMS_MPC = 67.4
@@ -97,8 +92,9 @@ def fit_galaxy_nuisance(g, a0=A0_MOND):
                     best_c2_data = c2_d
     return best_c2_data
 
-def run_cross_validation():
-    files = sorted(DATA_DIR.glob("*_rotmod.dat"))
+def run_cross_validation(data_dir_arg=None, out_path_arg=None):
+    data_dir = resolve_sparc_dir(data_dir_arg)
+    files = sorted(data_dir.glob("*_rotmod.dat"))
     galaxies = []
     for f in files:
         g = load_rotmod(f)
@@ -106,7 +102,7 @@ def run_cross_validation():
             galaxies.append(g)
     galaxies = galaxies[:175]
     total_pts = sum(g["n_points"] for g in galaxies)
-    print(f"Loaded {len(galaxies)} valid galaxies with {total_pts} data points.")
+    print(f"Loaded {len(galaxies)} valid galaxies with {total_pts} data points from {data_dir}.")
 
     # 1. Strict Zero-Parameter Benchmark
     strict_per_galaxy = []
@@ -168,7 +164,10 @@ def run_cross_validation():
         }
     }
 
-    out_file = Path(__file__).resolve().parents[1] / "VERIFICATION_RUN_002" / "02_sparc" / "SPARC_CROSS_VALIDATION_REPORT.json"
+    if out_path_arg:
+        out_file = Path(out_path_arg)
+    else:
+        out_file = Path(__file__).resolve().parents[1] / "VERIFICATION_RUN_002" / "02_sparc" / "SPARC_CROSS_VALIDATION_REPORT.json"
     out_file.parent.mkdir(parents=True, exist_ok=True)
     out_file.write_text(json.dumps(results, indent=2))
     print("\n=== SPARC BENCHMARK & 5-FOLD CV RESULTS ===")
@@ -177,5 +176,12 @@ def run_cross_validation():
     print(f"Out-of-Sample 5-Fold:   Median chi2/N = {results['out_of_sample_5fold_cv']['median_chi2_per_point']}, Aggregate chi2/N = {results['out_of_sample_5fold_cv']['aggregate_chi2_dof']}")
     print(f"\nReport written to: {out_file}")
 
+def main():
+    ap = argparse.ArgumentParser(description="SPARC 5-Fold Cross Validation Engine.")
+    ap.add_argument("--data-dir", default=None, help="Path to SPARC rotmod directory")
+    ap.add_argument("--out", default=None, help="Output JSON path")
+    args = ap.parse_args()
+    run_cross_validation(args.data_dir, args.out)
+
 if __name__ == "__main__":
-    run_cross_validation()
+    main()
