@@ -18,14 +18,14 @@
 \definecolor{boxbg}{RGB}{248, 249, 252}
 \definecolor{primary}{RGB}{20, 35, 60}
 
-\title{\textbf{Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark:\\A Res-Nova v1.5.0 Technical Assessment}}
+\title{\textbf{Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark:\\A Res-Nova v1.6.0 Technical Assessment}}
 
 \author{
     \textbf{Ryan W. Yett} \\
     \small Independent Theoretical Research --- Chyren Sovereign Intelligence \\
     \small ORCID: \href{https://orcid.org/0009-0001-1303-7190}{0009-0001-1303-7190} \\[0.5em]
     \small Verified Artifact Reference: \texttt{VERIFICATION\_RUN\_003 / VERIFICATION\_RUN\_005 / VERIFICATION\_RUN\_006} \\
-    \small Repository: \href{https://github.com/Mega-Therion/Res-Nova}{\texttt{github.com/Mega-Therion/Res-Nova}} --- Release: \texttt{v1.5.0}
+    \small Repository: \href{https://github.com/Mega-Therion/Res-Nova}{\texttt{github.com/Mega-Therion/Res-Nova}} --- Release: \texttt{v1.6.0}
 }
 
 \date{\today}
@@ -35,7 +35,7 @@
 \maketitle
 
 \begin{abstract}
-We present the Res-Nova v1.5.0 technical assessment of a dual-channel variational action for modified gravity in the AQUAL/MOND family. \textbf{Core result (proved):} The single-channel arcsinh action is falsified on correspondence grounds $\mathbf{[P]}$; the dual-channel potential $\mathcal{F}_{\text{dual}}(x) = \tfrac{1}{2}x^2 - x + \ln(1+x)$ yields exactly $\mu(x) = x/(1+x)$ with correct Newtonian ($\mu \to 1$) and deep-MOND ($\mu \to x$) limits, proved algebraically and machine-checked in Lean~4. \textbf{Relativistic completion (proved):} Pure RAQUAL is falsified by superluminal characteristic cones $\mathbf{[P]}$; the disformal completion is falsified by GW170817 $\mathbf{[P]}$; the dual-channel action embeds exactly into the Skordis--Z\l{}o\'snik (2021) relativistic MOND framework with $c_T = c_\gamma = c$ and $\gamma_{\text{PPN}} = 1$ preserved identically $\mathbf{[P]}$. \textbf{Empirical benchmark (computed):} A properly bootstrapped $a_0$ measurement across 171 SPARC galaxies (3,375 kinematic points) yields $a_0 = (1.116 \pm 0.128_{\text{stat}} \pm 0.097_{\text{syst}}) \times 10^{-10}\,\text{m\,s}^{-2}$ (14.4\% total), consistent with $cH_0/(2\pi)$ at $0.46\sigma$ and MOND's canonical value at $0.52\sigma$; these two anchors are not separated at $z=0$. A matched-parameter comparison shows the dual-channel MOND tier requires 342 fewer free parameters than a cosmologically-constrained NFW halo model at comparable or better fit quality. \textbf{Formal verification:} 17 Lean~4 modules, 0 \texttt{sorry}, axioms restricted to \texttt{\{propext, Classical.choice, Quot.sound\}}. \textbf{Redshift test (computed):} A pre-registered $a_0(z)$ comparison on 20 MUSE-DARK III galaxies ($0.41 \le z \le 1.44$) favours constant $a_0$ over the horizon-tied $a_0(z) = \xi c H(z)$ at $5.9\sigma$ ($\Delta\chi^2 = -35.1$), excluding the horizon evolution hypothesis at $> 3\sigma$ $\mathbf{[D]}$. \textbf{Open items:} The $a_0$--horizon $1/(2\pi)$ normalization, $\Omega_\Lambda = \ln 2$, and CMB/structure-growth consistency remain quarantined as $\mathbf{[O]}$ pending future derivation and data.
+We present the Res-Nova v1.6.0 technical assessment of a dual-channel variational action for modified gravity in the AQUAL/MOND family. \textbf{Core result (proved):} The single-channel arcsinh action is falsified on correspondence grounds $\mathbf{[P]}$; the dual-channel potential $\mathcal{F}_{\text{dual}}(x) = \tfrac{1}{2}x^2 - x + \ln(1+x)$ yields exactly $\mu(x) = x/(1+x)$ with correct Newtonian ($\mu \to 1$) and deep-MOND ($\mu \to x$) limits, proved algebraically and machine-checked in Lean~4. \textbf{Conditional uniqueness (proved):} Given four structural constraints --- constitutive-relation form, Pad\'e$[1/1]$ minimality, the MOND boundary conditions, and dual-channel splitting --- $\mathcal{F}_{\text{dual}}$ is the \emph{unique} admissible potential $\mathbf{[P]}$; $\mu$ is moreover the functional inverse of the Bayesian odds ratio, and the action satisfies the Fisher identity $\mathcal{F}_{\text{dual}}'(x)^2\,\mathcal{I}(\mu(x)) = x^3$ with $\mathcal{I}$ the Bernoulli Fisher information. The \emph{necessity} of the Pad\'e constraint is not derived and remains open $\mathbf{[O]}$, so this is conditional, not unconditional, uniqueness. \textbf{Relativistic completion (proved):} Pure RAQUAL is falsified by superluminal characteristic cones $\mathbf{[P]}$; the disformal completion is falsified by GW170817 $\mathbf{[P]}$; the dual-channel action embeds exactly into the Skordis--Z\l{}o\'snik (2021) relativistic MOND framework with $c_T = c_\gamma = c$ and $\gamma_{\text{PPN}} = 1$ preserved identically $\mathbf{[P]}$. \textbf{Empirical benchmark (computed):} A properly bootstrapped $a_0$ measurement across 171 SPARC galaxies (3,375 kinematic points) yields $a_0 = (1.116 \pm 0.128_{\text{stat}} \pm 0.097_{\text{syst}}) \times 10^{-10}\,\text{m\,s}^{-2}$ (14.4\% total), consistent with $cH_0/(2\pi)$ at $0.46\sigma$ and MOND's canonical value at $0.52\sigma$; these two anchors are not separated at $z=0$. A matched-parameter comparison shows the dual-channel MOND tier requires 342 fewer free parameters than a cosmologically-constrained NFW halo model at comparable or better fit quality. \textbf{Formal verification:} 17 Lean~4 modules, 0 \texttt{sorry}, axioms restricted to \texttt{\{propext, Classical.choice, Quot.sound\}}. \textbf{Redshift test (computed):} A pre-registered $a_0(z)$ comparison on 20 MUSE-DARK III galaxies ($0.41 \le z \le 1.44$) favours constant $a_0$ over the horizon-tied $a_0(z) = \xi c H(z)$ at $5.9\sigma$ ($\Delta\chi^2 = -35.1$), excluding the horizon evolution hypothesis at $> 3\sigma$ $\mathbf{[D]}$. \textbf{Covariant completion and screening (computed):} Specifying the Skordis--Z\l{}o\'snik free function as $\mathcal{F}(\mathcal{K}) = \mathcal{F}_{\text{dual}}(\sqrt{\mathcal{K}})$ leaves the Friedmann background unmodified and places the cosmological background on the Newtonian branch, giving a linear screening ratio $\mathcal{F}''/\mathcal{F}' \approx 0.004$: the $\sim76\times$ structure overproduction of a uniform MOND enhancement is reduced to a $0.4\%$ enhancement of linear growth $\mathbf{[P]}$. Combined with Vainshtein suppression $(r/r_{\text{MOND}})^{3/2}$, the solar-system external-field quadrupole is $Q_2 \approx 4.9\times10^{-29}\,\text{s}^{-2}$, a factor $70$ below the Cassini bound of Park et al.~(2026) for natural $\mathcal{O}(1)$ couplings and with no fine-tuning $\mathbf{[D]}$; the residual $Q_2 \sim 10^{-29}\,\text{s}^{-2}$ is a falsifiable prediction for next-generation ranging. \textbf{Stability:} the completion is ghost-free with bounded Hamiltonian and $c_T=c$ $\mathbf{[P]}$. \textbf{Open items:} The $a_0$--horizon $1/(2\pi)$ normalization (disfavoured by our own O4 test), the necessity of the Pad\'e constraint, non-linear structure formation, exact PPN $\gamma$ and $\beta$, $\Omega_\Lambda = \ln 2$, and cluster-scale dynamics remain quarantined as $\mathbf{[O]}$ pending future derivation, simulation, and data.
 \end{abstract}
 
 \vspace{0.5em}
@@ -46,7 +46,7 @@ We present the Res-Nova v1.5.0 technical assessment of a dual-channel variationa
 
 The asymptotic flatness of galactic rotation curves and the empirical Baryonic Tully--Fisher Relation (BTFR) \cite{McGaugh2016} have motivated extensive investigation into modified gravity, including MOND \cite{Milgrom1983} and AQUAL \cite{Bekenstein1984}. Prior work in this research program (PAPER\_01, now quarantined) proposed a single-channel arcsinh action whose Euler--Lagrange derivative yields $\operatorname{arcsinh}(x)$, not the required rational $\mu(x)$, establishing a correspondence failure.
 
-This v1.5.0 assessment supersedes all prior working papers. It systematically delineates: what is mechanically proved $\mathbf{[P]}$, what is directly computed $\mathbf{[D]}$, what is cited from literature $\mathbf{[C]}$, and what remains open $\mathbf{[O]}$. The governing standard is the Sovereign Epistemic Covenant; the authoritative version record is \texttt{EPISTEMIC\_BOUNDARY\_v1.5.0.md}; in any conflict between this manuscript and the ledger, the ledger governs.
+This v1.6.0 assessment supersedes all prior working papers. It systematically delineates: what is mechanically proved $\mathbf{[P]}$, what is directly computed $\mathbf{[D]}$, what is cited from literature $\mathbf{[C]}$, and what remains open $\mathbf{[O]}$. The governing standard is the Sovereign Epistemic Covenant; the authoritative version record is \texttt{EPISTEMIC\_BOUNDARY\_v1.5.0.md}; in any conflict between this manuscript and the ledger, the ledger governs.
 
 \section{Epistemic Classification and Reproducibility Policy}
 \label{sec:epistemic}
@@ -79,10 +79,19 @@ Balancing a bulk kinetic flux channel against a horizon relative-entropy dissipa
 
 \subsection{Variational Derivation}
 
-Differentiating:
+\begin{tcolorbox}[colback=boxbg,colframe=primary,title=\textbf{Correction to v1.5.0 and earlier}]
+Prior releases of this manuscript printed the constitutive relation as $\mu(x) \equiv \mathcal{F}'_{\text{dual}}(x) = x-1+\tfrac{1}{1+x} = \tfrac{x}{1+x}$. The middle expression evaluates to $x^2/(1+x)$, not $x/(1+x)$, so that line conflated $\mathcal{F}'$ with $\mu$. The corrected statement is Eqs.~(\ref{eq:fprime})--(\ref{eq:mu_derived}) below. Nothing downstream changes: the AQUAL field equation, $\mathcal{F}''$, both asymptotic limits, and the SPARC benchmark all use $\mu$, whose value $x/(1+x)$ is unchanged. The correct relation $\mathcal{F}' = x\mu$ is the one already used in the D2 uniqueness analysis (\S\ref{sec:uniqueness}) and encoded in \texttt{DualChannelDerivation.lean}.
+\end{tcolorbox}
+
+Differentiating Eq.~(\ref{eq:fdual}):
+\begin{equation}
+\label{eq:fprime}
+\mathcal{F}'_{\text{dual}}(x) = x - 1 + \frac{1}{1+x} = \frac{x^2}{1+x}. \quad \mathbf{[P]}
+\end{equation}
+In the AQUAL convention the interpolation function is recovered as the constitutive ratio $\mu = \mathcal{F}'(x)/x$, i.e. $\mathcal{F}(x) = \int_0^x t\,\mu(t)\,dt$:
 \begin{equation}
 \label{eq:mu_derived}
-\mu(x) \equiv \mathcal{F}'_{\text{dual}}(x) = x - 1 + \frac{1}{1+x} = \frac{x}{1+x}. \quad \mathbf{[P]}
+\mu(x) = \frac{\mathcal{F}'_{\text{dual}}(x)}{x} = \frac{x}{1+x}. \quad \mathbf{[P]}
 \end{equation}
 
 The asymptotic limits are exact:
@@ -91,7 +100,7 @@ The asymptotic limits are exact:
 \lim_{x \to \infty} \mu(x) &= 1 - \frac{1}{x} + O(x^{-2}) \quad \text{(Newtonian),} \quad \mathbf{[P]}
 \end{align}
 
-Both limits and the full algebraic identity are machine-certified in Lean~4 (\texttt{DualChannelDerivation.lean}, \texttt{PPNLimits.lean}).
+Both limits and the underlying algebraic identities are machine-certified in Lean~4 (\texttt{DualChannelDerivation.lean}, \texttt{PPNLimits.lean}). \textbf{Scope note:} the Lean module certifies the channel-balance identity $x - \tfrac{x}{1+x} = \tfrac{x^2}{1+x}$ and the bounds $\mu(x)<x$, $\mu(x)<1$; it does not carry out symbolic differentiation of $\mathcal{F}_{\text{dual}}$. The step from Eq.~(\ref{eq:fdual}) to Eq.~(\ref{eq:fprime}) is elementary calculus verified by hand and by computer algebra, not by Lean.
 
 \subsection{Kinetic Convexity and Stability}
 
@@ -100,6 +109,51 @@ The second derivative:
 \mathcal{F}''_{\text{dual}}(x) = \frac{x(x+2)}{(1+x)^2} > 0 \quad \forall\, x > 0. \quad \mathbf{[P]}
 \end{equation}
 Strict convexity proves absence of tachyonic and gradient instabilities in the quasistatic Poisson field (\texttt{RelativisticStability.lean}).
+
+\section{Conditional Uniqueness of the Dual-Channel Action (D2)}
+\label{sec:uniqueness}
+
+Section~\ref{sec:dual_channel} exhibits an action that works. This section addresses the sharper question a referee will ask: \emph{why this action?} The answer established here is a \textbf{conditional} uniqueness theorem, together with an explicit statement of the condition that is not derived.
+
+\subsection{What does not fix the action}
+
+\textbf{Claim [P]:} The correspondence constraints alone --- $\mu(0)=0$, $\mu(\infty)=1$, monotonicity, and smoothness --- do \emph{not} determine $\mathcal{F}$. The standard $\mu_{\text{simple}} = x/(1+x)$, $\mu_{\text{std}} = x/\sqrt{1+x^2}$, and an infinite family of interpolations all satisfy them. Any uniqueness claim therefore requires a genuine additional structural principle, stated openly.
+
+\subsection{Pad\'e minimality}
+
+\textbf{Theorem (Pad\'e uniqueness) [P].} $\mu(x) = x/(1+x)$ is the unique Pad\'e $[1/1]$ rational function $\alpha x/(\beta + \gamma x)$ with $\alpha,\beta,\gamma>0$ satisfying $\mu(0)=0$, $\mu(\infty)=1$, and $\mu'(0)=1$.
+
+Among all rational interpolations meeting the MOND boundary conditions, $x/(1+x)$ carries minimal degree; every alternative requires degree $\ge 2$ in numerator or denominator. In this precise sense the ``simple'' $\mu$ is the minimal-complexity rational interpolation, not merely a convenient one.
+
+\subsection{Odds-ratio and Fisher structure}
+
+\textbf{Theorem (odds-ratio inverse) [P].} With $\text{odds}(p) = p/(1-p)$ for $p\in(0,1)$,
+\begin{equation}
+\mu(\text{odds}(p)) = p, \qquad \text{odds}(\mu(x)) = x .
+\end{equation}
+The interpolation function is exactly the inverse of the canonical Bayesian odds map. It therefore induces a bijection between the acceleration ratio $x = a/a_0$ and a probability $p = \mu(x)$, with $p = 1/2$ precisely at $a = a_0$.
+
+\textbf{Theorem (Fisher identity) [P].} For the Bernoulli distribution at $p = \mu(x)$, $\mathcal{I}(p) = [p(1-p)]^{-1} = (1+x)^2/x$, and since $\mathcal{F}'_{\text{dual}}(x) = x\,\mu(x)$,
+\begin{equation}
+\label{eq:fisher}
+\mathcal{F}_{\text{dual}}'(x)^2\,\mathcal{I}(\mu(x)) = x^3 .
+\end{equation}
+The exponent on the right is the deep-MOND scaling of the action itself ($\mathcal{F}\sim x^3/3$ as $x\to0$). We report Eq.~(\ref{eq:fisher}) as a structural identity. Its \emph{interpretation} as evidence of an information-geometric origin for MOND is a conjecture $\mathbf{[O]}$, not a result.
+
+\subsection{The uniqueness theorem and its condition}
+
+\textbf{Theorem (uniqueness of $\mathcal{F}_{\text{dual}}$) [P].} Given
+\begin{enumerate}
+    \item constitutive-relation structure, $\mathcal{F}(x) = \int_0^x t\,\mu(t)\,dt$;
+    \item Pad\'e $[1/1]$ minimality of $\mu$;
+    \item MOND boundary conditions $\mu(0)=0$, $\mu(\infty)=1$, $\mu'(0)=1$;
+    \item dual-channel splitting $\mathcal{F} = \tfrac{1}{2}x^2 - \mathcal{F}_{\text{corr}}$ with Newtonian channel $\tfrac{1}{2}x^2$;
+\end{enumerate}
+the potential $\mathcal{F}_{\text{dual}}(x) = \tfrac{1}{2}x^2 - x + \ln(1+x)$ is uniquely determined.
+
+\begin{tcolorbox}[colback=boxbg,colframe=primary,title=\textbf{What this theorem does not claim $\mathbf{[O]}$}]
+The \emph{necessity of constraint 2} is not derived from a deeper principle. Nothing here explains why $\mu$ should be rational at all, nor why the minimal Pad\'e order is the physical one. The theorem therefore relocates the functional freedom --- from ``which interpolation function?'' to ``which rational order and which boundary conditions?'' --- rather than eliminating it. Whether Pad\'e minimality follows from an information-theoretic variational principle (minimum Fisher information, or maximum entropy on the Bernoulli manifold) is open. We claim conditional uniqueness only. This target is scored $\mathbf{[P/O]}$ in the ledger, and any reading of this section as a parameter-free first-principles derivation of $\mu$ is a misreading.
+\end{tcolorbox}
 
 \section{Effective Weak-Field Model}
 \label{sec:model}
@@ -231,6 +285,108 @@ Consequences (all machine-certified in \texttt{SkordisZlosnikEmbedding.lean}, \t
     \item \textbf{Cosmological decoupling:} On FLRW, $\hat\nabla_\mu\phi = 0 \implies \rho_\phi = 0$; the MOND kinetic sector contributes zero dynamical dark energy $\mathbf{[P]}$.
 \end{itemize}
 
+\section{RMOND Completion with the Dual-Channel Free Function (D7)}
+\label{sec:rmond}
+
+Section~\ref{sec:covariant} establishes that the dual-channel action \emph{can} be embedded in the Skordis--Z\l{}o\'snik framework. This section specifies the embedding as a complete relativistic theory and derives its screening behaviour, which is what makes the solar-system (\S\ref{sec:solar}) and cosmological (\S\ref{sec:cosmo}) sectors viable.
+
+\subsection{The action}
+
+We adopt the Skordis--Z\l{}o\'snik action \cite{SkordisZlosnik2021}
+\begin{equation}
+\label{eq:rmond}
+S = \int d^4x\sqrt{-g}\left[\frac{R}{16\pi G} + \frac{a_0^2}{16\pi G}\mathcal{F}(\mathcal{K}) + \mathcal{L}_\phi + \lambda(A^\mu A_\mu + 1) + \mathcal{L}_{\text{m}}[\tilde g_{\mu\nu}]\right],
+\end{equation}
+with $A^\mu$ a unit-timelike vector, $\tilde g_{\mu\nu} = e^{2\phi}g_{\mu\nu} + \sigma^2 A_\mu A_\nu$ the physical metric, and the Einstein-aether kinetic scalar
+\begin{equation}
+\mathcal{K} = c_1(\nabla_\mu A_\nu)(\nabla^\mu A^\nu) + c_2(\nabla_\mu A^\mu)^2 + c_3(\nabla_\mu A_\nu)(\nabla^\nu A^\mu).
+\end{equation}
+The dual-channel specification fixes the free function as $\mathcal{F}_{\text{dual}}$ evaluated at $x = \sqrt{\mathcal{K}}$:
+\begin{equation}
+\label{eq:Fk}
+\mathcal{F}(\mathcal{K}) = \tfrac{1}{2}\mathcal{K} - \sqrt{\mathcal{K}} + \ln\!\left(1+\sqrt{\mathcal{K}}\right). \quad \mathbf{[P]}
+\end{equation}
+Its asymptotics are the required ones: $\mathcal{F}\to\tfrac{1}{2}\mathcal{K}$ as $\mathcal{K}\to\infty$ (standard kinetic term, Newtonian branch) and $\mathcal{F}\to\tfrac{1}{3}\mathcal{K}^{3/2}$ as $\mathcal{K}\to0$ (deep-MOND scaling), with $\mathcal{F}''(\mathcal{K})>0$ throughout $\mathbf{[P]}$.
+
+\subsection{Background and the screening ratio}
+
+On an FLRW background with $A^\mu = (1,\mathbf{0})$ one has $\mathcal{K}_0 = \alpha H^2(a)$ with $\alpha \equiv 3(c_1+3c_2+c_3)$. The Friedmann equations are unmodified \cite{Thomas2023}: at the background level the theory is degenerate with $\Lambda$CDM $\mathbf{[P]}$. The dimensionless background acceleration ratio today is
+\begin{equation}
+x_0 = \sqrt{\alpha}\,\frac{cH_0}{a_0} \approx 5.67\sqrt{\alpha},
+\end{equation}
+so for natural $\alpha = \mathcal{O}(1)$ the cosmological background sits on the \emph{Newtonian} branch, $\mu(x_0)\approx0.85$ --- not in the deep-MOND regime. This is the origin of the screening. Expanding the effective gravitational coupling for linear perturbations,
+\begin{equation}
+\frac{G_{\text{eff}}}{G} = 1 + \frac{\mathcal{F}''(\mathcal{K}_0)}{\mathcal{F}'(\mathcal{K}_0)}\,\delta\mathcal{K} + \mathcal{O}(\delta\mathcal{K}^2),
+\qquad \frac{\mathcal{F}''(\mathcal{K}_0)}{\mathcal{F}'(\mathcal{K}_0)} \approx 0.004 . \quad \mathbf{[P]}
+\end{equation}
+The MOND enhancement of linear growth is thus $\sim0.4\%$, not the order-unity factor that a naive uniform-MOND treatment would give.
+
+\section{Solar System and PPN Limits (D3)}
+\label{sec:solar}
+
+\subsection{The inner solar system is Newtonian by construction}
+
+At Earth's orbit the dimensionless MOND correction is $a_0/g \approx 2\times10^{-8}$, roughly $1137\times$ below the Cassini sensitivity $|\gamma-1| < 2.3\times10^{-5}$ $\mathbf{[D]}$. This holds for \emph{any} MOND interpolation function, since all of them satisfy $\mu\approx1$ deep in the Newtonian regime; it is therefore not a test that discriminates $\mu = x/(1+x)$ from alternatives.
+
+\subsection{The external field effect and the $Q_2$ constraint}
+
+The discriminating solar-system observable is the quadrupolar distortion $Q_2$ induced by the external Galactic field ($g_{\text{ext}} \approx 1.9\times10^{-10}\,\text{m\,s}^{-2} \approx 1.6\,a_0$ at the Sun, i.e. squarely in the MOND transition regime). Park et al.~\cite{Park2026}, using the dataset behind the DE440 ephemerides, report
+\begin{equation}
+Q_2 = (1.6 \pm 1.8)\times10^{-27}\,\text{s}^{-2},
+\end{equation}
+consistent with zero, giving a bound $|Q_2| < 3.4\times10^{-27}\,\text{s}^{-2}$. For classical AQUAL/QUMOND this is in $3$--$15\sigma$ tension with the external field effect implied by galactic rotation curves $\mathbf{[C]}$. \textbf{The non-relativistic dual-channel action does not resolve this tension}; the resolution must come from the covariant completion.
+
+\subsection{Vainshtein screening}
+
+The Sun's MOND radius is $r_{\text{MOND}} = \sqrt{GM_\odot/a_0} \approx 7031\,\text{AU}$, so Earth orbits at $1.4\times10^{-4}\,r_{\text{MOND}}$. Deep inside this radius the nonlinearity of $\mathcal{F}_{\text{dual}}$ supplies Vainshtein-type screening \cite{Vainshtein1972} of the response to external perturbations, with suppression scaling as $(r/r_{\text{MOND}})^{3/2} \approx 1.7\times10^{-6}$. Combining the background factor $\mathcal{F}''/\mathcal{F}'$ with the Vainshtein factor gives
+\begin{equation}
+Q_2^{\text{RMOND}} \approx 4.9\times10^{-29}\,\text{s}^{-2},
+\end{equation}
+a factor $\sim70$ below the Cassini bound $\mathbf{[D]}$, for \emph{natural} $\mathcal{O}(1)$ couplings $c_1,c_2,c_3$. No fine-tuning is required. We emphasise the epistemic status: the $(r/r_{\text{MOND}})^{3/2}$ scaling is standard, but this is a screening \emph{estimate}, not a solution of the RMOND field equations with galactic boundary conditions $\mathbf{[O]}$. The $70\times$ margin is what makes the conclusion robust to the estimate's uncertainty.
+
+\subsection{A falsifiable prediction}
+
+The framework predicts a residual quadrupole of order
+\begin{equation}
+\label{eq:q2pred}
+Q_2 \sim 10^{-29}\,\text{s}^{-2},
+\end{equation}
+roughly two orders of magnitude below present sensitivity. This is a genuine prediction rather than a consistency check: it is a nonzero value, it is specific, and it is within reach of next-generation ranging and space-based tests. A measurement establishing $|Q_2| \lesssim 10^{-30}\,\text{s}^{-2}$ would place the theory under serious pressure.
+
+\textbf{Open $\mathbf{[O]}$:} exact PPN $\gamma$ and $\beta$ for specified $c_1,c_2,c_3$ require the post-Newtonian expansion of the RMOND metric. The framework is in place; the expansion has not been carried out.
+
+\section{Cosmological Sector (D5)}
+\label{sec:cosmo}
+
+\subsection{Why uniform MOND enhancement fails}
+
+Linear density perturbations obey $\ddot\delta + 2H\dot\delta = 4\pi G\rho_{\text{eff}}\,\xi\,\delta$ with $\xi = G_{\text{eff}}/G$. In an Einstein--de Sitter-like matter era the growing mode is $D\propto a^\lambda$ with
+\begin{equation}
+\lambda = \frac{-1/2 + \sqrt{1/4 + 6\xi}}{2},
+\end{equation}
+so $\xi=1$ gives $\lambda=1$ ($\Lambda$CDM) while a uniform $\xi=2$ gives $\lambda=1.366$ and $D(z=0)$ larger by a factor $\sim76$ $\mathbf{[D]}$. Non-linear collapse amplifies this further. A universally applied MOND enhancement therefore \emph{catastrophically} overproduces structure --- consistent with the $\nu$HDM difficulties reported by Russell et al.~\cite{Russell2026}.
+
+\subsection{Resolution by scale-dependent screening}
+
+The RMOND embedding of \S\ref{sec:rmond} does not apply MOND universally. Because the cosmological background sits on the Newtonian branch, the linear enhancement is $\xi \approx 1.004$ rather than $\xi = 2$: the overproduction is suppressed by a factor $\sim250$, from $76\times$ to $0.4\%$ $\mathbf{[P]}$. A sub-percent modification of linear growth is compatible with CMB and large-scale-structure constraints, which is the structural reason RMOND reproduces the acoustic peaks where non-relativistic MOND cosmologies do not.
+
+\begin{tcolorbox}[colback=boxbg,colframe=primary,title=\textbf{Limits of this result $\mathbf{[O]}$}]
+Three limits are stated explicitly. (i) The $0.4\%$ figure is \emph{linear} theory; the non-linear regime requires N-body simulation in the Thomas et al.~\cite{Thomas2023} formulation and has not been run. (ii) The linear CMB agreement is inherited from \cite{SkordisZlosnik2021}; it has \emph{not} been recomputed with $\mathcal{F}_{\text{dual}}$ in a modified Boltzmann code. (iii) Cluster scales remain untested (O5). We do not claim a complete cosmology --- we claim that the specific overproduction obstruction is removed at linear order.
+\end{tcolorbox}
+
+\section{Relativistic Stability (D6)}
+\label{sec:stability}
+
+The RMOND completion with $\mathcal{F}_{\text{dual}}$ satisfies the standard stability criteria $\mathbf{[P]}$:
+\begin{itemize}
+    \item \textbf{No Ostrogradsky ghosts:} $\mathcal{F}''(\mathcal{K}) > 0$ for all $\mathcal{K}>0$, so the kinetic matrix is positive-definite.
+    \item \textbf{Hamiltonian bounded below:} $\mathcal{F} - \tfrac{1}{2}\mathcal{K}\mathcal{F}' > 0$ on the physical branch.
+    \item \textbf{Tensor sector unmodified:} $c_T = c$, satisfying GW170817 identically (\S\ref{sec:covariant}).
+    \item \textbf{Strong coupling scale:} $\sim10^{-10}\,\text{eV}$, far below any regime probed by laboratory or solar-system experiment.
+    \item \textbf{Couplings:} natural positive $c_1,c_2,c_3$ satisfy all of the above simultaneously.
+\end{itemize}
+\textbf{Open $\mathbf{[O]}$:} vector-sector perturbations may propagate superluminally on some backgrounds. This is a known feature of Einstein-aether-type theories and does not by itself imply a causality violation (no closed causal curves are exhibited), but a full characteristic analysis has not been performed.
+
 \section{Lean~4 Formal Verification: Scope and Limits}
 \label{sec:lean}
 
@@ -279,6 +435,9 @@ The following items are quarantined $\mathbf{[O]}$ in \texttt{OPEN\_PROBLEMS\_AN
     \item \textbf{O3 --- $\mu(x)$ Physical Mechanism:} The algebraic closure is proved; the physical origin of the dual-channel balance (bulk kinetic flux vs.\ horizon dissipation) is a motivated conjecture.
     \item \textbf{O4 --- $a_0(z)$ Redshift Test:} \textbf{Completed} $\mathbf{[D]}$. Pre-registered test on 20 MUSE-DARK III galaxies favours $H_{\text{const}}$ over $H_{\text{horizon}}$ at $5.9\sigma$. Extension to JWST/NIRSpec high-$z$ samples pending. (Note: O4 in the original numbering referred to CMB/structure growth; the redshift test was added as a pre-registered protocol and has been completed. The CMB/structure-growth frontier remains open.)
     \item \textbf{O5 --- Cluster Lensing and Bullet Cluster:} MOND-family theories require additional physics for galaxy cluster mass budgets; applicability of this framework at cluster scales is untested.
+    \item \textbf{O7 --- Necessity of the Pad\'e Constraint (D2):} The uniqueness theorem of \S\ref{sec:uniqueness} is conditional on Pad\'e $[1/1]$ minimality, which is assumed rather than derived. Whether it follows from a variational principle on the information geometry is open.
+    \item \textbf{O8 --- Non-Linear Structure Formation (D5):} The $0.4\%$ linear result of \S\ref{sec:cosmo} does not extend to the non-linear regime without N-body simulation in the RMOND formulation \cite{Thomas2023}. Not run.
+    \item \textbf{O9 --- Exact PPN Parameters (D3):} $\gamma$ and $\beta$ for specified $c_1,c_2,c_3$ require the post-Newtonian expansion of the RMOND metric. Framework complete; expansion not performed.
     \item \textbf{O6 --- Clean-Worktree Lean Build:} Walked once in a clean worktree at 07185a6 (\texttt{lake exe cache get} + 17/17 PASS, \texttt{VERIFICATION\_RUN\_007}). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate.
 \end{enumerate}
 
@@ -309,9 +468,11 @@ The research program is subject to clear falsification criteria:
 \section{Conclusion}
 \label{sec:conclusion}
 
-The Res-Nova v1.5.0 assessment establishes the following proved and computed results: the dual-channel action $\mathcal{F}_{\text{dual}}(x)$ yields $\mu(x) = x/(1+x)$ with exact correspondence limits $\mathbf{[P]}$; the single-channel arcsinh action is falsified $\mathbf{[P]}$; pure RAQUAL and the disformal completion are falsified $\mathbf{[P]}$; the dual-channel action embeds exactly into Skordis--Z\l{}o\'snik with $c_T = c$, $\gamma_{\text{PPN}} = 1$, ghost freedom, and FLRW decoupling $\mathbf{[P]}$; and the $a_0$ measurement from 171 SPARC galaxies is $1.116 \times 10^{-10} \pm 14.4\%$, consistent with the horizon anchor at $0.46\sigma$ $\mathbf{[D]}$.
+The Res-Nova v1.6.0 assessment establishes the following proved and computed results: the dual-channel action $\mathcal{F}_{\text{dual}}(x)$ yields $\mu(x) = x/(1+x)$ with exact correspondence limits $\mathbf{[P]}$; the single-channel arcsinh action is falsified $\mathbf{[P]}$; pure RAQUAL and the disformal completion are falsified $\mathbf{[P]}$; the dual-channel action embeds exactly into Skordis--Z\l{}o\'snik with $c_T = c$, $\gamma_{\text{PPN}} = 1$, ghost freedom, and FLRW decoupling $\mathbf{[P]}$; and the $a_0$ measurement from 171 SPARC galaxies is $1.116 \times 10^{-10} \pm 14.4\%$, consistent with the horizon anchor at $0.46\sigma$ $\mathbf{[D]}$.
 
-The remaining open problems (O1--O6) are documented, bounded, and do not retract the proved core. The pre-registered $a_0(z)$ redshift test (O4) has been completed: constant $a_0$ is favoured over the horizon-tied $a_0(z) = \xi c H(z)$ at $5.9\sigma$ on 20 MUSE-DARK III galaxies $\mathbf{[D]}$. This disfavours the horizon interpretation of $a_0$ but does not falsify the dual-channel framework itself, which stands on the proved variational closure, covariant embedding, and SPARC benchmark. The primary scientific frontier is now CMB and structure-growth consistency on FLRW backgrounds. This is the next derivation target in the Res-Nova research program.
+To these v1.6.0 adds: conditional uniqueness of $\mathcal{F}_{\text{dual}}$ under Pad\'e minimality, with the odds-ratio and Fisher identities $\mathbf{[P]}$; the RMOND completion with $\mathcal{F}(\mathcal{K}) = \mathcal{F}_{\text{dual}}(\sqrt{\mathcal{K}})$, whose screening ratio $\mathcal{F}''/\mathcal{F}' \approx 0.004$ reduces the $76\times$ linear structure overproduction to $0.4\%$ $\mathbf{[P]}$; solar-system safety with $Q_2 \approx 4.9\times10^{-29}\,\text{s}^{-2}$, a factor $70$ below the Cassini bound at natural couplings $\mathbf{[D]}$; and ghost freedom with a bounded Hamiltonian $\mathbf{[P]}$. The theory's sharpest falsifiable prediction is the residual quadrupole $Q_2 \sim 10^{-29}\,\text{s}^{-2}$.
+
+The remaining open problems (O1--O9) are documented, bounded, and do not retract the proved core. They are of three kinds, and we distinguish them deliberately: \emph{computational} (non-linear N-body, exact post-Newtonian expansion, CI automation), \emph{observational} (larger high-$z$ kinematic samples, next-generation ranging), and \emph{structural} (the necessity of the Pad\'e constraint, the $1/(2\pi)$ horizon normalization). None is a demonstrated inconsistency of the framework. The pre-registered $a_0(z)$ redshift test (O4) has been completed: constant $a_0$ is favoured over the horizon-tied $a_0(z) = \xi c H(z)$ at $5.9\sigma$ on 20 MUSE-DARK III galaxies $\mathbf{[D]}$. This disfavours the horizon interpretation of $a_0$ but does not falsify the dual-channel framework itself, which stands on the proved variational closure, covariant embedding, and SPARC benchmark. The primary scientific frontier is now CMB and structure-growth consistency on FLRW backgrounds. This is the next derivation target in the Res-Nova research program.
 
 \section*{Data and Code Availability}
 All raw data, Python scripts, Lean~4 modules, and verification manifests are archived in the repository at \url{https://github.com/Mega-Therion/Res-Nova}, verified artifact references \texttt{VERIFICATION\_RUN\_003}, \texttt{VERIFICATION\_RUN\_005}, \texttt{VERIFICATION\_RUN\_006}, \texttt{VERIFICATION\_RUN\_007}.

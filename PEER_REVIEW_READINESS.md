@@ -24,7 +24,7 @@
 | **O5** SPARC Automation | ✅ [P] | `fetch_sparc.sh`, SHA-256 verification | ✓ |
 | **O6** Clean Reproduction | ⚠️ [P/O] | 17/17 PASS in clean worktree; CI gate open | ⚠️ |
 
-**Score: 7/12 fully peer-reviewable, 5/12 partially ready**
+**Score: 8/12 fully peer-reviewable ([P]), 4/12 partially ready ([P/O])**
 
 ---
 
@@ -113,9 +113,7 @@ Diff `f13cf75..4af94c4` confirms: the D-series pushes added **no new** "zero fre
 
 **The Res Nova manuscript is READY for peer review** with honest scoping:
 
-- **7 of 12 targets fully reviewable** (D1, D3, D6, D7, D8, D9, O4, O5 — wait, that's 8... let me recount: D1, D3, D6, D7, D8, D9 = 6 targets at [P], plus O4, O5 = 8 at [P]. Actually 8/12 at [P], 4 at [P/O].)
-
-Corrected count:
+Count:
 - **[P] (fully proved):** D1, D3, D6, D7, D8, D9, O4, O5 = **8 targets**
 - **[P/O] (partially proved):** D2, D5, O1, O6 = **4 targets**
 - **[O] (open):** 0 targets (all have at least partial results)
