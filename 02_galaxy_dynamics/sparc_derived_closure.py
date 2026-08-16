@@ -17,9 +17,15 @@ from pathlib import Path
 from scipy.optimize import minimize, minimize_scalar
 from scipy.stats import norm
 
-SPARC_DIR = Path('/home/mega/file_organizer_output/final_organized/documents/general_docs')
-OUT_DIR = Path('/home/mega/grand_monograph/VERIFICATION_RUN_003/02_sparc')
-FIG_DIR = Path('/home/mega/grand_monograph/VERIFICATION_RUN_003/figures')
+from sparc_paths import resolve_sparc_dir
+
+try:
+    SPARC_DIR = resolve_sparc_dir()
+except FileNotFoundError:
+    SPARC_DIR = Path(__file__).resolve().parent / "sparc_data"
+
+OUT_DIR = Path(__file__).resolve().parents[1] / "VERIFICATION_RUN_003" / "02_sparc"
+FIG_DIR = Path(__file__).resolve().parents[1] / "VERIFICATION_RUN_003" / "figures"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 FIG_DIR.mkdir(parents=True, exist_ok=True)
 

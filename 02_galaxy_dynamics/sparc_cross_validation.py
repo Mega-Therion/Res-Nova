@@ -12,7 +12,13 @@ import os, json, re, math
 from pathlib import Path
 import numpy as np
 
-DATA_DIR = Path('/home/mega/file_organizer_output/final_organized/documents/general_docs')
+from sparc_paths import resolve_sparc_dir
+
+try:
+    DATA_DIR = resolve_sparc_dir()
+except FileNotFoundError:
+    DATA_DIR = Path(__file__).resolve().parent / "sparc_data"
+
 C_LIGHT = 2.998e8
 H0_KMS_MPC = 67.4
 H0_SI = H0_KMS_MPC * 1000 / 3.086e22
@@ -162,7 +168,8 @@ def run_cross_validation():
         }
     }
 
-    out_file = Path('/home/mega/grand_monograph/VERIFICATION_RUN_002/02_sparc/SPARC_CROSS_VALIDATION_REPORT.json')
+    out_file = Path(__file__).resolve().parents[1] / "VERIFICATION_RUN_002" / "02_sparc" / "SPARC_CROSS_VALIDATION_REPORT.json"
+    out_file.parent.mkdir(parents=True, exist_ok=True)
     out_file.write_text(json.dumps(results, indent=2))
     print("\n=== SPARC BENCHMARK & 5-FOLD CV RESULTS ===")
     print(f"Strict Zero-Param:      Median chi2/N = {results['strict_zero_param']['median_chi2_per_point']}, Aggregate chi2/N = {results['strict_zero_param']['aggregate_chi2_dof']}")

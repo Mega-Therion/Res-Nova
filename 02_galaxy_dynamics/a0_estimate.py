@@ -39,6 +39,8 @@ from pathlib import Path
 import numpy as np
 from scipy.optimize import minimize
 
+from sparc_paths import resolve_sparc_dir
+
 C_LIGHT = 2.998e8
 H0_KMS_MPC = 67.4
 H0_SI = H0_KMS_MPC * 1000 / 3.086e22
@@ -164,14 +166,16 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument(
         "--data-dir",
-        default="/home/mega/Chyren/Research_and_Data/07_Domain_Tiers_and_Data/Datasets/data/sparc_data",
+        default=None,
+        help="Path to SPARC rotmod directory",
     )
     ap.add_argument("--out", default="A0_ESTIMATE.json")
     ap.add_argument("--boot", type=int, default=2000)
     ap.add_argument("--grid", type=int, default=60)
     args = ap.parse_args()
 
-    galaxies = load_galaxies(Path(args.data_dir))
+    data_dir = resolve_sparc_dir(args.data_dir)
+    galaxies = load_galaxies(data_dir)
     print(
         f"loaded {len(galaxies)} galaxies, {sum(len(g['r']) for g in galaxies)} points"
     )
