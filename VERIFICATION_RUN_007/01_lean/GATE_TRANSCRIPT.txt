@@ -1,0 +1,25 @@
+building library (required for cross-module imports)…
+Build completed successfully (3320 jobs).
+OK    AXIOMS_V2.lean
+OK    CosmologicalSector.lean
+OK    CovariantCompletion.lean
+OK    DeSitterExtremal.lean
+OK    DualChannelDerivation.lean
+OK    GODActionKinematics.lean
+OK    ITActionClosure.lean
+OK    MuProjection.lean
+OK    PPNLimits.lean
+OK    PrintAxioms.lean
+OK    PrintAxiomsD8.lean
+OK    RelativisticStability.lean
+OK    SOCasimirGenuine.lean
+OK    SkordisZlosnikEmbedding.lean
+OK    SovereignRegularity.lean
+OK    TensorSpeed.lean
+OK    YettParadigm.lean
+
+verified: 17 / 17 target(s)
+RESULT: PASS
+NOTE: this certifies elaboration, absence of sorry, and a standard axiom
+      footprint. It does not certify that assumptions carried as typeclass
+      or structure fields are physically justified — see THEORY_ASSUMPTION_AUDIT.md.

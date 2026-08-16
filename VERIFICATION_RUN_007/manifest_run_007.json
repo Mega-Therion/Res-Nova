@@ -1,0 +1,25 @@
+{
+  "run_id": "RUN_007",
+  "name": "VERIFICATION_RUN_007",
+  "description": "Clean worktree verification walk for O6 open problem narrowing",
+  "date": "2026-08-16",
+  "author": "Ryan W. Yett / Mega-Therion",
+  "commit": "07185a6a61b7e40a0cae1837c768c8ce00a40bc9",
+  "environment": {
+    "clean_worktree": true,
+    "path": "/tmp/res_nova_o6_clean",
+    "pre_existing_lake_packages": false,
+    "lean_version": "Lean (version 4.33.0-rc1, x86_64-unknown-linux-gnu, commit 62eed1db4d67327ec8120be05f1a1b0847d74561, Release)",
+    "lake_version": "Lake version 5.0.0-src+62eed1d (Lean version 4.33.0-rc1)",
+    "lean_toolchain": "leanprover/lean4:v4.33.0-rc1",
+    "mathlib_pin": "5eec30bc56ed5a23be2e27c544a949ba0bceddeb"
+  },
+  "artifacts": [
+    "VERIFICATION_RUN_007/01_lean/RUN_007_RESULT.json",
+    "VERIFICATION_RUN_007/01_lean/GATE_TRANSCRIPT.txt",
+    "VERIFICATION_RUN_007/01_lean/CACHE_GET_TRANSCRIPT.txt",
+    "VERIFICATION_RUN_007/01_lean/SHA256SUMS.txt"
+  ],
+  "result": "PASS",
+  "o6_status": "Narrowed: Walked once in clean worktree; CI runner not yet added."
+}
