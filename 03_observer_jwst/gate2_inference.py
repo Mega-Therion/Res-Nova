@@ -44,9 +44,43 @@ Consequences:
 
      so the significance against a hypothesis is (delta_chi2 - E)/(2 sqrt(S)).
 
-  3. sqrt(S) is the maximum attainable separation between the hypotheses. It
-     is a *design* quantity: it should be computed BEFORE collecting data, to
-     confirm a planned sample can discriminate at all.
+  3. sqrt(S) is the EXPECTED STANDARDIZED SEPARATION UNDER THE ASSUMED
+     FIXED-MODEL GAUSSIAN DESIGN. It is a *design* quantity computed under the
+     assumptions in §ASSUMPTIONS below; it is NOT a bound on what any real
+     analysis can achieve, and it is not "maximum attainable" in any general
+     sense -- violate the assumptions and the achievable separation may be
+     either smaller or larger. It should be computed BEFORE collecting data.
+
+ASSUMPTIONS
+-----------
+The closed-form conditional statistic in compare_fixed_hypotheses() is valid
+ONLY under all of the following. Every one is an assumption, not a result. If
+any fails, the returned z-scores are not significances and must not be reported
+as such.
+
+  A1  Both hypotheses are fully specified before the comparison, and ZERO
+      parameters are re-fitted at the test stage. (If anything is refitted,
+      this statistic is simply wrong.)
+  A2  Measurement errors on g_obs are Gaussian.
+  A3  Errors are INDEPENDENT across points -- no within-galaxy, distance-,
+      or inclination-induced correlation. Real samples generally violate this.
+      See covariance_interface(), blocking.
+  A4  The quoted sigma_g are correct and complete: no unmodelled systematic
+      floor, and no error on g_bar entering the comparison. See
+      systematic_budget(), blocking.
+  A5  The sample is a fixed, non-adaptive design: selection does not depend on
+      the observed g_obs, and does not correlate with redshift in a way that is
+      uncorrected. See selection_interface(), blocking.
+  A6  The background cosmology (Om, Ol) and the functional form mu(x) are
+      correct and fixed. Om sensitivity is measured separately by
+      omega_m_sensitivity(); mu is not varied anywhere.
+  A7  a0(0) is treated as exact in compare_fixed_hypotheses(). Its uncertainty
+      is handled only when propagate_a0_uncertainty() is used, and there it is
+      varied as a single common parameter across both hypotheses.
+
+Because A3, A4 and A5 are currently unmet interfaces, every result from this
+module is CONDITIONAL. sqrt(S) is likewise an expected standardized separation
+under this same assumption set, not a bound on achievable performance.
 
 Usage:
   python3 03_observer_jwst/gate2_inference.py --self-test
@@ -90,7 +124,7 @@ def compare_fixed_hypotheses(points, a0_zero, xi, H0_si, Om, Ol):
     `points`: list of dicts with keys g_bar, g_obs, sigma_g, z.
               Optional: sigma_gbar (G2.3).
 
-    Returns delta_chi2, the separation S, the maximum attainable separation,
+    Returns delta_chi2, the separation S, the expected standardized separation,
     and the conditional z-scores against each hypothesis.
 
     This function propagates NO systematic uncertainty. It is the statistical
@@ -100,20 +134,26 @@ def compare_fixed_hypotheses(points, a0_zero, xi, H0_si, Om, Ol):
 
     for p in points:
         g_bar, g_obs, z = p["g_bar"], p["g_obs"], p["z"]
-        var = p["sigma_g"] ** 2
 
-        # G2.3 interface: g_bar uncertainty enters through the local slope
-        # dg_pred/dg_bar, propagated into the effective variance.
+        # g_bar uncertainty is NOT propagated here. A partial, model-unaware
+        # slope propagation was removed deliberately: g_bar error is correlated
+        # with g_obs within a galaxy (shared distance and inclination), and the
+        # slope dg_pred/dg_bar differs between the two hypotheses, so folding it
+        # into a diagonal variance is not merely incomplete -- it is wrong, and
+        # it would silently understate the true uncertainty while appearing to
+        # account for it. It is retained as a BLOCKING interface in
+        # covariance_interface() until a model-aware, correlated covariance
+        # treatment exists.
         if p.get("sigma_gbar"):
-            eps = g_bar * 1e-6
-            for a0_ in (a0_zero,):
-                slope = (
-                    dual_channel_g_pred(g_bar + eps, a0_)
-                    - dual_channel_g_pred(g_bar - eps, a0_)
-                ) / (2 * eps)
-            var += (slope * p["sigma_gbar"]) ** 2
+            raise NotImplementedError(
+                "sigma_gbar supplied, but g_bar uncertainty is not yet "
+                "propagated. A correct treatment requires a model-aware, "
+                "correlated covariance (G2.3), which is a blocking interface. "
+                "Refusing to return a number that would understate the "
+                "uncertainty."
+            )
 
-        sig = math.sqrt(var)
+        sig = p["sigma_g"]
 
         g_c = dual_channel_g_pred(g_bar, a0_zero)
         g_h = dual_channel_g_pred(
@@ -130,16 +170,16 @@ def compare_fixed_hypotheses(points, a0_zero, xi, H0_si, Om, Ol):
         sd = 2.0 * math.sqrt(S)
         z_const = (delta - (-S)) / sd
         z_horizon = (delta - S) / sd
-        max_sep = math.sqrt(S)
+        exp_sep = math.sqrt(S)
     else:
-        z_const = z_horizon = max_sep = 0.0
+        z_const = z_horizon = exp_sep = 0.0
 
     return {
         "chi2_H_const": chi2_c,
         "chi2_H_horizon": chi2_h,
         "delta_chi2": delta,
         "separation_S": S,
-        "max_attainable_separation_sigma": max_sep,
+        "expected_standardized_separation_sigma": exp_sep,
         "z_vs_H_const": z_const,
         "z_vs_H_horizon": z_horizon,
         "statistic": "closed-form Gaussian (both hypotheses fully specified; "
@@ -286,16 +326,20 @@ def systematic_budget(supplied=None):
 
 def omega_m_sensitivity(points, a0_zero, H0_si, Om_central, Om_sigma, n_draws=41):
     """
-    H0 cancels EXACTLY in this test:
+    H0 cancels ALGEBRAICALLY in the H_horizon prediction:
 
         xi * c * H(z) = [a0(0)/(c H0)] * c * H0 * E(z) = a0(0) * E(z)
 
-    so the H_horizon prediction is independent of H0. The test is therefore
-    NOT circular with the distance ladder -- a genuine strength, and it should
-    be stated as such.
+    This is a statement about the algebra ONLY. It does NOT imply the analysis
+    is independent of the distance ladder or of distance-calibration
+    systematics: a0(0) is itself inferred from data carrying a distance scale,
+    and the measured g_bar / g_obs of every high-z point depend on an assumed
+    distance (g scales as 1/D^2). Any such dependence enters through the
+    inputs, not through this cancellation, and is NOT addressed here. See
+    covariance_interface() and systematic_budget(), both blocking.
 
-    Omega_m does NOT cancel: it enters through E(z). It is currently never
-    varied. This function measures that sensitivity.
+    Omega_m does NOT cancel: it enters through E(z). This function measures
+    that sensitivity.
     """
     out = []
     for i in range(n_draws):
@@ -313,12 +357,13 @@ def omega_m_sensitivity(points, a0_zero, H0_si, Om_central, Om_sigma, n_draws=41
         "omega_m_sigma": Om_sigma,
         "z_vs_H_horizon_range": [min(zs), max(zs)] if zs else [0.0, 0.0],
         "z_vs_H_horizon_spread": (max(zs) - min(zs)) if zs else 0.0,
-        "H0_cancels_exactly": True,
+        "H0_cancels_algebraically": True,
         "H0_cancellation_note": (
-            "xi*c*H(z) = a0(0)*E(z); the H_horizon "
-            "prediction does not depend on H0, so this "
-            "test is not circular with the distance "
-            "ladder."
+            "xi*c*H(z) = a0(0)*E(z): H0 cancels ALGEBRAICALLY from the "
+            "H_horizon prediction. This does NOT establish independence from "
+            "the distance ladder or from distance-calibration systematics, "
+            "which enter through a0(0) and through the measured g_bar/g_obs "
+            "(g ~ 1/D^2). Those remain unaddressed and blocking."
         ),
     }
 
@@ -404,7 +449,8 @@ def _self_test():
     assert abs(base["chi2_H_const"]) < 1e-12, "control must sit on H_const"
     assert abs(base["z_vs_H_const"]) < 1e-6, "z vs H_const must vanish"
     assert (
-        abs(base["z_vs_H_horizon"] + base["max_attainable_separation_sigma"]) < 1e-6
+        abs(base["z_vs_H_horizon"] + base["expected_standardized_separation_sigma"])
+        < 1e-6
     ), "on-H_const control must give z_horizon = -sqrt(S)"
 
     a0u = propagate_a0_uncertainty(pts, a0, sigma_a0, H0_si, Om, Ol)
@@ -420,13 +466,13 @@ def _self_test():
         json.dumps(
             {
                 "control_separation_S": round(base["separation_S"], 3),
-                "control_max_attainable_sigma": round(
-                    base["max_attainable_separation_sigma"], 3
+                "control_expected_standardized_separation_sigma": round(
+                    base["expected_standardized_separation_sigma"], 3
                 ),
                 "a0_uncertainty_relative": round(a0u["relative_sigma_a0"], 4),
                 "z_vs_H_horizon_sd_from_a0": round(a0u["z_vs_H_horizon_sd_from_a0"], 3),
                 "omega_m_induced_z_spread": round(oms["z_vs_H_horizon_spread"], 3),
-                "H0_cancels_exactly": oms["H0_cancels_exactly"],
+                "H0_cancels_algebraically": oms["H0_cancels_algebraically"],
                 "result_type": tagged["result_type"],
                 "claim_level": tagged["claim_level"],
             },
