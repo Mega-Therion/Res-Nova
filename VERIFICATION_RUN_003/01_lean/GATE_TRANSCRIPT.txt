@@ -1,0 +1,110 @@
+# Res-Nova Lean gate transcript
+# generated: 2026-08-16T06:41:18Z
+# repo commit: 109d38bcbf48502d99021e7d0fc18e5ea67af267
+# branch: audit/lean-inventory-o5-packaging
+# tracked tree dirty files: 0
+# lean: Lean (version 4.33.0-rc1, x86_64-unknown-linux-gnu, commit 62eed1db4d67327ec8120be05f1a1b0847d74561, Release)
+# lake: Lake version 5.0.0-src+62eed1d (Lean version 4.33.0-rc1)
+# toolchain file: leanprover/lean4:v4.33.0-rc1
+# mathlib HEAD: 5eec30bc56ed5a23be2e27c544a949ba0bceddeb
+# mathlib dirty files: 0
+# mathlib provenance: already present in .lake/packages; NOT obtained by a fresh 'lake exe cache get' (O6 unwalked)
+# command: ./verify_all_proofs.sh
+
+building library (required for cross-module imports)…
+⚠ [3006/3069] Replayed DeSitterExtremal
+warning: DeSitterExtremal.lean:74:57: Variable name `hr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3008/3069] Replayed GODActionKinematics
+info: GODActionKinematics.lean:49:0: 'GODTheory.dual_channel_poly_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GODActionKinematics.lean:50:0: 'GODTheory.aqual_simple_mu_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GODActionKinematics.lean:51:0: 'GODTheory.btfr_algebraic_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3303/3320] Replayed MuProjection
+warning: MuProjection.lean:87:52: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3307/3320] Replayed PrintAxioms
+info: PrintAxioms.lean:17:0: 'ResNova.CovariantCompletion.raqual_superluminal_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:18:0: 'ResNova.CovariantCompletion.foliation_anchoring_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:19:0: 'ResNova.CovariantCompletion.disformal_gamma_ppn_unity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:20:0: 'ResNova.CovariantCompletion.preferred_frame_parameters_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:21:0: 'ResNova.CovariantCompletion.flrw_projected_gradient_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:22:0: 'ResNova.CovariantCompletion.no_dynamical_dark_energy_density' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [3308/3320] Replayed PrintAxiomsD8
+info: PrintAxiomsD8.lean:42:0: 'ResNova.TensorSpeed.c_T_sq_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:43:0: 'ResNova.TensorSpeed.maxwellian_c13_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:44:0: 'ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:45:0: 'ResNova.TensorSpeed.conformal_preserves_tensor_speed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:46:0: 'ResNova.TensorSpeed.physical_frame_tensor_speed_unity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:47:0: 'ResNova.TensorSpeed.gw170817_concordance' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3311/3320] Replayed SkordisZlosnikEmbedding
+info: SkordisZlosnikEmbedding.lean:95:0: 'ResNova.SkordisZlosnik.sz_aqual_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:96:0: 'ResNova.SkordisZlosnik.dJ_dY_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:97:0: 'ResNova.SkordisZlosnik.sz_newtonian_limit_diff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:98:0: 'ResNova.SkordisZlosnik.sz_mond_limit_diff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:99:0: 'ResNova.SkordisZlosnik.sz_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:100:0: 'ResNova.SkordisZlosnik.sz_weak_field_lensing' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3312/3320] Replayed SovereignRegularity
+warning: SovereignRegularity.lean:71:43: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: SovereignRegularity.lean:85:22: Variable name `hθ_low` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hθ_low
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: SovereignRegularity.lean:85:39: Variable name `hθ_high` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hθ_high
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3313/3320] Replayed TensorSpeed
+info: TensorSpeed.lean:124:0: 'ResNova.TensorSpeed.c_T_sq_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:125:0: 'ResNova.TensorSpeed.maxwellian_c13_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:126:0: 'ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:127:0: 'ResNova.TensorSpeed.alpha_1_num_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:128:0: 'ResNova.TensorSpeed.alpha_1_den_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:129:0: 'ResNova.TensorSpeed.foster_jacobson_alpha_1_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:130:0: 'ResNova.TensorSpeed.disformal_photon_speed_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:131:0: 'ResNova.TensorSpeed.speed_ratio_unity_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:132:0: 'ResNova.TensorSpeed.speed_ratio_lt_one_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:133:0: 'ResNova.TensorSpeed.gw170817_deviation_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (3320 jobs).
+OK    AXIOMS_V2.lean
+OK    CosmologicalSector.lean
+OK    CovariantCompletion.lean
+OK    DeSitterExtremal.lean
+OK    DualChannelDerivation.lean
+OK    GODActionKinematics.lean
+OK    ITActionClosure.lean
+OK    MuProjection.lean
+OK    PPNLimits.lean
+OK    PrintAxioms.lean
+OK    PrintAxiomsD8.lean
+OK    RelativisticStability.lean
+OK    SOCasimirGenuine.lean
+OK    SkordisZlosnikEmbedding.lean
+OK    SovereignRegularity.lean
+OK    TensorSpeed.lean
+OK    YettParadigm.lean
+
+verified: 17 / 17 target(s)
+RESULT: PASS
+NOTE: this certifies elaboration, absence of sorry, and a standard axiom
+      footprint. It does not certify that assumptions carried as typeclass
+      or structure fields are physically justified — see THEORY_ASSUMPTION_AUDIT.md.
+# exit_status: 0
