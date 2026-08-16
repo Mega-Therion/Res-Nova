@@ -27,7 +27,14 @@ The paper studies a specific AQUAL-family action, F_dual(x) = ½x² − x + ln(1
 
 This manuscript is not under consideration elsewhere, and it has not been published previously. I have no competing interests and no external funding to declare. AI tools assisted with drafting and code review under my direction and audit; this is stated in the manuscript's declarations.
 
-I would be glad to suggest referees with expertise in relativistic MOND and solar-system tests of gravity if that would assist.
+**Suggested referees.** I have no personal or professional connection to any of the following, and none has seen this work:
+
+1. **Constantinos Skordis** (CEICO, Institute of Physics, Czech Academy of Sciences) — co-author of the RMOND framework this paper specifies a free function for; best placed to judge whether the embedding and the screening argument are correct.
+2. **Tom Złośnik** (University of Gdańsk) — the other RMOND author, and a co-author of the structure-formation equations the cosmological section relies on.
+3. **Aurélien Hees** (LTE, Observatoire de Paris) — co-author of the Cassini Q₂ constraint that the solar-system section addresses directly; best placed to assess the Vainshtein estimate and the Q₂ prediction.
+4. **Indranil Banik** (University of St Andrews) — works on MOND cosmology and N-body structure formation; well placed to judge the linear-growth argument and the limits I claim for it.
+
+I would understand if the editors prefer referees at greater remove from the cited work.
 
 Thank you for your consideration.
 

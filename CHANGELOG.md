@@ -2,6 +2,25 @@
 
 All notable changes to the Res Nova technical manuscript, formal verification, and reproducibility package.
 
+## [1.6.1] — 2026-08-16
+
+Submission-readiness release. No physics claims change.
+
+### Manuscript
+- **Corrected the constitutive relation.** v1.5.0 and earlier printed `μ(x) ≡ F'_dual(x) = x − 1 + 1/(1+x) = x/(1+x)`. The middle expression evaluates to `x²/(1+x)`, so that line conflated `F'` with `μ`. Corrected to `F'(x) = x²/(1+x)` and `μ = F'/x = x/(1+x)`, the AQUAL constitutive ratio already used in D2 and encoded in `DualChannelDerivation.lean`. Disclosed in a boxed in-text note, not silently patched. Nothing downstream changes — the field equation, `F''`, both limits and the SPARC benchmark all use `μ`, which is unchanged. The same error in the Lean module inventory row is also fixed.
+- Narrowed one verification claim: `DualChannelDerivation.lean` certifies the channel-balance identity and the μ bounds; it does **not** symbolically differentiate `F_dual`. That step is hand/CAS-verified.
+- New sections for D2 (conditional uniqueness), D7 (RMOND completion), D3 (solar system, Vainshtein, Q₂ prediction), D5 (cosmology), D6 (stability). Open problems O7–O9 added.
+- Converted to **REVTeX 4.2** (`aps,prd,preprint`) with `apsrev4-2` bibliography. Chyren Collaboration seal added behind a `\sealtrue`/`\sealfalse` switch.
+- Acknowledgments state AI use explicitly: LLM tools assisted under the author's direction, no AI system is an author.
+- Abstract trimmed 396 → 211 words.
+- All external citations verified against primary sources (Park et al. 2026; Russell et al. 2026; Thomas et al. 2023; Vainshtein 1972).
+
+### Repository
+- Repository made **public**; Data Availability now resolves for referees.
+- `.zenodo.json` added for GitHub–Zenodo release archiving.
+- `SUBMISSION/` package: PRD cover letter with four suggested referees, journal rationale, pre-submission checklist.
+- `PEER_REVIEW_READINESS.md`: removed an in-progress recount artifact and fixed a 7-vs-8 self-contradiction (correct: 8 `[P]`, 4 `[P/O]`).
+
 ## [1.6.0] — 2026-08-16
 
 ### Theoretical Framework (New)

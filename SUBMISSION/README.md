@@ -21,16 +21,30 @@
 
 ## Pre-submission checklist
 
-- [x] v1.6.0 tagged (`44be143`) and pushed
-- [x] Manuscript updated with D2/D3/D5/D6/D7 results
-- [x] All external citations verified against primary sources (Park et al. 2026; Russell et al. 2026; Thomas et al. 2023; Vainshtein 1972)
+- [x] Repo is public
+- [x] Manuscript compiles in REVTeX 4.2, zero errors, zero undefined refs/citations, zero bibtex warnings (27 pp)
+- [x] Chyren Collab seal (ƆC watermark) on all pages — behind `\sealtrue`; see warning below
+- [x] Author: R.W. Yett, ORCID 0009-0001-1303-7190
+- [x] Affiliation: Independent Researcher, Arkansas, USA — see note below
+- [x] No AI in author list; AI use disclosed explicitly in acknowledgments
+- [x] Acknowledgments credit the Chyren Collaboration (⊙ƆC)
+- [x] Cover letter has 4 suggested referees
+- [x] Data Availability Statement points to the public repo
+- [x] `.zenodo.json` in repo root
+- [x] All external citations verified against primary sources
 - [x] Constitutive-relation error from v1.5.0 corrected and disclosed in-text
-- [x] Compiles clean: no undefined references or citations
-- [ ] **REVTeX 4.2 conversion** — the source is currently `article` class. Standing house rule requires `revtex4-2` for APS submission. Not done; the class change affects the two float-heavy tables and the tcolorbox environments.
-- [ ] **Author affiliation line** — currently "Independent Theoretical Research — Chyren Sovereign Intelligence". Decide what appears on an APS submission.
-- [ ] **Repository access** — the repo is private. PRD referees will need either a public release or an anonymised archive snapshot. Decide before submitting, since Data Availability points at the URL.
-- [ ] **Suggested referees** — offered in the cover letter; list not yet drafted.
+- [x] v1.6.1 tagged and GitHub release created with PDF asset
+- [ ] **Zenodo DOI minted** — requires RY's Zenodo login; see below
+- [ ] **Zenodo communities** (Gravity and Cosmology, CMBlensing) — same
+- [ ] **ORCID auto-link via DataCite** — same
+- [ ] **DOI badge in README** — blocked on the DOI existing
 - [ ] **Submission itself** — held. See below.
+
+## Two things to decide before you upload
+
+**The seal.** It is on by default for the repo and Zenodo copies. For the APS upload I recommend building with `\sealfalse` (one word in the preamble). A watermark on every page of a submitted manuscript reads as a draft stamp or a rights mark to production staff, and some journals bounce decorated submissions at technical check. Your call; the switch makes it trivial either way.
+
+**Affiliation.** Recorded as "Independent Researcher, Arkansas, USA". You said you were formerly a UofA student without current .edu access. An affiliation line asserts *current* institutional standing to the publisher and to DataCite, so a past enrolment does not support it — and it is the kind of thing that gets checked. If you want the connection visible and accurate, the normal form is a sentence in the acknowledgments ("the author was formerly a student at the University of Arkansas"), not the affiliation field.
 
 ## On submitting
 
