@@ -163,6 +163,18 @@ dead on evidence:
 > level. O1 remains `D0_PROPOSED`; F7 remains scoped to its 17 tracked modules, which do
 > not include `HorizonScale`.
 
+> **Superseded on `main` as of 2026-08-16 (v1.5.0, commit `4af94c4`).** The two statements
+> above that `origin/main` has no `HorizonScale.lean` and that it is not on `main` were true
+> when written and are now **false as to file presence**: `05_lean_formalization/HorizonScale.lean`
+> was added to `main` in the D-series push. What has *not* changed: it is **not** a root in
+> `05_lean_formalization/lakefile.lean`, so the verification gate still builds the 17 tracked
+> modules and `F7` remains correctly scoped to those 17. The axiom-footprint scope note above
+> therefore still holds, and O1's claim level is unchanged — see
+> `TARGET_O1_A0_HORIZON_DERIVATION.md`, which tags the `2π` KMS cancellation `[P]` and the
+> horizon-scale ↔ SPARC `a₀` identification `[O]`. Note also that `PEER_REVIEW_READINESS.md`
+> scores O1 as `[P]`; that scoring is broader than what this inventory and the O1 target doc
+> support, and the narrower reading governs until the identification is derived.
+
 | Phantom row | What it claims | Where that content actually is |
 |---|---|---|
 | `PPNParameters.lean` | "PPN parameter suite [P]" | Split across `PPNLimits` + `CovariantCompletion` + `TensorSpeed` — all three already have rows. **Duplicate coverage.** |
