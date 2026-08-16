@@ -13,11 +13,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: compile SPARC scripts
-        run: python3 -m py_compile 02_galaxy_dynamics/*.py scripts/check_claim_consistency.py
+      - name: compile python scripts
+        run: python3 -m py_compile 02_galaxy_dynamics/*.py scripts/check_claim_consistency.py 05_lean_formalization/check_manuscript_inventory.py
       - name: claim consistency
         run: python3 scripts/check_claim_consistency.py
+      - name: lean manuscript inventory
+        run: python3 05_lean_formalization/check_manuscript_inventory.py
 
-  # Lean is a release gate, not a PR smoke test. Mathlib is multi-GB and the
-  # recorded PASS was local (open O6). Do not pretend this job exists until
-  # someone walks `lake exe cache get` on a blank runner.
+  # Lean kernel verification is a release gate, not a PR smoke test.
+  # Mathlib is multi-GB and the recorded PASS was local (open O6).
+  # Do NOT download Mathlib or run lake in CI until O6 is addressed.
