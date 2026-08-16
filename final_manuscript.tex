@@ -212,7 +212,7 @@ yields $2\mathcal{J}'(\mathcal{Y}) = \sqrt{\mathcal{Y}}/(1+\sqrt{\mathcal{Y}}) =
 Consequences (all machine-certified in \texttt{SkordisZlosnikEmbedding.lean}, \texttt{TensorSpeed.lean}):
 \begin{itemize}
     \item \textbf{GW170817:} Matter and photons couple to $g_{\mu\nu}$ directly; $c_T = c_\gamma = c$, so $|c_T/c_\gamma - 1| = 0 \le 10^{-15}$ \textbf{identically} $\mathbf{[P]}$.
-    \item \textbf{Lensing / PPN:} Dynamical vector $A^\mu$ shear cancels scalar trace discrepancies, maintaining $\Phi = \Psi$ ($\gamma_{\text{PPN}} = 1$) without disformal distortion $\mathbf{[P]}$.
+    \item \textbf{Lensing / PPN:} Dynamical vector $A^\mu$ shear cancels scalar trace discrepancies, maintaining $\Phi = \Psi$ ($\gamma_{\text{PPN}} = 1$, proved in \texttt{CovariantCompletion.lean}) without disformal distortion $\mathbf{[P]}$.
     \item \textbf{Preferred-frame bound:} $\alpha_1 = -2K$; solar system constraint $|\alpha_1| \lesssim 10^{-4}$ places $|K| \lesssim 5\times 10^{-5}$ $\mathbf{[P]/[D]}$.
     \item \textbf{Ghost freedom:} $\mathcal{J}''(\mathcal{Y}) = \tfrac{1}{4\sqrt{\mathcal{Y}}(1+\sqrt{\mathcal{Y}})^2} > 0$ $\mathbf{[P]}$.
     \item \textbf{Cosmological decoupling:} On FLRW, $\hat\nabla_\mu\phi = 0 \implies \rho_\phi = 0$; the MOND kinetic sector contributes zero dynamical dark energy $\mathbf{[P]}$.
@@ -232,26 +232,26 @@ The Lean~4 suite (\texttt{05\_lean\_formalization/}) comprises \textbf{17 module
 \toprule
 \textbf{Module} & \textbf{What is proved $\mathbf{[P]}$ / What is not $\mathbf{[O]}$} \\
 \midrule
-\texttt{DualChannelDerivation.lean} & $\mathcal{F}_{\text{dual}}'(x) = x/(1+x)$; single-channel no-go $\mathbf{[P]}$. Physical mechanism of channel balance $\mathbf{[O]}$. \\
-\texttt{PPNLimits.lean} & Newtonian and deep-MOND limits $\mathbf{[P]}$. \\
+\texttt{AXIOMS\_V2.lean} & \emph{Assumption declarations.} States the five physical axioms A1--A5 as Lean typeclasses. Its two theorems are a field projection and the positivity of $\sqrt{g_{\text{bar}}a_0}$; neither derives an axiom $\mathbf{[O]}$. \\
+\texttt{CosmologicalSector.lean} & $0 < \ln 2 < 1$ and matter-density bounds $\mathbf{[P]}$. $\Omega_\Lambda + \Omega_m = 1$ holds by construction, $\Omega_m$ being defined as $1-\Omega_\Lambda$; it is not a flatness result. $\Omega_\Lambda = \ln 2$ is a definition, not a derivation $\mathbf{[O]}$. \\
+\texttt{CovariantCompletion.lean} & RAQUAL superluminality; $\gamma_{\text{PPN}} = 1$ (\texttt{disformal\_gamma\_ppn\_unity}); preferred-frame parameters zero; FLRW decoupling $\Rightarrow \rho_\phi = 0$ $\mathbf{[P]}$, conditional on the stated embedding. \\
+\texttt{DeSitterExtremal.lean} & Horizon lapse vanishing at $r = 1/H$; flat limit; $cH/(2\pi) > 0$ $\mathbf{[P]}$. Does not derive $a_0 = cH_0/(2\pi)$ $\mathbf{[O]}$. \\
+\texttt{DualChannelDerivation.lean} & $\mathcal{F}_{\text{dual}}'(x) = x/(1+x)$; bounds $\mu(x) < 1$ and the deep-MOND bound $\mathbf{[P]}$. Physical mechanism of channel balance $\mathbf{[O]}$. \\
+\texttt{GODActionKinematics.lean} & Dual-channel polynomial identity; AQUAL simple-$\mu$ ratio; BTFR algebraic scaling $\mathbf{[P]}$. \\
+\texttt{ITActionClosure.lean} & Polynomial $\tau$-law / simple-$\mu$ relation; deep-MOND BTFR; flat rotation curve for $n=2$ $\mathbf{[P]}$. Relativistic stability $\mathbf{[O]}$. \\
+\texttt{MuProjection.lean} & Properties of $\mu(x)$; root uniqueness; power-law solves the dilaton EOM; exponential profile falsified $\mathbf{[P]}$. Physical derivation of closure $\mathbf{[O]}$. \\
+\texttt{PPNLimits.lean} & Solar-system PPN precision bounds at $x \ge 10^4$; Cassini radar delay satisfied at $x \ge 6\times10^7$ $\mathbf{[P]}$. No asymptotic limit is formalized $\mathbf{[O]}$. \\
+\texttt{PrintAxioms.lean} & \emph{Diagnostic helper, not a physics module.} Emits \texttt{\#print axioms} for the \texttt{CovariantCompletion} results. No proof content. \\
+\texttt{PrintAxiomsD8.lean} & \emph{Diagnostic helper, not a physics module.} Re-declares a subset of \texttt{TensorSpeed} in the same namespace and prints its axiom footprint; not an independent result. \\
 \texttt{RelativisticStability.lean} & Kinetic convexity $\mathcal{F}'' > 0$ $\mathbf{[P]}$. \\
-\texttt{CovariantCompletion.lean} & RAQUAL superluminality; FLRW decoupling $\mathbf{[P]}$. Ghost freedom (4D) conditional $\mathbf{[P\text{-cond}]}$. \\
+\texttt{SOCasimirGenuine.lean} & $\mathfrak{so}(n)$ Casimir eigenvalue from explicit generators $\mathbf{[P]}$. Physical gauge symmetry $\mathbf{[O]}$. \\
+\texttt{SkordisZlosnikEmbedding.lean} & Exact $\mathcal{J}(\mathcal{Y})$ embedding; $c_T = c$; weak-field lensing $\Phi = \Psi$ $\mathbf{[P]}$. \\
+\texttt{SovereignRegularity.lean} & Pointwise vorticity bounded by an assumed control field; \texttt{sovereign\_regularity\_theorem} restates that hypothesis. No integral and no PDE are formalized, so this is not the Beale--Kato--Majda criterion \cite{BealeKatoMajda1984} $\mathbf{[O]}$. \\
 \texttt{TensorSpeed.lean} & $c_{13} = 0$ identity; disformal falsification; $\alpha_1 = -2K$ $\mathbf{[P]}$. \\
-\texttt{SkordisZlosnikEmbedding.lean} & Exact $\mathcal{J}(\mathcal{Y})$ embedding; $c_T = c$; $\gamma_{\text{PPN}} = 1$ $\mathbf{[P]}$. \\
-\texttt{PPNParameters.lean} & PPN parameter suite $\mathbf{[P]}$. \\
-\texttt{MuProjection.lean} & Mathematical properties of $\mu(x)$ $\mathbf{[P]}$. Physical derivation of closure $\mathbf{[O]}$. \\
-\texttt{SOCasimirGenuine.lean} & Casimir eigenvalues $\mathbf{[P]}$. Physical gauge symmetry $\mathbf{[O]}$. \\
-\texttt{DeSitterExtremal.lean} & Horizon lapse vanishing $\mathbf{[P]}$. $a_0 = cH_0/(2\pi)$ derivation $\mathbf{[O]}$. \\
-\texttt{ITActionClosure.lean} & Polynomial $\tau$-law / simple-$\mu$ relation $\mathbf{[P]}$. Relativistic stability $\mathbf{[O]}$. \\
-\texttt{YettParadigm.lean} & Spectral gap positivity (idealized) $\mathbf{[P]}$. Physical vacuum states $\mathbf{[O]}$. \\
-\texttt{SovereignRegularity.lean} & Conditional BKM boundedness \cite{BealeKatoMajda1984} $\mathbf{[P]}$. Global NS regularity $\mathbf{[O]}$. \\
-\texttt{HorizonThermodynamics.lean} & KMS temperature matching $\mathbf{[P]}$. $1/(2\pi)$ divisor origin $\mathbf{[O]}$. \\
-\texttt{InformationTension.lean} & Information-geometric identity $\mathbf{[P]}$. \\
-\texttt{GalacticDynamics.lean} & Rotation curve asymptotics from $\mu(x)$ $\mathbf{[P]}$. \\
-\texttt{CosmologicalBoundary.lean} & FLRW decoupling; $\Omega_\Lambda = \ln 2$ is boundary condition $\mathbf{[P/O]}$. \\
+\texttt{YettParadigm.lean} & Positivity of an \emph{assumed} spectral gap $\kappa^2 \le \lambda_1-\lambda_0$; bounded ADCCL trajectories $\mathbf{[P]}$. \texttt{chiral\_phase\_stable} projects its own hypothesis: $\theta \ge 0.70$ is assumed, not proved $\mathbf{[O]}$. \\
 \bottomrule
 \end{tabularx}
-\caption{All 17 Lean~4 modules. Physical-theory selection is never certified; Lean certifies only that mathematical statements follow from their encoded definitions.}
+\caption{Source inventory of all 17 Lean~4 modules, enumerated from the tracked contents of \texttt{05\_lean\_formalization/}. Three entries are diagnostic or assumption-declaring files rather than physics results. Physical-theory selection is never certified; Lean certifies only that mathematical statements follow from their encoded definitions, and not that assumptions carried as typeclass or structure fields are justified (see \texttt{THEORY\_ASSUMPTION\_AUDIT.md}).}
 \label{tab:lean_modules}
 \end{table}
 
