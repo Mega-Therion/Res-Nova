@@ -124,7 +124,7 @@ $$\mathcal{J}''(\mathcal{Y}) = \frac{d}{d\mathcal{Y}} \left[ \frac{\sqrt{\mathca
 
 ## 5. Lean 4 Machine Formalization Footprint
 
-All properties are formalized and machine-checked in [`05_lean_formalization/SkordisZlosnikEmbedding.lean`](file:///home/mega/grand_monograph/05_lean_formalization/SkordisZlosnikEmbedding.lean):
+All properties are formalized and machine-checked in [`05_lean_formalization/SkordisZlosnikEmbedding.lean`](05_lean_formalization/SkordisZlosnikEmbedding.lean):
 * `sz_aqual_reduction`: Proves $2 \mathcal{J}'(u^2) = \mu(u) = \frac{u}{1+u}$ $\mathbf{[P]}$.
 * `dJ_dY_pos`: Proves $\mathcal{J}'(u^2) > 0$ for all $u > 0$ $\mathbf{[P]}$.
 * `sz_newtonian_limit_diff`: Proves $1 - 2\mathcal{J}'(u^2) = \frac{1}{1+u}$ $\mathbf{[P]}$.

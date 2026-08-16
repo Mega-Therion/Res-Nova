@@ -1,6 +1,6 @@
 # Trinity_2_0_Methods_Note.md
 
-- **Platform Source:** Global Filesystem (/home/mega/Desktop/Chyren/Chyren/theory/GOD/manuscripts/Trinity_2_0_Methods_Note.md)
+- **Platform Source:** Global Filesystem (Trinity_2_0_Methods_Note.md)
 
 ---
 

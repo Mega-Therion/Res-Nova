@@ -10,7 +10,7 @@ Covenant tiers `[P]/[D]/[C]/[O]` only (`AGENT_COVENANT.md:14-17`). No new tier i
 ## 1. The premise of this workstream was wrong, and I am the one who got it wrong
 
 I reported that `lake`, `lean`, and `elan` were absent. **They are installed**
-(`/home/mega/.elan/bin/`, Lean `4.33.0-rc1`), and the pinned Mathlib is present at
+(`~/.elan/bin/`, Lean `4.33.0-rc1`), and the pinned Mathlib is present at
 `05_lean_formalization/.lake/packages/mathlib`. I inherited "NOT FOUND" from the earlier
 agent's report and repeated it without testing. That single unchecked claim is what made the
 suite look unverifiable.
@@ -66,7 +66,7 @@ This is the single strongest reason to take deliverable B.
 |---|---|---|---|
 | Targets | 6 | 7 | **17** |
 | Exit 0 | 5 | 7 | **17** |
-| Tree | `/home/mega/grand_monograph/` | same | **this repo** |
+| Tree | `./` | same | **this repo** |
 | Mathlib | unpinned, 6 pkgs dirty | same | **`5eec30bc`, 0 dirty** |
 | Lean | `4.33.0` (`d8b1897`) | same | **`4.33.0-rc1` (`62eed1db`)** — the pinned one |
 | Ran the gate? | no (`run_lean_verification.py`) | no | **yes** |
@@ -154,4 +154,4 @@ empirical `[D]` claims are unaffected.
 
 `reproducibility_appendix.tex:4` ("7 modules") and `RES_NOVA_VERIFICATION_LEDGER.md:184`
 ("all 7 modules") contradict 17. `EPISTEMIC_BOUNDARY_v1.3.0.md:31` says 7 and Lean 4.17.0, and
-carries a `file:///home/mega/grand_monograph/` link.
+carries a `` link.

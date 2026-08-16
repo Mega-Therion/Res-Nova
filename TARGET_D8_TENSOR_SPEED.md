@@ -104,7 +104,7 @@ To preserve the derived dual-channel closure $\mu(x) = \frac{x}{1+x}$ while sati
 
 ## 3. Lean 4 Formal Proof Footprint
 
-All theorems have been compiled with 0 errors, 0 warnings, and 0 `sorry` in [`05_lean_formalization/TensorSpeed.lean`](file:///home/mega/grand_monograph/05_lean_formalization/TensorSpeed.lean):
+All theorems have been compiled with 0 errors, 0 warnings, and 0 `sorry` in [`05_lean_formalization/TensorSpeed.lean`](05_lean_formalization/TensorSpeed.lean):
 * `c_T_sq_at_zero`: Proves $c_T^2 = 1$ when $c_{13} = 0$.
 * `maxwellian_c13_vanishes`: Proves $c_1 + c_3 = 0$ identically.
 * `einstein_frame_tensor_speed_luminal`: Proves $c_T(g) = 1$.

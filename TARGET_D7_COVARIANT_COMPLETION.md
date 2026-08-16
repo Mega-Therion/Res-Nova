@@ -30,7 +30,7 @@ Path 4   Horndeski / DHOST Scan                  FAILS-AT-DEGENERACY-COLLAPSE [P
 * **Anchor kinetic function:** $f(y) = \frac{1}{2}y - \sqrt{y} + \ln(1 + \sqrt{y})$.
 * **Characteristic Acoustic Cone:** The perturbation propagation speed parallel to a spacelike background gradient $x = \sqrt{y} = |\nabla\Phi|/a_0$ is:
   $$c_\parallel^2 = 1 + \frac{2y f''(y)}{f'(y)} = 1 + \frac{1}{1+x} > 1 \quad \forall x > 0.$$
-* **Verdict $\mathbf{[P]}$:** **FAILS-AT-SUPERLUMINALITY**. Pure RAQUAL is non-viable without a preferred timelike structure because acoustic perturbations propagate superluminally across the entire galaxy halo. Verified in Lean 4 ([`CovariantCompletion.lean`](file:///home/mega/grand_monograph/05_lean_formalization/CovariantCompletion.lean#L30-L38)).
+* **Verdict $\mathbf{[P]}$:** **FAILS-AT-SUPERLUMINALITY**. Pure RAQUAL is non-viable without a preferred timelike structure because acoustic perturbations propagate superluminally across the entire galaxy halo. Verified in Lean 4 ([`CovariantCompletion.lean`](05_lean_formalization/CovariantCompletion.lean#L30-L38)).
 
 ---
 

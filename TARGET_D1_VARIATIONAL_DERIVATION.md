@@ -36,7 +36,7 @@ $$\mathcal{F}_{\text{dual}}(x) = \frac{1}{2}x^2 - x + \ln(1+x).$$
 * **Resulting Interpolation Function:** $\mu_{\text{dual}}(x) = \frac{x}{1+x}$.
 * **Physical Acceleration Solution:**
   $$g \cdot \left(\frac{g/a_0}{1 + g/a_0}\right) = g_{\text{bar}} \implies g = g_{\text{bar}} \left[ \frac{1}{2} + \sqrt{\frac{1}{4} + \frac{a_0}{g_{\text{bar}}}} \right].$$
-* **Kernel Verification $\mathbf{[P]}$:** Verified in Lean 4 ([`GODActionKinematics.lean`](file:///home/mega/grand_monograph/05_lean_formalization/GODActionKinematics.lean) & [`ITActionClosure.lean`](file:///home/mega/grand_monograph/05_lean_formalization/ITActionClosure.lean)).
+* **Kernel Verification $\mathbf{[P]}$:** Verified in Lean 4 ([`GODActionKinematics.lean`](05_lean_formalization/GODActionKinematics.lean) & [`ITActionClosure.lean`](05_lean_formalization/ITActionClosure.lean)).
 
 ---
 
@@ -46,7 +46,7 @@ $$\mathcal{F}'(x) = \frac{x^2}{\sqrt{1+x^2}}.$$
 Integrating with respect to $x$ yields:
 $$\mathcal{F}_{\text{MOND}}(x) = \frac{1}{2} \left[ x\sqrt{1+x^2} - \operatorname{arcsinh}(x) \right].$$
 * **Resulting Interpolation Function:** $\mu_{\text{MOND}}(x) = \frac{x}{\sqrt{1+x^2}}$.
-* **Kernel Verification $\mathbf{[P]}$:** Verified in Lean 4 ([`MuProjection.lean`](file:///home/mega/grand_monograph/05_lean_formalization/MuProjection.lean)).
+* **Kernel Verification $\mathbf{[P]}$:** Verified in Lean 4 ([`MuProjection.lean`](05_lean_formalization/MuProjection.lean)).
 
 ---
 
