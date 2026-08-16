@@ -2,7 +2,7 @@
 
 # RES NOVA
 ### Geometrically Ordered Dynamics & Information Tension Theory
-**A variational identity, machine-checked no-gos, a Skordis–Złośnik embedding, and an honest SPARC measurement**
+**A New Thing**
 
 ---
 
