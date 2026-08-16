@@ -11,12 +11,12 @@
 | Finding | Topic | Epistemic Status | Primary Corpus Location | Reference / Note |
 |---|---|---|---|---|
 | **F1** | AQUAL Weak-Field Field Equation | `[C]` Literature Baseline | `final_manuscript.tex` §2 | Bekenstein-Milgrom (1984) |
-| **F2** | $\mu(x)$ Dual-Channel vs Single-Channel Closure | `[P]` (algebra) / `[O]` (closure) | `05_lean_formalization/DualChannelDerivation.lean`, `01_foundational_action/PAPER_01_NOTICE.md` | Dual-channel $\mu(x)=x/(1+x)$ `[P]`; single-channel quarantined |
+| **F2** | $\mu(x)$ Dual-Channel Derivative Identity | `[P]` (algebra) / `[O]` (closure) | `05_lean_formalization/DualChannelDerivation.lean`, `01_foundational_action/PAPER_01_NOTICE.md` | Dual-channel $\mu(x)=x/(1+x)$ `[P]`; single-channel quarantined |
 | **F3** | $a_0 = cH_0/(2\pi)$ KMS Cancellation Null Result | `[O]` Horizon Normalization | `final_manuscript.tex` §3.2, `04_cosmology/A0_AND_OMEGA_NORMALIZATION_LEDGER.md` | Thermal KMS cancellation derived; $1/(2\pi)$ is open normalization |
 | **F4** | Fixed Tier 0 SPARC Benchmark | `[D]` Empirical Evaluation | `02_galaxy_dynamics/PARAMETER_LEDGER.json` (Tier 0: median 9.20) | "Zero free parameters" language withdrawn as a working model class |
-| **F5** | SPARC Nuisance Fits & Working $a_0$ | `[D]` Regularized Fit / Measurement | `02_galaxy_dynamics/A0_MEASUREMENT.json`, `PARAMETER_LEDGER.json` | Tier 1 ($N_{\text{par}}=374$, median 2.95); $a_0 = 1.116\times 10^{-10} \pm 14.4\%$ |
+| **F5** | SPARC Nuisance Fits & Working $a_0$ | `[D]` Regularized Fit / Measurement | `02_galaxy_dynamics/A0_MEASUREMENT.json`, `PARAMETER_LEDGER.json` | Tier 1 ($N_{\text{par}}=374$, median 2.95); $a_0 = (1.116 \pm 0.128_{\text{stat}} \pm 0.097_{\text{syst}})\times 10^{-10}\text{ m/s}^2$ |
 | **F6** | $\Omega_\Lambda = \ln 2 \approx 0.693$ Holographic / Disformal Boundary | `[O]` Conjectural Limit | Motivational Narrative Annex | Conjectured horizon boundary condition, not a derived density |
-| **F7** | 17 Lean 4 Mechanical Proof Modules (0 sorrys) | `[P]` Kernel Verified | `05_lean_formalization/*.lean` | `verify_all_proofs.sh` exit 0 on local gate; standard axioms only |
+| **F7** | 17 Lean 4 Modules on Disk | `[P]` Kernel Verified / Diagnostic | `05_lean_formalization/*.lean` | `verify_all_proofs.sh` exit 0 on local gate; standard axioms only |
 | **F8** | Empirical Provenance & Out-of-Sample Validation | `[D]` Cross-Validation / Bootstrap | `02_galaxy_dynamics/A0_MEASUREMENT.json` | 171 galaxies (3,375 points), bootstrap + honest CV |
 
 ---
@@ -52,13 +52,12 @@ g \cdot \mu\left(\frac{g}{a_0}\right) = g_{\text{bar}}.
   - [`05_lean_formalization/GODActionKinematics.lean`](05_lean_formalization/GODActionKinematics.lean)
   - [`01_foundational_action/PAPER_01_NOTICE.md`](01_foundational_action/PAPER_01_NOTICE.md)
   - [`final_manuscript.tex`](final_manuscript.tex)
-* **Mathematical Summary:**
-  The dual-channel constitutive potential:
-  $$\mathcal{F}_{\text{dual}}(x) = \frac{x^2}{2} - x + \ln(1+x)$$
-  differentiates directly to:
-  $$\mathcal{F}_{\text{dual}}'(x) = x - 1 + \frac{1}{1+x} = \frac{x(1+x) - (1+x) + 1}{1+x} = \frac{x^2}{1+x}.$$
-  In the kinetic channel $y = |\nabla\Phi|/a_0$, this gives the standard rational $\mu(x) = \frac{x}{1+x}$, verified mechanically in Lean 4 (`DualChannelDerivation.lean`).
-  The historical single-channel potential $\mathcal{F}(x) = x \operatorname{arcsinh}(x) - \sqrt{1+x^2}$ produced $\mathcal{F}'(x) = \operatorname{arcsinh}(x)$ which yields inverted physical limits; it is quarantined as correspondence-false (`PAPER_01_NOTICE.md`).
+* **Verified Theorems in `DualChannelDerivation.lean`:**
+  - `dual_channel_flux_algebra`
+  - `mu_derived_inversion`
+  - `mu_derived_deep_mond_upper_bound`
+  - `mu_derived_newtonian_bound`
+* **Status:** The dual-channel algebraic identity is verified `[P]` in Lean 4. Historical single-channel $\operatorname{arcsinh}$ Lagrangian yields inverted physical limits and is quarantined as correspondence-false (`01_foundational_action/PAPER_01_NOTICE.md`). Uniqueness of the action in nature remains open `[O]`.
 
 ---
 
@@ -121,31 +120,31 @@ not $a_0 = \frac{cH_0}{2\pi}$. The additional $1/(2\pi)$ divisor is an open boun
 
 ---
 
-### F7. Lean 4 Formal Verification Suite (17 Modules, Standard Foundational Axioms)
-* **Epistemic Classification:** `[P]` Proved / Kernel Verified
+### F7. Lean 4 Formal Verification Suite (17 Tracked Modules, Standard Foundational Axioms)
+* **Epistemic Classification:** `[P]` Proved / Diagnostic / Assumption
 * **Target Directory:** [`05_lean_formalization/`](05_lean_formalization/)
 * **Status:** Exit code 0 on local verification gate (`109d38b`, Mathlib `5eec30bc`), recorded in `VERIFICATION_RUN_003/01_lean/`. Blank-machine cache reproduction (O6) remains open.
 * **Kernel Axiom Footprint:** Exclusively standard foundational axioms `[propext, Classical.choice, Quot.sound]`. (Documented structural/typeclass vacuity in `YettParadigm.lean` and `SovereignRegularity.lean` recorded in `THEORY_ASSUMPTION_AUDIT.md`).
 
-| Lean 4 File | Headline Theorems Verified | Axiom Footprint | Status |
+| Lean 4 File | Headline Theorems / Scope Verified on Disk | Axiom Footprint | Role / Status |
 |---|---|---|---|
-| [`DualChannelDerivation.lean`](05_lean_formalization/DualChannelDerivation.lean) | `dual_channel_derivative`, `simple_mu_scaling` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
+| [`AXIOMS_V2.lean`](05_lean_formalization/AXIOMS_V2.lean) | `derived_simple_mu_bounds`, `deep_mond_baryonic_scaling` | `[propext, Classical.choice, Quot.sound]` | **ASSUMPTIONS `[O]`** (Typeclass declarations) |
+| [`CosmologicalSector.lean`](05_lean_formalization/CosmologicalSector.lean) | `log_two_pos`, `log_two_lt_one`, `matter_density_bounds`, `spatial_flatness_sum` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
+| [`CovariantCompletion.lean`](05_lean_formalization/CovariantCompletion.lean) | `raqual_superluminal_obstruction`, `disformal_gamma_ppn_unity`, `preferred_frame_parameters_zero`, `no_dynamical_dark_energy_density` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
+| [`DeSitterExtremal.lean`](05_lean_formalization/DeSitterExtremal.lean) | `desitter_lapse_horizon`, `expr_cH_over_2pi_pos`, `desitter_flat_limit` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
+| [`DualChannelDerivation.lean`](05_lean_formalization/DualChannelDerivation.lean) | `dual_channel_flux_algebra`, `mu_derived_inversion`, `mu_derived_deep_mond_upper_bound`, `mu_derived_newtonian_bound` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
 | [`GODActionKinematics.lean`](05_lean_formalization/GODActionKinematics.lean) | `dual_channel_poly_identity`, `aqual_simple_mu_ratio`, `btfr_algebraic_scaling` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
-| [`ITActionClosure.lean`](05_lean_formalization/ITActionClosure.lean) | `tauLaw_eq_simple_mu_poly`, `btfr_deep_mond` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
-| [`SOCasimirGenuine.lean`](05_lean_formalization/SOCasimirGenuine.lean) | `casimir_defining_rep`, `casimir_scalar_eq` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
-| [`DeSitterExtremal.lean`](05_lean_formalization/DeSitterExtremal.lean) | `desitter_lapse_horizon` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
-| [`MuProjection.lean`](05_lean_formalization/MuProjection.lean) | `mu_simple_eq_cos`, `powerLaw_iterated_deriv` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
-| [`TensorSpeed.lean`](05_lean_formalization/TensorSpeed.lean) | `gw_tensor_speed_luminal`, `foster_jacobson_alpha1` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
-| [`CovariantCompletion.lean`](05_lean_formalization/CovariantCompletion.lean) | `raqual_superluminal`, `disformal_gamma_ppn_unity` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
-| [`SkordisZlosnikEmbedding.lean`](05_lean_formalization/SkordisZlosnikEmbedding.lean) | `skordis_zlosnik_potential_derivative`, `sz_kinetic_convexity` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
-| [`RelativisticStability.lean`](05_lean_formalization/RelativisticStability.lean) | `dual_channel_kinetic_convexity`, `hamiltonian_bounded_below` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
+| [`ITActionClosure.lean`](05_lean_formalization/ITActionClosure.lean) | `tauLaw_eq_simple_mu_poly`, `btfr_deep_mond`, `flat_rotation_curve_n2` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
+| [`MuProjection.lean`](05_lean_formalization/MuProjection.lean) | `mu_simple_eq_cos`, `quadratic_law_root_unique`, `powerLaw_solves_dilaton_eom`, `powerLaw_iterated_deriv`, `exp_profile_fails_cubic` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
 | [`PPNLimits.lean`](05_lean_formalization/PPNLimits.lean) | `solar_system_precision_bound`, `cassini_radar_delay_satisfied` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
-| [`TritBorn.lean`](05_lean_formalization/TritBorn.lean) | `born_rule_trit_probability` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
-| [`Decoherence.lean`](05_lean_formalization/Decoherence.lean) | `lindblad_trace_preserving`, `purity_decay` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
-| [`ChiralGate.lean`](05_lean_formalization/ChiralGate.lean) | `chiral_unitary_preservation` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
-| [`YettParadigm.lean`](05_lean_formalization/YettParadigm.lean) | `ramanujan_yett_spectral_gap_pos` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** (Assumptions documented) |
-| [`SovereignRegularity.lean`](05_lean_formalization/SovereignRegularity.lean) | `bkm_regularity_criterion` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** (Assumptions documented) |
-| [`PrintAxioms.lean`](05_lean_formalization/PrintAxioms.lean) | Axiom reflection & validation targets | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
+| [`PrintAxioms.lean`](05_lean_formalization/PrintAxioms.lean) | Axiom reflection helper for `CovariantCompletion` | `[propext, Classical.choice, Quot.sound]` | **DIAGNOSTIC** (No proof content) |
+| [`PrintAxiomsD8.lean`](05_lean_formalization/PrintAxiomsD8.lean) | `maxwellian_c13_vanishes`, `gw170817_concordance` | `[propext, Classical.choice, Quot.sound]` | **DIAGNOSTIC** (TensorSpeed reflection) |
+| [`RelativisticStability.lean`](05_lean_formalization/RelativisticStability.lean) | `first_derivative_pos`, `second_derivative_pos`, `ghost_free_convexity` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
+| [`SOCasimirGenuine.lean`](05_lean_formalization/SOCasimirGenuine.lean) | `casimir_defining_rep`, `casimir_scalar_eq` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
+| [`SkordisZlosnikEmbedding.lean`](05_lean_formalization/SkordisZlosnikEmbedding.lean) | `sz_aqual_reduction`, `sz_tensor_speed_luminal`, `sz_weak_field_lensing` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
+| [`SovereignRegularity.lean`](05_lean_formalization/SovereignRegularity.lean) | `sovereign_regularity_theorem`, `bkm_no_blowup` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** (Assumptions documented) |
+| [`TensorSpeed.lean`](05_lean_formalization/TensorSpeed.lean) | `maxwellian_c13_vanishes`, `foster_jacobson_alpha_1_eval`, `gw170817_deviation_of_pos` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
+| [`YettParadigm.lean`](05_lean_formalization/YettParadigm.lean) | `ramanujan_yett_spectral_gap_pos`, `chiral_phase_stable` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** (Assumptions documented) |
 
 ---
 
