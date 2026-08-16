@@ -9,6 +9,7 @@ Date: 2026-08-14
 import os
 import sys
 import json
+import argparse
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
@@ -19,15 +20,6 @@ from scipy.stats import norm
 
 from sparc_paths import resolve_sparc_dir
 
-try:
-    SPARC_DIR = resolve_sparc_dir()
-except FileNotFoundError:
-    SPARC_DIR = Path(__file__).resolve().parent / "sparc_data"
-
-OUT_DIR = Path(__file__).resolve().parents[1] / "VERIFICATION_RUN_003" / "02_sparc"
-FIG_DIR = Path(__file__).resolve().parents[1] / "VERIFICATION_RUN_003" / "figures"
-OUT_DIR.mkdir(parents=True, exist_ok=True)
-FIG_DIR.mkdir(parents=True, exist_ok=True)
 
 def load_galaxy(fpath):
     data = []
@@ -50,6 +42,7 @@ def load_galaxy(fpath):
                     continue
     return np.array(data)
 
+
 def predict_v_derived(rad, vgas, vdisk, vbulge, a0, Yd, Yb=0.7, fd=1.0):
     kpc_to_m = 3.085677581491367e19
     km_to_m = 1000.0
@@ -65,6 +58,7 @@ def predict_v_derived(rad, vgas, vdisk, vbulge, a0, Yd, Yb=0.7, fd=1.0):
     v_tot_m = np.sqrt(np.maximum(g_tot * r_m, 0.0))
     return v_tot_m / km_to_m
 
+
 def eval_galaxy(g_data, a0, Yd, Yb=0.7, fd=1.0):
     rad = g_data[:, 0]
     vobs = g_data[:, 1]
@@ -76,8 +70,15 @@ def eval_galaxy(g_data, a0, Yd, Yb=0.7, fd=1.0):
     chi2 = np.sum(((vobs - v_pred) / verr)**2)
     return chi2, len(rad)
 
-def run_d4():
-    files = sorted(list(SPARC_DIR.glob('*_rotmod.dat')))
+
+def run_d4(data_dir=None, out_dir=None, fig_dir=None):
+    sparc_dir = resolve_sparc_dir(data_dir)
+    out_dir_path = Path(out_dir) if out_dir else Path(__file__).resolve().parents[1] / "VERIFICATION_RUN_003" / "02_sparc"
+    fig_dir_path = Path(fig_dir) if fig_dir else Path(__file__).resolve().parents[1] / "VERIFICATION_RUN_003" / "figures"
+    out_dir_path.mkdir(parents=True, exist_ok=True)
+    fig_dir_path.mkdir(parents=True, exist_ok=True)
+
+    files = sorted(list(sparc_dir.glob('*_rotmod.dat')))
     galaxies = []
     total_pts = 0
     for f in files:
@@ -86,7 +87,7 @@ def run_d4():
             galaxies.append((f.stem.replace('_rotmod',''), g))
             total_pts += len(g)
             
-    print(f"Loaded {len(galaxies)} valid SPARC galaxies with {total_pts} total points.")
+    print(f"Loaded {len(galaxies)} valid SPARC galaxies with {total_pts} total points from {sparc_dir}.")
     
     # Grid scan for profile likelihood of a0 in [0.5, 3.0] x 10^-10 m/s^2
     a0_grid = np.linspace(0.5e-10, 3.0e-10, 51)
@@ -113,7 +114,6 @@ def run_d4():
     # Estimate 68% confidence interval from Delta chi2 = 1.0 (or profile curvature)
     min_chi2 = grid_chi2[best_idx]
     delta_chi2 = grid_chi2 - min_chi2
-    # Quadratic fit near minimum
     poly = np.polyfit(a0_grid[max(0, best_idx-5):min(len(a0_grid), best_idx+6)], 
                       grid_chi2[max(0, best_idx-5):min(len(a0_grid), best_idx+6)], 2)
     sigma_a0 = 1.0 / np.sqrt(poly[0]) if poly[0] > 0 else 0.05e-10
@@ -136,7 +136,6 @@ def run_d4():
         c2_data, n_pts = eval_galaxy(g, best_a0, yd_fit, Yb=yb)
         
         # Legacy zero-param chi2 for this galaxy (mu_simple = x/sqrt(1+x^2), a0=1.2e-10, Y=1.0)
-        # Using legacy formula
         rad, vobs, verr, vgas, vdisk, vbulge = g[:,0], g[:,1], g[:,2], g[:,3], g[:,4], g[:,5]
         v_bary_sq_leg = np.maximum(np.abs(vgas)*vgas + np.abs(vdisk)*vdisk + (0.7 if has_b else 0.0)*np.abs(vbulge)*vbulge, 0.0)*(1000.0**2)
         r_m_leg = rad * 3.085677581491367e19
@@ -164,14 +163,14 @@ def run_d4():
     dof_nom = total_pts - n_params
     agg_chi2_dof = float(total_data_chi2 / dof_nom)
     
-    # Discrepancy tension against cH0/(2pi) = 1.2e-10 (approx) and 1.042e-10
+    # Discrepancy tension against cH0/(2pi) = 1.042e-10
     a0_cH0_2pi = 1.042e-10
     tension_sigma = abs(best_a0 - a0_cH0_2pi) / sigma_a0
     
     manifest = {
         "work_order": "D4",
         "date": "2026-08-14",
-        "sample": "175 SPARC galaxies (3,391 points)",
+        "sample": f"{len(galaxies)} SPARC galaxies ({total_pts} points)",
         "model": "Derived mu(x) = x / (1 + x)",
         "fitted_parameters": {
             "a0_posterior": {
@@ -199,8 +198,8 @@ def run_d4():
         "per_galaxy_table": per_galaxy_results
     }
     
-    (OUT_DIR / 'SPARC_DERIVED_RUN_MANIFEST.json').write_text(json.dumps(manifest, indent=2))
-    print("Saved SPARC_DERIVED_RUN_MANIFEST.json")
+    (out_dir_path / 'SPARC_DERIVED_RUN_MANIFEST.json').write_text(json.dumps(manifest, indent=2))
+    print(f"Saved {out_dir_path / 'SPARC_DERIVED_RUN_MANIFEST.json'}")
     
     # =========================================================================
     # GENERATE FIGURES
@@ -209,7 +208,7 @@ def run_d4():
     
     # Figure A: Ydisk distribution vs Prior
     plt.figure(figsize=(7, 5))
-    plt.hist(ydisk_values, bins=25, density=True, alpha=0.6, color='steelblue', edgecolor='black', label='Fitted $\\Upsilon_{\\mathrm{disk}}$ (175 galaxies)')
+    plt.hist(ydisk_values, bins=25, density=True, alpha=0.6, color='steelblue', edgecolor='black', label=f'Fitted $\\Upsilon_{{\\mathrm{{disk}}}}$ ({len(galaxies)} galaxies)')
     x_axis = np.linspace(0.05, 1.2, 200)
     plt.plot(x_axis, norm.pdf(x_axis, 0.5, 0.125), 'r--', lw=2.5, label='Prior $\\mathcal{N}(0.5, 0.125^2)$')
     plt.axvline(np.mean(ydisk_values), color='blue', linestyle='-', lw=2, label=f'Fitted Mean = {np.mean(ydisk_values):.3f}')
@@ -219,7 +218,7 @@ def run_d4():
     plt.legend(fontsize=10)
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.savefig(FIG_DIR / 'fig_a_ydisk_distribution.png', dpi=200)
+    plt.savefig(fig_dir_path / 'fig_a_ydisk_distribution.png', dpi=200)
     plt.close()
     
     # Figure B: a0 Posterior / Profile Likelihood
@@ -234,7 +233,7 @@ def run_d4():
     plt.legend(fontsize=10)
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.savefig(FIG_DIR / 'fig_b_a0_posterior.png', dpi=200)
+    plt.savefig(fig_dir_path / 'fig_b_a0_posterior.png', dpi=200)
     plt.close()
     
     # Figure C: Per-Galaxy chi2 Scatter (Derived vs Legacy Zero-Param)
@@ -242,7 +241,6 @@ def run_d4():
     c2_leg = [p['chi2_per_pt_legacy'] for p in per_galaxy_results]
     plt.figure(figsize=(7, 5))
     plt.scatter(c2_leg, c2_der, alpha=0.7, color='darkmagenta', edgecolors='k', s=45)
-    lims = [0.1, max(max(c2_der), max(c2_leg))*1.2]
     plt.plot([0.01, 1000], [0.01, 1000], 'k--', alpha=0.6, label='1:1 Line (Equality)')
     plt.xscale('log')
     plt.yscale('log')
@@ -252,10 +250,20 @@ def run_d4():
     plt.legend(fontsize=10)
     plt.grid(True, alpha=0.3, which='both')
     plt.tight_layout()
-    plt.savefig(FIG_DIR / 'fig_c_galaxy_residuals_scatter.png', dpi=200)
+    plt.savefig(fig_dir_path / 'fig_c_galaxy_residuals_scatter.png', dpi=200)
     plt.close()
     
-    print("Figures saved successfully to", FIG_DIR)
+    print(f"Figures saved successfully to {fig_dir_path}")
+
+
+def main():
+    ap = argparse.ArgumentParser(description="Canonical SPARC Re-Run with Derived Closure.")
+    ap.add_argument("--data-dir", default=None, help="Path to SPARC rotmod directory")
+    ap.add_argument("--out-dir", default=None, help="Output directory for reports")
+    ap.add_argument("--fig-dir", default=None, help="Output directory for figures")
+    args = ap.parse_args()
+    run_d4(args.data_dir, args.out_dir, args.fig_dir)
+
 
 if __name__ == '__main__':
-    run_d4()
+    main()

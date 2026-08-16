@@ -12,15 +12,12 @@ Evaluates:
 
 import os
 import json
+import argparse
 import numpy as np
 from pathlib import Path
 from scipy.optimize import minimize, minimize_scalar
 from sparc_paths import resolve_sparc_dir
 
-try:
-    SPARC_DIR = resolve_sparc_dir()
-except FileNotFoundError:
-    SPARC_DIR = Path(__file__).resolve().parent / "sparc_data"
 
 def load_galaxy(fpath):
     data = []
@@ -42,6 +39,7 @@ def load_galaxy(fpath):
                 except ValueError:
                     continue
     return np.array(data)
+
 
 def predict_v(rad, vgas, vdisk, vbulge, a0, Yd, Yb=0.7, fd=1.0, mu_type='derived'):
     # Convert km/s and kpc to SI
@@ -65,15 +63,13 @@ def predict_v(rad, vgas, vdisk, vbulge, a0, Yd, Yb=0.7, fd=1.0, mu_type='derived
         ratio = np.where(g_bar > 0, a0 / g_bar, 0.0)
         g_tot = g_bar * (0.5 + np.sqrt(0.25 + ratio))
     elif mu_type == 'legacy':
-        # mu(x) = x / sqrt(1 + x^2) => standard simple MOND relation:
-        # g * (g/a0) / sqrt(1 + (g/a0)^2) = g_bar => g = g_bar * (1/2 + sqrt(1/4 + a0/g_bar)) is for simple mu!
-        # Note: For simple mu: mu(x) = x/(1+x), g = g_bar * (1/2 + sqrt(1/4 + a0/g_bar))!
         # For standard mu: mu(x) = x/sqrt(1+x^2), g = sqrt(g_bar^2/2 + sqrt(g_bar^4/4 + g_bar^2 * a0^2))
         g_tot = np.sqrt(0.5 * g_bar**2 + np.sqrt(0.25 * g_bar**4 + (g_bar**2) * (a0**2)))
     
     v_tot_m = np.sqrt(np.maximum(g_tot * r_m, 0.0))
     v_tot_kms = v_tot_m / km_to_m
     return v_tot_kms
+
 
 def eval_galaxy(g_data, a0, Yd, Yb=0.7, fd=1.0, mu_type='derived'):
     rad = g_data[:, 0]
@@ -87,8 +83,10 @@ def eval_galaxy(g_data, a0, Yd, Yb=0.7, fd=1.0, mu_type='derived'):
     chi2 = np.sum(((vobs - v_pred) / verr)**2)
     return chi2, len(rad)
 
-def run_benchmark():
-    files = sorted(list(SPARC_DIR.glob('*_rotmod.dat')))
+
+def run_benchmark(data_dir=None, out_path=None):
+    sparc_dir = resolve_sparc_dir(data_dir)
+    files = sorted(list(sparc_dir.glob('*_rotmod.dat')))
     galaxies = []
     total_pts = 0
     for f in files:
@@ -97,7 +95,7 @@ def run_benchmark():
             galaxies.append((f.stem.replace('_rotmod',''), g))
             total_pts += len(g)
             
-    print(f"Loaded {len(galaxies)} valid SPARC galaxies with {total_pts} total points.")
+    print(f"Loaded {len(galaxies)} valid SPARC galaxies with {total_pts} total points from {sparc_dir}.")
     
     # 1. Strict Zero-Parameter Derived mu: a0 = 1.042e-10, Yd=1.0, Yb=1.0, fd=1.0
     a0_zero = 1.042e-10
@@ -114,7 +112,6 @@ def run_benchmark():
         a0_val = 10**log_a0
         tot_chi2 = 0.0
         for name, g in galaxies:
-            # optimize Yd for this galaxy
             has_bulge = np.max(g[:, 5]) > 0
             yb = 0.7 if has_bulge else 0.0
             
@@ -124,7 +121,6 @@ def run_benchmark():
                 return c2 + prior_pen
                 
             res = minimize_scalar(obj_yd, bounds=(0.05, 2.5), method='bounded')
-            # Extract pure data residual
             c2_data, _ = eval_galaxy(g, a0_val, res.x, Yb=yb, fd=1.0, mu_type='derived')
             tot_chi2 += c2_data
         return tot_chi2
@@ -189,11 +185,20 @@ def run_benchmark():
         }
     }
     
-    out_file = Path(__file__).resolve().parents[1] / "VERIFICATION_RUN_002" / "02_sparc" / "SPARC_DERIVED_MU_BENCHMARK_REPORT.json"
+    out_file = Path(out_path) if out_path else Path(__file__).resolve().parents[1] / "VERIFICATION_RUN_002" / "02_sparc" / "SPARC_DERIVED_MU_BENCHMARK_REPORT.json"
     out_file.parent.mkdir(parents=True, exist_ok=True)
     out_file.write_text(json.dumps(results, indent=2))
     print("\n=== BENCHMARK COMPLETE ===")
     print(json.dumps(results, indent=2))
 
+
+def main():
+    ap = argparse.ArgumentParser(description="SPARC Derived mu(x) Benchmark vs Legacy Control.")
+    ap.add_argument("--data-dir", default=None, help="Path to SPARC rotmod directory")
+    ap.add_argument("--out", default=None, help="Output JSON path")
+    args = ap.parse_args()
+    run_benchmark(args.data_dir, args.out)
+
+
 if __name__ == '__main__':
-    run_benchmark()
+    main()

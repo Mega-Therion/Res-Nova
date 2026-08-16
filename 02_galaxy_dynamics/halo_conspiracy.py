@@ -30,6 +30,7 @@ Usage:
 
 from __future__ import annotations
 
+import argparse
 import json
 import math
 from pathlib import Path
@@ -40,7 +41,6 @@ from scipy.stats import spearmanr
 
 from parameter_ledger import (
     FD_STD,
-    SPARC_DIR,
     YB_MEAN,
     YB_STD,
     YD_MEAN,
@@ -50,6 +50,7 @@ from parameter_ledger import (
     v_bary_sq,
     v_nfw,
 )
+from sparc_paths import resolve_sparc_dir
 
 KPC_TO_M = 3.086e19
 KM_TO_M = 1000.0
@@ -106,7 +107,13 @@ def perm_p(x, y, rho, n=20000, seed=7):
 
 
 def main() -> None:
-    gals = load(SPARC_DIR)
+    ap = argparse.ArgumentParser(description="Evaluate baryonic vs NFW halo parameters.")
+    ap.add_argument("--data-dir", default=None, help="Path to SPARC rotmod directory")
+    ap.add_argument("--out", default="HALO_CONSPIRACY.json", help="Output JSON filename")
+    args = ap.parse_args()
+
+    sparc_dir = resolve_sparc_dir(args.data_dir)
+    gals = load(sparc_dir)
     rows = []
     for g in gals:
         fit = fit_nfw(g)
@@ -144,9 +151,10 @@ def main() -> None:
         f"   scatter {np.std(resid):.3f} dex"
     )
 
-    Path("HALO_CONSPIRACY.json").write_text(json.dumps(out, indent=2))
-    print("wrote HALO_CONSPIRACY.json")
+    Path(args.out).write_text(json.dumps(out, indent=2))
+    print(f"wrote {args.out}")
 
 
 if __name__ == "__main__":
     main()
+
