@@ -1,6 +1,6 @@
 {
   "repository": "https://github.com/Mega-Therion/MVPC-X",
-  "pinned_commit": "e6d4d2d",
+  "pinned_commit": "09876e858e092868ab413a59123ea6216f092031",
   "pinned_date": "2026-08-16",
   "role": "external_judge",
   "description": "External multi-prover claim verification and audit engine. Res-Nova depends on MVPC-X; MVPC-X must never depend on Res-Nova."

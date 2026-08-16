@@ -1,0 +1,49 @@
+{
+  "results": [
+    {
+      "claim_id": "D1.2",
+      "manifest_tier": "[P]",
+      "manifest_status": "VERIFIED",
+      "assurance_level": "D2_FORMALLY_CHECKED",
+      "assurance_value": 2,
+      "evidence_count": 3,
+      "error": null
+    },
+    {
+      "claim_id": "D3.1",
+      "manifest_tier": "[O]",
+      "manifest_status": "SUSPENDED",
+      "assurance_level": "D0_PROPOSED",
+      "assurance_value": 0,
+      "evidence_count": 1,
+      "error": null
+    },
+    {
+      "claim_id": "F7",
+      "manifest_tier": "[P]",
+      "manifest_status": "VERIFIED",
+      "assurance_level": "D2_FORMALLY_CHECKED",
+      "assurance_value": 2,
+      "evidence_count": 3,
+      "error": null
+    },
+    {
+      "claim_id": "O1",
+      "manifest_tier": "[O]",
+      "manifest_status": "OPEN",
+      "assurance_level": "D0_PROPOSED",
+      "assurance_value": 0,
+      "evidence_count": 1,
+      "error": null
+    },
+    {
+      "claim_id": "O6",
+      "manifest_tier": "[O]",
+      "manifest_status": "PARTIALLY_WALKED",
+      "assurance_level": "D0_PROPOSED",
+      "assurance_value": 0,
+      "evidence_count": 1,
+      "error": null
+    }
+  ]
+}

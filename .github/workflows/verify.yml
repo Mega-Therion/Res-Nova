@@ -14,12 +14,21 @@ jobs:
         with:
           python-version: "3.11"
       - name: compile python scripts
-        run: python3 -m py_compile 02_galaxy_dynamics/*.py scripts/check_claim_consistency.py 05_lean_formalization/check_manuscript_inventory.py
+        run: python3 -m py_compile 02_galaxy_dynamics/*.py scripts/check_claim_consistency.py 05_lean_formalization/check_manuscript_inventory.py scripts/render_mvpc_fixtures.py scripts/run_mvpc_adapter.py
       - name: claim consistency
         run: python3 scripts/check_claim_consistency.py
       - name: lean manuscript inventory
         run: python3 05_lean_formalization/check_manuscript_inventory.py
+      - name: validate mvpc claim manifests
+        run: python3 scripts/render_mvpc_fixtures.py --check
+      - name: install mvpc-x judge
+        run: pip install "git+https://github.com/Mega-Therion/MVPC-X.git@09876e858e092868ab413a59123ea6216f092031"
+      - name: run mvpc-x claim judge
+        run: |
+          python3 scripts/render_mvpc_fixtures.py --out /tmp/res_nova_bundle.json
+          python3 -m mvpc.claim_consumer --bundle /tmp/res_nova_bundle.json
 
   # Lean kernel verification is a release gate, not a PR smoke test.
   # Mathlib is multi-GB and the recorded PASS was local (open O6).
   # Do NOT download Mathlib or run lake in CI until O6 is addressed.
+

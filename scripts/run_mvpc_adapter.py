@@ -142,7 +142,7 @@ def main():
     manifest_files = sorted(MANIFESTS_DIR.glob("*.json"))
     manifests = []
     for mf in manifest_files:
-        if mf.name in ("MVPC_PIN.json", "MVPC_JUDGE_RUN_LOG.json"):
+        if mf.name in ("MVPC_PIN.json", "MVPC_JUDGE_RUN_LOG.json", "MVPC_JUDGE_VERDICTS.json"):
             continue
         try:
             with open(mf, "r", encoding="utf-8") as f:
@@ -158,7 +158,7 @@ def main():
 
     run_record = {
         "judge_system": "MVPC-X Universal Claim Auditor",
-        "mvpc_pinned_commit": pin_info.get("pinned_commit", "e6d4d2d"),
+        "mvpc_pinned_commit": pin_info.get("pinned_commit", "09876e858e092868ab413a59123ea6216f092031"),
         "target_repository": "Mega-Therion/Res-Nova",
         "timestamp_utc": timestamp,
         "total_claims": len(verdicts),
@@ -172,7 +172,7 @@ def main():
     lines.append("=" * 76)
     lines.append(f"Timestamp (UTC):  {timestamp}")
     lines.append(f"Target Repo:      Mega-Therion/Res-Nova")
-    lines.append(f"MVPC-X Pinned:    {pin_info.get('pinned_commit', 'e6d4d2d')} ({pin_info.get('repository', '')})")
+    lines.append(f"MVPC-X Pinned:    {pin_info.get('pinned_commit', '09876e858e092868ab413a59123ea6216f092031')} ({pin_info.get('repository', '')})")
     lines.append(f"Total Claims:     {len(verdicts)}")
     lines.append("-" * 76)
     lines.append(f"{'ID':<6} {'Tier':<6} {'Backend':<20} {'Status':<16} {'Adapter Check'}")
