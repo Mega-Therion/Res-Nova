@@ -320,7 +320,7 @@ def systematic_budget(supplied=None):
 
 
 # --------------------------------------------------------------------------
-# G2.6 -- Omega_m sensitivity  (H0 cancels exactly; Omega_m does not)
+# G2.6 -- Omega_m sensitivity  (H0 cancels algebraically; Omega_m does not)
 # --------------------------------------------------------------------------
 
 
