@@ -2,6 +2,15 @@
 
 All notable changes to the Res Nova technical manuscript, formal verification, and reproducibility package.
 
+## [1.6.2] — 2026-08-16
+
+Submission build. `\sealfalse` — the Chyren watermark is off for the APS
+copy, per the recommendation in `SUBMISSION/README.md`. The
+`\sealtrue`/`\sealfalse` switch remains; flipping it back restores the
+seal for repository or presentation copies. This is the build deposited
+to Zenodo, so the archived source and the archived PDF correspond
+exactly. No physics claims change.
+
 ## [1.6.1] — 2026-08-16
 
 Submission-readiness release. No physics claims change.
