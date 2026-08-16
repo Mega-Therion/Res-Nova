@@ -142,7 +142,7 @@ def main():
     manifest_files = sorted(MANIFESTS_DIR.glob("*.json"))
     manifests = []
     for mf in manifest_files:
-        if mf.name in ("MVPC_PIN.json", "MVPC_JUDGE_RUN_LOG.json"):
+        if mf.name in ("MVPC_PIN.json", "MVPC_JUDGE_RUN_LOG.json", "MVPC_JUDGE_VERDICTS.json"):
             continue
         try:
             with open(mf, "r", encoding="utf-8") as f:

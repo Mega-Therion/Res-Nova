@@ -1,9 +1,9 @@
 ============================================================================
                RES-NOVA / MVPC-X CLAIM JUDGE AUDIT RUN
 ============================================================================
-Timestamp (UTC):  2026-08-16T10:07:33.431685+00:00
+Timestamp (UTC):  2026-08-16T10:16:38.743486+00:00
 Target Repo:      Mega-Therion/Res-Nova
-MVPC-X Pinned:    e6d4d2d (https://github.com/Mega-Therion/MVPC-X)
+MVPC-X Pinned:    09876e8 (https://github.com/Mega-Therion/MVPC-X)
 Total Claims:     5
 ----------------------------------------------------------------------------
 ID     Tier   Backend              Status           Adapter Check
