@@ -2,7 +2,7 @@
   "judge_system": "MVPC-X Universal Claim Auditor",
   "mvpc_pinned_commit": "e6d4d2d",
   "target_repository": "Mega-Therion/Res-Nova",
-  "timestamp_utc": "2026-08-16T10:02:32.372482+00:00",
+  "timestamp_utc": "2026-08-16T10:07:33.431685+00:00",
   "total_claims": 5,
   "results": [
     {
@@ -25,7 +25,7 @@
           "status": "OK"
         }
       ],
-      "judge_verdict": "PASS_KERNEL_VERIFIED",
+      "judge_verdict": "ADAPTER_ARTIFACT_CHECKED",
       "details": {}
     },
     {
@@ -157,7 +157,7 @@
           "status": "OK"
         }
       ],
-      "judge_verdict": "PASS_KERNEL_VERIFIED",
+      "judge_verdict": "ADAPTER_ARTIFACT_CHECKED",
       "details": {}
     },
     {

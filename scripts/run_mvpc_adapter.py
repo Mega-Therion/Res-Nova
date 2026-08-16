@@ -3,8 +3,11 @@
 run_mvpc_adapter.py — Res-Nova MVPC-X Verification Adapter
 
 Reads claim manifests from mvpc_manifests/, converts them to MVPC-X
-fixture format, invokes the MVPC judge locally, and reports verdicts
-for all registered claims (D1.2, D3.1, F7, O1, O6).
+fixture format, validates disk artifact hashes and performs static sanity checks.
+
+TODO: This adapter performs local manifest and artifact validation (including
+sha256 matching and static sorry detection); it does not yet call MVPC-X's
+derive_assurance() engine or run the external judge pipeline.
 
 Usage:
     python3 scripts/run_mvpc_adapter.py [--log-dir DIR]
@@ -92,8 +95,7 @@ def audit_claim_with_mvpc(manifest: Dict[str, Any]) -> Dict[str, Any]:
 
     # 2. Evaluate claim according to tier and manifest specification
     if tier == "[P]" and target_backend == "lean4":
-        # Formal proof claim verified by Lean 4 kernel
-        # Run static placeholder check & verify gate status
+        # Formal proof claim artifact check
         has_sorry = False
         for art in artifacts:
             rel_path = art.get("path") if isinstance(art, dict) else art
@@ -110,7 +112,7 @@ def audit_claim_with_mvpc(manifest: Dict[str, Any]) -> Dict[str, Any]:
         if has_sorry:
             verdict_entry["judge_verdict"] = "VIOLATION_SORRY_DETECTED"
         else:
-            verdict_entry["judge_verdict"] = "PASS_KERNEL_VERIFIED"
+            verdict_entry["judge_verdict"] = "ADAPTER_ARTIFACT_CHECKED"
 
     elif tier == "[O]":
         # Quarantined / Open problem
@@ -173,7 +175,7 @@ def main():
     lines.append(f"MVPC-X Pinned:    {pin_info.get('pinned_commit', 'e6d4d2d')} ({pin_info.get('repository', '')})")
     lines.append(f"Total Claims:     {len(verdicts)}")
     lines.append("-" * 76)
-    lines.append(f"{'ID':<6} {'Tier':<6} {'Backend':<20} {'Status':<16} {'Judge Verdict'}")
+    lines.append(f"{'ID':<6} {'Tier':<6} {'Backend':<20} {'Status':<16} {'Adapter Check'}")
     lines.append("-" * 76)
 
     all_passed = True
@@ -188,7 +190,7 @@ def main():
             all_passed = False
 
     lines.append("-" * 76)
-    lines.append(f"OVERALL EVALUATION: {'PASS (ALL CLAIMS BOUNDED & VERIFIED)' if all_passed else 'FAIL'}")
+    lines.append(f"OVERALL EVALUATION: {'ADAPTER CHECK COMPLETE (manifests validated; MVPC-X judge not yet invoked)' if all_passed else 'FAIL'}")
     lines.append("=" * 76)
 
     text_output = "\n".join(lines) + "\n"
