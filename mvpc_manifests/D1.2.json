@@ -1,0 +1,48 @@
+{
+  "schema_version": "mvpc-claim-manifest-v1",
+  "claim_id": "D1.2",
+  "title": "Dual-channel action yields simple mu derivative identity",
+  "statement": "Dual-channel kinetic action F(x) = x^2/2 - x + ln(1+x) satisfies F'(x) = x/(1+x) and mu(x) = x/(1+x) with mu(x) < 1 for all x > 0 and deep-MOND scaling mu(x) ~ x as x -> 0.",
+  "epistemic_tier": "[P]",
+  "status": "VERIFIED",
+  "target_backend": "lean4",
+  "artifacts": [
+    {
+      "path": "05_lean_formalization/DualChannelDerivation.lean",
+      "sha256": "4ccc44d3afda1c0d6f4ffb83d8a28dac2e72cac0e8cb47bcb95823fa282b4cbe",
+      "theorems": [
+        "dual_channel_flux_algebra",
+        "mu_derived_inversion",
+        "mu_derived_deep_mond_upper_bound",
+        "mu_derived_newtonian_bound"
+      ]
+    },
+    {
+      "path": "05_lean_formalization/GODActionKinematics.lean",
+      "sha256": "c966e191978b3103c6ba509af97a4cf1d37b47712b3ce1d9225b856e14c41d0e",
+      "theorems": [
+        "dual_channel_poly_identity",
+        "aqual_simple_mu_ratio",
+        "btfr_algebraic_scaling"
+      ]
+    }
+  ],
+  "verification": {
+    "prover": "lean4",
+    "toolchain": "leanprover/lean4:v4.33.0-rc1",
+    "mathlib_pin": "5eec30bc56ed5a23be2e27c544a949ba0bceddeb",
+    "gate_script": "05_lean_formalization/verify_all_proofs.sh",
+    "axiom_footprint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "custom_axioms": [],
+    "sorry_count": 0,
+    "pass": true
+  },
+  "epistemic_boundary": {
+    "scope": "Mathematical proof of algebraic identity only.",
+    "quarantine": "Does not prove that physical nature realizes this specific constitutive action over alternatives."
+  }
+}

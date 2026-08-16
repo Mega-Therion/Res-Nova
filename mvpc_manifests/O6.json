@@ -1,0 +1,31 @@
+{
+  "schema_version": "mvpc-claim-manifest-v1",
+  "claim_id": "O6",
+  "title": "Clean-Worktree and CI Lean 4 Reproduction Gate",
+  "statement": "O6 — walked once in a clean worktree at 07185a6 (lake exe cache get + 17/17 PASS, VERIFICATION_RUN_007). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate.",
+  "epistemic_tier": "[O]",
+  "status": "PARTIALLY_WALKED",
+  "target_backend": "build_engineering",
+  "artifacts": [
+    {
+      "path": "VERIFICATION_RUN_007/01_lean/RUN_007_RESULT.json",
+      "sha256": "a4a4f00dc86b1d74a40f65e558f55a2efda7b9895d48f0b4eef89c942a78b94b"
+    },
+    {
+      "path": "VERIFICATION_RUN_007/01_lean/SHA256SUMS.txt",
+      "sha256": "5b4a994ccbe140ce685f77153fb042857e2e558dd08a6bd23956e35026b7b6a2"
+    }
+  ],
+  "verification": {
+    "clean_worktree_walk": "PASS",
+    "clean_worktree_commit": "07185a6",
+    "verification_run": "VERIFICATION_RUN_007",
+    "target_count": "17/17 PASS",
+    "pass": false,
+    "quarantine_reason": "Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate."
+  },
+  "epistemic_boundary": {
+    "scope": "Quarantined Engineering Gate [O].",
+    "closure_path": "Demonstrate on a cold runner with empty ~/.cache/mathlib, pin lean-toolchain and lake-manifest.json, and archive clean cold-runner execution logs."
+  }
+}
