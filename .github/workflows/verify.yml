@@ -2,7 +2,7 @@ name: verify
 
 on:
   push:
-    branches: [main, "diamond-standard/**"]
+    branches: [main, "diamond-standard/**", "science/**"]
   pull_request:
 
 jobs:
@@ -13,11 +13,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: compile SPARC scripts
-        run: python3 -m py_compile 02_galaxy_dynamics/*.py scripts/check_claim_consistency.py
+      - name: compile python scripts
+        run: python3 -m py_compile 02_galaxy_dynamics/*.py 03_observer_jwst/*.py scripts/*.py
       - name: claim consistency
         run: python3 scripts/check_claim_consistency.py
-
-  # Lean is a release gate, not a PR smoke test. Mathlib is multi-GB and the
-  # recorded PASS was local (open O6). Do not pretend this job exists until
-  # someone walks `lake exe cache get` on a blank runner.
+      - name: cryptographic witness attestation
+        env:
+          CHRYPTOS: ${{ secrets.CHRYPTOS }}
+        run: |
+          python3 scripts/cryptographic_witness.py --out RELEASE_WITNESS.json
+          python3 scripts/cryptographic_witness.py --verify RELEASE_WITNESS.json

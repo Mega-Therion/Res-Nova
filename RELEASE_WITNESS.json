@@ -1,0 +1,25 @@
+{
+  "format": "res-nova-cryptographic-witness-v1",
+  "timestamp_utc": "2026-08-16T04:41:40.226483+00:00",
+  "commit_sha": "8e773878fae03ed4fe5fec91ef16a20045eb1e39",
+  "manifest_sha256": "cfd3bb7f508d624564c05ea1bf6c950a078dc83a0505b9e818f1707a21d537f6",
+  "artifact_count": 13,
+  "artifacts": {
+    "EPISTEMIC_BOUNDARY_v1.5.0.md": "96d3105ee88827f33d3c045fd9685da1f83d67f5f5a794e7c1ead3e8a39df841",
+    "CLAIM_EVIDENCE_LEDGER.md": "a0b9dd7dae555839c81406793b778ec29d183fa9b8d61fa666c4c5aa6e736ae1",
+    "CORPUS_DEPENDENCY_MAP.md": "1086aa7479622258099ebebf7021275c331baf9587c0e3e469b4afc280fae282",
+    "02_galaxy_dynamics/A0_MEASUREMENT.json": "d71297842f50a9f8f43d5c66855c3ed3b284672178b22808236c28053679f73a",
+    "02_galaxy_dynamics/PARAMETER_LEDGER.json": "94509fb6a2eb9c4c870c176b54b1d8de2bb50bc4d0be8f5e5a41ed3530255a5b",
+    "02_galaxy_dynamics/NFW_CONSTRAINED.json": "25b7cfcf42acd37b647c0730a675168a229d0905745188d6ffe7d2b30d063d09",
+    "02_galaxy_dynamics/HALO_CONSPIRACY.json": "8c26a246e73eb59b29a216d45dd5b0d92a185e7d9333beafe8b60002c3d62ca0",
+    "02_galaxy_dynamics/A0_ESTIMATE.json": "cdcb3ab41afc8df3fc84d838e4a3b7d1fda98395e1d93aa352af4c1021f49e54",
+    "03_observer_jwst/PREREG_A0_OF_Z.md": "e361936f2973d1cb6a894c4c6dbe715befdf518a5f8a3836a6751d08c502ceb5",
+    "03_observer_jwst/A0_OF_Z_REPORT.json": "20f07a023d14c2adeff0799d09db5655bbbfa2dc72c9db75e021b485b3d66213",
+    "04_cosmology/TARGET_O1_A0_HORIZON_DERIVATION.md": "6c34d95cae52c9ac531fb71e32c5de1704161431e596c7bc95a208a9ae3dc350",
+    "05_lean_formalization/HorizonScale.lean": "a245b9073794d87ec3826ef0cff3354678d76e8d2e19174665ee93e854808721",
+    "final_manuscript.pdf": "b3ea91077d9edf93a6cccb44c0ba598ad7f4d19a59f56a6a593bae3766e2ad5d"
+  },
+  "authenticated": true,
+  "hmac_sha256_signature": "8481b71fb179dbb056a3207c30ccde386628a063f32fe14b6c307f091409f5d0",
+  "seal_status": "SEALED_WITH_CHRYPTOS"
+}
