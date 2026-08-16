@@ -1,7 +1,7 @@
 <div align="center">
 
 # RES NOVA
-### Geometrically Ordered Dynamics & Dual-Channel MOND Completion
+### Geometrically Ordered Dynamics & Information Tension Theory
 **A variational identity, machine-checked no-gos, a Skordis–Złośnik embedding, and an honest SPARC measurement**
 
 ---
