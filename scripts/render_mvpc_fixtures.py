@@ -36,10 +36,13 @@ def load_manifests():
     manifest_files = sorted(MANIFESTS_DIR.glob("*.json"))
     manifests = []
     for mf in manifest_files:
+        if mf.name in ("MVPC_PIN.json", "MVPC_JUDGE_RUN_LOG.json"):
+            continue
         try:
             with open(mf, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                manifests.append((mf.name, data))
+                if isinstance(data, dict) and data.get("schema_version") == "mvpc-claim-manifest-v1":
+                    manifests.append((mf.name, data))
         except Exception as e:
             print(f"Error reading manifest {mf}: {e}", file=sys.stderr)
             sys.exit(1)

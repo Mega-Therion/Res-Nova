@@ -1,0 +1,18 @@
+============================================================================
+               RES-NOVA / MVPC-X CLAIM JUDGE AUDIT RUN
+============================================================================
+Timestamp (UTC):  2026-08-16T10:07:33.431685+00:00
+Target Repo:      Mega-Therion/Res-Nova
+MVPC-X Pinned:    e6d4d2d (https://github.com/Mega-Therion/MVPC-X)
+Total Claims:     5
+----------------------------------------------------------------------------
+ID     Tier   Backend              Status           Adapter Check
+----------------------------------------------------------------------------
+D1.2   [P]    lean4                VERIFIED         ADAPTER_ARTIFACT_CHECKED
+D3.1   [O]    lean4                SUSPENDED        PASS_QUARANTINED_SUSPENDED
+F7     [P]    lean4                VERIFIED         ADAPTER_ARTIFACT_CHECKED
+O1     [O]    cosmology_empirical  OPEN             PASS_QUARANTINED_OPEN
+O6     [O]    build_engineering    PARTIALLY_WALKED PASS_QUARANTINED_PARTIAL_GATE
+----------------------------------------------------------------------------
+OVERALL EVALUATION: ADAPTER CHECK COMPLETE (manifests validated; MVPC-X judge not yet invoked)
+============================================================================
