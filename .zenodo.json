@@ -1,0 +1,31 @@
+{
+  "title": "Res Nova: Geometrically Ordered Dynamics and Information Tension — Dual-Channel Action, Covariant Completion, and Formal Verification",
+  "description": "The dual-channel action F(x) = x^2/2 - x + ln(1+x) yields the MOND interpolation function mu(x) = x/(1+x) as its constitutive ratio F'(x)/x. Given four structural constraints (Pade[1/1] minimality, odds-ratio/Bayesian structure, the Fisher information identity F'^2 I = x^3, and dual-channel cancellation) the action is uniquely determined; the necessity of the Pade constraint is not derived and is reported as open. Embedded in the Skordis-Zlosnik RMOND framework, the linear screening ratio F''/F' = 0.004 reduces a 76x structure overproduction to 0.4%, and Vainshtein screening places the solar-system quadrupole at Q2 = 4.9e-29 s^-2, a factor 70 below the Cassini bound at natural O(1) couplings. Ghost-free with bounded Hamiltonian and c_T = c. 17 Lean 4 modules verified with no sorry and axioms restricted to {propext, Classical.choice, Quot.sound}. SPARC 175-galaxy benchmark; a0 = (1.116 +/- 14.4%) e-10 m/s^2. A pre-registered a0(z) test favours constant a0 over the horizon-tied a0(z) = xi c H(z) at 5.9 sigma, so the horizon interpretation of a0 is reported as disfavoured by our own data.",
+  "creators": [
+    {
+      "name": "Yett, R.W.",
+      "orcid": "0009-0001-1303-7190",
+      "affiliation": "Independent Researcher, Arkansas, USA"
+    }
+  ],
+  "keywords": [
+    "modified gravity",
+    "MOND",
+    "RMOND",
+    "formal verification",
+    "Lean 4",
+    "cosmology",
+    "Skordis-Zlosnik",
+    "dual-channel action",
+    "Vainshtein screening",
+    "SPARC",
+    "a0"
+  ],
+  "license": "CC-BY-4.0",
+  "upload_type": "publication",
+  "publication_type": "article",
+  "communities": [
+    {"identifier": "gravity-and-cosmology"},
+    {"identifier": "cmblensing"}
+  ]
+}
