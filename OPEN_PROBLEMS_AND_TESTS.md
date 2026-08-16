@@ -66,17 +66,17 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 ## O5 — SPARC data not in the repo
 
-**Status:** engineering open, not a physics open. Scripts default to `/home/mega/Chyren/...` and one path under `/tmp/claude-1000/`. See `02_galaxy_dynamics/SPARC_DATA.md`.
+**Status:** engineering open, not a physics open. Data is intentionally not vendored in git. Fetch and checksum pipeline is untested on a clean clone. See `02_galaxy_dynamics/SPARC_DATA.md`.
 
-**Closure path:** environment variable `SPARC_DATA_DIR`, a SHA-256 manifest of `*_rotmod.dat`, and a documented download of Lelli, McGaugh & Schombert 2016. Do not vendor if the license forbids it; do pin hashes if you may store them.
+**Closure path:** `fetch_sparc.sh` downloading official CWRU `Rotmod_LTG.zip`, unpacking, verifying all 175 files against `VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256`, and supporting `--data-dir` / `SPARC_DATA_DIR` across all data scripts without `/home/mega` or `/tmp/claude-1000` defaults.
 
-**Test path:** CI job that fails when `SPARC_DATA_DIR` is set and hashes drift.
+**Test path:** Clean-clone execution of `fetch_sparc.sh` followed by checksum verification (175/175 OK).
 
 ---
 
 ## O6 — Fresh-clone Lean reproduction
 
-**Status:** engineering open. `verify_all_proofs.sh` exists. The recorded PASS used a local Mathlib build (`b0ff8ab6`). `lake exe cache get` is not claimed as walked.
+**Status:** engineering open. `verify_all_proofs.sh` exists. The recorded PASS (RUN_003 on `109d38b`) used a local environment where Mathlib was already present. `lake exe cache get` on a blank machine is still open.
 
 **Closure path:** one clean runner, pinned `lean-toolchain` + `lake-manifest.json`, saved CI log.
 
