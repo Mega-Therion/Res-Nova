@@ -1,97 +1,159 @@
-\section*{Appendix A: Formal Theorem Inventory (Lean 4)}
+\section*{Appendix A: Lean~4 Source Inventory and Verification Provenance}
 \label{app:lean_theorems}
 
-The mathematical identities associated with algebraic, geometric, and dynamical formalizations are implemented in Lean 4 and verified using Mathlib. The full formal suite of 7 modules builds cleanly with \texttt{exit code 0}. All headline theorems depend strictly on the standard foundational logical axioms:
-\begin{center}
-\texttt{[propext, Classical.choice, Quot.sound]}
-\end{center}
+The tracked Lean~4 sources under \texttt{05\_lean\_formalization/} comprise \textbf{17 modules},
+enumerated in Table~\ref{tab:lean_modules}. This appendix records the headline declarations per
+module and the provenance of the verification run; it adds no claim beyond that table.
+
+\paragraph{Verification provenance.}
+Local PASS on commit \texttt{109d38b}: the gate \texttt{verify\_all\_proofs.sh} elaborated all 17
+declared targets with exit status 0, no \texttt{sorry} in proof code, and axiom footprints
+confined to $\{\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}\}$, under Lean
+\texttt{v4.33.0-rc1} and Mathlib \texttt{5eec30bc}. The transcript, per-target exit codes,
+toolchain and Mathlib revisions, and SHA-256 checksums are archived in
+\texttt{VERIFICATION\_RUN\_003/01\_lean/}.
+
+The Mathlib checkout used was already present in \texttt{.lake/packages}; it was not obtained by
+\texttt{lake exe cache get} on a machine without one. Fresh-clone reproduction is open problem
+\textbf{O6} and is not claimed here.
+
+\paragraph{What elaboration does and does not certify.}
+A green gate run certifies that each statement follows from its encoded definitions. It does not
+certify that those definitions model the physical system, and it does not certify assumptions
+carried as typeclass fields, structure fields, or theorem hypotheses. The suite declares no Lean
+global \texttt{axiom}; that is a statement about \texttt{axiom} declarations only. See
+\texttt{THEORY\_ASSUMPTION\_AUDIT.md}.
 
 \begin{table}[h!]
 \centering
 \small
-\begin{tabularx}{\textwidth}{@{}l l X@{}}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
 \toprule
-\textbf{Lean 4 Module} & \textbf{Headline Theorems} & \textbf{Formal Proposition Verified} \\ \midrule
-\texttt{SOCasimirGenuine.lean} & \texttt{casimir\_defining\_rep} & Quadratic Casimir eigenvalue of standard $\mathfrak{so}(n)$ generators is $(n-1)/2$. \\
-\texttt{DeSitterExtremal.lean} & \texttt{desitter\_lapse\_horizon} & Lapse $1-H^2r^2=0$ at $r=1/H$, and arithmetic positivity of $cH/(2\pi)$. \\
-\texttt{MuProjection.lean} & \texttt{mu\_simple\_eq\_cos}, \texttt{powerLaw\_iterated\_deriv} & Right-triangle projection properties of $\mu_{\text{simple}}(x)$ and iterated derivatives. \\
-\texttt{ITActionClosure.lean} & \texttt{tauLaw\_eq\_simple\_mu\_poly}, \texttt{btfr\_deep\_mond} & Equivalence of $\tau$-relation and simple-$\mu$ polynomial; BTFR $M \propto v^4$. \\
-\texttt{YettParadigm.lean} & \texttt{ramanujan\_yett\_spectral\_gap\_pos} & Positivity of the spectral gap $\lambda_1 - \lambda_0 > 0$ for $\kappa > 0$. \\
-\texttt{SovereignRegularity.lean} & \texttt{sovereign\_regularity\_theorem} & Conditional Beale--Kato--Majda integral boundedness under the hypothesis $\chi \ge \theta$. \\
-\texttt{GODActionKinematics.lean} & \texttt{dual\_channel\_poly\_identity}, \texttt{btfr\_algebraic\_scaling} & Exact dual-channel quadratic identity and point-mass BTFR algebraic scaling. \\ \bottomrule
+\textbf{Module} & \textbf{Headline declarations} \\ \midrule
+\multicolumn{2}{@{}l}{\emph{Proof modules}} \\ \midrule
+\texttt{CosmologicalSector.lean} & \texttt{log\_two\_pos}, \texttt{log\_two\_lt\_one}, \texttt{matter\_density\_bounds}, \texttt{spatial\_flatness\_sum} \\
+\texttt{CovariantCompletion.lean} & \texttt{raqual\_superluminal\_obstruction}, \texttt{disformal\_gamma\_ppn\_unity}, \texttt{preferred\_frame\_parameters\_zero}, \texttt{flrw\_projected\_gradient\_zero}, \texttt{no\_dynamical\_dark\_energy\_density} \\
+\texttt{DeSitterExtremal.lean} & \texttt{desitter\_lapse\_horizon}, \texttt{expr\_cH\_over\_2pi\_pos}, \texttt{desitter\_flat\_limit}, \texttt{volume\_law\_weight\_nonneg} \\
+\texttt{DualChannelDerivation.lean} & \texttt{dual\_channel\_flux\_algebra}, \texttt{mu\_derived\_inversion}, \texttt{mu\_derived\_deep\_mond\_upper\_bound}, \texttt{mu\_derived\_newtonian\_bound} \\
+\texttt{GODActionKinematics.lean} & \texttt{dual\_channel\_poly\_identity}, \texttt{aqual\_simple\_mu\_ratio}, \texttt{btfr\_algebraic\_scaling} \\
+\texttt{ITActionClosure.lean} & \texttt{tauLaw\_eq\_simple\_mu\_poly}, \texttt{btfr\_deep\_mond}, \texttt{enclosed\_mass\_n2\_linear}, \texttt{flat\_rotation\_curve\_n2} \\
+\texttt{MuProjection.lean} & \texttt{mu\_simple\_eq\_cos}, \texttt{quadratic\_law\_root\_unique}, \texttt{powerLaw\_solves\_dilaton\_eom}, \texttt{powerLaw\_iterated\_deriv}, \texttt{exp\_profile\_fails\_cubic} \\
+\texttt{PPNLimits.lean} & \texttt{fractional\_deviation\_eq}, \texttt{solar\_system\_precision\_bound}, \texttt{cassini\_radar\_delay\_satisfied} \\
+\texttt{RelativisticStability.lean} & \texttt{first\_derivative\_pos}, \texttt{second\_derivative\_pos}, \texttt{ghost\_free\_convexity} \\
+\texttt{SOCasimirGenuine.lean} & \texttt{gen\_skew}, \texttt{sum\_dg}, \texttt{casimir\_defining\_rep}, \texttt{gen\_sq}, \texttt{casimir\_scalar\_eq} \\
+\texttt{SkordisZlosnikEmbedding.lean} & \texttt{sz\_aqual\_reduction}, \texttt{dJ\_dY\_pos}, \texttt{sz\_tensor\_speed\_luminal}, \texttt{sz\_weak\_field\_lensing} \\
+\texttt{SovereignRegularity.lean} & \texttt{chiral\_iff\_lipschitz\_constant}, \texttt{lipschitz\_implies\_angle\_modulus}, \texttt{bkm\_no\_blowup}, \texttt{sovereign\_regularity\_theorem} \\
+\texttt{TensorSpeed.lean} & \texttt{c\_T\_sq\_at\_zero}, \texttt{maxwellian\_c13\_vanishes}, \texttt{foster\_jacobson\_alpha\_1\_eval}, \texttt{speed\_ratio\_unity\_iff}, \texttt{gw170817\_deviation\_of\_pos} \\
+\texttt{YettParadigm.lean} & \texttt{ramanujan\_yett\_spectral\_gap\_pos}, \texttt{adccl\_trajectory\_bounded}, \texttt{chiral\_phase\_stable} \\ \midrule
+\multicolumn{2}{@{}l}{\emph{Assumption declarations --- not physics results}} \\ \midrule
+\texttt{AXIOMS\_V2.lean} & Typeclasses \texttt{Axiom\_A1}--\texttt{A5}; \texttt{derived\_simple\_mu\_bounds}, \texttt{deep\_mond\_baryonic\_scaling} \\ \midrule
+\multicolumn{2}{@{}l}{\emph{Diagnostic helpers --- no proof content}} \\ \midrule
+\texttt{PrintAxioms.lean} & \texttt{\#print axioms} for the \texttt{CovariantCompletion} results \\
+\texttt{PrintAxiomsD8.lean} & \texttt{\#print axioms} for the tensor-speed results \\ \bottomrule
 \end{tabularx}
-\caption{Inventory of formally verified Lean 4 theorems in \texttt{05\_lean\_formalization/}.}
+\caption{Headline declarations in the 17 tracked Lean~4 source modules, enumerated from
+\texttt{git ls-files}. Epistemic status per module is given in
+Table~\ref{tab:lean_modules}; this table lists declaration names only.}
 \end{table}
 
-\section*{Appendix B: Full SPARC Metric Definitions and Statistics}
+\paragraph{Scope note on \texttt{SovereignRegularity.lean}.}
+The module bounds pointwise vorticity by an assumed control field. It does not formalize an
+integral and does not formalize a partial differential equation, so it does not establish the
+Beale--Kato--Majda criterion \cite{BealeKatoMajda1984}, which concerns
+$\int_0^T \lVert \omega \rVert_\infty \, \mathrm{d}t$. \texttt{sovereign\_regularity\_theorem}
+restates the module's own hypothesis.
+
+\section*{Appendix B: SPARC Metric Definitions}
 \label{app:sparc_metrics}
 
-For each individual galaxy $g \in \{1, \dots, 175\}$ with $N_g$ observed kinematic radii $R_i$, observed velocities $V_{\text{obs},i}$, and observational uncertainties $\sigma_{V,i}$, the model velocity is evaluated as:
+For each galaxy $g$ with $N_g$ observed kinematic radii $R_i$, observed velocities
+$V_{\text{obs},i}$, and observational uncertainties $\sigma_{V,i}$, the model velocity is:
 \begin{equation}
 V_{\text{model}}(R_i) = V_{\text{bar}}(R_i) \cdot \left[ \frac{1}{2} + \sqrt{\frac{1}{4} + \frac{a_0}{g_{\text{bar}}(R_i)}} \right]^{1/2},
 \end{equation}
-where $g_{\text{bar}}(R_i) = V_{\text{bar}}(R_i)^2 / R_i$, with $V_{\text{bar}}^2(R) = |V_{\text{gas}}|V_{\text{gas}} + \Upsilon_{\text{disk}} |V_{\text{disk}}|V_{\text{disk}} + \Upsilon_{\text{bulge}} |V_{\text{bulge}}|V_{\text{bulge}}$.
+where $g_{\text{bar}}(R_i) = V_{\text{bar}}(R_i)^2 / R_i$, with
+$V_{\text{bar}}^2(R) = |V_{\text{gas}}|V_{\text{gas}} + \Upsilon_{\text{disk}} |V_{\text{disk}}|V_{\text{disk}} + \Upsilon_{\text{bulge}} |V_{\text{bulge}}|V_{\text{bulge}}$.
 
-\subsection*{Per-Galaxy Metric Definition}
-The per-galaxy data-residual statistic is defined as:
+\subsection*{Per-galaxy metric}
 \begin{equation}
 \frac{\chi^2_{\text{data}}}{N_g} = \frac{1}{N_g} \sum_{i=1}^{N_g} \left( \frac{V_{\text{obs},i} - f_d V_{\text{model}}(f_d R_i)}{\sigma_{V,i}} \right)^2.
 \end{equation}
 
-\subsection*{Aggregate Data-Residual Metric Definition}
-The aggregate data-residual statistic across the complete sample of $N_{\text{data}} = 3,391$ observations is:
-\begin{equation}
-\frac{\sum \chi^2_{\text{data}}}{\text{DOF}_{\text{nom}}} = \frac{1}{N_{\text{data}} - N_{\text{fitted}}} \sum_{g=1}^{175} \sum_{i=1}^{N_g} \left( \frac{V_{\text{obs},i} - f_d V_{\text{model}}(f_d R_i)}{\sigma_{V,i}} \right)^2.
-\end{equation}
+These are definitions only. The sample size, parameter count, and all fitted values are carried
+by the frozen artifacts named in Appendix~C; they are deliberately not restated here, so that
+this appendix cannot drift from them.
 
-\section*{Appendix C: Nuisance Parameter Derivation, Nominal DOF, and Cross-Validation}
+\section*{Appendix C: Parameter Accounting and Cross-Validation}
 \label{app:param_derivation}
 
-Across the full SPARC database ($N=175$ galaxies, $N_{\text{data}} = 3,391$ data points):
+\paragraph{Superseded accounting --- do not quote.}
+Earlier revisions of this appendix reported an aggregate residual over
+$N_{\text{data}} = 3{,}391$ points with $N_{\text{par}} = 382$ and
+$\text{DOF}_{\text{nom}} = 3{,}009$, and a 5-fold cross-validation evaluated against
+\emph{fixed} population priors. Both are superseded: items \textbf{D4.1} and \textbf{D4.2} of
+\texttt{EPISTEMIC\_BOUNDARY\_v1.5.0.md} record the method defects --- radial points treated as
+independent, and a cross-validation that held $a_0$ fixed across folds and so was not a
+cross-validation. Those numbers are retained here only to be labelled, and must not be quoted
+as current results.
+
+\paragraph{Current accounting.}
+The parameter ledger, sample definition, systematic budget, and honest per-fold
+cross-validation are carried by the frozen artifacts on \texttt{main}:
+
 \begin{itemize}
-    \item \textbf{32 Galaxies with Active Bulges ($V_{\text{bulge}} > 0.5\text{ km/s}$):} 3 fitted parameters each $(\Upsilon_{\text{disk}}, \Upsilon_{\text{bulge}}, f_d) \implies 32 \times 3 = 96$ parameters.
-    \item \textbf{143 Galaxies without Active Bulges ($V_{\text{bulge}} \le 0.5\text{ km/s}$):} 2 fitted parameters each $(\Upsilon_{\text{disk}}, f_d) \implies 143 \times 2 = 286$ parameters.
+  \item \texttt{02\_galaxy\_dynamics/A0\_MEASUREMENT.json} --- working $a_0$ with the
+        statistical and systematic budget (item D4.3).
+  \item \texttt{02\_galaxy\_dynamics/PARAMETER\_LEDGER.json} --- tiered parameter counts and
+        per-tier medians (items D4.7, D4.8).
+  \item \texttt{02\_galaxy\_dynamics/NFW\_CONSTRAINED.json} --- concentration-prior comparison
+        (item D4.9).
+  \item \texttt{02\_galaxy\_dynamics/A0\_ESTIMATE.json} --- cross-validation retraining $a_0$
+        per fold (item D4.6).
+  \item \texttt{02\_galaxy\_dynamics/SPARC\_PARAMETER\_BUDGET.md} --- the budget derivation.
 \end{itemize}
-\begin{equation}
-N_{\text{par}} = 96 + 286 = 382\text{ fitted parameters}, \qquad \text{DOF}_{\text{nom}} = 3,391 - 382 = 3,009\text{ nominal dof}.
-\end{equation}
 
-\subsection*{5-Fold Cross-Validation Protocol}
-To evaluate out-of-sample generalization and eliminate overfitting artifacts, the 175 galaxies were partitioned into 5 independent folds ($k=5$, 35 galaxies per fold). Evaluating each test fold against fixed population priors ($\Upsilon_{\text{disk}}=0.5, \Upsilon_{\text{bulge}}=0.7, f_d=1.0, a_0=1.2 \times 10^{-10}\text{ m/s}^2$) without per-galaxy optimization yields an out-of-sample median $\chi^2_{\text{data}}/N_g = 14.68$ and aggregate $\chi^2_{\text{data}}/\text{dof} = 110.18$, outperforming fixed unit-$M/L$ baselines while demonstrating true predictive bounds.
+Where this appendix and \texttt{EPISTEMIC\_BOUNDARY\_v1.5.0.md} appear to differ, the boundary
+document governs.
 
-\section*{Appendix D: Reproduction Commands and Software Environment}
+\section*{Appendix D: Reproduction Commands}
 \label{app:reproduction_commands}
 
+All paths are relative to the repository root. SPARC rotation-curve tables are not vendored;
+see \texttt{02\_galaxy\_dynamics/SPARC\_DATA.md} for the official source and the checksum
+manifest.
+
 \begin{verbatim}
-# 1. Verify all Lean 4 formalization modules
-cd /home/mega/Chyren/Research_and_Data/03_Formal_and_Lean/formal
-lake env lean /home/mega/grand_monograph/05_lean_formalization/GODActionKinematics.lean
+# 1. Lean 4 formal suite (all 17 declared targets)
+cd 05_lean_formalization
+lake exe cache get          # fresh-clone path; not yet walked (open problem O6)
+./verify_all_proofs.sh      # exits 0 only if every target elaborates cleanly
 
-# 2. Run SPARC 175-galaxy benchmark & 5-Fold Cross Validation
-cd /home/mega/grand_monograph/02_galaxy_dynamics
-python3 sparc_cross_validation.py
+# 2. SPARC measurement and parameter ledger
+#    Requires the rotation-curve tables; see 02_galaxy_dynamics/SPARC_DATA.md
+cd 02_galaxy_dynamics
+python3 a0_measure.py
+python3 parameter_ledger.py
 
-# 3. Compile final manuscript PDF
-cd /home/mega/grand_monograph
+# 3. Manuscript PDF
 pdflatex -interaction=nonstopmode final_manuscript.tex
-bibtex final_manuscript
+bibtex   final_manuscript
 pdflatex -interaction=nonstopmode final_manuscript.tex
 pdflatex -interaction=nonstopmode final_manuscript.tex
 \end{verbatim}
 
-\section*{Appendix E: Artifact Manifest and SHA-256 Table}
+\section*{Appendix E: Artifact Manifests}
 \label{app:artifact_manifest}
 
-\begin{table}[h!]
-\centering
-\small
-\begin{tabularx}{\textwidth}{@{}l p{4.2cm} X@{}}
-\toprule
-\textbf{Artifact File} & \textbf{Description} & \textbf{SHA-256 Checksum} \\ \midrule
-\texttt{sparc\_raw\_inputs} & 175 raw SPARC data files & \texttt{e76e675216...4ec70c1eb} \\
-\texttt{sparc\_cross\_validation.py} & Python cross-validation & \texttt{a4b12c8841...32a76f21} \\
-\texttt{SPARC\_CV\_REPORT.json} & 5-Fold Cross Validation & \texttt{c8430e7912...42416f491c} \\
-\texttt{LEAN\_BUILD\_RAW.json} & Raw Lean 4 build report & \texttt{1ea16027c9...32f4a434c} \\ \bottomrule
-\end{tabularx}
-\caption{SHA-256 checksums of core reproducibility artifacts.}
-\end{table}
+Earlier revisions printed a table of truncated SHA-256 prefixes, which cannot be verified. The
+full manifests are tracked in the repository and should be checked directly:
+
+\begin{itemize}
+  \item \texttt{VERIFICATION\_RUN\_001/02\_sparc\_strict\_135/RAW\_DATA\_MANIFEST.sha256} ---
+        SHA-256 of each of the 175 \texttt{*\_rotmod.dat} inputs. Verify with
+        \texttt{sha256sum -c} from the data directory.
+  \item \texttt{VERIFICATION\_RUN\_003/01\_lean/SHA256SUMS.txt} --- checksums of the Lean gate
+        transcript and its machine-readable result record.
+  \item \texttt{05\_lean\_formalization/lake-manifest.json} --- pinned Mathlib revision and
+        transitive dependency revisions.
+  \item \texttt{05\_lean\_formalization/lean-toolchain} --- pinned Lean toolchain.
+\end{itemize}

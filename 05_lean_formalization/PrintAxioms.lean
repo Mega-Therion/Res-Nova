@@ -1,7 +1,7 @@
 
 -- The six constants below are declared in `CovariantCompletion.lean`. Re-opening the
 -- namespace does not bring them into scope; without this import `#print axioms` fails with
--- `unknown constant` and the gate reports an elaboration error. See open problem O8.
+-- `unknown constant` and the gate reports an elaboration error.
 import CovariantCompletion
 
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
