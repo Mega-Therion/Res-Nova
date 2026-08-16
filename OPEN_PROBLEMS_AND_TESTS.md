@@ -76,11 +76,11 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 ## O6 — Fresh-clone Lean reproduction
 
-**Status:** engineering open. `verify_all_proofs.sh` exists. The recorded PASS (RUN_003 on `109d38b`) used a local environment where Mathlib was already present. `lake exe cache get` on a blank machine is still open.
+**Status:** O6 — walked once in a clean worktree at 07185a6 (lake exe cache get + 17/17 PASS, VERIFICATION_RUN_007). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate.
 
 **Closure path:** one clean runner, pinned `lean-toolchain` + `lake-manifest.json`, saved CI log.
 
-**Quarantine:** “verified on the author machine against Mathlib `5eec30bc` / Lean `v4.33.0-rc1`.” Never: “anyone cloning will reproduce in one command” until O6 is walked.
+**Quarantine:** “walked once in a clean worktree at 07185a6 (VERIFICATION_RUN_007).” Never: “anyone cloning will reproduce in one command” until O6 is demonstrated on a cold machine with empty host cache and added to CI.
 
 ---
 

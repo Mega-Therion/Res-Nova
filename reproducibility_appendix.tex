@@ -6,16 +6,7 @@ enumerated in Table~\ref{tab:lean_modules}. This appendix records the headline d
 module and the provenance of the verification run; it adds no claim beyond that table.
 
 \paragraph{Verification provenance.}
-Local PASS on commit \texttt{109d38b}: the gate \texttt{verify\_all\_proofs.sh} elaborated all 17
-declared targets with exit status 0, no \texttt{sorry} in proof code, and axiom footprints
-confined to $\{\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}\}$, under Lean
-\texttt{v4.33.0-rc1} and Mathlib \texttt{5eec30bc}. The transcript, per-target exit codes,
-toolchain and Mathlib revisions, and SHA-256 checksums are archived in
-\texttt{VERIFICATION\_RUN\_003/01\_lean/}.
-
-The Mathlib checkout used was already present in \texttt{.lake/packages}; it was not obtained by
-\texttt{lake exe cache get} on a machine without one. Fresh-clone reproduction is open problem
-\textbf{O6} and is not claimed here.
+O6 --- walked once in a clean worktree at 07185a6 (\texttt{lake exe cache get} + 17/17 PASS, \texttt{VERIFICATION\_RUN\_007}). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate. The gate \texttt{verify\_all\_proofs.sh} elaborated all 17 declared targets with exit status 0, no \texttt{sorry} in proof code, and axiom footprints confined to $\{\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}\}$, under Lean \texttt{v4.33.0-rc1} and Mathlib \texttt{5eec30bc}. The transcript, per-target exit codes, toolchain and Mathlib revisions, and SHA-256 checksums are archived in \texttt{VERIFICATION\_RUN\_007/01\_lean/}.
 
 \paragraph{What elaboration does and does not certify.}
 A green gate run certifies that each statement follows from its encoded definitions. It does not
@@ -125,7 +116,7 @@ manifest.
 \begin{verbatim}
 # 1. Lean 4 formal suite (all 17 declared targets)
 cd 05_lean_formalization
-lake exe cache get          # fresh-clone path; not yet walked (open problem O6)
+lake exe cache get          # fresh-clone path (see O6)
 ./verify_all_proofs.sh      # exits 0 only if every target elaborates cleanly
 
 # 2. SPARC measurement and parameter ledger

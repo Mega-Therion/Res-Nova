@@ -40,7 +40,7 @@ This ledger supersedes `EPISTEMIC_BOUNDARY_v1.4.0.md` wherever they conflict. Fo
 | **D7** | Pure RAQUAL / k-essence is superluminal on halo backgrounds | `[P]` | `CovariantCompletion.lean` | `c_∥²=1+1/(1+x)>1`. |
 | **D8** | Disformal cone split `B(φ)≠0` fails GW170817 | `[P]` | `TensorSpeed.lean`; `TARGET_D8_TENSOR_SPEED.md` | Falsifies that completion, not all vector-tensor parents. |
 | **D9** | Dual-channel `F` embeds in Skordis–Złośnik (2021) via `J(Y)=Y/2-√Y+ln(1+√Y)` | `[P]`/`[C]` | `SkordisZlosnikEmbedding.lean`; Skordis & Złośnik 2021 | Parent membership, not a unique completion. |
-| **F7** | Lean suite: 17 modules, 0 `sorry`, axioms `{propext, Classical.choice, Quot.sound}` | `[P]` | `05_lean_formalization/verify_all_proofs.sh` | Local PASS on `109d38b`, Mathlib already present; O6 unwalked. Artifact: `VERIFICATION_RUN_003/01_lean/` (17/17 targets, exit 0, Mathlib `5eec30bc` clean, toolchain `v4.33.0-rc1`). Fresh `lake exe cache get` is not claimed. Elaboration does not certify assumptions carried as typeclass or structure fields — see `THEORY_ASSUMPTION_AUDIT.md`. v1.4.0 item F7 said “8 modules”; that count is obsolete. |
+| **F7** | Lean suite: 17 modules, 0 `sorry`, axioms `{propext, Classical.choice, Quot.sound}` | `[P]` | `05_lean_formalization/verify_all_proofs.sh` | O6 — walked once in a clean worktree at 07185a6 (lake exe cache get + 17/17 PASS, VERIFICATION_RUN_007). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate. Artifact: `VERIFICATION_RUN_007/01_lean/` (17/17 targets, exit 0, Mathlib `5eec30bc` clean, toolchain `v4.33.0-rc1`). Elaboration does not certify assumptions carried as typeclass or structure fields — see `THEORY_ASSUMPTION_AUDIT.md`. |
 
 ---
 

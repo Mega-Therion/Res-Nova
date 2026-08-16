@@ -46,7 +46,7 @@ Read this first, then the ledger, then the manuscript.
 
 ## Formal core you can take as mathematics
 
-Lean `v4.33.0-rc1`, Mathlib pin `5eec30bc`, 17 modules, reported 0 `sorry`, standard axioms only. Reproduction provenance is local (open O6), not a blank-machine walk.
+Lean `v4.33.0-rc1`, Mathlib pin `5eec30bc`, 17 modules, reported 0 `sorry`, standard axioms only. O6 — walked once in a clean worktree at 07185a6 (lake exe cache get + 17/17 PASS, VERIFICATION_RUN_007). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate.
 
 ## Recommended citation posture
 

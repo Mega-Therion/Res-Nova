@@ -17,12 +17,6 @@ Jacob Bekenstein and Mordehai Milgrom.
   gravity at low accelerations?
 \newblock {\em The Astrophysical Journal}, 286:7--14, 1984.
 
-\bibitem{FamaeyBinney2005}
-Benoit Famaey and James Binney.
-\newblock Modified {N}ewtonian dynamics in the {M}ilky {W}ay.
-\newblock {\em Monthly Notices of the Royal Astronomical Society},
-  363(2):603--608, 2005.
-
 \bibitem{GibbonsHawking1977}
 G.~W. Gibbons and S.~W. Hawking.
 \newblock Cosmological event horizons, thermodynamics, and particle creation.
@@ -38,6 +32,11 @@ Federico Lelli, Stacy~S. McGaugh, and James~M. Schombert.
 \newblock {SPARC}: {M}ass models for 175 disk galaxies with high-quality
   rotation curves.
 \newblock {\em The Astronomical Journal}, 152(6):157, 2016.
+
+\bibitem{SkordisZlosnik2021}
+Constantinos Skordis and Tom Z{\l}o{\'s}nik.
+\newblock Gravitational alternative to dark matter.
+\newblock {\em Physical Review Letters}, 127(16):161302, 2021.
 
 \bibitem{BealeKatoMajda1984}
 J.~T. Beale, T.~Kato, and A.~Majda.
