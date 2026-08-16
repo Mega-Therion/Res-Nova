@@ -81,9 +81,9 @@ Consistent with `EPISTEMIC_BOUNDARY_v1.5.0.md` D4.4/D5, which already hold `Î©_Î
 
 ---
 
-## 5. Language that must change regardless of O8
+## 5. Language that must change regardless of verification status
 
-These are documentation defects, not theory changes. Compilation does not license them.
+These are documentation defects, not theory changes. The gate passing does not license them.
 
 | Current wording | Where | Replace with |
 |---|---|---|

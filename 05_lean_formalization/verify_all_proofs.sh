@@ -7,7 +7,7 @@
 # `sorry`, and no axioms beyond Lean's three standard ones (propext,
 # Classical.choice, Quot.sound).
 #
-# Success criterion (revised 2026-08-16, open problem O8):
+# Success criterion (revised 2026-08-16):
 #   * The target list is EXPLICIT and is cross-checked against `lakefile.lean`
 #     roots, so a new .lean file cannot silently join or leave the gate.
 #   * Lean's actual per-target exit status is authoritative. Previously the gate
@@ -18,8 +18,13 @@
 #     theorem hypotheses, which that grep cannot see. See THEORY_ASSUMPTION_AUDIT.md.
 #     Do not describe a green run here as "zero unproven assumptions".
 #
-# A green run of this script is the closure evidence for O8. It has never been
-# run to completion; see VERIFICATION_STATUS_AUDIT.md.
+# Last recorded green run: all 17 targets, exit 0, on commit 109d38b under
+# Lean v4.33.0-rc1 and Mathlib 5eec30bc. Transcript, per-target exit codes and
+# checksums: VERIFICATION_RUN_003/01_lean/.
+#
+# That run used a Mathlib checkout that was already present in .lake/packages.
+# Reproducing it on a machine with no pre-existing Mathlib (`lake exe cache
+# get` from a fresh clone) is open problem O6 and is not claimed here.
 set -uo pipefail
 cd "$(dirname "$0")"
 
@@ -49,6 +54,7 @@ TARGETS=(
 
 if [ ! -e .lake/packages/mathlib ]; then
   echo "Mathlib not present. Run:  lake exe cache get" >&2
+  echo "(A fresh-clone fetch has not been walked; see open problem O6.)" >&2
   exit 2
 fi
 

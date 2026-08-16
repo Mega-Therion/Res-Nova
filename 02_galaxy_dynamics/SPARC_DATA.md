@@ -32,8 +32,16 @@ unzip -o Rotmod_LTG.zip
 if [ -d Rotmod_LTG ]; then shopt -s nullglob; mv Rotmod_LTG/*_rotmod.dat .; rmdir Rotmod_LTG || true; fi
 ls -1 *_rotmod.dat | wc -l
 # Expected: 175 *_rotmod.dat files
+
+# Verify the download against the tracked manifest (expect: 175 x OK)
+sha256sum -c ../../VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256
 cd ../..
 ```
+
+The SHA-256 manifest for all 175 `*_rotmod.dat` files is tracked at
+`VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256` (an identical copy sits at
+`VERIFICATION_RUN_001/03_sparc_nuisance_175/`). It is the authority for what "the SPARC input
+corpus" means here; any file set that does not verify against it is a different corpus.
 
 Total files downloaded: **175 `*_rotmod.dat` rotation curve tables**.
 
