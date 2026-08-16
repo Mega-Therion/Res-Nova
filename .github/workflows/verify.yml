@@ -22,7 +22,7 @@ jobs:
       - name: validate mvpc claim manifests
         run: python3 scripts/render_mvpc_fixtures.py --check
       - name: install mvpc-x judge
-        run: pip install "git+https://github.com/Mega-Therion/MVPC-X.git@09876e8"
+        run: pip install "git+https://github.com/Mega-Therion/MVPC-X.git@09876e858e092868ab413a59123ea6216f092031"
       - name: run mvpc-x claim judge
         run: |
           python3 scripts/render_mvpc_fixtures.py --out /tmp/res_nova_bundle.json
