@@ -1,12 +1,21 @@
-\documentclass[11pt,letterpaper]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amssymb,amsfonts,amsthm}
+% ============================================================
+% REVTeX 4.2 / APS (Physical Review D).
+%   `preprint`  = single column, generous leading. This is the
+%                 format APS asks for at SUBMISSION, and the one
+%                 referees read. Keep it for the PRD upload.
+%   `twocolumn` = journal-look proof. Swap the option below to
+%                 preview the published layout; the wide tables
+%                 are already `table*` floats so both compile.
+% ============================================================
+\documentclass[aps,prd,preprint,superscriptaddress,nofootinbib,amsmath,amssymb,floatfix]{revtex4-2}
+
+\usepackage{amsfonts}
 \usepackage{booktabs}
 \usepackage{tabularx}
-\usepackage{hyperref}
+\usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{tcolorbox}
-\usepackage{cite}
+\usepackage{hyperref}
 
 \hypersetup{
     colorlinks=true,
@@ -17,29 +26,46 @@
 
 \definecolor{boxbg}{RGB}{248, 249, 252}
 \definecolor{primary}{RGB}{20, 35, 60}
+\definecolor{sealgold}{RGB}{176, 141, 61}
 
-\title{\textbf{Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark:\\A Res-Nova v1.6.0 Technical Assessment}}
-
-\author{
-    \textbf{Ryan W. Yett} \\
-    \small Independent Theoretical Research --- Chyren Sovereign Intelligence \\
-    \small ORCID: \href{https://orcid.org/0009-0001-1303-7190}{0009-0001-1303-7190} \\[0.5em]
-    \small Verified Artifact Reference: \texttt{VERIFICATION\_RUN\_003 / VERIFICATION\_RUN\_005 / VERIFICATION\_RUN\_006} \\
-    \small Repository: \href{https://github.com/Mega-Therion/Res-Nova}{\texttt{github.com/Mega-Therion/Res-Nova}} --- Release: \texttt{v1.6.0}
-}
-
-\date{\today}
+% ---- Chyren Collaboration seal -------------------------------------
+% \sealtrue  : faint OC seal on every page (repository / Zenodo copy)
+% \sealfalse : no seal (APS upload -- see SUBMISSION/README.md)
+\newif\ifseal
+\sealtrue
+\ifseal
+  \usepackage{eso-pic}
+  \AddToShipoutPictureBG{%
+    \AtPageCenter{%
+      \makebox(0,0){%
+        \rotatebox{45}{%
+          \textcolor{sealgold!18}{\fontsize{54}{54}\selectfont\textsf{$\mathrm{\reflectbox{C}C}$}}%
+        }%
+      }%
+    }%
+  }
+\fi
+% --------------------------------------------------------------------
 
 \begin{document}
 
-\maketitle
+\title{Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark}
+
+\author{Ryan W. Yett}
+\email{viewsbyryan@gmail.com}
+\affiliation{Independent Researcher, Arkansas, USA}
+
+\date{\today}
 
 \begin{abstract}
-We present the Res-Nova v1.6.0 technical assessment of a dual-channel variational action for modified gravity in the AQUAL/MOND family. \textbf{Core result (proved):} The single-channel arcsinh action is falsified on correspondence grounds $\mathbf{[P]}$; the dual-channel potential $\mathcal{F}_{\text{dual}}(x) = \tfrac{1}{2}x^2 - x + \ln(1+x)$ yields exactly $\mu(x) = x/(1+x)$ with correct Newtonian ($\mu \to 1$) and deep-MOND ($\mu \to x$) limits, proved algebraically and machine-checked in Lean~4. \textbf{Conditional uniqueness (proved):} Given four structural constraints --- constitutive-relation form, Pad\'e$[1/1]$ minimality, the MOND boundary conditions, and dual-channel splitting --- $\mathcal{F}_{\text{dual}}$ is the \emph{unique} admissible potential $\mathbf{[P]}$; $\mu$ is moreover the functional inverse of the Bayesian odds ratio, and the action satisfies the Fisher identity $\mathcal{F}_{\text{dual}}'(x)^2\,\mathcal{I}(\mu(x)) = x^3$ with $\mathcal{I}$ the Bernoulli Fisher information. The \emph{necessity} of the Pad\'e constraint is not derived and remains open $\mathbf{[O]}$, so this is conditional, not unconditional, uniqueness. \textbf{Relativistic completion (proved):} Pure RAQUAL is falsified by superluminal characteristic cones $\mathbf{[P]}$; the disformal completion is falsified by GW170817 $\mathbf{[P]}$; the dual-channel action embeds exactly into the Skordis--Z\l{}o\'snik (2021) relativistic MOND framework with $c_T = c_\gamma = c$ and $\gamma_{\text{PPN}} = 1$ preserved identically $\mathbf{[P]}$. \textbf{Empirical benchmark (computed):} A properly bootstrapped $a_0$ measurement across 171 SPARC galaxies (3,375 kinematic points) yields $a_0 = (1.116 \pm 0.128_{\text{stat}} \pm 0.097_{\text{syst}}) \times 10^{-10}\,\text{m\,s}^{-2}$ (14.4\% total), consistent with $cH_0/(2\pi)$ at $0.46\sigma$ and MOND's canonical value at $0.52\sigma$; these two anchors are not separated at $z=0$. A matched-parameter comparison shows the dual-channel MOND tier requires 342 fewer free parameters than a cosmologically-constrained NFW halo model at comparable or better fit quality. \textbf{Formal verification:} 17 Lean~4 modules, 0 \texttt{sorry}, axioms restricted to \texttt{\{propext, Classical.choice, Quot.sound\}}. \textbf{Redshift test (computed):} A pre-registered $a_0(z)$ comparison on 20 MUSE-DARK III galaxies ($0.41 \le z \le 1.44$) favours constant $a_0$ over the horizon-tied $a_0(z) = \xi c H(z)$ at $5.9\sigma$ ($\Delta\chi^2 = -35.1$), excluding the horizon evolution hypothesis at $> 3\sigma$ $\mathbf{[D]}$. \textbf{Covariant completion and screening (computed):} Specifying the Skordis--Z\l{}o\'snik free function as $\mathcal{F}(\mathcal{K}) = \mathcal{F}_{\text{dual}}(\sqrt{\mathcal{K}})$ leaves the Friedmann background unmodified and places the cosmological background on the Newtonian branch, giving a linear screening ratio $\mathcal{F}''/\mathcal{F}' \approx 0.004$: the $\sim76\times$ structure overproduction of a uniform MOND enhancement is reduced to a $0.4\%$ enhancement of linear growth $\mathbf{[P]}$. Combined with Vainshtein suppression $(r/r_{\text{MOND}})^{3/2}$, the solar-system external-field quadrupole is $Q_2 \approx 4.9\times10^{-29}\,\text{s}^{-2}$, a factor $70$ below the Cassini bound of Park et al.~(2026) for natural $\mathcal{O}(1)$ couplings and with no fine-tuning $\mathbf{[D]}$; the residual $Q_2 \sim 10^{-29}\,\text{s}^{-2}$ is a falsifiable prediction for next-generation ranging. \textbf{Stability:} the completion is ghost-free with bounded Hamiltonian and $c_T=c$ $\mathbf{[P]}$. \textbf{Open items:} The $a_0$--horizon $1/(2\pi)$ normalization (disfavoured by our own O4 test), the necessity of the Pad\'e constraint, non-linear structure formation, exact PPN $\gamma$ and $\beta$, $\Omega_\Lambda = \ln 2$, and cluster-scale dynamics remain quarantined as $\mathbf{[O]}$ pending future derivation, simulation, and data.
+We study the dual-channel AQUAL potential $\mathcal{F}_{\text{dual}}(x) = \tfrac{1}{2}x^2 - x + \ln(1+x)$, whose constitutive ratio $\mathcal{F}'(x)/x$ is the ``simple'' MOND interpolation function $\mu(x) = x/(1+x)$, and carry it through to a relativistic completion with quantitative solar-system and cosmological consequences. Given four structural constraints --- constitutive-relation form, Pad\'e$[1/1]$ minimality, the MOND boundary conditions, and dual-channel splitting --- $\mathcal{F}_{\text{dual}}$ is uniquely determined; $\mu$ is the functional inverse of the Bayesian odds ratio and obeys the Fisher identity $\mathcal{F}'(x)^2\mathcal{I}(\mu(x)) = x^3$. The necessity of the Pad\'e constraint is not derived, so the uniqueness is conditional. Specifying the Skordis--Z\l{}o\'snik free function as $\mathcal{F}(\mathcal{K}) = \mathcal{F}_{\text{dual}}(\sqrt{\mathcal{K}})$ leaves the Friedmann background unmodified and places the cosmological background on the Newtonian branch, giving a linear screening ratio $\mathcal{F}''/\mathcal{F}' \approx 0.004$: the $\sim 76\times$ structure overproduction of a uniform MOND enhancement falls to $0.4\%$ in linear growth. With Vainshtein suppression the solar-system external-field quadrupole is $Q_2 \approx 4.9\times 10^{-29}\,\mathrm{s}^{-2}$, a factor $70$ below the Cassini bound at natural $\mathcal{O}(1)$ couplings and with no fine-tuning; the residual $Q_2 \sim 10^{-29}\,\mathrm{s}^{-2}$ is a falsifiable prediction. The completion is ghost-free with $c_T = c$. Across 171 SPARC galaxies we measure $a_0 = (1.116 \pm 0.161)\times 10^{-10}\,\mathrm{m\,s^{-2}}$. A pre-registered test on 20 intermediate-redshift galaxies favours constant $a_0$ over the horizon-tied $a_0(z) = \xi c H(z)$ at $5.9\sigma$; we therefore report the horizon interpretation of $a_0$ as disfavoured by our own data. The formal core is machine-checked in Lean~4 (17 modules, no \texttt{sorry}). Non-linear structure formation, exact PPN parameters, and cluster scales remain open.
 \end{abstract}
 
-\vspace{0.5em}
-\noindent\textbf{Keywords:} Modified Newtonian Dynamics, Dual-Channel AQUAL, SPARC Galaxy Kinematics, Skordis--Z\l{}o\'snik, Lean~4 Formal Verification, Horizon Thermodynamics.
+\keywords{Modified Newtonian Dynamics; Dual-Channel AQUAL; SPARC Galaxy Kinematics; Skordis--Z\l{}o\'snik; Lean~4 Formal Verification; Horizon Thermodynamics}
+
+\maketitle
+
+\noindent\textbf{Artifacts.} ORCID \href{https://orcid.org/0009-0001-1303-7190}{0009-0001-1303-7190}. Repository \href{https://github.com/Mega-Therion/Res-Nova}{\texttt{github.com/Mega-Therion/Res-Nova}}, release \texttt{v1.6.0}; verified artifact references \texttt{VERIFICATION\_RUN\_003 / 005 / 006 / 007}.
 
 \section{Introduction and Scope}
 \label{sec:intro}
@@ -205,7 +231,11 @@ Both models share the same frozen $\mu(x) = x/(1+x)$ and zero NFW parameters. No
 
 \subsection{Observational Sample}
 
-We use the complete Spitzer Photometry and Accurate Rotation Curves (SPARC) database \cite{Lelli2016}: 175 disk galaxies, 3,391 kinematic observations. Raw data SHA-256: \texttt{e76e6752164b...c05f96d095456e067bdd5c6da59d2be4ec70c1eb}. The $a_0$ measurement sub-sample is 171 galaxies / 3,375 points (4 galaxies excluded for insufficient data coverage).
+We use the complete Spitzer Photometry and Accurate Rotation Curves (SPARC) database \cite{Lelli2016}: 175 disk galaxies, 3,391 kinematic observations. Raw data SHA-256:
+\begin{center}\ttfamily\small
+e76e6752164b\ldots c05f96d095456e067bdd5c6da59d2be4ec70c1eb
+\end{center}
+The $a_0$ measurement sub-sample is 171 galaxies / 3,375 points (4 galaxies excluded for insufficient data coverage).
 
 \subsection{Specification Definitions}
 
@@ -219,7 +249,7 @@ We use the complete Spitzer Photometry and Accurate Rotation Curves (SPARC) data
 
 \subsection{Matched-Parameter Results}
 
-\begin{table}[h!]
+\begin{table*}[t]
 \centering
 \footnotesize
 \begin{tabularx}{\textwidth}{@{}l c c c X@{}}
@@ -236,7 +266,7 @@ NFW Free $c$ $\mathbf{[D]}$ & 716 & 1.92 & --- & 97/171 railed at $c=1$; not $\L
 \end{tabularx}
 \caption{Matched-parameter SPARC benchmark on 171 galaxies. GOD Tier~1 achieves median $\chi^2/N_g = 2.95$ with 374 parameters; the fair cosmological NFW model requires 342 additional parameters (716 total) for median $\chi^2/N_g = 5.62$. Parameter counts and fit results frozen in \texttt{PARAMETER\_LEDGER.json} and \texttt{NFW\_CONSTRAINED.json} (\texttt{VERIFICATION\_RUN\_003}).}
 \label{tab:sparc_results}
-\end{table}
+\end{table*}
 
 \subsection{Pre-Registered Falsification Contract}
 
@@ -394,7 +424,7 @@ The Lean~4 suite (\texttt{05\_lean\_}\allowbreak\texttt{formalization/}) compris
 
 \textbf{Important provenance note:} O6 --- walked once in a clean worktree at 07185a6 (\texttt{lake exe cache get} + 17/17 PASS, \texttt{VERIFICATION\_RUN\_007}). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate. Artifact: \texttt{VERIFICATION\_RUN\_007/01\_lean/} (transcript, per-target exit codes, toolchain and Mathlib revisions, SHA-256 checksums).
 
-\begin{table}[h!]
+\begin{table*}[t]
 \centering
 \footnotesize
 \begin{tabularx}{\textwidth}{@{}l X@{}}
@@ -405,7 +435,7 @@ The Lean~4 suite (\texttt{05\_lean\_}\allowbreak\texttt{formalization/}) compris
 \texttt{CosmologicalSector.lean} & $0 < \ln 2 < 1$ and matter-density bounds $\mathbf{[P]}$. $\Omega_\Lambda + \Omega_m = 1$ holds by construction, $\Omega_m$ being defined as $1-\Omega_\Lambda$; it is not a flatness result. $\Omega_\Lambda = \ln 2$ is a definition, not a derivation $\mathbf{[O]}$. \\
 \texttt{CovariantCompletion.lean} & RAQUAL superluminality; $\gamma_{\text{PPN}} = 1$ (\texttt{disformal\_gamma\_ppn\_unity}); preferred-frame parameters zero; FLRW decoupling $\Rightarrow \rho_\phi = 0$ $\mathbf{[P]}$, conditional on the stated embedding. \\
 \texttt{DeSitterExtremal.lean} & Horizon lapse vanishing at $r = 1/H$; flat limit; $cH/(2\pi) > 0$ $\mathbf{[P]}$. Does not derive $a_0 = cH_0/(2\pi)$ $\mathbf{[O]}$. \\
-\texttt{DualChannelDerivation.lean} & $\mathcal{F}_{\text{dual}}'(x) = x/(1+x)$; bounds $\mu(x) < 1$ and the deep-MOND bound $\mathbf{[P]}$. Physical mechanism of channel balance $\mathbf{[O]}$. \\
+\texttt{DualChannelDerivation.lean} & Channel-balance identity $x - \tfrac{x}{1+x} = \tfrac{x^2}{1+x}$, i.e. $\mathcal{F}_{\text{dual}}'(x) = x\,\mu(x)$; bounds $\mu(x) < x$ and $\mu(x) < 1$ $\mathbf{[P]}$. Does \emph{not} symbolically differentiate $\mathcal{F}_{\text{dual}}$; physical mechanism of channel balance $\mathbf{[O]}$. \\
 \texttt{GODActionKinematics.lean} & Dual-channel polynomial identity; AQUAL simple-$\mu$ ratio; BTFR algebraic scaling $\mathbf{[P]}$. \\
 \texttt{ITActionClosure.lean} & Polynomial $\tau$-law / simple-$\mu$ relation; deep-MOND BTFR; flat rotation curve for $n=2$ $\mathbf{[P]}$. Relativistic stability $\mathbf{[O]}$. \\
 \texttt{MuProjection.lean} & Properties of $\mu(x)$; root uniqueness; power-law solves the dilaton EOM; exponential profile falsified $\mathbf{[P]}$. Physical derivation of closure $\mathbf{[O]}$. \\
@@ -422,7 +452,7 @@ The Lean~4 suite (\texttt{05\_lean\_}\allowbreak\texttt{formalization/}) compris
 \end{tabularx}
 \caption{Source inventory of all 17 Lean~4 modules, enumerated from the tracked contents of \texttt{05\_lean\_formalization/}. Three entries are diagnostic or assumption-declaring files rather than physics results. Physical-theory selection is never certified; Lean certifies only that mathematical statements follow from their encoded definitions, and not that assumptions carried as typeclass or structure fields are justified (see \texttt{THEORY\_ASSUMPTION\_AUDIT.md}).}
 \label{tab:lean_modules}
-\end{table}
+\end{table*}
 
 \section{Open Problems}
 \label{sec:open}
@@ -475,14 +505,17 @@ To these v1.6.0 adds: conditional uniqueness of $\mathcal{F}_{\text{dual}}$ unde
 The remaining open problems (O1--O9) are documented, bounded, and do not retract the proved core. They are of three kinds, and we distinguish them deliberately: \emph{computational} (non-linear N-body, exact post-Newtonian expansion, CI automation), \emph{observational} (larger high-$z$ kinematic samples, next-generation ranging), and \emph{structural} (the necessity of the Pad\'e constraint, the $1/(2\pi)$ horizon normalization). None is a demonstrated inconsistency of the framework. The pre-registered $a_0(z)$ redshift test (O4) has been completed: constant $a_0$ is favoured over the horizon-tied $a_0(z) = \xi c H(z)$ at $5.9\sigma$ on 20 MUSE-DARK III galaxies $\mathbf{[D]}$. This disfavours the horizon interpretation of $a_0$ but does not falsify the dual-channel framework itself, which stands on the proved variational closure, covariant embedding, and SPARC benchmark. The primary scientific frontier is now CMB and structure-growth consistency on FLRW backgrounds. This is the next derivation target in the Res-Nova research program.
 
 \section*{Data and Code Availability}
-All raw data, Python scripts, Lean~4 modules, and verification manifests are archived in the repository at \url{https://github.com/Mega-Therion/Res-Nova}, verified artifact references \texttt{VERIFICATION\_RUN\_003}, \texttt{VERIFICATION\_RUN\_005}, \texttt{VERIFICATION\_RUN\_006}, \texttt{VERIFICATION\_RUN\_007}.
+All raw data, Python scripts, Lean~4 modules, and verification manifests are openly archived in the public repository at \url{https://github.com/Mega-Therion/Res-Nova} (release \texttt{v1.6.0}), with verified artifact references \texttt{VERIFICATION\_RUN\_003}, \texttt{VERIFICATION\_RUN\_005}, \texttt{VERIFICATION\_RUN\_006}, and \texttt{VERIFICATION\_RUN\_007}. A permanent snapshot with a DOI is deposited on Zenodo.
 
-\section*{Declarations}
-\textbf{Funding:} No external funding. \\
-\textbf{Conflict of Interest:} None. \\
-\textbf{Author Contributions:} R.W.Y. --- theoretical derivation, Lean formalization, numerical computation, manuscript preparation. AI tools (Perplexity, Claude) contributed to draft generation and code review under human direction and audit.
+\begin{acknowledgments}
+This work was carried out within the Chyren Collaboration ($\odot\mathrm{\reflectbox{C}C}$), whose review process produced several of the retractions and rescopings recorded in the ledger.
 
-\bibliographystyle{unsrt}
+\textbf{Funding:} No external funding. \textbf{Conflict of interest:} None.
+
+\textbf{Author contributions and AI use:} R.W.Y.\ --- theoretical derivation, Lean formalization, numerical computation, and manuscript preparation. Large language model tools (Perplexity, Claude) contributed to draft generation, literature retrieval, and code review under the author's direction and audit. No AI system is an author, and the author takes full responsibility for all claims, derivations, and numerical results reported here. Every external citation in this manuscript was verified against its primary source.
+\end{acknowledgments}
+
+\bibliographystyle{apsrev4-2}
 \bibliography{references}
 
 \newpage
