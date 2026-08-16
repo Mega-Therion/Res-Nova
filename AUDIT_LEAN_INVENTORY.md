@@ -153,6 +153,16 @@ and floated filename-similarity rename pairs. That listing came from the `scienc
 worktree. **On `origin/main` there is no `HorizonScale.lean`**, and the rename hypothesis is
 dead on evidence:
 
+> **Axiom-footprint scope note (O1 / `HorizonScale.lean`).**
+> All proofs compile cleanly (`RESULT: PASS`). The axiom footprint
+> `[propext, Classical.choice, Quot.sound]` is recorded for the tracked modules; a
+> `#print axioms` for `HorizonScale` specifically has not been archived.
+>
+> This note narrows wording only. It does not reopen the verified build claim, does not
+> add `HorizonScale.lean` to `main` or to `lakefile.lean` roots, and changes no claim
+> level. O1 remains `D0_PROPOSED`; F7 remains scoped to its 17 tracked modules, which do
+> not include `HorizonScale`.
+
 | Phantom row | What it claims | Where that content actually is |
 |---|---|---|
 | `PPNParameters.lean` | "PPN parameter suite [P]" | Split across `PPNLimits` + `CovariantCompletion` + `TensorSpeed` — all three already have rows. **Duplicate coverage.** |
