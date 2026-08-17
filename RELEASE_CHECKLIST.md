@@ -1,8 +1,8 @@
 # 🚀 Release Checklist & Reproducibility Package
 
-**Manuscript Title:** *Conditional AQUAL Closures, Formal Verification Boundaries, and a Reproducible SPARC Benchmark: A Technical Assessment*  
+**Manuscript Title:** *Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark*  
 **Auditor Target:** Bob / Lead Scientific Reviewers  
-**Publication Status:** Verified Technical Draft / Reproducibility Reference Package (v1.5.0)  
+**Publication Status:** Submitted to Physical Review D (v1.6.2, Aug 16 2026) | Zenodo DOI: 10.5281/zenodo.21969121  
 
 ---
 
