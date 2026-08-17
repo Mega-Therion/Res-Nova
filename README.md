@@ -15,7 +15,7 @@
 
 <br/>
 
-**Author:** [Ryan W. Yett](https://orcid.org/0009-0000-8803-1250) &nbsp;|&nbsp; **Affiliation:** Independent Theoretical Research &nbsp;|&nbsp; **Release:** `v1.5.0` &nbsp;|&nbsp; **Epistemic seal:** `v1.5.0`
+**Author:** [Ryan W. Yett](https://orcid.org/0009-0001-1303-7190) &nbsp;|&nbsp; **Affiliation:** Independent Theoretical Research &nbsp;|&nbsp; **Release:** `v1.6.2` &nbsp;|&nbsp; **Epistemic seal:** `v1.6.2`
 
 [**For referees**](FOR_REFEREES.md) &nbsp;•&nbsp; [**Open problems**](OPEN_PROBLEMS_AND_TESTS.md) &nbsp;•&nbsp; [**Agent covenant**](AGENT_COVENANT.md) &nbsp;•&nbsp; [**Manuscript Source**](final_manuscript.tex) &nbsp;•&nbsp; [**Observatory**](https://res-nova-observatory.vercel.app)
 
