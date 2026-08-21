@@ -83,7 +83,9 @@ def resolve_sparc_meta(cli_meta: str | Path | None = None) -> Path | None:
     Priority:
     1. cli_meta (if provided)
     2. env SPARC_META_CSV
-    3. None (run without per-galaxy published D/i)
+    3. 02_galaxy_dynamics/sparc_meta.csv or sparc_metadata.csv or corpus_flat.csv (repo-local)
+    4. ./sparc_meta.csv or ./corpus_flat.csv (cwd-local)
+    5. None (run without per-galaxy published D/i)
     """
     if cli_meta:
         p = Path(cli_meta).expanduser()
@@ -96,5 +98,13 @@ def resolve_sparc_meta(cli_meta: str | Path | None = None) -> Path | None:
         p = Path(env_meta).expanduser()
         if p.is_file():
             return p.resolve()
+
+    for name in ("sparc_meta.csv", "sparc_metadata.csv", "corpus_flat.csv", "SPARC.csv"):
+        repo_cand = _MODULE_DIR / name
+        if repo_cand.is_file():
+            return repo_cand.resolve()
+        cwd_cand = Path.cwd() / name
+        if cwd_cand.is_file():
+            return cwd_cand.resolve()
 
     return None
