@@ -33,6 +33,7 @@ lean_lib «ResNovaFormal» where
     `DeSitterExtremal,
     `DualChannelDerivation,
     `GODActionKinematics,
+    `HorizonScale,
     `ITActionClosure,
     `MuProjection,
     `PPNLimits,

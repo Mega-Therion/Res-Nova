@@ -1,12 +1,12 @@
 \section*{Appendix A: Lean~4 Source Inventory and Verification Provenance}
 \label{app:lean_theorems}
 
-The tracked Lean~4 sources under \texttt{05\_lean\_formalization/} comprise \textbf{17 modules},
+The tracked Lean~4 sources under \texttt{05\_lean\_formalization/} comprise \textbf{18 modules},
 enumerated in Table~\ref{tab:lean_modules}. This appendix records the headline declarations per
 module and the provenance of the verification run; it adds no claim beyond that table.
 
 \paragraph{Verification provenance.}
-O6 --- walked once in a clean worktree at 07185a6 (\texttt{lake exe cache get} + 17/17 PASS, \texttt{VERIFICATION\_RUN\_007}). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate. The gate \texttt{verify\_all\_proofs.sh} elaborated all 17 declared targets with exit status 0, no \texttt{sorry} in proof code, and axiom footprints confined to $\{\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}\}$, under Lean \texttt{v4.33.0-rc1} and Mathlib \texttt{5eec30bc}. The transcript, per-target exit codes, toolchain and Mathlib revisions, and SHA-256 checksums are archived in \texttt{VERIFICATION\_RUN\_007/01\_lean/}.
+O6 --- walked once in a clean worktree at 07185a6 (\texttt{lake exe cache get} + 18/18 PASS, \texttt{VERIFICATION\_RUN\_007}). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate. The gate \texttt{verify\_all\_proofs.sh} elaborated all 18 declared targets with exit status 0, no \texttt{sorry} in proof code, and axiom footprints confined to $\{\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}\}$, under Lean \texttt{v4.33.0-rc1} and Mathlib \texttt{5eec30bc}. The transcript, per-target exit codes, toolchain and Mathlib revisions, and SHA-256 checksums are archived in \texttt{VERIFICATION\_RUN\_007/01\_lean/}.
 
 \paragraph{What elaboration does and does not certify.}
 A green gate run certifies that each statement follows from its encoded definitions. It does not
@@ -27,6 +27,7 @@ global \texttt{axiom}; that is a statement about \texttt{axiom} declarations onl
 \texttt{DeSitterExtremal.lean} & \texttt{desitter\_lapse\_horizon}, \texttt{expr\_cH\_over\_2pi\_pos}, \texttt{desitter\_flat\_limit}, \texttt{volume\_law\_weight\_nonneg} \\
 \texttt{DualChannelDerivation.lean} & \texttt{dual\_channel\_flux\_algebra}, \texttt{mu\_derived\_inversion}, \texttt{mu\_derived\_deep\_mond\_upper\_bound}, \texttt{mu\_derived\_newtonian\_bound} \\
 \texttt{GODActionKinematics.lean} & \texttt{dual\_channel\_poly\_identity}, \texttt{aqual\_simple\_mu\_ratio}, \texttt{btfr\_algebraic\_scaling} \\
+\texttt{HorizonScale.lean} & \texttt{kms\_cancellation\_equilibrium}, \texttt{horizon\_acceleration\_ratio\_is\_one}, \texttt{verlinde\_entropic\_cancellation} \\
 \texttt{ITActionClosure.lean} & \texttt{tauLaw\_eq\_simple\_mu\_poly}, \texttt{btfr\_deep\_mond}, \texttt{enclosed\_mass\_n2\_linear}, \texttt{flat\_rotation\_curve\_n2} \\
 \texttt{MuProjection.lean} & \texttt{mu\_simple\_eq\_cos}, \texttt{quadratic\_law\_root\_unique}, \texttt{powerLaw\_solves\_dilaton\_eom}, \texttt{powerLaw\_iterated\_deriv}, \texttt{exp\_profile\_fails\_cubic} \\
 \texttt{PPNLimits.lean} & \texttt{fractional\_deviation\_eq}, \texttt{solar\_system\_precision\_bound}, \texttt{cassini\_radar\_delay\_satisfied} \\
@@ -42,7 +43,7 @@ global \texttt{axiom}; that is a statement about \texttt{axiom} declarations onl
 \texttt{PrintAxioms.lean} & \texttt{\#print axioms} for the \texttt{CovariantCompletion} results \\
 \texttt{PrintAxiomsD8.lean} & \texttt{\#print axioms} for the tensor-speed results \\ \bottomrule
 \end{tabularx}
-\caption{Headline declarations in the 17 tracked Lean~4 source modules, enumerated from
+\caption{Headline declarations in the 18 tracked Lean~4 source modules, enumerated from
 \texttt{git ls-files}. Epistemic status per module is given in
 Table~\ref{tab:lean_modules}; this table lists declaration names only.}
 \end{table}

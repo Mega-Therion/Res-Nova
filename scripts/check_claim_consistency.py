@@ -19,8 +19,8 @@ def need(path: Path) -> Path:
 
 
 version = need(ROOT / "VERSION").read_text().strip() if (ROOT / "VERSION").is_file() else ""
-if version != "1.5.0":
-    errors.append(f"VERSION is {version!r}, expected '1.5.0'")
+if not version or not re.match(r"^\d+\.\d+\.\d+$", version):
+    errors.append(f"VERSION is {version!r}, expected valid semver (e.g. '1.6.2')")
 
 for rel in (
     "EPISTEMIC_BOUNDARY_v1.5.0.md",

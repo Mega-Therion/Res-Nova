@@ -39,6 +39,7 @@ TARGETS=(
   DeSitterExtremal.lean
   DualChannelDerivation.lean
   GODActionKinematics.lean
+  HorizonScale.lean
   ITActionClosure.lean
   MuProjection.lean
   PPNLimits.lean
