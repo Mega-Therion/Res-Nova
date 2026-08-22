@@ -1,0 +1,51 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,bm,mathtools}
+\usepackage{microtype}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+\vspace*{0.5em}
+\rule{\textwidth}{1.5pt}\\[1em]
+{\Large $\mathcal{S}_{\mathrm{total}} = \int_{\mathcal{M}} d^4x \sqrt{-g} \;\mathcal{L}_{\mathrm{univ}} + \mathcal{S}_{\partial\mathcal{M}}$}\\[0.8em]
+\rule{\textwidth}{1.0pt}
+\end{center}
+
+\vspace{1em}
+
+\begin{align*}
+\mathcal{L}_{\mathrm{univ}} \;=\;& \frac{c^4}{16\pi G} e^{-2\phi} \left( R - 2\Lambda_0 \right)
+\;-\; \frac{1}{2} g^{\mu\nu} \partial_\mu\phi \partial_\nu\phi \;-\; \frac{1}{2} m_\phi^2 \phi^2 \;-\; \frac{\lambda_\phi}{4!} \phi^4 \\[1.4em]
+&-\; \frac{c^4 a_0^2}{8\pi G} \left[ \sqrt{\frac{g^{\mu\nu}\partial_\mu\chi\partial_\nu\chi}{a_0^2}\left(1 + \frac{g^{\alpha\beta}\partial_\alpha\chi\partial_\beta\chi}{a_0^2}\right)} \;-\; \operatorname{asinh}\left(\sqrt{\frac{g^{\mu\nu}\partial_\mu\chi\partial_\nu\chi}{a_0^2}}\right) \right] \\[1.4em]
+&+\; \frac{1}{2} g^{\mu\nu} \operatorname{Tr}\left( (\nabla_\mu V - i A_\mu V)^\dagger (\nabla_\nu V - i A_\nu V) \right)
+\;-\; \frac{\gamma_0}{4}\left(\frac{1-\chi}{1+\chi}\right) g^{\mu\alpha} g^{\nu\beta} \operatorname{Tr}\left( \mathcal{F}_{\mu\nu}[V,A] \; \mathcal{F}_{\alpha\beta}[V,A] \right) \\[1.4em]
+&-\; \frac{1}{4 g^2(\mu)} g^{\mu\alpha} g^{\nu\beta} \operatorname{Tr}\left( F_{\mu\nu}^{E_8} F_{\alpha\beta}^{E_8} \right) 
+\;+\; \frac{\theta_{\mathrm{QCD}}}{32\pi^2} \frac{\epsilon^{\mu\nu\alpha\beta}}{2\sqrt{-g}} \operatorname{Tr}\left( F_{\mu\nu}^{E_8} F_{\alpha\beta}^{E_8} \right) \\[1.4em]
+&+\; \sum_{g=1}^3 \bar{\psi}_g \left[ i e^\mu_a \gamma^a \left( \partial_\mu + \frac{1}{4}\omega_\mu^{bc}\sigma_{bc} - i g A_\mu \right) - M_{\mathrm{Pl}} e^\phi e^{-\lambda_g/\kappa_Y} \left(1 + \xi_g(\chi - \chi_Y)\right) \right] \psi_g \\[1.4em]
+&-\; \sum_{g, g'=1}^3 Y_{gg'} \phi \bar{\psi}_g \psi_{g'}
+\end{align*}
+
+\vspace{1em}
+\begin{center}
+\rule{\textwidth}{0.8pt}
+\end{center}
+\vspace{0.8em}
+
+\begin{align*}
+&\mathcal{S}_{\partial\mathcal{M}} = \frac{c^4}{8\pi G} \oint_{\partial\mathcal{M}} d^3x \sqrt{|\gamma|} \, e^{-2\phi} K + \frac{k_B c^3}{4 G \hbar} \oint_{\mathcal{H}} dA \left( 1 - \frac{I(A:B)}{I_{\max}} \right) \\[1em]
+&\mathcal{F}_{\mu\nu}[V,A] = [V^\dagger (\nabla_\mu V - i A_\mu V), \; V^\dagger (\nabla_\nu V - i A_\nu V)], \quad V \in V_2(\mathbb{R}^3) \cong SO(3) \\[1em]
+&\operatorname{Out}(\operatorname{Spin}(8)) \cong S_3 \implies \mathbb{Z}_3, \quad g \in \{1, 2, 3\} \\[1em]
+&a_0 = \frac{c H_0}{2\pi}, \quad \Sigma_c = \frac{a_0}{2\pi G}, \quad \ell_P = \sqrt{\frac{\hbar G}{c^3}} \\[1em]
+&\chi_Y = \frac{1}{\sqrt{2}}, \quad \kappa_Y = \sqrt{\theta(2-\theta)} = 0.953939\dots \quad (\theta = 0.7) \\[1em]
+&g_{\mathrm{bare}}(M_{\mathrm{Pl}}) = \frac{\kappa_Y \chi_Y}{\pi} = \frac{0.9539 \times 0.7071}{\pi} \approx 0.2147 \\[1em]
+&\tilde{g}_{\mu\nu} = g_{\mu\nu} + 2\ell_P^2 \nabla_\mu\chi \nabla_\nu\chi \implies \left| \frac{v_{\mathrm{gw}}}{c} - 1 \right| = 0
+\end{align*}
+
+\vfill
+\rule{\textwidth}{1.5pt}
+
+\end{document}
