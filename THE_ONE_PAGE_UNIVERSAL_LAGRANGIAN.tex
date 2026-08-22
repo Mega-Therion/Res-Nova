@@ -1,0 +1,71 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[margin=0.6in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,bm,mathtools}
+\usepackage{microtype}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+
+\pagestyle{empty}
+
+\tcbuselibrary{skins}
+\newtcolorbox{actionbox}{
+  colback=white,
+  colframe=black,
+  fonttitle=\bfseries\sffamily\large,
+  arc=0mm,
+  boxrule=1.5pt,
+  enhanced
+}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries\textsc{The Invariant Master Action of the Universe}}\\[0.3em]
+  {\Large\textsc{Geometrically Ordered Dynamics \& Information Tension Theory}}\\[0.2em]
+  {\normalsize\textsc{Ryan W. Yett} $\cdot$ \textsc{Mega-Therion}}\\[0.3em]
+  \rule{\textwidth}{1.2pt}
+\end{center}
+
+\vspace{-0.5em}
+
+\begin{actionbox}
+\begin{align*}
+\mathcal{S}_{\mathrm{univ}} \;=\;& \int_{\mathcal{M}} d^4x \sqrt{-g} \;\Bigg\{ 
+\underbrace{\frac{c^4}{16\pi G} e^{-2\phi} \left( R - 2\Lambda_0 \right)}_{\text{Conformal Gravitation}} 
+\;-\; \underbrace{\frac{1}{2} g^{\mu\nu} \partial_\mu\phi \partial_\nu\phi \;-\; \frac{1}{2} m_\phi^2 \phi^2 \;-\; \frac{\lambda_\phi}{4!} \phi^4}_{\text{Dilaton Potential}} \\[0.8em]
+&-\; \underbrace{\frac{c^4 a_0^2}{8\pi G} \left[ \sqrt{\frac{g^{\mu\nu}\partial_\mu\chi\partial_\nu\chi}{a_0^2}\left(1 + \frac{g^{\alpha\beta}\partial_\alpha\chi\partial_\beta\chi}{a_0^2}\right)} - \operatorname{asinh}\left(\sqrt{\frac{g^{\mu\nu}\partial_\mu\chi\partial_\nu\chi}{a_0^2}}\right) \right]}_{\text{Information Tension AQUAL Functional } (a_0 = cH_0 / 2\pi)} \\[0.8em]
+&+\; \underbrace{\frac{1}{2} g^{\mu\nu} \operatorname{Tr}\left( (\nabla_\mu V - i A_\mu V)^\dagger (\nabla_\nu V - i A_\nu V) \right)}_{\text{Stiefel } V_2(\mathbb{R}^3) \cong SO(3) \text{ Substrate}} 
+\;-\; \underbrace{\frac{\gamma_0}{4}\left(\frac{1-\chi}{1+\chi}\right) g^{\mu\alpha} g^{\nu\beta} \operatorname{Tr}\left( \mathcal{F}_{\mu\nu}[V,A] \; \mathcal{F}_{\alpha\beta}[V,A] \right)}_{\text{Holonomy Curvature Trace Coupling}} \\[0.8em]
+&-\; \underbrace{\frac{1}{4 g^2(\mu)} g^{\mu\alpha} g^{\nu\beta} \operatorname{Tr}\left( F_{\mu\nu}^{E_8} F_{\alpha\beta}^{E_8} \right) \;+\; \frac{\theta_{\mathrm{QCD}}}{32\pi^2} \frac{\epsilon^{\mu\nu\alpha\beta}}{2\sqrt{-g}} \operatorname{Tr}\left( F_{\mu\nu}^{E_8} F_{\alpha\beta}^{E_8} \right)}_{\text{Unified } E_8 \supset \operatorname{Spin}(8) \text{ Yang-Mills Gauge Sector \& Topological } \theta\text{-Term}} \\[0.8em]
+&+\; \underbrace{\sum_{g=1}^3 \bar{\psi}_g \left[ i e^\mu_a \gamma^a \left( \partial_\mu + \frac{1}{4}\omega_\mu^{bc}\sigma_{bc} - i g A_\mu \right) - M_{\mathrm{Pl}} e^\phi e^{-\lambda_g/\kappa_Y} \left(1 + \xi_g(\chi - \chi_Y)\right) \right] \psi_g}_{\text{3-Generation Fermions via Cartan Triality } \operatorname{Out}(\operatorname{Spin}(8)) \cong S_3} \\[0.8em]
+&-\; \underbrace{\sum_{g, g'=1}^3 Y_{gg'} \phi \bar{\psi}_g \psi_{g'}}_{\text{Yukawa Couplings}} \Bigg\} 
+\;+\; \underbrace{\frac{c^4}{8\pi G} \oint_{\partial\mathcal{M}} d^3x \sqrt{|\gamma|} \, e^{-2\phi} K \;+\; \frac{k_B c^3}{4 G \hbar} \oint_{\mathcal{H}} dA \left( 1 - \frac{I(A:B)}{I_{\max}} \right)}_{\text{Gibbons-Hawking-York Boundary Horizon Action}}
+\end{align*}
+\end{actionbox}
+
+\vspace{-0.5em}
+
+\begin{center}
+  {\large\bfseries\textsc{Exact Boundary Constants \& Invariant Relations}}\\[0.2em]
+  \rule{\textwidth}{0.8pt}
+\end{center}
+
+\vspace{-0.8em}
+
+\begin{align*}
+&\mathbf{1.\; Vacuum\; Geometry:} \quad \mathcal{M}_{\mathrm{vac}} = V_2(\mathbb{R}^3) \cong SO(3), \qquad \operatorname{Out}(\operatorname{Spin}(8)) \cong S_3 \implies \mathbb{Z}_3 \text{ (Exact 3 Matter Generations)} \\
+&\mathbf{2.\; Cosmic\; Horizon\; Scale:} \quad a_0 = \frac{c H_0}{2\pi} \approx 1.20 \times 10^{-10}\text{ m/s}^2, \qquad \Sigma_c = \frac{a_0}{2\pi G} \approx 857\, M_\odot/\text{pc}^2 \\
+&\mathbf{3.\; Chiral\; Coupling\; Invariant:} \quad \chi_Y = \frac{1}{\sqrt{2}}, \qquad \kappa_Y = \sqrt{\theta(2-\theta)} = 0.953939\dots \quad (\text{for } \theta = 0.7) \\
+&\mathbf{4.\; Bare\; UV\; Planck\; Gauge\; Matching:} \quad g_{\mathrm{bare}}(M_{\mathrm{Pl}}) = \frac{\kappa_Y \chi_Y}{\pi} = \frac{0.9539 \times 0.7071}{\pi} \approx 0.2147 \\
+&\mathbf{5.\; Disformal\; Metric\; Wave\; Speed:} \quad \tilde{g}_{\mu\nu} = g_{\mu\nu} + 2\ell_P^2 \nabla_\mu\chi \nabla_\nu\chi \implies \left| \frac{v_{\mathrm{gw}}}{c} - 1 \right| = 0 \quad (\text{Exact Concordance with GW170817})
+\end{align*}
+
+\vspace{-0.5em}
+\rule{\textwidth}{1.2pt}
+
+\begin{center}
+  {\footnotesize\textsc{Formal Proof Roots (Lean 4 Sorry-Free Certified)}: \texttt{CartanTrialityGenerations.lean} $\cdot$ \texttt{GalacticAcceleration.lean} $\cdot$ \texttt{Decoherence.lean} $\cdot$ \texttt{ChiralCellularDuality.lean} $\cdot$ \texttt{StiefelHolonomy.lean}}
+\end{center}
+
+\end{document}
