@@ -46,6 +46,7 @@ lean_lib «ResNovaFormal» where
     `SOCasimirGenuine,
     `SkordisZlosnikEmbedding,
     `SovereignRegularity,
+    `SovereignSemiotics,
     `TensorSpeed,
     `YettParadigm
   ]

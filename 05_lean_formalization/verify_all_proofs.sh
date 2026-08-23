@@ -52,6 +52,7 @@ TARGETS=(
   SOCasimirGenuine.lean
   SkordisZlosnikEmbedding.lean
   SovereignRegularity.lean
+  SovereignSemiotics.lean
   TensorSpeed.lean
   YettParadigm.lean
 )

@@ -24,3 +24,11 @@ build/*.out
 node_modules/
 visualizer/node_modules/
 06_book_manuscript/
+
+# Pipeline output artifacts (PDF page renders, extracted text)
+*_PAGE-*.png
+*_EXTRACTED.txt
+final_manuscript_PAGE-*.png
+final_manuscript_EXTRACTED.txt
+RES_NOVA_CANONICAL_EDITION_EXTRACTED.txt
+THE_ONE_PAGE_*_EXTRACTED.txt
