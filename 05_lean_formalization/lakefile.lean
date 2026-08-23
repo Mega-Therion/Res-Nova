@@ -28,6 +28,8 @@ lean_lib «ResNovaFormal» where
   srcDir := "."
   roots := #[
     `AXIOMS_V2,
+    `CartanTrialityGenerations,
+    `ChiralCellularDuality,
     `CosmologicalSector,
     `CovariantCompletion,
     `DeSitterExtremal,
@@ -39,6 +41,7 @@ lean_lib «ResNovaFormal» where
     `PPNLimits,
     `PrintAxioms,
     `PrintAxiomsD8,
+    `RamanujanModularBounds,
     `RelativisticStability,
     `SOCasimirGenuine,
     `SkordisZlosnikEmbedding,

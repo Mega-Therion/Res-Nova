@@ -34,6 +34,8 @@ STD_AXIOMS='propext|Classical.choice|Quot.sound'
 # Explicit target list. Must equal the `roots` in lakefile.lean.
 TARGETS=(
   AXIOMS_V2.lean
+  CartanTrialityGenerations.lean
+  ChiralCellularDuality.lean
   CosmologicalSector.lean
   CovariantCompletion.lean
   DeSitterExtremal.lean
@@ -45,6 +47,7 @@ TARGETS=(
   PPNLimits.lean
   PrintAxioms.lean
   PrintAxiomsD8.lean
+  RamanujanModularBounds.lean
   RelativisticStability.lean
   SOCasimirGenuine.lean
   SkordisZlosnikEmbedding.lean
