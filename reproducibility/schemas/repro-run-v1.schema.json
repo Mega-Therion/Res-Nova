@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://res-nova.local/schemas/repro-run-v1.schema.json",
+  "title": "res-nova-repro-run-v1",
+  "type": "object",
+  "required": ["schema_version", "run_id", "profile_id", "mode", "target", "result"],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {"const": "res-nova-repro-run-v1"},
+    "run_id": {"type": "string", "minLength": 8},
+    "requested_at_utc": {"type": "string"},
+    "started_at_utc": {"type": "string"},
+    "finished_at_utc": {"type": "string"},
+    "profile_id": {"type": "string"},
+    "mode": {
+      "enum": ["self_test", "static_preflight", "local_verified", "clean_worktree", "cold_environment", "independent_replication"]
+    },
+    "trigger": {"type": "object"},
+    "target": {
+      "type": "object",
+      "required": ["repository"],
+      "properties": {
+        "repository": {"type": "string"},
+        "git_commit": {"type": "string"},
+        "git_tree": {"type": "string"},
+        "working_tree_clean": {"type": "boolean"},
+        "claim_ids": {"type": "array", "items": {"type": "string"}},
+        "release_id": {"type": ["string", "null"]}
+      }
+    },
+    "inputs": {"type": "object"},
+    "environment": {"type": "object"},
+    "steps": {"type": "array"},
+    "verifiers": {"type": "array"},
+    "result": {
+      "type": "object",
+      "required": ["status", "policy_decision"],
+      "properties": {
+        "status": {
+          "enum": ["PASS", "FAIL", "BLOCKED", "INCONCLUSIVE", "INFRA_ERROR", "QUARANTINED"]
+        },
+        "policy_decision": {
+          "enum": ["ALLOW_INTERNAL", "ALLOW_RELEASE", "BLOCK_RELEASE", "REQUIRE_HUMAN_REVIEW"]
+        },
+        "claim_status_changes": {"type": "array"},
+        "summary": {"type": "string"}
+      }
+    },
+    "artifacts": {"type": "array"},
+    "integrity": {"type": "object"}
+  }
+}

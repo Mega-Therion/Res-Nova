@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://res-nova.local/schemas/incident-v1.schema.json",
+  "title": "res-nova-incident-v1",
+  "type": "object",
+  "required": ["schema_version", "incident_id", "severity", "failure_class", "run_id"],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {"const": "res-nova-incident-v1"},
+    "incident_id": {"type": "string"},
+    "run_id": {"type": "string"},
+    "severity": {"enum": ["S0", "S1", "S2", "S3"]},
+    "failure_class": {
+      "enum": [
+        "ARTIFACT_INTEGRITY",
+        "DEPENDENCY_DRIFT",
+        "PROOF_FAILURE",
+        "EMPIRICAL_FAILURE",
+        "VERIFIER_FAILURE",
+        "INFRA_FAILURE",
+        "POLICY_CONFLICT",
+        "VISIBILITY"
+      ]
+    },
+    "claim_ids": {"type": "array", "items": {"type": "string"}},
+    "summary": {"type": "string"},
+    "promotion_blocked": {"type": "boolean"}
+  }
+}

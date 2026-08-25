@@ -1,0 +1,60 @@
+{
+  "schema_version": "res-nova-legacy-run-index-v1",
+  "indexed_at_utc": "2026-08-25T08:00:00Z",
+  "policy": "Preserve original evidence semantics. Do not retroactively infer missing metadata.",
+  "runs": [
+    {
+      "legacy_run_reference": "VERIFICATION_RUN_001",
+      "path": "VERIFICATION_RUN_001",
+      "new_mode": null,
+      "inferred_result": null,
+      "notes": "Historical run. Metadata not inferred."
+    },
+    {
+      "legacy_run_reference": "VERIFICATION_RUN_002",
+      "path": "VERIFICATION_RUN_002",
+      "new_mode": null,
+      "inferred_result": null,
+      "notes": "Historical run. Metadata not inferred."
+    },
+    {
+      "legacy_run_reference": "VERIFICATION_RUN_003",
+      "path": "VERIFICATION_RUN_003",
+      "new_mode": null,
+      "inferred_result": null,
+      "notes": "Historical run. Metadata not inferred."
+    },
+    {
+      "legacy_run_reference": "VERIFICATION_RUN_004",
+      "path": "VERIFICATION_RUN_004",
+      "new_mode": null,
+      "inferred_result": null,
+      "notes": "Historical run. Metadata not inferred."
+    },
+    {
+      "legacy_run_reference": "VERIFICATION_RUN_005",
+      "path": "VERIFICATION_RUN_005",
+      "new_mode": null,
+      "inferred_result": null,
+      "notes": "Historical run. Metadata not inferred."
+    },
+    {
+      "legacy_run_reference": "VERIFICATION_RUN_006",
+      "path": "VERIFICATION_RUN_006",
+      "new_mode": null,
+      "inferred_result": null,
+      "notes": "Historical run. Metadata not inferred."
+    },
+    {
+      "legacy_run_reference": "VERIFICATION_RUN_007",
+      "path": "VERIFICATION_RUN_007",
+      "manifest": "VERIFICATION_RUN_007/manifest_run_007.json",
+      "new_mode": "clean_worktree",
+      "result": "PASS",
+      "promotion": "blocked_for_independent_replication",
+      "claim_ids": ["O6"],
+      "epistemic_status": "[O]",
+      "notes": "Clean-worktree Lean evidence. Not a CI gate. Not independent replication."
+    }
+  ]
+}

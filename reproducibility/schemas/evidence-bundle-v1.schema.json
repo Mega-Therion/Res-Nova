@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://res-nova.local/schemas/evidence-bundle-v1.schema.json",
+  "title": "res-nova-evidence-bundle-v1",
+  "type": "object",
+  "required": ["schema_version", "bundle_id", "run_id", "visibility", "receipts"],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {"const": "res-nova-evidence-bundle-v1"},
+    "bundle_id": {"type": "string"},
+    "run_id": {"type": "string"},
+    "visibility": {"enum": ["Public", "Internal", "Private"]},
+    "mode": {"type": "string"},
+    "claim_ids": {"type": "array", "items": {"type": "string"}},
+    "receipts": {"type": "array"},
+    "public_safe": {"type": "boolean"},
+    "promotion_allowed": {"type": "boolean"}
+  }
+}
