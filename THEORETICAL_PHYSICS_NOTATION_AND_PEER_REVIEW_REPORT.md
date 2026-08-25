@@ -99,6 +99,9 @@ Epistemic Score: 98/100 (HIGH EXCELLENCE / ACCEPT WITH DISTINCTION)
    $$\Omega_4^{\text{Spin}}(\text{pt}) = 0, \quad \Omega_5^{\text{Spin}}(\text{pt}) = 0$$
    Guarantees freedom from global gravitational and Witten anomalies on 4D spacetime manifolds with Spin structure.
 2. **Characteristic Classes**:
+
+\textbf{\color{gold}SUPERSEDED (2026-08-25).} The substrate identification here below is stated on the retired big-dimension frame $V_{240}(\mathbb{R}^{57{,}600})$. The live substrate is $V_2(\mathbb{R}^3)$ via Cartan triality; the big-dimension frame is retired. The arithmetic $240^2=57{,}600$ remains true as an $E_8$ root-count identity, but its identification as the ambient substrate dimension is not current canon. No migrated $V_2(\mathbb{R}^3)$ derivation is claimed; the original text is retained unaltered below as a record.
+
    The Stiefel manifold substrate $V_{240}(\mathbb{R}^{57600})$ has non-trivial Pontryagin classes $p_k(TV)$ that contract with Euler class $e(M)$ to yield integer-quantized topological instanton sectors matching the 240 root vectors of $E_8$.
 3. **Hyperbolic PDE Well-Posedness**:
    The kinetic matrix for tensor and scalar fluctuations satisfies strict positive-definiteness on spacelike Cauchy surfaces $\Sigma_t$, guaranteeing stable Arnowitt-Deser-Misner (ADM) Cauchy evolution without superluminal ghosts.

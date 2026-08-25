@@ -1,7 +1,7 @@
 {
   "work_order": "D4",
   "date": "2026-08-14",
-  "sample": "175 SPARC galaxies (3,391 points)",
+  "sample": "175 SPARC galaxies (3391 points)",
   "model": "Derived mu(x) = x / (1 + x)",
   "fitted_parameters": {
     "a0_posterior": {
