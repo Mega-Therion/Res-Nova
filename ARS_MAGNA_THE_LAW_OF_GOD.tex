@@ -46,7 +46,7 @@
 \author{\textbf{Ryan W. Yett}\\[0.2em]
 \small Independent Research, Arkansas, USA \\
 \small ORCID: \texttt{0009-0001-1303-7190} \\
-\small Formal Verification: \texttt{Res Nova} Lean 4 Formal Kernel (17 Modules)}
+\small Formal Verification: \texttt{Res Nova} Lean 4 Formal Kernel (17 Modules, 16 Sorry-Free)}
 
 \date{\textbf{August 2026} \quad $\cdot$ \quad \textit{Zenodo Pre-Registration Archive}}
 
@@ -57,7 +57,7 @@
 \begin{abstract}
 We present the unified mathematical and physical architecture of \textbf{Geometrically Ordered Dynamics (G.O.D.)} and \textbf{Information Tension Theory (ITT)}, a rigorous framework establishing that cosmic acceleration, galactic dynamics, and particle spectrum scaling arise from the geometric and informational constraints of a resonant vacuum manifold without postulating collisionless non-baryonic dark matter particles. The foundational physics rests upon an explicit master action $\mathcal{S}_{\text{GOD}}$ comprising four mutually consistent sectors: (1) an Einstein-Hilbert gravitational baseline; (2) an aquadratic AQUAL kinetic sector yielding the exact simple interpolating function $\mu_{\text{simple}}(x) = x/\sqrt{1+x^2}$ and the Baryonic Tully-Fisher relation $v^4 = G M a_0$ with unit coefficient (an algebraic identity of the deep-field limit, carrying no fitted constant of its own); (3) a symmetron geometric order parameter $\chi_S = \cos\theta_p$ enforcing solar-system screening and Bullet Cluster separation; and (4) an internal $\mathfrak{su}(2) \subset \mathfrak{e}_8$ gauge connection soldered to 3D spatial geometry via a hedgehog map $F_{0i}^a = \frac{c^2}{\sqrt{2\pi G}} \frac{\partial_i \Phi_N}{c^2}\delta_i^a$ with universal coupling $\alpha^2 = c^4/(2\pi G) = F_{\text{Planck}}/(2\pi)$, ensuring identically vanishing anisotropic stress ($\pi_{ij} = 0$) and full gravitational lensing concordance. 
 
-We benchmark the framework across 175 SPARC galaxies, reproducing empirical rotation curves at a median $\chi^2/N \approx 29.1$ under a fixed global $a_0$ with no per-galaxy tuning (outperforming strict empirical MOND at $\approx 35.5$ evaluated identically), reproduce CLASS CMB acoustic peak ratios $r_{21}$ and $r_{31}$ within $<1.2\%$ of Planck 2018 targets, pre-register the dark energy density $\Omega_\Lambda = \ln 2 \approx 0.6931$ ($1.16\sigma$ from Planck), and derive the electron mass within $1.11\%$ of CODATA-2022 from nodal harmonic boundary tension. All core algebraic identities, spectral gaps, and group-theoretic orbits are verified in the \texttt{Res Nova} Lean 4 formal kernel under a minimal 3-axiom budget.
+We benchmark the framework across 175 SPARC galaxies, reproducing empirical rotation curves at a median $\chi^2/N \approx 29.1$ under a fixed global $a_0$ with no per-galaxy tuning (outperforming strict empirical MOND at $\approx 35.5$ evaluated identically), reproduce CLASS CMB acoustic peak ratios $r_{21}$ and $r_{31}$ within $<1.2\%$ of Planck 2018 targets, pre-register the dark energy density $\Omega_\Lambda = \ln 2 \approx 0.6931$ ($1.16\sigma$ from Planck), and derive the electron mass within $1.11\%$ of CODATA-2022 from nodal harmonic boundary tension. All core algebraic identities, spectral gaps, and group-theoretic orbits are verified in the \texttt{Res Nova} Lean 4 formal kernel under a 4-axiom budget (propext, Classical.choice, Quot.sound, and flatness\_iff\_trivial\_holonomy), with 16 of 17 modules verified sorry-free.
 \end{abstract}
 
 \vspace{1em}
@@ -359,7 +359,7 @@ Correcting CODATA by $(1 + \delta_e)$ closes the theoretical Bridge D residual t
 
 \section{The Lean 4 Formal Verification Kernel}
 
-The mathematical core of Geometrically Ordered Dynamics is formalized in Lean 4 (\texttt{Res Nova} kernel). The verification suite operates under a strict three-axiom foundational budget: \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+The mathematical core of Geometrically Ordered Dynamics is formalized in Lean 4 (\texttt{Res Nova} kernel). The verification suite operates under a strict four-axiom foundational budget: \texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}, and \texttt{flatness\_iff\_trivial\_holonomy}.
 
 \begin{table}[h!]
 \centering
@@ -375,10 +375,10 @@ The mathematical core of Geometrically Ordered Dynamics is formalized in Lean 4 
 \texttt{SovereignConfinement.lean} & \texttt{spectral\_gap\_positive} & Positivity of the Stiefel holonomy gap & \textbf{0 sorry} \\
 \texttt{Fidelity\_Theta\_Proof.lean} & \texttt{theta\_gate\_minimum} & Uniqueness of the $\theta=0.7$ scalar ground state & \textbf{0 sorry} \\
 \texttt{ITActionClosure.lean} & \texttt{it\_action\_gauge\_inv} & Gauge and diffeomorphism closure of action & \textbf{0 sorry} \\
-\texttt{HedgehogSoldering.lean} & \texttt{hedgehog\_stress\_isotropic} & Isotropy of spatial hedgehog stress tensor & \textbf{0 sorry} \\
+\texttt{HedgehogSoldering.lean} & \texttt{hedgehog\_stress\_isotropic} & Isotropy of spatial hedgehog stress tensor & \textbf{1 sorry} \\
 \bottomrule
 \end{tabularx}
-\caption{Lean 4 Formal Verification Ledger across core \texttt{ChyrenLogic} modules (17/17 sorry-free under 3-axiom budget).}
+\caption{Lean 4 Formal Verification Ledger across core \texttt{ChyrenLogic} modules (16/17 sorry-free under 4-axiom budget (1 sorry in \texttt{HedgehogSoldering.lean})).}
 \end{table}
 
 \section{The Honest Issues Ledger}
