@@ -1,0 +1,26 @@
+profile_version: res-nova-repro-profile-v1
+profile_id: o6-lean-clean-worktree
+mode: clean_worktree
+claim_ids: [O6, F7]
+epistemic_status: "[O]"
+repository_clean_required: true
+network_policy: recorded
+promotion_policy: o6-repro-v1
+promotion: blocked_for_independent_replication
+steps:
+  - id: resolve-toolchain
+    command: test -f 05_lean_formalization/lean-toolchain
+    timeout_seconds: 30
+  - id: verify-proof-hygiene
+    command: python3 scripts/repro/check_sorry.py --root 05_lean_formalization
+    timeout_seconds: 300
+verifiers:
+  - kind: lean_hygiene
+  - kind: mvpc_x
+    policy: strict
+    required: false
+required_outputs:
+  - 05_lean_formalization/lake-manifest.json
+  - 05_lean_formalization/verify_all_proofs.sh
+  - 05_lean_formalization/lean-toolchain
+notes: "Declarative O6 profile. A local or clean-worktree PASS does not promote O6."
