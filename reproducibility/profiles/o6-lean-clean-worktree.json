@@ -1,0 +1,23 @@
+{
+  "profile_version": "res-nova-repro-profile-v1",
+  "profile_id": "o6-lean-clean-worktree",
+  "mode": "clean_worktree",
+  "claim_ids": ["O6", "F7"],
+  "epistemic_status": "[O]",
+  "repository_clean_required": true,
+  "network_policy": "recorded",
+  "promotion_allowed": false,
+  "policy_decision": "BLOCK_RELEASE",
+  "promotion": "blocked_for_independent_replication",
+  "checked_inputs": [
+    "05_lean_formalization/lakefile.lean",
+    "05_lean_formalization/lean-toolchain",
+    "05_lean_formalization/lake-manifest.json",
+    "05_lean_formalization/verify_all_proofs.sh"
+  ],
+  "steps": [
+    {"id": "resolve-toolchain", "kind": "toolchain", "timeout_seconds": 120},
+    {"id": "verify-proof-hygiene", "kind": "sorry_scan", "timeout_seconds": 300},
+    {"id": "lake-build", "kind": "command", "command": "lake build", "cwd": "05_lean_formalization", "timeout_seconds": 7200, "required_for_full_run": true}
+  ]
+}
