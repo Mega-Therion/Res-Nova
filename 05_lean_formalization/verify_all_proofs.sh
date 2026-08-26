@@ -49,7 +49,9 @@ TARGETS=(
   PrintAxiomsD8.lean
   RamanujanModularBounds.lean
   RelativisticStability.lean
+  RapidityEquipartition.lean
   SOCasimirGenuine.lean
+  SovereignSpinCeiling.lean
   SkordisZlosnikEmbedding.lean
   SovereignRegularity.lean
   SovereignSemiotics.lean
