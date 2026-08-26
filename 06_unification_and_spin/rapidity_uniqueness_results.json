@@ -1,0 +1,43 @@
+{
+  "algebra_status": "CONDITIONAL PASS",
+  "definitions": {
+    "a_star_coordinate_domain": "0 <= a_star < 1",
+    "adopted_balance_premise": "sinh(psi_0) = 1",
+    "psi": "atanh(a_star)",
+    "theta_amplitude": "1/sqrt(2)"
+  },
+  "exact_values": {
+    "psi_0": "log(1 + sqrt(2))",
+    "psi_0_log_form": "log(1 + sqrt(2))",
+    "silver_ratio": "1 + sqrt(2)",
+    "theta": "sqrt(2)/2"
+  },
+  "executed_at_utc": "2026-08-26T23:06:59.840240+00:00",
+  "gate": "UFW-MATH-01 rapidity identities",
+  "input_hashes": {
+    "protocol": "bd1bf345f7fbe8081ef4f1f03a13c73bf50927c6523a1808357a54d9e22a6d1b"
+  },
+  "model_id": "UFW-C0",
+  "numeric_pass": true,
+  "numeric_residuals_100_dps": {
+    "atanh_theta_minus_psi": "0.0",
+    "odds_minus_silver": "0.0",
+    "psi_minus_log": "0.0",
+    "sinh_psi_minus_1": "0.0",
+    "tanh_psi_minus_theta": "0.0"
+  },
+  "physical_selection_reason": "The identities require the adopted coordinate psi=atanh(a_star) and adopted condition sinh(psi)=1. No covariant Kerr or framework action, observer/tetrad construction, or conservation law selecting this condition is supplied.",
+  "physical_selection_status": "NOT DERIVED",
+  "precision_decimal_digits": 100,
+  "script_hash": "36d63865af01f3c5bac1ef0452f6f6507966bebae43f86cdacf1630f987e0a65",
+  "symbolic_pass": true,
+  "symbolic_residuals": {
+    "asinh_one_log_form": "0",
+    "atanh_ratio_equals_square": "0",
+    "inverse_coordinate": "0",
+    "positive_branch_log_square": "0",
+    "silver_ratio_odds": "0",
+    "sinh_asinh_one": "0",
+    "tanh_asinh_one": "0"
+  }
+}

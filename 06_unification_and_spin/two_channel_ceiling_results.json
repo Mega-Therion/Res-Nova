@@ -1,0 +1,46 @@
+{
+  "algebra_status": "CONDITIONAL PASS",
+  "event_premise": {
+    "events": [
+      "A",
+      "B"
+    ],
+    "independence": "P(A intersection B)=P(A)P(B)",
+    "marginals": "P(A)=P(B)=1/sqrt(2)",
+    "physical_event_mapping_supplied": false,
+    "sample_space": "adopted abstract Bernoulli space"
+  },
+  "exact_values": {
+    "chi_s": "sqrt(-1/2 + sqrt(2))",
+    "gate_arithmetic_mean": "log(2)/2 + sqrt(2)/4",
+    "theta": "sqrt(2)/2",
+    "union_probability": "-1/2 + sqrt(2)"
+  },
+  "executed_at_utc": "2026-08-26T23:07:01.210563+00:00",
+  "gate": "UFW-MATH-02 two-channel union algebra",
+  "input_hashes": {
+    "protocol": "bd1bf345f7fbe8081ef4f1f03a13c73bf50927c6523a1808357a54d9e22a6d1b"
+  },
+  "model_id": "UFW-C0",
+  "notation_conflict": "The blueprint's theta_amplitude=1/sqrt(2) differs from the current corpus convention that reserves theta=0.7 for a gate probability and 1/sqrt(2) for an amplitude-like quantity.",
+  "numeric_pass": true,
+  "numeric_residuals_100_dps": {
+    "chi_exact_residual": "0.0",
+    "union_exact_residual": "0.0"
+  },
+  "numerical_values_100_dps": {
+    "chi_s": "0.9561451575849218558869692349",
+    "gate_arithmetic_mean": "0.700126980873246416909038241782",
+    "union_probability": "0.91421356237309504880168872421"
+  },
+  "physical_spin_ceiling_reason": "No physical probability space, two identified horizon events, independence derivation, or map from union probability to Kerr stress-energy flux is supplied. The two standard accretion contributions are fluxes, not automatically Bernoulli events.",
+  "physical_spin_ceiling_status": "NOT DERIVED",
+  "script_hash": "af4fa0d6e09a3602307f64472019723e4beae85c17a096bf4dc227b73ec7a338",
+  "symbolic_pass": true,
+  "symbolic_residuals": {
+    "chi_exact_value": "0",
+    "gate_mean_exact_expression": "0",
+    "union_equals_2theta_minus_theta_squared": "0",
+    "union_exact_value": "0"
+  }
+}

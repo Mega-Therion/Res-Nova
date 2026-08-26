@@ -1,0 +1,482 @@
+{
+  "model_id": "C1",
+  "executed_at_utc": "2026-08-26T23:07:05.517638+00:00",
+  "haar_measures": {
+    "geodesic_ball_measures": {
+      "pi/6": {
+        "angle_rad": 0.5235987755982988,
+        "angle_deg": 29.999999999999996,
+        "haar_measure": 0.007511723574771331
+      },
+      "pi/4": {
+        "angle_rad": 0.7853981633974483,
+        "angle_deg": 45.0,
+        "haar_measure": 0.024920920960723493
+      },
+      "pi/3": {
+        "angle_rad": 1.0471975511965976,
+        "angle_deg": 59.99999999999999,
+        "haar_measure": 0.05766888562243729
+      },
+      "pi/2": {
+        "angle_rad": 1.5707963267948966,
+        "angle_deg": 90.0,
+        "haar_measure": 0.1816901138162093
+      },
+      "2pi/3": {
+        "angle_rad": 2.0943951023931953,
+        "angle_deg": 119.99999999999999,
+        "haar_measure": 0.39100221895577053
+      },
+      "3pi/4": {
+        "angle_rad": 2.356194490192345,
+        "angle_deg": 135.0,
+        "haar_measure": 0.5249209209607235
+      },
+      "5pi/6": {
+        "angle_rad": 2.6179938779914944,
+        "angle_deg": 150.0,
+        "haar_measure": 0.674178390241438
+      }
+    },
+    "angle_for_1/sqrt2": {
+      "phi_rad": 2.6730383471244523,
+      "phi_deg": 153.15381576685664,
+      "verification": 0.7071067811865474
+    },
+    "angle_for_0.7": {
+      "phi_rad": 2.6612224076578395,
+      "phi_deg": 152.47681230443766,
+      "verification": 0.6999999999999998
+    },
+    "angle_for_ln2": {
+      "phi_rad": 2.6497962468996312,
+      "phi_deg": 151.82214151695433,
+      "verification": 0.6931471805599454
+    },
+    "triality_angles": {
+      "2pi/3_measure": 0.39100221895577053,
+      "note": "120\u00b0 rotation is the fundamental triality angle in S\u2083 \u2282 SO(3)"
+    }
+  },
+  "spectral": {
+    "laplacian_spectrum": [
+      {
+        "ell": 0,
+        "eigenvalue": 0,
+        "multiplicity": 1
+      },
+      {
+        "ell": 1,
+        "eigenvalue": 2,
+        "multiplicity": 9
+      },
+      {
+        "ell": 2,
+        "eigenvalue": 6,
+        "multiplicity": 25
+      },
+      {
+        "ell": 3,
+        "eigenvalue": 12,
+        "multiplicity": 49
+      },
+      {
+        "ell": 4,
+        "eigenvalue": 20,
+        "multiplicity": 81
+      },
+      {
+        "ell": 5,
+        "eigenvalue": 30,
+        "multiplicity": 121
+      },
+      {
+        "ell": 6,
+        "eigenvalue": 42,
+        "multiplicity": 169
+      },
+      {
+        "ell": 7,
+        "eigenvalue": 56,
+        "multiplicity": 225
+      },
+      {
+        "ell": 8,
+        "eigenvalue": 72,
+        "multiplicity": 289
+      },
+      {
+        "ell": 9,
+        "eigenvalue": 90,
+        "multiplicity": 361
+      },
+      {
+        "ell": 10,
+        "eigenvalue": 110,
+        "multiplicity": 441
+      },
+      {
+        "ell": 11,
+        "eigenvalue": 132,
+        "multiplicity": 529
+      },
+      {
+        "ell": 12,
+        "eigenvalue": 156,
+        "multiplicity": 625
+      },
+      {
+        "ell": 13,
+        "eigenvalue": 182,
+        "multiplicity": 729
+      },
+      {
+        "ell": 14,
+        "eigenvalue": 210,
+        "multiplicity": 841
+      },
+      {
+        "ell": 15,
+        "eigenvalue": 240,
+        "multiplicity": 961
+      },
+      {
+        "ell": 16,
+        "eigenvalue": 272,
+        "multiplicity": 1089
+      },
+      {
+        "ell": 17,
+        "eigenvalue": 306,
+        "multiplicity": 1225
+      },
+      {
+        "ell": 18,
+        "eigenvalue": 342,
+        "multiplicity": 1369
+      },
+      {
+        "ell": 19,
+        "eigenvalue": 380,
+        "multiplicity": 1521
+      }
+    ],
+    "spectral_ratios": {
+      "lambda_1/lambda_2": 0.3333333333333333,
+      "lambda_1/lambda_3": 0.16666666666666666,
+      "lambda_2/lambda_3": 0.5,
+      "note": "Standard ratios from \u2113(\u2113+1). None is 7/10 or 1/\u221a2."
+    },
+    "heat_kernel_at_special_times": {
+      "t=0.1000": {
+        "Z": 57.46882244579407,
+        "Z_normalized": 0.7278511390924005
+      },
+      "t=0.5000": {
+        "Z": 5.680765073188685,
+        "Z_normalized": 0.07194773015119114
+      },
+      "t=1.0000": {
+        "Z": 2.280287586916253,
+        "Z_normalized": 0.028880179668910617
+      },
+      "t=0.6931": {
+        "Z": 3.6526652509730897,
+        "Z_normalized": 0.04626154583472878
+      },
+      "t=0.7071": {
+        "Z": 3.55746679530739,
+        "Z_normalized": 0.04505584330860737
+      }
+    },
+    "volume_SO3": 78.95683520871486,
+    "volume_SO3_approx": "8\u03c0\u00b2 \u2248 78.956835"
+  },
+  "triality": {
+    "S3_structure": {
+      "order": 6,
+      "conjugacy_classes": {
+        "identity": {
+          "size": 1,
+          "cycle_type": "[1,1,1]"
+        },
+        "transpositions": {
+          "size": 3,
+          "cycle_type": "[2,1]"
+        },
+        "3-cycles": {
+          "size": 2,
+          "cycle_type": "[3]"
+        }
+      },
+      "class_fractions": {
+        "identity": "1/6",
+        "transpositions": "1/2",
+        "3-cycles": "1/3"
+      }
+    },
+    "D4_to_G2_triality": {
+      "D4_roots": 24,
+      "G2_roots": 12,
+      "fixed_fraction": "12/24 = 1/2",
+      "note": "G\u2082 = fixed subalgebra of D\u2084 under full S\u2083 triality"
+    },
+    "G2_geometry": {
+      "short_roots": 6,
+      "long_roots": 6,
+      "long_to_short_ratio": 1.7320508075688772,
+      "natural_fractions": {
+        "short/total": "1/2",
+        "long/total": "1/2"
+      }
+    },
+    "E8_triality_fixed_counts": {
+      "total_E8_roots": 240,
+      "adjoint_D4_D4_roots": 48,
+      "three_8x8_roots": 192,
+      "each_8x8_sector_roots": 64,
+      "fixed_under_Z3": {
+        "adjoint_piece": 48,
+        "diagonal_8x8": 64,
+        "total": 112,
+        "fraction": "112/240 = 7/15"
+      },
+      "moved_by_Z3": {
+        "total": 128,
+        "fraction": "128/240 = 8/15"
+      },
+      "NOTE": "112/240 = 7/15 \u2248 0.4667, NOT 7/10. But 128/240 = 8/15 \u2248 0.5333."
+    },
+    "E8_transposition_fixed": {
+      "description": "Roots fixed under a Z\u2082 transposition within the S\u2083 triality",
+      "adjoint_piece": 48,
+      "fixed_8x8_sector": 64,
+      "diagonal_of_swapped_pair": 64,
+      "total_fixed": 176,
+      "fraction": "176/240 = 11/15",
+      "numerical": 0.7333333333333333,
+      "delta_from_0.7": 0.033333333333333326,
+      "delta_from_1/sqrt2": 0.02622655214678582,
+      "NOTE": "11/15 = 0.7333333333, vs 7/10 = 0.7, 1/\u221a2 = 0.7071067812"
+    },
+    "burnside_orbit_count": {
+      "sum": 992,
+      "n_orbits": 165.33333333333334,
+      "note": "Number of S\u2083 orbits on E\u2088 roots = 165.33333333333334",
+      "if_integer": false
+    },
+    "frame_bundle_ratios": {
+      "Vol_SO3": 78.95683520871486,
+      "Vol_S2": 12.566370614359172,
+      "fiber_length": 6.283185307179586,
+      "S2_over_SO3": 0.15915494309189535,
+      "note": "V\u2082(\u211d\u00b3) \u2192 S\u00b2 is a principal S\u00b9 bundle with fiber S\u00b9 of length 2\u03c0"
+    }
+  },
+  "ternary": {
+    "ternary_SO3": {
+      "triality_angle": "2\u03c0/3 = 120\u00b0",
+      "haar_measure_0_to_2pi/3": 0.39100221895577053,
+      "haar_measure_2pi/3_to_pi": 0.6089977810442295,
+      "ratio_small_to_total": 0.39100221895577053,
+      "note": "F(2\u03c0/3) = 0.3910022190 \u2014 NOT 1/3 because Haar measure is non-uniform in angle!"
+    },
+    "ternary_SU2": {
+      "sector_1_measure": 0.19550110947788527,
+      "sector_2_measure": 0.6089977810442293,
+      "sector_3_measure": 0.19550110947788546,
+      "sum": 1.0,
+      "symmetry": "The distribution is symmetric under \u03b8 \u2192 2\u03c0-\u03b8, so sector_1 = sector_3"
+    },
+    "ternary_sector_vs_targets": {
+      "sector_2_vs_1/sqrt2": 0.09810900014231816,
+      "sector_2_vs_0.7": 0.09100221895577065,
+      "sector_2_vs_ln2": 0.08414939951571598,
+      "sector_1+sector_3_vs_targets": {
+        "sum_1_3": 0.3910022189557707,
+        "vs_1/sqrt2": 0.31610456223077676,
+        "vs_0.7": 0.30899778104422926
+      }
+    },
+    "half_integer_root_structure": {
+      "plus_one_count_distribution": {
+        "0": 1,
+        "2": 28,
+        "4": 70,
+        "6": 28,
+        "8": 1
+      },
+      "total": 128,
+      "note": "C(8,0)+C(8,2)+C(8,4)+C(8,6)+C(8,8) = 1+28+70+28+1 = 128",
+      "ternary_note": "Each coordinate is in {-1,+1} \u2014 binary, not ternary. The ternary structure appears when we include the coordinate roots with zeros: {-2,0,+2} \u2192 {-1,0,+1}\u00d72"
+    },
+    "ternary_zero_fraction": {
+      "half_integer_zeros_per_root": 0,
+      "coordinate_zeros_per_root": 6,
+      "mean_zero_fraction": 0.35,
+      "mean_nonzero_fraction": 0.65,
+      "note": "Mean fraction of nonzero coordinates = 0.6500000000",
+      "delta_from_0.7": 0.04999999999999993,
+      "delta_from_1/sqrt2": 0.05710678118654744
+    }
+  },
+  "candidates_ranked_by_proximity": {
+    "1/\u221a2": [
+      {
+        "name": "Burnside orbits/240",
+        "value": 0.6888888888888889,
+        "delta": -0.018217892297658578
+      },
+      {
+        "name": "E8 transposition-fixed fraction",
+        "value": 0.7333333333333333,
+        "delta": 0.02622655214678582
+      },
+      {
+        "name": "Geodesic ball at 5pi/6",
+        "value": 0.674178390241438,
+        "delta": -0.032928390945109465
+      },
+      {
+        "name": "Ternary nonzero fraction",
+        "value": 0.65,
+        "delta": -0.05710678118654744
+      },
+      {
+        "name": "SU(2) ternary sector 2",
+        "value": 0.6089977810442293,
+        "delta": -0.09810900014231816
+      },
+      {
+        "name": "E8 Z\u2083-moved fraction",
+        "value": 0.5333333333333333,
+        "delta": -0.17377344785321414
+      },
+      {
+        "name": "Geodesic ball at 3pi/4",
+        "value": 0.5249209209607235,
+        "delta": -0.18218586022582395
+      },
+      {
+        "name": "E8 Z\u2083-fixed fraction",
+        "value": 0.4666666666666667,
+        "delta": -0.2404401145198808
+      },
+      {
+        "name": "SU(2) ternary sectors 1+3",
+        "value": 0.3910022189557707,
+        "delta": -0.31610456223077676
+      },
+      {
+        "name": "Geodesic ball at 2pi/3",
+        "value": 0.39100221895577053,
+        "delta": -0.31610456223077693
+      }
+    ],
+    "0.7": [
+      {
+        "name": "Burnside orbits/240",
+        "value": 0.6888888888888889,
+        "delta": -0.011111111111111072
+      },
+      {
+        "name": "Geodesic ball at 5pi/6",
+        "value": 0.674178390241438,
+        "delta": -0.02582160975856196
+      },
+      {
+        "name": "E8 transposition-fixed fraction",
+        "value": 0.7333333333333333,
+        "delta": 0.033333333333333326
+      },
+      {
+        "name": "Ternary nonzero fraction",
+        "value": 0.65,
+        "delta": -0.04999999999999993
+      },
+      {
+        "name": "SU(2) ternary sector 2",
+        "value": 0.6089977810442293,
+        "delta": -0.09100221895577065
+      },
+      {
+        "name": "E8 Z\u2083-moved fraction",
+        "value": 0.5333333333333333,
+        "delta": -0.16666666666666663
+      },
+      {
+        "name": "Geodesic ball at 3pi/4",
+        "value": 0.5249209209607235,
+        "delta": -0.17507907903927644
+      },
+      {
+        "name": "E8 Z\u2083-fixed fraction",
+        "value": 0.4666666666666667,
+        "delta": -0.23333333333333328
+      },
+      {
+        "name": "SU(2) ternary sectors 1+3",
+        "value": 0.3910022189557707,
+        "delta": -0.30899778104422926
+      },
+      {
+        "name": "Geodesic ball at 2pi/3",
+        "value": 0.39100221895577053,
+        "delta": -0.3089977810442294
+      }
+    ],
+    "ln2": [
+      {
+        "name": "Burnside orbits/240",
+        "value": 0.6888888888888889,
+        "delta": -0.004258291671056402
+      },
+      {
+        "name": "Geodesic ball at 5pi/6",
+        "value": 0.674178390241438,
+        "delta": -0.01896879031850729
+      },
+      {
+        "name": "E8 transposition-fixed fraction",
+        "value": 0.7333333333333333,
+        "delta": 0.040186152773387995
+      },
+      {
+        "name": "Ternary nonzero fraction",
+        "value": 0.65,
+        "delta": -0.043147180559945264
+      },
+      {
+        "name": "SU(2) ternary sector 2",
+        "value": 0.6089977810442293,
+        "delta": -0.08414939951571598
+      },
+      {
+        "name": "E8 Z\u2083-moved fraction",
+        "value": 0.5333333333333333,
+        "delta": -0.15981384722661196
+      },
+      {
+        "name": "Geodesic ball at 3pi/4",
+        "value": 0.5249209209607235,
+        "delta": -0.16822625959922177
+      },
+      {
+        "name": "E8 Z\u2083-fixed fraction",
+        "value": 0.4666666666666667,
+        "delta": -0.2264805138932786
+      },
+      {
+        "name": "SU(2) ternary sectors 1+3",
+        "value": 0.3910022189557707,
+        "delta": -0.3021449616041746
+      },
+      {
+        "name": "Geodesic ball at 2pi/3",
+        "value": 0.39100221895577053,
+        "delta": -0.30214496160417476
+      }
+    ]
+  }
+}

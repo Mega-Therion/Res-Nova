@@ -1,0 +1,294 @@
+{
+  "model_id": "C1",
+  "gate_route": "E8 algebraic-number sweep with 1/\u221a2 correction",
+  "executed_at_utc": "2026-08-26T23:07:05.958006+00:00",
+  "root_count": 240,
+  "inner_product_support": [
+    "-2",
+    "-1",
+    "0",
+    "1",
+    "2"
+  ],
+  "inner_product_counts": {
+    "-2": 1,
+    "-1": 56,
+    "0": 126,
+    "1": 56,
+    "2": 1
+  },
+  "inner_product_probabilities": {
+    "-2": 0.004166666666666667,
+    "-1": 0.23333333333333334,
+    "0": 0.525,
+    "1": 0.23333333333333334,
+    "2": 0.004166666666666667
+  },
+  "all_natural_event_probabilities": {
+    "dot=-2": "0.0041666667",
+    "dot=2": "0.0041666667",
+    "dot=-2 OR dot=2": "0.0083333333",
+    "dot=-1": "0.2333333333",
+    "dot=1": "0.2333333333",
+    "dot>0": "0.2375000000",
+    "dot<0": "0.2375000000",
+    "dot=-2 OR dot=-1": "0.2375000000",
+    "dot=-2 OR dot=1": "0.2375000000",
+    "dot=-1 OR dot=2": "0.2375000000",
+    "dot=1 OR dot=2": "0.2375000000",
+    "dot=-1 OR dot=1": "0.4666666667",
+    "dot!=0": "0.4750000000",
+    "dot=0": "0.5250000000",
+    "dot=-2 OR dot=0": "0.5291666667",
+    "dot=0 OR dot=2": "0.5291666667",
+    "dot=-1 OR dot=0": "0.7583333333",
+    "dot=0 OR dot=1": "0.7583333333",
+    "dot>=0": "0.7625000000",
+    "dot<=0": "0.7625000000",
+    "|dot|<=1": "0.9916666667",
+    "|dot|<2": "0.9916666667",
+    "dot>-2": "0.9958333333"
+  },
+  "all_natural_event_fractions": {
+    "dot=-2": "1/240",
+    "dot=-1": "7/30",
+    "dot=0": "21/40",
+    "dot=1": "7/30",
+    "dot=2": "1/240",
+    "dot>=0": "61/80",
+    "dot>0": "19/80",
+    "dot<=0": "61/80",
+    "dot<0": "19/80",
+    "dot>-2": "239/240",
+    "|dot|<=1": "119/120",
+    "|dot|<2": "119/120",
+    "dot!=0": "19/40",
+    "dot=-2 OR dot=-1": "19/80",
+    "dot=-2 OR dot=0": "127/240",
+    "dot=-2 OR dot=1": "19/80",
+    "dot=-2 OR dot=2": "1/120",
+    "dot=-1 OR dot=0": "91/120",
+    "dot=-1 OR dot=1": "7/15",
+    "dot=-1 OR dot=2": "19/80",
+    "dot=0 OR dot=1": "91/120",
+    "dot=0 OR dot=2": "127/240",
+    "dot=1 OR dot=2": "19/80"
+  },
+  "target_matches": {
+    "1/sqrt(2)": [],
+    "7/10": [],
+    "ln2": [],
+    "sqrt(0.91)": [],
+    "2theta-theta^2_at_1/sqrt2": [],
+    "sqrt(2theta-theta^2)_at_1/sqrt2": [],
+    "sqrt(3)/2": [],
+    "1/sqrt(3)": [],
+    "golden_ratio_inv": [],
+    "pi/4": [],
+    "1/e": []
+  },
+  "ceiling_analysis": {
+    "1/sqrt(2)": {
+      "theta": 0.7071067811865475,
+      "chi_s_squared": 0.914213562373095,
+      "chi_s": 0.9561451575849218,
+      "chi_s_interpretation": "sqrt(2\u03b8 - \u03b8\u00b2) = \u221a(1-(1-\u03b8)\u00b2) = sovereign ceiling if \u03b8 is gate probability",
+      "near_known_values": {
+        "Thorne_0.998": 0.0418548424150782,
+        "sqrt(3)/2": 0.0901197538004832,
+        "0.9539": 0.002245157584921831,
+        "0.953": 0.0031451575849218427
+      }
+    },
+    "7/10": {
+      "theta": 0.7,
+      "chi_s_squared": 0.9099999999999999,
+      "chi_s": 0.9539392014169457,
+      "chi_s_interpretation": "sqrt(2\u03b8 - \u03b8\u00b2) = \u221a(1-(1-\u03b8)\u00b2) = sovereign ceiling if \u03b8 is gate probability",
+      "near_known_values": {
+        "Thorne_0.998": 0.04406079858305434,
+        "sqrt(3)/2": 0.08791379763250706,
+        "0.9539": 3.9201416945688905e-05,
+        "0.953": 0.0009392014169457008
+      }
+    },
+    "ln2": {
+      "theta": 0.6931471805599453,
+      "chi_s_squared": 0.9058413472016891,
+      "chi_s": 0.951756979066447,
+      "chi_s_interpretation": "sqrt(2\u03b8 - \u03b8\u00b2) = \u221a(1-(1-\u03b8)\u00b2) = sovereign ceiling if \u03b8 is gate probability",
+      "near_known_values": {
+        "Thorne_0.998": 0.046243020933553036,
+        "sqrt(3)/2": 0.08573157528200837,
+        "0.9539": 0.002143020933553008,
+        "0.953": 0.0012430209335529963
+      }
+    },
+    "sqrt(0.91)": {
+      "theta": 0.9539392014169457,
+      "chi_s_squared": 0.9978784028338913,
+      "chi_s": 0.9989386381724812,
+      "chi_s_interpretation": "sqrt(2\u03b8 - \u03b8\u00b2) = \u221a(1-(1-\u03b8)\u00b2) = sovereign ceiling if \u03b8 is gate probability",
+      "near_known_values": {
+        "Thorne_0.998": 0.0009386381724811876,
+        "sqrt(3)/2": 0.1329132343880426,
+        "0.9539": 0.045038638172481216,
+        "0.953": 0.04593863817248123
+      }
+    },
+    "2theta-theta^2_at_1/sqrt2": {
+      "theta": 0.914213562373095,
+      "chi_s_squared": 0.9926406871192852,
+      "chi_s": 0.9963135485976717,
+      "chi_s_interpretation": "sqrt(2\u03b8 - \u03b8\u00b2) = \u221a(1-(1-\u03b8)\u00b2) = sovereign ceiling if \u03b8 is gate probability",
+      "near_known_values": {
+        "Thorne_0.998": 0.0016864514023282595,
+        "sqrt(3)/2": 0.13028814481323314,
+        "0.9539": 0.04241354859767177,
+        "0.953": 0.04331354859767178
+      }
+    },
+    "sqrt(2theta-theta^2)_at_1/sqrt2": {
+      "theta": 0.9561451575849218,
+      "chi_s_squared": 0.9980767527967487,
+      "chi_s": 0.9990379135932473,
+      "chi_s_interpretation": "sqrt(2\u03b8 - \u03b8\u00b2) = \u221a(1-(1-\u03b8)\u00b2) = sovereign ceiling if \u03b8 is gate probability",
+      "near_known_values": {
+        "Thorne_0.998": 0.0010379135932473416,
+        "sqrt(3)/2": 0.13301250980880874,
+        "0.9539": 0.04513791359324737,
+        "0.953": 0.04603791359324738
+      }
+    },
+    "sqrt(3)/2": {
+      "theta": 0.8660254037844386,
+      "chi_s_squared": 0.9820508075688773,
+      "chi_s": 0.9909847665675175,
+      "chi_s_interpretation": "sqrt(2\u03b8 - \u03b8\u00b2) = \u221a(1-(1-\u03b8)\u00b2) = sovereign ceiling if \u03b8 is gate probability",
+      "near_known_values": {
+        "Thorne_0.998": 0.007015233432482448,
+        "sqrt(3)/2": 0.12495936278307895,
+        "0.9539": 0.03708476656751758,
+        "0.953": 0.03798476656751759
+      }
+    },
+    "1/sqrt(3)": {
+      "theta": 0.5773502691896258,
+      "chi_s_squared": 0.8213672050459183,
+      "chi_s": 0.9062931121033185,
+      "chi_s_interpretation": "sqrt(2\u03b8 - \u03b8\u00b2) = \u221a(1-(1-\u03b8)\u00b2) = sovereign ceiling if \u03b8 is gate probability",
+      "near_known_values": {
+        "Thorne_0.998": 0.09170688789668147,
+        "sqrt(3)/2": 0.040267708318879936,
+        "0.9539": 0.04760688789668144,
+        "0.953": 0.046706887896681426
+      }
+    },
+    "golden_ratio_inv": {
+      "theta": 0.6180339887498948,
+      "chi_s_squared": 0.8541019662496845,
+      "chi_s": 0.9241763718304448,
+      "chi_s_interpretation": "sqrt(2\u03b8 - \u03b8\u00b2) = \u221a(1-(1-\u03b8)\u00b2) = sovereign ceiling if \u03b8 is gate probability",
+      "near_known_values": {
+        "Thorne_0.998": 0.07382362816955523,
+        "sqrt(3)/2": 0.05815096804600617,
+        "0.9539": 0.029723628169555205,
+        "0.953": 0.028823628169555193
+      }
+    },
+    "pi/4": {
+      "theta": 0.7853981633974483,
+      "chi_s_squared": 0.9539460517268117,
+      "chi_s": 0.9767016185748909,
+      "chi_s_interpretation": "sqrt(2\u03b8 - \u03b8\u00b2) = \u221a(1-(1-\u03b8)\u00b2) = sovereign ceiling if \u03b8 is gate probability",
+      "near_known_values": {
+        "Thorne_0.998": 0.021298381425109092,
+        "sqrt(3)/2": 0.11067621479045231,
+        "0.9539": 0.022801618574890936,
+        "0.953": 0.023701618574890948
+      }
+    },
+    "1/e": {
+      "theta": 0.36787944117144233,
+      "chi_s_squared": 0.600423599106272,
+      "chi_s": 0.7748700530452006,
+      "chi_s_interpretation": "sqrt(2\u03b8 - \u03b8\u00b2) = \u221a(1-(1-\u03b8)\u00b2) = sovereign ceiling if \u03b8 is gate probability",
+      "near_known_values": {
+        "Thorne_0.998": 0.22312994695479937,
+        "sqrt(3)/2": 0.09115535073923797,
+        "0.9539": 0.17902994695479935,
+        "0.953": 0.17812994695479933
+      }
+    }
+  },
+  "family_structure": {
+    "half_integer_128": {
+      "count": 128,
+      "example": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "inner_products_from_own_family": {
+        "-2": 1,
+        "-1": 28,
+        "0": 70,
+        "1": 28,
+        "2": 1
+      }
+    },
+    "coordinate_112": {
+      "count": 112,
+      "example": [
+        -2,
+        -2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "inner_products_from_own_family": {
+        "-2": 1,
+        "-1": 24,
+        "0": 62,
+        "1": 24,
+        "2": 1
+      }
+    },
+    "cross_family": {
+      "-1": 28,
+      "0": 56,
+      "1": 28
+    }
+  },
+  "structural_numbers": {
+    "240_factorization": "2^4 \u00d7 3 \u00d7 5",
+    "weyl_order": 696729600,
+    "weyl_factorization": "2^14 \u00d7 3^5 \u00d7 5^2 \u00d7 7",
+    "E6_weyl_order": 51840,
+    "E6_weyl_factorization": "2^7 \u00d7 3^4 \u00d7 5",
+    "E7_weyl_order": 2903040,
+    "E7_weyl_factorization": "2^10 \u00d7 3^4 \u00d7 5 \u00d7 7",
+    "half_integer_roots_count": 128,
+    "coordinate_roots_count": 112,
+    "128_factorization": "2^7 (half-spinor rep of Spin(16))",
+    "112_factorization": "2^4 \u00d7 7 = 16 \u00d7 7 (adjoint coordinates)",
+    "ratio_128_to_240": 0.5333333333333333,
+    "ratio_112_to_240": 0.4666666666666667,
+    "balanced_ternary_note": "The 128 half-integer roots use coordinates in {-1,0,+1} \u2014 balanced ternary alphabet. This is the natural digitization of E8 spinor weights."
+  },
+  "balanced_ternary_analysis": {
+    "e8_uses_balanced_ternary": true,
+    "alphabet": "{-1, 0, +1}",
+    "where": "128 half-integer (spinor) roots; coordinates \u2208 {\u00b11}^8 with even parity = balanced ternary without zero",
+    "note": "The 112 coordinate roots use {-2, 0, +2} = 2 \u00d7 balanced ternary. The FULL E8 coordinate alphabet is thus {-2, -1, 0, +1, +2} \u2014 balanced quinary, or equivalently balanced ternary at two scales."
+  },
+  "script_hash": "66e7c97c1378c55e142a7910e5ed80fee7919c103d23e4437fb21c9f7727faa9"
+}

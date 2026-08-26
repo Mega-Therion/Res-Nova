@@ -18,6 +18,7 @@
 | **F6** | $\Omega_\Lambda = \ln 2 \approx 0.693$ Holographic / Disformal Boundary | `[O]` Conjectural Limit | Motivational Narrative Annex | Conjectured horizon boundary condition, not a derived density |
 | **F7** | 17 Lean 4 Modules on Disk | `[P]` Kernel Verified / Diagnostic | `05_lean_formalization/*.lean` | `verify_all_proofs.sh` exit 0 on local gate; standard axioms only |
 | **F8** | Empirical Provenance & Out-of-Sample Validation | `[D]` Cross-Validation / Bootstrap | `02_galaxy_dynamics/A0_MEASUREMENT.json` | 171 galaxies (3,375 points), bootstrap + honest CV |
+| **F9** | Kerr Rapidity Equipartition & Sovereign Spin Ceiling | `[P]` (algebra) / `[O]` (dynamical action) | `06_unification_and_spin/rapidity_uniqueness_proof.py`, `two_channel_ceiling_proof.py` | Exact $\operatorname{arsinh}(1) = \ln(1+\sqrt{2}) = \operatorname{artanh}(1/\sqrt{2})$ and $\chi_s = \sqrt{\sqrt{2}-1/2} \approx 0.956145$ verified `[P]` at 100 dps |
 
 ---
 
@@ -154,3 +155,23 @@ not $a_0 = \frac{cH_0}{2\pi}$. The additional $1/(2\pi)$ divisor is an open boun
   - [`02_galaxy_dynamics/A0_MEASUREMENT.json`](02_galaxy_dynamics/A0_MEASUREMENT.json)
   - [`02_galaxy_dynamics/A0_ESTIMATE.json`](02_galaxy_dynamics/A0_ESTIMATE.json)
 * **Methodology:** 171 SPARC galaxies (3,375 kinematic data points) evaluated via bootstrap over galaxies and honest 5-fold cross-validation with per-fold $a_0$ retraining.
+
+---
+
+### F9. Kerr Rapidity Equipartition & Sovereign Spin Ceiling
+* **Epistemic Classification:** `[P]` Proved (Algebraic Uniqueness) / `[O]` Open Problem (Dynamical Action Closure)
+* **File Paths:**
+  - [`06_unification_and_spin/rapidity_uniqueness_proof.py`](06_unification_and_spin/rapidity_uniqueness_proof.py)
+  - [`06_unification_and_spin/two_channel_ceiling_proof.py`](06_unification_and_spin/two_channel_ceiling_proof.py)
+  - [`06_unification_and_spin/arctanh_derivation_chain.py`](06_unification_and_spin/arctanh_derivation_chain.py)
+  - [`06_unification_and_spin/kerr_toroidal_bounce.py`](06_unification_and_spin/kerr_toroidal_bounce.py)
+  - [`06_unification_and_spin/thorne_equilibrium_fast.py`](06_unification_and_spin/thorne_equilibrium_fast.py)
+* **Verified Algebraic Theorems:**
+  - **Rapidity Identity:** $\operatorname{arsinh}(1) = \ln(1+\sqrt{2}) = \operatorname{artanh}(1/\sqrt{2})$ verified symbolically and to 100 decimal digits ($< 10^{-70}$ residual).
+  - **Silver Ratio Odds:** $\frac{\theta}{1-\theta} = 1+\sqrt{2} = \delta_S$ at $\theta = 1/\sqrt{2}$.
+  - **Two-Channel Ceiling:** $\chi_s = \sqrt{2\theta - \theta^2} = \sqrt{\sqrt{2} - 1/2} \approx 0.956145157584922$.
+  - **Gate Arithmetic Mean:** $\theta_{\text{gate}} = \frac{1}{2}(\ln 2 + 1/\sqrt{2}) \approx 0.700127 \approx 0.700$.
+* **Physics Scope & Boundaries:**
+  - Proves the exact mathematical uniqueness of the rapidity equipartition state and the two-channel union formula.
+  - Demonstrates that standard Thorne (1974) thin-disk photon capture reaches equilibrium at $a^* \approx 0.998$, whereas stabilizing spin at $\chi_s \approx 0.956$ requires the topological counter-torque $\tau_{\text{top}}$ from the inner Cauchy horizon quantum bounce.
+

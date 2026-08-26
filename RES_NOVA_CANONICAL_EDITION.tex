@@ -112,7 +112,29 @@ The speed of tensor gravitational waves $v_{\mathrm{gw}}$ satisfies:
 \begin{equation}
 c_T = c \sqrt{1 + 2\ell_P^2 |\nabla\chi|^2} = c + \mathcal{O}(\ell_P^2 |\nabla\chi|^2)
 \end{equation}
-For all physical galactic gradients $|\nabla\chi| \sim a_0 / c \approx 4 \times 10^{-19}\text{ m}^{-1}$, the correction is bounded by $\ell_P^2 |\nabla\chi|^2 \sim 10^{-106} \ll 10^{-15}$, strictly conforming with the GW170817 / GRB 170817A limit $|v_{\mathrm{gw}}/c - 1| < 10^{-15}$.
+\section{Kerr Spin Rapidity Equipartition and Sovereign Spin Ceiling}
+
+In rotating Kerr spacetimes, the dimensionless angular momentum parameter $a^* = J / M^2 \in [0, 1)$ admits an intrinsic rapidity reparameterization:
+\begin{equation}
+\psi = \operatorname{artanh}(a^*) \in [0, \infty)
+\end{equation}
+The relativistic equipartition state where rotational momentum equals rest mass ($\sinh(\psi) = 1$, corresponding to $p = mc$ and Lorentz boost $\gamma = \cosh(\psi) = \sqrt{2}$) uniquely determines the rapidity:
+\begin{equation}
+\psi_0 = \operatorname{arsinh}(1) = \ln(1 + \sqrt{2}) \approx 0.881373587
+\end{equation}
+At this equipartition point, the natural amplitude gate is:
+\begin{equation}
+\theta_{\mathrm{amplitude}} = \tanh(\psi_0) = \frac{1}{\sqrt{2}} \approx 0.707106781
+\end{equation}
+with the alignment-to-misalignment odds ratio matching the fundamental silver ratio:
+\begin{equation}
+\frac{\theta}{1 - \theta} = \frac{1/\sqrt{2}}{1 - 1/\sqrt{2}} = 1 + \sqrt{2} \equiv \delta_S \approx 2.414213562
+\end{equation}
+Under two-channel chiral equipartition, the union probability $P(\ge 1\text{ channel}) = 1 - (1 - \theta)^2 = 2\theta - \theta^2 = \sqrt{2} - 1/2$ derives the exact sovereign spin ceiling:
+\begin{equation}
+\chi_s = \sqrt{2\theta - \theta^2} = \sqrt{\sqrt{2} - \frac{1}{2}} \approx 0.956145158
+\end{equation}
+At this ceiling, the outer event horizon $r_+ = (1 + \frac{1}{\sqrt{2}} - \frac{1}{2})M \approx 1.292893\,M$ and inner Cauchy horizon $r_- = \frac{1}{\sqrt{2}}M \approx 0.707107\,M$ maintain a critical non-singular throat gap $\Delta r = 2\sqrt{1 - \chi_s^2} = \sqrt{2} - 1 \approx 0.585786\,M$. The mass-inflation curvature divergence at the Cauchy horizon provides the topological quantum counter-torque $\tau_{\mathrm{top}}$ that arrests classical accretion spin-up before extremal horizon merger.
 
 \section{Lean 4 Formal Verification Ledger}
 

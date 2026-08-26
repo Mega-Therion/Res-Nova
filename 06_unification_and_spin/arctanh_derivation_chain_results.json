@@ -1,0 +1,56 @@
+{
+  "model_id": "C1",
+  "title": "arctanh derivation chain",
+  "executed_at_utc": "2026-08-26T23:07:01.862408+00:00",
+  "fundamental_identity": {
+    "statement": "arctanh(1/\u221a2) = arcsinh(1) = ln(1+\u221a2)",
+    "theta": 0.7071067811865475,
+    "rapidity": 0.8813735870195429,
+    "arcsinh_1": 0.881373587019543,
+    "ln_silver": 0.8813735870195429,
+    "verified": true
+  },
+  "kerr_physics": {
+    "sinh_psi": 1.0,
+    "cosh_psi": 1.414213562373095,
+    "tanh_psi": 0.7071067811865475,
+    "interpretation": "sinh(\u03c8)=1 means momentum equals rest mass; cosh(\u03c8)=\u221a2 means Lorentz factor is \u221a2"
+  },
+  "sovereign_ceiling": {
+    "chi_s_squared": 0.914213562373095,
+    "chi_s_squared_exact": "\u221a2 \u2212 \u00bd",
+    "chi_s": 0.9561451575849218,
+    "ceiling_rapidity": 1.8989229576028417
+  },
+  "silver_ratio": {
+    "value": 2.414213562373095,
+    "theta_over_1_minus_theta": 2.4142135623730945,
+    "is_silver_ratio": true
+  },
+  "bracket": {
+    "lower": 0.6931471805599453,
+    "upper": 0.7071067811865475,
+    "midpoint": 0.7001269808732464,
+    "midpoint_vs_0.7": 0.0001269808732464739,
+    "midpoint_is_0.7_to_0.03_percent": true,
+    "0.7_position_in_bracket": 0.49090368867684964
+  },
+  "morse_geometry": {
+    "trace_hessian_eigenvalues_at_saddle": [
+      2,
+      -2,
+      -2
+    ],
+    "morse_index": 2,
+    "transition_state_fraction": 0.8183098861837907
+  },
+  "derivation_chain": [
+    "V\u2082(\u211d\u00b3) \u2245 SO(3) as settled substrate (C0-R1 PASS)",
+    "Kerr spacetime as physical arena \u2192 natural parameter is rapidity \u03c8 = arctanh(a*)",
+    "Unique rapidity where sinh(\u03c8) = 1 (momentum = rest mass): \u03c8\u2080 = arcsinh(1)",
+    "Gate velocity: \u03b8 = tanh(\u03c8\u2080) = 1/\u221a2",
+    "Two-channel union: \u03c7_s\u00b2 = 2\u03b8 \u2212 \u03b8\u00b2 = \u221a2 \u2212 \u00bd",
+    "Sovereign ceiling: \u03c7_s = \u221a(\u221a2 \u2212 \u00bd) \u2248 0.9561",
+    "Gate value: \u03b8_gate = \u00bd(ln2 + 1/\u221a2) \u2248 0.7002 \u2248 0.7"
+  ]
+}

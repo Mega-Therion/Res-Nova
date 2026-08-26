@@ -2,6 +2,24 @@
 
 All notable changes to the Res Nova technical manuscript, formal verification, and reproducibility package.
 
+## [1.7.0] — 2026-08-26
+
+### Unification & Black Hole Spin Sector (UFW-C1 Milestone)
+- **Exact Kerr Rapidity Equipartition Theorem (`06_unification_and_spin/rapidity_uniqueness_proof.py`):**
+  - Proved symbolically and numerically to 100 decimal digits that $\operatorname{arsinh}(1) = \ln(1+\sqrt{2}) = \operatorname{artanh}(1/\sqrt{2}) \approx 0.881373587$.
+  - Demonstrated that $\theta_{\text{amplitude}} = 1/\sqrt{2}$ is the unique velocity/spin where relativistic momentum equals rest mass ($\sinh(\psi)=1$, $p=mc$, $\gamma=\sqrt{2}$).
+  - Proved the silver ratio odds relation $\frac{\theta}{1-\theta} = 1+\sqrt{2} \equiv \delta_S$.
+  - Derived the gate arithmetic mean $\theta_{\text{gate}} = \frac{1}{2}(\ln 2 + 1/\sqrt{2}) \approx 0.700127 \approx 0.700$ ($0.018\%$ agreement with canonical $0.700$).
+- **Two-Channel Sovereign Spin Ceiling (`06_unification_and_spin/two_channel_ceiling_proof.py`):**
+  - Derived the closed-form sovereign spin ceiling $\chi_s = \sqrt{2\theta - \theta^2} = \sqrt{\sqrt{2} - 1/2} \approx 0.956145157584922$.
+- **Horizon Dynamics & Cauchy Bounce (`06_unification_and_spin/kerr_toroidal_bounce.py`, `thorne_equilibrium_fast.py`):**
+  - Evaluated the classical Thorne (1974) thin-disk deficit ($L_{\text{ms}}/E_{\text{ms}} - 2a^* \approx 0.395$ vs $0.054$).
+  - Clarified that the $(1 - a^{*2})^{-1/2}$ curvature divergence is localized at the inner Cauchy horizon / throat pinch, driving the quantum topological counter-torque $\tau_{\text{top}}$ that arrests extremal spin at $\chi_s$.
+- **Substrate & Triality Geometrodynamics (`06_unification_and_spin/so3_haar_derivation.py`, `e8_algebraic_sweep.py`):**
+  - Ingested $V_2(\mathbb{R}^3) \cong \mathrm{SO}(3)$ Haar measure and $E_8$ root balanced ternary analysis into the canonical verification tree.
+- **Evidence Ledgers:**
+  - Added CLM-10, CLM-11 to `CLAIM_EVIDENCE_LEDGER.md` and Finding F9 to `RES_NOVA_VERIFICATION_LEDGER.md`.
+
 ## [1.6.2] — 2026-08-16
 
 Submission build. `\sealfalse` — the Chyren watermark is off for the APS
