@@ -90,6 +90,19 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 ---
 
+## Fork Lock — 2026-08-28
+
+**Decision: Path B locked.** The RMOND completion (`final_manuscript.tex` §7–§9) implements Path B from the `gut_toe_status` fork analysis. The Skordis–Złośnik embedding with $\mathcal{F}(\mathcal{K}) = \mathcal{F}_{\text{dual}}(\sqrt{\mathcal{K}})$ provides:
+- Vainshtein screening: $Q_2 \approx 4.9 \times 10^{-29}$ s⁻² (70× below Cassini) `[D]`
+- Cosmological screening: $\mathcal{F}''/\mathcal{F}' \approx 0.004$ (76× → 0.4%) `[P]`
+- $c_T = c$, $\gamma_{\text{PPN}} = 1$, ghost-free, FLRW decoupling `[P]`
+
+The SVT-MOND structural block (two-scalar parent cannot simultaneously pass Cassini and SPARC) is **superseded** by the vector-tensor parent. Paths A and C are closed.
+
+**The Hamilgrangian framework** (dual-channel Hamiltonian-Lagrangian tension formalism) is canonized as `00_CANONICAL/HAMILGRANGIAN_CANONICAL.tex`. The name captures that the physics lives in the tension between the Hamiltonian (bulk kinetic $\frac{1}{2}x^2$) and Lagrangian (boundary dissipative $x - \ln(1+x)$) channels.
+
+---
+
 ## What would actually finish the physics
 
 In order, and without romance:
