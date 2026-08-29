@@ -420,7 +420,7 @@ The RMOND completion with $\mathcal{F}_{\text{dual}}$ satisfies the standard sta
 \section{Lean~4 Formal Verification: Scope and Limits}
 \label{sec:lean}
 
-The Lean~4 suite (\texttt{05\_lean\_}\allowbreak\texttt{formalization/}) comprises \textbf{18 modules}, 0 \texttt{sorry}, axioms $\{\texttt{propext}$, $\texttt{Classical.choice}$, $\texttt{Quot.sound}\}$, Lean \texttt{v4.33.0-rc1}, Mathlib pinned at \texttt{5eec30bc}. Gate: \texttt{verify\_}\allowbreak\texttt{all\_proofs.sh}.
+The Lean~4 suite (\texttt{05\_lean\_}\allowbreak\texttt{formalization/}) comprises \textbf{18 modules}, 0 \texttt{sorry}, axioms $\{\texttt{propext}$, $\texttt{Classical.choice}$, $\texttt{Quot.sound}\}$, Lean \texttt{v4.33.0-rc1}, Mathlib pinned at \texttt{5eec30bc}. Gate: \texttt{verify\_}\allowbreak\texttt{all\_proofs.sh}. The directory also contains Lean modules belonging to adjacent projects that share this package and its Mathlib pin; they are built and gated identically but are not results of this paper and are not enumerated in Table~\ref{tab:lean_inventory}. They are declared in \texttt{05\_lean\_}\allowbreak\texttt{formalization/}\allowbreak\texttt{ADJACENT\_MODULES.txt} so the scoping is auditable.
 
 \textbf{Important provenance note:} O6 --- walked once in a clean worktree at 07185a6 (\texttt{lake exe cache get} + 18/18 PASS, \texttt{VERIFICATION\_RUN\_007}). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate. Artifact: \texttt{VERIFICATION\_RUN\_007/01\_lean/} (transcript, per-target exit codes, toolchain and Mathlib revisions, SHA-256 checksums).
 

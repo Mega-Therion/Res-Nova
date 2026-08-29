@@ -1,0 +1,35 @@
+# Lean modules that live in 05_lean_formalization/ but are NOT part of this
+# manuscript's formal core.
+#
+# They belong to adjacent projects that share this Lean package (and therefore
+# share its Mathlib pin and its verification gate). They ARE built and gated
+# like everything else — nothing here is exempt from verification. They are
+# simply not claimed as results of the Res-Nova MOND paper, so Table 2 does not
+# enumerate them and the manuscript's module count does not include them.
+#
+# Adding a module here is a scoping statement, never a way to avoid scrutiny.
+# Every entry must name the project it belongs to.
+
+# --- GUT / E8 generation-structure programme ---
+CartanTrialityGenerations.lean   # Spin(8) triality, generation counting
+TrialityG2.lean                  # G2 = triality-fixed subalgebra, finite facts
+TrialityFixedSubalgebra.lean     # exact characterisation of the fixed subspace
+ChiralCellularDuality.lean       # chiral cell structure
+GenerationIndex.lean             # AUDITED VACUOUS 2026-08-29 (D47, D61) — the
+                                 # theorem proves a function returning 3/-3/0
+                                 # returns 3/-3/0; substituting 42 and 17
+                                 # compiles identically. Gated, but evidence
+                                 # for nothing.
+
+# --- Millennium-problem correspondence sketches ---
+RamanujanModularBounds.lean      # modular bounds, RH leg
+
+# --- Other sovereign-corpus work ---
+SovereignSemiotics.lean          # RYTT semiotics
+SovereignSpinCeiling.lean        # black-hole spin ceiling result
+RapidityEquipartition.lean       # rapidity equipartition
+
+# --- Dual-channel Hamiltonian (Hamilgrangian) ---
+# Physically adjacent to this paper's F_dual, but its results are presented in
+# HAMILGRANGIAN_CANONICAL.tex, not in this manuscript's Table 2.
+Hamilgrangian.lean

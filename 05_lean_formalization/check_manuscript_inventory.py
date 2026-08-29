@@ -28,8 +28,30 @@ TEX_FILES = ["final_manuscript.tex", "reproducibility_appendix.tex"]
 # The gate iterates *.lean and skips lakefile.lean; mirror that exactly.
 SKIP = {"lakefile.lean"}
 
+# Modules that share this Lean package but belong to adjacent projects. They are
+# still built and gated; they are simply not results OF THIS MANUSCRIPT, so
+# Table 2 does not enumerate them. Declared in a tracked file so the scoping is
+# auditable and cannot be widened silently.
+ADJACENT_FILE = LEAN_DIR / "ADJACENT_MODULES.txt"
+
+
+def adjacent_modules() -> set[str]:
+    if not ADJACENT_FILE.exists():
+        return set()
+    out = set()
+    for line in ADJACENT_FILE.read_text(encoding="utf-8").splitlines():
+        line = line.split("#", 1)[0].strip()
+        if line.endswith(".lean"):
+            out.add(line)
+    return out
+
 
 def disk_modules() -> set[str]:
+    """Modules this manuscript is responsible for enumerating."""
+    return {p.name for p in LEAN_DIR.glob("*.lean")} - SKIP - adjacent_modules()
+
+
+def all_disk_modules() -> set[str]:
     return {p.name for p in LEAN_DIR.glob("*.lean")} - SKIP
 
 
@@ -112,7 +134,15 @@ def check_print_axioms() -> list[str]:
 
 
 def main() -> int:
+    stale = adjacent_modules() - all_disk_modules()
     sections = [
+        (
+            "adjacency manifest",
+            [
+                f"ADJACENT_MODULES.txt lists {m!r}, which is not on disk"
+                for m in sorted(stale)
+            ],
+        ),
         ("module inventory", check_inventory()),
         ("module count", check_counts()),
         ("#print axioms resolution", check_print_axioms()),
