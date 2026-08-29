@@ -184,3 +184,9 @@ theorem p_flux_pos (x : ℝ) (hx : x > 0) : p_flux x > 0 := by
 end
 
 end Hamilgrangian
+
+#print axioms Hamilgrangian.dual_channel_decomposition
+#print axioms Hamilgrangian.constitutive_flux_balance
+#print axioms Hamilgrangian.legendre_quadratic
+#print axioms Hamilgrangian.mu_lt_x
+#print axioms Hamilgrangian.mu_lt_one

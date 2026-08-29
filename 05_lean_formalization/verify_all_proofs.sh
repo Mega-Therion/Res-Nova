@@ -57,6 +57,7 @@ TARGETS=(
   SovereignRegularity.lean
   SovereignSemiotics.lean
   TensorSpeed.lean
+  TrialityG2.lean
   YettParadigm.lean
 )
 

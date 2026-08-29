@@ -56,3 +56,6 @@ theorem mckay_generation_count : mckayArrowsPerNode = 3 := by
   rfl
 
 end Chyren.IndexTheory
+
+#print axioms Chyren.IndexTheory.z3_chirality_quantization
+#print axioms Chyren.IndexTheory.mckay_generation_count
