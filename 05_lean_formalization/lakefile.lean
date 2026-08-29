@@ -60,5 +60,6 @@ lean_lib «ResNovaFormal» where
     `SovereignSemiotics,
     `TensorSpeed,
     `TrialityG2,
+    `TrialityFixedSubalgebra,
     `YettParadigm
   ]
