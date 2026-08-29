@@ -35,6 +35,13 @@ lean_lib «ResNovaFormal» where
     `DeSitterExtremal,
     `DualChannelDerivation,
     `GODActionKinematics,
+    -- AUDITED VACUOUS 2026-08-29 (D47_generation_index_audit.md). Compiles and is
+    -- sorry-free, which is why it is gated -- but `z3NetChirality` returns 3/-3/0
+    -- because those literals are written into its if-then-else, and the theorem
+    -- proves a function returning 3/-3/0 returns 3/-3/0. Demonstrated by
+    -- substitution: the identical proof with 42 and 17 in place of 3 compiles
+    -- clean. `mckay_generation_count` is `3 = 3`. Passing this gate means the file
+    -- ELABORATES; it is not evidence for any generation count.
     `GenerationIndex,
     `Hamilgrangian,
     `HorizonScale,

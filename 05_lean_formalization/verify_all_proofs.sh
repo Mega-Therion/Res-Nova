@@ -41,6 +41,7 @@ TARGETS=(
   DeSitterExtremal.lean
   DualChannelDerivation.lean
   GODActionKinematics.lean
+  GenerationIndex.lean
   Hamilgrangian.lean
   HorizonScale.lean
   ITActionClosure.lean
@@ -67,7 +68,10 @@ TARGETS=(
 # a lakefile root while being absent from TARGETS, so the flagship module of the
 # Hamilgrangian canonization was the one module this gate never checked. A
 # comment is not a constraint; this is.
+# Strip `--` comment lines first: a backtick inside a comment (e.g. citing
+# `3 = 3` in an audit note) would otherwise be parsed as a root name.
 _roots=$(sed -n '/roots := #\[/,/\]/p' lakefile.lean \
+         | grep -v '^[[:space:]]*--' \
          | grep -oE '`[A-Za-z0-9_]+' | tr -d '`' | sort)
 _targets=$(printf '%s\n' "${TARGETS[@]}" | sed 's/\.lean$//' | sort)
 if [ "$_roots" != "$_targets" ]; then
