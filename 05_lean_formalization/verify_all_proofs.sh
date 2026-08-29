@@ -41,6 +41,7 @@ TARGETS=(
   DeSitterExtremal.lean
   DualChannelDerivation.lean
   GODActionKinematics.lean
+  Hamilgrangian.lean
   HorizonScale.lean
   ITActionClosure.lean
   MuProjection.lean
@@ -58,6 +59,26 @@ TARGETS=(
   TensorSpeed.lean
   YettParadigm.lean
 )
+
+# --- Invariant: TARGETS must equal the lakefile roots -----------------------
+# Added 2026-08-28. The comment above has always asserted this, but nothing
+# enforced it, and the lists silently diverged: `Hamilgrangian` was declared as
+# a lakefile root while being absent from TARGETS, so the flagship module of the
+# Hamilgrangian canonization was the one module this gate never checked. A
+# comment is not a constraint; this is.
+_roots=$(sed -n '/roots := #\[/,/\]/p' lakefile.lean \
+         | grep -oE '`[A-Za-z0-9_]+' | tr -d '`' | sort)
+_targets=$(printf '%s\n' "${TARGETS[@]}" | sed 's/\.lean$//' | sort)
+if [ "$_roots" != "$_targets" ]; then
+  echo "FATAL: verify_all_proofs.sh TARGETS != lakefile.lean roots." >&2
+  echo "Only in lakefile roots:" >&2
+  comm -23 <(printf '%s\n' "$_roots") <(printf '%s\n' "$_targets") | sed 's/^/  /' >&2
+  echo "Only in TARGETS:" >&2
+  comm -13 <(printf '%s\n' "$_roots") <(printf '%s\n' "$_targets") | sed 's/^/  /' >&2
+  echo "A module missing from TARGETS is a module this gate does not verify." >&2
+  exit 2
+fi
+echo "[gate] TARGETS == lakefile roots ($(printf '%s\n' "$_roots" | wc -l) modules)"
 
 if [ ! -e .lake/packages/mathlib ]; then
   echo "Mathlib not present. Run:  lake exe cache get" >&2
