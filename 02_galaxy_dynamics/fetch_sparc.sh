@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Resolve repository root
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Resolve repository root.
+# BASH_SOURCE[0] is the path AS INVOKED, so it must be dereferenced: this script
+# is reachable through symlinks at the repo root and at scripts/, and without
+# readlink -f those entry points compute REPO_ROOT one level too high and the
+# manifest lookup fails.
+SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
+SCRIPT_DIR="$(cd "$(dirname "${SCRIPT_PATH}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
-DATA_DIR="${REPO_ROOT}/02_galaxy_dynamics/sparc_data"
+# SPARC_DATA_DIR is the project-wide override honoured by 02_galaxy_dynamics/
+# sparc_paths.py; the fetcher must write where the analysis scripts read.
+DATA_DIR="${SPARC_DATA_DIR:-${REPO_ROOT}/02_galaxy_dynamics/sparc_data}"
 MANIFEST="${REPO_ROOT}/VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256"
 URL="https://astroweb.cwru.edu/SPARC/Rotmod_LTG.zip"
 

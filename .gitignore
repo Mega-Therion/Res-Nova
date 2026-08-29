@@ -6,6 +6,8 @@
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+*.bbl
+*.blg
 __pycache__/
 *.pyc
 .lake/
