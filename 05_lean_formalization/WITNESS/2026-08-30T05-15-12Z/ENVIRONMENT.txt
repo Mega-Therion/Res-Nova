@@ -1,7 +1,0 @@
-utc                 2026-08-30T05:15:12Z
-lean_toolchain      leanprover/lean4:v4.33.0-rc1
-lake_version        Lake version 5.0.0-src+62eed1d (Lean version 4.33.0-rc1)
-lean_version        Lean (version 4.33.0-rc1, x86_64-unknown-linux-gnu, commit 62eed1db4d67327ec8120be05f1a1b0847d74561, Release)
-mathlib_rev         5eec30bc56ed5a23be2e27c544a949ba0bceddeb
-git_commit          50b9f9a73fc9c84b84859f2386c8e9fbdfa90351
-git_dirty           yes

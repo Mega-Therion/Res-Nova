@@ -56,6 +56,20 @@ STAMP="$(date -u +%Y-%m-%dT%H-%M-%SZ)"
 OUT="${1:-WITNESS/$STAMP}"
 mkdir -p "$OUT" || exit 2
 
+# An interrupted run must not leave a half-written directory behind. The first
+# emit was killed mid-gate and left ENVIRONMENT/SOURCES/TRANSCRIPT with no
+# MANIFEST -- a witness with no seal, sitting in the repo looking like
+# evidence. That is the exact failure this script exists to prevent, so an
+# unsealed directory is removed rather than kept.
+_sealed=0
+_cleanup() {
+  if [ "$_sealed" -eq 0 ] && [ -d "$OUT" ] && [ ! -f "$OUT/$MANIFEST" ]; then
+    echo "[witness] aborted before sealing -- removing partial $OUT" >&2
+    rm -rf "$OUT"
+  fi
+}
+trap _cleanup EXIT INT TERM
+
 echo "[witness] $OUT"
 
 # 1. Environment — everything needed to reproduce, nothing identifying.
@@ -156,6 +170,7 @@ MD
 ( cd "$OUT" && find . -type f ! -name "$MANIFEST" | sed 's|^\./||' | sort \
     | xargs sha256sum > "$MANIFEST" )
 
+_sealed=1
 echo
 echo "[witness] sealed: $OUT"
 echo "[witness] gate exit code: $rc"
