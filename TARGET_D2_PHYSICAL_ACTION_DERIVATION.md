@@ -193,9 +193,46 @@ Then $F = \mathcal{F}_{\text{dual}}(x) = \frac{1}{2}x^2 - x + \ln(1+x)$ is **uni
 - By constraint 1 and Theorem 4.1: $F(x) = \int_0^x t^2/(1+t)\, dt = \frac{1}{2}x^2 - x + \ln(1+x)$.
 - Constraint 4 is satisfied by Theorem 8.1. $\square$
 
+### Update 2026-08-30 — constraint 2 is redundant; Thm 6.1 and Thm 7.1 are one theorem
+
+Full working: `Chyren_Second_Brain/50_Mathematical_Notation/derivations/D63_pade_necessity_narrowed.md`.
+
+**Theorem 9.2 (constraint 2 is redundant) [D]:** Substituting the constitutive
+structure $F'(x) = x\,\mu(x)$ into Theorem 7.1 gives
+$x^2\mu/(1-\mu) = x^3$, i.e. $\mu/(1-\mu) = x$ — which *is* Theorem 6.1. The
+Fisher information cancels identically. That single equation has the unique
+solution $\mu = x/(1+x)$ with **no rational ansatz and no degree minimality**.
+Padé $[1/1]$ minimality is therefore a *consequence* of the structure, not an
+input, and constraint 2 above may be dropped from Theorem 9.1.
+
+**Theorem 9.3 (the identity generates the standard family) [P]:**
+$F'(x)^2\,\mathcal I(\mu) = x^{n+2} \iff \mu_n(x) = x^n/(1+x^n)$, verified for
+$n=1,2,3,4$ — exactly the standard MOND interpolation family. Of the three
+boundary conditions in constraint 3, $\mu(0)=0$ and $\mu(\infty)=1$ hold for
+**every** $n \ge 1$; only $\mu'(0)=1$ selects $n=1$.
+
+**Double-counting warning:** §6 and §7 are presented above as independent
+structural facts. They are the same statement. Do not cite them as two
+corroborations.
+
 **What is NOT proved [O]:**
 
-The necessity of constraint 2 (Padé minimality) is not derived from a more fundamental principle. The following questions remain open:
+The necessity of constraint 2 (Padé minimality) is **not** derived from a more
+fundamental principle. Theorem 9.2 *trades* it for a smaller postulate
+($\mathrm{odds}(\mu) = x$, equivalently $n=1$); it does not derive it. Q2 below
+is now answered — the odds-ratio connection is structural, not coincidence,
+because it is the Fisher identity. Q1 and Q4 are **narrowed to a sharper
+question**:
+
+> **Q1′:** Why $n = 1$? Why is the dimensionless acceleration the *odds* of the
+> interpolation probability, and why $\mu'(0) = 1$?
+
+Restating this as "$\eta = \ln(p/(1-p))$ is the Bernoulli canonical parameter,
+and Bernoulli is maximum-entropy" is **circular** — that is true by definition of
+the exponential family and derives nothing. Q3 remains the one route that could
+make $n=1$ physical rather than chosen.
+
+The following questions remain open:
 
 - **Q1:** Can the Padé constraint be derived from an information-theoretic variational principle? (e.g., minimum Fisher information, maximum entropy on the Bernoulli manifold)
 - **Q2:** Is the odds-ratio connection (Theorem 6.1) a coincidence or a deep structural feature of the theory?
