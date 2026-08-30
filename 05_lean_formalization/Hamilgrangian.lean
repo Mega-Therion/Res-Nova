@@ -123,6 +123,34 @@ theorem odds_ratio_inverse (p : ℝ) (_hp_pos : 0 < p) (hp_lt : p < 1) :
   field_simp
   ring
 
+/-- Theorem H6a (D63): The odds of the MOND interpolation function equals x [P]
+    odds(μ(x)) = μ(x) / (1 - μ(x)) = x for all x > 0. -/
+theorem odds_of_mu (x : ℝ) (hx : x > 0) :
+    mu x / (1 - mu x) = x := by
+  dsimp [mu]
+  have h_denom : 1 + x ≠ 0 := by linarith
+  have h_sub : 1 - x / (1 + x) ≠ 0 := by
+    intro h_zero
+    have h_eq : x / (1 + x) = 1 := by linarith
+    have h_x : x = 1 + x := (div_eq_one_iff_eq h_denom).mp h_eq
+    linarith
+  field_simp
+  ring
+
+/-- Theorem H5_redundancy (D63): Padé[1/1] form is redundant given the odds relation [P]
+    Any value m < 1 satisfying m / (1 - m) = x is uniquely determined as m = x / (1 + x). -/
+theorem pade_redundancy (m x : ℝ) (hx : x > 0) (hm_lt : m < 1) (_hm_pos : m > 0)
+    (h_odds : m / (1 - m) = x) : m = x / (1 + x) := by
+  have h1m_ne : 1 - m ≠ 0 := by linarith
+  have h_mul : m = x * (1 - m) := (div_eq_iff h1m_ne).mp h_odds
+  have h_denom : 1 + x ≠ 0 := by linarith
+  have h_sum : m * (1 + x) = x := by
+    calc m * (1 + x) = m + m * x := by ring
+    _ = m + x * m := by ring
+    _ = x * (1 - m) + x * m := by rw [← h_mul]
+    _ = x := by ring
+  exact (eq_div_iff h_denom).mpr h_sum
+
 -- ============================================================
 -- H7: Fisher Identity (algebraic core)
 -- F'(x)² · (1+x)²/x = x³
