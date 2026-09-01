@@ -1,4 +1,6 @@
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.Calculus.Deriv.Inv
+import Mathlib.Analysis.Calculus.Deriv.Mul
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Data.Real.Basic
 
@@ -92,17 +94,89 @@ theorem mu_constitutive (x : ℝ) (hx : x > 0) :
 /-- The general Padé[1/1] interpolation function -/
 def mu_pade (α β γ : ℝ) (x : ℝ) : ℝ := α * x / (β + γ * x)
 
-/-- Theorem H5a: μ(∞)=1 forces α=γ [P] -/
-theorem pade_newtonian_constraint (α γ : ℝ) (_hα : α > 0) (hγ : γ > 0)
-    (h_limit : α / γ = 1) : α = γ := by
-  have hγ_ne : γ ≠ 0 := ne_of_gt hγ
-  exact (div_eq_one_iff_eq hγ_ne).mp h_limit
+/-!
+### H5 — Padé[1/1] uniqueness
 
-/-- Theorem H5b: μ'(0)=1 forces α=β [P] -/
-theorem pade_deep_mond_constraint (α β : ℝ) (_hα : α > 0) (hβ : β > 0)
-    (h_deriv : α / β = 1) : α = β := by
+**Rewritten 2026-08-31.** The previous `pade_newtonian_constraint` and
+`pade_deep_mond_constraint` took `α/γ = 1` and `α/β = 1` as *hypotheses* and
+concluded `α = γ`, `α = β` by `div_eq_one_iff_eq`. Neither ever mentioned
+`mu_pade`: they were statements about three bare reals, provable for any
+definition of μ whatsoever, and they failed the substitutability test by
+inspection. The physics — the limit at infinity and the derivative at 0 — is the
+entire content of H5 and it was absent, its already-computed answer handed in as
+an assumption.
+
+Mathlib proves both facts directly, so the limits are now computed rather than
+supplied. `mu_pade` appears in every statement below; substituting a different μ
+breaks them.
+-/
+
+/-- The Newtonian limit is computed, not assumed: `μ(x) → α/γ` as `x → ∞`. -/
+theorem mu_pade_tendsto_atTop (α β γ : ℝ) (hγ : γ > 0) :
+    Filter.Tendsto (mu_pade α β γ) Filter.atTop (nhds (α / γ)) := by
+  have hγ_ne : γ ≠ 0 := ne_of_gt hγ
+  -- For x past |β|/γ the denominator is positive, and there
+  -- α*x/(β+γ*x) = α/(γ + β/x).  The β/x term is what vanishes.
+  have key : ∀ᶠ x : ℝ in Filter.atTop, mu_pade α β γ x = α / (γ + β / x) := by
+    filter_upwards [Filter.eventually_gt_atTop (0 : ℝ),
+      Filter.eventually_gt_atTop (|β| / γ)] with x hx hxβ
+    have hx_ne : x ≠ 0 := ne_of_gt hx
+    have hgx : |β| < γ * x := by
+      rw [div_lt_iff₀ hγ] at hxβ; linarith
+    have hden : β + γ * x ≠ 0 := by
+      have : -|β| ≤ β := neg_abs_le β
+      intro h; linarith
+    have hden2 : γ + β / x ≠ 0 := by
+      intro h
+      apply hden
+      field_simp at h
+      linarith
+    unfold mu_pade
+    rw [div_eq_div_iff hden hden2]
+    field_simp
+    ring
+  rw [Filter.tendsto_congr' key]
+  have h0 : Filter.Tendsto (fun x : ℝ => β / x) Filter.atTop (nhds 0) :=
+    Filter.Tendsto.div_atTop tendsto_const_nhds Filter.tendsto_id
+  have hsum : Filter.Tendsto (fun x : ℝ => γ + β / x) Filter.atTop (nhds γ) := by
+    simpa using (tendsto_const_nhds (x := γ) (f := Filter.atTop (α := ℝ))).add h0
+  exact tendsto_const_nhds.div hsum hγ_ne
+
+/-- Theorem H5a: the MOND condition `μ(∞) = 1` forces `α = γ`.
+The limit is derived from `mu_pade_tendsto_atTop`; it is no longer a hypothesis. -/
+theorem pade_newtonian_constraint (α γ : ℝ) (_hα : α > 0) (hγ : γ > 0)
+    (β : ℝ) (h_limit : Filter.Tendsto (mu_pade α β γ) Filter.atTop (nhds 1)) :
+    α = γ := by
+  have hγ_ne : γ ≠ 0 := ne_of_gt hγ
+  have := tendsto_nhds_unique (mu_pade_tendsto_atTop α β γ hγ) h_limit
+  exact (div_eq_one_iff_eq hγ_ne).mp this
+
+/-- The derivative at 0 is computed: `μ'(0) = α/β`. -/
+theorem mu_pade_hasDerivAt_zero (α β γ : ℝ) (hβ : β > 0) :
+    HasDerivAt (mu_pade α β γ) (α / β) 0 := by
   have hβ_ne : β ≠ 0 := ne_of_gt hβ
-  exact (div_eq_one_iff_eq hβ_ne).mp h_deriv
+  have hnum : HasDerivAt (fun x : ℝ => α * x) α 0 := by
+    simpa using (hasDerivAt_id (0 : ℝ)).const_mul α
+  have hmul : HasDerivAt (fun x : ℝ => γ * x) γ 0 := by
+    simpa using (hasDerivAt_id (0 : ℝ)).const_mul γ
+  have hden : HasDerivAt (fun x : ℝ => β + γ * x) γ 0 := hmul.const_add β
+  have hne : (β + γ * 0) ≠ 0 := by simpa using hβ_ne
+  have hdiv := hnum.div hden hne
+  have heq : (α * (β + γ * 0) - α * 0 * γ) / (β + γ * 0) ^ 2 = α / β := by
+    have h0 : γ * (0 : ℝ) = 0 := by ring
+    rw [h0]
+    field_simp
+    ring
+  rw [heq] at hdiv
+  exact hdiv
+
+/-- Theorem H5b: the deep-MOND condition `μ'(0) = 1` forces `α = β`.
+The derivative is derived from `mu_pade_hasDerivAt_zero`, not assumed. -/
+theorem pade_deep_mond_constraint (α β : ℝ) (_hα : α > 0) (hβ : β > 0)
+    (γ : ℝ) (h_deriv : HasDerivAt (mu_pade α β γ) 1 0) : α = β := by
+  have hβ_ne : β ≠ 0 := ne_of_gt hβ
+  have := (mu_pade_hasDerivAt_zero α β γ hβ).unique h_deriv
+  exact (div_eq_one_iff_eq hβ_ne).mp this
 
 -- ============================================================
 -- H6: Odds-Ratio Inverse
