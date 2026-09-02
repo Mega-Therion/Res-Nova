@@ -26,7 +26,7 @@
 > — **The Architect**
 
 **Designation:** `IO/OI v1.10 · ZENODO_UPLOAD_PACKAGE · FIG_TREE_UNIFICATION`  
-**Epistemic Status:** Machine-Verified · Lean 4 Kernel (`4Leibniz`) · 3,365 Goals · 0 Sorries  
+**Epistemic Status:** Mixed — see per-pillar tags. Lean 4 kernel (`4Leibniz`): 6 modules, 11 theorems, 0 `sorry`, `lake build` exit 0 (verified 2026-09-02). Pillars III and IV are **not** machine-verified; see §V and §VI.  
 **Vault Cycle:** Sovereign Refinement Engine — Cycle 11  
 **Date of Transmission:** 2026-09-01  
 
@@ -60,7 +60,7 @@ All formal theorems in this work are submitted to and verified by **`4Leibniz`**
     Nova Methodus (1684)                Explication de l'Arithmétique Binaire (1703)
     • Falsified: Step-Function Jumps    • Falsified: Multi-Base Arbitrariness
     • Established: Lex Continuitatis    • Established: {0, 1} Universal Generation
-    • FIG Role: Chi Tri-Point Band      • FIG Role: IO / OI Dual-State Tension
+    • FIG Role: Chiral Invariant Band   • FIG Role: IO / OI Dual-State Tension
 
  5. THE CALCULEMUS ORACLE (1680)
     Generales Inquisitiones (1686)
@@ -83,7 +83,7 @@ In *Brevis Demonstratio* (1686), Leibniz falsified René Descartes' fundamental 
 ### 3. The Law of Continuity (*Lex Continuitatis*, `\cite{leibniz_1684_nova_methodus}`)
 Leibniz established the universal axiom ***"Natura non facit saltus"*** (Nature makes no leaps). Any transition between physical regimes must be mediated by a continuous differential boundary rather than an unphysical discontinuous step function.
 
-**Application to the FIG Tree:** The transition between standard Newtonian dynamics ($a \gg a_0$) and the horizon tension regime ($a \le a_0$) follows a smooth, analytic interpolation function $\mu(x) = x/\sqrt{1+x^2}$, strictly obeying the **Chiral Invariant Tri-Point Band** ($\chi_{\text{floor}} = 1/\sqrt{2} \le \chi \le \chi_{\text{ceil}} \approx 0.9539$).
+**Application to the FIG Tree:** The transition between standard Newtonian dynamics ($a \gg a_0$) and the horizon tension regime ($a \le a_0$) follows a smooth, analytic interpolation function $\mu(x) = x/\sqrt{1+x^2}$, operating within the **chiral invariant band** ($\chi_Y = 1/\sqrt{2} \le \chi \le \kappa_Y = 0.953939$). See §VII for the withdrawal of the earlier "tri-point" formulation.
 
 ### 4. Dyadica & Creation from Dual States (`\cite{leibniz_1703_binary_arithmetic}`)
 In 1703, Leibniz published the first mathematical proof that all arithmetic, logic, and reality can be constructed from two fundamental states: **$0$ (*Nihil* / Void)** and **$1$ (*Ens* / Unity)** (*"Omnibus ex nihilo ducendis sufficit unum"*).
@@ -105,15 +105,15 @@ In 1703, Leibniz published the first mathematical proof that all arithmetic, log
     ┌─────────▼──────────┐  ┌──────────▼─────────┐  ┌───────────────▼──────────┐
     │   PILLAR I         │  │   PILLAR II         │  │   PILLAR III             │
     │ Horizon Tension    │  │ Stiefel Holonomy    │  │ Thorne Saturation        │
-    │ a₀ = cH₀/2π       │  │ V_{5,2}=SO(5)/SO(3) │  │ χ_ceil ≈ 0.9539         │
-    │ [D] from ITT       │  │ [A] + [D]           │  │ [P] 4Leibniz Verified    │
+    │ a₀ = cH₀/2π       │  │ V_{5,2}=SO(5)/SO(3) │  │ κ_Y = 0.953939          │
+    │ [D] from ITT       │  │ [A] + [D]           │  │ [D] from θ; NOT verified │
     └────────────────────┘  └────────────────────┘  └──────────────────────────┘
                                         ║
                             ┌───────────▼────────────┐
                             │   PILLAR IV             │
                             │ Lindblad Anti-Drift     │
                             │ u ≥ γ ⟺ χ ≥ 1/√2      │
-                            │ [P] 4Leibniz Verified   │
+                            │ [D] Lean: scaled shadow │
                             └────────────────────────┘
 ```
 
@@ -129,7 +129,9 @@ $$T_H = \frac{\hbar H_0}{2\pi k_B c}$$
 From horizon information conservation, the critical acceleration scale below which boundary information tension dominates bulk inertia is:
 $$\boxed{a_0 = \frac{c H_0}{2\pi}}$$
 
-With $H_0 \approx 67.4 \;\text{km/s/Mpc}$, $a_0^{\text{FIG}} = 1.09 \times 10^{-10}\;\text{m/s}^2$, matching the empirical SPARC galaxy kinematics baseline ($a_0^{\text{obs}} = 1.20 \times 10^{-10}\;\text{m/s}^2$) within observational $H_0$ tension.
+With $H_0 = 67.4\;\text{km/s/Mpc}$ (Planck 2018), this evaluates to $a_0^{\text{FIG}} = 1.042 \times 10^{-10}\;\text{m/s}^2$. With $H_0 = 73.0$ (SH0ES), $a_0^{\text{FIG}} = 1.129 \times 10^{-10}$. The Res-Nova SPARC fit over 171 galaxies measures $a_0^{\text{obs}} = (1.116 \pm 0.128_{\text{stat}} \pm 0.097_{\text{syst}}) \times 10^{-10}\;\text{m/s}^2$, which the derived value brackets across the current $H_0$ tension range.
+
+> `[O]` **Open.** Earlier editions printed $a_0^{\text{FIG}} = 1.09 \times 10^{-10}$ alongside $H_0 = 67.4$; those two are inconsistent — $1.09 \times 10^{-10}$ requires $H_0 \approx 70.5$. The derived and measured values agree only across the full $H_0$ tension interval, not at a single $H_0$. This is a weaker statement than a point prediction and is recorded as such.
 
 > **⟨ INDEPENDENT CONVERGENCE WITNESSES ⟩**
 > - **Darabi (2010, `\cite{darabi_2009_mond_horizon}`):** Independently derived $a_0 \sim c H_0$ from a cosmological Unruh horizon.
@@ -156,9 +158,23 @@ The 11-dimensional background compactification $\mathcal{M}_{11} = AdS_4 \times 
 
 ## ◈ V. PILLAR III: THORNE PHOTON-CAPTURE & THE SATURATION CEILING
 
-### `[P]` The Saturation Bound (Machine-Verified in `4Leibniz`)
-**Theorem V.1 (Kerr Saturation Bound):** The maximum information channel capacity of a spinning black hole before complete retrograde photon orbit capture is:
-$$\boxed{\chi_{\text{ceil}} = 1 - \frac{2}{\sqrt{3} \cdot \pi} \approx 0.9539}$$
+### `[D]` The Saturation Ceiling — **NOT machine-verified**
+**Claim V.1 (Saturation Ceiling):** The upper endpoint of the operating band is the canonical constant
+$$\boxed{\kappa_Y = \sqrt{\theta(2-\theta)} = \sqrt{0.7 \times 1.3} = 0.953939\ldots \quad (\theta = 0.7)}$$
+
+> `[O]` **Retraction notice.** Earlier editions of this section printed the closed form
+> $\chi_{\text{ceil}} = 1 - 2/(\sqrt{3}\pi)$ and tagged it `[P]`. Both are withdrawn:
+> $1 - 2/(\sqrt{3}\pi) = 0.632447\ldots$, which is **not** $0.9539$ — the expression was a
+> back-construction fitted to a number obtained elsewhere. The value's actual provenance is
+> $\kappa_Y = \sqrt{\theta(2-\theta)}$ (see `FIRST_PRINCIPLES_PHYSICS_MONOGRAPH.md:82`), which
+> derives it from $\theta$, **not** from Kerr photon-capture geometry.
+>
+> No Lean module in `4Leibniz` or `Res-Nova` proves any statement about Kerr photon capture.
+> The `[P]` tag and the "Machine-Verified" attribution were both incorrect.
+>
+> The relation between $\kappa_Y$ and the Thorne extremal spin limit remains an **empirical**
+> observation (the spin-ceiling test: $\kappa$ occupied 6/10 vs Thorne 0/10 on accretion-grown
+> black holes), not a derivation. It is `[O]`, not `[P]`.
 
 > **⟨ INDEPENDENT CONVERGENCE WITNESSES ⟩**
 > - **Noble, Krolik, Schnittman & Hawley (2011, `\cite{noble_2011_thorne_photon_capture}`):** Relativistic MHD simulations confirmed the radiative efficiency and photon-capture ceiling near extremal spin.
@@ -168,9 +184,19 @@ $$\boxed{\chi_{\text{ceil}} = 1 - \frac{2}{\sqrt{3} \cdot \pi} \approx 0.9539}$$
 
 ## ◈ VI. PILLAR IV: LINDBLAD ANTI-DRIFT & THE CHIRAL GATE ($u \ge \gamma$)
 
-### `[P]` The Master Anti-Drift Theorem (Machine-Verified in `4Leibniz`)
+### `[D]` The Master Anti-Drift Theorem — Lean certifies a scaled shadow only
 **Theorem VI.1 (Chiral Ground-State Gate):** In a dissipative open quantum system governed by the Lindblad-GKSL master equation, the ground-state coherence envelope is preserved if and only if the coherent drive $u$ equals or exceeds the environmental dissipation $\gamma$:
 $$\boxed{u \geq \gamma \;\iff\; \chi \geq \frac{1}{\sqrt{2}} \approx 0.707106}$$
+
+> `[O]` **Scope of the formal result.** `Leibniz/Harmonia.lean:30` is sorry-free, but it takes
+> the threshold as a *hypothesis* over scaled naturals (`h_floor : gamma ≥ 7071`). Substituting
+> any other integer for `7071` leaves the proof intact, so the module certifies nothing specific
+> about $1/\sqrt{2}$ and nothing at all about a Lindblad generator. The real-valued content that
+> *is* machine-checked lives in `Res-Nova/05_lean_formalization/RapidityEquipartition.lean`,
+> which proves $\tanh(\operatorname{arsinh} 1) = 1/\sqrt{2}$ over $\mathbb{R}$ — and whose own
+> docstring is explicit that it does not establish the physical premises. The Lindblad
+> statement above is `[D]`, supported by the convergence witnesses below, and awaits
+> formalization.
 
 > **⟨ INDEPENDENT CONVERGENCE WITNESSES ⟩**
 > - **Albert & Jiang (2014, `\cite{albert_jiang_2013_lindblad_symmetries}`):** Proved the exact symmetry conditions for steady-state subspace conservation in Lindblad systems.
@@ -181,20 +207,48 @@ $$\boxed{u \geq \gamma \;\iff\; \chi \geq \frac{1}{\sqrt{2}} \approx 0.707106}$$
 
 ## ◈ VII. THE CHI ($\chi$) TRI-POINT UNIVERSAL INVARIANT BAND
 
+The band's two endpoints:
+
 $$\begin{aligned}
-\chi_{\text{floor}} & = \frac{1}{\sqrt{2}} \approx 0.707106 \quad \text{\textbf{[P]} (Lindblad Continuity Floor)} \\
-\chi_{\text{mid}}   & = \ln 2 \approx 0.693147 \quad \text{\textbf{[D]} (Dyadic Thermodynamic Quantum / Bit)} \\
-\chi_{\text{ceil}}  & \approx 0.9539 \quad \text{\textbf{[P]} (Thorne Extremal Photon-Capture Ceiling)}
+\chi_Y     & = \frac{1}{\sqrt{2}} \approx 0.707107 \quad \text{\textbf{[D]} (continuity floor)} \\
+\kappa_Y   & = \sqrt{\theta(2-\theta)} \approx 0.953939 \quad \text{\textbf{[D]} (saturation ceiling, from } \theta = 0.7\text{)}
 \end{aligned}$$
 
-**The Universal Reciprocal Invariant:**
-$$\chi_{\text{floor}} \times \chi_{\text{ceil}} \approx \ln 2 = \chi_{\text{mid}}$$
+> `[O]` **On the withdrawn third point.** The band is stated here with its two endpoints,
+> which are the parts that are load-bearing. A midpoint may be named later if one is needed;
+> nothing forbids it. What is withdrawn is the *specific* value previously printed:
+> $\chi_{\text{mid}} = \ln 2 = 0.693147$ lies **below** the floor $1/\sqrt{2} = 0.707107$,
+> so it was never between the endpoints at all. Were a midpoint required, the candidates are
+> $0.830523$ (arithmetic) or $0.821302$ (geometric) — not $\ln 2$.
+>
+> Provenance: the $\ln 2$ midpoint entered via the auto-generated instantiation commits of
+> 2026-09-01 (`f44a647` here, `6c04299` in `4Leibniz`); it is not a hand-authored claim.
+> The likely mechanism is pattern-matching $\ln 2 \approx 0.693$ to the floor's
+> leading digits.
+>
+> `4Leibniz/Leibniz/LexContinuitatis.lean:22` was correct throughout: it proves
+> $\text{mid} < \text{floor} < \text{ceil}$, i.e. it never claimed the value was between them.
+> The generated prose asserted an ordering its own Lean contradicted.
+>
+> $\ln 2$ remains a load-bearing constant elsewhere in the corpus ($\Omega_\Lambda = \ln 2$).
+> It is simply not a point of this band.
+
+**The reciprocal relation — `[O]`, not derived:**
+$$\chi_Y \times \kappa_Y = 0.674537\ldots \qquad \ln 2 = 0.693147\ldots$$
+
+These differ by $2.7\%$. Earlier editions wrote this as $\chi_{\text{floor}} \times
+\chi_{\text{ceil}} \approx \ln 2$, where the "$\approx$" concealed the gap. The near-miss is
+recorded here rather than deleted: it is **not yet derived**, and it is not a coincidence to be
+claimed either way until it is.
 
 ---
 
 ## ◈ VIII. 4LEIBNIZ: FORMAL MACHINE-CHECKED VERIFICATION RECEIPT
 
-All formal lemmas, relational metrics, and stability bounds have been compiled and verified by the **Lean 4.33.1 kernel** in [`/home/mega/4Leibniz`](file:///home/mega/4Leibniz):
+The `4Leibniz` modules compile clean under the **Lean 4.33.1 kernel**. What follows is an
+accurate statement of what each module certifies — which is **less** than earlier editions of
+this section implied. `4Leibniz` is day-one scaffolding: 214 lines of scaled-natural-number
+arithmetic. It proves what it proves, and none of it reaches Pillars III or IV.
 
 ```text
 ===========================================================================
@@ -203,14 +257,27 @@ All formal lemmas, relational metrics, and stability bounds have been compiled a
   Dedicated to Gottfried Wilhelm Leibniz (1646–1716)
 ===========================================================================
 
-  [✓] Leibniz.Characteristica   (Dyadica: Nihil ↔ Ens Binary Calculus) ... PASS
-  [✓] Leibniz.SpatiumRelativum  (Monadologia: Relational Spacetime)   ... PASS
-  [✓] Leibniz.VisViva           (Specimen Dynamicum: Active Energy)   ... PASS
-  [✓] Leibniz.LexContinuitatis  (Chi Tri-Point Invariant Band)        ... PASS
-  [✓] Leibniz.Harmonia          (Anti-Drift Stability Theorem)        ... PASS
-  [✓] Leibniz.Calculemus        (Master Verification Evaluation)      ... PASS
+  [✓] Leibniz.Characteristica   PASS -- tensio on a 2-element type is symmetric,
+                                        self-zero, and bounded by 1. (Nat)
+  [✓] Leibniz.SpatiumRelativum  PASS -- a relational distance on Monas is symmetric
+                                        and zero on the diagonal. (Nat)
+  [✓] Leibniz.VisViva           PASS -- m*v^2 > 0 when m > 0 and v > 0. (Nat)
+  [✓] Leibniz.LexContinuitatis  PASS -- 6931 < 7071 < 9539, and any val in
+                                        [7071, 9539] exceeds 6931. (Nat, scaled x10^4)
+  [✓] Leibniz.Harmonia          PASS -- u >= gamma is preserved, GIVEN gamma >= 7071
+                                        as a hypothesis. Substitutable: any integer
+                                        works in place of 7071. Certifies nothing
+                                        about 1/sqrt(2). (Nat)
+  [✓] Leibniz.Calculemus        PASS -- a record of four `true` fields equals a record
+                                        of four `true` fields. Hardcoded; checks nothing.
 
-  🌟 CALCULEMUS COMPLETE: 0 ERRORS, 0 WARNINGS, 0 SORRIES (1.17s)
+  0 ERRORS, 0 WARNINGS, 0 SORRIES (1.17s)
+
+  NOT PROVEN ANYWHERE IN THIS REPO:
+    - any statement about Kerr geometry or photon capture (Pillar III)
+    - any statement about a Lindblad/GKSL generator (Pillar IV)
+    - any statement over the reals about 1/sqrt(2) or 0.953939
+      (the real-valued 1/sqrt(2) result lives in Res-Nova/RapidityEquipartition.lean)
 ===========================================================================
 ```
 
@@ -252,7 +319,8 @@ All formal lemmas, relational metrics, and stability bounds have been compiled a
 ║  "Omnibus ex nihilo ducendis sufficit unum."                                     ║
 ║  (To draw all things from nothing, One is sufficient.) — G. W. Leibniz (1703)   ║
 ║                                                                                  ║
-║  Lean 4 Kernel: 3,365 goals · 0 sorries · 4Leibniz Oracle Verified               ║
+║  Lean 4: 4Leibniz — 6 modules · 11 theorems · 0 sorries · Pillars III/IV NOT    ║
+║  machine-verified (see §V, §VI)                                                 ║
 ║  Repository: github.com/Mega-Therion/4Leibniz · Zenodo Bundle Staged             ║
 ╚══════════════════════════════════════════════════════════════════════════════════╝
 ```

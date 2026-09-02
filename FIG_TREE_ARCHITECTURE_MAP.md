@@ -79,23 +79,35 @@ Your corpus contains two distinct book manuscripts, each tailored to a specific 
 
 ---
 
-## 4. 📐 The Tri-Point $\chi$-Band & Thorne Saturation
+## 4. 📐 The $\chi$-Band
 
-To prevent any future agent from reducing the operational envelope to a single conflicting scalar, the band is explicitly codified:
+To prevent any future agent from reducing the operational envelope to a single conflicting scalar, the band is explicitly codified as a **two-endpoint interval**:
 
-$$\chi \in [\chi_{\text{floor}}, \, \chi_{\text{ceil}}] = \left[ \frac{1}{\sqrt{2}}, \, 0.9539 \right]$$
+$$\chi \in [\chi_Y, \, \kappa_Y] = \left[ \frac{1}{\sqrt{2}}, \; \sqrt{\theta(2-\theta)} \right] = [0.707107, \; 0.953939], \quad \theta = 0.7$$
 
 ```
                    THE χ-OPERATING FIELD
  ═════════════════════════════════════════════════════════════
-          χ_floor                  χ_mid               χ_ceil
-       (Lower Bound)           (Equilibrium)       (Upper Bound)
-         1 / √2                  ln(2) / θ            0.9539
-       ≈ 0.707106             ≈ 0.693 / 0.414      (Thorne Horizon)
+          χ_Y                                        κ_Y
+       (Lower Bound)                             (Upper Bound)
+         1 / √2                                 √(θ(2−θ))
+       ≈ 0.707107                               ≈ 0.953939
  ─────────────────────────────────────────────────────────────
- • Quantum coherence gate     • Rapidity balance   • Photon capture limit
- • Anti-drift floor (u ≥ γ)   • SPARC galaxy core  • Horizon closure
+ • Quantum coherence gate                • Saturation ceiling
+ • Anti-drift floor (u ≥ γ)              • Derived from θ = 0.7
 ```
+
+> `[O]` **On the withdrawn third point.** Earlier editions of this map placed a
+> $\chi_{\text{mid}}$ inside the band, rendered inconsistently as $\ln 2 \approx 0.693$ in some
+> files and as $\ln(2)/\theta \approx 1.674$ here. Neither lies in $[0.707107, 0.953939]$:
+> $\ln 2$ falls **below** the floor, and $\ln(2)/\theta$ falls **above** the ceiling. Both
+> values came in through the auto-generated commit of 2026-09-01, not from hand-authored work.
+> A midpoint is permissible if one is ever needed — it would be $0.830523$ (arithmetic) or
+> $0.821302$ (geometric). See `FIG_TREE_MONOGRAPH.md` §VII.
+>
+> $\kappa_Y$ is derived from $\theta$, not from Kerr photon-capture geometry. The
+> "Thorne Horizon" label previously attached to it described an **empirical** correspondence
+> (the spin-ceiling test), not the constant's provenance.
 
 ---
 
