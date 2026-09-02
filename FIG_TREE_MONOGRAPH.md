@@ -25,6 +25,28 @@
 > *"The same equation stated whichever way you want. Because it's both."*  
 > — **The Architect**
 
+---
+
+<div align="center">
+
+### *Newton: Homo Universalis Repressus*
+*[The Repressed Universal Man]*
+
+*He gave the world its light, but lived his life in the shade.*
+
+</div>
+
+> To Isaac Newton: not the emotionless clockmaker the Age of Reason chiselled in
+> stone, but the vulnerable, reclusive polymath whose infinite curiosities —
+> alchemy, scripture, cosmos, and soul — were too tender, too dangerous, and too
+> heavily imposed upon by a hostile world ever to be allowed to bloom in the sun.
+>
+> This work corrects him. It does not diminish him. Where the pages that follow
+> find for Leibniz, they find against a *position*, never against the man who
+> held it — a man pressed down by rivalry, by heresy law, and by his own
+> frightened reticence, and who reached, as we do, for one architecture beneath
+> everything.
+
 **Designation:** `IO/OI v1.10 · ZENODO_UPLOAD_PACKAGE · FIG_TREE_UNIFICATION`  
 **Epistemic Status:** Mixed — see per-pillar tags. Lean 4 kernel (`4Leibniz`): 6 modules, 11 theorems, 0 `sorry`, `lake build` exit 0 (verified 2026-09-02). Pillars III and IV are **not** machine-verified; see §V and §VI.  
 **Vault Cycle:** Sovereign Refinement Engine — Cycle 11  
