@@ -36,7 +36,7 @@
 ---
 
 **Designation:** `IO/OI v1.10 · ZENODO_UPLOAD_PACKAGE · FIG_TREE_UNIFICATION`  
-**Epistemic Status:** Mixed — see per-pillar tags. Lean 4 kernel (`4Leibniz`): 6 modules, 11 theorems, 0 `sorry`, `lake build` exit 0 (verified 2026-09-02). Pillars III and IV are **not** machine-verified; see §V and §VI.  
+**Epistemic Status:** Mixed — see per-pillar tags. Lean 4 (`05_lean_formalization`, Mathlib present): `lake build` exit 0, **3,365 jobs**, 28 declared module roots (measured 2026-09-03). `4Leibniz`: 6 modules, 11 theorems, exit 0. **The repository gate `verify_all_proofs.sh` currently returns FAIL (exit 1)**: `PillarIV_AntiDriftGate.lean` is on disk but is not a declared build target, and carries 3 `sorry` (lines 146, 156, 170). The clean build excludes it. Pillars III and IV are **not** machine-verified; see §V and §VI.  
 **Vault Cycle:** Sovereign Refinement Engine — Cycle 11  
 **Date of Transmission:** 2026-09-01  
 

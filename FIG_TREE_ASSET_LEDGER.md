@@ -205,3 +205,107 @@ Notes that matter for what the monograph can claim:
 - Theorem VI.1 (Lindblad-GKSL master equation derivation): The assertion that open dissipative systems governed by Lindblad generators have steady-state coherence mu(u/gamma) is an open stub with sorries (PillarIV_AntiDriftGate.lean:146, 156) and is not established in any inventory file.
 - Trinity Survey 409 observational signals (monograph L84): The dataset containing the 409 JWST/Hubble signals cited in Zenodo DOI 10.5281/zenodo.20027657 is not present in the inventory files.
 - Reciprocal relation chi_Y * kappa_Y ~= ln 2 (monograph L246): Acknowledged in monograph as an open relation differing by 2.7%, with no derivation file in the inventory.
+
+## Phase 2 — Repair Log
+
+### Package-Level Lake Build
+- **Directory**: `05_lean_formalization`
+- **Command**: `lake build`
+- **Exit Code**: `0`
+- **Output Tail** (last 3 lines verbatim):
+```text
+info: RapidityEquipartition.lean:56:0: 'RapidityEquipartition.arsinh_one_eq_artanh_theta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RapidityEquipartition.lean:57:0: 'RapidityEquipartition.theta_odds_eq_silver_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (3365 jobs).
+```
+
+### Individual Lean Module Builds
+| module | command | exit_code | output_tail |
+|---|---|---|---|
+| `AXIOMS_V2.lean` | `lake build +AXIOMS_V2` | 0 | `Build completed successfully (1936 jobs).` |
+| `CartanTrialityGenerations.lean` | `lake build +CartanTrialityGenerations` | 0 | `Build completed successfully (2 jobs).` |
+| `ChiralCellularDuality.lean` | `lake build +ChiralCellularDuality` | 0 | `Build completed successfully (2 jobs).` |
+| `CosmologicalSector.lean` | `lake build +CosmologicalSector` | 0 | `Build completed successfully (1945 jobs).` |
+| `CovariantCompletion.lean` | `lake build +CovariantCompletion` | 0 | `Build completed successfully (1945 jobs).` |
+| `DeSitterExtremal.lean` | `lake build +DeSitterExtremal` | 0 | `  [apply] _hr<br>Note: This linter can be disabled with `set_option linter.unusedVariables false`<br>Build completed successfully (3004 jobs).` |
+| `DualChannelDerivation.lean` | `lake build +DualChannelDerivation` | 0 | `Build completed successfully (2007 jobs).` |
+| `GODActionKinematics.lean` | `lake build +GODActionKinematics` | 0 | `info: GODActionKinematics.lean:50:0: 'GODTheory.aqual_simple_mu_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]<br>info: GODActionKinematics.lean:51:0: 'GODTheory.btfr_algebraic_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]<br>Build completed successfully (2007 jobs).` |
+| `GenerationIndex.lean` | `lake build +GenerationIndex` | 0 | `Build completed successfully (862 jobs).` |
+| `Hamilgrangian.lean` | `lake build +Hamilgrangian` | 0 | `Build completed successfully (2150 jobs).` |
+| `HorizonScale.lean` | `lake build +HorizonScale` | 0 | `Build completed successfully (3004 jobs).` |
+| `ITActionClosure.lean` | `lake build +ITActionClosure` | 0 | `Build completed successfully (2631 jobs).` |
+| `MuProjection.lean` | `lake build +MuProjection` | 0 | `  [apply] _hb<br>Note: This linter can be disabled with `set_option linter.unusedVariables false`<br>Build completed successfully (2164 jobs).` |
+| `PPNLimits.lean` | `lake build +PPNLimits` | 0 | `Build completed successfully (2007 jobs).` |
+| `PillarIV_AntiDriftGate.lean` | `lake build +PillarIV_AntiDriftGate` | 1 | `error: unknown module `PillarIV_AntiDriftGate`` |
+| `PrintAxioms.lean` | `lake build +PrintAxioms` | 0 | ` Classical.choice,<br> Quot.sound]<br>Build completed successfully (2105 jobs).` |
+| `PrintAxiomsD8.lean` | `lake build +PrintAxiomsD8` | 0 | `info: PrintAxiomsD8.lean:46:0: 'ResNova.TensorSpeed.physical_frame_tensor_speed_unity' depends on axioms: [propext, Classical.choice, Quot.sound]<br>info: PrintAxiomsD8.lean:47:0: 'ResNova.TensorSpeed.gw170817_concordance' depends on axioms: [propext, Classical.choice, Quot.sound]<br>Build completed successfully (1945 jobs).` |
+| `RamanujanModularBounds.lean` | `lake build +RamanujanModularBounds` | 0 | `Build completed successfully (2 jobs).` |
+| `RapidityEquipartition.lean` | `lake build +RapidityEquipartition` | 0 | `info: RapidityEquipartition.lean:56:0: 'RapidityEquipartition.arsinh_one_eq_artanh_theta' depends on axioms: [propext, Classical.choice, Quot.sound]<br>info: RapidityEquipartition.lean:57:0: 'RapidityEquipartition.theta_odds_eq_silver_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]<br>Build completed successfully (3114 jobs).` |
+| `RelativisticStability.lean` | `lake build +RelativisticStability` | 0 | `Build completed successfully (2007 jobs).` |
+| `SOCasimirGenuine.lean` | `lake build +SOCasimirGenuine` | 0 | `Build completed successfully (3004 jobs).` |
+| `SkordisZlosnikEmbedding.lean` | `lake build +SkordisZlosnikEmbedding` | 0 | `info: SkordisZlosnikEmbedding.lean:99:0: 'ResNova.SkordisZlosnik.sz_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]<br>info: SkordisZlosnikEmbedding.lean:100:0: 'ResNova.SkordisZlosnik.sz_weak_field_lensing' depends on axioms: [propext, Classical.choice, Quot.sound]<br>Build completed successfully (1945 jobs).` |
+| `SovereignRegularity.lean` | `lake build +SovereignRegularity` | 0 | `  [apply] _hθ_high<br>Note: This linter can be disabled with `set_option linter.unusedVariables false`<br>Build completed successfully (1936 jobs).` |
+| `SovereignSemiotics.lean` | `lake build +SovereignSemiotics` | 0 | `Build completed successfully (819 jobs).` |
+| `SovereignSpinCeiling.lean` | `lake build +SovereignSpinCeiling` | 0 | `info: SovereignSpinCeiling.lean:34:0: 'SovereignSpinCeiling.two_theta_sub_theta_sq' depends on axioms: [propext, Classical.choice, Quot.sound]<br>info: SovereignSpinCeiling.lean:35:0: 'SovereignSpinCeiling.sovereign_spin_ceiling_eq' depends on axioms: [propext, Classical.choice, Quot.sound]<br>Build completed successfully (3004 jobs).` |
+| `TensorSpeed.lean` | `lake build +TensorSpeed` | 0 | `info: TensorSpeed.lean:132:0: 'ResNova.TensorSpeed.speed_ratio_lt_one_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]<br>info: TensorSpeed.lean:133:0: 'ResNova.TensorSpeed.gw170817_deviation_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]<br>Build completed successfully (1945 jobs).` |
+| `TrialityFixedSubalgebra.lean` | `lake build +TrialityFixedSubalgebra` | 0 | `warning: TrialityG2.lean:75:31: 'norm_num' tactic does nothing<br>Note: This linter can be disabled with `set_option linter.unusedTactic false`<br>Build completed successfully (1431 jobs).` |
+| `TrialityG2.lean` | `lake build +TrialityG2` | 0 | `warning: TrialityG2.lean:75:31: 'norm_num' tactic does nothing<br>Note: This linter can be disabled with `set_option linter.unusedTactic false`<br>Build completed successfully (1411 jobs).` |
+| `YettParadigm.lean` | `lake build +YettParadigm` | 0 | `Build completed successfully (769 jobs).` |
+| `lakefile.lean` | `lake build +lakefile` | 1 | `error: unknown module `lakefile`` |
+
+### TeX File Compile Investigations and Repairs
+
+#### TeX 1: `01_foundational_action/PAPER_01_MU_DERIVATION_ACTION.tex`
+- **Status**: Not changed (exit code 1)
+- **Missing input**: `figs/e8_sigil_codex.pdf`
+- **Filesystem search**: FOUND at:
+  - `/home/mega/aeon-work/brain/50_Mathematical_Notation/publication_preview/figs/e8_sigil_codex.pdf`
+  - `/home/mega/aeon-work/research/07_Domain_Tiers_and_Data/Datasets/research/00_CANONICAL/figs/e8_sigil_codex.pdf`
+  - `/home/mega/Chyren/Chyren_Second_Brain/50_Mathematical_Notation/publication_preview/figs/e8_sigil_codex.pdf`
+- **Reason not changed**: Per Task B instructions, the file was not copied or substituted, no `\includegraphics` was commented out, and draft mode was not enabled.
+
+#### TeX 2: `01_foundational_action/PRD_Relativistic_Extension.tex`
+- **Status**: Not changed (exit code 1)
+- **Missing input**: `PRD_supplementary/figures/cmb_power_spectrum.pdf`
+- **Filesystem search**: `NOT FOUND`
+  - Note: Only a PNG file exists at `/home/mega/aeon-work/research/07_Domain_Tiers_and_Data/Datasets/research/05_REFERENCES/mega_nz_cloud_only/PRD_Relativistic_Submission/PRD_Relativistic_Submission/PRD_supplementary/figures/cmb_power_spectrum.png`.
+- **Reason not changed**: Per Task B instructions, no figure was substituted, no `\includegraphics` was commented out, and draft mode was not enabled.
+
+#### TeX 3: `01_foundational_action/Res_Nova_Geometrically_Ordered_Dynamics_and_Information_Tension.tex`
+- **Status**: Fixed (compiles cleanly at exit code 0)
+- **Missing input**: Missing color `gold`
+- **Exact diff**:
+```diff
+--- a/01_foundational_action/Res_Nova_Geometrically_Ordered_Dynamics_and_Information_Tension.tex
++++ b/01_foundational_action/Res_Nova_Geometrically_Ordered_Dynamics_and_Information_Tension.tex
+@@ -12,2 +12,3 @@
+ \usepackage{xcolor}
++\definecolor{gold}{HTML}{E6B84C}
+```
+
+#### TeX 4: `03_observer_jwst/IO_OI_ACADEMIC.tex`
+- **Status**: Fixed (compiles cleanly at exit code 0)
+- **Missing input**: Missing math delimiter (`$`) due to unclosed/extraneous text in display math environment, and missing `gold` color
+- **Exact diff**:
+```diff
+--- a/03_observer_jwst/IO_OI_ACADEMIC.tex
++++ b/03_observer_jwst/IO_OI_ACADEMIC.tex
+@@ -6,2 +6,4 @@
+ \usepackage{amssymb}
++\usepackage{xcolor}
++\definecolor{gold}{HTML}{E6B84C}
+@@ -78,3 +80,2 @@
+-\begin{equation}
+-\label{eq:stiefel}
+ \vspace{10pt}
+@@ -83,2 +84,4 @@
+ \textbf{\textsf{Vacuum Manifold Classification:}}
++\begin{equation}
++\label{eq:stiefel}
+ \mathcal{M}_{\mathrm{vac}} = \frac{\mathrm{SO}(8)}{\mathrm{SO}(7)} \cong S^7, \quad \dim(\mathcal{M}_{\mathrm{vac}}) = 7
+```
+
+### Defects Found and Not Fixed
+FOUND, NOT FIXED: 05_lean_formalization/PillarIV_AntiDriftGate.lean is present on disk but omitted from roots in lakefile.lean; contains 3 unproven sorry statements (lines 146, 156, 170).
+FOUND, NOT FIXED: 05_lean_formalization/lakefile.lean is a package configuration script, not a declared module root; lake build +lakefile fails with exit code 1.
+FOUND, NOT FIXED: 01_foundational_action/PRD_Relativistic_Extension.tex requires PRD_supplementary/figures/cmb_power_spectrum.pdf, but only a PNG format image exists on disk.

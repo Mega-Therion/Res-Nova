@@ -1,0 +1,35 @@
+{
+  "generated": "2026-09-02",
+  "data_dir": "/home/mega/aeon-work/research/07_Domain_Tiers_and_Data/Datasets/data/sparc_data",
+  "n_galaxies": 175,
+  "a0_horizon_m_s2": 1.0421152108506952e-10,
+  "a0_mond_empirical_m_s2": 1.2e-10,
+  "strict_GOD": {
+    "n": 175,
+    "median": 29.124125998290637,
+    "mean": 100.40343808002741,
+    "max": 3400.103812938861,
+    "frac_lt_1": 3,
+    "frac_lt_2": 11,
+    "frac_lt_5": 34
+  },
+  "strict_MOND": {
+    "n": 175,
+    "median": 35.518922949554494,
+    "mean": 116.96296974272498,
+    "max": 3722.324713168265,
+    "frac_lt_1": 4,
+    "frac_lt_2": 9,
+    "frac_lt_5": 30
+  },
+  "nuisance_GOD": {
+    "n": 175,
+    "median": 2.875853265006743,
+    "mean": 7.469143522790866,
+    "max": 86.42415424059419,
+    "frac_lt_1": 29,
+    "frac_lt_2": 68,
+    "frac_lt_5": 118
+  },
+  "note": "Strict: fixed a0, unit M/L, no distance rescaling. Nuisance: per-galaxy Yd, Yb (if bulge), fd with Gaussian priors; reduced chi2 = chi2_data/(N - Nfree)."
+}
