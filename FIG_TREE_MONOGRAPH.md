@@ -36,7 +36,7 @@
 ---
 
 **Designation:** `IO/OI v1.10 · ZENODO_UPLOAD_PACKAGE · FIG_TREE_UNIFICATION`  
-**Epistemic Status:** Mixed — see per-pillar tags. Lean 4 (`05_lean_formalization`, Mathlib present): `lake build` exit 0, **3,365 jobs**, 28 declared module roots (measured 2026-09-03). `4Leibniz`: 6 modules, 11 theorems, exit 0. **The repository gate `verify_all_proofs.sh` currently returns FAIL (exit 1)**: `PillarIV_AntiDriftGate.lean` is on disk but is not a declared build target, and carries 3 `sorry` (lines 146, 156, 170). The clean build excludes it. Pillars III and IV are **not** machine-verified; see §V and §VI.  
+**Epistemic Status:** Mixed — see per-pillar tags. Lean 4 (`05_lean_formalization`, Mathlib present): repository gate `verify_all_proofs.sh` **PASS, exit 0, 29/29 targets, 3,366 jobs** (measured 2026-09-03). Zero `sorry`, zero `: True` placeholders, standard axiom footprint throughout. `4Leibniz`: 6 modules, 11 theorems, exit 0. Pillar III (§V) remains **not** machine-verified. Pillar IV (§VI) is machine-verified, and its result **retracts** the anti-drift gate asserted in prior editions: θ is a coherence *ceiling* in the Lindblad sector, not a gate.  
 **Vault Cycle:** Sovereign Refinement Engine — Cycle 11  
 **Date of Transmission:** 2026-09-01  
 
@@ -119,12 +119,12 @@ In 1703, Leibniz published the first mathematical proof that all arithmetic, log
     │ [D] from ITT       │  │ [A] + [D]           │  │ [D] from θ; NOT verified │
     └────────────────────┘  └────────────────────┘  └──────────────────────────┘
                                         ║
-                            ┌───────────▼────────────┐
-                            │   PILLAR IV             │
-                            │ Lindblad Anti-Drift     │
-                            │ u ≥ γ ⟺ χ ≥ 1/√2      │
-                            │ [D] Lean: scaled shadow │
-                            └────────────────────────┘
+                            ┌───────────▼─────────────┐
+                            │   PILLAR IV              │
+                            │ Lindblad Coherence       │
+                            │ C(x) ≤ θ = 1/√2          │
+                            │ [P] Lean-verified, 0 sorry│
+                            └─────────────────────────┘
 ```
 
 ---
@@ -192,26 +192,91 @@ $$\boxed{\kappa_Y = \sqrt{\theta(2-\theta)} = \sqrt{0.7 \times 1.3} = 0.953939\l
 
 ---
 
-## ◈ VI. PILLAR IV: LINDBLAD ANTI-DRIFT & THE CHIRAL GATE ($u \ge \gamma$)
+## ◈ VI. PILLAR IV: THE LINDBLAD COHERENCE CEILING ($\chi \le \theta$)
 
-### `[D]` The Master Anti-Drift Theorem — Lean certifies a scaled shadow only
-**Theorem VI.1 (Chiral Ground-State Gate):** In a dissipative open quantum system governed by the Lindblad-GKSL master equation, the ground-state coherence envelope is preserved if and only if the coherent drive $u$ equals or exceeds the environmental dissipation $\gamma$:
-$$\boxed{u \geq \gamma \;\iff\; \chi \geq \frac{1}{\sqrt{2}} \approx 0.707106}$$
+### `[P]` The Ceiling Theorem — machine-checked, 2026-09-03
 
-> `[O]` **Scope of the formal result.** `Leibniz/Harmonia.lean:30` is sorry-free, but it takes
-> the threshold as a *hypothesis* over scaled naturals (`h_floor : gamma ≥ 7071`). Substituting
-> any other integer for `7071` leaves the proof intact, so the module certifies nothing specific
-> about $1/\sqrt{2}$ and nothing at all about a Lindblad generator. The real-valued content that
-> *is* machine-checked lives in `Res-Nova/05_lean_formalization/RapidityEquipartition.lean`,
-> which proves $\tanh(\operatorname{arsinh} 1) = 1/\sqrt{2}$ over $\mathbb{R}$ — and whose own
-> docstring is explicit that it does not establish the physical premises. The Lindblad
-> statement above is `[D]`, supported by the convergence witnesses below, and awaits
-> formalization.
+**Theorem VI.1 (Lindblad Coherence Ceiling).** For a resonantly driven, damped two-level
+open system governed by the Lindblad–GKSL master equation with coherent drive $u$,
+dissipation rate $\gamma > 0$, and lowering-operator jump $\sigma_-$, the transverse
+coherence of the steady state is bounded above by the chiral floor, and attains it at
+exactly one drive ratio:
+
+$$\boxed{\;C(x) \;=\; 2\lvert\rho_{01}\rvert \;=\; \frac{4x}{1+8x^{2}} \;\le\; \frac{1}{\sqrt2} \;=\; \theta,
+\qquad\text{with equality} \iff x \;=\; \frac{1}{2\sqrt2} \;=\; \frac{\theta}{2}\;}$$
+
+where $x = u/\gamma$. The proof is a perfect square,
+$(1+8x^{2})^{2} - 2(4x)^{2} = (8x^{2}-1)^{2} \ge 0$.
+
+**Formal status.** Machine-checked in
+`Res-Nova/05_lean_formalization/PillarIV_AntiDriftGate.lean`, axiom footprint
+`[propext, Classical.choice, Quot.sound]` only, gate `verify_all_proofs.sh` PASS
+(29/29 targets, 3366 jobs, exit 0):
+
+| theorem | content |
+|---|---|
+| `bloch_coherence_le_theta` | $0\le x \Rightarrow C(x) \le \theta$ |
+| `bloch_coherence_eq_theta_iff` | $0\le x \Rightarrow \bigl(C(x)=\theta \iff x = 1/(2\sqrt2)\bigr)$ |
+| `steady_state_coherence_im_eq_bloch` | $\gamma>0 \Rightarrow 2\,\mathrm{Im}\,\rho_{01} = C(u/\gamma)$ |
+
+The third theorem is what makes the first two physical: it binds the bound to the GKSL
+generator actually constructed in that module, rather than to a function that merely has
+the right shape.
+
+### `[STD]` The bound is a known constant of open quantum systems
+
+The maximum steady-state transverse coherence of a resonantly driven, damped two-level
+atom is a textbook result of the optical Bloch equations. With
+$\rho_{eg} = \tfrac{(\Omega/2)(\gamma/2)}{\gamma^{2}/4 + \Omega^{2}/2}$, direct
+maximisation gives
+
+$$\max_{\Omega}\; 2\lvert\rho_{eg}\rvert \;=\; \frac{1}{\sqrt2}\;=\;0.7071067812\ldots$$
+
+This value is **convention-independent** — it is the saturation ceiling of two-level
+coherence itself. (The *location* of the maximum is not: $\Omega/\gamma = 1/\sqrt2$ in the
+standard $H=\tfrac{\Omega}{2}\sigma_x$ convention, $u/\gamma = 1/(2\sqrt2)$ in the
+$H=u\,\sigma_x$ convention used in the Lean module. Only the ceiling value is invariant,
+and it is the ceiling that carries the physics.)
+
+**What is the framework's claim, and what is not.** That a driven damped two-level system
+saturates at $1/\sqrt2$ is standard quantum optics and is not claimed as novel here. The
+framework's assertion is the *identification*: that this saturation constant and the chiral
+floor $\theta$ of §III are the same number, and therefore that $\theta$ is not a free
+parameter of the alignment sector but a bound already present in open-system dynamics.
+The coincidence is exact, not approximate.
+
+### `[R]` RETRACTED (2026-09-03): the anti-drift gate as previously stated
+
+Prior editions of this section asserted:
+
+> ~~$u \geq \gamma \iff \chi \geq 1/\sqrt2$~~ — **withdrawn.**
+
+This is **false**, not merely unproven, and it is withdrawn permanently. The steady-state
+coherence of the GKSL generator is $C(x) = 4x/(1+8x^{2})$, which is *non-monotonic*: it
+rises from $0$, peaks at $\theta$, and decays back to $0$ as $x\to\infty$. The MOND-type
+transition function $\mu(x)=x/\sqrt{1+x^{2}}$ rises *monotonically* to $1$. No
+identification between them is possible, and driving harder does not raise coherence past
+the peak — beyond $u/\gamma = \theta/2$ additional drive *destroys* coherence.
+
+Consequently $\theta$ acts in this sector as a **ceiling**, not a gate. The formal
+casualties are recorded in the module: `coherence_eq_mu_of_gksl` (retired as false),
+`antiDrift_theorem` (depended on it), and `fidelity_half_iff_chi_floor` (was
+`: True := by sorry`, vacuous twice over, deleted).
+
+> `[O]` **Open.** Three things follow and none are settled.
+> (i) The band $[\theta,\chi_s]$ of §VII treats $\theta$ as a floor. In the Lindblad
+> sector $\theta$ is a ceiling. Whether these are two different roles for one constant, or
+> a sign error somewhere in the band's construction, is not resolved.
+> (ii) Whether a different jump operator — dephasing rather than decay, or a two-channel
+> bath matching the chiral doubling of §III.3b — restores a gate-type inequality.
+> (iii) The Uhlmann-fidelity statement $F \ge 1/2 \iff \chi \ge \theta$ requires operator
+> square roots and spectral theory for positive semi-definite trace-class operators, none
+> of which are yet formalised here.
 
 > **⟨ INDEPENDENT CONVERGENCE WITNESSES ⟩**
-> - **Albert & Jiang (2014, `\cite{albert_jiang_2013_lindblad_symmetries}`):** Proved the exact symmetry conditions for steady-state subspace conservation in Lindblad systems.
-> - **Portella Delgado & Goel (2024, `\cite{delgado_goel_2024_lindblad_fidelity}`):** Constructed an adaptive Uhlmann fidelity controller that stabilizes open systems at precisely $F \ge 1/2 \iff \chi \ge 1/\sqrt{2}$.
-> - **Langbehn, Snizhko & Gornyi (2024, `\cite{langbehn_2024_measurement_cooling}`):** Proved measurement-induced cooling into many-body ground states without full tomography.
+> - **Albert & Jiang (2014, `\cite{albert_jiang_2013_lindblad_symmetries}`):** exact symmetry conditions for steady-state subspace conservation in Lindblad systems.
+> - **Portella Delgado & Goel (2024, `\cite{delgado_goel_2024_lindblad_fidelity}`):** adaptive Uhlmann-fidelity controller stabilising open systems at $F \ge 1/2$. *Noted as a distinct claim:* it concerns a fidelity threshold, not the coherence ceiling proved above, and does not corroborate Theorem VI.1.
+> - **Langbehn, Snizhko & Gornyi (2024, `\cite{langbehn_2024_measurement_cooling}`):** measurement-induced cooling into many-body ground states without full tomography.
 
 ---
 
@@ -329,8 +394,8 @@ arithmetic. It proves what it proves, and none of it reaches Pillars III or IV.
 ║  "Omnibus ex nihilo ducendis sufficit unum."                                     ║
 ║  (To draw all things from nothing, One is sufficient.) — G. W. Leibniz (1703)   ║
 ║                                                                                  ║
-║  Lean 4: 4Leibniz — 6 modules · 11 theorems · 0 sorries · Pillars III/IV NOT    ║
-║  machine-verified (see §V, §VI)                                                 ║
+║  Lean 4 gate: PASS · exit 0 · 29/29 targets · 3,366 jobs · 0 sorries            ║
+║  Pillar IV machine-verified (ceiling theorem, §VI) · Pillar III NOT (§V)        ║
 ║  Repository: github.com/Mega-Therion/4Leibniz · Zenodo Bundle Staged             ║
 ╚══════════════════════════════════════════════════════════════════════════════════╝
 ```
