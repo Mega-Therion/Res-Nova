@@ -245,35 +245,173 @@ theorem gksl_steady_state_exists (S : OpenSystem) :
   refine ⟨steady_state S.drive S.dissipation, steady_state_is_fixed_point S.drive S.dissipation,
           trace_steady_state S.drive S.dissipation S.dissipation_pos⟩
 
-/-- The steady-state coherence of an open system. -/
-noncomputable def steadyStateCoherence (S : OpenSystem) : ℝ :=
-  mu (S.drive / S.dissipation)
+/-- The Bloch transverse coherence function C(x) = 4x / (1 + 8x^2) for x = u/gamma >= 0. -/
+noncomputable def blochCoherence (x : ℝ) : ℝ := 4 * x / (1 + 8 * x ^ 2)
 
-/-- **OPEN — the load-bearing premise (Task A.3).** The steady state of the GKSL generator
-has coherence `μ(u/γ)`.
+theorem bloch_denom_pos (x : ℝ) : 0 < 1 + 8 * x ^ 2 := by
+  have : 0 ≤ 8 * x ^ 2 := by nlinarith [sq_nonneg x]
+  linarith
 
-Mathematical obstacle: The off-diagonal coherence element of the concrete 2-level
-GKSL steady state is |ρ_{01}| = 2(u/γ) / (1 + 8(u/γ)^2), which is a rational
-saturation curve, whereas the MOND/chiral transition function μ(u/γ) = (u/γ) / √(1 + (u/γ)^2)
-is an algebraic square-root curve. The identification remains an open physical premise. -/
-theorem coherence_eq_mu_of_gksl (S : OpenSystem) :
-    steadyStateCoherence S = mu (S.drive / S.dissipation) := by
-  sorry
+theorem bloch_coherence_le_theta (x : ℝ) (hx : 0 ≤ x) :
+    blochCoherence x ≤ chiFloor := by
+  have hden : 0 < 1 + 8 * x ^ 2 := bloch_denom_pos x
+  have hsq2 : 0 < Real.sqrt 2 := Real.sqrt_pos.mpr zero_lt_two
+  have h_sq : (4 * x * Real.sqrt 2) ^ 2 ≤ (1 + 8 * x ^ 2) ^ 2 := by
+    have h1 : (4 * x * Real.sqrt 2) ^ 2 = 32 * x ^ 2 := by
+      calc (4 * x * Real.sqrt 2) ^ 2 = (4 * x) ^ 2 * (Real.sqrt 2) ^ 2 := mul_pow (4 * x) (Real.sqrt 2) 2
+      _ = (16 * x ^ 2) * 2 := by rw [Real.sq_sqrt zero_le_two]; ring
+      _ = 32 * x ^ 2 := by ring
+    have h2 : (1 + 8 * x ^ 2) ^ 2 - 32 * x ^ 2 = (8 * x ^ 2 - 1) ^ 2 := by ring
+    have h3 : 0 ≤ (8 * x ^ 2 - 1) ^ 2 := sq_nonneg (8 * x ^ 2 - 1)
+    linarith
+  have h_le : 4 * x * Real.sqrt 2 ≤ 1 + 8 * x ^ 2 := by
+    have h_lhs_nonneg : 0 ≤ 4 * x * Real.sqrt 2 := by
+      have : 0 ≤ 4 * x := by linarith
+      exact mul_nonneg this (le_of_lt hsq2)
+    have h_rhs_nonneg : 0 ≤ 1 + 8 * x ^ 2 := le_of_lt hden
+    have h_abs : |4 * x * Real.sqrt 2| ≤ |1 + 8 * x ^ 2| := (sq_le_sq).mp h_sq
+    rw [abs_of_nonneg h_lhs_nonneg, abs_of_nonneg h_rhs_nonneg] at h_abs
+    exact h_abs
+  have h1 : 4 * x ≤ (1 + 8 * x ^ 2) / Real.sqrt 2 := by
+    rw [le_div_iff₀ hsq2]
+    linarith [h_le]
+  dsimp [blochCoherence, chiFloor]
+  rw [div_le_iff₀ hden]
+  have h2 : (1 / Real.sqrt 2) * (1 + 8 * x ^ 2) = (1 + 8 * x ^ 2) / Real.sqrt 2 := by ring
+  rw [h2]
+  exact h1
 
-/-- **Theorem VI.1, conditional form.** Given the §2 premise, the anti-drift
-gate holds. -/
-theorem antiDrift_theorem (S : OpenSystem) :
-    chiFloor ≤ steadyStateCoherence S ↔ S.dissipation ≤ S.drive := by
-  rw [coherence_eq_mu_of_gksl S]
-  exact antiDrift_gate S.dissipation_pos S.drive_nonneg
+theorem bloch_coherence_eq_theta_iff (x : ℝ) (hx : 0 ≤ x) :
+    blochCoherence x = chiFloor ↔ x = 1 / (2 * Real.sqrt 2) := by
+  have hden : 0 < 1 + 8 * x ^ 2 := bloch_denom_pos x
+  have hsq2 : 0 < Real.sqrt 2 := Real.sqrt_pos.mpr zero_lt_two
+  constructor
+  · intro h
+    dsimp [blochCoherence, chiFloor] at h
+    have h_cross : 4 * x * Real.sqrt 2 = 1 + 8 * x ^ 2 := by
+      have h1 : (4 * x / (1 + 8 * x ^ 2)) * (1 + 8 * x ^ 2) = (1 / Real.sqrt 2) * (1 + 8 * x ^ 2) := by rw [h]
+      rw [div_mul_cancel₀ (4 * x) (ne_of_gt hden)] at h1
+      have h2 : 4 * x * Real.sqrt 2 = ((1 / Real.sqrt 2) * (1 + 8 * x ^ 2)) * Real.sqrt 2 := by rw [h1]
+      have h3 : ((1 / Real.sqrt 2) * (1 + 8 * x ^ 2)) * Real.sqrt 2 = 1 + 8 * x ^ 2 := by
+        calc ((1 / Real.sqrt 2) * (1 + 8 * x ^ 2)) * Real.sqrt 2 = ((1 + 8 * x ^ 2) / Real.sqrt 2) * Real.sqrt 2 := by ring
+        _ = 1 + 8 * x ^ 2 := div_mul_cancel₀ (1 + 8 * x ^ 2) (ne_of_gt hsq2)
+      rw [h3] at h2
+      exact h2
+    have h_sq_diff : (8 * x ^ 2 - 1) ^ 2 = 0 := by
+      have h_alg : (8 * x ^ 2 - 1) ^ 2 = (1 + 8 * x ^ 2) ^ 2 - (4 * x * Real.sqrt 2) ^ 2 := by
+        calc (8 * x ^ 2 - 1) ^ 2 = (1 + 8 * x ^ 2) ^ 2 - 32 * x ^ 2 := by ring
+        _ = (1 + 8 * x ^ 2) ^ 2 - (4 * x) ^ 2 * (Real.sqrt 2) ^ 2 := by rw [Real.sq_sqrt zero_le_two]; ring
+        _ = (1 + 8 * x ^ 2) ^ 2 - (4 * x * Real.sqrt 2) ^ 2 := by rw [← mul_pow]
+      rw [h_alg, ← h_cross]
+      ring
+    have h_root : 8 * x ^ 2 - 1 = 0 := sq_eq_zero_iff.mp h_sq_diff
+    have h_x2 : x ^ 2 = 1 / 8 := by linarith
+    have h_target_sq : (1 / (2 * Real.sqrt 2)) ^ 2 = 1 / 8 := by
+      calc (1 / (2 * Real.sqrt 2)) ^ 2 = 1 / (2 * Real.sqrt 2) ^ 2 := by ring
+      _ = 1 / (4 * (Real.sqrt 2) ^ 2) := by ring
+      _ = 1 / (4 * 2) := by rw [Real.sq_sqrt zero_le_two]
+      _ = 1 / 8 := by ring
+    have h_sq_eq : x ^ 2 = (1 / (2 * Real.sqrt 2)) ^ 2 := by rw [h_x2, h_target_sq]
+    have h_nonneg_target : 0 ≤ 1 / (2 * Real.sqrt 2) := by
+      have : 0 < 2 * Real.sqrt 2 := by linarith
+      exact le_of_lt (one_div_pos.mpr this)
+    have h_abs_eq : |x| = |1 / (2 * Real.sqrt 2)| := (sq_eq_sq_iff_abs_eq_abs x (1 / (2 * Real.sqrt 2))).mp h_sq_eq
+    rw [abs_of_nonneg hx, abs_of_nonneg h_nonneg_target] at h_abs_eq
+    exact h_abs_eq
+  · intro h
+    rw [h]
+    dsimp [blochCoherence, chiFloor]
+    have h_x_sq : (1 / (2 * Real.sqrt 2)) ^ 2 = 1 / 8 := by
+      calc (1 / (2 * Real.sqrt 2)) ^ 2 = 1 / (2 * Real.sqrt 2) ^ 2 := by ring
+      _ = 1 / (4 * (Real.sqrt 2) ^ 2) := by ring
+      _ = 1 / (4 * 2) := by rw [Real.sq_sqrt zero_le_two]
+      _ = 1 / 8 := by ring
+    have h_den : 1 + 8 * (1 / (2 * Real.sqrt 2)) ^ 2 = 2 := by
+      rw [h_x_sq]
+      ring
+    have h_num : 4 * (1 / (2 * Real.sqrt 2)) = 2 / Real.sqrt 2 := by
+      calc 4 * (1 / (2 * Real.sqrt 2)) = (4 * 1) / (2 * Real.sqrt 2) := by ring
+      _ = 2 / Real.sqrt 2 := by
+        have : (4 : ℝ) = 2 * 2 := by norm_num
+        rw [this]
+        have h_cancel : (2 * 2 * 1) / (2 * Real.sqrt 2) = 2 / Real.sqrt 2 := by
+          have h2ne : (2 : ℝ) ≠ 0 := by norm_num
+          have hsqne : Real.sqrt 2 ≠ 0 := ne_of_gt hsq2
+          field_simp
+        exact h_cancel
+    rw [h_den, h_num]
+    have h_div2 : (2 / Real.sqrt 2) / 2 = 1 / Real.sqrt 2 := by ring
+    exact h_div2
 
-/-- **OPEN.** The Uhlmann-fidelity form reported by Delgado & Goel (2024):
-`F ≥ 1/2 ↔ χ ≥ 1/√2`.
+theorem steady_state_coherence_im_eq_bloch (u gamma : ℝ) (hg : 0 < gamma) (_hu : 0 ≤ u) :
+    2 * ((steady_state u gamma) 0 1).im = blochCoherence (u / gamma) := by
+  dsimp [steady_state, blochCoherence]
+  have hg2 : 0 < gamma ^ 2 := sq_pos_of_pos hg
+  have hg_ne : gamma ≠ 0 := ne_of_gt hg
+  have h_den_r : 0 < gamma ^ 2 + 8 * u ^ 2 := by
+    have : 0 ≤ 8 * u ^ 2 := by nlinarith [sq_nonneg u]
+    linarith
+  have h_den_ne : gamma ^ 2 + 8 * u ^ 2 ≠ 0 := ne_of_gt h_den_r
+  have h_im_r01 : (Complex.I * (2 * (gamma : ℂ) * (u : ℂ)) / ((gamma : ℂ)^2 + 8 * (u : ℂ)^2)).im =
+      (2 * gamma * u) / (gamma ^ 2 + 8 * u ^ 2) := by
+    have h_den_C_eq : (gamma : ℂ) ^ 2 + 8 * (u : ℂ) ^ 2 = ((gamma ^ 2 + 8 * u ^ 2 : ℝ) : ℂ) := by
+      push_cast; rfl
+    have h_num_C_eq : Complex.I * (2 * (gamma : ℂ) * (u : ℂ)) = ((2 * gamma * u : ℝ) : ℂ) * Complex.I := by
+      push_cast; ring
+    rw [h_num_C_eq, h_den_C_eq]
+    rw [Complex.div_ofReal_im]
+    have : (((2 * gamma * u : ℝ) : ℂ) * Complex.I).im = 2 * gamma * u := by
+      simp only [Complex.mul_im, Complex.ofReal_re, Complex.ofReal_im, Complex.I_re, Complex.I_im]
+      ring
+    rw [this]
+  rw [h_im_r01]
+  have h_alg : 2 * ((2 * gamma * u) / (gamma ^ 2 + 8 * u ^ 2)) = (4 * gamma * u) / (gamma ^ 2 + 8 * u ^ 2) := by ring
+  rw [h_alg]
+  have h_div_scale : 4 * (u / gamma) / (1 + 8 * (u / gamma) ^ 2) =
+      (4 * (u / gamma) * gamma ^ 2) / ((1 + 8 * (u / gamma) ^ 2) * gamma ^ 2) := by
+    exact (mul_div_mul_right (4 * (u / gamma)) (1 + 8 * (u / gamma) ^ 2) (ne_of_gt hg2)).symm
+  rw [h_div_scale]
+  have h_num_eq : 4 * (u / gamma) * gamma ^ 2 = 4 * gamma * u := by
+    calc 4 * (u / gamma) * gamma ^ 2 = 4 * ((u / gamma) * gamma * gamma) := by ring
+    _ = 4 * (u * gamma) := by rw [div_mul_cancel₀ u hg_ne]
+    _ = 4 * gamma * u := by ring
+  have h_den_eq : (1 + 8 * (u / gamma) ^ 2) * gamma ^ 2 = gamma ^ 2 + 8 * u ^ 2 := by
+    have : (u / gamma) ^ 2 = u ^ 2 / gamma ^ 2 := div_pow u gamma 2
+    rw [this]
+    calc (1 + 8 * (u ^ 2 / gamma ^ 2)) * gamma ^ 2 = gamma ^ 2 + 8 * (u ^ 2 / gamma ^ 2 * gamma ^ 2) := by ring
+    _ = gamma ^ 2 + 8 * u ^ 2 := by rw [div_mul_cancel₀ (u ^ 2) (ne_of_gt hg2)]
+  rw [h_num_eq, h_den_eq]
 
-Mathematical obstacle: Formalizing Uhlmann fidelity F(ρ, σ) = (Tr√(√ρ σ √ρ))^2
-requires the operator square root and spectral theorem on density matrices, which are not yet formalized here. -/
-theorem fidelity_half_iff_chi_floor : True := by
-  sorry
+/-!
+### Task B: Status of the Former Identification `coherence_eq_mu_of_gksl`
+
+The earlier identification `steadyStateCoherence S = mu(u/gamma)` (and the derived
+`antiDrift_theorem`) has been retired.
+
+**Mathematical / Physical Reason:**
+1. Concrete GKSL Coherence: The transverse coherence of the physical 2-level GKSL steady state
+   is given by `C(x) = 2 |rho_{01}| = 4x / (1 + 8x^2)` for `x = u / gamma >= 0`.
+   This is non-monotonic: it rises from 0 to a maximum of `1/sqrt(2)` at `x = 1/(2*sqrt(2))`
+   and subsequently decays to 0 as `x -> infty`.
+2. MOND Transition Function: In contrast, `mu(x) = x / sqrt(1 + x^2)` is strictly monotonically
+   increasing from 0 to 1 as `x -> infty`.
+3. Conclusion: `C(x)` and `mu(x)` cannot be identified. Furthermore, `theta = 1/sqrt(2)` is a
+   **ceiling** for the physical system (`C(x) <= theta` everywhere), rather than a lower bound gate.
+   This ceiling is formalized rigorously above in `bloch_coherence_le_theta` and
+   `bloch_coherence_eq_theta_iff`.
+-/
+
+/-!
+### Task C: Status of `fidelity_half_iff_chi_floor`
+
+The placeholder declaration `fidelity_half_iff_chi_floor : True := by sorry` has been retired.
+
+**Formalization Requirements:**
+Formalizing the Uhlmann fidelity `F(rho, sigma) = (Tr sqrt(sqrt(rho) sigma sqrt(rho)))^2`
+and establishing the equivalence `F >= 1/2 <-> chi >= 1/sqrt(2)` requires operator square roots,
+polar decomposition, and spectral theory for positive semi-definite trace-class operators on
+finite-dimensional Hilbert spaces. No unproven `: True` placeholders are retained in this library.
+-/
 
 #print axioms mu_eq_tanh_arsinh
 #print axioms mu_one
@@ -282,5 +420,8 @@ theorem fidelity_half_iff_chi_floor : True := by
 #print axioms gksl_steady_state_exists
 #print axioms steady_state_is_fixed_point
 #print axioms trace_steady_state
+#print axioms bloch_coherence_le_theta
+#print axioms bloch_coherence_eq_theta_iff
+#print axioms steady_state_coherence_im_eq_bloch
 
 end PillarIV
