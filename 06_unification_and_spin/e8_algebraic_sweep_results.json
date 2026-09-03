@@ -1,7 +1,7 @@
 {
   "model_id": "C1",
   "gate_route": "E8 algebraic-number sweep with 1/\u221a2 correction",
-  "executed_at_utc": "2026-08-26T23:07:05.958006+00:00",
+  "executed_at_utc": "2026-09-03T04:43:53.397394+00:00",
   "root_count": 240,
   "inner_product_support": [
     "-2",

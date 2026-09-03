@@ -12,7 +12,7 @@
     "silver_ratio": "1 + sqrt(2)",
     "theta": "sqrt(2)/2"
   },
-  "executed_at_utc": "2026-08-26T23:06:59.840240+00:00",
+  "executed_at_utc": "2026-09-03T04:43:54.787189+00:00",
   "gate": "UFW-MATH-01 rapidity identities",
   "input_hashes": {
     "protocol": "bd1bf345f7fbe8081ef4f1f03a13c73bf50927c6523a1808357a54d9e22a6d1b"

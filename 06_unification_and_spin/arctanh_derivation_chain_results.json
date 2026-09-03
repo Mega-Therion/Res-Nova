@@ -1,7 +1,7 @@
 {
   "model_id": "C1",
   "title": "arctanh derivation chain",
-  "executed_at_utc": "2026-08-26T23:07:01.862408+00:00",
+  "executed_at_utc": "2026-09-03T04:43:53.316134+00:00",
   "fundamental_identity": {
     "statement": "arctanh(1/\u221a2) = arcsinh(1) = ln(1+\u221a2)",
     "theta": 0.7071067811865475,

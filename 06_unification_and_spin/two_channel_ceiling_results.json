@@ -16,7 +16,7 @@
     "theta": "sqrt(2)/2",
     "union_probability": "-1/2 + sqrt(2)"
   },
-  "executed_at_utc": "2026-08-26T23:07:01.210563+00:00",
+  "executed_at_utc": "2026-09-03T04:43:57.733395+00:00",
   "gate": "UFW-MATH-02 two-channel union algebra",
   "input_hashes": {
     "protocol": "bd1bf345f7fbe8081ef4f1f03a13c73bf50927c6523a1808357a54d9e22a6d1b"

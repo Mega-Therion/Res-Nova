@@ -39,7 +39,7 @@
     "consequence": "For any chosen target and specified fluxes, this identity can define a cancelling tau_top. It does not predict the target unless tau_top is independently derived and fixed.",
     "from_blueprint_ode": "tau_top = L_ms + L_cap - 2 a_star (E_ms + E_cap) at equilibrium"
   },
-  "executed_at_utc": "2026-08-26T23:07:02.084343+00:00",
+  "executed_at_utc": "2026-09-03T04:43:53.564355+00:00",
   "gate": "UFW-DYN horizon back-reaction closure",
   "input_hashes": {
     "protocol": "bd1bf345f7fbe8081ef4f1f03a13c73bf50927c6523a1808357a54d9e22a6d1b"
