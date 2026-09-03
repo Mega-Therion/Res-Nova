@@ -48,6 +48,7 @@ lean_lib «ResNovaFormal» where
     `ITActionClosure,
     `MuProjection,
     `PPNLimits,
+    `PillarIV_AntiDriftGate,
     `PrintAxioms,
     `PrintAxiomsD8,
     `RamanujanModularBounds,

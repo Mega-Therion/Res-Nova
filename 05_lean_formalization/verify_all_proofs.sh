@@ -47,6 +47,7 @@ TARGETS=(
   ITActionClosure.lean
   MuProjection.lean
   PPNLimits.lean
+  PillarIV_AntiDriftGate.lean
   PrintAxioms.lean
   PrintAxiomsD8.lean
   RamanujanModularBounds.lean
@@ -126,7 +127,10 @@ for f in "${TARGETS[@]}"; do
     grep -i "error" <<<"$out" | head -3 | sed 's/^/        /'
     fail=1; continue
   fi
-  if grep -q "uses 'sorry'" <<<"$out"; then
+  # Lean 4 emits: declaration uses `sorry`  (BACKTICKS, not single quotes).
+  # The old pattern used single quotes and never matched, so sorries passed
+  # straight through this gate. Match either quoting style.
+  if grep -qE "uses [\x27\x60]sorry[\x27\x60]" <<<"$out"; then
     echo "FAIL  $f — contains sorry"
     fail=1; continue
   fi

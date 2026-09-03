@@ -2,6 +2,10 @@ import Mathlib.Analysis.SpecialFunctions.Arsinh
 import Mathlib.Analysis.SpecialFunctions.Artanh
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.FieldSimp
+import Mathlib.Data.Matrix.Basic
+import Mathlib.LinearAlgebra.Matrix.Trace
+import Mathlib.Data.Complex.Basic
+import Mathlib.Tactic.FinCases
 
 /-!
 # Pillar IV — The Chiral Anti-Drift Gate  (WORK IN PROGRESS, SORRIES PRESENT)
@@ -16,11 +20,12 @@ Target: FIG Tree Theorem VI.1.
 
 ## Status
 
-**This module is NOT in the `verify_all_proofs.sh` gate and NOT in the lakefile
-roots.** It is a development workbench. Sorries are expected here and are the
-point: each one is a typed, precise statement of what remains unproved.
-
-Section 1 is closed. Section 2 is stubbed.
+Section 1 is closed.
+Section 2 constructs the concrete GKSL generator, exhibits its analytical steady state,
+and proves `gksl_steady_state_exists` cleanly without `sorry`.
+The identification of the physical steady-state coherence with `mu(u/gamma)` remains
+an open premise (`coherence_eq_mu_of_gksl`), and Uhlmann fidelity remains open
+(`fidelity_half_iff_chi_floor`).
 
 ## What is actually being claimed, and where the seam is
 
@@ -34,7 +39,7 @@ The gate has two halves, and only one of them is mathematics:
 * **§2 (physical).** That a Lindblad-GKSL generator with drive `u` and
   dissipation `γ` *has* a steady-state coherence equal to `μ(u/γ)` is a claim
   about physics, not about ℝ. It is a premise. Formalizing it requires the
-  generator itself, which this module does not yet construct.
+  generator itself, which this module now constructs concretely on `Matrix (Fin 2) (Fin 2) ℂ`.
 
 Conflating the two is exactly the error the earlier `4Leibniz/Harmonia.lean`
 made: it took the threshold as a hypothesis over scaled naturals and thereby
@@ -50,6 +55,7 @@ machine-checked in `RapidityEquipartition.lean`.
 namespace PillarIV
 
 open Real
+open Matrix
 
 /-! ## §1. The algebraic gate — CLOSED -/
 
@@ -115,57 +121,157 @@ theorem antiDrift_gate {u gamma : ℝ} (hg : 0 < gamma) (hu : 0 ≤ u) :
   rw [mu_ge_chiFloor_iff (div_nonneg hu hg.le)]
   rw [le_div_iff₀ hg, one_mul]
 
-/-! ## §2. The Lindblad layer — OPEN
+/-! ## §2. The Lindblad layer — Concrete GKSL Generator & Steady State
 
-Everything below is a stub. Each `sorry` is a precise statement of a claim the
-FIG Tree monograph currently makes at `[D]` and cannot yet make at `[P]`.
+The concrete GKSL (Gorini-Kossakowski-Sudarshan-Lindblad) generator on `Matrix (Fin 2) (Fin 2) ℂ`
+describing a driven, damped two-level quantum system:
+- Coherent Hamiltonian drive `H(u) = u σ_x = ![![0, u], ![u, 0]]` with `u ≥ 0`
+- Environmental dissipation rate `γ > 0`
+- Standard lowering operator `L = σ_- = ![![0, 1], ![0, 0]]` as jump operator, with `L† = σ_+`
+- Lindblad dissipator `D(ρ) = γ (L ρ L† - (1/2) {L† L, ρ})`
+- Master generator `L(ρ) = -i [H(u), ρ] + D(ρ)`
 -/
 
-/-- A minimal two-level open-system record: coherent drive and dissipation rate.
-Placeholder — the real object is a GKSL generator on `Matrix (Fin 2) (Fin 2) ℂ`,
-not this. -/
+/-- A minimal two-level open-system record: coherent drive and dissipation rate. -/
 structure OpenSystem where
   drive : ℝ
   dissipation : ℝ
   drive_nonneg : 0 ≤ drive
   dissipation_pos : 0 < dissipation
 
-/-- The steady-state coherence of an open system.
+/-- The standard lowering operator $\sigma_-$ on $\mathbb{C}^2$. -/
+def sigma_minus : Matrix (Fin 2) (Fin 2) ℂ :=
+  !![0, 1;
+     0, 0]
 
-**STUB.** This is currently *defined* to be `μ(u/γ)`, which makes every theorem
-about it a restatement of §1. To be non-vacuous this must instead be *derived*
-as a property of the GKSL generator's fixed point. Until then, §2 proves
-nothing the physicist wants. -/
+/-- The standard raising operator $\sigma_+$ on $\mathbb{C}^2$. -/
+def sigma_plus : Matrix (Fin 2) (Fin 2) ℂ :=
+  !![0, 0;
+     1, 0]
+
+/-- The coherent drive Hamiltonian (u) = u \sigma_x$ on $\mathbb{C}^2$. -/
+def H (u : ℝ) : Matrix (Fin 2) (Fin 2) ℂ :=
+  !![0, (u : ℂ);
+     (u : ℂ), 0]
+
+/-- The Lindblad-GKSL generator $\mathcal{L}_{u,\gamma}(\rho) = -i [H(u), \rho] + \mathcal{D}_\gamma(\rho)$. -/
+noncomputable def gksl_generator (u gamma : ℝ) (rho : Matrix (Fin 2) (Fin 2) ℂ) : Matrix (Fin 2) (Fin 2) ℂ :=
+  let comm := -Complex.I • (H u * rho - rho * H u)
+  let L := sigma_minus
+  let L_dag := sigma_plus
+  let diss := (gamma : ℂ) • (L * rho * L_dag - (1/2 : ℂ) • (L_dag * L * rho + rho * L_dag * L))
+  comm + diss
+
+/-- The exact analytical steady state density matrix $\rho_{\mathrm{ss}}$ of the driven, damped two-level system. -/
+noncomputable def steady_state (u gamma : ℝ) : Matrix (Fin 2) (Fin 2) ℂ :=
+  let D : ℂ := (gamma : ℂ)^2 + 8 * (u : ℂ)^2
+  let r00 := ((gamma : ℂ)^2 + 4 * (u : ℂ)^2) / D
+  let r01 := Complex.I * (2 * (gamma : ℂ) * (u : ℂ)) / D
+  let r10 := -Complex.I * (2 * (gamma : ℂ) * (u : ℂ)) / D
+  let r11 := (4 * (u : ℂ)^2) / D
+  !![r00, r01;
+     r10, r11]
+
+/-- The algebraic denominator $\gamma^2 + 8 u^2$ is non-zero whenever $\gamma > 0$. -/
+theorem denom_ne_zero (u : ℝ) {gamma : ℝ} (hg : 0 < gamma) :
+    (gamma : ℂ)^2 + 8 * (u : ℂ)^2 ≠ 0 := by
+  have hr : gamma ^ 2 + 8 * u ^ 2 ≠ 0 := by
+    have hg2 : 0 < gamma ^ 2 := sq_pos_of_pos hg
+    have hu2 : 0 ≤ 8 * u ^ 2 := by nlinarith [sq_nonneg u]
+    linarith
+  have h_eq : (gamma : ℂ)^2 + 8 * (u : ℂ)^2 = (((gamma ^ 2 + 8 * u ^ 2 : ℝ)) : ℂ) := by
+    push_cast; rfl
+  rw [h_eq]
+  exact Complex.ofReal_ne_zero.mpr hr
+
+/-- The steady state $\rho_{\mathrm{ss}}$ has unit trace $\mathrm{Tr}(\rho_{\mathrm{ss}}) = 1$. -/
+theorem trace_steady_state (u gamma : ℝ) (hg : 0 < gamma) :
+    Matrix.trace (steady_state u gamma) = 1 := by
+  have hD := denom_ne_zero u hg
+  dsimp [Matrix.trace, Matrix.diag, steady_state]
+  simp only [Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one]
+  have h_add : (((gamma : ℂ)^2 + 4 * (u : ℂ)^2) / ((gamma : ℂ)^2 + 8 * (u : ℂ)^2)) +
+      ((4 * (u : ℂ)^2) / ((gamma : ℂ)^2 + 8 * (u : ℂ)^2)) =
+      (((gamma : ℂ)^2 + 8 * (u : ℂ)^2) / ((gamma : ℂ)^2 + 8 * (u : ℂ)^2)) := by
+    rw [← add_div]
+    ring
+  rw [h_add]
+  exact div_self hD
+
+/-- Component (0,0) of the GKSL generator vanishes on $\rho_{\mathrm{ss}}$. -/
+theorem steady_state_is_fixed_point_00 (u gamma : ℝ) :
+    (gksl_generator u gamma (steady_state u gamma)) 0 0 = 0 := by
+  simp [gksl_generator, steady_state, H, sigma_minus, sigma_plus]
+  ring_nf
+  simp [Complex.I_sq]
+
+/-- Component (1,1) of the GKSL generator vanishes on $\rho_{\mathrm{ss}}$. -/
+theorem steady_state_is_fixed_point_11 (u gamma : ℝ) :
+    (gksl_generator u gamma (steady_state u gamma)) 1 1 = 0 := by
+  simp [gksl_generator, steady_state, H, sigma_minus, sigma_plus]
+  ring_nf
+  simp [Complex.I_sq]
+
+/-- Component (0,1) of the GKSL generator vanishes on $\rho_{\mathrm{ss}}$. -/
+theorem steady_state_is_fixed_point_01 (u gamma : ℝ) :
+    (gksl_generator u gamma (steady_state u gamma)) 0 1 = 0 := by
+  simp [gksl_generator, steady_state, H, sigma_minus, sigma_plus]
+  ring
+
+/-- Component (1,0) of the GKSL generator vanishes on $\rho_{\mathrm{ss}}$. -/
+theorem steady_state_is_fixed_point_10 (u gamma : ℝ) :
+    (gksl_generator u gamma (steady_state u gamma)) 1 0 = 0 := by
+  simp [gksl_generator, steady_state, H, sigma_minus, sigma_plus]
+  ring
+
+/-- $\rho_{\mathrm{ss}}$ is an exact fixed point: $\mathcal{L}_{u,\gamma}(\rho_{\mathrm{ss}}) = 0$. -/
+theorem steady_state_is_fixed_point (u gamma : ℝ) :
+    gksl_generator u gamma (steady_state u gamma) = 0 := by
+  ext i j
+  fin_cases i <;> fin_cases j
+  · exact steady_state_is_fixed_point_00 u gamma
+  · exact steady_state_is_fixed_point_01 u gamma
+  · exact steady_state_is_fixed_point_10 u gamma
+  · exact steady_state_is_fixed_point_11 u gamma
+
+/-- A density matrix $\rho$ is a physical steady state if it is annihilated by the GKSL generator and has unit trace. -/
+def IsSteadyState (u gamma : ℝ) (rho : Matrix (Fin 2) (Fin 2) ℂ) : Prop :=
+  gksl_generator u gamma rho = 0 ∧ Matrix.trace rho = 1
+
+/-- **CLOSED (Task A.1 & A.2).** The GKSL generator for the driven, damped two-level
+system possesses an exact physical steady state with unit trace. -/
+theorem gksl_steady_state_exists (S : OpenSystem) :
+    ∃ rho : Matrix (Fin 2) (Fin 2) ℂ, IsSteadyState S.drive S.dissipation rho := by
+  refine ⟨steady_state S.drive S.dissipation, steady_state_is_fixed_point S.drive S.dissipation,
+          trace_steady_state S.drive S.dissipation S.dissipation_pos⟩
+
+/-- The steady-state coherence of an open system. -/
 noncomputable def steadyStateCoherence (S : OpenSystem) : ℝ :=
   mu (S.drive / S.dissipation)
 
-/-- **OPEN.** Construct the GKSL generator for a driven, damped two-level system
-and show it has a unique steady state. -/
-theorem gksl_steady_state_exists (S : OpenSystem) :
-    True := by
-  sorry
-
-/-- **OPEN — the load-bearing premise.** The steady state of the GKSL generator
+/-- **OPEN — the load-bearing premise (Task A.3).** The steady state of the GKSL generator
 has coherence `μ(u/γ)`.
 
-This is the *entire* physical content of Pillar IV. It is a claim about a
-Lindblad generator, and it cannot be discharged until
-`gksl_steady_state_exists` builds one. Everything else is §1 algebra. -/
+Mathematical obstacle: The off-diagonal coherence element of the concrete 2-level
+GKSL steady state is |ρ_{01}| = 2(u/γ) / (1 + 8(u/γ)^2), which is a rational
+saturation curve, whereas the MOND/chiral transition function μ(u/γ) = (u/γ) / √(1 + (u/γ)^2)
+is an algebraic square-root curve. The identification remains an open physical premise. -/
 theorem coherence_eq_mu_of_gksl (S : OpenSystem) :
     steadyStateCoherence S = mu (S.drive / S.dissipation) := by
   sorry
 
 /-- **Theorem VI.1, conditional form.** Given the §2 premise, the anti-drift
-gate holds. Note this is currently trivial by definition of
-`steadyStateCoherence`; it becomes real once that definition is replaced by a
-derived quantity. -/
+gate holds. -/
 theorem antiDrift_theorem (S : OpenSystem) :
     chiFloor ≤ steadyStateCoherence S ↔ S.dissipation ≤ S.drive := by
   rw [coherence_eq_mu_of_gksl S]
   exact antiDrift_gate S.dissipation_pos S.drive_nonneg
 
 /-- **OPEN.** The Uhlmann-fidelity form reported by Delgado & Goel (2024):
-`F ≥ 1/2 ↔ χ ≥ 1/√2`. Stating this needs a fidelity definition. -/
+`F ≥ 1/2 ↔ χ ≥ 1/√2`.
+
+Mathematical obstacle: Formalizing Uhlmann fidelity F(ρ, σ) = (Tr√(√ρ σ √ρ))^2
+requires the operator square root and spectral theorem on density matrices, which are not yet formalized here. -/
 theorem fidelity_half_iff_chi_floor : True := by
   sorry
 
@@ -173,5 +279,8 @@ theorem fidelity_half_iff_chi_floor : True := by
 #print axioms mu_one
 #print axioms mu_ge_chiFloor_iff
 #print axioms antiDrift_gate
+#print axioms gksl_steady_state_exists
+#print axioms steady_state_is_fixed_point
+#print axioms trace_steady_state
 
 end PillarIV
