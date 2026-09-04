@@ -62,5 +62,6 @@ lean_lib «ResNovaFormal» where
     `TensorSpeed,
     `TrialityG2,
     `TrialityFixedSubalgebra,
-    `YettParadigm
+    `YettParadigm,
+    `RamanujanGapDerivation
   ]
