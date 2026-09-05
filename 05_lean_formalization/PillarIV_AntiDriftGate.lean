@@ -519,7 +519,7 @@ noncomputable def kappaBand (t : ℝ) : ℝ := Real.sqrt (twoChannelUnion t)
 /-- `kappa^2 + (1 - t)^2 = 1`: the ceiling and the unfired complement are legs of
 a unit hypotenuse. -/
 theorem kappaBand_sq_add_complement_sq {t : ℝ} (ht : t ∈ Set.Icc (0 : ℝ) 1) :
-    kappaBand t ^ 2 + (1 - t) ^ 2 = 2 := by
+    kappaBand t ^ 2 + (1 - t) ^ 2 = 1 := by
   simp only [Set.mem_Icc] at ht
   have hu : 0 ≤ twoChannelUnion t := by unfold twoChannelUnion; nlinarith [ht.1, ht.2]
   unfold kappaBand
