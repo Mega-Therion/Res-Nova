@@ -2,7 +2,7 @@
   "schema_version": "mvpc-claim-manifest-v1",
   "claim_id": "O6",
   "title": "Clean-Worktree and CI Lean 4 Reproduction Gate",
-  "statement": "O6 — the historical VERIFICATION_RUN_007 record reports 17/17 PASS; the current repository gate has since been freshly rerun at 29/29 PASS with Lean v4.33.0-rc1 and Mathlib 5eec30bc. Cold-runner and CI release-gate closure remain open.",
+  "statement": "O6 \u2014 the clean-worktree record VERIFICATION_RUN_007 reports 17/17 PASS at commit 07185a6, which was the full target inventory at that time. The current repository gate declares 30 targets and was rerun 2026-09-04 at 30/30 PASS, exit 0, under Lean v4.33.0-rc1 and Mathlib 5eec30bc, using a Mathlib checkout already present in .lake/packages. Cold-runner reproduction and a CI release gate remain open.",
   "epistemic_tier": "[O]",
   "status": "PARTIALLY_WALKED",
   "target_backend": "build_engineering",
@@ -18,15 +18,19 @@
     {
       "path": "assurance/evidence/res_nova_verify_release.log",
       "sha256": "4f048393f6aa9173ed0dcf7ded9d0b082c07e6b39047c2248ff3b90d045ec827"
+    },
+    {
+      "path": "assurance/evidence/gate_30_targets_2026-09-04.log",
+      "sha256": "32ae6a289ad23d361aebe1d905434597ad6aeee8583f900920a15a8c288501ba"
     }
   ],
   "verification": {
     "clean_worktree_walk": "PASS",
     "clean_worktree_commit": "07185a6",
     "verification_run": "VERIFICATION_RUN_007",
-      "target_count": "29/29 PASS (current gate); 17/17 PASS (historical O6 artifact)",
+    "target_count": "30/30 PASS (current warm-cache gate, 2026-09-04); 17/17 PASS (clean-worktree RUN_007 at 07185a6)",
     "pass": false,
-      "quarantine_reason": "Current local verification is fresh and passing, but cold-runner reproducibility and a CI release gate remain undemonstrated."
+    "quarantine_reason": "Current local verification is fresh and passing, but the clean-worktree walk covered 17 targets, not the present 30, and neither cold-runner reproducibility nor a CI release gate has been demonstrated."
   },
   "epistemic_boundary": {
     "scope": "Quarantined Engineering Gate [O].",
