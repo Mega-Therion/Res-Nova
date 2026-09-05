@@ -14,9 +14,13 @@ jobs:
         with:
           python-version: "3.11"
       - name: compile python scripts
-        run: python3 -m py_compile 02_galaxy_dynamics/*.py scripts/check_claim_consistency.py 05_lean_formalization/check_manuscript_inventory.py scripts/render_mvpc_fixtures.py scripts/run_mvpc_adapter.py 03_observer_jwst/gate2_inference.py
+        run: python3 -m py_compile 02_galaxy_dynamics/*.py scripts/check_claim_consistency.py scripts/validate_claim_registry.py scripts/generate_assurance_report.py scripts/validate_sparc_reproduction.py 05_lean_formalization/check_manuscript_inventory.py scripts/render_mvpc_fixtures.py scripts/run_mvpc_adapter.py 03_observer_jwst/gate2_inference.py
       - name: claim consistency
         run: python3 scripts/check_claim_consistency.py
+      - name: validate assurance claim registry
+        run: python3 scripts/validate_claim_registry.py
+      - name: validate Lean target inventory
+        run: python3 05_lean_formalization/check_target_inventory.py
       # Gate 2 inference framework. Runs against a DECLARED SYNTHETIC CONTROL
       # constructed inside the module, with a known right answer. No dataset,
       # no network, no empirical result, no claim-level promotion.

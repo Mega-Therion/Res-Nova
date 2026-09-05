@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0",
+  "registry_status": "initial",
+  "claims": [
+    {
+      "id": "CLM-01",
+      "wording": "The dual-channel action F_dual(x) = x^2/2 - x + ln(1+x) has derivative x/(1+x).",
+      "state": "formally-verified",
+      "assurance_level": "formal-algebraic",
+      "formal_artifacts": [
+        "05_lean_formalization/DualChannelDerivation.lean",
+        "05_lean_formalization/GODActionKinematics.lean"
+      ],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [
+        "The claim is an algebraic identity over the declared Lean types."
+      ],
+      "verification_commands": [
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
+      ],
+      "independent_witness": "assurance/evidence/res_nova_verify_final.log",
+      "limitations": "This does not establish physical uniqueness or empirical adequacy.",
+      "status_owner": "Res-Nova formalization maintainers"
+    },
+    {
+      "id": "CLM-03",
+      "wording": "The identification of a0 = cH0/(2*pi) from horizon-temperature matching remains an open normalization question.",
+      "state": "conditional",
+      "assurance_level": "literature-plus-open-problem",
+      "formal_artifacts": [],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [
+        "The cited Unruh and Gibbons-Hawking temperature relations are accepted as external background results."
+      ],
+      "verification_commands": [
+        "python3 scripts/check_claim_consistency.py"
+      ],
+      "independent_witness": "EPISTEMIC_BOUNDARY_v1.5.0.md",
+      "limitations": "No Lean theorem in the current formal suite derives the normalization from KMS or horizon matching.",
+      "status_owner": "Res-Nova theory maintainers"
+    },
+    {
+      "id": "CLM-04",
+      "wording": "The strict SPARC GOD run reports a median reduced chi-squared of approximately 29.12 across 175 galaxies.",
+      "state": "computed",
+      "assurance_level": "reproducible-computation",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "02_galaxy_dynamics/sparc_reproduce.py",
+        "02_galaxy_dynamics/SPARC_175_summary.json"
+      ],
+      "data_artifacts": [
+        "02_galaxy_dynamics/SPARC_175_GOD_fits.csv"
+      ],
+      "assumptions": [
+        "The declared strict tier fixes a0 and does not use per-galaxy nuisance freedom."
+      ],
+      "verification_commands": [
+        "python3 scripts/check_claim_consistency.py"
+      ],
+      "independent_witness": "02_galaxy_dynamics/SPARC_PARAMETER_BUDGET.md",
+      "limitations": "The strict result is a poor absolute fit and does not by itself establish physical validity or causality.",
+      "status_owner": "Res-Nova empirical maintainers"
+    },
+    {
+      "id": "CLM-05",
+      "wording": "The superseded historical 382-parameter SPARC fit must not be presented as the current canonical fit; the current matched Tier 1 comparison uses 374 GOD nuisance parameters.",
+      "state": "retracted",
+      "assurance_level": "governance-control",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "02_galaxy_dynamics/PARAMETER_LEDGER.json",
+        "02_galaxy_dynamics/NFW_CONSTRAINED.json"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "Parameter totals are interpreted according to the repository\u2019s tier definitions."
+      ],
+      "verification_commands": [
+        "python3 scripts/check_claim_consistency.py"
+      ],
+      "independent_witness": "CLAIM_EVIDENCE_LEDGER.md",
+      "limitations": "This record governs wording and comparison scope; it is not itself a new fit.",
+      "status_owner": "Res-Nova empirical maintainers"
+    },
+    {
+      "id": "CLM-08",
+      "wording": "The current Res-Nova Lean gate elaborates the declared target set with no detected sorry and only the declared standard Lean axiom footprint.",
+      "state": "formally-verified",
+      "assurance_level": "formal-elaboration",
+      "formal_artifacts": [
+        "05_lean_formalization/verify_all_proofs.sh",
+        "05_lean_formalization/lakefile.lean"
+      ],
+      "computational_artifacts": [
+        "assurance/evidence/res_nova_verify_final.log"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "The theorem hypotheses and typeclass or structure fields are accepted as stated; this gate does not validate their physical justification."
+      ],
+      "verification_commands": [
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
+      ],
+      "independent_witness": "05_lean_formalization/REPRODUCE.md",
+      "limitations": "The current gate declares 29 targets; lakefile.lean is configuration and is not a target. Formal elaboration is not empirical confirmation.",
+      "status_owner": "Res-Nova formalization maintainers"
+    },
+    {
+      "id": "CLM-15",
+      "wording": "RETRACTED: the anti-drift gate 'u >= gamma <=> chi >= theta' is false. The GKSL steady-state coherence C(x) = 4x/(1+8x^2) is non-monotonic, peaking at theta = 1/sqrt(2) at u/gamma = theta/2 and decaying thereafter, whereas mu(x) = x/sqrt(1+x^2) rises monotonically. theta is a ceiling on coherence, not a threshold gate. The identification of the steady-state coherence with mu(u/gamma) does not hold.",
+      "state": "retracted",
+      "assurance_level": "formal-refutation",
+      "formal_artifacts": [
+        "05_lean_formalization/PillarIV_AntiDriftGate.lean"
+      ],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [
+        "The driven damped two-level system is modelled by the standard GKSL generator with a single sigma_minus jump operator.",
+        "The coherence observable is the equatorial Bloch component of the analytic steady state."
+      ],
+      "verification_commands": [
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
+      ],
+      "independent_witness": "FIG_TREE_MONOGRAPH.md",
+      "limitations": "The ceiling C_max = theta is a standard optical-Bloch result. What remains a framework claim, and is not established here, is the identification of that maximum with the sovereign band constant theta. The Uhlmann fidelity statement 'F >= 1/2 <=> chi >= 1/sqrt(2)' is still open and is not formalized.",
+      "status_owner": "Res-Nova theory maintainers"
+    }
+  ]
+}

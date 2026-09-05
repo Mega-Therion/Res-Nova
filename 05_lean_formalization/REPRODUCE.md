@@ -11,10 +11,10 @@
 2. **Verify the pinned toolchain** (from `05_lean_formalization/lakefile.lean`):
    ```bash
    cd 05_lean_formalization
-   cat lakefile.lean | grep lean_version
+   cat lean-toolchain && lake --version && lean --version
    ```
-   The toolchain is pinned via `lean_version` in the lakefile. Elan will
-   auto-download the exact version on first `lake build`.
+   The toolchain is pinned in `lean-toolchain`. Elan will auto-download the exact
+   version when the project is first used.
 
 ## Fresh-Clone Reproduction Steps
 
@@ -29,7 +29,7 @@ cd 05_lean_formalization
 # 3. Download Mathlib build cache (saves ~30 min compile time)
 lake exe cache get
 
-# 4. Build all 17 modules
+# 4. Build all 30 declared targets
 lake build
 
 # 5. Verify axiom hygiene (no sorry, no admit, standard axioms only)
@@ -38,7 +38,7 @@ lake build
 
 ## Expected Output
 
-All 17 modules should compile with `exit code 0`. The axiom check should show
+All 30 declared targets should compile with `exit code 0`. The axiom check should show
 exclusive dependence on `[propext, Classical.choice, Quot.sound]` — the standard
 foundational axioms of Lean 4's type theory.
 
@@ -70,7 +70,7 @@ foundational axioms of Lean 4's type theory.
   from the Mathlib CI cache. Without it, `lake build` compiles all of Mathlib
   from source (~30-60 min depending on hardware).
 - **First `lake build` on a cold machine** (no host cache) has been demonstrated
-  once at commit `07185a6` (VERIFICATION_RUN_007, 17/17 PASS). It is not yet a
+  in the current pinned sandbox with Mathlib fetched (30/30 PASS). It is not yet a
   CI release gate — see OPEN_PROBLEMS_AND_TESTS.md O6.
 - **Not a CI release gate.** Running Lean in CI requires multi-GB Mathlib
   download. The recorded PASS was local. Do not pretend CI runs Lean until

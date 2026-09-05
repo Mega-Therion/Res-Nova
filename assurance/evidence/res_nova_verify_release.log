@@ -1,0 +1,155 @@
+[gate] TARGETS == lakefile roots (29 modules)
+building library (required for cross-module imports)…
+ℹ [3008/3080] Replayed GODActionKinematics
+info: GODActionKinematics.lean:49:0: 'GODTheory.dual_channel_poly_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GODActionKinematics.lean:50:0: 'GODTheory.aqual_simple_mu_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GODActionKinematics.lean:51:0: 'GODTheory.btfr_algebraic_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3051/3199] Replayed DeSitterExtremal
+warning: DeSitterExtremal.lean:74:57: Variable name `hr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3298/3366] Replayed MuProjection
+warning: MuProjection.lean:87:52: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3336/3366] Replayed PrintAxioms
+info: PrintAxioms.lean:17:0: 'ResNova.CovariantCompletion.raqual_superluminal_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:18:0: 'ResNova.CovariantCompletion.foliation_anchoring_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:19:0: 'ResNova.CovariantCompletion.disformal_gamma_ppn_unity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:20:0: 'ResNova.CovariantCompletion.preferred_frame_parameters_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:21:0: 'ResNova.CovariantCompletion.flrw_projected_gradient_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:22:0: 'ResNova.CovariantCompletion.no_dynamical_dark_energy_density' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [3337/3366] Replayed PrintAxiomsD8
+info: PrintAxiomsD8.lean:42:0: 'ResNova.TensorSpeed.c_T_sq_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:43:0: 'ResNova.TensorSpeed.maxwellian_c13_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:44:0: 'ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:45:0: 'ResNova.TensorSpeed.conformal_preserves_tensor_speed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:46:0: 'ResNova.TensorSpeed.physical_frame_tensor_speed_unity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:47:0: 'ResNova.TensorSpeed.gw170817_concordance' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3340/3366] Replayed RapidityEquipartition
+info: RapidityEquipartition.lean:54:0: 'RapidityEquipartition.arsinh_one_eq_log_one_add_sqrt_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RapidityEquipartition.lean:55:0: 'RapidityEquipartition.tanh_arsinh_one_eq_theta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RapidityEquipartition.lean:56:0: 'RapidityEquipartition.arsinh_one_eq_artanh_theta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RapidityEquipartition.lean:57:0: 'RapidityEquipartition.theta_odds_eq_silver_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3342/3366] Replayed SovereignSpinCeiling
+info: SovereignSpinCeiling.lean:34:0: 'SovereignSpinCeiling.two_theta_sub_theta_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SovereignSpinCeiling.lean:35:0: 'SovereignSpinCeiling.sovereign_spin_ceiling_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3343/3366] Replayed SkordisZlosnikEmbedding
+info: SkordisZlosnikEmbedding.lean:95:0: 'ResNova.SkordisZlosnik.sz_aqual_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:96:0: 'ResNova.SkordisZlosnik.dJ_dY_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:97:0: 'ResNova.SkordisZlosnik.sz_newtonian_limit_diff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:98:0: 'ResNova.SkordisZlosnik.sz_mond_limit_diff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:99:0: 'ResNova.SkordisZlosnik.sz_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:100:0: 'ResNova.SkordisZlosnik.sz_weak_field_lensing' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3344/3366] Replayed SovereignRegularity
+warning: SovereignRegularity.lean:71:43: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: SovereignRegularity.lean:85:22: Variable name `hθ_low` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hθ_low
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: SovereignRegularity.lean:85:39: Variable name `hθ_high` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hθ_high
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3346/3366] Replayed TensorSpeed
+info: TensorSpeed.lean:124:0: 'ResNova.TensorSpeed.c_T_sq_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:125:0: 'ResNova.TensorSpeed.maxwellian_c13_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:126:0: 'ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:127:0: 'ResNova.TensorSpeed.alpha_1_num_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:128:0: 'ResNova.TensorSpeed.alpha_1_den_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:129:0: 'ResNova.TensorSpeed.foster_jacobson_alpha_1_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:130:0: 'ResNova.TensorSpeed.disformal_photon_speed_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:131:0: 'ResNova.TensorSpeed.speed_ratio_unity_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:132:0: 'ResNova.TensorSpeed.speed_ratio_lt_one_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:133:0: 'ResNova.TensorSpeed.gw170817_deviation_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3347/3366] Replayed TrialityG2
+warning: TrialityG2.lean:48:10: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, Matrix.mul_apply, Matrix.transpose_apply, Fin.sum_univ_four, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: TrialityG2.lean:56:50: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, Matrix.mul_apply, Fin.sum_univ_four, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: TrialityG2.lean:75:31: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: TrialityG2.lean:75:31: 'norm_num' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ℹ [3364/3366] Replayed PillarIV_AntiDriftGate
+info: PillarIV_AntiDriftGate.lean:86:0: @le_div_iff₀ : ∀ {G₀ : Type u_1} [inst : GroupWithZero G₀] [inst_1 : PartialOrder G₀] [MulPosReflectLT G₀] {a b c : G₀},
+  0 < c → (a ≤ b / c ↔ a * c ≤ b)
+info: PillarIV_AntiDriftGate.lean:87:0: @div_le_iff₀ : ∀ {G₀ : Type u_1} [inst : GroupWithZero G₀] [inst_1 : PartialOrder G₀] [MulPosReflectLT G₀] {a b c : G₀},
+  0 < c → (b / c ≤ a ↔ b ≤ a * c)
+info: PillarIV_AntiDriftGate.lean:88:0: @one_le_div : ∀ {α : Type u_1} [inst : Semifield α] [inst_1 : PartialOrder α] [PosMulReflectLT α] {a b : α},
+  0 < b → (1 ≤ a / b ↔ b ≤ a)
+info: PillarIV_AntiDriftGate.lean:416:0: 'PillarIV.mu_eq_tanh_arsinh' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:417:0: 'PillarIV.mu_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:418:0: 'PillarIV.mu_ge_chiFloor_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:419:0: 'PillarIV.antiDrift_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:420:0: 'PillarIV.gksl_steady_state_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:421:0: 'PillarIV.steady_state_is_fixed_point' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:422:0: 'PillarIV.trace_steady_state' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:423:0: 'PillarIV.bloch_coherence_le_theta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:424:0: 'PillarIV.bloch_coherence_eq_theta_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:425:0: 'PillarIV.steady_state_coherence_im_eq_bloch' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (3366 jobs).
+OK    AXIOMS_V2.lean
+OK    CartanTrialityGenerations.lean
+OK    ChiralCellularDuality.lean
+OK    CosmologicalSector.lean
+OK    CovariantCompletion.lean
+OK    DeSitterExtremal.lean
+OK    DualChannelDerivation.lean
+OK    GODActionKinematics.lean
+OK    GenerationIndex.lean
+OK    Hamilgrangian.lean
+OK    HorizonScale.lean
+OK    ITActionClosure.lean
+OK    MuProjection.lean
+OK    PPNLimits.lean
+OK    PillarIV_AntiDriftGate.lean
+OK    PrintAxioms.lean
+OK    PrintAxiomsD8.lean
+OK    RamanujanModularBounds.lean
+OK    RelativisticStability.lean
+OK    RapidityEquipartition.lean
+OK    SOCasimirGenuine.lean
+OK    SovereignSpinCeiling.lean
+OK    SkordisZlosnikEmbedding.lean
+OK    SovereignRegularity.lean
+OK    SovereignSemiotics.lean
+OK    TensorSpeed.lean
+OK    TrialityFixedSubalgebra.lean
+OK    TrialityG2.lean
+OK    YettParadigm.lean
+
+verified: 29 / 29 target(s)
+RESULT: PASS
+NOTE: this certifies elaboration, absence of sorry, and a standard axiom
+      footprint. It does not certify that assumptions carried as typeclass
+      or structure fields are physically justified — see THEORY_ASSUMPTION_AUDIT.md.

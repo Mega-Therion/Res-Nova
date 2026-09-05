@@ -34,3 +34,6 @@ final_manuscript_PAGE-*.png
 final_manuscript_EXTRACTED.txt
 RES_NOVA_CANONICAL_EDITION_EXTRACTED.txt
 THE_ONE_PAGE_*_EXTRACTED.txt
+
+# assurance evidence logs are cited as claim witnesses and must be tracked
+!assurance/evidence/*.log

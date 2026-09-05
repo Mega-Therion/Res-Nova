@@ -33,3 +33,16 @@ RapidityEquipartition.lean       # rapidity equipartition
 # Physically adjacent to this paper's F_dual, but its results are presented in
 # HAMILGRANGIAN_CANONICAL.tex, not in this manuscript's Table 2.
 Hamilgrangian.lean
+
+# --- Information-theoretic spectral bounds ---
+# Not anchored to physics: RamanujanGapDerivation derives the spectral gap of a
+# Ramanujan graph from the Alon-Boppana bound, with the Petersen graph as a
+# concrete witness. It replaces an assumed `h_gap` hypothesis. Information, not
+# dynamics, so it is not a result of this manuscript.
+RamanujanGapDerivation.lean
+
+# --- FIG Tree monograph ---
+# The Lindblad coherence ceiling (chi <= theta) is Theorem VI.1 of
+# FIG_TREE_MONOGRAPH.md, not of this paper. The earlier identification of the
+# GKSL steady-state coherence with mu(u/gamma) is RETRACTED in that document.
+PillarIV_AntiDriftGate.lean

@@ -50,6 +50,7 @@ TARGETS=(
   PillarIV_AntiDriftGate.lean
   PrintAxioms.lean
   PrintAxiomsD8.lean
+  RamanujanGapDerivation.lean
   RamanujanModularBounds.lean
   RelativisticStability.lean
   RapidityEquipartition.lean

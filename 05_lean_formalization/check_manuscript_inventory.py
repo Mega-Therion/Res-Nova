@@ -108,7 +108,7 @@ def check_print_axioms() -> list[str]:
     """A #print axioms target must be declared in the same file, or imported."""
     errors: list[str] = []
     decl = re.compile(
-        r"^\s*(?:theorem|lemma|def|noncomputable def|abbrev)\s+(\S+)", re.M
+        r"\s*(?:noncomputable\s+)?(?:theorem|lemma|def|abbrev)\s+(\S+)"
     )
 
     for path in sorted(LEAN_DIR.glob("*.lean")):
@@ -118,7 +118,25 @@ def check_print_axioms() -> list[str]:
         targets = re.findall(r"#print\s+axioms\s+(\S+)", text)
         if not targets:
             continue
-        local = set(decl.findall(text))
+        # Declarations inside `namespace A.B` are addressable as `A.B.name`,
+        # `B.name`, or `name` from an enclosing scope. The old version compared
+        # against the bare name only, so every namespaced `#print axioms` in the
+        # suite was reported as unresolvable. Track the namespace stack and
+        # register every legal suffix.
+        local: set[str] = set()
+        stack: list[str] = []
+        for line in text.splitlines():
+            ns = re.match(r"\s*namespace\s+(\S+)", line)
+            if ns:
+                stack.append(ns.group(1)); continue
+            if re.match(r"\s*end\s+\S+", line) and stack:
+                stack.pop(); continue
+            d = decl.match(line)
+            if d:
+                name = d.group(1)
+                parts = ".".join(stack).split(".") if stack else []
+                for i in range(len(parts) + 1):
+                    local.add(".".join(parts[i:] + [name]))
         # A local import of a sibling module would also bring names into scope.
         imported = set(re.findall(r"^import\s+(\S+)", text, re.M))
         siblings = {p.stem for p in LEAN_DIR.glob("*.lean")}
