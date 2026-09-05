@@ -419,9 +419,52 @@ finite-dimensional Hilbert spaces. No unproven `: True` placeholders are retaine
 #print axioms antiDrift_gate
 #print axioms gksl_steady_state_exists
 #print axioms steady_state_is_fixed_point
+/-!
+### Theorem VI.2 — the floor and the ceiling pin a unique operating point
+
+Section VII of the monograph carries `theta` as the **floor** of the invariant band
+`[theta, kappa]`. Section VI proves `theta` is a **ceiling** on the Lindblad
+coherence. The monograph recorded that clash as open item (i): "two different
+roles for one constant, or a sign error somewhere".
+
+It is neither. The two statements are about different quantities that share the
+glyph `chi` -- section VII's is the invariance band, section VI's is the
+equatorial Bloch component of a steady state. But the question the monograph
+actually asked is answerable on its own terms: *if* the two are identified, what
+follows? Not a contradiction. A determination.
+
+`C x <= theta` is proved (`bloch_coherence_le_theta`). Imposing `theta <= C x`
+leaves `C x = theta`, and `bloch_coherence_eq_theta_iff` makes that equality hold
+at exactly one drive ratio. So the pair does not conflict -- together they delete
+every degree of freedom and name the operating point.
+
+Note `1 / (2 * sqrt 2) = (1 / sqrt 2) / 2 = theta / 2`: the drive-to-decay ratio
+that saturates the ceiling is half the ceiling itself. -/
+theorem coherence_pinned_by_floor_and_ceiling (x : ℝ) (hx : 0 ≤ x)
+    (hfloor : chiFloor ≤ blochCoherence x) :
+    blochCoherence x = chiFloor ∧ x = chiFloor / 2 := by
+  have heq : blochCoherence x = chiFloor :=
+    le_antisymm (bloch_coherence_le_theta x hx) hfloor
+  refine ⟨heq, ?_⟩
+  have hx' : x = 1 / (2 * Real.sqrt 2) := (bloch_coherence_eq_theta_iff x hx).mp heq
+  have hs : Real.sqrt 2 ≠ 0 := ne_of_gt (Real.sqrt_pos.mpr zero_lt_two)
+  rw [hx']
+  unfold chiFloor
+  field_simp
+
+/-- The saturating drive ratio is half the ceiling: `theta / 2`. Stated
+separately because it is the falsifiable content -- a number, not a bound. -/
+theorem saturating_ratio_eq_half_theta :
+    (1 : ℝ) / (2 * Real.sqrt 2) = chiFloor / 2 := by
+  have hs : Real.sqrt 2 ≠ 0 := ne_of_gt (Real.sqrt_pos.mpr zero_lt_two)
+  unfold chiFloor
+  field_simp
+
 #print axioms trace_steady_state
 #print axioms bloch_coherence_le_theta
 #print axioms bloch_coherence_eq_theta_iff
 #print axioms steady_state_coherence_im_eq_bloch
+#print axioms coherence_pinned_by_floor_and_ceiling
+#print axioms saturating_ratio_eq_half_theta
 
 end PillarIV

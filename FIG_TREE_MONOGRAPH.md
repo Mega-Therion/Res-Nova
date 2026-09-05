@@ -263,10 +263,37 @@ casualties are recorded in the module: `coherence_eq_mu_of_gksl` (retired as fal
 `antiDrift_theorem` (depended on it), and `fidelity_half_iff_chi_floor` (was
 `: True := by sorry`, vacuous twice over, deleted).
 
-> `[O]` **Open.** Three things follow and none are settled.
-> (i) The band $[\theta,\chi_s]$ of §VII treats $\theta$ as a floor. In the Lindblad
-> sector $\theta$ is a ceiling. Whether these are two different roles for one constant, or
-> a sign error somewhere in the band's construction, is not resolved.
+### `[P]` Theorem VI.2 — the floor and the ceiling pin a unique operating point
+
+The clash between §VII (where $\theta$ is a **floor**) and §VI (where $\theta$ is a
+**ceiling**) was previously recorded as open: *"two different roles for one constant, or a
+sign error somewhere."* It is neither, and it is now closed in both directions.
+
+**Diagnosis.** The two statements are about different quantities that share the glyph
+$\chi$. §VII's $\chi$ is the invariance band; §VI's is the equatorial Bloch component of a
+steady state. There is no sign error and no conflict, because there was never one object.
+
+**Determination.** The question the section actually asked is still answerable on its own
+terms: *if* the two are identified, what follows? Not a contradiction — a determination.
+$C(x) \le \theta$ is proved. Imposing the floor $\theta \le C(x)$ leaves
+
+$$C(x) = \theta \quad\text{and}\quad x \;=\; \frac{\theta}{2} \;=\; \frac{\sqrt{2}}{4},$$
+
+by antisymmetry and the equality case. Together the floor and the ceiling do not fight;
+they delete every degree of freedom and name the operating point. The drive-to-decay ratio
+that saturates the ceiling is **exactly half the ceiling itself**.
+
+Both facts are exact, not numerical: $\sup_x C(x) = \tfrac{\sqrt 2}{2} = \theta$ attained at
+$x = \tfrac{\sqrt 2}{4}$, verified symbolically and machine-checked as
+`coherence_pinned_by_floor_and_ceiling` and `saturating_ratio_eq_half_theta` in
+`05_lean_formalization/PillarIV_AntiDriftGate.lean`, axiom footprint
+$\{\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}\}$.
+
+Substitutability-tested: replacing $\theta/2$ with $\theta/3$ in the statement fails to
+elaborate (`unsolved goals`), so the proof is not closing on its own hypotheses.
+
+> `[O]` **Still open.** Two things, not three.
+> (i) *Closed — see Theorem VI.2 above.*
 > (ii) Whether a different jump operator — dephasing rather than decay, or a two-channel
 > bath matching the chiral doubling of §III.3b — restores a gate-type inequality.
 > (iii) The Uhlmann-fidelity statement $F \ge 1/2 \iff \chi \ge \theta$ requires operator
