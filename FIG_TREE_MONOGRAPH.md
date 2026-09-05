@@ -141,7 +141,44 @@ $$\boxed{a_0 = \frac{c H_0}{2\pi}}$$
 
 With $H_0 = 67.4\;\text{km/s/Mpc}$ (Planck 2018), this evaluates to $a_0^{\text{FIG}} = 1.042 \times 10^{-10}\;\text{m/s}^2$. With $H_0 = 73.0$ (SH0ES), $a_0^{\text{FIG}} = 1.129 \times 10^{-10}$. The Res-Nova SPARC fit over 171 galaxies measures $a_0^{\text{obs}} = (1.116 \pm 0.128_{\text{stat}} \pm 0.097_{\text{syst}}) \times 10^{-10}\;\text{m/s}^2$, which the derived value brackets across the current $H_0$ tension range.
 
-> `[O]` **Open.** Earlier editions printed $a_0^{\text{FIG}} = 1.09 \times 10^{-10}$ alongside $H_0 = 67.4$; those two are inconsistent — $1.09 \times 10^{-10}$ requires $H_0 \approx 70.5$. The derived and measured values agree only across the full $H_0$ tension interval, not at a single $H_0$. This is a weaker statement than a point prediction and is recorded as such.
+> **Correction retained.** Earlier editions printed $a_0^{\text{FIG}} = 1.09 \times 10^{-10}$ alongside $H_0 = 67.4$; those two are inconsistent — $1.09 \times 10^{-10}$ requires $H_0 \approx 70.5$. That pairing is withdrawn.
+
+### `[D]` III.1 — Read backwards, the relation is a cosmological probe
+
+Forward, the relation is weak: $a_0^{\text{FIG}}$ lands anywhere in
+$[1.0422, 1.1288] \times 10^{-10}$ across the $H_0$ tension interval, so agreement with
+$a_0^{\text{obs}}$ is bracketing, not prediction. Recorded honestly, that was an open item.
+
+But the relation is an equality, and an equality may be read from either end. Inverting it
+turns the *measurement* into the input:
+
+$$\boxed{H_0 = \frac{2\pi a_0}{c}}$$
+
+With $a_0^{\text{obs}} = (1.116 \pm 0.161) \times 10^{-10}\;\text{m/s}^2$ from 171 SPARC
+galaxies (stat and syst combined in quadrature):
+
+$$H_0^{\text{FIG}} = 72.2 \pm 10.4 \;\text{km/s/Mpc}$$
+
+This is an **independent determination of $H_0$ from galaxy rotation curves** — an observable
+with no CMB and no distance ladder in it. It sits $0.46\sigma$ from Planck 2018 and
+$0.08\sigma$ from SH0ES.
+
+**What this does and does not claim.** It does **not** resolve the Hubble tension: at
+$\pm 10.4$ the error bar spans both camps, and a central value nearer SH0ES at $0.08\sigma$
+is not evidence for SH0ES when Planck sits at $0.46\sigma$. Both are consistent. Anyone
+reporting this as support for the local value would be reading noise.
+
+What it does is move the weakness from the theory to the data. The relation is no longer
+"agrees across an interval"; it is a determination with a stated uncertainty, and that
+uncertainty is entirely $\sigma(a_0)$.
+
+**Falsifiability target.** Separating $67.4$ from $73.0$ at $2\sigma$ requires
+$\sigma(H_0) < 1.40$, hence $\sigma(a_0)/a_0 < 1.94\%$. The SPARC fit currently gives
+$14.39\%$. **A $7.4\times$ improvement in $a_0$ precision makes this route decisive**, and
+until then it is honestly indecisive. That is a number to aim at, not a hedge.
+
+Computed with CODATA $c$ and the IAU parsec; forward check reproduces
+$a_0(67.4) = 1.0422$ and $a_0(73.0) = 1.1288 \times 10^{-10}$.
 
 > **⟨ INDEPENDENT CONVERGENCE WITNESSES ⟩**
 > - **Darabi (2010, `\cite{darabi_2009_mond_horizon}`):** Independently derived $a_0 \sim c H_0$ from a cosmological Unruh horizon.
@@ -292,10 +329,50 @@ $\{\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}\}$.
 Substitutability-tested: replacing $\theta/2$ with $\theta/3$ in the statement fails to
 elaborate (`unsolved goals`), so the proof is not closing on its own hypotheses.
 
-> `[O]` **Still open.** Two things, not three.
-> (i) *Closed — see Theorem VI.2 above.*
-> (ii) Whether a different jump operator — dephasing rather than decay, or a two-channel
-> bath matching the chiral doubling of §III.3b — restores a gate-type inequality.
+### `[P]` Theorem VI.3 — the two-channel bath restores the gate
+
+Open item (ii) asked whether a different bath — dephasing, or a two-channel bath matching
+the chiral doubling of §III.3b — restores the gate the retraction destroyed. **It does**,
+and the reason is the same reason the original failed.
+
+A gate is an **iff**. An iff between a control parameter and an observable requires that
+observable to be *monotone* in the parameter. $C(x)$ is not: it climbs to $\theta$ and comes
+back down, so two different drive ratios yield the same coherence and no threshold on $C$
+can separate above from below. That is what killed `antiDrift_theorem`. No choice of
+threshold could have rescued it — the defect was the hump, not the number.
+
+The two-channel Bernoulli union is monotone. For two independent channels each firing with
+probability $t$,
+
+$$U(t) = 1 - (1-t)^2 = t(2-t), \qquad U'(t) = 2(1-t) > 0 \ \text{ on } (0,1),$$
+
+so $U$ is strictly increasing on $[0,1]$ and therefore *does* support an iff:
+$U(a) \le U(b) \iff a \le b$. **The chiral doubling is not decoration — doubling the channel
+is what buys back the gate.**
+
+The band ceiling is its square root, $\kappa = \sqrt{t(2-t)}$, which at $t = 7/10$ gives
+$\sqrt{91/100} = 0.953939\ldots$ — the corpus value, exactly. Two further exact facts fall
+out:
+
+$$\kappa^2 + (1-t)^2 = 1 \qquad\text{and}\qquad t \le \kappa(t) \ \text{ on } [0,1].$$
+
+The first is Pythagorean: $\kappa$ and the unfired complement $(1-t)$ are the legs of a
+**unit hypotenuse**. That is why a probability union produces a constant that behaves like a
+direction cosine rather than like a probability — the band ceiling is an angle in disguise.
+The second says the ceiling never falls below the parameter, with equality only at the
+degenerate endpoints $t \in \{0,1\}$.
+
+Machine-checked as `twoChannelUnion_strictMonoOn`, `twoChannel_gate`,
+`kappaBand_sq_add_complement_sq`, `theta_le_kappaBand` and `kappaBand_at_seven_tenths` in
+`05_lean_formalization/PillarIV_AntiDriftGate.lean`; axiom footprint
+$\{\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}\}$, zero `sorry`.
+
+> `[O]` **Still open.** One thing, not three.
+> (i) *Closed — Theorem VI.2.*
+> (ii) *Closed — Theorem VI.3.* What remains genuinely open is narrower than the original
+> question: whether the two-channel structure that restores the gate is the *physical* bath
+> of this system, or a separate combinatorial fact that happens to reproduce $\kappa$. The
+> algebra is settled; the identification is not.
 > (iii) The Uhlmann-fidelity statement $F \ge 1/2 \iff \chi \ge \theta$ requires operator
 > square roots and spectral theory for positive semi-definite trace-class operators, none
 > of which are yet formalised here.

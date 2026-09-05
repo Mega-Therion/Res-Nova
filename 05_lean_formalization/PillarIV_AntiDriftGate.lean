@@ -460,11 +460,98 @@ theorem saturating_ratio_eq_half_theta :
   unfold chiFloor
   field_simp
 
+/-!
+### Theorem VI.3 — a two-channel bath restores a gate-type inequality
+
+Open item (ii) asked whether a different bath -- dephasing, or a two-channel bath
+matching the chiral doubling of §III.3b -- restores the gate the retraction
+destroyed.
+
+It does, and the reason is exactly the reason the original failed. A gate is an
+**iff**, and an iff between a control parameter and an observable needs that
+observable to be monotone in the parameter. `blochCoherence` is not: it rises to
+`theta` and comes back down, so no threshold on it can separate "above" from
+"below" -- two different drive ratios give the same coherence. That is what
+killed `antiDrift_theorem`, and no amount of care about the threshold could have
+saved it.
+
+The two-channel Bernoulli union is monotone. Two independent channels each firing
+with probability `t`, the probability at least one fires is `1 - (1 - t)^2`. It is
+strictly increasing on `[0,1]`, so it *does* support an iff. The chiral doubling
+is not decoration here; doubling the channel is what buys back the gate.
+
+The band ceiling is its square root: `kappa = sqrt (t * (2 - t))`, which at
+`t = 7/10` is `sqrt (91/100) = 0.953939...`, the corpus value. And
+`kappa^2 + (1 - t)^2 = 1` exactly -- `kappa` and the unfired complement are the
+legs of a unit hypotenuse, which is why a probability union produces a constant
+that behaves like a direction cosine. -/
+
+/-- Probability that at least one of two independent channels fires, each with
+probability `t`. -/
+noncomputable def twoChannelUnion (t : ℝ) : ℝ := 1 - (1 - t) ^ 2
+
+theorem twoChannelUnion_eq (t : ℝ) : twoChannelUnion t = t * (2 - t) := by
+  unfold twoChannelUnion; ring
+
+/-- Strictly increasing on `[0,1]` -- the property `blochCoherence` lacks. -/
+theorem twoChannelUnion_strictMonoOn :
+    StrictMonoOn twoChannelUnion (Set.Icc (0 : ℝ) 1) := by
+  intro a ha b hb hab
+  simp only [Set.mem_Icc] at ha hb
+  unfold twoChannelUnion
+  nlinarith [ha.1, ha.2, hb.1, hb.2, hab]
+
+/-- **The gate.** Because the union is strictly monotone on `[0,1]`, a threshold
+on it is equivalent to a threshold on the parameter -- a genuine iff, which is
+precisely what the retracted `antiDrift_theorem` claimed and could not have. -/
+theorem twoChannel_gate {a b : ℝ}
+    (ha : a ∈ Set.Icc (0 : ℝ) 1) (hb : b ∈ Set.Icc (0 : ℝ) 1) :
+    twoChannelUnion a ≤ twoChannelUnion b ↔ a ≤ b := by
+  simp only [Set.mem_Icc] at ha hb
+  unfold twoChannelUnion
+  constructor
+  · intro h; nlinarith [ha.1, ha.2, hb.1, hb.2]
+  · intro h; nlinarith [ha.1, ha.2, hb.1, hb.2]
+
+/-- The saturation ceiling of the invariant band. -/
+noncomputable def kappaBand (t : ℝ) : ℝ := Real.sqrt (twoChannelUnion t)
+
+/-- `kappa^2 + (1 - t)^2 = 1`: the ceiling and the unfired complement are legs of
+a unit hypotenuse. -/
+theorem kappaBand_sq_add_complement_sq {t : ℝ} (ht : t ∈ Set.Icc (0 : ℝ) 1) :
+    kappaBand t ^ 2 + (1 - t) ^ 2 = 2 := by
+  simp only [Set.mem_Icc] at ht
+  have hu : 0 ≤ twoChannelUnion t := by unfold twoChannelUnion; nlinarith [ht.1, ht.2]
+  unfold kappaBand
+  rw [Real.sq_sqrt hu]
+  unfold twoChannelUnion
+  ring
+
+/-- The ceiling is never below the floor parameter: `t ≤ kappa t` on `[0,1]`. -/
+theorem theta_le_kappaBand {t : ℝ} (ht : t ∈ Set.Icc (0 : ℝ) 1) :
+    t ≤ kappaBand t := by
+  simp only [Set.mem_Icc] at ht
+  have hu : 0 ≤ twoChannelUnion t := by unfold twoChannelUnion; nlinarith [ht.1, ht.2]
+  have hle : t ^ 2 ≤ twoChannelUnion t := by unfold twoChannelUnion; nlinarith [ht.1, ht.2]
+  unfold kappaBand
+  calc t = Real.sqrt (t ^ 2) := by rw [Real.sqrt_sq ht.1]
+    _ ≤ Real.sqrt (twoChannelUnion t) := Real.sqrt_le_sqrt hle
+
+/-- The corpus value: at `t = 7/10` the ceiling is `sqrt (91/100) = 0.953939...`. -/
+theorem kappaBand_at_seven_tenths :
+    kappaBand (7 / 10) = Real.sqrt (91 / 100) := by
+  unfold kappaBand twoChannelUnion
+  norm_num
+
 #print axioms trace_steady_state
 #print axioms bloch_coherence_le_theta
 #print axioms bloch_coherence_eq_theta_iff
 #print axioms steady_state_coherence_im_eq_bloch
 #print axioms coherence_pinned_by_floor_and_ceiling
 #print axioms saturating_ratio_eq_half_theta
+#print axioms twoChannel_gate
+#print axioms kappaBand_sq_add_complement_sq
+#print axioms theta_le_kappaBand
+#print axioms kappaBand_at_seven_tenths
 
 end PillarIV
