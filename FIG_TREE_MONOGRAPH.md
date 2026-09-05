@@ -412,13 +412,48 @@ $$\begin{aligned}
 > $\ln 2$ remains a load-bearing constant elsewhere in the corpus ($\Omega_\Lambda = \ln 2$).
 > It is simply not a point of this band.
 
-**The reciprocal relation — `[O]`, not derived:**
-$$\chi_Y \times \kappa_Y = 0.674537\ldots \qquad \ln 2 = 0.693147\ldots$$
+### `[X]` VII.1 — the $\ln 2$ reciprocal relation is not merely underived, it is impossible
 
-These differ by $2.7\%$. Earlier editions wrote this as $\chi_{\text{floor}} \times
-\chi_{\text{ceil}} \approx \ln 2$, where the "$\approx$" concealed the gap. The near-miss is
-recorded here rather than deleted: it is **not yet derived**, and it is not a coincidence to be
-claimed either way until it is.
+$$\chi_Y \times \kappa_Y = 0.674537\ldots \qquad \ln 2 = 0.693147\ldots \qquad (2.68\% \text{ apart})$$
+
+Earlier editions wrote this as $\chi_{\text{floor}} \times \chi_{\text{ceil}} \approx \ln 2$,
+where the "$\approx$" concealed the gap, and later editions demoted it to `[O]` **not yet
+derived**. That status is now wrong in the other direction: no derivation can exist.
+
+The product is **algebraic**. With $\theta = 7/10$,
+
+$$\chi_Y \times \kappa_Y = \frac{1}{\sqrt2}\sqrt{\tfrac{7}{10}\cdot\tfrac{13}{10}}
+= \frac{\sqrt{182}}{20}, \qquad \text{minimal polynomial } 200x^2 - 91 .$$
+
+$\ln 2$ is **transcendental** (Lindemann–Weierstrass: were $\ln 2$ algebraic and non-zero,
+$e^{\ln 2} = 2$ would be transcendental, contradicting that $2$ is algebraic). An algebraic
+number cannot equal a transcendental one. The identity is therefore **impossible**, not
+pending — and "not yet derived" wrongly implies a derivation is out there waiting.
+
+**Objection considered, and answered.** Chyren raised the obvious attack when this was put
+to her adversarially: the argument assumes the endpoints are exactly those algebraic values,
+and collapses if the true $\theta$ is transcendental. Tested against both readings of
+$\theta$ that circulate in this corpus:
+
+| reading of $\theta$ | product | minimal polynomial | degree |
+|---|---|---|---|
+| $7/10$ (band ceiling) | $\sqrt{182}/20 = 0.674537$ | $200x^2 - 91$ | 2 |
+| $1/\sqrt2$ (`chiFloor` in Lean) | $2^{3/4}\sqrt{4-\sqrt2}/4 = 0.676097$ | $16x^4 + 8x^2 - 7$ | 4 |
+
+Both algebraic, because the algebraic numbers form a **field closed under radicals** — any
+$\theta$ that is rational or a radical yields an algebraic product. The escape route requires
+a transcendental $\theta$, and neither value in this corpus is one. The objection fails, and
+it fails for a stateable reason rather than by assertion.
+
+**What survives.** Her second point does stand as a limit on scope: this kills the *identity*
+$\chi_Y\kappa_Y = \ln 2$, not the weaker claim that some mediating map $\Phi$ sends one to the
+other. But no such $\Phi$ is proposed anywhere in the corpus, and "there exists a function
+taking $a$ to $b$" is true of every pair of reals — it is unfalsifiable and therefore not a
+claim. If a specific $\Phi$ is ever exhibited it can be judged then, on its own terms.
+
+$\ln 2$ remains load-bearing elsewhere ($\Omega_\Lambda = \ln 2$). It has no role in this
+band, and the $2.68\%$ proximity is recorded as **killed** rather than pending so that it is
+not rediscovered and re-argued.
 
 ---
 
