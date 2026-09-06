@@ -113,9 +113,9 @@ The balanced ternary quintuple $(+1, 0, -1, 0, +1)_{\mathrm{bal}\,3}$ evaluates 
 
 \subsection{Dissipative Holonomic Flow and Energy Decay}
 
-\begin{theorem}[ADCCL Trajectory Energy Monotonicity --- {\normalfont\texttt{[thm]}}]
+\begin{theorem}[Gr\"onwall energy-decay bound under an assumed spectral gap --- {\normalfont\texttt{[thm]}}]
 \label{thm:adccl}
-Let $E(t)$ denote the total geometric action energy over $\mathcal{M}_{\mathrm{vac}}$. Under Active Dissipative Curvature Control Loops (ADCCL) governing dissipative holonomic flow:
+Let $E(t)$ denote the total geometric action energy over $\mathcal{M}_{\mathrm{vac}}$. Assume a damping constant $\kappa^2>0$ governing dissipative holonomic flow. Then:
 \begin{equation}\label{eq:adccl}
   \frac{dE}{dt} \le -\kappa^2 E(t)
   \quad\Longrightarrow\quad
@@ -277,7 +277,7 @@ Full nonperturbative bridge: \textup{\texttt{[open]}}.
 \midrule
 AdS First Law $\Rightarrow$ Lin.\ GR & Holography (AdS) & [thm] & Published (Faulkner et al.\ 2014) \\
 SO$(N)$ Casimir Positivity & Algebra & [thm] & Lean 4 (0 errors) \\
-ADCCL Energy Monotonicity & Analysis & [thm] & Lean 4 (conditional Gronwall) \\
+Energy-decay bound & Analysis & [thm] & Lean 4 (conditional Gr\"onwall) \\
 BKM Conditional Regularity & PDE Regularity & [thm] & Lean 4 (assumes bounded $\omega$) \\
 Deligne Bound on $\tau(p)$ & Number Theory & [thm] & Published (Deligne 1974) \\
 Lie Algebra $\mathfrak{so}(m)$ Closure & Diff.\ Geometry & [thm] & Ambrose--Singer holonomy \\

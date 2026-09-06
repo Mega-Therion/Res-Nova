@@ -329,12 +329,12 @@ coinciding with SH0ES (2022): $H_0 = 73.04 \pm 1.04\;\mathrm{km\,s^{-1}\,Mpc^{-1
 \section{Erga: The Active Works}
 \label{sec:erga}
 
-Transitioning to \textit{Erga} (\textit{The Active Works}), we formalize the dynamic evolution of the geometrodynamic manifold under Active Dissipative Curvature Control Loops (ADCCL), the Deligne prime mode bounds, the conjectural acoustic overtone spectrum of the Ramanujan-Yett Hamiltonian, and Chladni nodal equilibrium under the Sovereign Invariant.
+Transitioning to \textit{Erga} (\textit{The Active Works}), we formalize the dynamic evolution of the geometrodynamic manifold under dissipative holonomic flow, the Deligne prime mode bounds, the conjectural acoustic overtone spectrum of the Ramanujan-Yett Hamiltonian, and Chladni nodal equilibrium under the Sovereign Invariant.
 
-\begin{theorem}[ADCCL energy decay --- Gr\"onwall form \textnormal{\texttt{[\color{cyan}cond]}}]
+\begin{theorem}[Energy-decay bound --- Gr\"onwall form \textnormal{\texttt{[\color{cyan}cond]}}]
 \label{thm:adccl}
 Let $E\in C^{1}([0,\infty);\mathbb{R}_{\ge0})$ denote the total geometric action energy
-of the ADCCL flow on $\mathcal{M}_{\mathrm{vac}}$, and let $t_*>0$ be a reference
+of the dissipative holonomic flow on $\mathcal{M}_{\mathrm{vac}}$, and let $t_*>0$ be a reference
 timescale of that flow. \emph{Assume} a dimensionless damping constant $\kappa^{2}>0$ with
 $\dot E(t)\le-(\kappa^{2}/t_*)\,E(t)$ for all $t\ge0$. Then Gr\"onwall's inequality gives
 the decay \emph{bound}
@@ -361,7 +361,7 @@ first-principles constant. (ii) $\kappa^2$ is dimensionless, so it cannot itself
 rate in an energy ODE; the timescale $t_*$ above is an \textbf{additional free parameter,
 not derived here} \texttt{[\color{cyan}open]}, and must be carried in the parameter budget.
 \\[0.05cm]
-\textbf{Route to a derived gap \texttt{[\color{cyan}open]}.} If the ADCCL dissipation
+\textbf{Route to a derived gap \texttt{[\color{cyan}open]}.} If the dissipation
 operator were a positive multiple of the Laplace--Beltrami operator of the normal
 homogeneous metric on $\mathcal{M}_{\mathrm{vac}}=\mathrm{SO}(57{,}600)/\mathrm{SO}(57{,}360)$,
 Frobenius reciprocity would give $\lambda_{1}\propto
@@ -975,7 +975,7 @@ The core physical and mathematical claims of the sovereign system satisfy the fo
 AdS First Law $\implies$ Lin. GR & \textbf{\texttt{[thm]}} & Published (Faulkner et al.\ 2014) \\
 $\mathfrak{so}(N)$ quadratic Casimir & \textbf{\texttt{[thm]}} & \texttt{SOCasimirGenuine.lean}; axiom-clean \\
 $\dim\,\mathfrak{so}(240)=28{,}680$ & \textbf{\texttt{[thm]}}/\textbf{\texttt{[cited]}} & Lean proves $240{\cdot}239/2$; $\binom{N}{2}$ cited \\
-ADCCL energy decay & \textbf{\texttt{[cond]}} & Gr\"onwall; gap $\kappa^2>0$ \textbf{\texttt{[conj]}}; $t_*$ \textbf{\texttt{[open]}} \\
+Energy decay & \textbf{\texttt{[cond]}} & Gr\"onwall; gap $\kappa^2>0$ \textbf{\texttt{[conj]}}; $t_*$ \textbf{\texttt{[open]}} \\
 BKM continuation criterion & \textbf{\texttt{[thm]}} & Published (Beale--Kato--Majda 1984, 3D Euler) \\
 \quad --- its Lean artefact & \textbf{\texttt{[cond]}} & Proves $\omega_{\sup}T\le BT$, \emph{not} the integral \\
 Deligne Bound on $\tau(p)$ & \textbf{\texttt{[thm]}} & Published (Deligne 1974/1968) \\

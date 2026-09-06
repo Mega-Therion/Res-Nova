@@ -447,7 +447,7 @@ The Lean~4 suite (\texttt{05\_lean\_}\allowbreak\texttt{formalization/}) compris
 \texttt{SkordisZlosnikEmbedding.lean} & Exact $\mathcal{J}(\mathcal{Y})$ embedding; $c_T = c$; weak-field lensing $\Phi = \Psi$ $\mathbf{[P]}$. \\
 \texttt{SovereignRegularity.lean} & Pointwise vorticity bounded by an assumed control field; \texttt{sovereign\_regularity\_theorem} restates that hypothesis. No integral and no PDE are formalized, so this is not the Beale--Kato--Majda criterion \cite{BealeKatoMajda1984} $\mathbf{[O]}$. \\
 \texttt{TensorSpeed.lean} & $c_{13} = 0$ identity; disformal falsification; $\alpha_1 = -2K$ $\mathbf{[P]}$. \\
-\texttt{YettParadigm.lean} & Positivity of an \emph{assumed} spectral gap $\kappa^2 \le \lambda_1-\lambda_0$; bounded ADCCL trajectories $\mathbf{[P]}$. \texttt{chiral\_phase\_stable} projects its own hypothesis: $\theta \ge 0.70$ is assumed, not proved $\mathbf{[O]}$. \\
+\texttt{YettParadigm.lean} & Positivity of an \emph{assumed} spectral gap $\kappa^2 \le \lambda_1-\lambda_0$; bounded dissipative trajectories $\mathbf{[P]}$. \texttt{chiral\_phase\_stable} projects its own hypothesis: $\theta \ge 0.70$ is assumed, not proved $\mathbf{[O]}$. \\
 \bottomrule
 \end{tabularx}
 \caption{Source inventory of all 18 Lean~4 modules, enumerated from the tracked contents of \texttt{05\_lean\_formalization/}. Three entries are diagnostic or assumption-declaring files rather than physics results. Physical-theory selection is never certified; Lean certifies only that mathematical statements follow from their encoded definitions, and not that assumptions carried as typeclass or structure fields are justified (see \texttt{THEORY\_ASSUMPTION\_AUDIT.md}).}
