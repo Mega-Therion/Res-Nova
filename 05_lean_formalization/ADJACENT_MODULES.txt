@@ -12,6 +12,17 @@
 
 # --- GUT / E8 generation-structure programme ---
 CartanTrialityGenerations.lean   # Spin(8) triality, generation counting
+GenerationCycleChirality.lean    # GUT/E8 programme: constructed order-3 cycle,
+                                 # orientation asymmetry (order-3 elements are
+                                 # never involutions). Companion to
+                                 # CartanTrialityGenerations; the link to
+                                 # physical generations is interpretation, not
+                                 # a result of this manuscript.
+ChiralHolonomyOrientation.lean   # GUT/E8 programme: orientation clause of the
+                                 # chiral-holonomy invariant; C3 witness where
+                                 # loop reversal differs from loop traversal.
+                                 # Companion to ChiralCellularDuality (whose
+                                 # involution is the degenerate case).
 TrialityG2.lean                  # G2 = triality-fixed subalgebra, finite facts
 TrialityFixedSubalgebra.lean     # exact characterisation of the fixed subspace
 ChiralCellularDuality.lean       # chiral cell structure
