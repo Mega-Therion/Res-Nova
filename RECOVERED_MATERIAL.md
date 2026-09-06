@@ -120,20 +120,43 @@ So the number entered the corpus as an **empirical engineering threshold**, and 
 **inherited** it. A trigonometric reading came afterwards:
 $\arccos(0.9539) = 0.3048$ rad $= 17.47°$, the maximum angular drift from anchor.
 
-**This bears directly on the ceiling formula.** The monograph derives
-$\kappa_Y = \sqrt{\theta(2-\theta)}$ at $\theta = 0.7$, giving 0.953939. Inverting:
-$\sqrt{\theta(2-\theta)} = 0.9539$ requires $\theta = 0.699875$ — i.e. exactly 0.7. But
-the corpus floor is $1/\sqrt2 = 0.707107$, and $\sqrt{\theta(2-\theta)}$ there gives
-**0.956145**, not 0.9539.
+**This applies to 0.9539 only — and there are TWO constants, not one.**
 
-Parameter accounting: matching 0.9539 to four decimals is ~13.3 bits of target; choosing
-one θ to two decimals spends ~6.6 bits, and choosing the formula spends the rest. **Net
-evidence ≈ 0.** The expression reproduces a number that was already on the desk.
+A genuine from-scratch derivation was carried out on 2026-08-26
+(`06_unification_and_spin/`, `SovereignSpinCeiling.lean`), and it produces a *different*
+number:
 
-This does not make 0.9539 wrong — it was empirically observed and is stated as such in
-RY's own note. It means the two-channel expression should be presented as a *consistent
-parameterisation* of an empirical constant, not as its derivation. The genesis note is
-the honest account and should be cited alongside any use of the ceiling.
+$$\psi = \operatorname{artanh}(a^*), \qquad \sinh\psi_0 = 1
+\;\Rightarrow\; \psi_0 = \ln(1+\sqrt2), \quad \gamma = \cosh\psi_0 = \sqrt2,
+\quad \theta = \tanh\psi_0 = \tfrac{1}{\sqrt2}$$
+
+$$\chi_s = \sqrt{2\theta-\theta^2} = \sqrt{\sqrt2 - \tfrac12} = 0.956145\ldots$$
+
+**Here $\theta = 1/\sqrt2$ is an output, not an input** — it falls out of the
+equipartition condition (relativistic momentum equal to rest mass). This chain was then
+tested against Kerr physics: at $\chi_s$ the matter spin-up torque exceeds Thorne (1974)
+equilibrium by a factor of 7, and the horizon radii close in exact surds
+($r_+ = 1+\tfrac{1}{\sqrt2}-\tfrac12$, $r_- = \tfrac{1}{\sqrt2}M$).
+
+**So the corpus holds two distinct constants with two distinct provenances:**
+
+| | value | status |
+|---|---|---|
+| $\chi_s$ (spin ceiling) | **0.956145** | **Derived** from rapidity equipartition; Thorne-tested |
+| $\kappa = \tau$ (ADCCL / Sovereign Invariant) | **0.9539** | **Empirical** threshold, adopted into GOD |
+
+They differ by 0.002245. The back-construction concern attaches to $\kappa$, **not** to
+$\chi_s$. The monograph's $\kappa_Y = \sqrt{\theta(2-\theta)}$ at $\theta = 0.7$ is
+reproducing the *empirical* number using a $\theta$ that is not the derived one — that is
+the source of the collision, and it should be stated as such rather than presented as one
+constant with one derivation.
+
+**Standing caveat on the derivation itself:** `rapidity_uniqueness_results.json` records
+`physical_selection_status: "NOT DERIVED"` — the condition $\sinh\psi = 1$ is *adopted*;
+no covariant Kerr action or conservation law is supplied that selects it. The algebra
+below that premise is exact to 100 decimal places. It is a conditional derivation, and
+the file says so.
+
 See `TWO_CHANNEL_CEILING_ANALYSIS.md`.
 
 ---
