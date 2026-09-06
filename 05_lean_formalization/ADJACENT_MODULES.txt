@@ -57,3 +57,19 @@ RamanujanGapDerivation.lean
 # FIG_TREE_MONOGRAPH.md, not of this paper. The earlier identification of the
 # GKSL steady-state coherence with mu(u/gamma) is RETRACTED in that document.
 PillarIV_AntiDriftGate.lean
+
+# --- The Chiral Crack (book manuscript: Res Nova — The Book) ---
+ChiralCrackSketch.lean           # Speculative companion, tag [O]: promotion-path
+                                 # item (a) of the section draft "The Chiral
+                                 # Crack: The Holonomic Loop and the
+                                 # Symmetry-Breaking Moment" (Notion, Res
+                                 # Nova: The Book — First Draft). Order-
+                                 # theoretic skeleton of the orientation-
+                                 # reversing return: the inevitable mismatch,
+                                 # order-exactly-two homecoming, and
+                                 # undoing-a-reflection-requires-a-reflection.
+                                 # Structural facts only — certifies no
+                                 # physical ontology, not a result of this
+                                 # manuscript. Verified compiling on the
+                                 # pinned toolchain (lean 4.33.0-rc1), no
+                                 # Mathlib, no sorry.
