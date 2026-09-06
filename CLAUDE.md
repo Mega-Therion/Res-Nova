@@ -38,9 +38,16 @@ python3 05_lean_formalization/check_target_inventory.py   # lakefile == gate == 
 python3 05_lean_formalization/check_manuscript_inventory.py  # manuscript == disk - adjacent
 ```
 
-`assurance/claims.json` covers 5 of the 14 claims in `CLAIM_EVIDENCE_LEDGER.md`. It is an
-initial publication-critical subset, not full coverage — do not describe a green registry
-as "all claims verified". The Pillar IV retraction is **not** yet a registry record.
+`assurance/claims.json` now covers **all 14 claims** in `CLAIM_EVIDENCE_LEDGER.md`, plus
+CLM-15 and CLM-16 (Pillar IV). A green registry means every ledger claim carries a state,
+its artifacts, its assumptions, a verification command and a stated limitation — it does
+**not** mean every claim is proved. Read the states: 7 formally-verified, 3 computed,
+2 conditional, 2 proposed, 2 retracted.
+
+Two states are load-bearing and easy to misread. `conditional` (CLM-10) means the algebra
+is exact but rests on an adopted premise — `sinh(psi)=1` is not selected by any covariant
+argument. `formally-verified` (CLM-11, CLM-13) means the *mathematics* is machine-checked,
+not that the physical identification holds; both records say so in `limitations`.
 
 A module in `05_lean_formalization/ADJACENT_MODULES.txt` is scoped out of the manuscript,
 never out of the gate. Everything on disk is built and checked.

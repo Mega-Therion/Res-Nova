@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "registry_status": "initial",
+  "registry_status": "expanded",
   "claims": [
     {
       "id": "CLM-01",
@@ -21,6 +21,26 @@
       ],
       "independent_witness": "assurance/evidence/res_nova_verify_final.log",
       "limitations": "This does not establish physical uniqueness or empirical adequacy.",
+      "status_owner": "Res-Nova formalization maintainers"
+    },
+    {
+      "id": "CLM-02",
+      "wording": "Transition from arcsinh(x) to mu_simple(x) = x/sqrt(1+x^2) via disk planar balance.",
+      "state": "proposed",
+      "assurance_level": "formalized-properties-only",
+      "formal_artifacts": [
+        "05_lean_formalization/MuProjection.lean"
+      ],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [
+        "mu_simple is taken as given; the Lean module verifies its properties once defined."
+      ],
+      "verification_commands": [
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
+      ],
+      "independent_witness": "assurance/evidence/res_nova_verify_final.log",
+      "limitations": "The variational necessity or physical derivation of this transition from the action is not established.",
       "status_owner": "Res-Nova formalization maintainers"
     },
     {
@@ -86,6 +106,51 @@
       "status_owner": "Res-Nova empirical maintainers"
     },
     {
+      "id": "CLM-06",
+      "wording": "Baryons-only unit M/L control on SPARC: median chi2_data/N_g = 51.58, aggregate sum chi2_data/dof = 204.65.",
+      "state": "computed",
+      "assurance_level": "numerical-control",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "02_galaxy_dynamics/parameter_ledger.py"
+      ],
+      "data_artifacts": [
+        "02_galaxy_dynamics/PARAMETER_LEDGER.json",
+        "02_galaxy_dynamics/SPARC_175_GOD_fits.csv"
+      ],
+      "assumptions": [
+        "Fixed prescription Upsilon_disk = 1.0, Upsilon_bulge = 1.0 across 3391 data points."
+      ],
+      "verification_commands": [
+        "python3 02_galaxy_dynamics/parameter_ledger.py"
+      ],
+      "independent_witness": "02_galaxy_dynamics/PARAMETER_LEDGER.json",
+      "limitations": "This is a deliberately poor-fitting control, not a result. It exists to bound the baryons-only baseline.",
+      "status_owner": "Res-Nova formalization maintainers"
+    },
+    {
+      "id": "CLM-07",
+      "wording": "Baryons-only standard SPARC control: median chi2_data/N_g = 85.23, aggregate sum chi2_data/dof = 406.49.",
+      "state": "computed",
+      "assurance_level": "numerical-control",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "02_galaxy_dynamics/parameter_ledger.py"
+      ],
+      "data_artifacts": [
+        "02_galaxy_dynamics/PARAMETER_LEDGER.json"
+      ],
+      "assumptions": [
+        "Fixed prescription Upsilon_disk = 0.5, Upsilon_bulge = 0.7 across 3391 data points."
+      ],
+      "verification_commands": [
+        "python3 02_galaxy_dynamics/parameter_ledger.py"
+      ],
+      "independent_witness": "02_galaxy_dynamics/PARAMETER_LEDGER.json",
+      "limitations": "Control baseline only; a poor absolute fit is the expected and intended outcome.",
+      "status_owner": "Res-Nova formalization maintainers"
+    },
+    {
       "id": "CLM-08",
       "wording": "The current Res-Nova Lean gate elaborates the declared target set with no detected sorry and only the declared standard Lean axiom footprint.",
       "state": "formally-verified",
@@ -109,6 +174,135 @@
       "status_owner": "Res-Nova formalization maintainers"
     },
     {
+      "id": "CLM-09",
+      "wording": "Optical metric, redshift Jacobian and luminosity modulation couplings.",
+      "state": "proposed",
+      "assurance_level": "phenomenological-posit",
+      "formal_artifacts": [],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [
+        "Formulas are posited for observational matching, not derived."
+      ],
+      "verification_commands": [],
+      "independent_witness": "CLAIM_EVIDENCE_LEDGER.md",
+      "limitations": "Covariant Maxwell / null-geodesic derivations and cosmological perturbation tests remain open.",
+      "status_owner": "Res-Nova formalization maintainers"
+    },
+    {
+      "id": "CLM-10",
+      "wording": "Kerr spin rapidity psi = artanh(a*) with equipartition sinh(psi)=1 selects psi_0 = arsinh(1) = ln(1+sqrt2), gamma = sqrt2 and theta = tanh(psi_0) = 1/sqrt2.",
+      "state": "conditional",
+      "assurance_level": "formal-algebraic-under-adopted-premise",
+      "formal_artifacts": [
+        "05_lean_formalization/RapidityEquipartition.lean"
+      ],
+      "computational_artifacts": [
+        "06_unification_and_spin/rapidity_uniqueness_proof.py"
+      ],
+      "data_artifacts": [
+        "06_unification_and_spin/rapidity_uniqueness_results.json"
+      ],
+      "assumptions": [
+        "The condition sinh(psi) = 1 is ADOPTED. rapidity_uniqueness_results.json records physical_selection_status = NOT DERIVED: no covariant Kerr action, tetrad construction or conservation law selecting it is supplied."
+      ],
+      "verification_commands": [
+        "python3 06_unification_and_spin/rapidity_uniqueness_proof.py",
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
+      ],
+      "independent_witness": "06_unification_and_spin/rapidity_uniqueness_results.json",
+      "limitations": "Algebra is exact to 100 decimal places below the premise. The premise itself is not derived, so the selection is conditional.",
+      "status_owner": "Res-Nova formalization maintainers"
+    },
+    {
+      "id": "CLM-11",
+      "wording": "Two-channel chiral equipartition union P(>=1) = 1-(1-theta)^2 = sqrt2 - 1/2 yields the spin ceiling chi_s = sqrt(sqrt2 - 1/2) = 0.956145...",
+      "state": "formally-verified",
+      "assurance_level": "formal-algebraic",
+      "formal_artifacts": [
+        "05_lean_formalization/SovereignSpinCeiling.lean"
+      ],
+      "computational_artifacts": [
+        "06_unification_and_spin/two_channel_ceiling_proof.py"
+      ],
+      "data_artifacts": [
+        "06_unification_and_spin/two_channel_ceiling_results.json"
+      ],
+      "assumptions": [
+        "Depends on CLM-10 for theta = 1/sqrt2, which rests on an adopted premise.",
+        "The two channels are treated as independent Bernoulli events."
+      ],
+      "verification_commands": [
+        "python3 06_unification_and_spin/two_channel_ceiling_proof.py",
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
+      ],
+      "independent_witness": "06_unification_and_spin/two_channel_ceiling_results.json",
+      "limitations": "The algebra is proved. Identification of chi_s with a physical black-hole spin ceiling is an empirical observation, not a derivation; two_channel_ceiling_results.json records physical_spin_ceiling_status = NOT DERIVED.",
+      "status_owner": "Res-Nova formalization maintainers"
+    },
+    {
+      "id": "CLM-12",
+      "wording": "F_dual(x) = x^2/2 - (x - ln(1+x)) is the unique Pade[1/1] AQUAL potential and decomposes into H = x^2/2 and L_corr = x - ln(1+x).",
+      "state": "formally-verified",
+      "assurance_level": "formal-algebraic",
+      "formal_artifacts": [
+        "05_lean_formalization/Hamilgrangian.lean",
+        "05_lean_formalization/DualChannelDerivation.lean"
+      ],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [
+        "Uniqueness holds WITHIN the two-parameter Pade[1/1] rational ansatz family. The Pade restriction is itself an ansatz, not a derived constraint.",
+        "The Newtonian and deep-MOND boundary conditions are imported from Milgrom (1983) and Bekenstein-Milgrom (1984)."
+      ],
+      "verification_commands": [
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
+      ],
+      "independent_witness": "assurance/evidence/res_nova_verify_final.log",
+      "limitations": "Does not establish that MOND emerges independently of MOND assumptions; the boundary conditions that fix the form are the definition of MOND.",
+      "status_owner": "Res-Nova formalization maintainers"
+    },
+    {
+      "id": "CLM-13",
+      "wording": "Fisher identity: F'_dual(x)^2 * I(mu(x)) = x^3, with odds-ratio inverse mu(odds(p)) = p.",
+      "state": "formally-verified",
+      "assurance_level": "formal-algebraic",
+      "formal_artifacts": [
+        "05_lean_formalization/Hamilgrangian.lean"
+      ],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [
+        "I(mu) = 1/(mu(1-mu)) is the Bernoulli Fisher information, used as an algebraic definition."
+      ],
+      "verification_commands": [
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
+      ],
+      "independent_witness": "assurance/evidence/res_nova_verify_final.log",
+      "limitations": "An algebraic identity over the reals. It does NOT derive galactic gravity from a statistical estimation process or from a minimum-Fisher-information variational principle.",
+      "status_owner": "Res-Nova formalization maintainers"
+    },
+    {
+      "id": "CLM-14",
+      "wording": "Legendre dual: p = x^2/(1+x), x(p) = (p + sqrt(p^2+4p))/2, H_dual(p) = p x(p) - F(x(p)) strictly convex with H'' = 1/F''.",
+      "state": "formally-verified",
+      "assurance_level": "formal-algebraic",
+      "formal_artifacts": [
+        "05_lean_formalization/Hamilgrangian.lean"
+      ],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [
+        "F is strictly convex on the domain, so the Legendre transform is well defined."
+      ],
+      "verification_commands": [
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
+      ],
+      "independent_witness": "assurance/evidence/res_nova_verify_final.log",
+      "limitations": "Establishes the transform and its convexity. No physical interpretation of the conjugate momentum is established here.",
+      "status_owner": "Res-Nova formalization maintainers"
+    },
+    {
       "id": "CLM-15",
       "wording": "RETRACTED: the anti-drift gate 'u >= gamma <=> chi >= theta' is false. The GKSL steady-state coherence C(x) = 4x/(1+8x^2) is non-monotonic, peaking at theta = 1/sqrt(2) at u/gamma = theta/2 and decaying thereafter, whereas mu(x) = x/sqrt(1+x^2) rises monotonically. theta is a ceiling on coherence, not a threshold gate. The identification of the steady-state coherence with mu(u/gamma) does not hold.",
       "state": "retracted",
@@ -128,6 +322,26 @@
       "independent_witness": "FIG_TREE_MONOGRAPH.md",
       "limitations": "The ceiling C_max = theta is a standard optical-Bloch result. What remains a framework claim, and is not established here, is the identification of that maximum with the sovereign band constant theta. The Uhlmann fidelity statement 'F >= 1/2 <=> chi >= 1/sqrt(2)' is still open and is not formalized.",
       "status_owner": "Res-Nova theory maintainers"
+    },
+    {
+      "id": "CLM-16",
+      "wording": "Pillar IV: the GKSL generator on Matrix (Fin 2) (Fin 2) C has the stated analytical steady state with unit trace; mu(1) = 1/sqrt2; and the two-channel union is strictly monotone on [0,1], supporting a gate-type iff.",
+      "state": "formally-verified",
+      "assurance_level": "formal-machine-checked",
+      "formal_artifacts": [
+        "05_lean_formalization/PillarIV_AntiDriftGate.lean"
+      ],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [
+        "The GKSL generator, jump operator and drive Hamiltonian are as constructed in the module."
+      ],
+      "verification_commands": [
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
+      ],
+      "independent_witness": "assurance/evidence/res_nova_verify_final.log",
+      "limitations": "16 theorems close on [propext, Classical.choice, Quot.sound] only, and perturbing the constants (mu 1 -> mu 2, kappaBand 7/10 -> 8/10, 1/(2 sqrt2) -> 1/(3 sqrt2)) breaks the proofs, so the values are derived rather than assumed. The earlier anti-drift gate u >= gamma <=> chi >= theta is FALSE and retracted: the steady-state coherence is non-monotonic. Nothing here certifies that the modelled generator describes a physical system.",
+      "status_owner": "Res-Nova formalization maintainers"
     }
   ]
 }
