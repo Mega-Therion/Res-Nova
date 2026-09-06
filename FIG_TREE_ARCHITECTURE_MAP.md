@@ -1,7 +1,7 @@
 # 🌳 The FIG Tree: Fundamental Information Geometry Architecture Map
 
 **Master Monograph & Corpus Unification Guide**  
-*Chyren Sovereign Intelligence Ecosystem*
+*Res-Nova*
 
 ---
 

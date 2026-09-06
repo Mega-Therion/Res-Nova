@@ -1,7 +1,7 @@
 # 🔬 Target D1: Symbolic & Variational Derivation Dossier of $\mu(x)$ Closures
 **Author:** Ryan W. Yett ([ORCID: 0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190))  
 **Date:** 2026-08-14  
-**Framework:** Res-Nova / Chyren Epistemic Architecture  
+**Framework:** Res-Nova  
 **Epistemic Boundary:** $\mathbf{[P]}$ for variational calculus, $\mathbf{[O]}$ for physical Lagrangian selection
 
 ---

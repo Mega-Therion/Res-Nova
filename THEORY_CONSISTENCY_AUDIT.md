@@ -1,6 +1,6 @@
 # 🔬 Theory Consistency Audit: Grand Monograph
 
-**Audit Protocol:** NEWTON ARCHITECT Protocol & Sovereign Epistemic Covenant  
+**Audit Protocol:** formal verification gate and epistemic tagging  
 **Target Repository:** `/home/mega/grand_monograph/`  
 **Purpose:** Pre-compilation theoretical consistency analysis, boundary gap ledger, and empirical benchmark reconciliation  
 

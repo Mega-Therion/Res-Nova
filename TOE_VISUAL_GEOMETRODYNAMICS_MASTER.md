@@ -1,6 +1,6 @@
 # 🌌 Complete Visual Geometrodynamics ToE Map & Formal Derivation Suite
 **Author**: Ryan W. Yett / Council of 9  
-**Epistemic Standard**: Newton Architect Protocol & Lean 4 Formal Verification Gate  
+**Epistemic Standard**: Lean 4 formal verification gate  
 **Status**: `[thm]` for formal Lean proofs | `[def]` for physical definitions | `[C]` for theoretical conjectures | `[O]` for experimental observations  
 
 ---

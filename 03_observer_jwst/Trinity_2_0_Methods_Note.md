@@ -7,7 +7,7 @@
 # Supplementary Note: The Trinity 2.0 Analysis Pipeline
 
 ## 1. Evolution and Rationale (v1.0 to v2.0)
-The Trinity Analysis Pipeline was developed by Chyren Sovereign Intelligence to address "Epistemic Drift" in standard cosmological data processing. 
+The Trinity Analysis Pipeline was developed to address "Epistemic Drift" in standard cosmological data processing. 
 
 - **v1.0 (Baseline)**: Focused on raw redshift/luminosity correlations using standard stochastic filtering. While identifying an anomaly, the signal-to-noise ratio was insufficient to distinguish between dark matter particulate interference and geometric holonomy.
 - **v2.0 (Structural)**: Implemented the **Sovereign Gauge Filter**. Instead of assuming a particulate halo, the pipeline evaluates the Information Tension ($\mathcal{T}$) of the vacuum itself. This version uses a Stiefel manifold ($V_m(\mathbb{R}^N)$) as a rigid container for the signal, effectively "desmoothing" the cosmological constant.
@@ -60,4 +60,4 @@ inversion (median $\chi_{\text{obs}} \approx 2.57$, $\tau \approx 2.53$).
 is **not** retracted.
 
 ## 4. Replication and Provenance
-The full provenance of these results is cryptographically signed within the Chyren Sovereign Ledger. The replication package includes the `yett_paradigm.lean` formal verification artifact, which reduces these methodology steps to Mathlib4 primitives.
+Provenance for these results is recorded in the repository history. The replication package includes the `yett_paradigm.lean` formal verification artifact, which reduces these methodology steps to Mathlib4 primitives.

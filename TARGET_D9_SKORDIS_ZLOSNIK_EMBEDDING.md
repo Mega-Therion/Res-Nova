@@ -1,7 +1,7 @@
 # 🌌 Target D9: Skordis–Złośnik (RMOND) Parent Membership Verification
 **Author:** Ryan W. Yett ([ORCID: 0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190))  
 **Date:** 2026-08-14  
-**Framework:** Res-Nova / Chyren Epistemic Architecture (v1.4.0)  
+**Framework:** Res-Nova (v1.4.0)  
 **Standard:** Sovereign Epistemic Covenant (`[P]` Proved, `[D]` Direct Empirical, `[C]` Cited, `[O]` Open / Quarantined)
 
 ---

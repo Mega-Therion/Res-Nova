@@ -50,7 +50,7 @@ This ledger supersedes `EPISTEMIC_BOUNDARY_v1.4.0.md` wherever they conflict. Fo
 2. **`PAPER_01` / single-channel `arcsinh` remains fatal.** Inverted limits are wrong under the withdrawn standard and under the two-parameter standard.
 3. **`a0` is measured, not derived.** D4.3 is the number. D4.4 is the story.
 4. **`CORPUS_DEPENDENCY_MAP.md` Root 1** still labels `μ` closure `[O]`. That map is older than D1.2. Treat Root 1 as: algebraic dual-channel identity `[P]`; uniqueness-as-nature `[O]`.
-5. **Claude’s “342 more parameters”** is `716-374` from `PARAMETER_LEDGER.json` / `NFW_CONSTRAINED.json`. It is in the repo. It is not a hallucination.
+5. **The “342 more parameters” figure** is `716-374` from `PARAMETER_LEDGER.json` / `NFW_CONSTRAINED.json`. It is in the repo. It is not a hallucination.
 6. **Claude’s `ξ=0.170±0.028`** is the same arithmetic as D4.5. This ledger uses the JSON total error and gets `±0.025`. Do not invent a third `ξ` file.
 
 ---

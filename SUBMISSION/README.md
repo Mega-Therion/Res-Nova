@@ -27,7 +27,7 @@
 - [x] Author: R.W. Yett, ORCID 0009-0001-1303-7190
 - [x] Affiliation: Independent Researcher, Arkansas, USA — see note below
 - [x] No AI in author list; AI use disclosed explicitly in acknowledgments
-- [x] Acknowledgments credit the Chyren Collaboration (⊙ƆC)
+- [x] Acknowledgments contain no non-human or institutional co-credit
 - [x] Cover letter has 4 suggested referees
 - [x] Data Availability Statement points to the public repo
 - [x] `.zenodo.json` in repo root

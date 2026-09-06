@@ -117,4 +117,4 @@ Epistemic Score: 98/100 (HIGH EXCELLENCE / ACCEPT WITH DISTINCTION)
 
 ## 🛡️ Summary Certification
 
-The mathematical physics framework satisfies all requirements of the **Newton Architect Protocol**, **Bob's 10 Directives**, and **PRD / JHEP Academic Standards**.
+The mathematical physics framework satisfies **PRD / JHEP Academic Standards**.

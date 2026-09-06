@@ -1,7 +1,7 @@
 # 🌌 Target D8 & D8b: Tensor-Mode Speed vs. GW170817 & Disformal Cone Confrontation
 **Author:** Ryan W. Yett ([ORCID: 0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190))  
 **Date:** 2026-08-14  
-**Framework:** Res-Nova / Chyren Epistemic Architecture (v1.3.1)  
+**Framework:** Res-Nova (v1.3.1)  
 **Standard:** Sovereign Epistemic Covenant (`[P]` Proved, `[D]` Direct Empirical, `[C]` Cited, `[O]` Open / Quarantined)
 
 ---

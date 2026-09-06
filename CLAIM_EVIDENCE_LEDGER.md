@@ -1,6 +1,6 @@
 # 📋 Claim-to-Evidence Ledger: Grand Monograph Assessment
 
-**Evaluation Standard:** NEWTON ARCHITECT Protocol & Sovereign Epistemic Covenant  
+**Evaluation Standard:** formal verification gate and epistemic tagging  
 **Target Repository:** `Mega-Therion/Res-Nova` (repository root)  
 **Evaluation Date:** 2026-08-14  
 **Status correction:** 2026-08-16 — CLM-01 updated to reflect dual-channel `[P]` algebraic action and single-channel `arcsinh` quarantine (`PAPER_01_NOTICE.md`); CLM-03 suspended to `[C]`/`[O]`; CLM-05 marked SUPERSEDED by Tier 1 matched nuisance fit ($N_{\text{par}}=374$); CLM-08 evidence updated to `VERIFICATION_RUN_003/`.  
