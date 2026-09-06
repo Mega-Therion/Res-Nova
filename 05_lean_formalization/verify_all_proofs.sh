@@ -37,6 +37,7 @@ TARGETS=(
   CartanTrialityGenerations.lean
   ChiralCellularDuality.lean
   ChiralHolonomyOrientation.lean
+  GenerationCycleChirality.lean
   CosmologicalSector.lean
   CovariantCompletion.lean
   DeSitterExtremal.lean
