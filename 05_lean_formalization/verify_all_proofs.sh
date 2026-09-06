@@ -36,6 +36,7 @@ TARGETS=(
   AXIOMS_V2.lean
   CartanTrialityGenerations.lean
   ChiralCellularDuality.lean
+  ChiralCrackSketch.lean
   ChiralHolonomyOrientation.lean
   GenerationCycleChirality.lean
   CosmologicalSector.lean

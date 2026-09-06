@@ -30,6 +30,7 @@ lean_lib «ResNovaFormal» where
     `AXIOMS_V2,
     `CartanTrialityGenerations,
     `ChiralCellularDuality,
+    `ChiralCrackSketch,
     `ChiralHolonomyOrientation,
     `GenerationCycleChirality,
     `CosmologicalSector,
