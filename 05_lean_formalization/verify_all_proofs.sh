@@ -36,6 +36,7 @@ TARGETS=(
   AXIOMS_V2.lean
   CartanTrialityGenerations.lean
   ChiralCellularDuality.lean
+  ChiralHolonomyOrientation.lean
   CosmologicalSector.lean
   CovariantCompletion.lean
   DeSitterExtremal.lean
