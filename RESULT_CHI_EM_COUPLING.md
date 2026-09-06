@@ -59,6 +59,35 @@ so the EM interaction energy is `ρ_γχ ~ (B/A)·ρ_γ`. Reaching dark-energy d
 The requirement is not merely unsatisfied, it has the wrong sign in the exponent: the
 mechanism needs a *large* disformal factor, and luminality forces a vanishing one.
 
+## The exclusion does not depend on GW170817 (added 2026-09-06)
+
+A referee objection, correctly aimed: translating a GW speed bound into a bound on `B/A` is
+model-dependent — screening, line-of-sight versus cosmic mean, and epoch all enter. Granted.
+
+It does not reach the result, because the photon cone supplies an **observation-free** bound.
+From `g̃ = A g + B u u` with `u` comoving, `c_γ² = (A−B)/A = 1 − B/A`. A Lorentzian
+signature — the mere existence of a photon light cone — requires
+
+    B/A < 1
+
+The mechanism requires `|B/A| ≳ 1.31 × 10⁴`. Both signs fail on geometry alone:
+
+| | `c_γ²` | outcome |
+|---|---|---|
+| `B/A = +1.31×10⁴` | `−1.31×10⁴` | `g̃_00` and `g̃_ij` share a sign. Signature is not Lorentzian; **the photon cone does not exist.** |
+| `B/A = −1.31×10⁴` | `+1.31×10⁴` | `c_γ = 114 c`. GRB170817A would have **preceded** the GW by ~10¹⁴ yr instead of following it by 1.7 s. |
+
+So GW170817 does not create the exclusion. It only tightens the ceiling from `B/A < 1`
+(geometry) to `B/A ≤ 2×10⁻¹⁵` (measurement). **Any screening or environment-dependence
+loophole has at most the full geometric margin `B/A → 1` to work with, and the requirement
+still overshoots that by 1.3 × 10⁴.**
+
+Results 1 and 2 above carry no observational input at all: 4D conformal invariance of
+Maxwell, and the tracelessness of `f·F²`, are theorems. Only the *sharpness* of the third
+number was ever observational.
+
+Script: `reproducibility/chi_em/signature_bound.py`.
+
 ## Correction to the constraint I previously recorded
 
 I earlier listed α_fs drift as a gate on this coupling. It is not the binding one.
