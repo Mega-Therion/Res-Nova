@@ -101,7 +101,44 @@ on Beale–Kato–Majda; the paper says so plainly.
 
 ---
 
-## 4. Items located but not yet transcribed
+## 4. The provenance of 0.9539 — read this before citing the ceiling
+
+*From "One Number, Two Names: kappa = tau = 0.9539" (50 downloads), 2026-05-15. RY's own
+genesis note, written to be honest about ordering.*
+
+In his words:
+
+> tau = 0.9539 was **not derived analytically.** During ADCCL development, autonomous
+> reasoning loops operating below roughly 0.954 cosine similarity to their task anchor
+> would collapse... Setting the rejection threshold at 0.9539 caught the bad loops and let
+> the good ones pass. That was the whole engineering decision.
+
+> GOD Theory's Sovereign Invariant is the **same number with a different label**. It was
+> adopted, not independently re-derived.
+
+So the number entered the corpus as an **empirical engineering threshold**, and κ
+**inherited** it. A trigonometric reading came afterwards:
+$\arccos(0.9539) = 0.3048$ rad $= 17.47°$, the maximum angular drift from anchor.
+
+**This bears directly on the ceiling formula.** The monograph derives
+$\kappa_Y = \sqrt{\theta(2-\theta)}$ at $\theta = 0.7$, giving 0.953939. Inverting:
+$\sqrt{\theta(2-\theta)} = 0.9539$ requires $\theta = 0.699875$ — i.e. exactly 0.7. But
+the corpus floor is $1/\sqrt2 = 0.707107$, and $\sqrt{\theta(2-\theta)}$ there gives
+**0.956145**, not 0.9539.
+
+Parameter accounting: matching 0.9539 to four decimals is ~13.3 bits of target; choosing
+one θ to two decimals spends ~6.6 bits, and choosing the formula spends the rest. **Net
+evidence ≈ 0.** The expression reproduces a number that was already on the desk.
+
+This does not make 0.9539 wrong — it was empirically observed and is stated as such in
+RY's own note. It means the two-channel expression should be presented as a *consistent
+parameterisation* of an empirical constant, not as its derivation. The genesis note is
+the honest account and should be cited alongside any use of the ceiling.
+See `TWO_CHANNEL_CEILING_ANALYSIS.md`.
+
+---
+
+## 5. Items located but not yet transcribed
 
 Present in the swept deposits, absent from the live corpus, worth a pass:
 
