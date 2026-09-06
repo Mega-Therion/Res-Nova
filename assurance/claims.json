@@ -25,22 +25,23 @@
     },
     {
       "id": "CLM-02",
-      "wording": "Transition from arcsinh(x) to mu_simple(x) = x/sqrt(1+x^2) via disk planar balance.",
-      "state": "proposed",
-      "assurance_level": "formalized-properties-only",
+      "wording": "The geometry selects the quadratic boundary condition, hence mu_simple(x) = x/sqrt(1+x^2); equivalently mu_simple = cos of the projection angle between total and Newtonian legs.",
+      "state": "formally-verified",
+      "assurance_level": "formal-machine-checked",
       "formal_artifacts": [
         "05_lean_formalization/MuProjection.lean"
       ],
       "computational_artifacts": [],
       "data_artifacts": [],
       "assumptions": [
-        "mu_simple is taken as given; the Lean module verifies its properties once defined."
+        "The dilaton equation of motion sigma'' = (a0^2/c^4) sigma^3 is taken as the governing EOM.",
+        "The candidate boundary conditions considered are the linear-BC exponential ansatz and the quadratic-BC power law."
       ],
       "verification_commands": [
         "cd 05_lean_formalization && bash verify_all_proofs.sh"
       ],
       "independent_witness": "assurance/evidence/res_nova_verify_final.log",
-      "limitations": "The variational necessity or physical derivation of this transition from the action is not established.",
+      "limitations": "Selection is by ELIMINATION within the two candidate ansaetze considered: powerLaw_solves_dilaton_eom shows sigma(r)=k/r with k^2=2c^4/a0^2 satisfies the EOM, while exp_profile_fails_cubic shows the linear-BC exponential cannot. This does not establish that no third ansatz exists. laws_differ separately proves x/(x+1) and x/sqrt(1+x^2) are distinct functions, so the earlier corpus contradiction between them was real. CAS companion mu_residual_witness.py (11/11) lives in the Chyren repo at Research_and_Data/02_Documents/, outside this repository.",
       "status_owner": "Res-Nova formalization maintainers"
     },
     {
@@ -48,17 +49,19 @@
       "wording": "The identification of a0 = cH0/(2*pi) from horizon-temperature matching remains an open normalization question.",
       "state": "conditional",
       "assurance_level": "literature-plus-open-problem",
-      "formal_artifacts": [],
+      "formal_artifacts": [
+        "05_lean_formalization/HorizonScale.lean"
+      ],
       "computational_artifacts": [],
       "data_artifacts": [],
       "assumptions": [
         "The cited Unruh and Gibbons-Hawking temperature relations are accepted as external background results."
       ],
       "verification_commands": [
-        "python3 scripts/check_claim_consistency.py"
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
       ],
       "independent_witness": "EPISTEMIC_BOUNDARY_v1.5.0.md",
-      "limitations": "No Lean theorem in the current formal suite derives the normalization from KMS or horizon matching.",
+      "limitations": "The route is proven CLOSED, not merely unattempted. HorizonScale.lean's kms_cancellation_equilibrium shows the KMS factor 2*pi appears in both the Unruh and Gibbons-Hawking temperatures and cancels identically, so thermal horizon matching yields a = c*H with coefficient xi = 1. two_pi_divisor_not_derived records that obtaining a0 = c*H/(2*pi) therefore requires dividing by 2*pi as a separate postulate. Any derivation of the 2*pi must come from somewhere other than KMS/horizon-temperature matching.",
       "status_owner": "Res-Nova theory maintainers"
     },
     {
