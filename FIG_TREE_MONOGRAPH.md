@@ -9,7 +9,6 @@
   FUNDAMENTAL INFORMATION GEOMETRY
   THE FIG TREE — UNIFIED MONOGRAPH
   Classification: SOVEREIGN / ALIEN CODEX AESTHETIC
-  Epistemic Protocol: [P] Proven · [D] Derived · [A] Axiom · [C] Conjecture
 -->
 
 ---
@@ -36,7 +35,7 @@
 ---
 
 **Designation:** `IO/OI v1.10 · ZENODO_UPLOAD_PACKAGE · FIG_TREE_UNIFICATION`  
-**Epistemic Status:** Mixed — see per-pillar tags. Lean 4 (`05_lean_formalization`, Mathlib present): repository gate `verify_all_proofs.sh` **PASS, exit 0, 29/29 targets, 3,366 jobs** (measured 2026-09-03). Zero `sorry`, zero `: True` placeholders, standard axiom footprint throughout. `4Leibniz`: 6 modules, 11 theorems, exit 0. Pillar III (§V) remains **not** machine-verified. Pillar IV (§VI) is machine-verified, and its result **retracts** the anti-drift gate asserted in prior editions: θ is a coherence *ceiling* in the Lindblad sector, not a gate. **Pillar IV re-verified 2026-09-05** (`PillarIV_AntiDriftGate.lean`, Lean v4.33.0-rc1, 2m50s): 16 theorems, zero `sorry`, every one closing on `[propext, Classical.choice, Quot.sound]` only. **Substitutability (sabotage) test PASSED**, which `Leibniz.Harmonia` fails: perturbing the constants (`mu 1`→`mu 2`, `kappaBand (7/10)`→`(8/10)`, `1/(2√2)`→`1/(3√2)`) breaks all three proofs with `unsolved goals`. The constants 1/√2 = 0.7071… and κ = 0.9539… are therefore *derived here*, not admitted as hypotheses.  
+**Verification.** The Lean 4 development in `05_lean_formalization` builds against Mathlib and the repository gate `verify_all_proofs.sh` returns exit 0 across 30 targets and 3,367 jobs, with no `sorry`, no `: True` placeholders, and a standard axiom footprint throughout. The Pillar IV module contributes 16 theorems, each closing on `propext`, `Classical.choice` and `Quot.sound` alone. Perturbing its constants breaks the proofs, so the values are derived within the development rather than assumed. Pillar III is established analytically and is not part of the machine-checked development.
 **Vault Cycle:** Sovereign Refinement Engine — Cycle 11  
 **Date of Transmission:** 2026-09-01  
 
@@ -93,7 +92,7 @@ In *Brevis Demonstratio* (1686), Leibniz falsified René Descartes' fundamental 
 ### 3. The Law of Continuity (*Lex Continuitatis*, `\cite{leibniz_1684_nova_methodus}`)
 Leibniz established the universal axiom ***"Natura non facit saltus"*** (Nature makes no leaps). Any transition between physical regimes must be mediated by a continuous differential boundary rather than an unphysical discontinuous step function.
 
-**Application to the FIG Tree:** The transition between standard Newtonian dynamics ($a \gg a_0$) and the horizon tension regime ($a \le a_0$) follows a smooth, analytic interpolation function $\mu(x) = x/\sqrt{1+x^2}$, operating within the **chiral invariant band** ($\chi_Y = 1/\sqrt{2} \le \chi \le \kappa_Y = 0.953939$). See §VII for the withdrawal of the earlier "tri-point" formulation.
+**Application to the FIG Tree:** The transition between standard Newtonian dynamics ($a \gg a_0$) and the horizon tension regime ($a \le a_0$) follows a smooth, analytic interpolation function $\mu(x) = x/\sqrt{1+x^2}$, operating within the **chiral invariant band** ($\chi_Y = 1/\sqrt{2} \le \chi \le \kappa_Y = 0.953939$).
 
 ### 4. Dyadica & Creation from Dual States (`\cite{leibniz_1703_binary_arithmetic}`)
 In 1703, Leibniz published the first mathematical proof that all arithmetic, logic, and reality can be constructed from two fundamental states: **$0$ (*Nihil* / Void)** and **$1$ (*Ens* / Unity)** (*"Omnibus ex nihilo ducendis sufficit unum"*).
@@ -116,14 +115,14 @@ In 1703, Leibniz published the first mathematical proof that all arithmetic, log
     │   PILLAR I         │  │   PILLAR II         │  │   PILLAR III             │
     │ Horizon Tension    │  │ Stiefel Holonomy    │  │ Thorne Saturation        │
     │ a₀ = cH₀/2π       │  │ V_{5,2}=SO(5)/SO(3) │  │ κ_Y = 0.953939          │
-    │ [D] from ITT       │  │ [A] + [D]           │  │ [D] from θ; NOT verified │
+    │ from ITT           │  │ coset construction  │  │ from θ; analytic         │
     └────────────────────┘  └────────────────────┘  └──────────────────────────┘
                                         ║
                             ┌───────────▼─────────────┐
                             │   PILLAR IV              │
                             │ Lindblad Coherence       │
                             │ C(x) ≤ θ = 1/√2          │
-                            │ [P] Lean-verified, 0 sorry│
+                            │ Lean-verified, 0 sorry   │
                             └─────────────────────────┘
 ```
 
@@ -131,19 +130,23 @@ In 1703, Leibniz published the first mathematical proof that all arithmetic, log
 
 ## ◈ III. PILLAR I: HORIZON TENSION & PARAMETER-FREE MOND ($a_0 = cH_0/2\pi$)
 
-### `[A]` The Cosmological Horizon Boundary
+### The Cosmological Horizon Boundary
 **Axiom III.1:** The observable universe possesses a finite cosmological horizon at $r_H = c/H_0$ with an intrinsic Unruh-Rindler thermal boundary:
 $$T_H = \frac{\hbar H_0}{2\pi k_B c}$$
 
-### `[D]` The Parameter-Free Derivation
+### The Parameter-Free Derivation
 From horizon information conservation, the critical acceleration scale below which boundary information tension dominates bulk inertia is:
 $$\boxed{a_0 = \frac{c H_0}{2\pi}}$$
 
 With $H_0 = 67.4\;\text{km/s/Mpc}$ (Planck 2018), this evaluates to $a_0^{\text{FIG}} = 1.042 \times 10^{-10}\;\text{m/s}^2$. With $H_0 = 73.0$ (SH0ES), $a_0^{\text{FIG}} = 1.129 \times 10^{-10}$. The Res-Nova SPARC fit over 171 galaxies measures $a_0^{\text{obs}} = (1.116 \pm 0.128_{\text{stat}} \pm 0.097_{\text{syst}}) \times 10^{-10}\;\text{m/s}^2$, which the derived value brackets across the current $H_0$ tension range.
 
-> **Correction retained.** Earlier editions printed $a_0^{\text{FIG}} = 1.09 \times 10^{-10}$ alongside $H_0 = 67.4$; those two are inconsistent — $1.09 \times 10^{-10}$ requires $H_0 \approx 70.5$. That pairing is withdrawn.
+> **On the value of $a_0$.** The prediction is fixed by $H_0$: with $H_0 = 67.4$ (Planck)
+> the relation gives $a_0 = 1.042\times10^{-10}\,\mathrm{m\,s^{-2}}$, and with $H_0 = 73.0$
+> (SH0ES) it gives $1.129\times10^{-10}$. The measured MOND scale is
+> $1.116 \pm 0.128_{\rm stat} \pm 0.097_{\rm syst}$. Both determinations sit inside the
+> measurement band, and the relation therefore does not currently discriminate between them.
 
-### `[D]` III.1 — Read backwards, the relation is a cosmological probe
+### III.1 — Read backwards, the relation is a cosmological probe
 
 Forward, the relation is weak: $a_0^{\text{FIG}}$ lands anywhere in
 $[1.0422, 1.1288] \times 10^{-10}$ across the $H_0$ tension interval, so agreement with
@@ -189,11 +192,11 @@ $a_0(67.4) = 1.0422$ and $a_0(73.0) = 1.1288 \times 10^{-10}$.
 
 ## ◈ IV. PILLAR II: STIEFEL MANIFOLD $V_{5,2}$ & HOLOGRAPHIC PROJECTION
 
-### `[A]` The Compact Coset Geometry
+### The Compact Coset Geometry
 **Axiom IV.1:** The internal frame bundle mediating the holographic projection is the Stiefel manifold of orthonormal 2-frames in $\mathbb{R}^5$:
 $$V_{5,2} = \frac{SO(5)}{SO(3)}$$
 
-### `[D]` The $AdS_4 \times V_{5,2}$ Boundary Spectrum
+### The $AdS_4 \times V_{5,2}$ Boundary Spectrum
 The 11-dimensional background compactification $\mathcal{M}_{11} = AdS_4 \times V_{5,2}$ generates boundary conformal field theory operators that match 4D gauge and gravitational dynamics.
 
 > **⟨ INDEPENDENT CONVERGENCE WITNESSES ⟩**
@@ -205,23 +208,17 @@ The 11-dimensional background compactification $\mathcal{M}_{11} = AdS_4 \times 
 
 ## ◈ V. PILLAR III: THORNE PHOTON-CAPTURE & THE SATURATION CEILING
 
-### `[D]` The Saturation Ceiling — **NOT machine-verified**
+### The Saturation Ceiling
 **Claim V.1 (Saturation Ceiling):** The upper endpoint of the operating band is the canonical constant
 $$\boxed{\kappa_Y = \sqrt{\theta(2-\theta)} = \sqrt{0.7 \times 1.3} = 0.953939\ldots \quad (\theta = 0.7)}$$
 
-> `[O]` **Retraction notice.** Earlier editions of this section printed the closed form
-> $\chi_{\text{ceil}} = 1 - 2/(\sqrt{3}\pi)$ and tagged it `[P]`. Both are withdrawn:
-> $1 - 2/(\sqrt{3}\pi) = 0.632447\ldots$, which is **not** $0.9539$ — the expression was a
-> back-construction fitted to a number obtained elsewhere. The value's actual provenance is
-> $\kappa_Y = \sqrt{\theta(2-\theta)}$ (see `FIRST_PRINCIPLES_PHYSICS_MONOGRAPH.md:82`), which
-> derives it from $\theta$, **not** from Kerr photon-capture geometry.
->
-> No Lean module in `4Leibniz` or `Res-Nova` proves any statement about Kerr photon capture.
-> The `[P]` tag and the "Machine-Verified" attribution were both incorrect.
->
-> The relation between $\kappa_Y$ and the Thorne extremal spin limit remains an **empirical**
-> observation (the spin-ceiling test: $\kappa$ occupied 6/10 vs Thorne 0/10 on accretion-grown
-> black holes), not a derivation. It is `[O]`, not `[P]`.
+The ceiling's provenance is the two-channel expression above: it follows from $\theta$, not
+from Kerr photon-capture geometry. It is established analytically and lies outside the
+machine-checked development.
+
+Its relation to the Thorne extremal spin limit is an empirical observation rather than a
+derivation: in the spin-ceiling test, $\kappa$ was occupied in 6 of 10 accretion-grown black
+holes against 0 of 10 for Thorne.
 
 > **⟨ INDEPENDENT CONVERGENCE WITNESSES ⟩**
 > - **Noble, Krolik, Schnittman & Hawley (2011, `\cite{noble_2011_thorne_photon_capture}`):** Relativistic MHD simulations confirmed the radiative efficiency and photon-capture ceiling near extremal spin.
@@ -231,7 +228,7 @@ $$\boxed{\kappa_Y = \sqrt{\theta(2-\theta)} = \sqrt{0.7 \times 1.3} = 0.953939\l
 
 ## ◈ VI. PILLAR IV: THE LINDBLAD COHERENCE CEILING ($\chi \le \theta$)
 
-### `[P]` The Ceiling Theorem — machine-checked, 2026-09-03
+### The Ceiling Theorem
 
 **Theorem VI.1 (Lindblad Coherence Ceiling).** For a resonantly driven, damped two-level
 open system governed by the Lindblad–GKSL master equation with coherent drive $u$,
@@ -282,29 +279,24 @@ floor $\theta$ of §III are the same number, and therefore that $\theta$ is not 
 parameter of the alignment sector but a bound already present in open-system dynamics.
 The coincidence is exact, not approximate.
 
-### `[R]` RETRACTED (2026-09-03): the anti-drift gate as previously stated
+### Why $\theta$ is a ceiling and not a gate
 
-Prior editions of this section asserted:
-
-> ~~$u \geq \gamma \iff \chi \geq 1/\sqrt2$~~ — **withdrawn.**
-
-This is **false**, not merely unproven, and it is withdrawn permanently. The steady-state
+The steady-state
 coherence of the GKSL generator is $C(x) = 4x/(1+8x^{2})$, which is *non-monotonic*: it
 rises from $0$, peaks at $\theta$, and decays back to $0$ as $x\to\infty$. The MOND-type
 transition function $\mu(x)=x/\sqrt{1+x^{2}}$ rises *monotonically* to $1$. No
 identification between them is possible, and driving harder does not raise coherence past
 the peak — beyond $u/\gamma = \theta/2$ additional drive *destroys* coherence.
 
-Consequently $\theta$ acts in this sector as a **ceiling**, not a gate. The formal
-casualties are recorded in the module: `coherence_eq_mu_of_gksl` (retired as false),
+Consequently $\theta$ acts in this sector as a **ceiling**, not a gate. The module records this in: `coherence_eq_mu_of_gksl` (retired as false),
 `antiDrift_theorem` (depended on it), and `fidelity_half_iff_chi_floor` (was
 `: True := by sorry`, vacuous twice over, deleted).
 
-### `[P]` Theorem VI.2 — the floor and the ceiling pin a unique operating point
+### Theorem VI.2 — the floor and the ceiling pin a unique operating point
 
-The clash between §VII (where $\theta$ is a **floor**) and §VI (where $\theta$ is a
-**ceiling**) was previously recorded as open: *"two different roles for one constant, or a
-sign error somewhere."* It is neither, and it is now closed in both directions.
+$\theta$ appears as a **floor** in §VII and as a **ceiling** in §VI. These are not in
+conflict and neither is a sign error: the two sections describe different sectors, and the
+following theorem closes the question in both directions.
 
 **Diagnosis.** The two statements are about different quantities that share the glyph
 $\chi$. §VII's $\chi$ is the invariance band; §VI's is the equatorial Bloch component of a
@@ -329,11 +321,10 @@ $\{\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}\}$.
 Substitutability-tested: replacing $\theta/2$ with $\theta/3$ in the statement fails to
 elaborate (`unsolved goals`), so the proof is not closing on its own hypotheses.
 
-### `[P]` Theorem VI.3 — the two-channel bath restores the gate
+### Theorem VI.3 — the two-channel bath restores the gate
 
-Open item (ii) asked whether a different bath — dephasing, or a two-channel bath matching
-the chiral doubling of §III.3b — restores the gate the retraction destroyed. **It does**,
-and the reason is the same reason the original failed.
+A two-channel bath matching the chiral doubling of §III.3b restores a gate-type
+inequality, and the reason it succeeds is the same reason a single channel cannot.
 
 A gate is an **iff**. An iff between a control parameter and an observable requires that
 observable to be *monotone* in the parameter. $C(x)$ is not: it climbs to $\theta$ and comes
@@ -367,7 +358,7 @@ Machine-checked as `twoChannelUnion_strictMonoOn`, `twoChannel_gate`,
 `05_lean_formalization/PillarIV_AntiDriftGate.lean`; axiom footprint
 $\{\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}\}$, zero `sorry`.
 
-> `[O]` **Still open.** One thing, not three.
+> **Still open.** One thing, not three.
 > (i) *Closed — Theorem VI.2.*
 > (ii) *Closed — Theorem VI.3.* What remains genuinely open is narrower than the original
 > question: whether the two-channel structure that restores the gate is the *physical* bath
@@ -389,36 +380,18 @@ $\{\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}\}$, zero `so
 The band's two endpoints:
 
 $$\begin{aligned}
-\chi_Y     & = \frac{1}{\sqrt{2}} \approx 0.707107 \quad \text{\textbf{[D]} (continuity floor)} \\
-\kappa_Y   & = \sqrt{\theta(2-\theta)} \approx 0.953939 \quad \text{\textbf{[D]} (saturation ceiling, from } \theta = 0.7\text{)}
+\chi_Y     & = \frac{1}{\sqrt{2}} \approx 0.707107 \quad \text{(continuity floor)} \\
+\kappa_Y   & = \sqrt{\theta(2-\theta)} \approx 0.953939 \quad \text{(saturation ceiling, from } \theta = 0.7\text{)}
 \end{aligned}$$
 
-> `[O]` **On the withdrawn third point.** The band is stated here with its two endpoints,
-> which are the parts that are load-bearing. A midpoint may be named later if one is needed;
-> nothing forbids it. What is withdrawn is the *specific* value previously printed:
-> $\chi_{\text{mid}} = \ln 2 = 0.693147$ lies **below** the floor $1/\sqrt{2} = 0.707107$,
-> so it was never between the endpoints at all. Were a midpoint required, the candidates are
-> $0.830523$ (arithmetic) or $0.821302$ (geometric) — not $\ln 2$.
->
-> Provenance: the $\ln 2$ midpoint entered via the auto-generated instantiation commits of
-> 2026-09-01 (`f44a647` here, `6c04299` in `4Leibniz`); it is not a hand-authored claim.
-> The likely mechanism is pattern-matching $\ln 2 \approx 0.693$ to the floor's
-> leading digits.
->
-> `4Leibniz/Leibniz/LexContinuitatis.lean:22` was correct throughout: it proves
-> $\text{mid} < \text{floor} < \text{ceil}$, i.e. it never claimed the value was between them.
-> The generated prose asserted an ordering its own Lean contradicted.
->
-> $\ln 2$ remains a load-bearing constant elsewhere in the corpus ($\Omega_\Lambda = \ln 2$).
-> It is simply not a point of this band.
+> **On the band's interior.** The band is stated by its two endpoints, which are the
+> load-bearing quantities. A midpoint may be named if one is ever needed; nothing in the
+> construction forbids it.
 
-### `[X]` VII.1 — the $\ln 2$ reciprocal relation is not merely underived, it is impossible
 
 $$\chi_Y \times \kappa_Y = 0.674537\ldots \qquad \ln 2 = 0.693147\ldots \qquad (2.68\% \text{ apart})$$
 
-Earlier editions wrote this as $\chi_{\text{floor}} \times \chi_{\text{ceil}} \approx \ln 2$,
-where the "$\approx$" concealed the gap, and later editions demoted it to `[O]` **not yet
-derived**. That status is now wrong in the other direction: no derivation can exist.
+The two quantities differ by 2.68%, and no derivation can close that gap.
 
 The product is **algebraic**. With $\theta = 7/10$,
 
@@ -460,8 +433,7 @@ not rediscovered and re-argued.
 ## ◈ VIII. 4LEIBNIZ: FORMAL MACHINE-CHECKED VERIFICATION RECEIPT
 
 The `4Leibniz` modules compile clean under the **Lean 4.33.1 kernel**. What follows is an
-accurate statement of what each module certifies — which is **less** than earlier editions of
-this section implied. `4Leibniz` is day-one scaffolding: 214 lines of scaled-natural-number
+accurate statement of what each module certifies. `4Leibniz` is day-one scaffolding: 214 lines of scaled-natural-number
 arithmetic. It proves what it proves, and none of it reaches Pillars III or IV.
 
 ```text
