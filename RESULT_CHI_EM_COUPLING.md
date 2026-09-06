@@ -66,6 +66,24 @@ I earlier listed α_fs drift as a gate on this coupling. It is not the binding o
 10⁹ times inside the ~10⁻⁶ quasar/Oklo limit. **GW170817 is the constraint that closes
 this, by nine orders over α_fs.** The earlier note is superseded by this file.
 
+## Scope — what this does NOT exclude
+
+"Light drives geometry" is **true and untouched**. Radiation has nonvanishing `T_μν`;
+result 2 above proves that tensor is traceless but not zero. Light curves spacetime
+through Einstein's equation exactly as in GR, with `w = +1/3`.
+
+Two channels must be kept apart:
+
+| channel | status |
+|---|---|
+| `light → T_μν → g_μν` | **alive** — ordinary GR, unmodified |
+| `light → χ → g_μν` | **dead** — conformal invariance + GW170817 |
+
+What is excluded is (a) light driving *accelerated* expansion, and (b) light coupling to
+the information-tension field at all. Any downstream argument needing only "EM activity
+modifies geometry" — e.g. a `ψ → F_μν → g_μν → Ĥ → ψ` feedback loop — survives this
+result intact; it simply cannot be routed through χ.
+
 ## What survives
 
 Nothing here touches the χ sector's own vacuum energy `ρ_vac = e^{−2χ}V₀`, which remains
