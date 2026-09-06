@@ -36,7 +36,7 @@
 ---
 
 **Designation:** `IO/OI v1.10 · ZENODO_UPLOAD_PACKAGE · FIG_TREE_UNIFICATION`  
-**Epistemic Status:** Mixed — see per-pillar tags. Lean 4 (`05_lean_formalization`, Mathlib present): repository gate `verify_all_proofs.sh` **PASS, exit 0, 29/29 targets, 3,366 jobs** (measured 2026-09-03). Zero `sorry`, zero `: True` placeholders, standard axiom footprint throughout. `4Leibniz`: 6 modules, 11 theorems, exit 0. Pillar III (§V) remains **not** machine-verified. Pillar IV (§VI) is machine-verified, and its result **retracts** the anti-drift gate asserted in prior editions: θ is a coherence *ceiling* in the Lindblad sector, not a gate.  
+**Epistemic Status:** Mixed — see per-pillar tags. Lean 4 (`05_lean_formalization`, Mathlib present): repository gate `verify_all_proofs.sh` **PASS, exit 0, 29/29 targets, 3,366 jobs** (measured 2026-09-03). Zero `sorry`, zero `: True` placeholders, standard axiom footprint throughout. `4Leibniz`: 6 modules, 11 theorems, exit 0. Pillar III (§V) remains **not** machine-verified. Pillar IV (§VI) is machine-verified, and its result **retracts** the anti-drift gate asserted in prior editions: θ is a coherence *ceiling* in the Lindblad sector, not a gate. **Pillar IV re-verified 2026-09-05** (`PillarIV_AntiDriftGate.lean`, Lean v4.33.0-rc1, 2m50s): 16 theorems, zero `sorry`, every one closing on `[propext, Classical.choice, Quot.sound]` only. **Substitutability (sabotage) test PASSED**, which `Leibniz.Harmonia` fails: perturbing the constants (`mu 1`→`mu 2`, `kappaBand (7/10)`→`(8/10)`, `1/(2√2)`→`1/(3√2)`) breaks all three proofs with `unsolved goals`. The constants 1/√2 = 0.7071… and κ = 0.9539… are therefore *derived here*, not admitted as hypotheses.  
 **Vault Cycle:** Sovereign Refinement Engine — Cycle 11  
 **Date of Transmission:** 2026-09-01  
 
@@ -490,8 +490,12 @@ arithmetic. It proves what it proves, and none of it reaches Pillars III or IV.
   NOT PROVEN ANYWHERE IN THIS REPO:
     - any statement about Kerr geometry or photon capture (Pillar III)
     - any statement about a Lindblad/GKSL generator (Pillar IV)
+      (the GKSL generator, its steady state, and the two-channel gate are proven
+       over the reals/complexes in Res-Nova/PillarIV_AntiDriftGate.lean --
+       16 theorems, standard axioms, verified 2026-09-05)
     - any statement over the reals about 1/sqrt(2) or 0.953939
-      (the real-valued 1/sqrt(2) result lives in Res-Nova/RapidityEquipartition.lean)
+      (the real-valued 1/sqrt(2) result lives in Res-Nova/RapidityEquipartition.lean;
+       both 1/sqrt(2) and 0.953939 are also proven in PillarIV_AntiDriftGate.lean)
 ===========================================================================
 ```
 
