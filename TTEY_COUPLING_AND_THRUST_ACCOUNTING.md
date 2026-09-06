@@ -47,24 +47,45 @@ explains the framework's own domain: an effect set by a horizon-scale inverse le
 visible in galaxy rotation curves and cosmology, and suppressed at laboratory scale by
 roughly (system size / horizon)².
 
-## 3. Consequence for TTEY as propulsion — negative, and decisive
+## 3. Consequence for TTEY as propulsion — closed, but NOT by a coupling argument
 
-The hoped-for escape was that TTEY might couple to geometry **more strongly** than
-standard gravity, evading the `G/c⁵` bottleneck that makes gravitational-wave thrust
-useless. It does not:
+**Correction (2026-09-06, same day).** An earlier version of this section compared
+`a₀²/8πG` against GR's `c⁴/16πG` and reported a ratio of 2(a₀/c²)² ≈ 2.7e-54,
+concluding TTEY "couples more weakly than gravity." **That comparison was dimensionally
+invalid and is withdrawn.** The Einstein–Hilbert term integrates a curvature (1/length²)
+over 4D spacetime; the IT term integrates a *dimensionless* function over 3D space. The
+two prefactors are not commensurable and their ratio means nothing.
 
-| coupling | value |
+RY rejected the conclusion on its own terms — correctly — pointing out that a *weaker*
+coupling to gravity would, if anything, make gravity easier to counter, not harder.
+
+**The correct argument is about sign and regime, not coupling strength.**
+
+**(i) Sign.** MOND-type modifications make gravity **stronger** in the low-acceleration
+regime — that is their entire purpose, explaining flat rotation curves. Information
+Tension therefore *adds* to the attractive acceleration. It is a gravity-enhancing
+theory. The sign is wrong for cancellation before magnitude is considered at all.
+
+**(ii) Regime.** At Earth's surface `x = g/a₀ = 9.414e10`, i.e. deep Newtonian. With
+`μ(x) = x/(1+x)`:
+
+| quantity | value |
 |---|---|
-| gravitational-wave emission `G/c⁵` | 2.756 × 10⁻⁵³ |
-| **TTEY relative coupling `2(a₀/c²)²`** | **2.689 × 10⁻⁵⁴** |
+| `μ(g/a₀)` | 0.999999999989377 |
+| fractional deviation from Newton | 1.062e-11 |
+| extra acceleration supplied | **1.042e-10 m/s²** (inward) |
+| needed to cancel g | 9.81 m/s² |
+| **shortfall** | **9.414e10 ×** |
 
-**TTEY's coupling is ~10× *weaker* than the gravitational-wave coupling.** A TTEY
-thruster is harder to build than a GW thruster, not easier. **The action as written
-contains no propulsion enhancement**, and any drive claim needs a mechanism the action
-does not currently contain.
+The IT term is non-negligible only where `|∇Φ| ~ a₀` — roughly 12 kpc out in a
+10¹¹ M☉ galaxy. That is the theory's home and it is not a laboratory.
 
-Stated plainly so it is not rediscovered: *the FIG Tree action does not support a
-laboratory-scale thrust effect.*
+> **Information Tension cannot counter gravity: it adds to gravity, and at Earth's
+> surface its contribution is 10¹¹ times too small. This is a statement about sign and
+> regime — not about coupling strength.**
+
+The separate propulsion question (thrust via radiated momentum) is still governed by
+the `G/c⁵` bottleneck in §4, and nothing in the IT action changes that number.
 
 ## 4. The thrust ledger — what any drive must satisfy
 
