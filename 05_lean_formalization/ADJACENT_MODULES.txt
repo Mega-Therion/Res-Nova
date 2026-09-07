@@ -208,6 +208,32 @@ TetrahedralAction.lean           # Speculative companion, tag [O]: THE THREE
                                  # TetrahedralQuotient. Verified compiling
                                  # on the pinned toolchain, no Mathlib, no
                                  # sorry.
+TetrahedralEvenness.lean          # Speculative companion, tag [O]/[C]: THE A₄
+                                 # IDENTIFICATION CLOSES — from [O] to [C].
+                                 # Parity defined non-circularly in the
+                                 # miniature (invCount: inversion-count
+                                 # parity on the four vertices). PROVED
+                                 # [P]: IMAGE_EVEN — all twelve images of
+                                 # the PR #31 action have even inversion
+                                 # count (identity 0; the three double
+                                 # transpositions 2, 4, 6 — the crack's
+                                 # class b is (02)(13); the eight
+                                 # 3-cycles 2 or 4) — no image is odd;
+                                 # mulAQ_right_inv; act4_INJECTIVE —
+                                 # distinct group elements act by distinct
+                                 # permutations, derived from the
+                                 # homomorphism law, faithfulness, and the
+                                 # inverse laws, no table. Combined: the
+                                 # image is TWELVE DISTINCT EVEN
+                                 # permutations; with the classical count
+                                 # |A₄| = 12 [C]: the image IS A₄. The
+                                 # census group IS the even permutations.
+                                 # The identification PRs #30-31 carried
+                                 # as [O] closes modulo one classical
+                                 # count. [O]: all physics readings.
+                                 # Imports TetrahedralAction. Verified
+                                 # compiling on the pinned toolchain, no
+                                 # Mathlib, no sorry.
 ChiralPartner.lean               # Speculative companion, tag [O]: §7 of the
                                  # section draft "The Chiral Crack" — the
                                  # CHIRAL PARTNER model, first pass. The
