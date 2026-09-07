@@ -17,7 +17,11 @@
         mirror of ChiralCrackSketch and the spinor's sign flip are two faces
         of one central element. [proved]
     (B) PARITY ACTS AS SENSE-REVERSAL: the reflection conjugates every
-        rotation to its inverse (n r n⁻¹ = r⁻¹). [proved]
+        rotation to its inverse (n r n⁻¹ = r⁻¹) — and ANY reflection
+        conjugates ANY rotation to its inverse (conj_inverts_general).
+        The cover is non-abelian: the mirror ANTICOMMUTES with the
+        quarter-turn (n r = (r n)·(−1)), while the central 2π rotation
+        commutes with everything. [proved]
     (C) MAXIMALITY AS STRUCTURE: handedness change under the pin group is
         BINARY. Every element either preserves handedness at every point of
         the chiral space or reverses it at every point. No element is
@@ -119,6 +123,22 @@ theorem mul_one (a : Q8) : mul a one = a := by
 theorem mul_left_inv (a : Q8) : mul (inv a) a = one := by
   cases a with | mk k b => cases k <;> cases b <;> rfl
 
+theorem mul_right_inv (a : Q8) : mul a (inv a) = one := by
+  cases a with | mk k b => cases k <;> cases b <;> rfl
+
+/-- Taking inverses twice returns the element. -/
+theorem inv_involutive (a : Q8) : inv (inv a) = a := by
+  cases a with | mk k b => cases k <;> cases b <;> rfl
+
+/-- PARITY IS A HOMOMORPHISM to Z/2: the sector of a product is the XOR
+    of the sectors. Two reflections compose to a rotation; a reflection
+    composed with a rotation is a reflection. The two sectors partition
+    the cover multiplicatively — this is what makes "which sector" a
+    well-defined property of a coupling. -/
+theorem parity_hom (a b : Q8) : (mul a b).ref = (a.ref != b.ref) := by
+  cases a with | mk k1 b1 => cases b with | mk k2 b2 =>
+    cases k1 <;> cases b1 <;> cases k2 <;> cases b2 <;> rfl
+
 /-! ### (A) The bridge: the mirror's square is the 2π rotation -/
 
 /-- r² = −1: the 2π rotation is the central element. -/
@@ -150,6 +170,41 @@ theorem conj_inverts_r : mul (mul n r) (inv n) = inv r := rfl
 theorem conj_inverts_rotations (k : R4) :
     mul (mul n ⟨k, false⟩) (inv n) = inv ⟨k, false⟩ := by
   cases k <;> rfl
+
+/-- ANY reflection conjugates ANY rotation to its inverse: parity's
+    sense-reversal action does not depend on which mirror, or on which
+    rotation it acts on. The maximal-dichotomy reading of (C) is
+    representation-independent. -/
+theorem conj_inverts_general (t s : Q8) (ht : t.ref = true)
+    (hs : s.ref = false) : mul (mul t s) (inv t) = inv s := by
+  cases t with
+  | mk kt bt =>
+    cases s with
+    | mk ks bs =>
+      cases bt with
+      | false => exact nomatch ht
+      | true =>
+        cases bs with
+        | true => exact nomatch hs
+        | false => cases kt <;> cases ks <;> rfl
+
+/-- The cover is NON-ABELIAN: the mirror does not commute with the
+    quarter-turn. -/
+theorem non_abelian : mul n r ≠ mul r n := by
+  intro h; nomatch h
+
+/-- More: the mirror ANTICOMMUTES with the quarter-turn — n r = (r n)·(−1).
+    The reflection reverses the rotation's sense AND flips the cover's
+    sign. This is the double cover's version of "mirror × rotation =
+    inverse rotation × mirror." -/
+theorem anticommutation : mul n r = mul (mul r n) minusOne := rfl
+
+/-- The central 2π rotation commutes with everything: −1 is in the
+    center of the cover. Downstairs it is invisible; upstairs it is the
+    sign — which is exactly why the cover sees what the plane cannot. -/
+theorem central_two_pi_commutes (a : Q8) :
+    mul minusOne a = mul a minusOne := by
+  cases a with | mk k b => cases k <;> cases b <;> rfl
 
 /-! ### (C) The residue on the chiral space: handedness change is binary -/
 
