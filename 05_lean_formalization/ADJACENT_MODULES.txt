@@ -73,3 +73,34 @@ ChiralCrackSketch.lean           # Speculative companion, tag [O]: promotion-pat
                                  # manuscript. Verified compiling on the
                                  # pinned toolchain (lean 4.33.0-rc1), no
                                  # Mathlib, no sorry.
+# --- The Chiral Crack (book manuscript: Res Nova — The Book) ---
+ChiralCrackSketch.lean           # Speculative companion, tag [O]: promotion-path
+                                 # item (a) of the section draft "The Chiral
+                                 # Crack: The Holonomic Loop and the
+                                 # Symmetry-Breaking Moment" (Notion, Res
+                                 # Nova: The Book — First Draft). Order-
+                                 # theoretic skeleton of the orientation-
+                                 # reversing return: the inevitable mismatch,
+                                 # order-exactly-two homecoming, and
+                                 # undoing-a-reflection-requires-a-reflection.
+                                 # Structural facts only — certifies no
+                                 # physical ontology, not a result of this
+                                 # manuscript. Verified compiling on the
+                                 # pinned toolchain (lean 4.33.0-rc1), no
+                                 # Mathlib, no sorry.
+ChiralResidue.lean               # Speculative companion, tag [O]: promotion-path
+                                 # item (b) first pass. The pin double cover
+                                 # of the plane (Pin-, realized as Q8): the
+                                 # mirror's square IS the 2π rotation; the
+                                 # reflection conjugates every rotation to
+                                 # its inverse; and MAXIMALITY AS STRUCTURE
+                                 # — handedness change under the pin group is
+                                 # binary, so parity violation is all-or-
+                                 # nothing per coupling, never partial.
+                                 # Derives the qualitative core of maximal
+                                 # weak parity violation; does NOT yet derive
+                                 # the SU(2)_L gauge group itself. Imports
+                                 # ChiralCrackSketch (reflection sector
+                                 # realizes its IsReflection holonomies).
+                                 # Verified compiling on the pinned toolchain,
+                                 # no Mathlib, no sorry.

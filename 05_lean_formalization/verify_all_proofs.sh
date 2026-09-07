@@ -37,6 +37,7 @@ TARGETS=(
   CartanTrialityGenerations.lean
   ChiralCellularDuality.lean
   ChiralCrackSketch.lean
+  ChiralResidue.lean
   ChiralHolonomyOrientation.lean
   GenerationCycleChirality.lean
   CosmologicalSector.lean
