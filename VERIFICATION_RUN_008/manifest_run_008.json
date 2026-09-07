@@ -1,0 +1,26 @@
+{
+  "run_id": "RUN_008",
+  "name": "VERIFICATION_RUN_008",
+  "description": "Genuine cold-machine verification walk for the O6 open problem: fresh container, no pre-existing .lake/packages or ~/.cache/mathlib, lake exe cache get performing a real network fetch (not a local cache decompression as in RUN_007)",
+  "date": "2026-09-07",
+  "author": "Claude Sonnet 5 (Claude Code session), continuing a concurrent cold-machine attempt reported by another agent on the same repo",
+  "commit": "d4828233564d02c223d9907ca946429aa50c4e60",
+  "environment": {
+    "clean_worktree": true,
+    "path": "/home/user/Res-Nova",
+    "pre_existing_lake_packages": false,
+    "pre_existing_mathlib_cache": false,
+    "lean_version": "Lean (version 4.33.0-rc1, x86_64-unknown-linux-gnu, commit 62eed1db4d67327ec8120be05f1a1b0847d74561, Release)",
+    "lake_version": "Lake version 5.0.0-src+62eed1d (Lean version 4.33.0-rc1)",
+    "lean_toolchain": "leanprover/lean4:v4.33.0-rc1",
+    "mathlib_pin": "5eec30bc56ed5a23be2e27c544a949ba0bceddeb"
+  },
+  "artifacts": [
+    "VERIFICATION_RUN_008/01_lean/RUN_008_RESULT.json",
+    "VERIFICATION_RUN_008/01_lean/GATE_TRANSCRIPT.txt",
+    "VERIFICATION_RUN_008/01_lean/CACHE_GET_TRANSCRIPT.txt",
+    "VERIFICATION_RUN_008/01_lean/SHA256SUMS.txt"
+  ],
+  "result": "PASS",
+  "o6_status": "Further narrowed, not closed: this run demonstrates the prebuilt-cache endpoint completing a genuine 8678/8678-file network fetch from a truly cold machine and the full 32-target gate passing on top of it. It does not establish that the endpoint is reliably cold-fetchable -- a concurrent attempt on a different machine hit a stall on the same endpoint around the same time and fell back to source compilation. O6 remains open in the sense of 'not guaranteed'; a CI runner exercising this path on every push, per RUN_007's stated remaining gap, is still not in place."
+}
