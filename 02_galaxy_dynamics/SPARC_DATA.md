@@ -25,12 +25,16 @@ Primary source: Lelli, McGaugh & Schombert 2016, *AJ* 152, 157. Official distrib
 To fetch and verify the official dataset into the repo-local directory:
 
 ```bash
-# Automated fetch and verification script
+# Automated fetch and verification script (repository-local destination)
 bash 02_galaxy_dynamics/fetch_sparc.sh
+
+# Or use an isolated destination without changing the environment
+bash 02_galaxy_dynamics/fetch_sparc.sh --data-dir /path/to/sparc_data
 ```
 
-The automated script performs the following operations:
-1. Downloads `https://astroweb.cwru.edu/SPARC/Rotmod_LTG.zip` into `02_galaxy_dynamics/sparc_data/`.
+The automated script performs the following operations. Its destination follows the same precedence as the analysis scripts: `--data-dir <DIR>`, then `SPARC_DATA_DIR`, then the repository-local `02_galaxy_dynamics/sparc_data/` directory.
+
+1. Downloads `https://astroweb.cwru.edu/SPARC/Rotmod_LTG.zip` into the selected data directory.
 2. Extracts all 175 `*_rotmod.dat` rotation curve tables.
 3. Automatically verifies each file against the authoritative SHA-256 manifest at `VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256`.
 4. Fails loudly (`exit 1`) if the file count differs from 175 or if any checksum drifts.

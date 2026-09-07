@@ -66,11 +66,11 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 ## O5 — SPARC data not in the repo
 
-**Status:** engineering open, not a physics open. Data is intentionally not vendored in git. Fetch and checksum pipeline is untested on a clean clone. See `02_galaxy_dynamics/SPARC_DATA.md`.
+**Status:** closed as an engineering item, not a physics result. Data remains intentionally unvendored in git. The repository-local path is now a real directory rather than a machine-specific symlink, and the fetch/checksum pipeline has been exercised from a clean clone into an isolated temporary directory. See `02_galaxy_dynamics/SPARC_DATA.md`.
 
-**Closure path:** `fetch_sparc.sh` downloading official CWRU `Rotmod_LTG.zip`, unpacking, verifying all 175 files against `VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256`, and supporting `--data-dir` / `SPARC_DATA_DIR` across all data scripts without `/home/mega` or `/tmp/claude-1000` defaults.
+**Closure path:** `fetch_sparc.sh` downloads the official CWRU `Rotmod_LTG.zip`, unpacks it, verifies all 175 files against `VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256`, and supports both `--data-dir` and `SPARC_DATA_DIR` without `/home/mega` or `/tmp/claude-1000` defaults.
 
-**Test path:** Clean-clone execution of `fetch_sparc.sh` followed by checksum verification (175/175 OK).
+**Test result:** Clean-clone execution of `fetch_sparc.sh --data-dir /tmp/resnova-sparc-fetch-test` completed with 175/175 checksum matches.
 
 ---
 

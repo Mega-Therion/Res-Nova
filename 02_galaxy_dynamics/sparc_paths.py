@@ -6,7 +6,7 @@ in priority order:
 2. Environment variable SPARC_DATA_DIR (or legacy SPARC_DATA)
 3. 02_galaxy_dynamics/sparc_data (repo-local)
 4. ./sparc_data (current working directory)
-5. /home/mega/Chyren/Research_and_Data/07_Domain_Tiers_and_Data/Datasets/data/sparc_data (last fallback)
+5. No hard-coded fallback; missing data is reported with all tried paths.
 
 Raises FileNotFoundError listing all tried paths if no valid directory with *_rotmod.dat is found.
 """
@@ -29,7 +29,7 @@ def resolve_sparc_dir(cli_dir: str | Path | None = None) -> Path:
     2. env SPARC_DATA_DIR (or SPARC_DATA)
     3. 02_galaxy_dynamics/sparc_data (repo-local)
     4. ./sparc_data (cwd-local)
-    5. _OLD_FALLBACK (/home/mega/...)
+    5. No hard-coded fallback; missing data is reported with all tried paths.
     """
     candidates: list[Path] = []
     tried: list[str] = []
@@ -61,7 +61,7 @@ def resolve_sparc_dir(cli_dir: str | Path | None = None) -> Path:
         tried.append(f"cwd-local: {cwd_local}")
 
     # 5. No hardcoded fallback (O5 fix)
-    tried.append("No hardcoded fallback — set SPARC_DATA_DIR or place data in spc_data/")
+    tried.append("No hard-coded fallback — set SPARC_DATA_DIR or place data in sparc_data/")
 
     for candidate in candidates:
         if candidate.is_dir():

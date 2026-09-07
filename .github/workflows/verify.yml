@@ -15,6 +15,10 @@ jobs:
           python-version: "3.11"
       - name: compile python scripts
         run: python3 -m py_compile 02_galaxy_dynamics/*.py scripts/check_claim_consistency.py scripts/validate_claim_registry.py scripts/generate_assurance_report.py scripts/validate_sparc_reproduction.py 05_lean_formalization/check_manuscript_inventory.py scripts/render_mvpc_fixtures.py scripts/run_mvpc_adapter.py 03_observer_jwst/gate2_inference.py
+      - name: SPARC fetcher portability smoke test
+        run: |
+          bash -n 02_galaxy_dynamics/fetch_sparc.sh
+          bash 02_galaxy_dynamics/fetch_sparc.sh --help
       - name: claim consistency
         run: python3 scripts/check_claim_consistency.py
       - name: validate assurance claim registry
