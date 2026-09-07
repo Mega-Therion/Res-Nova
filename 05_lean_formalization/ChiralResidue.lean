@@ -306,4 +306,45 @@ theorem sector_exhaustive (a : Q8) : a.ref = false ∨ a.ref = true := by
     | false => exact Or.inl rfl
     | true => exact Or.inr rfl
 
+/-! ### The dichotomy IS the grading: exact converses -/
+
+/-- CONVERSE 1: any element that preserves handedness is a rotation.
+    Together with rotations_preserve: the rotation sector is EXACTLY
+    the set of handedness-preserving elements. -/
+theorem preserving_implies_rotation (g : Q8)
+    (hp : ∀ h : Hand, act g h = h) : g.ref = false := by
+  cases g with
+  | mk k b =>
+    cases b with
+    | false => rfl
+    | true =>
+      have h2 := hp Hand.L
+      nomatch h2
+
+/-- CONVERSE 2: any element that reverses handedness is a reflection. -/
+theorem reversing_implies_reflection (g : Q8)
+    (hr : ∀ h : Hand, act g h = ChiralCrack.flip h) : g.ref = true := by
+  cases g with
+  | mk k b =>
+    cases b with
+    | false =>
+      have h2 := hr Hand.L
+      nomatch h2
+    | true => rfl
+
+/-- CAPSTONE OF THE GRADING: the rotation sector is PRECISELY the set of
+    handedness-preserving elements. The maximality dichotomy is not
+    merely implied by the grading — it IS the grading. -/
+theorem rotation_iff_preserves (g : Q8) :
+    g.ref = false ↔ ∀ h : Hand, act g h = h :=
+  ⟨fun hg h => rotations_preserve g hg h,
+   fun hp => preserving_implies_rotation g hp⟩
+
+/-- CAPSTONE OF THE GRADING: the reflection sector is PRECISELY the set
+    of handedness-reversing elements. -/
+theorem reflection_iff_reverses (g : Q8) :
+    g.ref = true ↔ ∀ h : Hand, act g h = ChiralCrack.flip h :=
+  ⟨fun hg h => reflections_reverse g hg h,
+   fun hr => reversing_implies_reflection g hr⟩
+
 end ChiralResidue
