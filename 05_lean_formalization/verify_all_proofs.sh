@@ -18,13 +18,22 @@
 #     theorem hypotheses, which that grep cannot see. See THEORY_ASSUMPTION_AUDIT.md.
 #     Do not describe a green run here as "zero unproven assumptions".
 #
-# Last recorded green run: all 17 targets, exit 0, on commit 109d38b under
+# Last recorded green run: all 32 targets, exit 0, on commit d482823 under
 # Lean v4.33.0-rc1 and Mathlib 5eec30bc. Transcript, per-target exit codes and
-# checksums: VERIFICATION_RUN_003/01_lean/.
+# checksums: VERIFICATION_RUN_008/01_lean/.
 #
-# That run used a Mathlib checkout that was already present in .lake/packages.
-# Reproducing it on a machine with no pre-existing Mathlib (`lake exe cache
-# get` from a fresh clone) is open problem O6 and is not claimed here.
+# O6 (reproducing green on a machine with no pre-existing Mathlib, via a fresh
+# `lake exe cache get`) is narrowed but not closed. RUN_007 (2026-08-16, 17
+# targets) first walked this in a clean worktree, but its cache-get decompressed
+# files from a locally pre-warmed ~/.cache/mathlib rather than fetching from
+# origin. RUN_008 (2026-09-07, 32 targets) performed a genuine network fetch of
+# all 8678 cache files from https://lakecache.blob.core.windows.net with no
+# Mathlib cache anywhere on disk beforehand, and the gate still passed. This is
+# not a guarantee: a concurrent cold-machine attempt on a different host, around
+# the same time, hit a stall on that same endpoint and had to fall back to
+# compiling Mathlib from source. Treat the endpoint as sometimes-cold-fetchable,
+# not reliably so, until this path runs in CI across enough attempts to bound
+# the stall rate.
 set -uo pipefail
 cd "$(dirname "$0")"
 

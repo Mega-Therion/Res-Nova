@@ -1,0 +1,40 @@
+Build completed successfully (3369 jobs).
+OK    AXIOMS_V2.lean
+OK    CartanTrialityGenerations.lean
+OK    ChiralCellularDuality.lean
+OK    ChiralHolonomyOrientation.lean
+OK    GenerationCycleChirality.lean
+OK    CosmologicalSector.lean
+OK    CovariantCompletion.lean
+OK    DeSitterExtremal.lean
+OK    DualChannelDerivation.lean
+OK    GODActionKinematics.lean
+OK    GenerationIndex.lean
+OK    Hamilgrangian.lean
+OK    HorizonScale.lean
+OK    ITActionClosure.lean
+OK    MuProjection.lean
+OK    PPNLimits.lean
+OK    PillarIV_AntiDriftGate.lean
+OK    PrintAxioms.lean
+OK    PrintAxiomsD8.lean
+OK    RamanujanGapDerivation.lean
+OK    RamanujanModularBounds.lean
+OK    RelativisticStability.lean
+OK    RapidityEquipartition.lean
+OK    SOCasimirGenuine.lean
+OK    SovereignSpinCeiling.lean
+OK    SkordisZlosnikEmbedding.lean
+OK    SovereignRegularity.lean
+OK    SovereignSemiotics.lean
+OK    TensorSpeed.lean
+OK    TrialityFixedSubalgebra.lean
+OK    TrialityG2.lean
+OK    YettParadigm.lean
+
+verified: 32 / 32 target(s)
+RESULT: PASS
+NOTE: this certifies elaboration, absence of sorry, and a standard axiom
+      footprint. It does not certify that assumptions carried as typeclass
+      or structure fields are physically justified — see THEORY_ASSUMPTION_AUDIT.md.
+EXIT_CODE:0
