@@ -123,6 +123,21 @@ ChiralPartner.lean               # Speculative companion, tag [O]: §7 of the
                                  # vacuum. This is the factor-exchange
                                  # skeleton that SU(2)_L × SU(2)_R
                                  # instantiates; deriving the SU(2)_L gauge
-                                 # structure itself remains open. Imports
+                                 # structure itself remains open. Second
+                                 # pass (PR #25): THE WEAK SELECTION — the
+                                 # doubled cover acts on the chiral space
+                                 # through its left component only
+                                 # (wact); the binary dichotomy and the
+                                 # grading capstone apply verbatim; THE
+                                 # PARTNER THEOREM: a pure-left state of
+                                 # reflection type is weak-visible as
+                                 # chiral while its parity partner — same
+                                 # internal type, other factor — is
+                                 # COMPLETELY invisible to the weak
+                                 # selection. Plus the SO(4) seed: the two
+                                 # factors commute (via the group laws) and
+                                 # the diagonal sign (−1,−1) is central of
+                                 # order two — the miniature of
+                                 # SO(4) ≅ (SU(2)×SU(2))/±1. Imports
                                  # ChiralResidue. Verified compiling on the
                                  # pinned toolchain, no Mathlib, no sorry.
