@@ -405,4 +405,28 @@ theorem involution_kill_evasion :
     mul n n ≠ one ∧ ∀ h : Hand, act n (act n h) = h :=
   ⟨(fun h => nomatch h), (fun h => by cases h <;> rfl)⟩
 
+/-! ### The cascade census, in miniature -/
+
+/-- THE TRUNK'S SURVIVAL CONDITIONS, APPLIED ELEMENT BY ELEMENT.
+    f_memory kills the identity; f_orient kills every involution
+    (U² = 1 — any involution makes the loop forget its orientation).
+    THE CENSUS: the 2π ROTATION IS KILLED — the central sign is an
+    involution and carries no orientation information of its own; it
+    is the bookkeeping of orientation, not an orientation. The crack
+    survives, and the quarter-turn survives — one from the reflection
+    sector, one from the rotation sector — and they SHARE THE SAME
+    SQUARE: the sign. The residue is common to both survivors; the
+    sign itself does not survive the cascade it enables.
+    (Cross-reference: GenerationCycleChirality.lean proves the other
+    survival route — order-3 cycles are never involutions. The two
+    routes are the two non-involutive structures of the corpus: the
+    double-cover notch of the crack, and the order-3 generation
+    cycle.) -/
+theorem cascade_census :
+    mul minusOne minusOne = one
+    ∧ mul n n ≠ one
+    ∧ mul ⟨R4.r1, false⟩ ⟨R4.r1, false⟩ ≠ one
+    ∧ mul n n = mul ⟨R4.r1, false⟩ ⟨R4.r1, false⟩ :=
+  ⟨rfl, (fun h => nomatch h), (fun h => nomatch h), rfl⟩
+
 end ChiralResidue

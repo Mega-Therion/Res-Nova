@@ -97,3 +97,18 @@ The miniature answers this doc's own question: how can a loop return changed wit
 involution? Because its square is not 1 — it is the 2π rotation. The residue sits one notch of
 cover above the involution-kill. Tagging: the three structural theorems are [P] (verified); the
 physics reading of them remains [O].
+
+**Census addendum (2026-09-07, PR #28).** The survival conditions applied element by element, in
+miniature (`cascade_census`): the 2π rotation is KILLED — the central sign is an involution
+(U² = 1) and carries no orientation information of its own; it is the bookkeeping of
+orientation, not an orientation. The crack survives, and the quarter-turn survives — one from
+each sector — and they share the same square: the sign. The sign itself does not survive the
+cascade it enables.
+
+**Two survival routes, both present in the corpus.** `GenerationCycleChirality.lean` proves
+the other route: an order-3 cycle is never an involution (σ ≠ σ⁻¹). Applied inside the
+triality group S₃, the census is total: the identity fails f_memory; the three transpositions
+(involutions) fail f_orient; ONLY the two 3-cycles survive — inverses of each other,
+orientation-asymmetric, generating the Z₃. The cascade's own kill conditions, applied to the
+triality group, select exactly the generation structure. [O] for the physical identification;
+[P] for both routes' local facts.

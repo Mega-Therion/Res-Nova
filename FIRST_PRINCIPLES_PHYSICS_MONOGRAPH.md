@@ -90,7 +90,7 @@ All mathematical inequalities, spectral bounds, and group-theoretic properties a
 
 | Formal File | Mathematical Invariant | Status |
 | :--- | :--- | :--- |
-| `CartanTrialityGenerations.lean` | Triality order 3 & $\mathbb{Z}_3$ representation partition | 🟢 100% Sorry-Free |
+| `CartanTrialityGenerations.lean` | Definitional bookkeeping placeholders (honest relabel 2026-08-26); triality itself remains [O] formally | 🟢 Compiles, content relabeled |
 | `ChiralCellularDuality.lean` | Chiral ground state positivity ($E_p(\theta) \ge 0$) | 🟢 100% Sorry-Free |
 | `RamanujanModularBounds.lean` | Deligne-Ramanujan spectral weight bounds | 🟢 100% Sorry-Free |
 | `GalacticAcceleration.lean` | Cosmological horizon acceleration $a_0 = cH_0/2\pi$ | 🟢 100% Sorry-Free |
