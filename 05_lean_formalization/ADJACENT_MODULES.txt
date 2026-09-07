@@ -234,7 +234,24 @@ TetrahedralEvenness.lean          # Speculative companion, tag [O]/[C]: THE A₄
                                  # Imports TetrahedralAction. Verified
                                  # compiling on the pinned toolchain, no
                                  # Mathlib, no sorry.
-ChiralPartner.lean               # Speculative companion, tag [O]: §7 of the
+FiniteSU2Envelope.lean             # Rung 7, tag [P] for the finite algebraic
+                                 # realization and [O] for the continuous
+                                 # envelope. Defines an exact quaternion
+                                 # multiplication on R⁴, embeds the existing
+                                 # Q8 cover as unit quaternions, defines
+                                 # qT = (-1-i-j+k)/2 with qT³ = 1, proves
+                                 # conjugation realizes the existing phi,
+                                 # proves the semidirect-product homomorphism
+                                 # BT = Q8 ⋊ C3 → unit quaternions, and proves
+                                 # every image has norm one. This is an
+                                 # explicit finite subgroup realization in the
+                                 # unit-quaternion model of SU(2), not a proof
+                                 # of topology, continuity, connectedness, Lie
+                                 # structure, a matrix SU(2) representation,
+                                 # or a physical gauge group. Imports
+                                 # BinaryTetrahedral. Verified compiling on
+                                 # the pinned toolchain, no sorry.
+  ChiralPartner.lean               # Speculative companion, tag [O]: §7 of the
                                  # section draft "The Chiral Crack" — the
                                  # CHIRAL PARTNER model, first pass. The
                                  # doubled cover Q8 × Q8 (two copies of

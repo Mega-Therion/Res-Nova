@@ -32,6 +32,7 @@ lean_lib «ResNovaFormal» where
     `TetrahedralQuotient,
     `TetrahedralAction,
     `TetrahedralEvenness,
+    `FiniteSU2Envelope,
     `CartanTrialityGenerations,
     `ChiralCellularDuality,
     `ChiralCrackSketch,
