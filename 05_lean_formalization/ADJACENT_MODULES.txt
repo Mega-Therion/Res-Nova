@@ -104,3 +104,25 @@ ChiralResidue.lean               # Speculative companion, tag [O]: promotion-pat
                                  # realizes its IsReflection holonomies).
                                  # Verified compiling on the pinned toolchain,
                                  # no Mathlib, no sorry.
+ChiralPartner.lean               # Speculative companion, tag [O]: §7 of the
+                                 # section draft "The Chiral Crack" — the
+                                 # CHIRAL PARTNER model, first pass. The
+                                 # doubled cover Q8 × Q8 (two copies of
+                                 # ChiralResidue's pin cover, LEFT and
+                                 # RIGHT) with parity as the EXCHANGE
+                                 # automorphism (a,b) ↦ (b,a). Proved: the
+                                 # exchange is an involutive automorphism;
+                                 # it carries each pure sector wholly into
+                                 # the other; the parity-symmetric states
+                                 # are exactly the diagonal; ONLY THE
+                                 # VACUUM is a symmetric pure-handed state
+                                 # (purity and exchange-symmetry are
+                                 # exclusive except at the vacuum — the
+                                 # structural seed of maximal violation);
+                                 # and the pure sectors meet only in the
+                                 # vacuum. This is the factor-exchange
+                                 # skeleton that SU(2)_L × SU(2)_R
+                                 # instantiates; deriving the SU(2)_L gauge
+                                 # structure itself remains open. Imports
+                                 # ChiralResidue. Verified compiling on the
+                                 # pinned toolchain, no Mathlib, no sorry.

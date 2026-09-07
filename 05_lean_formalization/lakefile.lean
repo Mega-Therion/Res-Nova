@@ -32,6 +32,7 @@ lean_lib «ResNovaFormal» where
     `ChiralCellularDuality,
     `ChiralCrackSketch,
     `ChiralResidue,
+    `ChiralPartner,
     `ChiralHolonomyOrientation,
     `GenerationCycleChirality,
     `CosmologicalSector,

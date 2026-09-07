@@ -38,6 +38,7 @@ TARGETS=(
   ChiralCellularDuality.lean
   ChiralCrackSketch.lean
   ChiralResidue.lean
+  ChiralPartner.lean
   ChiralHolonomyOrientation.lean
   GenerationCycleChirality.lean
   CosmologicalSector.lean
