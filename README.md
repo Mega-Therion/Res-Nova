@@ -17,7 +17,7 @@
 
 **Author:** [Ryan W. Yett](https://orcid.org/0009-0001-1303-7190) &nbsp;|&nbsp; **Affiliation:** Independent Theoretical Research &nbsp;|&nbsp; **Release:** `v1.6.2` &nbsp;|&nbsp; **Epistemic seal:** `v1.6.2`
 
-[**For referees**](FOR_REFEREES.md) &nbsp;•&nbsp; [**Open problems**](OPEN_PROBLEMS_AND_TESTS.md) &nbsp;•&nbsp; [**Agent covenant**](AGENT_COVENANT.md) &nbsp;•&nbsp; [**Manuscript Source**](final_manuscript.tex) &nbsp;•&nbsp; [**Observatory**](https://res-nova-observatory.vercel.app)
+[**Research program**](research_program/) &nbsp;•&nbsp; [**For referees**](FOR_REFEREES.md) &nbsp;•&nbsp; [**Open problems**](OPEN_PROBLEMS_AND_TESTS.md) &nbsp;•&nbsp; [**Agent covenant**](AGENT_COVENANT.md) &nbsp;•&nbsp; [**Manuscript Source**](final_manuscript.tex) &nbsp;•&nbsp; [**Observatory**](https://res-nova-observatory.vercel.app)
 
 </div>
 
@@ -140,6 +140,7 @@ Res-Nova/
 ├── 03_observer_jwst/             # high-z interface; not a completed [D] campaign
 ├── 04_cosmology/                 # a0 / Ω ledgers; Ω_Λ=ln2 is [O]
 ├── 05_lean_formalization/        # 17 Lean modules + verify_all_proofs.sh
+├── research_program/              # charter, experiment registry, and review/release protocol
 ├── FOR_REFEREES.md
 ├── OPEN_PROBLEMS_AND_TESTS.md
 ├── AGENT_COVENANT.md
