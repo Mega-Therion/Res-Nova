@@ -122,6 +122,30 @@ ChiralResidue.lean               # Speculative companion, tag [O]: promotion-pat
                                  # entirely by the sign, and the
                                  # involution-kill is evaded by exactly
                                  # the double cover's notch.
+BinaryTetrahedral.lean          # Speculative companion, tag [O]: the Z/2 × Z/3
+                                 # COMPOSITION requested after the PR #28 census.
+                                 # The generation cycle C₃ made concrete, ACTING on
+                                 # the crack's cover via φ — an explicit order-3
+                                 # automorphism of Q8 cycling the three
+                                 # anticommuting pairs (n, r, n·r) ↦ (r, n·r, n).
+                                 # The composition is the SEMIDIRECT product
+                                 # Q8 ⋊ C₃ (complete group laws derived from φ's
+                                 # multiplicativity): the binary tetrahedral
+                                 # miniature, the next finite subgroup of SU(2)
+                                 # after Q8 [O — the envelope is not proved].
+                                 # PROVED [P]: the unique involution remains the
+                                 # 2π sign; the 2π sign remains central; and THE
+                                 # COMPOSITION CENSUS — crack route order exactly
+                                 # 4 (square = the sign), generation route order
+                                 # exactly 3, the COMPOSED survivor (n, g1) order
+                                 # exactly 6 with CUBE = the 2π sign. The direct
+                                 # product would give lcm(4,3) = 12; the true
+                                 # composition COMPRESSES 12 into 6: one cyclic
+                                 # structure, not two. The generation
+                                 # identification remains [O] (same boundary as
+                                 # GenerationCycleChirality). Imports ChiralResidue
+                                 # (the crack's cover). Verified compiling on the
+                                 # pinned toolchain, no Mathlib, no sorry.
 ChiralPartner.lean               # Speculative companion, tag [O]: §7 of the
                                  # section draft "The Chiral Crack" — the
                                  # CHIRAL PARTNER model, first pass. The
