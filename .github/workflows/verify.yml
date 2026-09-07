@@ -4,6 +4,11 @@ on:
   push:
     branches: [main, "diamond-standard/**"]
   pull_request:
+  schedule:
+    # Daily, off-peak. Exists to bound the O6 stall rate over time (see the
+    # lean-gate job below), not to gate ordinary development.
+    - cron: "17 6 * * *"
+  workflow_dispatch:
 
 jobs:
   claim-hygiene:
@@ -37,7 +42,31 @@ jobs:
           python3 scripts/render_mvpc_fixtures.py --out /tmp/res_nova_bundle.json
           python3 -m mvpc.claim_consumer --bundle /tmp/res_nova_bundle.json
 
-  # Lean kernel verification is a release gate, not a PR smoke test.
-  # Mathlib is multi-GB and the recorded PASS was local (open O6).
-  # Do NOT download Mathlib or run lake in CI until O6 is addressed.
+  # Lean kernel verification. O6 (reproducing green from a machine with no
+  # pre-existing Mathlib, via a fresh `lake exe cache get`) was narrowed by two
+  # manual walks -- VERIFICATION_RUN_007 (local pre-warmed cache) and
+  # VERIFICATION_RUN_008 (genuine origin fetch, 32/32 targets, exit 0) -- but
+  # a concurrent attempt on a different machine hit a stall on the same
+  # prebuilt-cache endpoint around the same time RUN_008 succeeded. So this
+  # runs on push/schedule/dispatch, not on every pull_request: an unrelated
+  # contributor's PR should not go red because Azure blob storage had a bad
+  # minute. The schedule exists specifically to keep collecting that stall-rate
+  # data automatically instead of via more one-off manual walks.
+  lean-gate:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Lean toolchain and fetch Mathlib cache (no local build/test/lint)
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: 05_lean_formalization
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-mathlib-cache: true
+      - name: Run the full proof verification gate
+        run: cd 05_lean_formalization && bash verify_all_proofs.sh
 
