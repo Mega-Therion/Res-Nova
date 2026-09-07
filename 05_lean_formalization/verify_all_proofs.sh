@@ -35,6 +35,7 @@ STD_AXIOMS='propext|Classical.choice|Quot.sound'
 TARGETS=(
   BinaryTetrahedral.lean \
   TetrahedralQuotient.lean \
+  TetrahedralAction.lean \
   AXIOMS_V2.lean
   CartanTrialityGenerations.lean
   ChiralCellularDuality.lean
