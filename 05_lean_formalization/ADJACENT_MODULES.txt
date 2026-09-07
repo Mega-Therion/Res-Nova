@@ -146,6 +146,40 @@ BinaryTetrahedral.lean          # Speculative companion, tag [O]: the Z/2 × Z/3
                                  # GenerationCycleChirality). Imports ChiralResidue
                                  # (the crack's cover). Verified compiling on the
                                  # pinned toolchain, no Mathlib, no sorry.
+TetrahedralQuotient.lean         # Speculative companion, tag [O]: THE SHADOW OF
+                                 # THE SIGN — 2T modulo the 2π rotation, the rung
+                                 # after the composition. V₄ = Q8/±1 (the Klein
+                                 # four: classes ±1, ±r, ±n — the crack — ±nr);
+                                 # the generation cycle's action descends (φ̄,
+                                 # cycling the three non-identity classes);
+                                 # the quotient map 'shadow' is a homomorphism
+                                 # and the quotient's group laws are INHERITED
+                                 # through the section (the standard descent
+                                 # argument, in miniature). PROVED [P]: THE
+                                 # KERNEL IS EXACTLY THE SIGN — the only
+                                 # elements the shadow kills are the identity
+                                 # and the 2π rotation; multiplying by the
+                                 # sign changes NOTHING downstairs (the 2π
+                                 # problem as a projection law); THE CRACK
+                                 # MERGES WITH ITS REVERSE (proj n = proj n⁻¹ —
+                                 # PR #27 said they act identically; here they
+                                 # are literally equal); THE TETRAHEDRAL CENSUS
+                                 # — every element has order 1, 2, or 3 (no
+                                 # order 6, 4, or 12), involutions exactly the
+                                 # three classes ±r, ±n, ±rn: 1 + 3 + 8, the
+                                 # census of A₄; THE THREE DIRECTIONS ARE
+                                 # ANONYMOUS — the generation element conjugates
+                                 # the three involutions in one orbit; no crack
+                                 # axis is preferred (gauge, not structure).
+                                 # [O]: the identification of the census group
+                                 # with A₄ / the tetrahedron's rotation group;
+                                 # all physics readings; the Stiefel echo.
+                                 # NOTE for the trunk: downstairs the crack IS
+                                 # an involution — the involution-kill WOULD
+                                 # apply there; the escape lives entirely in
+                                 # the cover. Imports BinaryTetrahedral.
+                                 # Verified compiling on the pinned toolchain,
+                                 # no Mathlib, no sorry.
 ChiralPartner.lean               # Speculative companion, tag [O]: §7 of the
                                  # section draft "The Chiral Crack" — the
                                  # CHIRAL PARTNER model, first pass. The
