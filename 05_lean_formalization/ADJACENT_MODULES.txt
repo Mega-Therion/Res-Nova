@@ -114,7 +114,14 @@ ChiralResidue.lean               # Speculative companion, tag [O]: promotion-pat
                                  # and the grading is stable under every
                                  # local rotation frame
                                  # (rotation_frame_stable). Local flatness
-                                 # at the crack, interrogated, fails.
+                                 # at the crack, interrogated, fails. Trunk service
+                                 # (PR #27): the cascade's f_orient clause
+                                 # has a proved miniature model — the
+                                 # reverse loop differs by the sign, the
+                                 # orientation-dependence is carried
+                                 # entirely by the sign, and the
+                                 # involution-kill is evaded by exactly
+                                 # the double cover's notch.
 ChiralPartner.lean               # Speculative companion, tag [O]: §7 of the
                                  # section draft "The Chiral Crack" — the
                                  # CHIRAL PARTNER model, first pass. The
