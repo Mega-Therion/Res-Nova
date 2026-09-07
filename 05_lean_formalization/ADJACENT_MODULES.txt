@@ -180,6 +180,34 @@ TetrahedralQuotient.lean         # Speculative companion, tag [O]: THE SHADOW OF
                                  # the cover. Imports BinaryTetrahedral.
                                  # Verified compiling on the pinned toolchain,
                                  # no Mathlib, no sorry.
+TetrahedralAction.lean           # Speculative companion, tag [O]: THE THREE
+                                 # ANONYMOUS INVOLUTIONS MEET THE TETRAHEDRON'S
+                                 # FOUR VERTICES — the rung after the shadow.
+                                 # The census group V₄ ⋊ C₃ acts on four
+                                 # points: the three involutions as the
+                                 # double transpositions (01)(23), (02)(13)
+                                 # — the crack's class — and (03)(12); the
+                                 # generation element as the 3-cycle (012)
+                                 # fixing one vertex. PROVED [P]: the action
+                                 # is a HOMOMORPHISM (derived from one
+                                 # conjugation lemma — the generation's
+                                 # conjugation of the involutions IS
+                                 # conjugation of permutations); FAITHFUL —
+                                 # only the identity acts trivially, the
+                                 # 12-element census group EMBEDS in the
+                                 # permutations of the four vertices;
+                                 # TRANSITIVE — any vertex to any vertex;
+                                 # the generation element is a VERTEX
+                                 # ROTATION (fixes v3, cycles the rest);
+                                 # the involutions are EDGE HALF-TURNS
+                                 # (move every vertex, fix none). [O]: the
+                                 # image being exactly the even permutations
+                                 # (the A₄ identification — parity not
+                                 # defined here); the geometric tetrahedron;
+                                 # all physics readings. Imports
+                                 # TetrahedralQuotient. Verified compiling
+                                 # on the pinned toolchain, no Mathlib, no
+                                 # sorry.
 ChiralPartner.lean               # Speculative companion, tag [O]: §7 of the
                                  # section draft "The Chiral Crack" — the
                                  # CHIRAL PARTNER model, first pass. The
