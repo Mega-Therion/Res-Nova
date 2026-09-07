@@ -28,6 +28,7 @@ lean_lib «ResNovaFormal» where
   srcDir := "."
   roots := #[
     `AXIOMS_V2,
+    `BinaryTetrahedral,
     `CartanTrialityGenerations,
     `ChiralCellularDuality,
     `ChiralCrackSketch,

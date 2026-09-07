@@ -33,6 +33,7 @@ STD_AXIOMS='propext|Classical.choice|Quot.sound'
 
 # Explicit target list. Must equal the `roots` in lakefile.lean.
 TARGETS=(
+  BinaryTetrahedral.lean \
   AXIOMS_V2.lean
   CartanTrialityGenerations.lean
   ChiralCellularDuality.lean
