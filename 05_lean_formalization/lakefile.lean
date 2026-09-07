@@ -29,6 +29,7 @@ lean_lib «ResNovaFormal» where
   roots := #[
     `AXIOMS_V2,
     `BinaryTetrahedral,
+    `TetrahedralQuotient,
     `CartanTrialityGenerations,
     `ChiralCellularDuality,
     `ChiralCrackSketch,
