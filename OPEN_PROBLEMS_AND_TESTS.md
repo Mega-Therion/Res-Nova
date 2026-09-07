@@ -12,9 +12,9 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 **Closure path:** a derivation of the factor `1/(2\pi)` from a stated action plus a stated equilibrium condition, with the `2\pi` surviving after the same cancellations that already killed earlier KMS attempts (`CORPUS_DEPENDENCY_MAP.md` Root 2). Until that exists, do not say “derived.”
 
-**Test path:** `a_0(z) = \xi\, c\, H(z)` on independent high-`z` dynamical tracers (strong lenses, resolved high-`z` rotation, or spacecraft-equivalent kinematic maps). One universe at one epoch cannot tell “tied to the horizon” from “happens to be constant.” This test is not in the repo.
+**Test status:** Partially advanced by the cited MUSE-DARK III intermediate-redshift summary. The repository audit in `03_observer_jwst/A0_HORIZON_LITERATURE_AUDIT.md` finds that the exact flat-\(\Lambda\)CDM law `a0(z) = \xi c H(z)` is disfavored by the reported central evolution, while the first-principles derivation of the `1/(2\pi)` normalization remains open. This is `[C]+[D]`, not a raw-data reanalysis.
 
-**Quarantine:** “`a0` is an empirical acceleration scale, numerically consistent with `cH_0/(2\pi)` inside present errors.” Never: “`a0` is derived from the Hubble scale.”
+**Quarantine:** “`a0` is an empirical acceleration scale, numerically consistent with `cH_0/(2\pi)` inside present errors.” The exact redshift law is now empirically disfavored by the cited MUSE-DARK III summary. Never: “`a0` is derived from the Hubble scale.”
 
 ---
 
@@ -54,7 +54,7 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 **Claim (not granted):** early galaxies confirm the theory.
 
-**Status:** `[O]`. Directory `03_observer_jwst/` is an interface, not a completed `[D]` campaign in this ledger.
+**Status:** `[O]` for a Res-Nova raw-data campaign. A published MUSE-DARK III summary now provides relevant external evidence for positive RAR evolution, but the repository does not contain the point-level acceleration tracks and covariance needed for an auditable reanalysis. The current evidence does not confirm the exact horizon law; see `03_observer_jwst/A0_HORIZON_LITERATURE_AUDIT.md`.
 
 **Closure path:** a frozen, pre-registered catalog, a statistic, and a public script that emits a JSON the ledger can cite.
 

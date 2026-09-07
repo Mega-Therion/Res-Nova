@@ -1,0 +1,42 @@
+{
+  "status": "completed_literature_audit",
+  "epistemic_classification": "[C]+[D] cited summary plus deterministic derived comparison; not a raw-data reanalysis",
+  "question": "Does current intermediate-redshift evidence support the exact horizon law a0(z)=xi*c*H(z)?",
+  "frozen_res_nova_inputs": {
+    "a0_local_m_s2": 1.1160351336495209e-10,
+    "H0_km_s_Mpc": 67.4,
+    "omega_m": 0.315,
+    "omega_lambda": 0.685,
+    "xi": 0.1704306940151041
+  },
+  "published_muse_dark_iii_summary": {
+    "sample_size_galaxies": 79,
+    "redshift_range": [
+      0.33,
+      1.44
+    ],
+    "a0_z1_m_s2": 2.38e-10,
+    "a0_z1_95ci_minus_m_s2": 1e-11,
+    "a0_z1_95ci_plus_m_s2": 1.2e-11,
+    "linear_slope_a1_m_s2_per_z": 1.59e-10,
+    "a1_95ci_minus_m_s2_per_z": 1e-11,
+    "a1_95ci_plus_m_s2_per_z": 1.1e-11,
+    "source_doi": "10.1051/0004-6361/202659230",
+    "source_url": "https://doi.org/10.1051/0004-6361/202659230"
+  },
+  "horizon_prediction": {
+    "a0_z1_m_s2": 1.9979834370249506e-10,
+    "local_slope_at_z0_m_s2_per_z": 5.273266006493986e-11
+  },
+  "derived_comparison": {
+    "central_difference_m_s2": 3.820165629750495e-11,
+    "central_ratio_muse_to_horizon_at_z1": 1.19120106598275,
+    "published_slope_to_horizon_local_slope_ratio": 3.0152091664670952,
+    "interpretation": "The cited summary reports positive evolution, but its central slope is substantially faster than the exact flat-LambdaCDM horizon law. This disfavors the exact horizon scaling as a phenomenological description; it does not derive or falsify the underlying action."
+  },
+  "limitations": [
+    "The MUSE-DARK III paper reports model-derived accelerations, not a repository-vendored raw point table.",
+    "The comparison uses published summary values and does not propagate correlated systematics or refit the 79-galaxy sample.",
+    "The result addresses the exact a0 proportional to H(z) law, not every possible horizon-inspired model."
+  ]
+}
