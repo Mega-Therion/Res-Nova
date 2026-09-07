@@ -77,3 +77,23 @@ zero in it and every branch below that point evaluates to zero.
    sector with a computed, unequal holonomy. Not an involution.
 2. Only then ask what survives `f_scale`.
 3. Biology stays `[C]` and downstream, and is never cited as support.
+
+## MINIATURE AUDIT (2026-09-06; [P] structure, [O] physics reading)
+
+The orientation factor is no longer merely flagged broken — it has a proved miniature model of
+the evasion. In Res-Nova's `ChiralResidue` (PR #27, Lean 4, no Mathlib, no sorry):
+
+- **f_orient is satisfied at the cover level.** The forward and reverse crack transports are
+  *different* elements (`inv n ≠ n`, differing by exactly the central sign): U_{γ₊} ≠ U_{γ₋} holds.
+- **Yet they act identically on the chiral space.** The orientation-dependence is carried
+  *entirely by the sign* — real in the cover, invisible downstairs. The trunk's load-bearing
+  clause is a double-cover fact: the 2π problem, promoted to a theorem.
+- **The involution-kill is evaded by exactly one notch.** On the chiral space the transport
+  squares to the identity (the kill *would* apply), but in the cover the square is the 2π
+  rotation, not the identity (`mul n n ≠ one`). The cascade dies when U² = 1; the crack's U²
+  is the central sign.
+
+The miniature answers this doc's own question: how can a loop return changed without being an
+involution? Because its square is not 1 — it is the 2π rotation. The residue sits one notch of
+cover above the involution-kill. Tagging: the three structural theorems are [P] (verified); the
+physics reading of them remains [O].

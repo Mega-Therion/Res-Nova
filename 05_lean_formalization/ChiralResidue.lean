@@ -374,4 +374,35 @@ theorem rotation_frame_stable (k1 k2 : R4) :
     (mul (mul ⟨k1, false⟩ ⟨k2, false⟩) (inv ⟨k1, false⟩)).ref = false := by
   rw [parity_hom, parity_hom]; rfl
 
+/-! ### The trunk's f_orient clause, in miniature -/
+
+/-- SERVICE TO THE TRUNK (BRANCHING_FROM_THE_INVARIANT.md): the
+    cascade's orientation factor requires U_{γ₊} ≠ U_{γ₋} and dies
+    whenever U² = 1. Here is how the crack satisfies it. THE REVERSE
+    LOOP: the orientation-reversed crack transport is the inverse
+    mirror, which differs from the forward mirror by exactly the
+    central sign. -/
+theorem reverse_loop_differs_by_sign : inv n = mul minusOne n := rfl
+
+/-- U_{γ₊} ≠ U_{γ₋} AT THE LEVEL OF THE COVER, IDENTICAL ON THE CHIRAL
+    SPACE: the forward and reverse transports are DIFFERENT elements
+    of the cover, yet they act on handedness identically. The
+    orientation-dependence is real, but it is a fact of the cover, not
+    of the chiral space — carried entirely by the sign that is
+    invisible downstairs. -/
+theorem orient_dep_carried_by_sign :
+    inv n ≠ n ∧ ∀ h : Hand, act (inv n) h = act n h :=
+  ⟨(fun h => nomatch h), (fun _ => rfl)⟩
+
+/-- THE INVOLUTION-KILL, EVADED: the cascade dies when U² = 1 — any
+    involution makes the loop forget its orientation. On the chiral
+    space the transport squares to the identity — the involution-kill
+    WOULD apply. But in the cover it is not an involution: the square
+    is the 2π rotation, the central sign. The miniature evades the
+    kill by exactly one notch — the nontriviality of the double
+    cover. -/
+theorem involution_kill_evasion :
+    mul n n ≠ one ∧ ∀ h : Hand, act n (act n h) = h :=
+  ⟨(fun h => nomatch h), (fun h => by cases h <;> rfl)⟩
+
 end ChiralResidue
