@@ -30,9 +30,16 @@
         dichotomy of the double cover, not a tuned parameter. The cover is moreover GRADED by parity: the
         rotation sector is a subgroup, the reflection sector is its single
         coset, and the two exhaust the group — the dichotomy is the entire
-        group cut into exactly two pieces. [proved — this is the
-        qualitative core of item (b); it does NOT yet derive the SU(2)_L
-        gauge group itself]
+        group cut into exactly two pieces. The exact converses hold
+        (rotation_iff_preserves, reflection_iff_reverses): the dichotomy
+        IS the grading — the sectors are precisely the preserving and
+        reversing elements. The grading is moreover FRAME-INVARIANT
+        (crack_frame_invariant, rotation_frame_stable): the residue is
+        stable under conjugation by every local rotation — the crack
+        cannot be rotated away. Local flatness at the crack,
+        interrogated, fails: no local frame removes the mirror.
+        [proved — this is the qualitative core of item (b); it does
+        NOT yet derive the SU(2)_L gauge group itself]
     (D) The reflection sector of the pin group acts on the chiral space
         exactly as the IsReflection holonomies of ChiralCrackSketch.lean.
         [proved]
@@ -346,5 +353,25 @@ theorem reflection_iff_reverses (g : Q8) :
     g.ref = true ↔ ∀ h : Hand, act g h = ChiralCrack.flip h :=
   ⟨fun hg h => reflections_reverse g hg h,
    fun hr => reversing_implies_reflection g hr⟩
+
+/-! ### The crack is frame-invariant: no local rotation removes it -/
+
+/-- LOCAL FLATNESS AT THE CRACK — INTERROGATED. A local change of
+    frame, available without crossing the crack, is a rotation (the
+    orientation-preserving transformations). THE CRACK CANNOT BE
+    ROTATED AWAY: conjugating any reflection by any rotation stays in
+    the reflection sector. The residue is not an artifact of the choice
+    of local frame — the discrete analogue of the statement that
+    curvature is not a coordinate artifact. -/
+theorem crack_frame_invariant (k : R4) (t : Q8) (ht : t.ref = true) :
+    (mul (mul ⟨k, false⟩ t) (inv ⟨k, false⟩)).ref = true := by
+  rw [parity_hom, parity_hom, ht]; rfl
+
+/-- The dual stability: conjugating a rotation by a rotation stays in
+    the rotation sector. The GRADING is frame-invariant: both sectors
+    are stable under every local rotation frame. -/
+theorem rotation_frame_stable (k1 k2 : R4) :
+    (mul (mul ⟨k1, false⟩ ⟨k2, false⟩) (inv ⟨k1, false⟩)).ref = false := by
+  rw [parity_hom, parity_hom]; rfl
 
 end ChiralResidue

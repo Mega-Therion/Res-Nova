@@ -103,7 +103,18 @@ ChiralResidue.lean               # Speculative companion, tag [O]: promotion-pat
                                  # ChiralCrackSketch (reflection sector
                                  # realizes its IsReflection holonomies).
                                  # Verified compiling on the pinned toolchain,
-                                 # no Mathlib, no sorry.
+                                 # no Mathlib, no sorry. Later passes: the
+                                 # complete group laws, the parity
+                                 # homomorphism, the sector grading with its
+                                 # exact converses (the dichotomy IS the
+                                 # grading), and FRAME-INVARIANCE — the crack
+                                 # cannot be rotated away: conjugating any
+                                 # reflection by any rotation stays in the
+                                 # reflection sector (crack_frame_invariant),
+                                 # and the grading is stable under every
+                                 # local rotation frame
+                                 # (rotation_frame_stable). Local flatness
+                                 # at the crack, interrogated, fails.
 ChiralPartner.lean               # Speculative companion, tag [O]: §7 of the
                                  # section draft "The Chiral Crack" — the
                                  # CHIRAL PARTNER model, first pass. The
