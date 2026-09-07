@@ -27,9 +27,12 @@
         the chiral space or reverses it at every point. No element is
         partially parity-violating: a coupling that sees the reflection
         sector at all, sees it totally. "Maximal rather than partial" is a
-        dichotomy of the double cover, not a tuned parameter. [proved — this
-        is the qualitative core of item (b); it does NOT yet derive the
-        SU(2)_L gauge group itself]
+        dichotomy of the double cover, not a tuned parameter. The cover is moreover GRADED by parity: the
+        rotation sector is a subgroup, the reflection sector is its single
+        coset, and the two exhaust the group — the dichotomy is the entire
+        group cut into exactly two pieces. [proved — this is the
+        qualitative core of item (b); it does NOT yet derive the SU(2)_L
+        gauge group itself]
     (D) The reflection sector of the pin group acts on the chiral space
         exactly as the IsReflection holonomies of ChiralCrackSketch.lean.
         [proved]
@@ -258,5 +261,49 @@ theorem reflection_sector_is_reflection (g : Q8) (hg : g.ref = true) :
     cases b with
     | false => nomatch hg
     | true => intro h; rfl
+
+/-! ### The sector grading: the cover is a group graded by parity -/
+
+/-- The rotation sector is closed under composition — derived from the
+    parity homomorphism, not from the multiplication table. -/
+theorem rotation_sector_closed (a b : Q8) (ha : a.ref = false)
+    (hb : b.ref = false) : (mul a b).ref = false := by
+  rw [parity_hom a b, ha, hb]; rfl
+
+/-- Two reflections compose to a rotation — again from the homomorphism.
+    This is the structural reason a parity-violating coupling cannot be
+    "double-counted": the reflection sector is not closed. -/
+theorem reflections_compose_to_rotation (a b : Q8) (ha : a.ref = true)
+    (hb : b.ref = true) : (mul a b).ref = false := by
+  rw [parity_hom a b, ha, hb]; rfl
+
+/-- The rotation sector is closed under inverses: it is a subgroup. -/
+theorem rotation_sector_inv_closed (a : Q8) (ha : a.ref = false) :
+    (inv a).ref = false := by
+  cases a with
+  | mk k b =>
+    cases b with
+    | false => rfl
+    | true => nomatch ha
+
+/-- THE COSET FACT: every reflection is a rotation composed with the
+    distinguished mirror n. The reflection sector is a SINGLE coset of
+    the rotation sector — the group is graded by parity: one subgroup,
+    one coset, nothing else. -/
+theorem reflection_sector_is_coset (t : Q8) (ht : t.ref = true) :
+    t = mul ⟨t.rot, false⟩ n := by
+  cases t with
+  | mk k b =>
+    cases b with
+    | false => nomatch ht
+    | true => cases k <;> rfl
+
+/-- EXHAUSTIVENESS: every element lies in one of the two sectors. -/
+theorem sector_exhaustive (a : Q8) : a.ref = false ∨ a.ref = true := by
+  cases a with
+  | mk k b =>
+    cases b with
+    | false => exact Or.inl rfl
+    | true => exact Or.inr rfl
 
 end ChiralResidue
