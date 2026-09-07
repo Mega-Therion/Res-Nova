@@ -40,3 +40,25 @@ The strongest safe next step is an explicit matrix realization: define the stand
 A Stony Brook mathematical reference gives the standard unit-quaternion/SU(2) description, the two-to-one homomorphism SU(2) → SO(3), and identifies the binary tetrahedral group as the 24-element preimage of the tetrahedral rotation group:
 
 <https://www.math.stonybrook.edu/~tony/bintet/tetgp.html>
+
+## Rung 8: explicit 2×2 complex matrix realization
+
+`SU2MatrixEnvelope.lean` defines the standard map
+
+`q = a + b i + c j + d k ↦ [[a + b·I, c + d·I],[-c + d·I, a − b·I]]`.
+
+The enforced proofs now establish:
+
+1. `qMatrix (qmul p q) = qMatrix p * qMatrix q`.
+2. `det(qMatrix p) = qnorm p`.
+3. A unit quaternion maps to a unitary matrix and has determinant one.
+4. The finite binary-tetrahedral image is both unitary and determinant one.
+5. The finite semidirect-product map is a matrix homomorphism.
+
+The target inventory and full gate now pass **41 / 41**.
+
+This closes the algebraic matrix bridge into the standard 2×2 complex model of SU(2). It still does not prove that the finite image is the whole continuous SU(2), nor does it establish topology, continuity, connectedness, Lie-group structure, a generated Lie algebra, or a physical gauge field. Those are separate claims and require a different layer of formalization.
+
+## Next honest rung
+
+The next safe target is an internal definition of the matrix-level SU(2) carrier—unitary 2×2 complex matrices with determinant one—and a theorem that `qMatrix` lands in that carrier. A subsequent topological rung would need explicit continuity and compactness/connectedness infrastructure. The repository should not label the finite image itself as “the continuous gauge group” before those steps are independently formalized.

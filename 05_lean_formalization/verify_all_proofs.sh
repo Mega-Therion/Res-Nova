@@ -38,6 +38,7 @@ TARGETS=(
   TetrahedralAction.lean \
   TetrahedralEvenness.lean \
   FiniteSU2Envelope.lean \
+  SU2MatrixEnvelope.lean \
   AXIOMS_V2.lean
   CartanTrialityGenerations.lean
   ChiralCellularDuality.lean

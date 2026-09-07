@@ -250,7 +250,19 @@ FiniteSU2Envelope.lean             # Rung 7, tag [P] for the finite algebraic
                                  # structure, a matrix SU(2) representation,
                                  # or a physical gauge group. Imports
                                  # BinaryTetrahedral. Verified compiling on
-                                 # the pinned toolchain, no sorry.
+                                 # pinned toolchain, no sorry.
+SU2MatrixEnvelope.lean             # Rung 8, tag [P] for the explicit matrix
+                                 # bridge. Defines qMatrix : H → Mat₂(ℂ),
+                                 # proves matrix multiplication preserves
+                                 # quaternion multiplication, determinant(qMatrix
+                                 # p) = qnorm p, and unit quaternions map to
+                                 # unitary determinant-one matrices. The finite
+                                 # BT image is therefore certified inside the
+                                 # standard 2×2 complex SU(2) model. [O]: no
+                                 # topology, continuity, connectedness, Lie
+                                 # structure, or physical gauge field is
+                                 # derived. Imports FiniteSU2Envelope. Verified
+                                 # compiling on the pinned toolchain, no sorry.
   ChiralPartner.lean               # Speculative companion, tag [O]: §7 of the
                                  # section draft "The Chiral Crack" — the
                                  # CHIRAL PARTNER model, first pass. The
