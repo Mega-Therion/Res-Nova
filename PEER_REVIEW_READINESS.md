@@ -22,9 +22,9 @@
 | **O1** Horizon Scale | ⚠️ [P/O] | 2π KMS cancellation proved [P]; a₀=cH identification open [O] (5.67× discrepancy; O4 disfavours at 5.9σ) | ⚠️ |
 | **O4** Redshift Test | ✅ [P] | H_const at 5.9σ; JWST expansion pre-registered | ✓ |
 | **O5** SPARC Automation | ✅ [P] | `fetch_sparc.sh`, SHA-256 verification | ✓ |
-| **O6** Clean Reproduction | ⚠️ [P/O] | 17/17 PASS in clean worktree; CI gate open | ⚠️ |
+| **O6** Clean Reproduction | ✅ [P] | 39/39 PASS; CI `lean-gate` wired and green (3/3, incl. cold scheduled run 2026-09-08); gate list ≡ lakefile roots | ✓ |
 
-**Score: 8/12 fully peer-reviewable ([P]), 4/12 partially ready ([P/O])**
+**Score: 9/12 fully peer-reviewable ([P]), 3/12 partially ready ([P/O])**
 
 ---
 
@@ -114,11 +114,11 @@ Diff `f13cf75..4af94c4` confirms: the D-series pushes added **no new** "zero fre
 **The Res Nova manuscript is READY for peer review** with honest scoping:
 
 Count:
-- **[P] (fully proved):** D1, D3, D6, D7, D8, D9, O4, O5 = **8 targets**
-- **[P/O] (partially proved):** D2, D5, O1, O6 = **4 targets**
+- **[P] (fully proved):** D1, D3, D6, D7, D8, D9, O4, O5, O6 = **9 targets**
+- **[P/O] (partially proved):** D2, D5, O1 = **3 targets**
 - **[O] (open):** 0 targets (all have at least partial results)
 
-**Score: 8/12 fully reviewable, 4/12 partially ready, 0/12 fully open.**
+**Score: 9/12 fully reviewable, 3/12 partially ready, 0/12 fully open.**
 
 - Present D1, D3, D6, D7, D8, D9 as completed framework
 - Present O4, O5 as completed empirical tests
@@ -132,4 +132,4 @@ Count:
 1. D2 Padé necessity — a structural question, not a consistency problem
 2. O1 horizon identification — disfavoured by data; theory works without it
 3. D5 non-linear cosmology — computational, common to all MOND theories
-4. O6 CI automation — engineering, not physics
+4. ~~O6 CI automation~~ — **closed 2026-09-08.** `lean-gate` runs `verify_all_proofs.sh` on push/schedule/dispatch; 39/39 targets, gate list verified identical to lakefile roots. Residual is not the gate but the Mathlib cache endpoint's stall rate, which the daily cron now samples automatically (3/3 green so far) instead of via one-off manual walks.
