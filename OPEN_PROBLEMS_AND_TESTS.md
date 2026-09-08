@@ -76,11 +76,11 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 ## O6 — Fresh-clone Lean reproduction
 
-**Status:** O6 — walked once in a clean worktree at 07185a6 (lake exe cache get + 17/17 PASS, VERIFICATION_RUN_007). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate.
+**Status:** `[P]` — **closed 2026-09-08.** Both remaining conditions are met. Cold machine: VERIFICATION_RUN_008 (2026-09-07) fetched all 8678 cache files from origin with no Mathlib cache anywhere on disk and the gate passed. CI release gate: the `lean-gate` job in `.github/workflows/verify.yml` runs `verify_all_proofs.sh` on push, schedule, and dispatch — 3/3 green, including the cold scheduled run at 2026-09-08T11:27Z. The gate covers **39 targets**, and its explicit `TARGETS` list has been verified set-identical to the `roots` in `lakefile.lean` (no glob, no drift).
 
-**Closure path:** one clean runner, pinned `lean-toolchain` + `lake-manifest.json`, saved CI log.
+**Residual (not O6):** the Mathlib prebuilt-cache endpoint is sometimes-cold-fetchable, not reliably so — a concurrent attempt on another host stalled and fell back to compiling from source. The daily cron exists to bound that stall rate with data instead of one-off manual walks. This is an infrastructure-availability caveat, not an open reproduction question.
 
-**Quarantine:** “walked once in a clean worktree at 07185a6 (VERIFICATION_RUN_007).” Never: “anyone cloning will reproduce in one command” until O6 is demonstrated on a cold machine with empty host cache and added to CI.
+**Quarantine:** the honest claim is “39/39 targets pass from a cold fetch, gated in CI on every push.” Still never: “anyone cloning will reproduce in one command” without noting the upstream cache endpoint can stall.
 
 ---
 
