@@ -23,7 +23,8 @@
     "pass": true,
     "suspension_date": "2026-08-16",
     "lifted_date": "2026-09-09",
-    "history": "Suspended 2026-08-16 as a source-content defect: only finite-threshold bounds existed and no Filter.Tendsto statement was on disk. Lifted 2026-09-09: the stated closure path (write the limit) is executed as PPNLimits.mu_newtonian_limit : Filter.Tendsto (fun x => mu x) Filter.atTop (nhds 1), proved from fractional_deviation_eq, so the proof depends on mu(x) = x/(1+x). Gate verification: the 43-target verify_all_proofs.sh gate on this commit (CI lean-gate). The finite-threshold bounds remain valid and are not replaced by the limit."
+    "history": "Suspended 2026-08-16 as a source-content defect: only finite-threshold bounds existed and no Filter.Tendsto statement was on disk. Lifted 2026-09-09: the stated closure path (write the limit) is executed as PPNLimits.mu_newtonian_limit : Filter.Tendsto (fun x => mu x) Filter.atTop (nhds 1), proved from fractional_deviation_eq, so the proof depends on mu(x) = x/(1+x). Gate verification: the 43-target verify_all_proofs.sh gate on this commit (CI lean-gate). The finite-threshold bounds remain valid and are not replaced by the limit.",
+    "gate_run": "CI lean-gate run 34339383606, head fbaf86139e1e2e09225820e2338aaca1259ea529, completed success 2026-09-09 (43/43 targets)"
   },
   "epistemic_boundary": {
     "scope": "Proved [P]. No physical ontology certified: the limit is an algebraic/topological property of the dual-channel interpolation function.",
