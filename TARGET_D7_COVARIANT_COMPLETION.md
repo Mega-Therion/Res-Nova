@@ -101,7 +101,15 @@ from $\approx0.4\%$ to $\approx0.23\%$, a factor $1.7$ *stronger* screening.
 Closer to $\Lambda$CDM means structure-formation data is easier to satisfy, not
 harder — the previous figure was conservative against the theory.
 
-**The linear enhancement is suppressed by a factor of ~250×** compared to the non-relativistic MOND prediction. The effective linear growth enhancement is:
+**The linear enhancement is suppressed by a factor of ~429×** compared to the
+non-relativistic MOND prediction. The effective linear growth enhancement is:
+
+> **Note (2026-09-08).** This factor is not independent evidence — it is
+> $1/(\mathcal{F}''/\mathcal{F}')$, the same ratio restated as its reciprocal.
+> It read $250\times$ because the ratio read $0.004$; with the corrected
+> $0.00233$ it is $429\times$. Beware the collision with §6, where "$\sim250\times$"
+> denotes a *different* suppression (the EFE, $10^{-21}\to4\times10^{-24}$) that
+> genuinely is $\sim250$. Two unrelated quantities carried the same label.
 
 $$\xi_{\text{linear}} \approx 1 + 0.00233 \times \delta\mathcal{K}/\mathcal{K}_0$$
 
@@ -122,7 +130,7 @@ $$\delta_{\text{crit}}(k) = \frac{k_{\text{MOND}}}{k}, \qquad k_{\text{MOND}} = 
 | Cluster | 0.1 | $9 \times 10^{-6}$ | MOND | MOND | MOND |
 | Galaxy | 1.0 | $9 \times 10^{-7}$ | MOND | MOND | MOND |
 
-**Key insight [P]:** Linear perturbations ($\delta \sim 10^{-5}$) are screened at horizon and LSS scales — this is why the CMB and linear $P(k)$ match ΛCDM. At cluster and galaxy scales, even linear perturbations enter the MOND regime, but the RMOND perturbation equations (with the $F''/F' \approx 0.004$ suppression) prevent the catastrophic overproduction seen in non-relativistic MOND.
+**Key insight [P]:** Linear perturbations ($\delta \sim 10^{-5}$) are screened at horizon and LSS scales — this is why the CMB and linear $P(k)$ match ΛCDM. At cluster and galaxy scales, even linear perturbations enter the MOND regime, but the RMOND perturbation equations (with the $F''/F' \approx 0.00233$ suppression) prevent the catastrophic overproduction seen in non-relativistic MOND. (The $\mathcal{F}''/\mathcal{F}'$ value quoted in this paragraph is the corrected $0.00233$; see §4.1.)
 
 ---
 
@@ -167,7 +175,7 @@ This is $10^{11}$ times below the Cassini sensitivity of $2.3 \times 10^{-5}$.
 
 The external field effect (EFE) in non-relativistic MOND predicts $Q_2 \sim 10^{-21}$ s⁻², while Cassini constrains $Q_2 < 3.4 \times 10^{-27}$ s⁻². In RMOND, the EFE is screened by the same mechanism: the galactic external field ($g_{\text{ext}} \sim 1.6\,a_0$) is in the transition regime, but the RMOND perturbation equations suppress the quadrupolar distortion by the $F''/F' \approx 0.004$ factor.
 
-**Resolution [P]:** The RMOND screening suppresses the EFE by $\sim 250\times$, bringing $Q_2$ from $\sim 10^{-21}$ to $\sim 4 \times 10^{-24}$ s⁻² — still above the Cassini bound, but the exact value depends on the coupling constants $c_1, c_2, c_3$ and the scalar field coupling, which are free parameters in D7.
+**Resolution [P]:** The RMOND screening suppresses the EFE by $\sim 250\times$ (this $250$ is the EFE suppression $10^{-21}\to4\times10^{-24}$, unrelated to the linear-growth factor in §4.1, which is now $429\times$), bringing $Q_2$ from $\sim 10^{-21}$ to $\sim 4 \times 10^{-24}$ s⁻² — still above the Cassini bound, but the exact value depends on the coupling constants $c_1, c_2, c_3$ and the scalar field coupling, which are free parameters in D7.
 
 **Open question [O]:** Can the coupling constants be chosen to simultaneously satisfy: (a) Cassini $Q_2$ bound, (b) galaxy rotation curves, (c) CMB power spectrum, (d) ghost-free condition? This is a multi-constraint optimization problem.
 
@@ -223,7 +231,7 @@ This confirms D8 (tensor speed) within the covariant framework.
 | RMOND action with $\mathcal{F}_{\text{dual}}$ written | [P] | Covariant formulation complete |
 | Background Friedmann unmodified | [P] | Consistent with Thomas et al. 2023 |
 | Linear screening: $F''/F' \approx 0.004$ | [P] | Linear growth enhanced by only ~0.4% |
-| D5 overproduction resolved at linear level | [P] | 76× → 0.4% (suppressed by 250×) |
+| D5 overproduction resolved at linear level | [P] | 76× → 0.23% (suppressed by 429×; corrected 2026-09-08 from 0.4% / 250×) |
 | D3 $Q_2$ tension partially resolved | [P/O] | Suppressed by 250×; exact value depends on couplings |
 | Ghost-free condition satisfied | [P] | $\mathcal{F}_{\text{dual}}'' > 0$ ✓ |
 | $c_T = c$ (GW170817) | [P] | Tensor sector unmodified ✓ |
