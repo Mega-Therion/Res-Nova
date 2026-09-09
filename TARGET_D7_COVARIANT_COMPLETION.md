@@ -87,11 +87,23 @@ $$\frac{G_{\text{eff}}}{G} = 1 + \frac{\mathcal{F}''(\mathcal{K}_0)}{\mathcal{F}
 
 **The smoking gun [P]:** At the background value $\mathcal{K}_0$ (Newtonian branch):
 
-$$\frac{\mathcal{F}''(\mathcal{K}_0)}{\mathcal{F}'(\mathcal{K}_0)} \approx \frac{1}{x_0(1+x_0)^2} \approx \frac{1}{5.7 \times 6.7^2} \approx 0.004$$
+$$\frac{\mathcal{F}''(\mathcal{K}_0)}{\mathcal{F}'(\mathcal{K}_0)} = \frac{1}{2x_0^2(1+x_0)} \approx \frac{1}{2 \times 5.67^2 \times 6.67} \approx 0.00233$$
+
+**Corrected 2026-09-08.** This line previously read
+$\frac{1}{x_0(1+x_0)^2} \approx 0.004$, which inherited the §7 error in
+$\mathcal{F}''$ (see below). Recomputing both derivatives symbolically from
+$\mathcal{F} = \mathcal{K}/2 - \sqrt{\mathcal{K}} + \ln(1+\sqrt{\mathcal{K}})$ gives
+$\mathcal{F}''/\mathcal{F}' = 1/(2x_0^2(1+x_0))$ — note $x_0^2$ and a single
+power of $(1+x_0)$, not the reverse.
+
+**The correction runs in the theory's favour.** The screened enhancement falls
+from $\approx0.4\%$ to $\approx0.23\%$, a factor $1.7$ *stronger* screening.
+Closer to $\Lambda$CDM means structure-formation data is easier to satisfy, not
+harder — the previous figure was conservative against the theory.
 
 **The linear enhancement is suppressed by a factor of ~250×** compared to the non-relativistic MOND prediction. The effective linear growth enhancement is:
 
-$$\xi_{\text{linear}} \approx 1 + 0.004 \times \delta\mathcal{K}/\mathcal{K}_0$$
+$$\xi_{\text{linear}} \approx 1 + 0.00233 \times \delta\mathcal{K}/\mathcal{K}_0$$
 
 This is $\sim 0.4\%$ for typical perturbation amplitudes, compared to the $7600\%$ enhancement from non-relativistic MOND with a 2× boost factor.
 
@@ -123,7 +135,7 @@ The D5 analysis computed a $76\times$ excess growth assuming a **uniform 2× MON
 | Quantity | Non-relativistic MOND | RMOND (this work) |
 |----------|:-:|:-:|
 | Linear enhancement $\xi$ | 2.0 (uniform) | $\sim 1.004$ (screened) |
-| Growth excess at $z=0$ | $76\times$ | $\sim 0.4\%$ |
+| Growth excess at $z=0$ | $76\times$ | $\sim 0.23\%$ |
 | CMB power spectrum | Not reproduced | Reproduced [web:88] |
 | Linear $P(k)$ | Not reproduced | Reproduced [web:88] |
 
@@ -227,7 +239,7 @@ D7 unlocks:
 
 1. **D3 (PPN)**: The PPN parameters can now be computed from the RMOND metric with $\mathcal{F}_{\text{dual}}$. The key remaining step is the post-Newtonian expansion with specific coupling constants.
 
-2. **D5 (Cosmology)**: The linear growth factor can now be computed with the screened enhancement $\xi \approx 1.004$ instead of $\xi = 2$. The non-linear regime requires N-body simulations using the Thomas et al. (2023) equations.
+2. **D5 (Cosmology)**: The linear growth factor can now be computed with the screened enhancement $\xi \approx 1.0023$ (corrected 2026-09-08 from $1.004$) instead of $\xi = 2$. The non-linear regime requires N-body simulations using the Thomas et al. (2023) equations.
 
 3. **D6 (Relativistic Stability)**: The ghost-free condition is verified. The Hamiltonian analysis can proceed with the specific $\mathcal{F}_{\text{dual}}$.
 
