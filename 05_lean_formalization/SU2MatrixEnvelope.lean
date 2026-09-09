@@ -36,6 +36,19 @@ theorem qMatrix_mul (p q : Quat) :
     simp [qMatrix, qmul, Matrix.mul_apply, Fin.sum_univ_two,
       Complex.ext_iff] <;> constructor <;> ring
 
+/-- The quaternion-to-matrix map is injective. -/
+theorem qMatrix_injective : Function.Injective qMatrix := by
+  intro p q h
+  apply quat_ext
+  · have h00 := congrArg (fun M : Matrix (Fin 2) (Fin 2) ℂ => M 0 0) h
+    simpa [qMatrix] using congrArg Complex.re h00
+  · have h00 := congrArg (fun M : Matrix (Fin 2) (Fin 2) ℂ => M 0 0) h
+    simpa [qMatrix] using congrArg Complex.im h00
+  · have h01 := congrArg (fun M : Matrix (Fin 2) (Fin 2) ℂ => M 0 1) h
+    simpa [qMatrix] using congrArg Complex.re h01
+  · have h01 := congrArg (fun M : Matrix (Fin 2) (Fin 2) ℂ => M 0 1) h
+    simpa [qMatrix] using congrArg Complex.im h01
+
 /-- The quaternion identity maps to the 2×2 identity matrix. -/
 theorem qMatrix_one : qMatrix qone = (1 : Matrix (Fin 2) (Fin 2) ℂ) := by
   ext i j
