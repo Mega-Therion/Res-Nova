@@ -32,7 +32,15 @@ echo "Downloading ${URL} ..."
 curl -fL -o "${TMP_ZIP}" "${URL}"
 
 echo "Extracting ${TMP_ZIP} ..."
-unzip -q -o "${TMP_ZIP}" -d "${DATA_DIR}"
+if command -v unzip >/dev/null 2>&1; then
+    unzip -q -o "${TMP_ZIP}" -d "${DATA_DIR}"
+else
+    # Clean-clone robustness (O5): `unzip` is not present on every host.
+    # Python's zipfile extracts the same archive byte-for-byte; the SHA-256
+    # verification below is the authority on content, so the fallback is safe.
+    echo "unzip not found; falling back to python3 zipfile"
+    python3 -c "import sys, zipfile; zipfile.ZipFile(sys.argv[1]).extractall(sys.argv[2])" "${TMP_ZIP}" "${DATA_DIR}"
+fi
 rm -f "${TMP_ZIP}"
 
 # Flatten subdirectory if created by zip
