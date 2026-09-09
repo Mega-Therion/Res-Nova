@@ -53,9 +53,25 @@ lean_lib «ResNovaFormal» where
     -- because those literals are written into its if-then-else, and the theorem
     -- proves a function returning 3/-3/0 returns 3/-3/0. Demonstrated by
     -- substitution: the identical proof with 42 and 17 in place of 3 compiles
-    -- clean. `mckay_generation_count` is `3 = 3`. Passing this gate means the file
-    -- ELABORATES; it is not evidence for any generation count.
+    -- clean. The old `mckay_generation_count` was `3 = 3`. Passing this gate means
+    -- the file ELABORATES; it is not evidence for any generation count.
+    -- IN-FILE CORRECTION APPLIED 2026-09-09: both theorems renamed to state what
+    -- they actually prove (`z3NetChirality_takes_defined_literals_VACUOUS_D47`,
+    -- `mckayArrowsPerNode_eq_three_DEFINITIONAL_PLACEHOLDER`), matching the
+    -- honest-relabel treatment already applied to CartanTrialityGenerations.lean.
+    -- This comment is retained as the audit trail; see the file's own header for
+    -- the correction.
     `GenerationIndex,
+    -- ADDED 2026-09-09. Ported from
+    -- Chyren/Research_and_Data/01_Bob_Packages/archive_previous_iterations/2026-08-02_decomposition/lean_repo/GenerationIndex.lean
+    -- (RY, 2026-07-27; renamed to avoid the filename collision with
+    -- GenerationIndex.lean above). Contains a genuine, sabotage-tested,
+    -- non-vacuous theorem (DiagonalForced: exhaustive enumeration over 27 Z3
+    -- weight triples) alongside bookkeeping literals transcribed from an
+    -- external Python E8 root-system computation, not derived in Lean. See
+    -- the file's own header for the full honest split and the one open
+    -- physical premise the chain still rests on.
+    `DiagonalConeIndex,
     `Hamilgrangian,
     `HorizonScale,
     `ITActionClosure,
