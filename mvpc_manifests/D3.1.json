@@ -9,7 +9,7 @@
   "artifacts": [
     {
       "path": "05_lean_formalization/PPNLimits.lean",
-      "sha256": "90d6ced3fd737c28054b3895fbf7f3c0a6d11ae77595630274769af3981316b6",
+      "sha256": "490546a2ae75b3cb6dbbd9976cad8df11196b6b6de5e96d4a5cb0bdc86120804",
       "theorems": [
         "fractional_deviation_eq",
         "solar_system_precision_bound",

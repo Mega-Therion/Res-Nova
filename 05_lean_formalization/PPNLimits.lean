@@ -107,7 +107,7 @@ specific dual-channel `mu(x) = x/(1+x)`: substituting a different
 interpolation function breaks the proof.
 -/
 theorem mu_newtonian_limit :
-    Filter.Tendsto (fun x : ℝ => mu x) Filter.atTop (𝓝 (1 : ℝ)) := by
+    Filter.Tendsto (fun x : ℝ => mu x) Filter.atTop (nhds (1 : ℝ)) := by
   rw [Metric.tendsto_atTop]
   intro ε hε
   have hεpos : (0 : ℝ) < ε := hε
