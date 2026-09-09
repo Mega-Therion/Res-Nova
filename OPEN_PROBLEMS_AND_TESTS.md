@@ -44,7 +44,7 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 **Closure path:** a covariant action whose on-shell Friedmann constraint produces `\Omega_\Lambda=\ln 2` without inserting it. Absent that, it stays in the motivational annex (`CORPUS_DEPENDENCY_MAP.md` quarantine 1).
 
-**Test path:** pre-registered cosmological inference against a named likelihood (Pantheon+, DESI, Planck). A number that is only compared by eye is not a test.
+**Test path — EXECUTED 2026-09-09:** pre-registered inference against the named Pantheon+ likelihood is now run and ledgered. Protocol: `04_cosmology/PREREG_OMEGA_LN2_PANTHEONPLUS.md` (frozen before the run). Artifact: `04_cosmology/O3_PANTHEONPLUS_RESULT.json` (script: `04_cosmology/omega_ln2_pantheonplus.py`). Result: over the 1590 cosmology-sample SNe with the full STAT+SYS covariance and the official `zHD > 0.01` cut, the pre-declared test point `Ω_Λ = ln 2` sits `Δχ² = 1.89` (**1.37σ**) from the flat-ΛCDM best fit (`χ²_min = 1402.9`, `Ω_m = 0.332`, matching the published Pantheon+-only analysis). Verdict per the frozen rule: **CONSISTENT** — ln 2 lies inside the 1σ-ish neighbourhood of the named likelihood, far inside the 3σ rule. This is a `[D]` *test outcome*: it does not promote the conjecture, and the closure path above is still the only route to `[P]`. The quarantine sentence stands.
 
 **Quarantine:** “conjectured horizon boundary condition, not a derived density.”
 
