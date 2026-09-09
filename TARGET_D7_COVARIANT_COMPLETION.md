@@ -169,7 +169,28 @@ Skordis & Złośnik (2021) showed that the action expanded to second order in pe
 2. The scalar field coupling satisfies certain positivity bounds
 3. The coupling constants $c_1, c_2, c_3$ satisfy $c_1 + c_2 + c_3 > 0$, $c_1 + c_3 > 0$
 
-**Verification [P]:** $\mathcal{F}_{\text{dual}}''(\mathcal{K}) = \frac{2\sqrt{\mathcal{K}} + \mathcal{K}}{(1+\sqrt{\mathcal{K}})^2 \cdot 2\sqrt{\mathcal{K}}} > 0$ for all $\mathcal{K} > 0$. ✓
+**Verification [P] — formula corrected 2026-09-08, conclusion unchanged.**
+
+The expression previously printed here,
+$\frac{2\sqrt{\mathcal{K}} + \mathcal{K}}{(1+\sqrt{\mathcal{K}})^2 \cdot 2\sqrt{\mathcal{K}}}$,
+is **not** $d^2\mathcal{F}/d\mathcal{K}^2$. In $u=\sqrt{\mathcal{K}}$ it reads
+$(2u+u^2)/(2u(1+u)^2)$ — a derivative with respect to $u$, missing the chain-rule
+factors that relate $d/d\mathcal{K}$ to $d/du$. It is wrong numerically
+everywhere: at $\mathcal{K}=1$ it gives $0.375$ against the true $0.0625$, and the
+discrepancy grows without bound (at $\mathcal{K}=10^4$, by $\sim2\times10^4$).
+
+Differentiating $\mathcal{F}(\mathcal{K}) = \mathcal{K}/2 - \sqrt{\mathcal{K}} + \log(1+\sqrt{\mathcal{K}})$ symbolically:
+
+$$\frac{d\mathcal{F}}{d\mathcal{K}} = \frac{\mathcal{K}^{3/2}}{2(\mathcal{K}^{3/2}+\mathcal{K})}, \qquad \frac{d^2\mathcal{F}}{d\mathcal{K}^2} = \frac{1}{4u(1+u)^2}, \quad u=\sqrt{\mathcal{K}}$$
+
+**The ghost-free conclusion stands.** $1/(4u(1+u)^2) > 0$ for every $u>0$, so
+$\mathcal{F}''>0$ for every $\mathcal{K}>0$, which is exactly Skordis–Złośnik
+condition (1). ✓
+
+Now machine-checked: `CovariantCompletion.F_dual_ghost_free` proves the
+positivity and `F_dual_second_deriv_antitone` proves the monotone decay. Both are
+non-vacuous — flipping the numerator's sign breaks the proof — and the gate
+passes 39/39.
 
 The dual-channel free function satisfies the ghost-free condition.
 

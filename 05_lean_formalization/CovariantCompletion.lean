@@ -85,6 +85,63 @@ theorem preferred_frame_parameters_zero (c1 c2 c3 c4 : ℝ) (h_maxwell : c1 = -c
   linarith
 
 /-!
+## 3b. Ghost-free condition — corrected closed form
+
+`TARGET_D7` §7 states the second derivative of the dual-channel free function as
+
+  F''(K) = (2*sqrt K + K) / ((1 + sqrt K)^2 * 2*sqrt K)
+
+That expression is **not** d²F/dK². Written in u = sqrt K it is
+(2u + u²)/(2u(1+u)²), which is d/du of something, not d/dK — the two chain-rule
+factors relating d/dK to d/du are missing. It disagrees numerically everywhere:
+at K = 1 it gives 0.375 against the true 0.0625, a factor of 6, and the gap grows
+without bound (at K = 10⁴ it is off by ~2×10⁴).
+
+The true value, from F(K) = K/2 − sqrt K + log(1 + sqrt K):
+
+  dF/dK   = K^(3/2) / (2(K^(3/2) + K))
+  d²F/dK² = 1 / (4u(1+u)²),  u = sqrt K
+
+**The ghost-free conclusion is unaffected.** 1/(4u(1+u)²) > 0 for every u > 0, so
+F''(K) > 0 for every K > 0, which is what Skordis–Złośnik condition (1) requires.
+The stated formula was wrong; the result it was cited for is right.
+-/
+
+/-- The dual-channel free function's second derivative with respect to K,
+    expressed in u = sqrt K. Verified against symbolic differentiation of
+    F(K) = K/2 - sqrt K + log(1 + sqrt K). -/
+def F_dual_second_deriv (u : ℝ) : ℝ := 1 / (4 * u * (1 + u) ^ 2)
+
+/-- Theorem (ghost-free, vector sector): the dual-channel free function has
+    strictly positive second derivative for every positive K.
+
+    This is Skordis-Złośnik condition (1). Unlike the formula in TARGET_D7 §7,
+    this is the actual d²F/dK². -/
+theorem F_dual_ghost_free (u : ℝ) (hu : u > 0) : F_dual_second_deriv u > 0 := by
+  unfold F_dual_second_deriv
+  have h1 : (1 + u) ^ 2 > 0 := by positivity
+  have h2 : 4 * u * (1 + u) ^ 2 > 0 := by positivity
+  exact div_pos one_pos h2
+
+/-- The second derivative decays monotonically: larger K means weaker vector-sector
+    response. Stated as the ordering that follows directly from the closed form. -/
+theorem F_dual_second_deriv_antitone (u v : ℝ) (hu : 0 < u) (huv : u < v) :
+    F_dual_second_deriv v < F_dual_second_deriv u := by
+  unfold F_dual_second_deriv
+  have hv : 0 < v := lt_trans hu huv
+  have hden_u : 0 < 4 * u * (1 + u) ^ 2 := by positivity
+  have hden_v : 0 < 4 * v * (1 + v) ^ 2 := by positivity
+  -- 4u(1+u)^2 = 4u + 8u^2 + 4u^3, strictly increasing in u on u > 0.
+  have hexp : ∀ w : ℝ, 4 * w * (1 + w) ^ 2 = 4 * w + 8 * w ^ 2 + 4 * w ^ 3 := by
+    intro w; ring
+  have hlt : 4 * u * (1 + u) ^ 2 < 4 * v * (1 + v) ^ 2 := by
+    rw [hexp u, hexp v]
+    have h2 : u ^ 2 < v ^ 2 := by nlinarith
+    have h3 : u ^ 3 < v ^ 3 := by nlinarith
+    linarith
+  exact one_div_lt_one_div_of_lt hden_u hlt
+
+/-!
 ## 4. FLRW Homogeneous Scalar Decoupling
 For any spatially homogeneous cosmological scalar field φ(t) in flat FLRW spacetime
 with comoving unit timelike vector u^a = (1, 0, 0, 0):
