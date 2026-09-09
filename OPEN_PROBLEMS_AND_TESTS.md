@@ -54,7 +54,9 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 **Claim (not granted):** early galaxies confirm the theory.
 
-**Status:** `[O]`. Directory `03_observer_jwst/` is an interface, not a completed `[D]` campaign in this ledger.
+**Status:** `[O]` — for the JWST/NIRSpec confirmation campaign only. The pre-registered `a0(z)` hypothesis test inside this directory has been completed as `[D]` (data-status note, 2026-09-09).
+
+**Data-status note (2026-09-09):** the pre-registered redshift test is closed, not open. Pre-registration `PREREG_A0_OF_Z.md` was frozen before data evaluation; evaluation artifacts `a0_of_z.py` and `A0_OF_Z_REPORT.json` (status `completed`, `[D] Computed Empirical Benchmark`) report constant `a0` favoured over the horizon-tied `a0(z) = xi * c * H(z)` at 5.9 sigma on 20 MUSE-DARK III / HUDF galaxies (0.413 <= z <= 1.44, median 0.94). The manuscript's O4 bullet and summary reflect this and are consistent. The *remaining* open scope of this entry is the JWST/NIRSpec high-`z` extension: a frozen, pre-registered catalog, a statistic, and a public script that emits a JSON the ledger can cite. Until that campaign has its JSON, JWST language stays out of the abstract.
 
 **Closure path:** a frozen, pre-registered catalog, a statistic, and a public script that emits a JSON the ledger can cite.
 
