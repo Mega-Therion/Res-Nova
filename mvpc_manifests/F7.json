@@ -16,7 +16,7 @@
     { "path": "05_lean_formalization/GODActionKinematics.lean", "sha256": "c966e191978b3103c6ba509af97a4cf1d37b47712b3ce1d9225b856e14c41d0e", "role": "physics_proof" },
     { "path": "05_lean_formalization/ITActionClosure.lean", "sha256": "baea9b44169cc72ef69b9e97ec333b8f0a72b1e66c1872bb519d2ca0d24977b1", "role": "physics_proof" },
     { "path": "05_lean_formalization/MuProjection.lean", "sha256": "6fe167f5a7d8d9f40b799bed7bd0cfc31b12005099318a9e74636926d9e83eaf", "role": "physics_proof" },
-    { "path": "05_lean_formalization/PPNLimits.lean", "sha256": "d77558cddf57235a5db55148c4019ea312c7dab13edfe0df989ca06b4f50cd4c", "role": "physics_proof" },
+    { "path": "05_lean_formalization/PPNLimits.lean", "sha256": "6b431767be000ba6ceaf35c2042f980c4ff5621538d807bf63ed601c5c6364a4", "role": "physics_proof" },
     { "path": "05_lean_formalization/PrintAxioms.lean", "sha256": "7b8916c10992d241c1dbf7f31faae27cc4f2efbbb6188b56b6d0e80471d6f2d3", "role": "diagnostic" },
     { "path": "05_lean_formalization/PrintAxiomsD8.lean", "sha256": "16ec38941427db532006735a6b5f5cbe419b6ec8690619fd083414538c53617c", "role": "diagnostic" },
     { "path": "05_lean_formalization/RelativisticStability.lean", "sha256": "ff869e61fdd9b5ec0d376ef532a7e4b411b66223294ea950ff7abc9029cd6196", "role": "physics_proof" },
