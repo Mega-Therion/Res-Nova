@@ -1,0 +1,55 @@
+{
+  "protocol": "PREREG_OMEGA_LN2_PANTHEONPLUS.md",
+  "date": "2026-09-09",
+  "epistemic_classification": "[D] Computed Empirical Benchmark (the ln 2 conjecture itself remains [O])",
+  "data": {
+    "source": "Pantheon+ SH0ES (Scolnic et al. 2022, arXiv:2202.04077)",
+    "release": "github.com/PantheonPlusSH0ES/DataRelease, Pantheon+_Data/4_DISTANCES_AND_COVAR",
+    "n_sne_total": 1701,
+    "n_sne_after_official_cut": 1590,
+    "official_cut": "zHD > 0.01 (Pantheon+_only_cosmosis_likelihood.py)",
+    "covariance": "Pantheon+SH0ES_STAT+SYS.cov (full statistical+systematic), trimmed to the official masked set",
+    "distance_convention": "comoving distance at zHD, luminosity factor (1+zHEL)",
+    "nuisance": "absolute magnitude M marginalized analytically (flat prior)"
+  },
+  "model": {
+    "family": "flat LCDM",
+    "grid_omegam": [
+      0.01,
+      0.99,
+      0.001
+    ]
+  },
+  "best_fit": {
+    "omega_m": 0.332,
+    "omega_lambda": 0.6679999999999999,
+    "chi2_min": 1402.9196716062725,
+    "dof": 1588,
+    "chi2_per_dof": 0.883450674815033
+  },
+  "hypothesis_ln2": {
+    "omega_m_tested": 0.307,
+    "omega_lambda_tested": 0.6930000000000001,
+    "omega_lambda_declared": 0.6931471805599453,
+    "chi2": 1404.8075462542474,
+    "delta_chi2_vs_best": 1.887874647974968,
+    "sigma_from_best_fit": 1.3739995079966252
+  },
+  "omega_lambda_intervals": {
+    "1sigma": [
+      0.65,
+      0.6859999999999999
+    ],
+    "2sigma": [
+      0.632,
+      0.7030000000000001
+    ],
+    "3sigma": [
+      0.612,
+      0.72
+    ]
+  },
+  "verdict_rule": "delta_chi2 <= 9 -> CONSISTENT (inside 3sigma); > 9 -> TENSION",
+  "verdict": "CONSISTENT",
+  "quarantine_standing": "The conjecture Omega_Lambda = ln 2 remains [O]: a conjectured horizon boundary condition, not a derived density. This test does not promote it. Closure of O3 still requires a covariant action whose on-shell Friedmann constraint produces ln 2 without inserting it."
+}
