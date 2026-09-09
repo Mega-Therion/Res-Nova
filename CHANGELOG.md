@@ -2,6 +2,18 @@
 
 All notable changes to the Res Nova technical manuscript, formal verification, and reproducibility package.
 
+## [Unreleased] — 2026-09-09
+
+### Open targets closed
+- **O5 — SPARC clean-clone fetch: CLOSED** (`VERIFICATION_RUN_009/02_sparc_fetch/`). `fetch_sparc.sh` executed end-to-end from a clean clone with `SPARC_DATA_DIR` isolated outside the repo: official CWRU `Rotmod_LTG.zip` downloaded, 175 `*_rotmod.dat` files extracted, **175/175 SHA-256 checksums verified against the frozen manifest, 0 drift, exit 0**. `fetch_sparc.sh` now falls back to `python3 zipfile` when `unzip` is absent (the SHA-256 manifest remains the sole content authority). SPARC data remains deliberately not vendored in git.
+- Status docs (`README.md`, `FOR_REFEREES.md`, `RELEASE_CHECKLIST.md`, `RES_NOVA_VERIFICATION_LEDGER.md` F7, `PEER_REVIEW_READINESS.md`) updated from the stale 17-module / O6-open language to the current inventory: **43 gate targets** (18 manuscript modules + 25 adjacent-programme modules declared in `ADJACENT_MODULES.txt`), O6 closed 2026-09-08 (cold fetch `VERIFICATION_RUN_008` + CI `lean-gate` on every push, green at `d130413`).
+
+### Physics corrections recorded earlier in this window (already on main; now ledgered here)
+- **D7 ghost-free second derivative corrected (2026-09-08, #37):** `F''(K) = 1/(4√K(1+√K)²)`, not the previously published formula taken with respect to `u` instead of `K`. Linear screening ratio `F''/F' = 1/(2x₀²(1+x₀)) ≈ 0.00233` (**0.23%** growth enhancement, not 0.4%); screening is 1.7× stronger than previously published; no conclusion changes. Machine-checked as `CovariantCompletion.F_dual_ghost_free` + `F_dual_second_deriv_antitone`. See `GHOSTFREE_AND_SCREENING_CORRECTION_2026-09-08.md`.
+- **D7 suppression restatement (2026-09-08, #38):** the "~250×" linear-growth suppression is `1/0.004`, the corrected value is `~429×`; label collision with the unrelated external-field-effect 250× disambiguated.
+- **D3 PPN β bound + vacuity audit (2026-09-08, #36):** PPN β bounded; two D7 PPN theorems audited as vacuous and relabelled.
+- **SU(2) envelope rungs adopted (2026-09-09, #39):** gate grows 39 → 43 targets, independently verified.
+
 ## [1.7.0] — 2026-08-26
 
 ### Unification & Black Hole Spin Sector (UFW-C1 Milestone)

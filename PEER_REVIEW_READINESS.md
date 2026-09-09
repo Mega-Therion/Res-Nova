@@ -21,8 +21,8 @@
 | **D9** Skordis-Złośnik Embedding | ✅ [P] | `SkordisZlosnikEmbedding.lean`, TARGET_D9 | ✓ |
 | **O1** Horizon Scale | ⚠️ [P/O] | 2π KMS cancellation proved [P]; a₀=cH identification open [O] (5.67× discrepancy; O4 disfavours at 5.9σ) | ⚠️ |
 | **O4** Redshift Test | ✅ [P] | H_const at 5.9σ; JWST expansion pre-registered | ✓ |
-| **O5** SPARC Automation | ✅ [P] | `fetch_sparc.sh`, SHA-256 verification | ✓ |
-| **O6** Clean Reproduction | ✅ [P] | 39/39 PASS; CI `lean-gate` wired and green (3/3, incl. cold scheduled run 2026-09-08); gate list ≡ lakefile roots | ✓ |
+| **O5** SPARC Automation | ✅ [P] | clean-clone walk closed 2026-09-09: 175/175 checksums, 0 drift (VERIFICATION_RUN_009) | ✓ |
+| **O6** Clean Reproduction | ✅ [P] | 39/39 PASS at closure; 43/43 since #39 (SU(2) envelope rungs); CI `lean-gate` green at `d130413`; gate list ≡ lakefile roots | ✓ |
 
 **Score: 9/12 fully peer-reviewable ([P]), 3/12 partially ready ([P/O])**
 

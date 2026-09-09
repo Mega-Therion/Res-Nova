@@ -66,11 +66,11 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 ## O5 — SPARC data not in the repo
 
-**Status:** engineering open, not a physics open. Data is intentionally not vendored in git. Fetch and checksum pipeline is untested on a clean clone. See `02_galaxy_dynamics/SPARC_DATA.md`.
+**Status:** engineering target — **closed 2026-09-09.** Data remains intentionally not vendored in git (unchanged). The clean-clone walk was executed and recorded as `VERIFICATION_RUN_009/02_sparc_fetch/`: `fetch_sparc.sh` ran end-to-end from a clean clone with `SPARC_DATA_DIR` pointed outside the repository, downloaded the official CWRU `Rotmod_LTG.zip`, extracted all 175 `*_rotmod.dat` files, and verified **175/175 SHA-256 checksums against `VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256` with 0 drift, exit 0**.
 
-**Closure path:** `fetch_sparc.sh` downloading official CWRU `Rotmod_LTG.zip`, unpacking, verifying all 175 files against `VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256`, and supporting `--data-dir` / `SPARC_DATA_DIR` across all data scripts without `/home/mega` or `/tmp/claude-1000` defaults.
+Two hardening changes landed with the closure: (i) `fetch_sparc.sh` now falls back to `python3 zipfile` when the `unzip` binary is absent (the host of the RUN_009 walk had no `unzip`; the SHA-256 manifest remains the sole content authority, so the fallback cannot weaken verification); (ii) `SPARC_DATA_DIR` override confirmed honored by `fetch_sparc.sh` and by `sparc_paths.resolve_sparc_dir()` (smoke-tested, 175 files resolved).
 
-**Test path:** Clean-clone execution of `fetch_sparc.sh` followed by checksum verification (175/175 OK).
+**Caveat kept honest:** the SPARC *analysis* scripts (`a0_measure.py`, `parameter_ledger.py`) were not re-run in this walk. Their frozen JSON outputs are unchanged and remain the empirical authority (`AGENT_COVENANT.md`).
 
 ---
 
@@ -111,4 +111,4 @@ In order, and without romance:
 2. Publish D4.3–D4.10 as the empirical core, with the superseded D4.1 method in an appendix so referees see the correction.
 3. Run O1's redshift test or withdraw horizon language from the abstract.
 4. Leave O3 out of the letter; it is a different paper or it is nothing.
-5. Walk O5 and O6 so a referee can reproduce without `/home/mega`.
+5. ~~Walk O5 and O6 so a referee can reproduce without `/home/mega`.~~ — done: O6 closed 2026-09-08 (CI gate, cold fetch, RUN_008), O5 closed 2026-09-09 (RUN_009).

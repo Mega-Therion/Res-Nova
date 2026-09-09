@@ -122,9 +122,11 @@ not $a_0 = \frac{cH_0}{2\pi}$. The additional $1/(2\pi)$ divisor is an open boun
 ---
 
 ### F7. Lean 4 Formal Verification Suite (17 Tracked Modules, Standard Foundational Axioms)
+
+> **SUPERSEDED 2026-09-09 (RUN_009-era inventory).** The suite now gates **43 targets**: the 17 modules tabulated below, plus `HorizonScale.lean`, and the adjacent-programme modules declared in `05_lean_formalization/ADJACENT_MODULES.txt` (GUT/E8 generation structure, the chiral-crack programme, the SU(2) envelope rungs adopted in #39, and related work). The table below is retained as the historical 17-module core of the manuscript's formal inventory — it is not the current gate census; the live census is `05_lean_formalization/check_target_inventory.py` (PASS, 43 targets, gate ≡ lakefile ≡ disk). O6 is closed (cold fetch RUN_008 + CI `lean-gate` on every push, green at `d130413`).
 * **Epistemic Classification:** `[P]` Proved / Diagnostic / Assumption
 * **Target Directory:** [`05_lean_formalization/`](05_lean_formalization/)
-* **Status:** O6 — walked once in a clean worktree at 07185a6 (lake exe cache get + 17/17 PASS, VERIFICATION_RUN_007). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate.
+* **Status:** O6 — closed 2026-09-08. Cold machine: VERIFICATION_RUN_008 fetched all 8678 cache files from origin with no Mathlib cache on disk and the gate passed. CI release gate: the `lean-gate` job in `.github/workflows/verify.yml` runs `verify_all_proofs.sh` on push, schedule, and dispatch — green at `d130413`, 43/43 targets, gate list set-identical to `lakefile.lean` roots.
 * **Kernel Axiom Footprint:** Exclusively standard foundational axioms `[propext, Classical.choice, Quot.sound]`. (Documented structural/typeclass vacuity in `YettParadigm.lean` and `SovereignRegularity.lean` recorded in `THEORY_ASSUMPTION_AUDIT.md`).
 
 | Lean 4 File | Headline Theorems / Scope Verified on Disk | Axiom Footprint | Role / Status |

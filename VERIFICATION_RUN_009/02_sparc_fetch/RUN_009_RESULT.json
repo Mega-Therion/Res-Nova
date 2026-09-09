@@ -1,0 +1,28 @@
+{
+  "run_id": "RUN_009",
+  "name": "VERIFICATION_RUN_009",
+  "description": "O5 clean-clone closure walk: fetch_sparc.sh executed from a clean clone against the official CWRU SPARC archive, all 175 *_rotmod.dat files extracted and SHA-256 verified against the frozen manifest with zero drift",
+  "date": "2026-09-09",
+  "author": "Elara (Superagent session), executing the O5 closure path stated in OPEN_PROBLEMS_AND_TESTS.md",
+  "commit": "recorded post-run; gate state at HEAD d130413",
+  "environment": {
+    "clean_clone": true,
+    "data_dir_isolation": "SPARC_DATA_DIR pointed outside the repository tree; no SPARC data written into git",
+    "unzip_available": false,
+    "unzip_fallback": "python3 zipfile (added in this run; content authority is the SHA-256 manifest below)",
+    "manifest": "VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256",
+    "source_url": "https://astroweb.cwru.edu/SPARC/Rotmod_LTG.zip"
+  },
+  "artifacts": [
+    "VERIFICATION_RUN_009/02_sparc_fetch/RUN_009_RESULT.json",
+    "VERIFICATION_RUN_009/02_sparc_fetch/FETCH_TRANSCRIPT.txt"
+  ],
+  "result": "PASS",
+  "counts": {
+    "rotmod_files_extracted": 175,
+    "sha256_ok": 175,
+    "sha256_failed": 0,
+    "exit_code": 0
+  },
+  "o5_status": "Closed. The fetch pipeline (download, extract, count check, manifest verify) runs end-to-end from a clean clone with an isolated data dir; 175/175 checksums OK, 0 drift. fetch_sparc.sh now falls back to python3 zipfile when unzip is absent, so the script no longer hard-depends on a binary that is not present on every host. SPARC_DATA_DIR override honored by fetch_sparc.sh and by sparc_paths.resolve_sparc_dir() (smoke-tested). Remaining caveat: the SPARC analysis scripts themselves (a0_measure.py, parameter_ledger.py) were NOT re-run in this walk; their frozen JSON outputs are unchanged and remain the empirical authority."
+}
