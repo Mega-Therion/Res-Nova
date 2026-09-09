@@ -59,10 +59,24 @@ $$\lambda^2 + \frac{1}{2}\lambda - \frac{3}{2}\xi = 0 \quad \Longrightarrow \qua
 
 | Enhancement $\xi$ | Growth exponent $\lambda$ | $D$ at $z=0$ relative to ΛCDM |
 |:-:|:-:|:-:|
-| 1.0 (ΛCDM) | 1.000 | 1.0× |
-| 1.5 | 1.186 | $\sim 8 \times$ |
-| 2.0 | 1.366 | $\sim 76 \times$ |
-| 3.0 | 1.691 | $\sim 2264 \times$ |
+| 1.0 (ΛCDM) | 1.0000 | 1.0× |
+| 1.5 | 1.2707 | $\sim 8 \times$ |
+| 2.0 | 1.5000 | $\sim 76 \times$ |
+| 3.0 | 1.8860 | $\sim 2264 \times$ |
+
+**Corrected 2026-09-08.** The $\lambda$ column previously read
+1.000 / 1.186 / 1.366 / 1.691. Those values do not satisfy the quadratic printed
+directly above them: substituting them leaves residuals of $-0.25$, $-0.45$ and
+$-0.80$ for $\xi = 1.5, 2, 3$. Solving
+$\lambda = \tfrac{1}{4}\left(-1+\sqrt{1+24\xi}\right)$ — which is algebraically
+identical to the form printed above — gives the values now shown. (The old entries
+are not the roots of any single consistent equation: back-solving the drag
+coefficient from each row gives $b = 0.50, 0.71, 0.83, 0.97$, drifting row to row.)
+
+**Nothing downstream changes.** The $76\times$ and $2264\times$ figures come from
+the numerical integration in §4.3, not from this table; both were reproduced
+independently to four significant figures (76.39 and 2263.8). The $\lambda$ column
+was a decorative restatement, and it was wrong.
 
 ### 4.3 Numerical Computation [P]
 
@@ -74,6 +88,17 @@ The growth equation was integrated numerically from $a = 10^{-4}$ to $a = 1$ for
 | $z = 1$ | 0.489 | 28.90 | 701.8 | 59.1× | 1435× |
 | $z = 3$ | 0.249 | 10.64 | 201.5 | 42.8× | 809× |
 | $z = 9$ | 0.099 | 2.69 | 35.7 | 27.0× | 359× |
+
+**Note on the higher-$z$ rows (2026-09-08).** Re-integrating the same ODE against
+a Planck-2018 background ($\Omega_m = 0.315$) reproduces the $z=0$ column exactly
+(76.39, 2263.8) but gives larger values at $z > 0$: $D_{\Lambda\text{CDM}}(z{=}1) = 0.607$
+against the tabulated $0.489$, and correspondingly $35.99$ vs $28.90$ for the
+$2\times$ case. The $z=0$ agreement to four significant figures shows the
+integration itself is sound, so the discrepancy is a normalization or
+$\Omega_m$ convention difference in the higher-$z$ rows rather than an error in
+the growth calculation. The conclusion — catastrophic overproduction — is
+unaffected in either convention. Flagged rather than silently rewritten, because
+the convention actually used is not recorded here.
 
 **The growth enhancement is catastrophic.** Even a modest 2× enhancement produces $\sim 76\times$ more structure by $z=0$ relative to ΛCDM from the same initial perturbations. This is the **linear theory** prediction; non-linear gravitational collapse amplifies the discrepancy further.
 
