@@ -94,6 +94,39 @@ theorem messenger_margin (x : ℝ) (hx : x ≥ 3 * 10 ^ 8) :
   rw [div_le_div_iff₀ h_pos h_t_pos]
   nlinarith
 
+/--
+`mu(x) → 1` as `x → ∞`.
+
+D3.1 closure (2026-09-09). The 2026-08-16 audit suspended the manuscript's
+Newtonian-limit claim because the suite contained only finite-threshold
+bounds (`solar_system_precision_bound`, `cassini_radar_delay_satisfied`,
+`messenger_perihelion_satisfied`), and no `Filter.Tendsto` statement existed
+anywhere on disk. This is the missing limit theorem, stated in the
+`Filter` API and proved from `fractional_deviation_eq`, so it depends on the
+specific dual-channel `mu(x) = x/(1+x)`: substituting a different
+interpolation function breaks the proof.
+-/
+theorem mu_newtonian_limit :
+    Filter.Tendsto (fun x : ℝ => mu x) Filter.atTop (𝓝 (1 : ℝ)) := by
+  rw [Metric.tendsto_atTop]
+  intro ε hε
+  have hεpos : (0 : ℝ) < ε := hε
+  refine ⟨1 + 2 / ε, fun x hx => ?_⟩
+  have hx1 : (1 : ℝ) ≤ x := by linarith
+  have hdenompos : (0 : ℝ) < 1 + x := by linarith
+  have hdev : 1 - mu x = 1 / (1 + x) := fractional_deviation_eq x hx1
+  rw [Real.dist_eq]
+  have hsub : mu x - 1 = -(1 / (1 + x)) := by
+    rw [← hdev]
+    ring
+  rw [hsub, abs_of_neg (by positivity)]
+  have hprod : ε * x ≥ ε * (1 + 2 / ε) := mul_le_mul_of_nonneg_left hx hεpos
+  have hprodsimp : ε * (1 + 2 / ε) = ε + 2 := by
+    field_simp
+    ring
+  rw [div_lt_iff₀ hdenompos, mul_add]
+  linarith
+
 end
 
 end PPNLimits
