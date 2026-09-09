@@ -2,9 +2,9 @@
   "schema_version": "mvpc-claim-manifest-v1",
   "claim_id": "O6",
   "title": "Clean-Worktree and CI Lean 4 Reproduction Gate",
-  "statement": "O6 — walked once in a clean worktree at 07185a6 (lake exe cache get + 17/17 PASS, VERIFICATION_RUN_007). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate.",
+  "statement": "O6 \u2014 walked once in a clean worktree at 07185a6 (lake exe cache get + 17/17 PASS, VERIFICATION_RUN_007). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate.",
   "epistemic_tier": "[O]",
-  "status": "PARTIALLY_WALKED",
+  "status": "VERIFIED",
   "target_backend": "build_engineering",
   "artifacts": [
     {
@@ -17,15 +17,21 @@
     }
   ],
   "verification": {
-    "clean_worktree_walk": "PASS",
-    "clean_worktree_commit": "07185a6",
-    "verification_run": "VERIFICATION_RUN_007",
-    "target_count": "17/17 PASS",
-    "pass": false,
-    "quarantine_reason": "Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate."
+    "clean_worktree_walk": "PASS (VERIFICATION_RUN_007, 17/17 at 07185a6 \u2014 warm)",
+    "cold_machine_walk": "PASS (VERIFICATION_RUN_008, 2026-09-07, commit d482823: fresh container, no pre-existing .lake/packages or Mathlib host cache, genuine network fetch; 32/32 targets, exit 0)",
+    "ci_release_gate": "PASS \u2014 lean-gate in .github/workflows/verify.yml runs verify_all_proofs.sh on push, schedule, and dispatch; 3/3 green including the cold scheduled run 2026-09-08T11:27Z; gate covered 39 targets at closure",
+    "closed_date": "2026-09-08",
+    "verification_run": "VERIFICATION_RUN_008",
+    "target_count": "39/39 PASS at closure (cold fetch + CI); gate has since grown to 43 targets (SU(2) envelope rungs, PR #39, 2026-09-09, independently verified at merge, CI lean-gate green on every push)",
+    "pass": true,
+    "quarantine_reason": null
   },
   "epistemic_boundary": {
     "scope": "Quarantined Engineering Gate [O].",
     "closure_path": "Demonstrate on a cold runner with empty ~/.cache/mathlib, pin lean-toolchain and lake-manifest.json, and archive clean cold-runner execution logs."
+  },
+  "closure": {
+    "closed": "2026-09-08 per OPEN_PROBLEMS_AND_TESTS.md: cold-machine condition met by VERIFICATION_RUN_008; CI release-gate condition met by the lean-gate workflow (3/3 green incl. cold scheduled run). Honest claim: '39/39 targets pass from a cold fetch, gated in CI on every push' at closure; the gate now covers 43 targets, green in CI on every push.",
+    "residual_caveat": "The Mathlib prebuilt-cache endpoint is sometimes-cold-fetchable, not reliably so; the daily cron bounds the stall rate with data. Infrastructure-availability caveat, not an open reproduction question."
   }
 }
