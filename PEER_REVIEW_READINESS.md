@@ -14,7 +14,7 @@
 | **D1** Variational Derivation | ✅ [P] | `DualChannelDerivation.lean`, PAPER_01 | ✓ |
 | **D2** Physical Action Origin | ⚠️ [P/O] | Conditional uniqueness proved; Padé necessity open | ⚠️ |
 | **D3** PPN / Solar System | ✅ [P] | MOND correction 1137× below Cassini; Vainshtein resolves Q₂ (70× margin) | ✓ |
-| **D5** Cosmological Sector | ⚠️ [P/O] | Linear: 0.4% enhancement (screened); Non-linear: needs N-body | ⚠️ |
+| **D5** Cosmological Sector | ⚠️ [P/O] | Linear: 0.23% enhancement (screened; corrected 2026-09-08 from 0.4%); Non-linear: needs N-body | ⚠️ |
 | **D6** Relativistic Stability | ✅ [P] | Ghost-free, bounded Hamiltonian, strong coupling scale | ✓ |
 | **D7** Covariant Completion | ✅ [P] | RMOND action with F_dual; screening F''/F' × Vainshtein | ✓ |
 | **D8** Tensor Speed | ✅ [P] | c_T = c (GW170817) | ✓ |
@@ -99,7 +99,7 @@ Diff `f13cf75..4af94c4` confirms: the D-series pushes added **no new** "zero fre
   A: D2 proves it's the unique Padé[1/1] satisfying MOND boundary conditions, and it's the inverse of the odds ratio (Bayesian structure). The Padé choice itself is a structural assumption, not a derivation — acknowledged as [O].
 
 - Q: "What about non-linear structure formation?"
-  A: Linear theory is screened (0.4% enhancement). Non-linear requires N-body with Thomas et al. (2023) equations — future work.
+  A: Linear theory is screened (0.23% enhancement; corrected 2026-09-08 from 0.4% — see GHOSTFREE_AND_SCREENING_CORRECTION_2026-09-08.md). Non-linear requires N-body with Thomas et al. (2023) equations — future work.
 
 - Q: "Is the Vainshtein estimate rigorous?"
   A: The (r/r_MOND)^(3/2) scaling is standard; exact Q₂ requires solving the RMOND PDEs in the solar system. The 70× margin below Cassini provides robustness to the estimate's uncertainty.

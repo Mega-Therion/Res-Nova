@@ -19,7 +19,7 @@
 | CLM-D3-02 | PPN parameters depend on D7 covariant completion, not on μ | [P] | TARGET_D3 §3 Theorem 3.1 |
 | CLM-D3-03 | Vainshtein screening resolves Q₂ tension (70× below Cassini) | [P] | TARGET_D7_SUPPLEMENT §3 |
 | CLM-D5-01 | Non-relativistic 2× MOND enhancement → 76× excess growth | [P] | TARGET_D5 §4.3; numerically integrated |
-| CLM-D5-02 | RMOND linear screening reduces enhancement to ~0.4% | [P] | TARGET_D7 §4.1; F''/F' ≈ 0.004 |
+| CLM-D5-02 | RMOND linear screening reduces enhancement to ~0.23% | [P] | TARGET_D7 §4.1; F''/F' = 1/(2x₀²(1+x₀)) ≈ 0.00233 (corrected 2026-09-08 from ~0.4% / 0.004) |
 | CLM-D5-03 | Non-linear structure formation in RMOND is consistent | [O] | Requires N-body (Thomas et al. 2023 framework) |
 | CLM-D6-01 | F_dual is ghost-free (F''>0 ∀K>0) | [P] | TARGET_D6 §1.2; symbolically verified |
 | CLM-D6-02 | Hamiltonian is bounded below | [P] | TARGET_D6 §2 |

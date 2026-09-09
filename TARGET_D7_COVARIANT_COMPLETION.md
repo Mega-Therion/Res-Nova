@@ -87,11 +87,23 @@ $$\frac{G_{\text{eff}}}{G} = 1 + \frac{\mathcal{F}''(\mathcal{K}_0)}{\mathcal{F}
 
 **The smoking gun [P]:** At the background value $\mathcal{K}_0$ (Newtonian branch):
 
-$$\frac{\mathcal{F}''(\mathcal{K}_0)}{\mathcal{F}'(\mathcal{K}_0)} \approx \frac{1}{x_0(1+x_0)^2} \approx \frac{1}{5.7 \times 6.7^2} \approx 0.004$$
+$$\frac{\mathcal{F}''(\mathcal{K}_0)}{\mathcal{F}'(\mathcal{K}_0)} = \frac{1}{2x_0^2(1+x_0)} \approx \frac{1}{2 \times 5.67^2 \times 6.67} \approx 0.00233$$
+
+**Corrected 2026-09-08.** This line previously read
+$\frac{1}{x_0(1+x_0)^2} \approx 0.004$, which inherited the §7 error in
+$\mathcal{F}''$ (see below). Recomputing both derivatives symbolically from
+$\mathcal{F} = \mathcal{K}/2 - \sqrt{\mathcal{K}} + \ln(1+\sqrt{\mathcal{K}})$ gives
+$\mathcal{F}''/\mathcal{F}' = 1/(2x_0^2(1+x_0))$ — note $x_0^2$ and a single
+power of $(1+x_0)$, not the reverse.
+
+**The correction runs in the theory's favour.** The screened enhancement falls
+from $\approx0.4\%$ to $\approx0.23\%$, a factor $1.7$ *stronger* screening.
+Closer to $\Lambda$CDM means structure-formation data is easier to satisfy, not
+harder — the previous figure was conservative against the theory.
 
 **The linear enhancement is suppressed by a factor of ~250×** compared to the non-relativistic MOND prediction. The effective linear growth enhancement is:
 
-$$\xi_{\text{linear}} \approx 1 + 0.004 \times \delta\mathcal{K}/\mathcal{K}_0$$
+$$\xi_{\text{linear}} \approx 1 + 0.00233 \times \delta\mathcal{K}/\mathcal{K}_0$$
 
 This is $\sim 0.4\%$ for typical perturbation amplitudes, compared to the $7600\%$ enhancement from non-relativistic MOND with a 2× boost factor.
 
@@ -123,7 +135,7 @@ The D5 analysis computed a $76\times$ excess growth assuming a **uniform 2× MON
 | Quantity | Non-relativistic MOND | RMOND (this work) |
 |----------|:-:|:-:|
 | Linear enhancement $\xi$ | 2.0 (uniform) | $\sim 1.004$ (screened) |
-| Growth excess at $z=0$ | $76\times$ | $\sim 0.4\%$ |
+| Growth excess at $z=0$ | $76\times$ | $\sim 0.23\%$ |
 | CMB power spectrum | Not reproduced | Reproduced [web:88] |
 | Linear $P(k)$ | Not reproduced | Reproduced [web:88] |
 
@@ -169,7 +181,28 @@ Skordis & Złośnik (2021) showed that the action expanded to second order in pe
 2. The scalar field coupling satisfies certain positivity bounds
 3. The coupling constants $c_1, c_2, c_3$ satisfy $c_1 + c_2 + c_3 > 0$, $c_1 + c_3 > 0$
 
-**Verification [P]:** $\mathcal{F}_{\text{dual}}''(\mathcal{K}) = \frac{2\sqrt{\mathcal{K}} + \mathcal{K}}{(1+\sqrt{\mathcal{K}})^2 \cdot 2\sqrt{\mathcal{K}}} > 0$ for all $\mathcal{K} > 0$. ✓
+**Verification [P] — formula corrected 2026-09-08, conclusion unchanged.**
+
+The expression previously printed here,
+$\frac{2\sqrt{\mathcal{K}} + \mathcal{K}}{(1+\sqrt{\mathcal{K}})^2 \cdot 2\sqrt{\mathcal{K}}}$,
+is **not** $d^2\mathcal{F}/d\mathcal{K}^2$. In $u=\sqrt{\mathcal{K}}$ it reads
+$(2u+u^2)/(2u(1+u)^2)$ — a derivative with respect to $u$, missing the chain-rule
+factors that relate $d/d\mathcal{K}$ to $d/du$. It is wrong numerically
+everywhere: at $\mathcal{K}=1$ it gives $0.375$ against the true $0.0625$, and the
+discrepancy grows without bound (at $\mathcal{K}=10^4$, by $\sim2\times10^4$).
+
+Differentiating $\mathcal{F}(\mathcal{K}) = \mathcal{K}/2 - \sqrt{\mathcal{K}} + \log(1+\sqrt{\mathcal{K}})$ symbolically:
+
+$$\frac{d\mathcal{F}}{d\mathcal{K}} = \frac{\mathcal{K}^{3/2}}{2(\mathcal{K}^{3/2}+\mathcal{K})}, \qquad \frac{d^2\mathcal{F}}{d\mathcal{K}^2} = \frac{1}{4u(1+u)^2}, \quad u=\sqrt{\mathcal{K}}$$
+
+**The ghost-free conclusion stands.** $1/(4u(1+u)^2) > 0$ for every $u>0$, so
+$\mathcal{F}''>0$ for every $\mathcal{K}>0$, which is exactly Skordis–Złośnik
+condition (1). ✓
+
+Now machine-checked: `CovariantCompletion.F_dual_ghost_free` proves the
+positivity and `F_dual_second_deriv_antitone` proves the monotone decay. Both are
+non-vacuous — flipping the numerator's sign breaks the proof — and the gate
+passes 39/39.
 
 The dual-channel free function satisfies the ghost-free condition.
 
@@ -206,7 +239,7 @@ D7 unlocks:
 
 1. **D3 (PPN)**: The PPN parameters can now be computed from the RMOND metric with $\mathcal{F}_{\text{dual}}$. The key remaining step is the post-Newtonian expansion with specific coupling constants.
 
-2. **D5 (Cosmology)**: The linear growth factor can now be computed with the screened enhancement $\xi \approx 1.004$ instead of $\xi = 2$. The non-linear regime requires N-body simulations using the Thomas et al. (2023) equations.
+2. **D5 (Cosmology)**: The linear growth factor can now be computed with the screened enhancement $\xi \approx 1.0023$ (corrected 2026-09-08 from $1.004$) instead of $\xi = 2$. The non-linear regime requires N-body simulations using the Thomas et al. (2023) equations.
 
 3. **D6 (Relativistic Stability)**: The ghost-free condition is verified. The Hamiltonian analysis can proceed with the specific $\mathcal{F}_{\text{dual}}$.
 

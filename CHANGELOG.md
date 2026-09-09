@@ -52,13 +52,13 @@ Submission-readiness release. No physics claims change.
 
 ### Theoretical Framework (New)
 - **D2 — Physical Action Derivation:** 13 theorems proving F_dual is uniquely determined given 4 structural constraints. Padé[1/1] uniqueness, odds-ratio/Bayesian structure, Fisher information identity F'²·I = x³, dual-channel cancellation mechanism. Status: D2_PROPOSED (conditional uniqueness [P], Padé necessity [O]).
-- **D7 — Covariant Completion:** RMOND action with F_dual free function. Background Friedmann unmodified. Linear screening F''/F' ≈ 0.004. Resolves D5 overproduction (76× → 0.4%). Ghost-free verified. c_T = c confirmed.
+- **D7 — Covariant Completion:** RMOND action with F_dual free function. Background Friedmann unmodified. Linear screening F''/F' ≈ 0.004 [CORRECTED 2026-09-08 to 0.00233]. Resolves D5 overproduction (76× → 0.4% [corrected: 0.23%]). Ghost-free verified. c_T = c confirmed.
 - **D7 Supplement — Coupling Optimization:** Vainshtein screening identified. Q₂ resolved at 70× below Cassini. Natural O(1) coupling constants viable. No fine-tuning needed.
 - **D6 — Relativistic Stability:** Ghost-free (F''>0 ∀K>0). Hamiltonian bounded below. Strong coupling scale ~10⁻¹⁰ eV.
 
 ### Empirical Analysis (New)
 - **D3 — PPN / Solar System:** MOND correction 1137× below Cassini. PPN parameters depend on D7, not on μ. Q₂ tension resolved via Vainshtein + F''/F' screening.
-- **D5 — Cosmological Sector:** Growth factor computed. Non-relativistic 2× MOND → 76× excess. RMOND linear screening → 0.4% enhancement. νHDM crisis quantified (Russell et al. 2026). Non-linear regime identified as key open question.
+- **D5 — Cosmological Sector:** Growth factor computed. Non-relativistic 2× MOND → 76× excess. RMOND linear screening → 0.4% enhancement [CORRECTED 2026-09-08 to 0.23%]. νHDM crisis quantified (Russell et al. 2026). Non-linear regime identified as key open question.
 
 ### Epistemic Corrections
 - **O1 rescored [P] → [P/O]:** 2π KMS cancellation proved; a₀=cH identification open (5.67× discrepancy; O4 disfavours at 5.9σ).
