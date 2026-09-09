@@ -72,6 +72,19 @@ or a corrected resubmission — which is the author's call, not a repository edi
 **What must NOT happen:** a future version quoting 0.23% while the live DOI still
 reads 0.4%, with no note connecting them.
 
+## 4b. Follow-up: the "suppressed by ~250×" figure, and a label collision
+
+`TARGET_D7` §4.1 also said the linear enhancement is *"suppressed by a factor of
+~250×"*. That is not independent evidence: $1/0.004 = 250$, so it is the same
+ratio restated as its reciprocal. With the corrected ratio it is
+$1/0.00233 = 429\times$.
+
+Separately — and this is a genuine trap for a reader — §6 uses "$\sim250\times$"
+for a **different** suppression: the external-field effect,
+$Q_2 \sim 10^{-21} \to 4\times10^{-24}$, which really is a factor $\sim250$ and is
+unaffected by this correction. Two unrelated quantities carried the same number
+and the same words. Both sites are now labelled explicitly.
+
 ## 5. Method
 
 Both derivatives recomputed with SymPy from the action as written, cross-checked
