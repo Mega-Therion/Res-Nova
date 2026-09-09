@@ -62,3 +62,9 @@ This closes the algebraic matrix bridge into the standard 2×2 complex model of 
 ## Next honest rung
 
 The next safe target is an internal definition of the matrix-level SU(2) carrier—unitary 2×2 complex matrices with determinant one—and a theorem that `qMatrix` lands in that carrier. A subsequent topological rung would need explicit continuity and compactness/connectedness infrastructure. The repository should not label the finite image itself as “the continuous gauge group” before those steps are independently formalized.
+
+## Rung 10: finite faithfulness
+
+`SU2FiniteFaithfulness.lean` proves the exact finite coordinate map `btCoord : Q8 × C3 → Quat` is injective by exhaustive exact cases over the repository’s finite constructors. Together with `qMatrix_injective`, this proves the finite matrix representation is faithful. The named-carrier map is faithful as well.
+
+The synchronized target inventory and explicit verifier now pass **43 / 43**, and `lake build ResNovaFormal` completes successfully. This remains an algebraic finite result; it does not add topology or continuity to the claim ledger.

@@ -40,6 +40,7 @@ TARGETS=(
   FiniteSU2Envelope.lean \
   SU2MatrixEnvelope.lean \
   SU2CarrierRungs.lean \
+  SU2FiniteFaithfulness.lean \
   AXIOMS_V2.lean
   CartanTrialityGenerations.lean
   ChiralCellularDuality.lean

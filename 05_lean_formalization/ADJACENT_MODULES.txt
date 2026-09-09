@@ -262,7 +262,16 @@ SU2MatrixEnvelope.lean             # Rung 8, tag [P] for the explicit matrix
                                  # topology, continuity, connectedness, Lie
                                  # structure, or physical gauge field is
                                  # derived. Imports FiniteSU2Envelope. Verified
-                                 # compiling on the pinned toolchain, no sorry.
+                                    # pinned toolchain, no sorry.
+SU2FiniteFaithfulness.lean        # Rung 10, tag [P] for finite faithfulness.
+                                 # Proves btCoord, the exact Q8 × C3 to quaternion
+                                 # coordinate map, is injective by exhaustive
+                                 # exact finite cases; together with
+                                 # qMatrix_injective this proves the finite
+                                 # matrix and named-carrier representations are
+                                 # faithful. No topology or continuity is
+                                 # claimed. Verified in the 43-target gate and
+                                 # full Lake build, no sorry.
   ChiralPartner.lean               # Speculative companion, tag [O]: §7 of the
                                  # section draft "The Chiral Crack" — the
                                  # CHIRAL PARTNER model, first pass. The
