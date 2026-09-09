@@ -59,6 +59,25 @@ This is far below any current or foreseeable solar system test. The PPN paramete
 |-----------|:-:|:-:|:-:|
 | $\gamma$ | 1 | $|\gamma - 1| < 2.3 \times 10^{-5}$ | Cassini (Bertotti et al. 2003) [web:54] |
 | $\beta$ | 1 | $|\beta - 1| < 2.3 \times 10^{-4}$ | MESSENGER perihelion [web:58] |
+
+**Update 2026-09-08 — the $\beta$ bound is now formalized.** The MOND-sector
+contribution to $\beta$ is bounded in `PPNLimits.lean` by
+`messenger_perihelion_satisfied` and `messenger_margin`. Evaluated at Mercury's
+orbital gradient — the field point perihelion precession is actually sensitive to
+— $x = g/a_0 = 3.548\times10^{8}$, giving $1-\mu(x) = 2.819\times10^{-9}$, a
+margin of $8.2\times10^{4}$ against the MESSENGER bound.
+
+Two caveats recorded in `PPN_VACUITY_AUDIT_2026-09-08.md`:
+
+1. This bounds the **MOND-sector** contribution only. That $\gamma=\beta=1$
+   exactly for the aether sector is a **[CITED]** result (Foster & Jacobson 2006,
+   PRD 73 064015) for the Einstein-aether class D7's kinetic term belongs to. It
+   is not proved in this corpus, and the two D7 theorems that appear to prove it
+   are vacuous — verified by substitution, see the audit.
+2. The "1137× below Cassini" figure does not name its field point. Earth orbit
+   reproduces it (1222×); the Shapiro-delay grazing point gives $\sim10^{7}$;
+   Saturn's orbit gives $\sim13$. All clear the bound, but the margin is not
+   well-defined until the doc says which.
 | $\alpha_1$ | 0 | $< 10^{-4}$ | Lunar Laser Ranging |
 | $\alpha_2$ | 0 | $< 10^{-4}$ | Solar spin precession |
 | $Q_2$ | 0 | $(1.6 \pm 1.8) \times 10^{-27}$ s⁻² | Cassini radio tracking (2026) [web:55] |
