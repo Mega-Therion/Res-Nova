@@ -112,20 +112,24 @@ theorem mu_newtonian_limit :
   intro ε hε
   have hεpos : (0 : ℝ) < ε := hε
   refine ⟨1 + 2 / ε, fun x hx => ?_⟩
-  have hx1 : (1 : ℝ) ≤ x := by linarith
-  have hdenompos : (0 : ℝ) < 1 + x := by linarith
-  have hdev : 1 - mu x = 1 / (1 + x) := fractional_deviation_eq x hx1
-  rw [Real.dist_eq]
-  have hsub : mu x - 1 = -(1 / (1 + x)) := by
-    rw [← hdev]
-    ring
-  rw [hsub, abs_of_neg (by positivity)]
-  have hprod : ε * x ≥ ε * (1 + 2 / ε) := mul_le_mul_of_nonneg_left hx hεpos
-  have hprodsimp : ε * (1 + 2 / ε) = ε + 2 := by
-    field_simp
-    ring
-  rw [div_lt_iff₀ hdenompos, mul_add]
-  linarith
+  have htwopos : (0 : ℝ) < 2 / ε := by positivity
+  have hxpos : (0 : ℝ) < x := by linarith
+  have hdev : 1 - mu x = 1 / (1 + x) := fractional_deviation_eq x hxpos
+  have hdennpos : (0 : ℝ) < 1 + x := by linarith
+  have hinv : (0 : ℝ) < 1 / (1 + x) := by positivity
+  -- From x ≥ 1 + 2/ε and ε > 0 we get ε (x - 1) ≥ 2.
+  have h3 : 2 ≤ (x - 1) * ε := by
+    rw [← div_le_iff₀ hεpos]
+    linarith
+  have h5 : ε * x = (x - 1) * ε + ε := by ring
+  -- Hence 1 / (1 + x) < ε.
+  have hbound : 1 / (1 + x) < ε := by
+    rw [div_lt_iff₀ hdennpos]
+    have h4 : ε * (1 + x) = ε + ε * x := by ring
+    rw [h4]
+    linarith
+  rw [Real.dist_eq, abs_lt]
+  constructor <;> linarith
 
 end
 
