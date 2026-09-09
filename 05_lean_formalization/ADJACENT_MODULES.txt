@@ -30,7 +30,29 @@ GenerationIndex.lean             # AUDITED VACUOUS 2026-08-29 (D47, D61) — the
                                  # theorem proves a function returning 3/-3/0
                                  # returns 3/-3/0; substituting 42 and 17
                                  # compiles identically. Gated, but evidence
-                                 # for nothing.
+                                 # for nothing. In-file honest-relabel
+                                 # correction applied 2026-09-09.
+DiagonalConeIndex.lean            # ADDED 2026-09-09, ported from
+                                 # Chyren/Research_and_Data/01_Bob_Packages/
+                                 # archive_previous_iterations/2026-08-02_
+                                 # decomposition/lean_repo/GenerationIndex.lean
+                                 # (RY, 2026-07-27). NOT the file above --
+                                 # separate namespace, separate content, real
+                                 # non-vacuous result (sabotage-tested):
+                                 # DiagonalForced is a genuine exhaustive
+                                 # enumeration over 27 Z3 weight triples
+                                 # showing CY-admissibility + isolated-tear
+                                 # force exactly the diagonal (1,1,1)/(2,2,2).
+                                 # Bookkeeping literals (Coxeter fixed-point
+                                 # counts, root-count square) are transcribed
+                                 # from an external Python E8 computation, not
+                                 # derived in this file -- see the file's own
+                                 # header. The chain's one open premise: that
+                                 # the physical symmetry-breaking mechanism
+                                 # (not just the Coxeter maximal twist, which
+                                 # IS proven isolated) produces an isolated
+                                 # tear. [conj], not established here or
+                                 # anywhere in this corpus.
 
 # --- Millennium-problem correspondence sketches ---
 RamanujanModularBounds.lean      # modular bounds, RH leg

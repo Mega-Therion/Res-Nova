@@ -55,6 +55,7 @@ TARGETS=(
   DualChannelDerivation.lean
   GODActionKinematics.lean
   GenerationIndex.lean
+  DiagonalConeIndex.lean
   Hamilgrangian.lean
   HorizonScale.lean
   ITActionClosure.lean
