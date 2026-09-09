@@ -8,7 +8,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21969121.svg)](https://doi.org/10.5281/zenodo.21969121)
 [![Release](https://img.shields.io/badge/Release-v1.6.2-0052FF.svg?style=for-the-badge&logo=github)](https://github.com/Mega-Therion/Res-Nova/releases/tag/v1.6.2)
-[![Lean 4 Verified](https://img.shields.io/badge/Lean_4-17_Modules-4B32C3.svg?style=for-the-badge&logo=lean)](05_lean_formalization/)
+[![Lean 4 Verified](https://img.shields.io/badge/Lean_4-43_Gate_Targets-4B32C3.svg?style=for-the-badge&logo=lean)](05_lean_formalization/)
 [![Epistemic Covenant](https://img.shields.io/badge/Epistemic-v1.6.2_%5BP%5D_%5BD%5D_%5BC%5D_%5BO%5D-D4AF37.svg?style=for-the-badge)](EPISTEMIC_BOUNDARY_v1.5.0.md)
 [![SPARC a0](https://img.shields.io/badge/SPARC_a0-1.116e--10_%C2%B1_14.4%25-00C781.svg?style=for-the-badge)](02_galaxy_dynamics/A0_MEASUREMENT.json)
 [![Vercel Live](https://img.shields.io/badge/Observatory-Live_Deployment-000000.svg?style=for-the-badge&logo=vercel)](https://res-nova-observatory.vercel.app)
@@ -90,9 +90,11 @@ Matched-parameter ledger (`PARAMETER_LEDGER.json`, `NFW_CONSTRAINED.json`):
 
 ## Lean inventory
 
-Seventeen modules, 0 `sorry`, axioms `{propext, Classical.choice, Quot.sound}`, Mathlib `5eec30bc`, Lean `v4.33.0-rc1`. Gate: `05_lean_formalization/verify_all_proofs.sh`.
+The verification gate covers **43 targets** (18 manuscript modules plus 25 adjacent-programme modules declared in `05_lean_formalization/ADJACENT_MODULES.txt`), 0 `sorry`, axioms `{propext, Classical.choice, Quot.sound}`, Mathlib `5eec30bc`, Lean `v4.33.0-rc1`. Gate: `05_lean_formalization/verify_all_proofs.sh`.
 
-O6 — walked once in a clean worktree at 07185a6 (lake exe cache get + 17/17 PASS, VERIFICATION_RUN_007). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate.
+O6 — **closed 2026-09-08**: cold-machine fetch demonstrated (VERIFICATION_RUN_008, 8678 cache files from origin, no Mathlib on disk), and the `lean-gate` CI job runs the full gate on every push, on schedule, and on dispatch. 43/43 targets pass in CI as of `d130413`. The honest caveat remains: the Mathlib prebuilt-cache endpoint is sometimes-cold-fetchable, not reliably so.
+
+O5 — **closed 2026-09-09**: `fetch_sparc.sh` walked end-to-end from a clean clone, 175/175 SPARC checksums verified with 0 drift (VERIFICATION_RUN_009). SPARC data still is not vendored in git, by design.
 
 ---
 
@@ -139,7 +141,7 @@ Res-Nova/
 ├── 02_galaxy_dynamics/           # SPARC scripts + frozen JSON
 ├── 03_observer_jwst/             # high-z interface; not a completed [D] campaign
 ├── 04_cosmology/                 # a0 / Ω ledgers; Ω_Λ=ln2 is [O]
-├── 05_lean_formalization/        # 17 Lean modules + verify_all_proofs.sh
+├── 05_lean_formalization/        # 43 Lean gate targets + verify_all_proofs.sh
 ├── FOR_REFEREES.md
 ├── OPEN_PROBLEMS_AND_TESTS.md
 ├── AGENT_COVENANT.md
