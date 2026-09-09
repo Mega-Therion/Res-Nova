@@ -271,3 +271,33 @@ ChiralPartner.lean               # Speculative companion, tag [O]: §7 of the
                                  # SO(4) ≅ (SU(2)×SU(2))/±1. Imports
                                  # ChiralResidue. Verified compiling on the
                                  # pinned toolchain, no Mathlib, no sorry.
+
+# --- SU(2) envelope programme (added 2026-09-08) ---
+# A finite-subgroup realization in the unit-quaternion model associated with
+# SU(2), continuing the binary-tetrahedral thread above. These are NOT results
+# of the Res-Nova MOND manuscript: nothing here bears on MOND, a_0, the
+# dual-channel action, or any solar-system or cosmological claim.
+#
+# What they DO establish, and the boundary is the point:
+#   - an exact quaternion algebra over R^4 with associativity and identity;
+#   - qT = (-1 - i - j + k)/2 has unit norm and qT^3 = 1 (verified independently
+#     by direct computation: conjugation sends i -> -k, j -> i, k -> -j, a
+#     genuine order-three SIGNED permutation of {i,j,k});
+#   - the standard map q -> [[a+bi, c+di], [-c+di, a-bi]], with multiplication
+#     preservation, det = qnorm, unitarity from unit norm, and injectivity;
+#   - a named matrix-level carrier {M // M^H * M = 1 and det M = 1}.
+#
+# What they explicitly do NOT establish, and must not be silently upgraded:
+# that the finite image IS the continuous group SU(2); the image cardinality
+# (24) or its binary-tetrahedral presentation; topology, continuity,
+# connectedness, manifold or Lie-group structure; a generated Lie algebra; or
+# any SU(2) gauge field, coupling, or physical ontology.
+FiniteSU2Envelope.lean           # Quaternion algebra; Q8 into unit quaternions;
+                                 # the order-three qT and its conjugation
+                                 # automorphism; Q8 x| C3 into unit quaternions.
+SU2MatrixEnvelope.lean           # 2x2 complex matrix realization: homomorphism,
+                                 # determinant, unitarity, injectivity.
+SU2CarrierRungs.lean             # The named algebraic SU(2) carrier (unitary,
+                                 # det one) with identity and closure.
+SU2FiniteFaithfulness.lean       # Faithfulness of the finite representation at
+                                 # coordinate, matrix, and carrier level.
