@@ -31,7 +31,7 @@
 ---
 
 ### Phase 4: Production Artifacts Deliverables
-- [x] [`final_manuscript.tex`](final_manuscript.tex) & [`final_manuscript.pdf`](final_manuscript.pdf) (referee grade, clean compilation).
+- [x] [`res_nova_manuscript.tex`](res_nova_manuscript.tex) & [`res_nova_manuscript.pdf`](res_nova_manuscript.pdf) (referee grade, clean compilation).
 - [x] [`references.bib`](references.bib) (Authentic peer-reviewed citations).
 - [x] [`reproducibility_appendix.tex`](reproducibility_appendix.tex) (Complete technical appendices).
 - [x] [`CLAIM_EVIDENCE_LEDGER.md`](CLAIM_EVIDENCE_LEDGER.md) (Claim-to-evidence matrix).

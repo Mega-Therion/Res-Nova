@@ -17,7 +17,7 @@
 
 **Author:** [Ryan W. Yett](https://orcid.org/0009-0001-1303-7190) &nbsp;|&nbsp; **Affiliation:** Independent Theoretical Research &nbsp;|&nbsp; **Release:** `v1.6.2` &nbsp;|&nbsp; **Epistemic seal:** `v1.6.2`
 
-[**For referees**](FOR_REFEREES.md) &nbsp;•&nbsp; [**Open problems**](OPEN_PROBLEMS_AND_TESTS.md) &nbsp;•&nbsp; [**Agent covenant**](AGENT_COVENANT.md) &nbsp;•&nbsp; [**Manuscript Source**](final_manuscript.tex) &nbsp;•&nbsp; [**Observatory**](https://res-nova-observatory.vercel.app)
+[**For referees**](FOR_REFEREES.md) &nbsp;•&nbsp; [**Open problems**](OPEN_PROBLEMS_AND_TESTS.md) &nbsp;•&nbsp; [**Agent covenant**](AGENT_COVENANT.md) &nbsp;•&nbsp; [**Manuscript Source**](res_nova_manuscript.tex) &nbsp;•&nbsp; [**Observatory**](https://res-nova-observatory.vercel.app)
 
 </div>
 
@@ -124,9 +124,9 @@ cd ../02_galaxy_dynamics
 # python3 parameter_ledger.py
 
 cd ..
-pdflatex -interaction=nonstopmode final_manuscript.tex
-bibtex final_manuscript
-pdflatex -interaction=nonstopmode final_manuscript.tex
+pdflatex -interaction=nonstopmode res_nova_manuscript.tex
+bibtex res_nova_manuscript
+pdflatex -interaction=nonstopmode res_nova_manuscript.tex
 ```
 
 Python pins: `requirements.txt` / `environment.yml`. CI runs claim hygiene and `py_compile` only. It does not download Mathlib or SPARC.
@@ -146,7 +146,7 @@ Res-Nova/
 ├── OPEN_PROBLEMS_AND_TESTS.md
 ├── AGENT_COVENANT.md
 ├── EPISTEMIC_BOUNDARY_v1.5.0.md
-├── final_manuscript.tex          # v1.5.0 technical assessment
+├── res_nova_manuscript.tex          # v1.5.0 technical assessment
 └── visualizer/                   # observatory
 ```
 

@@ -1,4 +1,4 @@
-# Lean Inventory Audit — Table 2 of `final_manuscript.tex`
+# Lean Inventory Audit — Table 2 of `res_nova_manuscript.tex`
 
 > **Implemented 2026-08-16** on branch `audit/lean-inventory-o5-packaging` (commits `109d38b`, `637e60d`, and this one). Written as a proposal; the approved subset has since been applied. Nothing is merged or tagged.
 
@@ -28,7 +28,7 @@ the original §0 and §1 as "unverifiable" was wrong. See `VERIFICATION_STATUS_A
 
 ## 1. 🔴 The recorded PASS does not exist — the only build artifact in the repo shows a FAIL
 
-`final_manuscript.tex:224` claims *"17 modules, 0 `sorry`, axioms {propext, Classical.choice,
+`res_nova_manuscript.tex:224` claims *"17 modules, 0 `sorry`, axioms {propext, Classical.choice,
 Quot.sound}"*, and `:226` calls it *"The recorded PASS."*
 
 The only Lean build artifact tracked in this repository is
@@ -257,16 +257,16 @@ three of these are not proof modules.
 
 | File | Line | Issue |
 |---|---|---|
-| `final_manuscript.tex` | 224, 226 | "17 modules … recorded PASS" — no artifact backs it (§1) |
-| `final_manuscript.tex` | 237–251 | Table 2 — 5 phantom rows, 5 omissions, `PPNLimits` misattributed |
-| `final_manuscript.tex` | 215, 240 | γ_PPN = 1 credited to wrong module |
+| `res_nova_manuscript.tex` | 224, 226 | "17 modules … recorded PASS" — no artifact backs it (§1) |
+| `res_nova_manuscript.tex` | 237–251 | Table 2 — 5 phantom rows, 5 omissions, `PPNLimits` misattributed |
+| `res_nova_manuscript.tex` | 215, 240 | γ_PPN = 1 credited to wrong module |
 | `reproducibility_appendix.tex` | 4 | "full formal suite of **7 modules**" — contradicts 17 |
 | `RES_NOVA_VERIFICATION_LEDGER.md` | 184 | "Exit Code 0 across all **7 modules**" — contradicts 17 and §1 |
 | `EPISTEMIC_BOUNDARY_v1.3.0.md` | 31, 45 | 7 modules, Lean 4.17.0 — superseded; also a `file:///home/mega/grand_monograph/` link |
 | `CLAIM_EVIDENCE_LEDGER.md` | 13 | KMS horizon temperature `[P]` with no Lean backing (§4) |
 | `FOR_REFEREES.md` | 49 | "17 modules, reported 0 sorry" — "reported" is honest; add the §1 caveat |
 
-`final_manuscript.tex` is the only file naming the phantom modules.
+`res_nova_manuscript.tex` is the only file naming the phantom modules.
 
 ---
 

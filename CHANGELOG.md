@@ -98,7 +98,7 @@ Submission-readiness release. No physics claims change.
 
 ### Verification
 - **O6 — Clean Worktree Reproduction:** VERIFICATION_RUN_007 — isolated clone in /tmp/res_nova_o6_clean, no pre-existing .lake/packages/mathlib. 17/17 targets verified. Standard axiom footprint: [propext, Classical.choice, Quot.sound]. Not yet a CI release gate; cold-machine reproduction still open.
-- **Manuscript Alignment:** final_manuscript.tex updated with O1 Lean proof and O4 redshift test result. O6 wording harmonized across README, manuscript, appendix, and ledgers. final_manuscript.pdf rebuilt via pdflatex + bibtex + pdflatex + pdflatex.
+- **Manuscript Alignment:** res_nova_manuscript.tex updated with O1 Lean proof and O4 redshift test result. O6 wording harmonized across README, manuscript, appendix, and ledgers. res_nova_manuscript.pdf rebuilt via pdflatex + bibtex + pdflatex + pdflatex.
 
 ### Epistemic Realignment
 - EPISTEMIC_BOUNDARY_v1.5.0.md — canonical boundary. Previous versions (v1.1.0–v1.4.0) archived in archive/.

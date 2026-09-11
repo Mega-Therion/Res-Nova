@@ -4,7 +4,7 @@
 **Severity:** one wrong formula, one wrong published number. **No conclusion changes,
 and the corrected number is more favourable to the theory than the published one.**
 **Affects:** `TARGET_D7` §4.1 and §7, and everything downstream of the 0.4% figure —
-including `final_manuscript.tex`, the Zenodo record, and the PRD cover letter.
+including `res_nova_manuscript.tex`, the Zenodo record, and the PRD cover letter.
 
 ---
 
@@ -60,7 +60,7 @@ proof.
 
 The 0.4% figure appears in artifacts that are already deposited:
 
-- `final_manuscript.tex` — abstract, §on growth, and the $\xi \approx 1.004$ line
+- `res_nova_manuscript.tex` — abstract, §on growth, and the $\xi \approx 1.004$ line
 - `zenodo_metadata.json` and `.zenodo.json` — deposited record descriptions
 - `SUBMISSION/COVER_LETTER_PRD.md` — journal cover letter
 

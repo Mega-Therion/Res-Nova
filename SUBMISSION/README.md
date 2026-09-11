@@ -13,8 +13,8 @@
 | File | Purpose |
 |---|---|
 | `COVER_LETTER_PRD.md` | Cover letter, PRD |
-| `../final_manuscript.pdf` | Compiled manuscript (19 pp) |
-| `../final_manuscript.tex` | Source |
+| `../res_nova_manuscript.pdf` | Compiled manuscript (19 pp) |
+| `../res_nova_manuscript.tex` | Source |
 | `../references.bib` | Bibliography |
 | `../PEER_REVIEW_READINESS.md` | Target-by-target readiness matrix |
 | `../FOR_REFEREES.md` | Referee index |

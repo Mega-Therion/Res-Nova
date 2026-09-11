@@ -90,7 +90,7 @@ These are documentation defects, not theory changes. The gate passing does not l
 | "zero custom unproven axioms" | `README.md`, `verify_all_proofs.sh:8` | "declares no Lean global `axiom`; assumptions are carried as typeclass fields, structure fields, and theorem hypotheses" |
 | "Deep-MOND … preserves Baryonic Tully-Fisher acceleration ratio" | `AXIOMS_V2.lean:79` docstring | "positivity of `√(g_bar · a₀)` under positivity of its factors" |
 | "globally regular and non-singular" | `SovereignRegularity.lean:216` docstring | "restates the assumed pointwise vorticity bound" |
-| "Conditional BKM integral boundedness" | `final_manuscript.tex` Table 2; `reproducibility_appendix.tex:20` | "pointwise vorticity bounded by assumption; no integral and no PDE are formalized" |
+| "Conditional BKM integral boundedness" | `res_nova_manuscript.tex` Table 2; `reproducibility_appendix.tex:20` | "pointwise vorticity bounded by assumption; no integral and no PDE are formalized" |
 | "Spectral gap positivity" presented without its premise | Table 2; appendix:19 | "positivity of an assumed spectral gap `κ² ≤ λ₁ − λ₀`" |
 | "the 5 core physical axioms" | `AXIOMS_V2.lean:11` header | accurate, but note A2/A3 are satisfied by trivial witnesses and A1/A5 are unused |
 

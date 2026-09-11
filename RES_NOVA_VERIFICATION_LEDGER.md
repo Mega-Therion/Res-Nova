@@ -10,9 +10,9 @@
 
 | Finding | Topic | Epistemic Status | Primary Corpus Location | Reference / Note |
 |---|---|---|---|---|
-| **F1** | AQUAL Weak-Field Field Equation | `[C]` Literature Baseline | `final_manuscript.tex` §2 | Bekenstein-Milgrom (1984) |
+| **F1** | AQUAL Weak-Field Field Equation | `[C]` Literature Baseline | `res_nova_manuscript.tex` §2 | Bekenstein-Milgrom (1984) |
 | **F2** | $\mu(x)$ Dual-Channel Derivative Identity | `[P]` (algebra) / `[O]` (closure) | `05_lean_formalization/DualChannelDerivation.lean`, `01_foundational_action/PAPER_01_NOTICE.md` | Dual-channel $\mu(x)=x/(1+x)$ `[P]`; single-channel quarantined |
-| **F3** | $a_0 = cH_0/(2\pi)$ KMS Cancellation Null Result | `[O]` Horizon Normalization | `final_manuscript.tex` §3.2, `04_cosmology/A0_AND_OMEGA_NORMALIZATION_LEDGER.md` | Thermal KMS cancellation derived; $1/(2\pi)$ is open normalization |
+| **F3** | $a_0 = cH_0/(2\pi)$ KMS Cancellation Null Result | `[O]` Horizon Normalization | `res_nova_manuscript.tex` §3.2, `04_cosmology/A0_AND_OMEGA_NORMALIZATION_LEDGER.md` | Thermal KMS cancellation derived; $1/(2\pi)$ is open normalization |
 | **F4** | Fixed Tier 0 SPARC Benchmark | `[D]` Empirical Evaluation | `02_galaxy_dynamics/PARAMETER_LEDGER.json` (Tier 0: median 9.20) | "Zero free parameters" language withdrawn as a working model class |
 | **F5** | SPARC Nuisance Fits & Working $a_0$ | `[D]` Regularized Fit / Measurement | `02_galaxy_dynamics/A0_MEASUREMENT.json`, `PARAMETER_LEDGER.json` | Tier 1 ($N_{\text{par}}=374$, median 2.95); $a_0 = (1.116 \pm 0.128_{\text{stat}} \pm 0.097_{\text{syst}})\times 10^{-10}\text{ m/s}^2$ |
 | **F6** | $\Omega_\Lambda = \ln 2 \approx 0.693$ Holographic / Disformal Boundary | `[O]` Conjectural Limit | Motivational Narrative Annex | Conjectured horizon boundary condition, not a derived density |
@@ -27,7 +27,7 @@
 ### F1. AQUAL Weak-Field Euler-Lagrange Field Equation
 * **Epistemic Classification:** `[C]` Cited Literature Baseline
 * **File Paths:**
-  - [`final_manuscript.tex`](final_manuscript.tex)
+  - [`res_nova_manuscript.tex`](res_nova_manuscript.tex)
   - [`01_foundational_action/PAPER_09_ALGEBRAIC_EQUIVALENCE_OF_TAU_TENSION_AND_AQUAL_SIMPLE_MU.tex`](01_foundational_action/PAPER_09_ALGEBRAIC_EQUIVALENCE_OF_TAU_TENSION_AND_AQUAL_SIMPLE_MU.tex)
 * **Verbatim Mathematical Excerpt:**
 ```latex
@@ -52,7 +52,7 @@ g \cdot \mu\left(\frac{g}{a_0}\right) = g_{\text{bar}}.
   - [`05_lean_formalization/DualChannelDerivation.lean`](05_lean_formalization/DualChannelDerivation.lean)
   - [`05_lean_formalization/GODActionKinematics.lean`](05_lean_formalization/GODActionKinematics.lean)
   - [`01_foundational_action/PAPER_01_NOTICE.md`](01_foundational_action/PAPER_01_NOTICE.md)
-  - [`final_manuscript.tex`](final_manuscript.tex)
+  - [`res_nova_manuscript.tex`](res_nova_manuscript.tex)
 * **Verified Theorems in `DualChannelDerivation.lean`:**
   - `dual_channel_flux_algebra`
   - `mu_derived_inversion`
@@ -65,7 +65,7 @@ g \cdot \mu\left(\frac{g}{a_0}\right) = g_{\text{bar}}.
 ### F3. $a_0 = cH_0 / (2\pi)$ Horizon Thermodynamics KMS Cancellation Null Result
 * **Epistemic Classification:** `[O]` Open Problem / Negative Result Disclosed
 * **File Paths:**
-  - [`final_manuscript.tex`](final_manuscript.tex) §3.2
+  - [`res_nova_manuscript.tex`](res_nova_manuscript.tex) §3.2
   - [`04_cosmology/A0_AND_OMEGA_NORMALIZATION_LEDGER.md`](04_cosmology/A0_AND_OMEGA_NORMALIZATION_LEDGER.md)
 * **Verbatim Mathematical Excerpt:**
 ```latex

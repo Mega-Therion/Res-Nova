@@ -1,5 +1,5 @@
 # 🌌 Theoretical Physics Peer Review, Mathematical Reasoning & Notation Report
-**Target Manuscript**: *Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark* (`final_manuscript.tex` / `v1.6.2`)  
+**Target Manuscript**: *Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark* (`res_nova_manuscript.tex` / `v1.6.2`)  
 **Protocols Applied**: `physics-primitive-notation-mapper`, `math-reasoning`, `theoretical-physics-peer-review`  
 **Authorship / Epistemic Ledger**: Ryan W. Yett / Council of 9 — ORCID `0009-0001-1303-7190`  
 

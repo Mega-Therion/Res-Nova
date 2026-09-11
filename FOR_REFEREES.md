@@ -11,7 +11,7 @@ Read this first, then the ledger, then the manuscript.
 1. `EPISTEMIC_BOUNDARY_v1.5.0.md` — every claim, tagged.
 2. `AGENT_COVENANT.md` — what the authors forbid themselves to say.
 3. `OPEN_PROBLEMS_AND_TESTS.md` — what is still open.
-4. `final_manuscript.pdf` — narrative. If it outruns the ledger, the ledger wins.
+4. `res_nova_manuscript.pdf` — narrative. If it outruns the ledger, the ledger wins.
 5. `05_lean_formalization/verify_all_proofs.sh` — formal core.
 6. `02_galaxy_dynamics/A0_MEASUREMENT.json` and `PARAMETER_LEDGER.json` — empirical core.
 

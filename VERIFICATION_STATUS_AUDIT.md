@@ -76,7 +76,7 @@ RUN_003 confirms. I was wrong to leave it open.
 
 ## 4. Proposed provenance language
 
-Replacing "recorded PASS" in `final_manuscript.tex:226` — factual, no prestige language:
+Replacing "recorded PASS" in `res_nova_manuscript.tex:226` — factual, no prestige language:
 
 > **Verification provenance.** The gate `verify_all_proofs.sh` elaborates all 17 declared
 > targets with exit status 0, no `sorry`, and axiom footprints confined to
@@ -131,7 +131,7 @@ Compilation does not fix these.
 | ID | File | Current | Proposed |
 |---|---|:---:|:---:|
 | **D3.2** | `EPISTEMIC_BOUNDARY_v1.5.0.md:23` | `[P]`-cond | `[P]` with the condition stated in the boundary cell. `[P]`-cond is not a covenant tier. |
-| Table 2 row | `final_manuscript.tex:238` | `[P-cond]` | same |
+| Table 2 row | `res_nova_manuscript.tex:238` | `[P-cond]` | same |
 
 ## F.3 Reword, do not retag — `[P]` stands, description is wrong
 
