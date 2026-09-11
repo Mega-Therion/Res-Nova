@@ -1,11 +1,19 @@
-name: D5 Arm B Production Run
+name: D5 MG Arms Production Runs
 on:
   push:
     branches: [d5-armb-runner]
   workflow_dispatch:
 
 jobs:
-  armB:
+  arms:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arm: armA
+            macro: MG_ARM_A   # alpha = 1, theory arm (eps(z=0) = 0.00233)
+          - arm: armB
+            macro: MG_ARM_B   # alpha = 0.01, negative control
     runs-on: ubuntu-latest
     timeout-minutes: 240
     steps:
@@ -16,24 +24,29 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y g++ libfftw3-dev libgsl-dev libopenmpi-dev libhdf5-dev
 
-      - name: Build gevolution (Arm B)
+      - name: Build gevolution (${{ matrix.arm }}, -D${{ matrix.macro }})
         run: |
           cd d5/gevolution
+          mpicxx -O3 -std=c++11 -DFFT3D -DHDF5 -D${{ matrix.macro }} \
+            -I../LATfield2 -I. -I/usr/include/hdf5/serial \
+            main.cpp -lfftw3 -lgsl -lgslcblas -lhdf5_serial -o gevolution_${{ matrix.arm }}
+          echo "verifying MG patch compiled in (binary must differ from plain LCDM build):"
           mpicxx -O3 -std=c++11 -DFFT3D -DHDF5 -I../LATfield2 -I. -I/usr/include/hdf5/serial \
-            main.cpp -lfftw3 -lgsl -lgslcblas -lhdf5_serial -o gevolution_armB
+            main.cpp -lfftw3 -lgsl -lgslcblas -lhdf5_serial -o gevolution_lcdm_ref
+          cmp -s gevolution_${{ matrix.arm }} gevolution_lcdm_ref && { echo "ERROR: arm binary identical to plain build - macro not applied"; exit 1; } || echo "OK: arm binary differs from plain build"
 
-      - name: Run Arm B production simulation
+      - name: Run ${{ matrix.arm }} production simulation
         run: |
           cd d5/gevolution
-          mkdir -p ../runs/prod_armB
-          ./gevolution_armB -n 1 -m 1 -s d5_prod_armB.param 2>&1 | tee ../runs/prod_armB.log
+          mkdir -p ../runs/prod_${{ matrix.arm }}
+          ./gevolution_${{ matrix.arm }} -n 1 -m 1 -s d5_prod_${{ matrix.arm }}.param 2>&1 | tee ../runs/prod_${{ matrix.arm }}.log
 
       - name: Upload run outputs
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: d5-armb-outputs
+          name: d5-${{ matrix.arm }}-outputs
           path: |
-            d5/runs/prod_armB.log
-            d5/runs/prod_armB/
+            d5/runs/prod_${{ matrix.arm }}.log
+            d5/runs/prod_${{ matrix.arm }}/
           retention-days: 14
