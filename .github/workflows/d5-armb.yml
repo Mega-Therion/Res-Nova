@@ -1,0 +1,39 @@
+name: D5 Arm B Production Run
+on:
+  push:
+    branches: [d5-armb-runner]
+  workflow_dispatch:
+
+jobs:
+  armB:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++ libfftw3-dev libgsl-dev libopenmpi-dev libhdf5-dev
+
+      - name: Build gevolution (Arm B)
+        run: |
+          cd d5/gevolution
+          mpicxx -O3 -std=c++11 -DFFT3D -DHDF5 -I../LATfield2 -I. -I/usr/include/hdf5/serial \
+            main.cpp -lfftw3 -lgsl -lgslcblas -lhdf5_serial -o gevolution_armB
+
+      - name: Run Arm B production simulation
+        run: |
+          cd d5/gevolution
+          mkdir -p ../runs/prod_armB
+          ./gevolution_armB -n 1 -m 1 -s d5_prod_armB.param 2>&1 | tee ../runs/prod_armB.log
+
+      - name: Upload run outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: d5-armb-outputs
+          path: |
+            d5/runs/prod_armB.log
+            d5/runs/prod_armB/
+          retention-days: 14

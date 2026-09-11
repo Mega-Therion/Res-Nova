@@ -1,0 +1,41 @@
+# D5 sanity-config run (PREREG_D5_MG_EVOLUTION.md §4, reduced resolution)
+# identical ICs across arms: same seed, template, Tk file, box, grid
+IC generator = basic
+template file = sc1_crystal.dat
+tiling factor = 64
+Tk file = class_tk.dat
+baryon treatment = blend
+seed = 42
+correct displacement = yes
+k-domain = sphere
+
+k_pivot = 0.05
+A_s = 2.085e-9
+n_s = 0.9645
+
+h           = 0.68
+omega_b     = 0.02225
+omega_cdm   = 0.1198
+T_cmb       = 2.7255
+N_ur        = 3.046
+
+initial redshift    = 100.0
+boxsize             = 200.0
+Ngrid               = 256
+Courant factor      = 48.0
+time step limit     = 0.04
+
+gravity theory      = Newton
+vector method       = parabolic
+
+output path         = ../runs/prod_armA/
+generic file base   = d5_prod_armA
+
+snapshot file base  = d5_prod_armA_snap
+snapshot redshifts  = 0
+snapshot outputs    = Gadget2
+
+Pk file base        = d5_prod_armA_pk
+Pk redshifts        = 1, 0
+Pk outputs          = delta
+Pk bins             = 512
