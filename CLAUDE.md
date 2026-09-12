@@ -2,6 +2,16 @@
 
 Guidance for Claude Code working in this repository.
 
+## READ FIRST, EVERY SESSION
+
+**Before writing, summarizing, or extending any physics claim, read
+`CURRENT_STATE_READ_THIS_FIRST.md` in full.** It exists because on 2026-09-12 an external
+agent built four papers on a falsified interpolating function and a substrate retired 19
+days earlier, both already corrected on disk before that agent ran. Do not treat the vault's
+`raw/Logs/`, `80_Archive/`, or `obsidian_vault_legacy/` as sources of current physics — they
+are historical records only. If a legacy source contradicts `CURRENT_STATE_READ_THIS_FIRST.md`,
+the current-state file wins, always.
+
 ## The gate is the judge
 
 ```
