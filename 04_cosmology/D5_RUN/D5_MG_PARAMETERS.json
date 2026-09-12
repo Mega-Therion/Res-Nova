@@ -1,0 +1,134 @@
+{
+  "protocol": "PREREG_D5_MG_EVOLUTION.md",
+  "generated": "2026-09-10T07:43:02Z",
+  "derivation_script_sha256": "84eac1230522f59c5c68a301f840511644ccdcb974c3f1903ebab0929e272802",
+  "epistemic_classification": "[D] Computed Empirical Benchmark (the parametrisation rests on [P] Lean-certified identities)",
+  "source_formalism": {
+    "paper": "Hassani & Lombriser, arXiv:2003.05927 (MG-evolution, MNRAS 2020)",
+    "equation_8": "G_eff_tilde(a,k)/G = 1 + (Delta_G_eff_L/G) * F_tilde(k)",
+    "equation_7": "F_tilde = b (k0/k)^af { [1+(k/k0)^af]^(1/b) - 1 }",
+    "ndgp_precedent": "their Eqs. (27)-(28): af=3, b=2 for Vainshtein class; screened limit (r*/r)^{3/2}"
+  },
+  "frozen_cosmology": {
+    "h": 0.68,
+    "H0_kms_mpc": 68.0,
+    "omega_m": 0.3071,
+    "omega_b_h2": 0.02225,
+    "omega_c_h2": 0.1198,
+    "A_s": 2.085e-09,
+    "n_s": 0.9645,
+    "z_init": 100.0,
+    "provenance": "gevolution shipped class_tk.dat (Hassani-Lombriser convention)"
+  },
+  "frozen_resnova": {
+    "x0_alpha1": 5.67,
+    "a0_ms2": 1.1160351336495209e-10,
+    "screening_ratio_formula": "eps(a) = 1/(2 x(a)^2 (1+x(a))), x(a) = x0 sqrt(alpha) E(a)",
+    "eps_z0_alpha1": 0.0023317288846781596,
+    "eps_z1_alpha1": 0.00044634504177028304,
+    "eps_z2_alpha1": 9.619281878771618e-05,
+    "note": "F'/F'' identities verified against CovariantCompletion.lean (sympy asserts in this script)"
+  },
+  "vainshtein_wavenumber": {
+    "convention": "effective comoving top-hat r_th = 7 Mpc/h (Hassani-Lombriser); r_MOND = sqrt(G M_th/a0)",
+    "M_th_msun": 180059740762000.66,
+    "r_MOND_mpc_physical": 0.4742751291427761,
+    "k0_z0_hmpc": 1.4337669386734644,
+    "k0_z1_hmpc": 0.7168834693367322,
+    "af": 3.0,
+    "b": 2.0
+  },
+  "linear_predictions": {
+    "D_ratio_def": "D_MG/D_LCDM from the frozen growth ODE, ICs EdS at z=100",
+    "armA_dP_over_P_z0": 0.0003571186858901676,
+    "armA_dP_over_P_z1": 4.873104251368332e-05,
+    "armB_dP_over_P_z0": 0.20365282017834785,
+    "armB_dP_over_P_z1": 0.032778118094066055
+  },
+  "G_eff_table_armA": {
+    "z": [
+      0.0,
+      1.0
+    ],
+    "k_hmpc": [
+      0.05,
+      0.1,
+      0.2,
+      0.5,
+      1.0,
+      1.5,
+      2.5
+    ],
+    "values": [
+      [
+        1.0023317041627067,
+        1.0023315311382204,
+        1.0023301487883491,
+        1.0023075171362015,
+        1.0021617357168233,
+        1.001892167726209,
+        1.001328528170799
+      ],
+      [
+        1.000446307188677,
+        1.000446042576005,
+        1.000443947988051,
+        1.000413804548703,
+        1.0003049590052038,
+        1.0002131754773975,
+        1.0001176345676301
+      ]
+    ]
+  },
+  "G_eff_table_armB": {
+    "z": [
+      0.0,
+      1.0
+    ],
+    "k_hmpc": [
+      0.05,
+      0.1,
+      0.2,
+      0.5,
+      1.0,
+      1.5,
+      2.5
+    ],
+    "values": [
+      [
+        1.9924994744896614,
+        1.992425825904907,
+        1.991837422992233,
+        1.9822041671004043,
+        1.9201517058846023,
+        1.8054089810985121,
+        1.565493484315858
+      ],
+      [
+        1.2460973373886246,
+        1.2459514278542887,
+        1.2447964553791933,
+        1.2281751229169438,
+        1.168156823590074,
+        1.117546655566042,
+        1.0648646372120514
+      ]
+    ]
+  },
+  "arms": {
+    "armA": {
+      "alpha": 1.0,
+      "role": "the theory",
+      "x0": 5.67,
+      "eps_z0": 0.0023317288846781596,
+      "k0_z0_hmpc": 1.4337669386734644
+    },
+    "armB": {
+      "alpha": 0.01,
+      "role": "negative control (code sensitivity; NOT a theory claim)",
+      "x0": 0.5670000000000001,
+      "eps_z0": 0.9925099974986165,
+      "k0_z0_hmpc": 1.4337669386734644
+    }
+  }
+}

@@ -2,7 +2,7 @@
 
 All notable changes to the Res Nova technical manuscript, formal verification, and reproducibility package.
 
-## [Unreleased] — 2026-09-09
+## [1.8.0] — 2026-09-12
 
 ### Open targets closed
 - **O5 — SPARC clean-clone fetch: CLOSED** (`VERIFICATION_RUN_009/02_sparc_fetch/`). `fetch_sparc.sh` executed end-to-end from a clean clone with `SPARC_DATA_DIR` isolated outside the repo: official CWRU `Rotmod_LTG.zip` downloaded, 175 `*_rotmod.dat` files extracted, **175/175 SHA-256 checksums verified against the frozen manifest, 0 drift, exit 0**. `fetch_sparc.sh` now falls back to `python3 zipfile` when `unzip` is absent (the SHA-256 manifest remains the sole content authority). SPARC data remains deliberately not vendored in git.
@@ -13,6 +13,30 @@ All notable changes to the Res Nova technical manuscript, formal verification, a
 - **D7 suppression restatement (2026-09-08, #38):** the "~250×" linear-growth suppression is `1/0.004`, the corrected value is `~429×`; label collision with the unrelated external-field-effect 250× disambiguated.
 - **D3 PPN β bound + vacuity audit (2026-09-08, #36):** PPN β bounded; two D7 PPN theorems audited as vacuous and relabelled.
 - **SU(2) envelope rungs adopted (2026-09-09, #39):** gate grows 39 → 43 targets, independently verified.
+
+### D5 — Cosmological N-body test (pre-registered, fail-closed)
+- **D5 executed at validation config** (N_pcl = N_grid = 256³, L = 200 Mpc/h,
+  seed 42): patched gevolution with G_eff_tilde(a,k) Poisson-kernel modification
+  per Hassani & Lombriser Sec. 2.4; two-arm design (α=1 theory, α=0.01 negative
+  control) vs ΛCDM baseline, identical ICs; prereg hash-frozen before any
+  production run (`04_cosmology/PREREG_D5_MG_EVOLUTION.md`).
+- **V0 patch correctness:** PASS (frozen unit test, max relative kernel error < 1e-10).
+- **V1 pipeline sensitivity (negative control): PASS** — α=0.01 median ΔP/P
+  **+22.2%** at k ≤ 0.2 h/Mpc, z≈0 (gate ≥ +5%; linear prediction +20.4%).
+- **V2 theory arm: INCONCLUSIVE — D5 stays open.** α=1 worst bin **3.03%**
+  (k = 1.354 h/Mpc, z = 1); 124/180 bins above the 1% consistency bound at z=0;
+  no bin reaches the 5% tension threshold. Nonlinear amplification is ~100× the
+  linear prediction (0.005–0.036%) but bounded below the νHDM-style blow-up.
+- **Fail-closed apparatus proven in the field:** the V1 gate caught a
+  macroless-pipeline build defect (arm binaries compiled without
+  `-DMG_ARM_A`/`-DMG_ARM_B` → all three runs bit-identical plain ΛCDM)
+  before any verdict was published; corrected runs rebuilt with a
+  byte-identity build guard (job fails if arm binary matches a plain build).
+- Production runs executed on GitHub Actions (sandbox instability documented;
+  six silent container deaths). Full run ledger: `04_cosmology/D5_RUN/`;
+  broken-pipeline verdict preserved as evidence
+  (`D5_RUN_VERDICT_MACROLESS_PIPELINE.json`). CLM-D5-03 resolved to Branch 3
+  and inserted into `OPEN_PROBLEMS_AND_TESTS.md`.
 
 ## [1.7.0] — 2026-08-26
 

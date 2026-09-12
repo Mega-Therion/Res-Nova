@@ -1,7 +1,7 @@
 # TARGET D5: Cosmological Sector
 
-**Status:** D5_OPEN — Framework established, quantitative growth analysis computed, non-linear regime requires simulation.
-**Last updated:** 2026-08-16
+**Status:** D5_TESTED_INCONCLUSIVE — Pre-registered N-body campaign executed at validation config (2026-09-11): V1 negative control PASS (+22.2% vs ≥+5% gate), V2 theory arm INCONCLUSIVE (worst bin 3.03%, between the 1% consistency bound and the 5% tension threshold). D5 stays open; see `04_cosmology/D5_RUN/` and CLM-D5-03 in `OPEN_PROBLEMS_AND_TESTS.md`.
+**Last updated:** 2026-09-12
 **Author:** R.W. Yett / Sovereign Architecture Group
 **Epistemic tag:** [P] (computed sections) / [O] (open sections)
 
