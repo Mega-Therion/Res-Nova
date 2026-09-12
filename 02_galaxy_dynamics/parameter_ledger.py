@@ -102,14 +102,26 @@ def v_bary_sq(g, yd, yb, fd):
 
 
 def v_mond_like(g, a0, yd, yb, fd):
-    """Shared functional form: tau = 1/2 + sqrt(1/4 + a0/g_bary).
+    """Shared functional form using mu_std(x) = x/sqrt(1+x^2) (corrected 2026-09-12
+    from mu_dual(x)=x/(1+x), which was falsified: mu_dual leaks an unscreened
+    constant offset a0 into every radius, not just deep-MOND, violating solar-
+    system bounds by ~5.7e5x. See TARGET_D7_COVARIANT_COMPLETION.md Sec 4.
 
-    This is the dual-channel mu(x)=x/(1+x) branch. GOD and MOND differ here ONLY
-    in where a0 comes from - derived vs fitted - which is the entire point."""
+    GOD and MOND differ here ONLY in where a0 comes from - derived vs fitted.
+    There has never been a second, hand-chosen interpolation function for MOND
+    in this file; the prior provenance block's "MOND_interpolation: CHOSEN by
+    hand; several variants in use" was false as written - both rows call this
+    same function. Under mu_dual, this coincidence was masked because mu_dual's
+    a0-leak dominated the fit; under mu_std, GOD's mu becomes literally the
+    standard MOND mu, and the entire "GOD wins" comparison collapses to a
+    single axis: whether horizon-derived a0=1.0421e-10 fits better than
+    literature-fitted a0=1.2e-10. It does not: MOND's fitted a0 wins tier-0
+    median under mu_std. See SPARC_MU_STD_RECOMPUTE_2026-09-12.md."""
     vb2 = v_bary_sq(g, yd, yb, fd)
     r = g["r"] * fd
     gb = (vb2 * KM_TO_M**2) / (r * KPC_TO_M)
-    return np.sqrt(vb2 * (0.5 + np.sqrt(0.25 + a0 / gb)))
+    gt = np.sqrt(0.5 * gb**2 + np.sqrt(0.25 * gb**4 + (gb**2) * (a0**2)))
+    return np.sqrt(vb2 * (gt / gb))
 
 
 def v_nfw(g, yd, yb, fd, c, v200):
@@ -227,10 +239,10 @@ def main() -> None:
     res["provenance"] = {
         "GOD_a0": "DERIVED, cH0/2pi (horizon argument), epistemic tag [O]",
         "MOND_a0": "FITTED to rotation curves in the literature (1.2e-10)",
-        "GOD_interpolation": "DERIVED, Thm 8.7 dual-channel mu(x)=x/(1+x)",
-        "MOND_interpolation": "CHOSEN by hand; several variants in use",
+        "interpolation_function": "mu_std(x) = x/sqrt(1+x^2), corrected 2026-09-12 from the falsified mu_dual(x)=x/(1+x). GOD and MOND use the SAME function here - there is no second, hand-chosen MOND variant in this code. This is the standard MOND interpolating function; under it, GOD's mu is literally MOND's mu, and the comparison reduces to a0 provenance alone (derived vs fitted).",
         "NFW_halo": "2 FITTED shape params per galaxy (c, V200)",
         "shared_nuisance": "Yd, Yb, fd - observational unknowns, not model params; identical across all three",
+        "prior_false_claim": "This file previously claimed separate GOD_interpolation (mu_dual, DERIVED) and MOND_interpolation (CHOSEN by hand, several variants) fields. The code never implemented two functions - v_mond_like was and is the only interpolation function, called identically for both rows. That prior claim was false as written, independent of the mu_dual->mu_std correction. See SPARC_MU_STD_RECOMPUTE_2026-09-12.md.",
     }
     Path(args.out).write_text(json.dumps(res, indent=2))
     print(f"\nwrote {args.out}")
