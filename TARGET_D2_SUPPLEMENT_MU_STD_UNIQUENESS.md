@@ -13,11 +13,14 @@ Answers `TARGET_D1_SUPPLEMENT_MU_STD_REBUILD.md` §2 and §7 item 1, and
 
 ## 0. One-sentence result
 
-**μ_dual and μ_std are the *same* structure over two different channel alphabets:**
-D2's odds-ratio/Fisher argument run on a `{0,1}` Bernoulli channel gives `x/(1+x)`; run on a
-**`{−1,+1}` chiral channel** it gives `x/√(1+x²)` — uniquely, with no rational ansatz and no
-degree minimality, and with `μ'(0)=1` doing exactly the same selection job it does in D2
-Theorem 9.3.
+**μ_dual and μ_std are the *same* structure read in two different coordinates on the same
+two-state family:** D2's odds/Fisher argument in the **presence** coordinate `p∈(0,1)` gives
+`x/(1+x)`; in the **chirality** coordinate `m∈(−1,1)` — where the rectification is `artanh`,
+i.e. rapidity — it gives `x/√(1+x²)` uniquely, with no rational ansatz and no degree
+minimality, and with `μ′(0)=1` doing exactly the selection job it does in D2 Theorem 9.3.
+The coordinate is not free (§5): it is fixed by whether `μ→0` means the channel is *absent*
+or merely *unpolarized*. A chiral channel cannot be absent. That is the whole argument, and
+it is `[C]`, not `[P]`.
 
 ---
 
@@ -111,15 +114,15 @@ condition. Symbolic residual `F(ψ)|_{ψ=arsinh x} − F_std(x) = 0` (sympy, §7
 
 ---
 
-## 4. Theorem B — the chiral Fisher identity, and why the channel alphabet is the whole story `[D]`
+## 4. Theorem B — the chiral Fisher identity `[D]`
 
 D2 §7 identity: `F′(x)²·ℐ(μ) = x³` with `ℐ(p) = 1/(p(1−p))`, the Fisher information of a
 **`{0,1}` Bernoulli** in its mean. Its canonical parameter is the logit, `η = ln(p/(1−p))`,
 whose exponential is the odds — hence `odds(μ)=x` and hence Padé[1/1].
 
-Replace the alphabet. A **symmetric `{−1,+1}` (Ising/chirality) channel** with mean
-(magnetization) `m ∈ (−1,1)` has canonical parameter `h` with `m = tanh h` — *the rapidity* —
-and Fisher information
+Change coordinate (see §5 — this is a reparametrization of the *same* family, not a new one).
+In the **chirality/magnetization** coordinate `m ∈ (−1,1)` the canonical parameter is `h` with
+`m = tanh h` — *the rapidity* — and the Fisher information is
 
 $$\mathcal I_\pm(m) = \frac{1}{1-m^2} = \gamma^2 .$$
 
@@ -143,7 +146,7 @@ No rational ansatz, no degree minimality — the exact analogue of D2 Theorem 9.
 
 `μ(0)=0` and `μ(∞)=1` hold for every `k≥3`; **only `μ′(0)=1` selects `k=4`** — precisely the
 role `μ′(0)=1` plays in D2 Theorem 9.3, where it selects `n=1`. The selection principle is
-unchanged; only the alphabet moved.
+unchanged; only the coordinate moved.
 
 **Theorem D (equivalence — do not double-count) `[D]`.** Postulate R, Theorem B's identity,
 and the statement "`x` is the celerity of `μ`" are *the same postulate* in three dresses.
