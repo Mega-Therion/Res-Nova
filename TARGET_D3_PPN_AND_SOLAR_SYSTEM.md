@@ -1,6 +1,7 @@
 # TARGET D3: PPN Limits and Solar System Constraints
 
-**Status:** D3_OPEN_FAILING — the D7/D9 action mismatch flagged in §7.1 is now **fixed** (D7 rewritten to AeST, 2026-09-12). Under AeST, Ψ=Φ exactly ⇒ γ=1 with no slip, so §7.3–§7.5's γ,β margins bound a null observable [X]. The binding constraint is **not** α₁,α₂ but the interpolation tail: μ(x)=x/(1+x) leaves a constant anomalous acceleration ≥ a₀ (D7 §4.2), failing Mercury by ~10³ and Cassini Q₂ by 5.7×10⁵.
+**Status:** D3_PARTIAL — **γ CLOSED, β SCOPED, α₁/α₂ OPEN with a named obstruction. See §8 (2026-09-12), which supersedes §7 entirely.** γ_PPN=1 is now *derived* for AeST with F_std (and for any free function): every source of traceless anisotropic stress is O(ε²), so Φ=Ψ exactly and lensing gives GR's 4G_N M_dyn/bc² with no slip. β's free-function dependence is bounded by ε_J=2𝒴J″/J′=1/(1+x²)≲10⁻¹⁷; its (λ_s,K_B) part is a 2PN calculation nobody has done. Foster–Jacobson's α₁,α₂ formulas are **inapplicable** at AeST's couplings (c₁₂₃=0 Maxwell locus, spin-0 aether speed zero). Binding evaluable constraint: the μ_std residual δg=(1+λ_s)³a₀²/2g_N **grows as r²**, so Saturn (margin 50×), not Mercury (1251×), binds — giving the corpus's first bound **λ_s ≲ 2.7**.
+**Prior status (superseded):** D3_OPEN_FAILING — μ(x)=x/(1+x) leaves a constant anomalous acceleration ≥ a₀ (D7 §4.2), failing Cassini Q₂ by 5.7×10⁵. That kill stands; §8 is built on its replacement, μ_std.
 **Last updated:** 2026-09-12
 **Author:** R.W. Yett / Sovereign Architecture Group
 **Epistemic tag:** `[P]` proved · `[D]` derived · `[C]` cited · `[O]` open · `[X]` killed
@@ -347,3 +348,296 @@ that step is asserted rather than derived in this corpus. The single tightest
 obstruction is neither: it is the preferred-frame pair α₁^PPN, α₂^PPN as
 functions of (c₁,c₂,c₃), bounded at 10⁻⁴ and 10⁻⁷ and uncomputed here — and,
 prior to that, the fact that D7 and D9 do not currently describe the same action.
+
+---
+
+## 8. PPN for AeST with F_std — γ derived, β scoped, α₁/α₂ diagnosed (added 2026-09-12)
+
+Supersedes §7 entirely (§7 kept in place per the repo's log-don't-delete rule). §7 computed
+γ,β for generalized Einstein-aether and bounded them with an expansion parameter; the action
+was wrong and the bound was a bound on a null observable. This section redoes the work on the
+**AeST action (D7 §1) with the free function J(𝒴) built from F_std** in D2's convention
+`F′(x)=x·μ(x)`, i.e.
+
+$$F_{\rm std}(x)=\tfrac12\big[x\sqrt{1+x^2}-\operatorname{arsinh}x\big],\qquad
+\mathcal J(\mathcal Y)=2\lambda_s\tilde a_0^{\,2}F_{\rm std}(\sqrt{\mathcal Y}/\tilde a_0),\qquad
+\mathcal J'(\mathcal Y)=\lambda_s\frac{\sqrt{\mathcal Y}}{\sqrt{\mathcal Y+\tilde a_0^{\,2}}}$$
+
+**Convention warning, load-bearing.** `TARGET_D1_SUPPLEMENT` §1/§3/§5 uses `F′=μ`
+(`F_std=√(1+x²)−1`), which gives `J′→0` in the Newtonian limit instead of `J′→λ_s`;
+`TARGET_D2_SUPPLEMENT` §1 marks that **[X]**. Everything below uses D2's convention. β and
+every residual computed here depend on the Newtonian-limit behaviour of `J′`, so the two
+conventions are not interchangeable.
+
+### 8.0 Second published source for the weak-field system [C]
+
+Verwayen, Skordis, Złośnik et al., arXiv:2304.05134 (retrieved 2026-09-12, PDF), their
+eqs. (1)–(4), with `Φ = Φ̃ + χ`, `β₀ ≡ 1/λ_s`:
+
+$$\nabla^2\tilde\Phi+\mu^2\Phi=\frac{4\pi G_N\rho_b}{1+\beta_0},\qquad
+\nabla^2\tilde\Phi=\vec\nabla\!\cdot\!\Big[\frac{d\mathcal J}{d\mathcal Y}\vec\nabla\chi\Big],\qquad
+\vec\nabla\!\cdot\!\Big[\frac{d\mathcal J}{d\mathcal Y}\vec\nabla\chi\Big]+\mu^2\Phi=\frac{4\pi G_N\rho_b}{1+\beta_0}$$
+
+This is D7 §2's system with the ghost-condensate mass term `μ` restored (`μ⁻¹ ≳ 1 Mpc`, so
+`μ²Φ` is utterly negligible in the solar system and is dropped below). **Their §3 states
+verbatim: "In deriving (2)-(4) one also finds that the two standard weak-field metric
+potentials Φ and Ψ are equal."** That is a second published source for γ=1, independent of
+the free function. The paper is quasistatic-spherical only: **it contains no `g_{0i}` sector,
+no PPN parameters, no β, and no α₁/α₂.** It cannot be used for §8.2 or §8.3. **[C]**
+
+### 8.1 γ = 1 is a property of the AeST *background*, not of J — derived [D]
+
+The discriminating object is the traceless part of the linearised `ij` Einstein equation, not
+the reduction to the Poisson system. With `g_{00}=-(1+2Ψ)`, `g_{ij}=(1-2Φ)δ_{ij}`:
+
+$$\Big(\partial_i\partial_j-\tfrac13\delta_{ij}\nabla^2\Big)(\Phi-\Psi)=-8\pi\tilde G\,\Sigma_{ij},
+\qquad \Sigma_{ij}\equiv T_{ij}-\tfrac13\delta_{ij}T_{kk}$$
+
+Background: `A_μ=(-(1+Ψ),\,\partial_i\zeta)` with `A^i=0` at zeroth order, `φ=𝒬₀t+φ̃`.
+Every field perturbation `{Ψ,Φ,ζ,φ̃}` is O(ε). Enumerating **every** source of Σ_ij:
+
+| term in D7 §1 eq. (5) | its `g^{ij}`-dependent stress | order |
+|---|---|:-:|
+| `S_m` (perfect fluid, minimal coupling) | `ρv_iv_j`, `p δ_ij` | O(ε²), traceless part 2PN **[standard]** |
+| `−(K_B/2)F_{μν}F^{μν}` | `F_{0i}=−∂_iΨ`, `F_{ij}=0` ⇒ `∂_iΨ∂_jΨ` | **O(ε²)** |
+| `−(2−K_B)𝒴−F(𝒴,𝒬)`, via `𝒴=q^{μν}∇_μφ∇_νφ` | `[(2−K_B)+F_𝒴]\,∂_iφ̃∂_jφ̃` | **O(ε²)** — the *only* place J enters |
+| `F(𝒴,𝒬)` via `𝒬=g^{μν}A_μ∇_νφ` | `F_𝒬\,A_{(i}∂_{j)}φ̃` | **O(ε²)** |
+| `2(2−K_B)J^μ∇_μφ`, `J_i=∂_iΨ` | `∂_{(i}Ψ∂_{j)}φ̃` | **O(ε²)** |
+| `λ(A^μA_μ+1)` | `λA_iA_j` | O(ε³) |
+| `−F(𝒴,𝒬)` ⊃ `½g_{ij}F` | pure trace | drops out |
+
+**Every entry is quadratic.** Hence the traceless equation is *homogeneous at linear order for
+every F(𝒴,𝒬)*; regularity plus `Φ−Ψ→0` at infinity kills the residual `a+b_ix^i` and forces
+
+$$\boxed{\;\Phi=\Psi\ \Rightarrow\ \gamma_{\rm PPN}=1\ \text{exactly, for any }\mathcal J\;}$$
+
+**Why the scalar reaches the metric at all, then — the asymmetry that is the whole answer [D].**
+The mixing term `2(2−K_B)J^μ∇_μφ` *does* have an O(ε) piece: `J^0·𝒬₀`, and `𝒬=g^{00}A_0∂_0φ`
+has the O(ε) piece `−𝒬₀Ψ`. Both are linear **only because the background `∂_0φ=𝒬₀≠0`
+(the Higgs/ghost-condensate phase) supplies a timelike vector to pair with**, and both carry
+`g^{00}`, never `g^{ij}`. There is no background `A^i` or `∂_iφ` for a spatial index to pair
+with, so the `ij` sector has no linear source. **γ=1 is forced by spatial isotropy of the
+AeST background (`A^i=0`, `∂_iφ̄=0`), not by any property of J.** Swapping F_dual→F_std
+changes nothing in this sector — the question posed in D7 §7 is answered: **F-independent.**
+
+Reproduce (order counting, sympy):
+```
+python3 - <<'EOF'
+import sympy as sp
+eps=sp.symbols('epsilon',positive=True); x1,x2,x3=sp.symbols('x1 x2 x3'); X=[x1,x2,x3]
+Psi=sp.Function('Psi')(x1,x2,x3); Phi=sp.Function('Phi')(x1,x2,x3)
+ph=sp.Function('varphi')(x1,x2,x3); ze=sp.Function('zeta')(x1,x2,x3)
+Q0,J0=sp.symbols('Q0 J0',positive=True)
+Amu=[-(1+eps*Psi)]+[eps*sp.diff(ze,x) for x in X]
+di=[eps*sp.diff(ph,x) for x in X]
+gij=[[(1+2*eps*Phi)*sp.KroneckerDelta(i,j) for j in range(3)] for i in range(3)]
+Y=sum(gij[i][j]*di[i]*di[j] for i in range(3) for j in range(3))
+print(sp.Poly(sp.expand(Y),eps).monoms()[-1][0])                       # 2  -> Y is O(eps^2)
+Q=-(1-2*eps*Psi)*Amu[0]*Q0+sum(gij[i][j]*Amu[i+1]*di[j] for i in range(3) for j in range(3))
+print(sp.collect(sp.expand(sp.series(Q,eps,0,3).removeO()),eps))       # O(eps): -Q0*Psi (g^00 only)
+mix=-(1-2*eps*Psi)*eps*J0*Q0+sum(gij[i][j]*eps*sp.diff(Psi,X[i])*di[j] for i in range(3) for j in range(3))
+print(sp.collect(sp.expand(sp.series(mix,eps,0,3).removeO()),eps))     # O(eps): -J0*Q0 (no g^ij)
+EOF
+```
+
+**Consequence for lensing, stated with the coefficient [D].** Photon deflection responds to
+`Φ+Ψ = 2Φ`, with the *same* Φ that sets `∇Φ`-accelerations for matter. Deflection angle
+`α = 4G_NM_dyn/(bc²)` with `M_dyn` the dynamical mass — GR's coefficient, no slip, no
+`(1+γ)/2` factor ≠ 1. Cassini's `|γ−1|<2.3×10⁻⁵` is satisfied identically, not by a margin.
+This closes the item `TARGET_D9` §0.4 asserted and `PPN_VACUITY_AUDIT` §1 flagged as vacuous.
+
+### 8.2 β: scoped, not closed — the μ-dependence is [D], the (λ_s,K_B)-dependence is [O]
+
+β is a 2PN coefficient (`g_{00}=-(1-2U+2βU²)`) and §8.1's table shows the AeST stress tensor
+first becomes non-trivial at exactly that order. So β *is* sourced by the theory's own fields
+and is not fixed by any argument in §8.1. What can be derived is **where the free function
+enters, and how big that entry is.**
+
+The only dimensionless deformation of the scalar sector away from the exactly-linear
+(`J=λ_s𝒴`) case — in which the field redefinition `χ=β₀Φ̃` is exact and the system collapses
+to GR with `G_N=(1+β₀)Ĝ` — is
+
+$$\varepsilon_{\mathcal J}\equiv\frac{2\mathcal Y\mathcal J''}{\mathcal J'}
+=\begin{cases}\dfrac{1}{1+x^2} & \mu_{\rm std}\\[2mm] \dfrac{1}{1+x} & \mu_{\rm dual}\end{cases}
+\qquad x=\sqrt{\mathcal Y}/\tilde a_0$$
+
+(sympy, D2 convention; `J′=λ_s√𝒴/√(𝒴+ã₀²)` and `λ_s√𝒴/(√𝒴+ã₀)` respectively).
+
+**This is the same one-power/two-power split that decided D7 §4** — `ε_J` is O(a₀/g) for
+μ_dual and O(a₀²/g²) for μ_std. Numerically:
+
+| field point | `x=g/a₀` | `ε_J` (μ_std) | `ε_J` (μ_dual) |
+|---|:-:|:-:|:-:|
+| Mercury | 3.546×10⁸ | **7.95×10⁻¹⁸** | 2.82×10⁻⁹ |
+| Saturn | 5.787×10⁵ | **2.99×10⁻¹²** | 1.73×10⁻⁶ |
+
+**Derived statement [D]:** *the free function's contribution to β−1 is suppressed by ε_J, i.e.
+`≲10⁻¹⁷` at Mercury for μ_std, against the MESSENGER bound `|β−1|<2.3×10⁻⁴`. β is not where
+the choice of μ can break this theory.* **Open [O]:** the remaining, J-independent part of
+β−1 is a function of `(λ_s,K_B)` alone, and it is **not computed** here or anywhere in the
+corpus. It requires the O(ε²) `00` Einstein equation with the vector stress `K_B(∇Ψ)²`, the
+scalar stress `λ_s(∇χ)²` and the `𝒬`-sector `𝒦₂` term carried consistently — a genuine 2PN
+AeST calculation that Verwayen et al. do not perform (§8.0) and SZ do not perform.
+
+**Honesty note, against the §7.4 precedent.** §7.4 bounded `|γ−1|` by an expansion parameter
+and was wrong, because the physically dangerous object was a *force that does not decay with
+r*, not a relative metric correction. The bound above is explicitly a bound on the *relative*
+J-dependence of a 2PN coefficient, and the non-decaying-force question is handled separately
+and exactly in §8.4 — where it turns out the residual force **grows** as r², which is why §8.4
+and not §8.2 carries the binding constraint.
+
+### 8.3 α₁, α₂: the Foster–Jacobson formulas are **not applicable** at AeST's couplings [D]+[C]
+
+AeST's vector sector is exactly the Maxwell combination (D7 §6 step 3):
+
+$$c_1=\tfrac{K_B}{2},\quad c_3=-\tfrac{K_B}{2},\quad c_2=c_4=0
+\ \Longrightarrow\ c_{13}=0,\ c_{123}=0,\ c_{14}=\tfrac{K_B}{2}$$
+
+**Validation of the coupling map [D].** Einstein-aether mode speeds at this locus:
+`s₂²=1/(1−c₁₃)=1` (spin-2, luminal — reproduces D7 §6's `c_T=c` independently);
+`s₁²=(2c₁−c₁²+c₃²)/(2c₁₄(1−c₁₃))=2c₁/(2c₁)=1` (spin-1, luminal);
+`s₀²∝c₁₂₃=0` — **the spin-0 aether mode has vanishing speed.**
+
+Foster & Jacobson (gr-qc/0509083), as quoted in Jacobson arXiv:0801.1547 eqs. (2.2)–(2.3):
+
+$$\alpha_1=\frac{-8(c_3^2+c_1c_4)}{2c_1-c_1^2+c_3^2},\qquad
+\alpha_2=\frac{\alpha_1}{2}-\frac{(c_1+2c_3-c_4)(2c_1+3c_2+c_3+c_4)}{c_{123}(2-c_{14})}$$
+
+Substituting AeST's values: `α₁ = −8c₁²/(2c₁) = −4c₁ = −2K_B`, and **`α₂` diverges** (`c₁₂₃=0`).
+
+**Jacobson names this exact case and disqualifies the calculation [C].** arXiv:0801.1547 §8,
+verbatim: *"The first case to be examined in detail was c₁₃=c₂=c₄=0, i.e. the 'Maxwell action'
+(with the unit constraint on the vector). The PPN result for α₂ (2.3) is infinite in this case,
+and the spin-0 mode speed is zero. **The perturbation series used in the PPN analysis is thus
+evidently not applicable.**"*
+
+**Therefore [D]:**
+1. `α₁=−2K_B` and `α₂=∞` are **not predictions of AeST**. They are the readings of a formula
+   evaluated outside its domain of validity, and the divergence is the diagnostic saying so.
+   Any future use of FJ's α₁,α₂ for this corpus is an error. **[X]** for the substitution.
+2. **The degeneracy is lifted in AeST, but by the scalar, not by the vector.** The vanishing
+   spin-0 aether speed is exactly the gap that `φ` fills: the mixing `2(2−K_B)J^μ∇_μφ` plus
+   the `𝒦₂(𝒬−𝒬₀)²` term supplies a *massive* spin-0 mode of mass `μ` (`μ⁻¹≳1` Mpc, hence
+   effectively long-range across the solar system). AeST's spin-0 sector is φ. So the PPN
+   perturbation series that fails for pure æ-theory at `c₁₂₃=0` is expected to exist for AeST —
+   **but it is a different series, and nobody has expanded it.**
+3. **α₁,α₂ remain genuinely [O], with a now-precise obstruction:** they live in the `g_{0i}`
+   sector with the aether boosted at velocity `w` relative to the matter rest frame. AeST has
+   a real preferred frame (the aether *and* `𝒬₀≠0` breaking boosts), so they are not expected
+   to vanish identically. **No published AeST solution has a `g_{0i}` sector** — SZ's PRL is
+   quasistatic-diagonal, Verwayen et al. (§8.0) is quasistatic-spherical-diagonal. A static
+   spherically symmetric solution *cannot in principle* yield α₁ or α₂. Closing this needs an
+   ab initio AeST 1.5PN computation, which is new work, not a citation.
+4. **Conditional, if and only if the scalar's contribution to the `0i` sector turns out
+   subleading [C]:** `α₁≈−2K_B` with LLR `|α₁|≲10⁻⁴` would give `K_B≲5×10⁻⁵`. `K_B→0` is a
+   regular limit of AeST (`G̃=(1−K_B/2)Ĝ`), so this is *not* fatal if it holds — but item 1
+   says the premise is unsupported, so this is flagged and not carried. **[C]**
+
+### 8.4 The binding solar-system constraint, and the first bound on λ_s [D]
+
+With `λ_s` restored, the μ_std residual is **not** `a₀²/2ĝ`. `TARGET_D1_SUPPLEMENT` §4 solved
+`μ_std(g_χ/a₀)g_χ=ĝ`, which is the `λ_s→0` limit. The correct spherical first integral of the
+§8.0 system (μ→0) is `J′(𝒴)χ′ = ĜM/r²` with `Ĝ=G_N/(1+β₀)`:
+
+$$\lambda_s\frac{g_\chi^{2}}{\sqrt{g_\chi^{2}+\tilde a_0^{2}}}=\hat g,\qquad
+\hat g=\frac{\lambda_s}{1+\lambda_s}g_N,\qquad g=\hat g+g_\chi$$
+
+Matching the deep-MOND limit `g→√(G_NMa₀)/r` fixes the scale inside J:
+
+$$\tilde a_0=(1+\lambda_s)\,a_0$$
+
+— **the identical relation D7 §2.2 derived for F_dual; it transfers to F_std unchanged [D].**
+Expanding the first integral at large `ĝ`:
+
+$$\boxed{\;\delta g\equiv g-\frac{G_NM}{r^2}=\frac{(1+\lambda_s)^{3}a_0^{2}}{2\,g_N}
+=\frac{(1+\lambda_s)^{3}a_0^{2}r^{2}}{2G_NM}\;}$$
+
+Verified by exact 50-digit `mpmath` Newton solve (not asymptotics) at
+`λ_s = 0.001, 0.1, 1, 2.695, 10`: exact/analytic ratio `1.000000000000` to 12–14 digits.
+
+**The residual grows as r².** Expressed as a Cassini-type quadrupole scale `Q₂≈δg/r ∝ r`, the
+margin therefore *shrinks linearly with orbital radius* — Mercury is the **weakest** test, not
+the strongest, which inverts `TARGET_D1_SUPPLEMENT` §4's framing. At `λ_s→0` (most permissive),
+`a₀=1.116×10⁻¹⁰` m s⁻² (SPARC), `Q₂ < 3.4×10⁻²⁷` s⁻²:
+
+| field point | r (AU) | g_N (m s⁻²) | δg (m s⁻²) | Q₂ᵉᑫ=δg/r (s⁻²) | margin | **λ_s ≤** |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| Mercury | 0.387 | 3.957×10⁻² | 1.574×10⁻¹⁹ | 2.717×10⁻³⁰ | 1251 | 9.78 |
+| Earth | 1.000 | 5.930×10⁻³ | 1.050×10⁻¹⁸ | 7.020×10⁻³⁰ | 484 | 6.85 |
+| Mars | 1.524 | 2.554×10⁻³ | 2.438×10⁻¹⁸ | 1.070×10⁻²⁹ | 318 | 5.83 |
+| Jupiter | 5.204 | 2.189×10⁻⁴ | 2.844×10⁻¹⁷ | 3.653×10⁻²⁹ | 93.1 | 3.53 |
+| **Saturn (Cassini)** | **9.583** | **6.458×10⁻⁵** | **9.643×10⁻¹⁷** | **6.727×10⁻²⁹** | **50.5** | **2.70** |
+| Uranus | 19.22 | 1.606×10⁻⁵ | 3.878×10⁻¹⁶ | 1.349×10⁻²⁸ | 25.2 | 1.93 |
+
+**Two results [D]:**
+- μ_std's margin at the field point where the Cassini `Q₂` datum actually lives (Saturn, where
+  Cassini was) is **50×, not 1300×.** The 1300× figure is Mercury-specific and is the most
+  favourable point in the solar system. `TARGET_D1_SUPPLEMENT` §4.1 should be read with that
+  correction; the verdict (μ_std survives, μ_dual does not) is unchanged and the contrast is
+  still 4–5 orders of magnitude, since μ_dual's residual is `≥a₀` at *every* radius.
+- **First upper bound on λ_s in this corpus: `λ_s ≲ 2.7` (Saturn/Cassini).** D7 §2.2 recorded
+  `λ_s∈(0,∞)` unfixed by the MOND limit **[O]**; this closes the upper half. Equivalently
+  `G_N/Ĝ = 1+1/λ_s ≳ 1.37` and `ã₀ = (1+λ_s)a₀ ≲ 3.7a₀`. The lower half is still open.
+
+Reproduce:
+```
+python3 - <<'EOF'
+from mpmath import mp,mpf,sqrt,findroot
+mp.dps=50; a0=mpf('1.116e-10'); GM=mpf('1.32712440018e20'); AU=mpf('1.495978707e11')
+def dg(r,ls):
+    gN=GM/r**2; gh=gN*ls/(1+ls); at=(1+ls)*a0
+    g=findroot(lambda g: ls*g**2/sqrt(g**2+at**2)-gh, gh/ls+ls*at**2/(2*gh))
+    return (gh+g)-gN, (1+ls)**3*a0**2/(2*gN)
+for ls in ['0.001','0.1','1','2.695','10']:
+    e,a=dg(mpf('0.38710')*AU,mpf(ls)); print(ls, mp.nstr(e/a,14))          # 1.0000000000000
+for nm,au in [("Mercury",'0.38710'),("Earth",'1.0'),("Jupiter",'5.2044'),("Saturn",'9.5826')]:
+    r=mpf(au)*AU; d=a0**2/(2*(GM/r**2)); m=mpf('3.4e-27')/(d/r)
+    print(nm, mp.nstr(d,5), mp.nstr(d/r,5), float(m), float(m**(mpf(1)/3)-1))
+EOF
+```
+
+### 8.5 Ledger
+
+| claim | tag | basis |
+|---|:-:|---|
+| Verwayen et al. arXiv:2304.05134 state Φ=Ψ for the general J; contains no `g_{0i}`, no PPN, no β | [C] | §8.0, PDF retrieved 2026-09-12 |
+| Every source of the traceless `Σ_ij` in AeST is O(ε²); the `ij` equation is homogeneous at linear order | **[D]** | §8.1 table + sympy |
+| ⇒ Φ=Ψ, γ_PPN=1 **exactly, for every F(𝒴,𝒬)** — F_dual and F_std alike | **[D]** | §8.1 |
+| The mechanism is spatial isotropy of the background (`A^i=0`, `∂_iφ̄=0`), not J; φ reaches `g_{00}` linearly only via `𝒬₀≠0` | **[D]** | §8.1 |
+| Lensing: `Φ+Ψ=2Φ`, `α=4G_NM_dyn/bc²`, no slip — Cassini γ satisfied identically | **[D]** | §8.1 |
+| `ε_J=2𝒴J″/J′ = 1/(1+x²)` (μ_std) vs `1/(1+x)` (μ_dual) | **[D]** | §8.2, sympy |
+| Free-function contribution to β−1 is ≲10⁻¹⁷ at Mercury for μ_std | **[D]** | §8.2 |
+| The (λ_s,K_B) part of β−1 | **[O]** | §8.2 — genuine 2PN AeST calc, unattempted anywhere |
+| AeST vector locus `c₁=−c₃=K_B/2, c₂=c₄=0` ⇒ `c₁₃=c₁₂₃=0`; `s₁²=s₂²=1`, `s₀²=0` | **[D]** | §8.3 |
+| FJ substitution gives `α₁=−2K_B`, `α₂=∞` — **not a prediction**, the series is inapplicable | **[X]** | §8.3; Jacobson arXiv:0801.1547 §8 verbatim |
+| AeST lifts the degeneracy via the scalar (massive spin-0, mass μ), so a PPN series exists — but is a different one, unexpanded | **[D]**/**[O]** | §8.3 |
+| α₁,α₂ need an ab initio AeST 1.5PN `g_{0i}` computation; no published AeST solution has a `g_{0i}` sector | **[O]** | §8.3 |
+| `α₁≈−2K_B` ⇒ `K_B≲5×10⁻⁵`, *only if* the scalar's `0i` contribution is subleading | **[C]** | §8.3 item 4 |
+| `ã₀=(1+λ_s)a₀` transfers from F_dual to F_std unchanged | **[D]** | §8.4 |
+| `δg=(1+λ_s)³a₀²/(2g_N)`, confirmed by exact 50-digit solve at five λ_s | **[D]** | §8.4 |
+| Residual **grows as r²**; Mercury is the weakest test, Saturn the binding one | **[D]** | §8.4 |
+| μ_std margin at Saturn = **50×**, not the 1300× quoted for Mercury in `TARGET_D1_SUPPLEMENT` §4.1 | **[D]** | §8.4 |
+| **`λ_s ≲ 2.7`** — first upper bound on λ_s in this corpus | **[D]** | §8.4 |
+
+### 8.6 Verdict
+
+**γ is closed and it is closed structurally.** `Φ=Ψ` follows from the fact that every
+`g^{ij}`-dependent term in the AeST action is quadratic in the perturbations, which in turn
+follows from `A^i=0` and `∂_iφ̄=0` on the background — the free function J never appears in
+the traceless `ij` equation at linear order. So `γ_PPN=1` exactly, the lensing amplitude is
+GR's `4G_NM_dyn/bc²` with `M_dyn` the *dynamical* mass, and the answer to D7 §7's question is
+**F-independent: the equality does not care whether you picked F_dual or F_std.** **[D]**,
+corroborated by two published sources. **β is scoped but not closed:** the free function's
+entry is suppressed by `ε_J=1/(1+x²)≲10⁻¹⁷`, so μ_std cannot break β, but the `(λ_s,K_B)`
+part is a real 2PN computation nobody has done. **[O]** **α₁,α₂ are still open, and the
+obstruction is now named precisely rather than merely noted:** AeST's vector couplings sit on
+the `c₁₂₃=0` Maxwell locus where Foster–Jacobson's PPN expansion is, in Jacobson's own words,
+"evidently not applicable" — the spin-0 aether speed vanishes — so the corpus's plan of
+citing FJ was never going to work; AeST fills that mode with the scalar, and the resulting
+`g_{0i}` expansion has never been written down by anyone. **The single tightest *evaluable*
+obstruction is therefore §8.4**: μ_std's residual force `(1+λ_s)³a₀²/2g_N` grows as `r²`, so
+the binding test is Saturn rather than Mercury, the margin there is **50×** rather than the
+1300× the corpus currently quotes, and requiring it gives the first real constraint on the
+tracking slope, **`λ_s ≲ 2.7`**. Handing off: the exact numerics above to the falsifier; the
+Lean statement `Φ=Ψ ⇐ A^i=0 ∧ ∂_iφ̄=0`, whose substitutability test is whether it still closes
+when the background is given a spatial aether component, to the formalizer.
