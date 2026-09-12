@@ -25,7 +25,14 @@
   "upload_type": "publication",
   "publication_type": "article",
   "communities": [
-    {"identifier": "chyren-ai"},
-    {"identifier": "gravity-and-cosmology"}
+    {
+      "identifier": "chyren-ai"
+    },
+    {
+      "identifier": "gravity-and-cosmology"
+    },
+    {
+      "identifier": "cmblensing"
+    }
   ]
 }
