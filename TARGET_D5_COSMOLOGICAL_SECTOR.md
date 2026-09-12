@@ -43,8 +43,11 @@ Kept: §7's task list, re-scoped in §6.
 On FLRW with N the lapse, φ = φ̄(t), A₀ = −N, Aᵢ = 0:
 
 - 𝒴 = q^{μν}∇_μφ∇_νφ = 0, since ∇_μφ is purely timelike and q projects orthogonal to A. **[C]**
-- J_μ = A^α∇_αA_μ is the acceleration of the unit normal to constant-t slices, which vanishes
-  for FLRW in the comoving lapse gauge ⇒ the mixing term 2(2−K_B)J^μ∇_μφ drops. **[D]**
+- J_μ = A^α∇_αA_μ is the acceleration of the unit normal to constant-t slices, which for a
+  hypersurface-orthogonal normal equals ∂_μ ln N. On FLRW N = N(t) only, so J_μ has a time
+  component alone, which the unit-norm constraint A^αA_α = −1 forces to vanish: J_μ ≡ 0 for
+  **any** lapse N(t), not merely in a comoving gauge ⇒ the mixing term 2(2−K_B)J^μ∇_μφ drops.
+  **[D]**
   *(This is load-bearing and is not in D7 §1.1: without it the background Lagrangian would not
   be 𝒦 alone. It is what makes the FLRW sector a pure k-essence.)*
 - F_{μν} = 0 on the background.
@@ -97,10 +100,19 @@ against **w₀ ≲ 2×10⁻¹⁴** from w(a=10⁻⁴) = w₀·10¹² ≲ 0.02 (K
 
 $$\textbf{Gap} = 6.1\times10^{5}.$$
 
-Worse than SZ state it: at w₀ = 1.2×10⁻⁸ the **adiabatic sound speed becomes superluminal at
-a = (2w₀)^{1/3} = 2.9×10⁻³ (z ≈ 340)**, reaching c_ad² = 2.5×10⁴ at a = 10⁻⁴. The quadratic
-Higgs phase is not merely "a bit too stiff early on" — it is acausal before recombination and
-its Jeans scale exceeds the horizon. **The quadratic 𝒦 is excluded. [D]** (`num.py`, §8.)
+Worse than SZ state it, and the sharpening is in the **perturbations, not the background**:
+c²_ad = 2w₀/a³ exceeds 1 at a = (2w₀)^{1/3} = 2.9×10⁻³ (z ≈ 340) and reaches **c²_ad = 2.5×10⁴
+at a = 10⁻⁴**. Since SZ's pressure contrast is Π ∝ c²_ad (their eq. 11, reproduced in §3.2),
+this means **Π ~ 10⁴·δ** through recombination — the new species is nothing like CDM, the
+CMB peak structure and the MPS are destroyed. The quadratic Higgs phase is not merely "a bit
+too stiff early on". **The quadratic 𝒦 is excluded. [D]** (`num.py`, §8.)
+
+*Deliberately not claimed:* that this is a causality violation. c²_ad = dP̄/dρ̄ is a background
+thermodynamic derivative, **not a propagation speed** — the perturbation speed of a
+shift-symmetric k-essence has the bounded form 𝒦_𝒬/(𝒦_𝒬+𝒬𝒦_𝒬𝒬), and SZ themselves claim only
+positivity ("clearly, w ≥ 0 and c²_ad ≥ 0"), not sub-luminality. The kill above needs no
+causality argument; it runs entirely through Π. Deriving the actual c²_s from SZ eqs. (9)–(12)
+in the k²→∞ limit (cf. their linear-stability paper arXiv:2109.13287) is **[O]**.
 
 ---
 
@@ -123,9 +135,10 @@ through their own Boltzmann code (their Figs. 1–2) and find Planck-consistent 
 What is genuinely open is narrower and different** — see §5. Forcing the phrase "open problem
 in the literature" onto this would be wrong; the corpus simply never carried the resolution.
 
-SZ do **not** recommend one over the other, do not fit 𝒵₀, and report only that a "Higgs-like"
-quartic 𝒦 = (𝒦₂/4𝒬₀²)(𝒬²−𝒬₀²)² is "incompatible with a MOND limit". This corpus adopts
-**Cosh**, and derives what SZ leave as a figure caption. **[D]**
+SZ do **not** recommend one over the other and do not *fit* 𝒵₀, but they do **report a working
+value** — see §2.5, which turns their Fig. 1 legend into a calibration of everything below. They
+report only that a "Higgs-like" quartic 𝒦 = (𝒦₂/4𝒬₀²)(𝒬²−𝒬₀²)² is "incompatible with a MOND
+limit". This corpus adopts **Cosh**. **[D]**
 
 ### 2.2 The decoupling that makes it work **[D]**
 
@@ -186,19 +199,26 @@ vs the quadratic case at the same w₀: w(10⁻⁴) = 1.2×10⁴, c²_ad = 2.5×
 **Three independent constraints on the single new parameter r [D]:**
 
 1. **w ≲ 0.02 at a ~ 10⁻⁴** (Kopp/Ilić) ⇒ r ≲ 2×10⁻². Loosest.
-2. **ρ̄_φa³ must not drift** between recombination and today, or Ω_ch²(CMB) ≠ Ω_ch²(late).
-   The drift is exactly the r𝒵 term: ρ̄a³ ∝ 1 + r ln(2A/a³). Requiring ≤1% (Planck's Ω_ch²
-   precision) ⇒ **r ≲ 5.8×10⁻⁴**; ≤0.5% ⇒ r ≲ 2.8×10⁻⁴. This is the *tightest* constraint and
-   it is **new — it is not in SZ, who report only w and c²_ad.** It is an order-of-magnitude
-   estimate, not a likelihood: a full Boltzmann fit could partially absorb it into Ω_c, A_s.
-3. **Jeans/free-streaming.** c_s ≈ √r ⇒ λ_J ~ √r·τ_eq ~ √r·110 Mpc. Keeping k_J outside the
-   linear-MPS range (k ≲ 0.2 Mpc⁻¹) ⇒ r ≲ 10⁻² comfortably; at r = 10⁻³, k_J = 1.8 Mpc⁻¹.
+2. **ρ̄_φa³ drift** between recombination and today: Ω_ch²(CMB) ≠ Ω_ch²(late). The drift is
+   exactly the r𝒵 term, ρ̄a³ ∝ 1 + r ln(2A/a³). Demanding ≤1% would give r ≲ 5.8×10⁻⁴.
+   **This is not in SZ, who report only w and c²_ad — and §2.5 shows it is over-tight as a
+   *bound*, because their own fit absorbs it into Ω_ch². It is real as an *effect*, not as a
+   constraint.** Demoted accordingly; see §2.5.
+3. **Jeans/free-streaming — the softest of the three.** Using c_s ≈ √r (i.e. c_ad as a stand-in
+   for a propagation speed, which §1.3 just warned against) gives λ_J ~ √r·τ_eq ~ √r·110 Mpc,
+   so k_J = 1.8 Mpc⁻¹ at r = 10⁻³ and 0.40 Mpc⁻¹ at r = 2×10⁻². SZ are explicit that the system
+   "does not close under the fluid variables" (it depends on α and E), so this is an
+   order-of-magnitude orientation, not a derived cutoff. **[D]**-weak/**[O]**.
 
 **Lower bound:** the model must be quadratic *today* (a_\* < 1), i.e. r ≫ 2w₀ ≈ 2.5×10⁻⁸.
 
-$$\boxed{\;2.5\times10^{-8}\ \ll\ r\ \lesssim\ 5\times10^{-4}\;}\qquad\text{— a window spanning }\sim4\text{ decades.}$$
+$$\boxed{\;2.5\times10^{-8}\ \ll\ r\ \lesssim\ 2\times10^{-2}\;}\qquad\text{— a window spanning }\sim6\text{ decades.}$$
 
-**Verdict on ΛCDM-consistency: achievable.** At r = 5×10⁻⁴ the expansion history deviates from
+The headline closure rides on constraint 1 alone (w ≲ 0.02), which is the one SZ themselves use
+and the one their published fit sits just inside. It does **not** depend on the contested
+drift bound.
+
+**Verdict on ΛCDM-consistency: achievable.** At a conservative r = 5×10⁻⁴ the expansion history deviates from
 ΛCDM by |H/H_ΛCDM − 1| ≤ 3.6×10⁻³, monotonically decreasing from a = 10⁻⁴ to exactly 0 today:
 
 | a | 10⁻⁴ | 10⁻³ | 10⁻² | 10⁻¹ | 1 |
@@ -207,6 +227,52 @@ $$\boxed{\;2.5\times10^{-8}\ \ll\ r\ \lesssim\ 5\times10^{-4}\;}\qquad\text{— 
 
 Sub-percent at all epochs, and the deviation sits in the *dust* sector (a slowly drifting
 effective Ω_c), not in the DE sector. **[D]**
+
+### 2.5 Calibration against SZ's own published Cosh run **[C]**+**[D]**
+
+The parameters SZ actually used are printed in the C_ℓ^TT panel of their Fig. 1 (read from the
+arXiv PDF p. 4, 2026-09-12; 𝒬₀ and 𝒵₀ in Mpc⁻¹):
+
+$$\textbf{Cosh:}\quad K_B=0.5,\quad \mathcal{Q}_0=0.1,\quad \mathcal{K}_2=7.5\times10^{5},\quad \mathcal{Z}_0=10^{-3}$$
+
+Feeding these through §1.3 and §2.3 **[D]**:
+
+| quantity | SZ's Cosh run |
+|---|---|
+| r = 𝒵₀/𝒬₀ | **1.0×10⁻²** |
+| μ = √(2𝒦₂/(2−K_B))·𝒬₀ | 100 Mpc⁻¹ ⇒ **μ⁻¹ = 10 kpc** |
+| w₀ = 3H₀²Ω₀/[2μ²(2−K_B)] | 1.42×10⁻¹² (their own 3H₀²Ω₀/(4𝒬₀²𝒦₂) gives the same to 3 s.f. — an independent check that §1.3's box is right) |
+| a_\* = (2w₀/r)^{1/3} | 7×10⁻⁴ |
+| w(10⁻⁴) | 9.46×10⁻³ — **just inside the 0.02 bound** |
+| c²_ad(10⁻⁴) | 9.40×10⁻³ |
+| ρ̄a³ drift 10⁻⁴→1 | **+5.34%** |
+
+**Three things fall out, and two of them correct this document [D]:**
+
+1. **The construction is corroborated, not merely proposed.** SZ's Planck/SDSS-consistent run
+   sits at r = 10⁻², inside §2.4's window and evidently tuned so that w(10⁻⁴) lands just under
+   0.02. The Cosh mechanism is doing exactly what §2.2–§2.3 derive it does.
+2. **§2.4's drift bound was over-tight, and the evidence is SZ's own caption.** Their run has a
+   +5.34% drift in ρ̄a³ — 5× the 1% I demanded — and is still Planck-consistent, because the fit
+   absorbs it. Strikingly, the caption reports the MOND curves deviating from the ΛCDM
+   parameters by "∼{0.07, 0.33, **3.98**, 14.29, 1.57, 0.58, 2.60} percent", and 3.98% is the
+   **Ω_ch²** slot. **The drift derived here is, to within the tuning, the origin of SZ's own
+   reported Ω_ch² offset.** That is a much better result than a bound: it is a *mechanism* for a
+   number they report without explaining. The correct statement is therefore "ρ̄a³ drifts
+   logarithmically by ≈ r·ln(2A/a³), which appears as an Ω_ch²(CMB) vs Ω_ch²(late) offset of a
+   few percent", **not** "r ≲ 5.8×10⁻⁴". **[D]**
+3. **A tension inside SZ's own paper, which this corpus should carry [D]/[O].** Their Cosh run
+   has **μ⁻¹ = 10 kpc**, a factor 100 *below* the μ⁻¹ ≳ 1 Mpc they state two paragraphs earlier
+   as necessary "so that MOND behavior according to (2) may still be attained in galaxies". The
+   published cosmological fit and the published quasistatic requirement are not evaluated at the
+   same point in parameter space. Either the r_C ~ (r_M μ⁻²)^{1/3} estimate is looser than the
+   Mpc quote suggests, or the CMB-preferred 𝒬₀, 𝒦₂ are in conflict with the galactic sector.
+   **This is the one thing in this sector that is genuinely open in the literature, and it is
+   not the problem the task expected** (which SZ closed). Resolving it requires evaluating r_C
+   for real galaxies at SZ's own 𝒬₀, 𝒦₂. **[O]**
+
+*(The "Exp" and "Higgs-like" legend rows are also present but the Exp 𝒵₀ digit is not
+confidently legible from the render; only the Cosh row is quoted here.)*
 
 ---
 
@@ -284,16 +350,17 @@ halves of this document [D]:**
 
 | 𝒦 | c²_ad at a = 10⁻⁴ | Π | verdict |
 |---|:-:|:-:|:-:|
-| quadratic, at the μ-forced floor w₀ = 1.2×10⁻⁸ | **2.5×10⁴** | O(10⁴)·δ | superluminal; MPS erased; **[X]** |
-| Cosh, r = 10⁻³ | **9.8×10⁻⁴** | ≲10⁻³·δ | CDM to 0.1% **✓** |
+| quadratic, at the μ-forced floor w₀ = 1.2×10⁻⁸ | **2.5×10⁴** | O(10⁴)·δ | CDM limit destroyed; MPS erased; **[X]** |
+| **Cosh, SZ's published run (r = 10⁻²)** | **9.4×10⁻³** | ≲10⁻²·δ | CDM to 1% — **Planck/SDSS-verified by SZ ✓** |
+| Cosh, r = 10⁻³ | 9.8×10⁻⁴ | ≲10⁻³·δ | CDM to 0.1% **✓** |
 | Cosh, r = 5×10⁻⁴ | 4.9×10⁻⁴ | ≲5×10⁻⁴·δ | CDM to 0.05% **✓** |
 
 **So the Higgs-phase-duration problem is a *perturbation-theory* problem, not a background one**
 — the background w is observationally invisible at 10⁻⁸, but c²_ad = 2w sets the Jeans scale and
 that is what Kopp/Ilić actually bound. The Cosh sector caps c²_ad at r and the corpus can now
 state where structure formation comes from: **ordinary CDM-like growth, ξ = 1, with a
-free-streaming cutoff at k_J ≈ 1.8 Mpc⁻¹ (r = 10⁻³), i.e. below the smallest scale linear MPS
-data probe.** **[D]**
+free-streaming cutoff at k_J ~ O(1) Mpc⁻¹, i.e. below the smallest scale linear MPS data probe
+(§2.4 constraint 3, the softest of the three).** **[D]**
 
 ### 3.4 The μ⁻¹ ≳ 1 Mpc oscillatory regime is a *live* constraint, not a galaxy-only one **[O]**
 
@@ -342,15 +409,21 @@ Ranked, and deliberately *not* including the Higgs-phase-duration problem, which
    answer (76×) instead of leaving it open.
 2. **Quantifying the linear→MOND crossover in (k, z).** §3.1's caveat. Tractable analytically.
 3. **The μ²Φ² term vs the linear MPS at k ~ 0.1–1 Mpc⁻¹** (§3.4).
-4. **Is r ≲ 5×10⁻⁴ compatible with a full Planck likelihood?** §2.4 constraint 2 is an
-   order-of-magnitude drift estimate; the degeneracy with Ω_ch², A_s and n_s is not explored.
-   SZ's own Figs. 1–2 report MOND-curve deviations of {0.07, 0.33, 3.98, 14.29, 1.57, 0.58,
-   2.60}% in the ΛCDM parameters, so the degeneracy is real and sizeable. **[O]**
-5. **𝒵₀ is a genuinely new free parameter.** Parameter accounting, stated not hidden: the
+4. **SZ's own μ⁻¹ tension (§2.5 item 3).** Their published Cosh fit runs at μ⁻¹ = 10 kpc while
+   their own text requires μ⁻¹ ≳ 1 Mpc for galactic MOND. **This is the genuinely open item in
+   the literature for this sector** — not the Higgs-phase duration, which they closed. Needs
+   r_C ~ (r_M μ⁻²)^{1/3} evaluated for real galaxies at SZ's (𝒬₀, 𝒦₂). **[O]**
+5. **Full Planck likelihood for r.** The drift/degeneracy structure (§2.5 item 2) is a mechanism,
+   not a fit; whether Ω_ch², A_s, n_s can absorb it across the full r window is unexplored.
+   **[O]**
+6. **The propagation speed c²_s**, as opposed to c²_ad (§1.3 caveat). SZ's linear-stability
+   paper arXiv:2109.13287 is on Minkowski; the FLRW k²→∞ limit of their eqs. (9)–(12) is not
+   carried out here. **[O]**
+7. **𝒵₀ is a genuinely new free parameter.** Parameter accounting, stated not hidden: the
    cosmological sector carries λ_s, K_B, 𝒦₂ (≡ w₀), 𝒬₀, and now 𝒵₀ — five, against ΛCDM's
    Ω_c + Λ. AeST cosmology is *not* more economical than ΛCDM. It buys the MOND galactic law,
    not parameter parsimony.
-6. **Cosh vs Exp.** SZ offer both and prefer neither. Nothing here distinguishes them; the Exp
+8. **Cosh vs Exp.** SZ offer both and prefer neither. Nothing here distinguishes them; the Exp
    function 2𝒦₂𝒵₀²[e^{𝒵²}−1] gives 𝒵 ~ √ln(...) instead of ln(...), i.e. an even flatter
    early-time w. Deriving the discriminating observable is unattempted. **[O]**
 
@@ -436,22 +509,26 @@ Full scripts: `kq.py`, `num.py`, `num2.py` (session scratchpad).
 | Ω_c is an integration constant, not a prediction | [D]+[C] | §1.2 |
 | w_DE = −1 exactly at all z; Λ is a free additive constant | [D] | §1.2 |
 | w₀ = 3H₀²Ω₀/[2μ²(2−K_B)] ⇒ w₀ ≳ 1.1×10⁻⁸ vs w₀ ≲ 2×10⁻¹⁴; gap 6.1×10⁵ | **[D]** (SZ quote it; derived here) | §1.3 |
-| Quadratic 𝒦 is **acausal** (c²_ad = 2.5×10⁴ at a = 10⁻⁴, >1 from z ≈ 340) | **[D]** — sharper than SZ's statement | §1.3 |
+| Quadratic 𝒦 gives c²_ad = 2.5×10⁴ at a = 10⁻⁴ ⇒ Π ~ 10⁴·δ ⇒ CDM limit destroyed | **[D]** — sharper than SZ's w-only statement | §1.3, §3.3 |
+| c²_ad is **not** a propagation speed; no causality claim is made, and none is needed | [D] | §1.3 caveat |
 | Cosh 𝒦 has 𝒦_𝒬𝒬(𝒬₀) = 2𝒦₂ independent of 𝒵₀ ⇒ μ and early-time w decouple | **[D]** | §2.2, sympy |
 | Exact background: 𝒵(a) = arcsinh(A/a³), A = 2w₀/r — closed form, no ODE | **[D]** | §2.3 |
 | w saturates at ≈ r then falls logarithmically (vs a⁻³ for quadratic) | **[D]** | §2.3 |
-| Window 2.5×10⁻⁸ ≪ r ≲ 5×10⁻⁴ closes all three constraints | **[D]** | §2.4 |
-| Tightest constraint is the ρ̄a³ logarithmic drift (r ≲ 5.8×10⁻⁴ at 1%) — **not in SZ** | **[D]**/[O] | §2.4 |
+| Window 2.5×10⁻⁸ ≪ r ≲ 2×10⁻², resting on w ≲ 0.02 alone | **[D]** | §2.4 |
+| SZ's published Cosh run (K_B=0.5, 𝒬₀=0.1, 𝒦₂=7.5×10⁵, 𝒵₀=10⁻³) ⇒ r = 10⁻², w(10⁻⁴) = 9.5×10⁻³, w₀ = 1.4×10⁻¹² — **inside the window; construction corroborated** | **[C]**+**[D]** | §2.5 |
+| ρ̄a³ drifts logarithmically by ≈ r·ln(2A/a³); = +5.34% for SZ's run, matching the **3.98% Ω_ch² offset they report without explaining** — a mechanism, **not** a bound (my earlier r ≲ 5.8×10⁻⁴ was over-tight) | **[D]** | §2.5 |
+| SZ's own Cosh fit runs at μ⁻¹ = 10 kpc, 100× below the μ⁻¹ ≳ 1 Mpc their own text requires — **the genuinely open item in this sector** | **[D]**/**[O]** | §2.5 |
 | \|H/H_ΛCDM − 1\| ≤ 3.6×10⁻³ for a ∈ [10⁻⁴, 1] at r = 5×10⁻⁴ | **[D]** | §2.4 |
 | 𝒴 is quadratic in perturbations ⇒ a₀, μ(x), λ_s absent from linear cosmology; **ξ = 1** | **[D]**+[C] | §3.1 |
 | ℱ ~ 𝒴^{3/2} non-analytic at 𝒴 = 0 ⇒ no amplitude-linear regime for the scalar | [D] | §3.1 |
 | Π ∝ c²_ad ⇒ CDM limit; Cosh at r = 10⁻³ gives Π ≲ 10⁻³δ | **[D]**+[C] | §3.3 |
-| Free-streaming cutoff k_J ≈ 1.8 Mpc⁻¹ at r = 10⁻³ — outside linear MPS range | [D] | §2.4, §3.3 |
+| Free-streaming cutoff k_J ~ O(1) Mpc⁻¹ — softest of the three constraints (uses c_ad as a stand-in speed; system does not close on fluid variables) | [D]-weak/[O] | §2.4 |
 | SZ **solve** the Higgs-duration problem (Cosh/Exp + their Boltzmann runs); not an open problem | **[C]** | §2.1 |
 | SZ do not fit 𝒵₀ or prefer Cosh vs Exp; "Higgs-like" quartic is MOND-incompatible | [C] | §2.1 |
 | AeST predicts w_DE = −1; DESI evolving-w neither predicted nor accommodated; Geometrodynamica (−0.831,−0.720) does not transfer | [D]/**[X]** | §4 |
 | 5 cosmological parameters (λ_s, K_B, 𝒦₂, 𝒬₀, 𝒵₀) vs ΛCDM's 2 | [D] | §5.5 |
 | Non-linear AeST structure formation | **[O]** | §5.1 |
+| c²_s (true propagation speed) on FLRW | [O] | §5.6 |
 | μ²Φ² oscillatory regime vs linear MPS at k ~ 0.1–1 Mpc⁻¹ | [O] | §3.4 |
 | Full Planck likelihood for r; Boltzmann port | [O] | §5.4 |
 
@@ -465,16 +542,23 @@ Full scripts: `kq.py`, `num.py`, `num2.py` (session scratchpad).
 Higgs-phase-duration problem closes because 𝒦_𝒬𝒬(𝒬₀) = 2𝒦₂ is independent of 𝒵₀ — the
 quasistatic mass μ and the early-time equation of state are carried by *different* parameters.
 The gap that kills the quadratic model is a factor 6.1×10⁵ (derived here, not quoted); the Cosh
-model closes it with a four-decade-wide window 2.5×10⁻⁸ ≪ 𝒵₀/𝒬₀ ≲ 5×10⁻⁴, inside which
-w(10⁻⁴) ≲ 10⁻³, c²_ad ≲ 10⁻³, and |ΔH/H| ≤ 3.6×10⁻³ against ΛCDM at every epoch. The single
-tightest constraint is one SZ do not report: the logarithmic drift of ρ̄a³, which shifts
-Ω_ch² between recombination and today by ≈ r·ln(2A/a³) and must be held under ~1%. At linear
+model closes it with a six-decade-wide window 2.5×10⁻⁸ ≪ 𝒵₀/𝒬₀ ≲ 2×10⁻², resting on the
+w ≲ 0.02 bound alone, with |ΔH/H| ≤ 3.6×10⁻³ against ΛCDM at every epoch. **The construction is
+corroborated rather than merely proposed:** SZ's own published Cosh parameters (their Fig. 1
+legend) give r = 10⁻², landing inside the window with w(10⁻⁴) = 9.5×10⁻³, just under the bound.
+One effect derived here is not reported by SZ — the logarithmic drift of ρ̄a³ by ≈ r·ln(2A/a³),
+which for their run is +5.34% and appears to be the origin of the otherwise-unexplained 3.98%
+Ω_ch² offset in their own caption. It is a mechanism, not a bound. At linear
 order the MOND sector is absent *by the tensor structure of* 𝒴 = q^{μν}∇_μφ∇_νφ, which is
 quadratic in perturbations — so ξ = 1 exactly, the old 76×/2264× overgrowth is void rather than
 screened, and growth is CDM-like with a free-streaming cutoff at k ≈ 1.8 Mpc⁻¹. The
 Higgs-phase-duration problem is **not** open in the literature: SZ pose and resolve it in one
 paragraph and validate it in their own Boltzmann code; what this corpus lacked was the
-resolution, not the field. D5 moves from **[O] void** to **[P/O]**: background and linear
+resolution, not the field. What *is* open in the literature, and was not expected, is smaller
+and sharper: **SZ's Planck-fit Cosh run sits at μ⁻¹ = 10 kpc, a factor 100 below the μ⁻¹ ≳ 1 Mpc
+their own quasistatic argument requires** — their cosmological and galactic sectors are not
+evaluated at the same point in parameter space. D5 moves from **[O] void** to **[P/O]**: background and linear
 perturbation theory are now derived and ΛCDM-consistent, with one honest cost (five parameters
 against ΛCDM's two, and Ω_c demoted to an integration constant) and one genuinely critical
-remaining item — **non-linear structure formation in AeST, which nobody has simulated.**
+remaining item — **non-linear structure formation in AeST, which nobody has simulated** — plus
+the μ⁻¹ mismatch above, which is inherited from the source rather than introduced here.
