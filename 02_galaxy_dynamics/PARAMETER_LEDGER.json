@@ -1,39 +1,39 @@
 {
   "tier0_GOD": {
-    "median_reduced_chi2": 9.199597823916553,
-    "mean_reduced_chi2": 35.11137635961403,
-    "frac_under_1": 9,
-    "frac_under_2": 24,
+    "median_reduced_chi2": 11.077217800789212,
+    "mean_reduced_chi2": 46.810844892225624,
+    "frac_under_1": 13,
+    "frac_under_2": 27,
     "total_free_params": 0,
     "total_points": 3375,
-    "aggregate_chi2_per_dof": 51.44863981463308
+    "aggregate_chi2_per_dof": 93.64657232686827
   },
   "tier0_MOND": {
-    "median_reduced_chi2": 11.352357077353233,
-    "mean_reduced_chi2": 37.50049864390468,
+    "median_reduced_chi2": 9.934842514972893,
+    "mean_reduced_chi2": 41.320421332578015,
     "frac_under_1": 9,
-    "frac_under_2": 19,
+    "frac_under_2": 27,
     "total_free_params": 0,
     "total_points": 3375,
-    "aggregate_chi2_per_dof": 50.21659144479394
+    "aggregate_chi2_per_dof": 78.94594490820297
   },
   "tier1_GOD": {
-    "median_reduced_chi2": 2.9523097019895777,
-    "mean_reduced_chi2": 5.198191916373632,
+    "median_reduced_chi2": 3.360067142081648,
+    "mean_reduced_chi2": 5.634111118270995,
     "frac_under_1": 21,
-    "frac_under_2": 59,
+    "frac_under_2": 55,
     "total_free_params": 374,
     "total_points": 3375,
-    "aggregate_chi2_per_dof": 5.3585296730463
+    "aggregate_chi2_per_dof": 6.087892917096454
   },
   "tier1_MOND": {
-    "median_reduced_chi2": 2.88661830072029,
-    "mean_reduced_chi2": 5.27525810655066,
+    "median_reduced_chi2": 3.4115597992754125,
+    "mean_reduced_chi2": 5.631256987499088,
     "frac_under_1": 23,
-    "frac_under_2": 60,
+    "frac_under_2": 55,
     "total_free_params": 374,
     "total_points": 3375,
-    "aggregate_chi2_per_dof": 5.362786567133307
+    "aggregate_chi2_per_dof": 6.034830986156765
   },
   "tier1_NFW": {
     "median_reduced_chi2": 1.9211250190559346,
@@ -47,9 +47,9 @@
   "provenance": {
     "GOD_a0": "DERIVED, cH0/2pi (horizon argument), epistemic tag [O]",
     "MOND_a0": "FITTED to rotation curves in the literature (1.2e-10)",
-    "GOD_interpolation": "DERIVED, Thm 8.7 dual-channel mu(x)=x/(1+x)",
-    "MOND_interpolation": "CHOSEN by hand; several variants in use",
+    "interpolation_function": "mu_std(x) = x/sqrt(1+x^2), corrected 2026-09-12 from the falsified mu_dual(x)=x/(1+x). GOD and MOND use the SAME function here - there is no second, hand-chosen MOND variant in this code. This is the standard MOND interpolating function; under it, GOD's mu is literally MOND's mu, and the comparison reduces to a0 provenance alone (derived vs fitted).",
     "NFW_halo": "2 FITTED shape params per galaxy (c, V200)",
-    "shared_nuisance": "Yd, Yb, fd - observational unknowns, not model params; identical across all three"
+    "shared_nuisance": "Yd, Yb, fd - observational unknowns, not model params; identical across all three",
+    "prior_false_claim": "This file previously claimed separate GOD_interpolation (mu_dual, DERIVED) and MOND_interpolation (CHOSEN by hand, several variants) fields. The code never implemented two functions - v_mond_like was and is the only interpolation function, called identically for both rows. That prior claim was false as written, independent of the mu_dual->mu_std correction. See SPARC_MU_STD_RECOMPUTE_2026-09-12.md."
   }
 }
