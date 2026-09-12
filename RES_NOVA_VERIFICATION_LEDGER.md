@@ -94,8 +94,8 @@ not $a_0 = \frac{cH_0}{2\pi}$. The additional $1/(2\pi)$ divisor is an open boun
   - [`02_galaxy_dynamics/sparc_reproduce.py`](02_galaxy_dynamics/sparc_reproduce.py)
 * **Summary:**
   - Zero-free-parameter language is withdrawn as a working model class.
-  - Tier 0 fixed-prescription benchmark ($a_0 = 1.042\times 10^{-10}\text{ m/s}^2$ from horizon formula) yields median $\chi^2_{\text{data}}/N_g = 9.20$ across 171 galaxies (vs MOND $1.2\times 10^{-10}$ median $11.35$).
-  - Outperforms baryons-only controls, but remains a poor absolute fit without accounting for observational nuisances.
+  - **Corrected 2026-09-12** (see `02_galaxy_dynamics/SPARC_MU_STD_RECOMPUTE_2026-09-12.md`): the interpolation function used to compute this benchmark, $\mu_{\text{dual}}(x)=x/(1+x)$, was found falsified for solar-system use (Mercury perihelion precession ~1000$\times$ the observed bound). Recomputed under the corrected $\mu_{\text{std}}(x)=x/\sqrt{1+x^2}$: median $\chi^2_{\text{data}}/N_g = 11.077$ (was 9.20) across 171 galaxies, vs MOND $1.2\times 10^{-10}$ median $9.935$ (was 11.35). **The headline flips — GOD no longer outperforms MOND at tier 0; MOND's fitted $a_0$ now fits the median galaxy better.** Under $\mu_{\text{std}}$, GOD's interpolation function is identical to standard MOND's; the comparison reduces to $a_0$ provenance alone (derived vs.\ fitted).
+  - Independently of the $\mu$ correction: the underlying code was found to implement only one interpolation function despite this file's prior text implying GOD and MOND used distinct ones — that framing was never accurate.
 
 ---
 
