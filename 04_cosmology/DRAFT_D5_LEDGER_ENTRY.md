@@ -13,7 +13,7 @@ the non-linear regime.
 
 **Protocol:** `PREREG_D5_MG_EVOLUTION.md` (SHA-256 `b9a939dd2b60d61ac177160ccaf7265a48c52ebd08b48359ee46aadb1af16b98`), two-arm MG-evolution mapping (Hassani–Lombriser arXiv:2003.05927 parametrization), identical ICs (seed 42), validation config 256³ particles / 256³ grid / L = 200 Mpc/h, z ∈ {0, 1}, k ∈ [0.05, 2.5] h/Mpc. Verdict rules V0–V2 frozen before any run. No re-tuning of ε, k0, af, b after seeing output (prereg §7).
 
-**Status (pre-verdict):** Pipeline validated end-to-end at sanity config (64³/128 Mpc/h): ΛCDM/Arm A/Arm B all exit clean; V1 negative control satisfied (Arm B ΔP/P = +64% at k > 1 — far above the +5% floor). Sanity-config theory-arm signal: ΔP/P|_A = +0.26% (k > 1, 292 bins), first-order consistent with the frozen ε. `⟨VALIDATION-CONFIG NUMBERS: fill ΔP/P|_A at z=0 and z=1, per-band⟩`
+**Status (pre-verdict):** Pipeline validated end-to-end at sanity config (64³/128 Mpc/h): ΛCDM/Arm A/Arm B all exit clean; V1 negative control satisfied (Arm B ΔP/P = +64% at k > 1 — far above the +5% floor). Sanity-config theory-arm signal: ΔP/P|_A = +0.26% (k > 1, 292 bins), first-order consistent with the frozen ε. Validation-config run (2026-09-11): worst |ΔP/P|_A = 1.14% at z=0; worst 3.03% at k = 1.354 h/Mpc at z=1. Bins over the 1% consistency bound: 124/180 (z=0), 180/180 (z=1). Bins over the 5% tension threshold: 0 at both z.
 
 **Branch 1 — V2 = CONSISTENT at validation config:**
 
@@ -34,3 +34,19 @@ D5 stays open with the measured ΔP/P table; resolution requires either the k0-s
 ---
 
 *Artifacts on commit: prod_lcdm/, prod_armA/, prod_armB/ spectra + logs, LATfield2/gevolution patch diff, seeds, runtimes, V0 unit-test output.*
+
+---
+
+**RESOLVED 2026-09-11 (validation config): Branch 3 — V2 = INCONCLUSIVE.**
+
+Measured table (identical ICs, seed 42, 256³/256³, L = 200 Mpc/h, k ∈ [0.05, 2.5] h/Mpc):
+
+| Gate | Result | Requirement | Verdict |
+|---|---|---|---|
+| V0 patch correctness | max rel. kernel error < 1e-10 | < 1e-10 vs G_eff_tilde | PASS |
+| V1 negative control (α=0.01) | median ΔP/P = +22.2% (k ≤ 0.2, z≈0) | ≥ +5% (linear pred. +20.4%) | PASS |
+| V2 theory arm (α=1) | worst bin 3.03% (k=1.354, z=1) | ≤ max(2×lin, 1%) everywhere for CONSISTENT; > 5% anywhere for TENSION | INCONCLUSIVE |
+
+D5 stays open, no grade change, per Branch 3. Full run ledger, verdict JSONs, and
+per-arm spectra in `04_cosmology/D5_RUN/`. Resolution requires the k0-sensitivity
+band analysis (prereg reporting) or a model-specific solver.

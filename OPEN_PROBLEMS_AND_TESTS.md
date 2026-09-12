@@ -92,6 +92,26 @@ Two hardening changes landed with the closure: (i) `fetch_sparc.sh` now falls ba
 
 ---
 
+## D5 — Non-linear structure formation (CLM-D5-03, tested 2026-09-11)
+
+*Artifacts on commit: prod_lcdm/, prod_armA/, prod_armB/ spectra + logs, LATfield2/gevolution patch diff, seeds, runtimes, V0 unit-test output.*
+
+---
+
+**RESOLVED 2026-09-11 (validation config): Branch 3 — V2 = INCONCLUSIVE.**
+
+Measured table (identical ICs, seed 42, 256³/256³, L = 200 Mpc/h, k ∈ [0.05, 2.5] h/Mpc):
+
+| Gate | Result | Requirement | Verdict |
+|---|---|---|---|
+| V0 patch correctness | max rel. kernel error < 1e-10 | < 1e-10 vs G_eff_tilde | PASS |
+| V1 negative control (α=0.01) | median ΔP/P = +22.2% (k ≤ 0.2, z≈0) | ≥ +5% (linear pred. +20.4%) | PASS |
+| V2 theory arm (α=1) | worst bin 3.03% (k=1.354, z=1) | ≤ max(2×lin, 1%) everywhere for CONSISTENT; > 5% anywhere for TENSION | INCONCLUSIVE |
+
+D5 stays open, no grade change, per Branch 3. Full run ledger, verdict JSONs, and
+per-arm spectra in `04_cosmology/D5_RUN/`. Resolution requires the k0-sensitivity
+band analysis (prereg reporting) or a model-specific solver.
+
 ## Fork Lock — 2026-08-28
 
 **Decision: Path B locked.** The RMOND completion (`res_nova_manuscript.tex` §7–§9) implements Path B from the `gut_toe_status` fork analysis. The Skordis–Złośnik embedding with $\mathcal{F}(\mathcal{K}) = \mathcal{F}_{\text{dual}}(\sqrt{\mathcal{K}})$ provides:
