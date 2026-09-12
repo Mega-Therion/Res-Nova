@@ -19,15 +19,17 @@ $$\text{Vainshtein factor} \sim \left(\frac{r}{r_{\text{MOND}}}\right)^{3/2} \ap
 
 The total screening is the product of the background screening ($F''/F'$) and the Vainshtein screening:
 
-$$\text{Total screening} = \frac{\mathcal{F}''(\mathcal{K}_0)}{\mathcal{F}'(\mathcal{K}_0)} \times \left(\frac{r}{r_{\text{MOND}}}\right)^{3/2} \approx 0.004 \times 1.7 \times 10^{-6} \approx 6.8 \times 10^{-9}$$
+$$\text{Total screening} = \frac{\mathcal{F}''(\mathcal{K}_0)}{\mathcal{F}'(\mathcal{K}_0)} \times \left(\frac{r}{r_{\text{MOND}}}\right)^{3/2} \approx 0.00233 \times 1.7 \times 10^{-6} \approx 3.96 \times 10^{-9}$$
+
+**Correction (2026-09-12):** this section previously used $F''/F' \approx 0.004$, the value retracted by `GHOSTFREE_AND_SCREENING_CORRECTION_2026-09-08.md` in favor of $0.00233$. That retraction was not propagated here at the time. Independently re-derived via symbolic differentiation of $F(K) = K/2 - \sqrt{K} + \ln(1+\sqrt{K})$: $F''/F' = 1/(2x_0^2(1+x_0))$, confirming $0.00233$ at $x_0 = 5.67$. All values below are updated accordingly.
 
 ## 3. Q₂ Resolution
 
 | Quantity | Value | Constraint | Status |
 |----------|-------|-----------|--------|
 | $Q_2$ (non-relativistic MOND) | $7.2 \times 10^{-21}$ s⁻² | — | — |
-| $Q_2$ (RMOND, $F''/F'$ only) | $2.9 \times 10^{-23}$ s⁻² | $< 3.4 \times 10^{-27}$ | ✗ |
-| $Q_2$ (RMOND, $F''/F'$ × Vainshtein) | $4.9 \times 10^{-29}$ s⁻² | $< 3.4 \times 10^{-27}$ | **✓ (70× margin)** |
+| $Q_2$ (RMOND, $F''/F'$ only) | $1.68 \times 10^{-23}$ s⁻² | $< 3.4 \times 10^{-27}$ | ✗ |
+| $Q_2$ (RMOND, $F''/F'$ × Vainshtein) | $2.85 \times 10^{-29}$ s⁻² | $< 3.4 \times 10^{-27}$ | **✓ (119× margin, corrected from a previously misstated 70×)** |
 | $|\gamma - 1|$ | $2.8 \times 10^{-24}$ | $< 2.3 \times 10^{-5}$ | **✓ (10¹⁸× margin)** |
 
 ## 4. Coupling Constant Space

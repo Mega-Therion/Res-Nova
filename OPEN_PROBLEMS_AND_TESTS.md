@@ -141,7 +141,7 @@ band analysis (prereg reporting) or a model-specific solver.
 ## Fork Lock — 2026-08-28
 
 **Decision: Path B locked.** The RMOND completion (`res_nova_manuscript.tex` §7–§9) implements Path B from the `gut_toe_status` fork analysis. The Skordis–Złośnik embedding with $\mathcal{F}(\mathcal{K}) = \mathcal{F}_{\text{dual}}(\sqrt{\mathcal{K}})$ provides:
-- Vainshtein screening: $Q_2 \approx 4.9 \times 10^{-29}$ s⁻² (70× below Cassini) `[D]`
+- Vainshtein screening: $Q_2 \approx 2.85 \times 10^{-29}$ s⁻² (119× below Cassini; corrected 2026-09-12 from a misstated 70× that used the retracted F''/F'=0.004) `[D]`
 - Cosmological screening: $\mathcal{F}''/\mathcal{F}' = 1/(2x_0^2(1+x_0)) \approx 0.00233$ (76× → 0.23%) `[P]` — corrected 2026-09-08 from $\approx0.004$ / 0.4%
 - $c_T = c$, $\gamma_{\text{PPN}} = 1$, ghost-free, FLRW decoupling `[P]`
 

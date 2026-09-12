@@ -96,14 +96,16 @@ along Mercury's orbit, so the relevant gradient is at r = 0.387 AU:
 
 The Lean theorems use the conservative threshold x ≥ 3 × 10⁸.
 
-**A related observation on γ.** D3 quotes "1137× below Cassini". Reproducing at
-Earth orbit gives 1222×, consistent. But Cassini's γ came from Shapiro delay at
-solar conjunction, where the signal grazes the Sun at ~1.6 R_⊙ — and there
-x ≈ 9.7 × 10¹¹, giving a margin near 10⁷ rather than 10³. Using Saturn's own
-orbital radius instead (x = 5.79 × 10⁵) gives only ~13×. **The three field points
-differ by six orders of magnitude**, so the doc should name which one it means.
-The conclusion is unaffected — every choice clears the bound — but the stated
-margin is not well-defined without it.
+**Superseded 2026-09-12 — this was a symptom, not the root cause.** D3 quoted
+"1137× below Cassini"; this audit originally flagged only that the field point
+was unnamed (Earth orbit → 1222×, Shapiro grazing point → ~10⁷, Saturn orbit →
+~13×). Independent re-derivation found the deeper problem: the ratio itself is
+a category error. It divides $1-\mu$ (a fractional correction to the
+non-relativistic MOND force law) by $\gamma-1$ (a PPN metric parameter) — two
+physically different quantities — and TARGET_D3's own Theorem 3.1 states that
+$\mu$ does not set PPN $\gamma$/$\beta$ at all. No choice of field point makes
+the ratio meaningful; naming one does not fix it. The figure is retracted in
+`TARGET_D3_PPN_AND_SOLAR_SYSTEM.md` §2 and `PEER_REVIEW_READINESS.md`.
 
 ---
 

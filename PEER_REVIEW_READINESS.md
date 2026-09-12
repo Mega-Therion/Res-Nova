@@ -5,6 +5,13 @@
 **Version:** v1.5.0+ (post-D2/D3/D5/D6/D7 push, post-O1/D2 rescore)
 **Revision note:** O1 and D2 rescored from [P] to [P/O] after audit of target docs and commit c47e7c6. PR #16 merged correcting HorizonScale.lean audit.
 
+**⚠️ MAJOR REVISION 2026-09-12 — read this before trusting anything below dated before today.** D7's action was found to be generalized Einstein-aether (vector field), not the AeST (scalar field) action D9 claims to embed — two different theories sharing a section number. D7 was rewritten to genuine AeST (Skordis-Złośnik arXiv:2007.00082). Consequences:
+- c_T=c is now *stronger* (structural, not asserted) — the one clean upgrade.
+- D7's background cosmology, screening mechanism, and coupling-constant table (§3, §4, TARGET_D7_SUPPLEMENT) are **void**, not just wrong — they were computed from a field (𝒦) that isn't in the actual action (𝒴≡0 on FLRW identically).
+- The γ=β=1 Foster-Jacobson result in TARGET_D3 §7 (written earlier today) is **void** for the same reason.
+- **New finding, potentially serious:** solving the corrected AeST field equations exactly with this repo's own F_dual gives an r-independent anomalous acceleration ã₀=(1+λ_s)a₀ added to Newtonian gravity in the solar system — not screened. At the Cassini scale this is ~5.7×10⁵ **above** the Q₂ bound. This is an apparent falsification of μ(x)=x/(1+x) within standard two-derivative AeST/AQUAL, independently corroborated by Milgrom (arXiv:1205.1317) and Desmond (arXiv:2401.04796). `AXIOMS_V2.lean:64`'s disjunction (μ=x/(1+x) ∨ μ=x/√(1+x²)) has one branch now falsified by this repo's own derivation. Escape route: Skordis-Złośnik's higher-derivative screening — **run down and closed 2026-09-12, `TARGET_D7` §11** `[X]`: it requires a Vainshtein exponent p ≥ 2.34 while the GW170817-safe Horndeski sector caps at p → 2⁻, and the one published construction that reaches p=3 (Babichev-Deffayet-Esposito-Farèse arXiv:1106.2538) does so via a Riemann-coupled G₄(X)/G₅ operator excluded by c_T=c. BDEF also independently prove that the ghost conditions themselves force the constant ≈a₀ residual for *any* free function. μ=x/√(1+x²) is the surviving branch.
+- Full detail: `CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md` CLM-D7-01 through CLM-D7-08, CLM-D3-05, CLM-D9-01, CLM-AX-02.
+
 ---
 
 ## 1. Completion Matrix
@@ -13,18 +20,18 @@
 |--------|--------|----------|:-:|
 | **D1** Variational Derivation | ✅ [P] | `DualChannelDerivation.lean`, PAPER_01 | ✓ |
 | **D2** Physical Action Origin | ⚠️ [P/O] | Conditional uniqueness proved; Padé necessity open | ⚠️ |
-| **D3** PPN / Solar System | ✅ [P] | MOND correction 1137× below Cassini; Vainshtein resolves Q₂ (70× margin) | ✓ |
-| **D5** Cosmological Sector | ⚠️ [P/O] | Linear: 0.23% enhancement (screened; corrected 2026-09-08 from 0.4%); Non-linear: needs N-body | ⚠️ |
-| **D6** Relativistic Stability | ✅ [P] | Ghost-free, bounded Hamiltonian, strong coupling scale | ✓ |
-| **D7** Covariant Completion | ✅ [P] | RMOND action with F_dual; screening F''/F' × Vainshtein | ✓ |
-| **D8** Tensor Speed | ✅ [P] | c_T = c (GW170817) | ✓ |
-| **D9** Skordis-Złośnik Embedding | ✅ [P] | `SkordisZlosnikEmbedding.lean`, TARGET_D9 | ✓ |
-| **O1** Horizon Scale | ⚠️ [P/O] | 2π KMS cancellation proved [P]; a₀=cH identification open [O] (5.67× discrepancy; O4 disfavours at 5.9σ) | ⚠️ |
-| **O4** Redshift Test | ✅ [P] | H_const at 5.9σ; JWST expansion pre-registered | ✓ |
+| **D3** PPN / Solar System | ❌ [O] | Both prior figures retracted (1137× was a category error; the 2026-09-12 γ=β=1 Foster-Jacobson result was derived for the wrong action). New finding: F_dual's exact AeST solar-system solution gives an r-independent anomalous acceleration ~5.7×10⁵ above the Cassini Q₂ bound — apparent falsification of μ=x/(1+x), not yet resolved | ✗ |
+| **D5** Cosmological Sector | ❌ [O] | Void 2026-09-12: the 0.23%/429× screening calculation used F''/F' computed from the vector 𝒦, which is not D7's actual field content (𝒴≡0 on FLRW identically). Cosmology now lives in the unspecified 𝒦(𝒬) ghost-condensate sector | ✗ |
+| **D6** Relativistic Stability | ⚠️ [P/O] | Ghost-free condition was proved for F''(𝒦)>0; needs re-verification as J''(𝒴)>0 under the corrected action — not yet re-checked | ⚠️ |
+| **D7** Covariant Completion | ⚠️ [P/O] | Action corrected to genuine AeST 2026-09-12 (scalar 𝒴, Skordis-Złośnik verbatim) — the base action is now [D] solid. But this surfaced the D3/D5 voids above plus the new μ=x/(1+x) tracking-branch problem (CLM-D7-08). Net: more honest, less complete | ⚠️ |
+| **D8** Tensor Speed | ✅ [P] | c_T = c — upgraded 2026-09-12 from asserted-via-citation to structural (no TT piece in δA under minimal AeST coupling) | ✓ |
+| **D9** Skordis-Złośnik Embedding | ⚠️ [P/O] | Was ground-truth for the D7 fix, but a factor-of-2 normalization bug (μ=𝒥′ vs 2𝒥′) and ã₀≠a₀ were found and fixed in the header 2026-09-12; not yet re-verified against `SkordisZlosnikEmbedding.lean` | ⚠️ |
+| **O1** Horizon Scale | ⚠️ [P/O] | 2π KMS cancellation proved [P]; a₀=cH identification open [O] (5.67× discrepancy, consistent with the literature's own cH₀/2π≈6× framing — see §2 below; O4's 5.9σ disfavouring is itself rescored [P/O], pending dataset provenance) | ⚠️ |
+| **O4** Redshift Test | ⚠️ [P/O] | H_const preferred over H_horizon, σ=√Δχ²=5.93 reproduces exactly (rescored 2026-09-12: dataset in `a0_of_z.py` is hardcoded with no provenance/fetch script — flagged by the repo's own `gate2_inference.py` as non-Gate-1-compliant; χ²/N=0.27 is under-dispersed for 0 free params; the √Δχ² formula assumes nested models, but these are two point-hypotheses with no parameter difference); JWST expansion pre-registered | ⚠️ |
 | **O5** SPARC Automation | ✅ [P] | clean-clone walk closed 2026-09-09: 175/175 checksums, 0 drift (VERIFICATION_RUN_009) | ✓ |
 | **O6** Clean Reproduction | ✅ [P] | 39/39 PASS at closure; 43/43 since #39 (SU(2) envelope rungs); CI `lean-gate` green at `d130413`; gate list ≡ lakefile roots | ✓ |
 
-**Score: 9/12 fully peer-reviewable ([P]), 3/12 partially ready ([P/O])**
+**Score: 4/12 fully peer-reviewable ([P]), 6/12 partially ready ([P/O]), 2/12 open ([O]) — rescored 2026-09-12 after fixing the D7/D9 action mismatch, which voided D5's screening calculation and D3's just-derived PPN margins, and surfaced an apparent falsification of μ=x/(1+x) within two-derivative AeST. This is the most significant single-day rescore in the project's history. The drop is the correction working as intended, not new damage — every one of these was already false before today; today is when it got caught.**
 
 ---
 
@@ -45,6 +52,8 @@
 - `TARGET_O1_A0_HORIZON_DERIVATION.md` tags the horizon-scale ↔ SPARC a₀ identification as [O].
 
 **Honest framing:** The theory does not require the horizon identification. a₀ is treated as a fundamental constant throughout the empirical analysis (SPARC, D3, D5, D7). The coincidence a₀ ~ cH₀/5.7 is noted but not claimed as a derivation. The 2π cancellation is a mathematical result; the physical identification is a separate, open question.
+
+**Literature grounding (added 2026-09-12):** the ~2π (equivalently ~5.7–6×) normalization is not unique to this repo — Milgrom (2015, *Phys. Rev. D* 91, 044009) and Sanders (2019, *MNRAS* 485, 513) independently report a₀ ≈ cH₀/2π and a₀ ≈ cH₀/6 respectively; Milgrom's review (2020, arXiv:2001.09729) surveys the whole a₀–cosmology coincidence family. So TARGET_O1's 5.67× finding reproduces a factor the field has long noted, rather than exposing a defect unique to this derivation. See `04_cosmology/TARGET_O1_A0_HORIZON_DERIVATION.md` §3 for the full citation trail. This does not change O1's [P/O] score — the 2π is still not derived from the Unruh/Gibbons-Hawking action — but it changes the framing from "unexplained miss" to "reproduces a known, still-unexplained coincidence."
 
 ---
 
@@ -102,7 +111,7 @@ Diff `f13cf75..4af94c4` confirms: the D-series pushes added **no new** "zero fre
   A: Linear theory is screened (0.23% enhancement, a 429× suppression; corrected 2026-09-08 from 0.4% / 250× — see GHOSTFREE_AND_SCREENING_CORRECTION_2026-09-08.md). Non-linear requires N-body with Thomas et al. (2023) equations — future work.
 
 - Q: "Is the Vainshtein estimate rigorous?"
-  A: The (r/r_MOND)^(3/2) scaling is standard; exact Q₂ requires solving the RMOND PDEs in the solar system. The 70× margin below Cassini provides robustness to the estimate's uncertainty.
+  A: The (r/r_MOND)^(3/2) scaling is standard; exact Q₂ requires solving the RMOND PDEs in the solar system. The 119× margin below Cassini (corrected 2026-09-12 from a misstated 70×) provides robustness to the estimate's uncertainty.
 
 - Q: "Can you compute exact PPN γ and β?"
   A: Framework complete (D7); exact values need post-Newtonian expansion with specific c₁,c₂,c₃ — tractable but not yet done.
@@ -111,25 +120,29 @@ Diff `f13cf75..4af94c4` confirms: the D-series pushes added **no new** "zero fre
 
 ## 7. Readiness Verdict (Revised)
 
-**The Res Nova manuscript is READY for peer review** with honest scoping:
+**The Res Nova manuscript is NOT yet ready for peer review on D3/D5/D7.** D1, D2, D6, D8, D9, O1, O4, O5, O6 can be submitted with honest scoping. D3 and D5 currently rest on void calculations and need either a real fix or an honest statement that μ=x/(1+x) may be falsified within two-derivative AeST.
 
-Count:
-- **[P] (fully proved):** D1, D3, D6, D7, D8, D9, O4, O5, O6 = **9 targets**
-- **[P/O] (partially proved):** D2, D5, O1 = **3 targets**
-- **[O] (open):** 0 targets (all have at least partial results)
+Count (rescored 2026-09-12 after fixing the D7/D9 action mismatch — see `CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md` CLM-D7-01 through CLM-D7-08, CLM-D3-05, CLM-D9-01, CLM-AX-02):
+- **[P] (fully proved):** D1, D8, O5, O6 = **4 targets**
+- **[P/O] (partially proved):** D2, D6, D7, D9, O1, O4 = **6 targets**
+- **[O] (open):** D3, D5 = **2 targets**
 
-**Score: 9/12 fully reviewable, 3/12 partially ready, 0/12 fully open.**
+**Score: 4/12 fully reviewable, 6/12 partially ready, 2/12 fully open.**
 
-- Present D1, D3, D6, D7, D8, D9 as completed framework
-- Present O4, O5 as completed empirical tests
+- Present D1, D8 as completed framework; D8 (c_T=c) is now stronger than before today's fix
+- Present O5, O6 as completed empirical/CI infrastructure
 - Present D2 as conditional uniqueness (honestly scoped)
-- Present D5 linear cosmology as resolved; non-linear as future work
-- Present O1 honestly: 2π cancellation proved, horizon identification open and disfavoured by O4 data
-- Frame Q₂ prediction (~10⁻²⁹ s⁻²) as testable
-- Frame the a₀ ~ cH₀/5.7 coincidence as an unexplained empirical observation, not a derivation
+- Present D6, D7, D9 as "framework corrected, re-verification pending" — D7's action is now genuinely AeST, but the ghost-free condition (D6) needs re-checking as J''(𝒴)>0, and D9's factor-of-2 normalization fix needs re-verification against its own Lean file
+- **Do not present D3 or D5 in their current form.** Both rested on a screening calculation (F''/F'≈0.00233 computed from a vector field that doesn't exist in the actual action) that is void, not approximately right. D3 additionally surfaced a new problem: F_dual's own exact AeST solar-system solution predicts an r-independent anomalous acceleration ~5.7×10⁵ above the Cassini Q₂ bound — this needs to be either refuted, or the theory needs SZ's higher-derivative screening mechanism built in, or the manuscript needs to state plainly that μ=x/(1+x) appears ruled out in the simple (two-derivative) reading of its own covariant completion
+- Present O1 honestly: 2π cancellation proved, horizon identification open; the 5.67× discrepancy matches the literature's own cH₀/2π framing (Milgrom 2015; Sanders 2019), not a repo-specific miss
+- Present O4 honestly: H_const vs H_horizon reproduces its stated σ arithmetically, but the underlying 20-point dataset lacks provenance (flagged by the repo's own `gate2_inference.py` Gate-1 requirement) and the σ formula's nested-model assumption doesn't strictly apply to two point-hypotheses — rescored [P/O] pending a provenance-compliant dataset
 
-**No fundamental obstacle to submission remains.** The open items are:
-1. D2 Padé necessity — a structural question, not a consistency problem
-2. O1 horizon identification — disfavoured by data; theory works without it
-3. D5 non-linear cosmology — computational, common to all MOND theories
-4. ~~O6 CI automation~~ — **closed 2026-09-08.** `lean-gate` runs `verify_all_proofs.sh` on push/schedule/dispatch; 39/39 targets, gate list verified identical to lakefile roots. Residual is not the gate but the Mathlib cache endpoint's stall rate, which the daily cron now samples automatically (3/3 green so far) instead of via one-off manual walks.
+**The critical path changed today.** It is no longer "compute exact PPN γ,β" — it is: does this theory survive contact with its own solar-system solution? Open items, most severe first:
+1. **D7/D3 anomalous acceleration — RESOLVED NEGATIVELY 2026-09-12 (`TARGET_D7` §11).** SZ's higher-derivative screening does **not** save μ=x/(1+x). Three findings: (a) Babichev–Deffayet–Esposito-Farèse arXiv:1106.2538 already built this escape route (on TeVeS), and in doing so proved that the ghost conditions f′>0, 2sf″+f′>0 — this repo's own §5 conditions — force φ″(r)<0 and hence the constant ≈a₀ residual for *any* free function, so CLM-D7-08 is a theorem about the two-derivative sector, not an artefact of F_dual; (b) suppressing that residual to the solar-system bound while leaving galaxies unscreened requires a Vainshtein exponent p ≥ 2.34 (3.00 for 10³ M_⊙ systems), whereas the post-GW170817 Horndeski sector (G₂, G₃□φ, G₄ const) supplies at most p → 2⁻ — cubic Galileon at maximal r_V gains only a factor 4 and is still 1.4×10⁵ over bound; (c) the only operator that reaches p=3 is BDEF's explicit Riemann×(∇φ)²∇∇φ coupling, i.e. Horndeski G₄(X)/G₅, excluded by GW170817. **Branch B costs c_T=c, which is D7's strongest result. Branch A (μ=x/√(1+x²)) is the live route** — `AXIOMS_V2.lean:64`'s disjunction should collapse to the right disjunct. Residual `[O]`: a non-Horndeski aether-projected operator (q^{μν}∇_μ∇_νφ, A^μ) reaching p ≥ 2.34 with c_T=c is not formally excluded; that is the only remaining branch-B derivation. **Branch A rebuild underway 2026-09-12 (`TARGET_D1_SUPPLEMENT_MU_STD_REBUILD.md`):** exact 50-digit solve confirms μ_std clears the Mercury/Cassini bound by ~1300× (residual matches a₀²/(2ĝ) to 10 sig figs, vs. μ_dual's constant ≥a₀ residual — a 9-order-of-magnitude difference, not asserted but computed). Ghost-free conditions hold identically. **But D2's Padé[1/1] uniqueness proof does not apply to μ_std** (it's not a rational function) — nor does the Fisher-identity/Hamilgrangian-split machinery (CLM-12/13/14). Does the dual-channel construction *derive* x/√(1+x²), or is it adopted only because it survives the solar system? That gap, not RAR-fit survival, is now the sharpest open question. **Partially closed 2026-09-12 — `TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md`:** μ_std *is* forced by a D2-shaped structural argument once D2's `{0,1}` Bernoulli channel is replaced by a `±1` **chiral** channel — rapidity conjugacy `dF/dψ=x²`, equivalently `F′²·ℐ_±(μ)=x⁴` with `ℐ_±=1/(1−μ²)`, yields `μ=x/√(1+x²)` uniquely with no rational ansatz, and `μ′(0)=1` selects the exponent exactly as in D2 Thm 9.3. It also recovers `F_std=½[x√(1+x²)−arsinh x]`, D2 §3's own object. This is a postulate swap (alphabet choice), not a derivation from the action — the covariant question (D2 Q3) is still `[O]`. That document also flags a **normalization error** (`F′=μ` instead of `F′=xμ`) in `TARGET_D1_SUPPLEMENT` §1/§3/§5; its §4 solar-system solve is unaffected.
+2. D5 non-linear *and now linear* cosmology — needs to be re-derived in the correct AeST 𝒦(𝒬) ghost-condensate sector from scratch; the old calculation doesn't transfer.
+3. D6 ghost-free re-verification — J''(𝒴)>0 under the corrected action, not yet checked.
+4. D9 re-verification against `SkordisZlosnikEmbedding.lean` after the factor-of-2 fix.
+5. **D2 Padé necessity — superseded by a sharper problem.** D2's uniqueness proof (Theorem 9.1) was built specifically for the now-falsified μ_dual=x/(1+x). It does not apply to the surviving μ_std=x/√(1+x²) at all (not a Padé function). D2 is not just "necessity of Padé[1/1] unproven" anymore — it's "no structural derivation exists for the function this repo now needs." See `TARGET_D1_SUPPLEMENT_MU_STD_REBUILD.md` §2.
+6. O1 horizon identification — the coincidence is real but its physical origin remains open; theory works without it.
+7. O4 dataset provenance — the 20 hardcoded points in `a0_of_z.py` need a traceable source before the 5.9σ claim can be presented as [P].
+8. ~~O6 CI automation~~ — **closed 2026-09-08.** `lean-gate` runs `verify_all_proofs.sh` on push/schedule/dispatch; 39/39 targets, gate list verified identical to lakefile roots. Residual is not the gate but the Mathlib cache endpoint's stall rate, which the daily cron now samples automatically (3/3 green so far) instead of via one-off manual walks.

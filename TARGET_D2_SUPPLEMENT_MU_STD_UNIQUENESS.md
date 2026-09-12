@@ -1,0 +1,256 @@
+# TARGET D2 SUPPLEMENT: Structural uniqueness of μ_std = x/√(1+x²)
+
+**Status:** RESULT — a uniqueness theorem of the same *shape and rigor* as `TARGET_D2`
+Theorem 9.1/9.2 is established for μ_std. It is a **postulate swap, not a derivation from
+nothing** — exactly the trade `TARGET_D2` §9.2 confessed for μ_dual. Read §6 before citing.
+**Last updated:** 2026-09-12
+**Tags:** `[P]` proved · `[D]` derived here · `[C]` cited/conjectured · `[O]` open · `[X]` killed
+
+Answers `TARGET_D1_SUPPLEMENT_MU_STD_REBUILD.md` §2 and §7 item 1, and
+`PEER_REVIEW_READINESS.md` critical-path item #1.
+
+---
+
+## 0. One-sentence result
+
+**μ_dual and μ_std are the *same* structure over two different channel alphabets:**
+D2's odds-ratio/Fisher argument run on a `{0,1}` Bernoulli channel gives `x/(1+x)`; run on a
+**`{−1,+1}` chiral channel** it gives `x/√(1+x²)` — uniquely, with no rational ansatz and no
+degree minimality, and with `μ'(0)=1` doing exactly the same selection job it does in D2
+Theorem 9.3.
+
+---
+
+## 1. Convention warning — FIX REQUIRED IN THE D1 SUPPLEMENT `[X]`
+
+Two different objects are called `F_std` in this corpus:
+
+| source | definition | convention |
+|---|---|---|
+| `TARGET_D2` §3 | `F_std(x) = ½[x√(1+x²) − arsinh x]` | `F′(x) = x·μ(x)` |
+| `TARGET_D1_SUPPLEMENT_MU_STD_REBUILD.md` §1 | `F_std(x) = √(1+x²) − 1` | `F′(x) = μ(x)` |
+
+The AQUAL action `S = −(a₀²/8πG)∫F(|∇Φ|/a₀)d³x` yields `∇·[μ∇Φ]=4πGρ` **only** under
+`F′ = xμ` (D2 §4 Corollary). Measured discriminators (sympy, §7):
+
+```
+D2 : F/x² → 1/2 (C3 ✓),  F/x³ → 1/3 (C4 ✓),  J(𝒴) ~ (2λ_s/3a₀)·𝒴^{3/2}   ✓ deep-MOND
+D1s: F/x² → 0   (C3 ✗),  F/x³ → ∞   (C4 ✗),  J(𝒴) ~ λ_s·𝒴                ✗ linear
+```
+
+`√(1+x²)−1` fails D2's own C3 and C4 and gives a **linear** `J(𝒴)`, i.e. no deep-MOND limit.
+`TARGET_D1_SUPPLEMENT` §1, §3 (Legendre dual) and §5 (ghost-free `J′`, `J′+2𝒴J″`) are
+computed on the wrong-normalization object and need re-running. **§4 (the exact Mercury
+solve) is unaffected** — it uses `μ_std(g_φ/a₀)·g_φ = ĝ` directly, which does not reference
+`F`'s normalization. **`[O]` — flagged, not fixed here (scope).**
+
+Everything below uses D2's convention `F′(x) = x·μ(x)`.
+
+---
+
+## 2. The generating observation `[D]`
+
+`μ_std` is exactly the composite `tanh ∘ arsinh`:
+
+$$\mu_{\rm std}(x) = \tanh(\operatorname{arsinh} x) = \frac{x}{\sqrt{1+x^2}}$$
+
+Set `x = sinh ψ`. Then `μ = tanh ψ`, `√(1+x²) = cosh ψ`. In Lorentz language: **`x` is the
+celerity (proper velocity, `γβ`) and `μ` is the velocity (`β`) of one and the same boost of
+rapidity `ψ`.** Equivalently `μ_std = x/γ(x)` — the interpolating function *is* the internal
+time-dilation factor.
+
+This is not an analogy imported from outside: the additive-rapidity structure
+`ψ = artanh(·)` is already the object of `06_unification_and_spin/rapidity_uniqueness_proof.py`
+and `arctanh_derivation_chain.py` (CLM-10). **Caveat, stated inline as required:** CLM-10 is
+state `conditional` in `assurance/claims.json`, its own script header disclaims that Kerr spin
+*is* a Lorentz rapidity, and `sinh ψ = 1` is not selected by any covariant argument. It is
+cited here as evidence that the rapidity rectification is *native to this corpus*, not as proof.
+
+---
+
+## 3. Theorem A — rapidity conjugacy forces μ_std `[D]`
+
+**Postulate R (rapidity conjugacy).** Let `ψ ≡ artanh μ` be the rapidity of the internal
+channel. Then the dimensionless squared acceleration is conjugate to the rapidity:
+
+$$\frac{dF}{d\psi} = x^2 .$$
+
+(`x² = 𝒴/a₀²` is the kinetic invariant the field action actually depends on, which is why the
+conjugate variable is `x²` and not `x`.)
+
+**Theorem A `[D]`.** Postulate R together with D2's constraint 1 (`F′(x)=x μ(x)`) and
+`μ′(0)=1` determines `μ` uniquely:
+
+*Proof.* By the chain rule `dF/dψ = (dF/dx)(dx/dψ) = x·tanh ψ·x′(ψ)`. Setting this equal to
+`x²` gives
+
+$$\frac{x'(\psi)}{x(\psi)} = \coth\psi \;\Longrightarrow\; x(\psi) = C\sinh\psi .$$
+
+(sympy `dsolve` returns `C₁ e^ψ tanh ψ/(1+tanh ψ) ≡ C₁ sinh ψ`.) `μ′(0)=1` fixes `C=1`.
+Hence `μ = tanh ψ = x/√(1+x²)`, and
+
+$$F(\psi)=\int \sinh^2\psi\,d\psi = \tfrac12(\sinh\psi\cosh\psi-\psi)
+\;\Longrightarrow\; F(x)=\tfrac12\!\left[x\sqrt{1+x^2}-\operatorname{arsinh}x\right] \;\square$$
+
+**This is verbatim `TARGET_D2` §3's own `F_std`** — written down there four weeks earlier as a
+*counterexample* to C1–C5 uniqueness, now recovered as the unique solution of a structural
+condition. Symbolic residual `F(ψ)|_{ψ=arsinh x} − F_std(x) = 0` (sympy, §7).
+
+---
+
+## 4. Theorem B — the chiral Fisher identity, and why the channel alphabet is the whole story `[D]`
+
+D2 §7 identity: `F′(x)²·ℐ(μ) = x³` with `ℐ(p) = 1/(p(1−p))`, the Fisher information of a
+**`{0,1}` Bernoulli** in its mean. Its canonical parameter is the logit, `η = ln(p/(1−p))`,
+whose exponential is the odds — hence `odds(μ)=x` and hence Padé[1/1].
+
+Replace the alphabet. A **symmetric `{−1,+1}` (Ising/chirality) channel** with mean
+(magnetization) `m ∈ (−1,1)` has canonical parameter `h` with `m = tanh h` — *the rapidity* —
+and Fisher information
+
+$$\mathcal I_\pm(m) = \frac{1}{1-m^2} = \gamma^2 .$$
+
+**Theorem B `[D]`.** With `ℐ_±`, the D2 identity becomes, uniquely,
+
+$$\boxed{\;F'(x)^2\,\mathcal I_\pm(\mu(x)) = x^4 \iff \frac{\mu^2}{1-\mu^2}=x^2
+\iff \mu(x)=\frac{x}{\sqrt{1+x^2}}\;}$$
+
+*Proof.* `F′=xμ` gives `x²μ²/(1−μ²) = x⁴`, i.e. `μ² = x²(1−μ²)`; sympy `solve` returns the
+single positive root `x/√(1+x²)`. Verified forward: `F_std′(x)²/(1−μ_std²) = x⁴` exactly. `□`
+
+No rational ansatz, no degree minimality — the exact analogue of D2 Theorem 9.2.
+
+**Theorem C (exponent selection, analogue of D2 Thm 9.3) `[D]`.**
+`F′(x)²ℐ_±(μ) = x^k ⟺ μ_k(x) = x^{(k−2)/2}/√(1+x^{k−2})`. Measured `μ′(0)`:
+
+| k | 3 | **4** | 5 | 6 |
+|---|---|---|---|---|
+| μ_k | √x/√(1+x) | **x/√(1+x²)** | x^{3/2}/√(1−x+x²)√(1+x) | x²/√(1+x⁴) |
+| μ′(0) | ∞ | **1** | 0 | 0 |
+
+`μ(0)=0` and `μ(∞)=1` hold for every `k≥3`; **only `μ′(0)=1` selects `k=4`** — precisely the
+role `μ′(0)=1` plays in D2 Theorem 9.3, where it selects `n=1`. The selection principle is
+unchanged; only the alphabet moved.
+
+**Theorem D (equivalence — do not double-count) `[D]`.** Postulate R, Theorem B's identity,
+and the statement "`x` is the celerity of `μ`" are *the same postulate* in three dresses.
+`TARGET_D2` was cautioned for presenting its §6 and §7 as independent corroborations; the same
+warning applies here with equal force. **§3 and §4 are one result, not two.**
+
+---
+
+## 5. Why the `±1` alphabet, and not `{0,1}` `[C]`
+
+This is the one substantive physical input, and it is the honest crux.
+
+D2 §6 read `μ` as a *probability* — "degree of Newtonian dominance", `p ∈ (0,1)` — so the
+`{0,1}` alphabet and the odds rectification followed. But this corpus's own substrate is
+**chiral, not binary-presence**: the `V₂(ℝ³)` / Cartan-triality substrate, the SU(2)→SO(3)
+double cover, and D2 §8's own "**dual-channel**" decomposition all describe a two-signed
+degree of freedom, whose sufficient statistic is a **magnetization in `(−1,+1)`**, not an
+occupation probability in `(0,1)`. For a `±1` variable the mean is not a probability and the
+odds map is not its canonical rectification — `artanh` is.
+
+> **The claim, stated exactly:** *given* that the interpolation variable is the mean of a
+> `±1` chiral channel rather than of a `{0,1}` presence channel, μ_std is forced, by the same
+> Fisher/rectification argument that forces μ_dual in the binary case. `[D]` for the
+> implication; `[C]` for the identification of the channel as `±1`.
+
+Supporting, not proving: the "dual channel" name in D2 §8 already asserts two channels; a
+two-channel (`±`) alphabet is the literal reading of it. D2's own `{0,1}` reading is the one
+that is anomalous relative to the rest of the corpus.
+
+---
+
+## 6. What is NOT derived `[O]` — read before citing
+
+1. **Postulate R / the `±1` alphabet is an input.** This is a postulate swap of the same kind
+   D2 §9.2 performed (Padé minimality → `odds(μ)=x`). It is *smaller and better-motivated*
+   than "μ is a Padé[1/1] function" — it is a statement about the channel's alphabet, which
+   the substrate arguably fixes — but it is not derived from the action. `[O]`
+2. **`μ′(0)=1` remains an input**, exactly as in D2 Theorem 9.3. No gain in parsimony is
+   claimed. `[O]`
+3. **No covariant argument yet.** D2's Q3 (does the Skordis–Złośnik/AeST embedding *force*
+   `μ`?) is untouched. That remains the only route that would make this physical rather than
+   chosen. `[O]`
+4. **`sinh ψ = 1 → μ = 1/√2 = θ`.** True algebraically (CLM-10). **Do not build on it.** The
+   `u ≥ γ ⟺ χ ≥ θ` anti-drift gate is **retracted (2026-09-03)**; `Res-Nova/CLAUDE.md` and
+   §VI record that θ is a **ceiling, not a gate**, and it names `μ(x)=x/√(1+x²)` in that same
+   retraction. Noting the coincidence; asserting nothing from it. `[O]`
+
+### 6.1 Convention artifacts, logged per the D41 precedent (do not rediscover)
+
+Two attractive readings attach to the **wrong-normalization** object `√(1+x²)−1` (§1) and are
+therefore **not** results about the AQUAL action:
+
+- **Relativistic kinetic energy / Born–Infeld:** `√(1+x²)−1 = cosh ψ − 1 = γ−1`. Elegant, and
+  it is what the `dF/dψ = x` (rather than `x²`) conjugacy produces — but it fails C3/C4. `[X]`
+- **Unruh–de Sitter (Milgrom 1999):** the de Sitter Unruh temperature `T(a) ∝ √(a²+a_dS²)`
+  gives `2πc[T(a)−T(0)]/a₀ = √(1+x²)−1` exactly. Same wrong-normalization object; and Milgrom
+  1999 is **modified inertia**, a different slot from the AQUAL field action — do not merge
+  them. What *does* survive normalization-independently is the statement
+  `μ_std = x/γ(x) = a/(2πc·T(a)/T(0))·...`, i.e. **μ_std is the acceleration measured in units
+  of the de Sitter–Unruh temperature excess.** `[C]`, worth pursuing under Q3.
+- **Score function:** `exp(−√(1+x²))` (the symmetric hyperbolic / Barndorff-Nielsen density)
+  has score `−μ_std`. Also the `F′=μ` object. `[C]`, no weight placed on it.
+
+### 6.2 Fine-structure-constant watch — NEGATIVE
+
+**α ≈ 1/137.036 does not appear anywhere in this derivation.** No coupling, no ratio, no
+exponent. The only distinguished dimensionless numbers that arise are `2` (the `x²` conjugate,
+the `k=4` exponent), `1/√2` (§6 item 4), the silver ratio `1+√2` (CLM-10), and — **only if the
+Unruh route of §6.1 is pursued** — a factor `2π`: the de Sitter Unruh crossover sits at
+`a_dS = cH₀`, whereas this repo's canonical `a₀ = cH₀/2π`. That `2π` offset is a real,
+unexplained discrepancy in the Unruh reading and is flagged as such. Nothing α-like. Reported
+as a negative per the standing instruction to flag such numbers if and only if they appear.
+
+---
+
+## 7. Reproduce
+
+```python
+import sympy as sp
+x, psi, M = sp.symbols('x psi M', positive=True)
+mu = x/sp.sqrt(1+x**2)
+F  = sp.Rational(1,2)*(x*sp.sqrt(1+x**2) - sp.asinh(x))
+
+# convention discriminator (§1)
+print(sp.simplify(sp.diff(F,x) - x*mu))                      # 0        -> D2 convention
+print(sp.simplify(sp.diff(sp.sqrt(1+x**2)-1,x) - x*mu))      # != 0
+print(sp.limit(F/x**2,x,sp.oo), sp.limit(F/x**3,x,0))        # 1/2, 1/3 (C3,C4 hold)
+print(sp.limit((sp.sqrt(1+x**2)-1)/x**2,x,sp.oo))            # 0        (C3 fails)
+
+# Theorem A (§3)
+X = sp.Function('X')
+print(sp.dsolve(sp.Eq(X(psi)**2, X(psi)*sp.tanh(psi)*sp.diff(X(psi),psi)), X(psi)))  # C1*sinh
+print(sp.simplify(sp.expand_trig(sp.integrate(sp.sinh(psi)**2,psi)).subs(psi,sp.asinh(x)) - F))  # 0
+
+# Theorem B/C (§4)
+print(sp.simplify(sp.diff(F,x)**2 / (1-mu**2)))                        # x**4
+print(sp.solve(sp.Eq(x**2*M**2/(1-M**2), x**4), M))                    # [x/sqrt(x**2+1)]
+for k in (3,4,5,6):
+    s = sp.solve(sp.Eq(x**2*M**2/(1-M**2), x**k), M)[0]
+    print(k, s, sp.limit(sp.diff(s,x), x, 0))                          # mu'(0): oo,1,0,0
+```
+
+Run: `python3` on the block above (sympy only). All outputs above are measured, not asserted.
+
+---
+
+## 8. Ledger
+
+| result | status | §|
+|---|---|---|
+| `TARGET_D1_SUPPLEMENT` §1/§3/§5 use `F′=μ`, failing C3/C4 and the deep-MOND `J(𝒴)` | **[X]** normalization error, needs re-run | §1 |
+| `μ_std = tanh ∘ arsinh`; `x` = celerity, `μ` = velocity of one internal boost | **[D]** | §2 |
+| Rapidity conjugacy `dF/dψ=x²` + `F′=xμ` + `μ′(0)=1` ⟹ `μ_std` uniquely | **[D]** | §3 |
+| Recovered `F_std=½[x√(1+x²)−arsinh x]`, matching `TARGET_D2` §3 exactly | **[D]** | §3 |
+| Chiral Fisher identity `F′²·ℐ_±(μ)=x⁴ ⟺ μ_std`, no rational ansatz | **[D]** | §4 |
+| Family `x^k` generated; `μ′(0)=1` selects `k=4` (analogue of D2 Thm 9.3) | **[D]** | §4 |
+| §3 and §4 are one postulate, not two independent corroborations | **[D]** | §4 |
+| The `±1` chiral alphabet (vs D2's `{0,1}`) is the entire difference μ_dual↔μ_std | **[C]** | §5 |
+| Postulate R / alphabet choice derived from the action | **[O]** | §6 |
+| `μ′(0)=1` derived | **[O]** | §6 |
+| AeST/Skordis–Złośnik embedding forces `μ` (D2 Q3) | **[O]** | §6 |
+| Born–Infeld `γ−1` and Unruh–dS readings of `√(1+x²)−1` | **[X]** wrong normalization | §6.1 |
+| α ≈ 1/137.036 anywhere in the chain | **NEGATIVE — does not appear** | §6.2 |

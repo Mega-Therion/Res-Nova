@@ -4,6 +4,22 @@
 **Framework:** Res-Nova (v1.4.0)  
 **Standard:** Sovereign Epistemic Covenant (`[P]` Proved, `[D]` Direct Empirical, `[C]` Cited, `[O]` Open / Quarantined)
 
+> **Superseded in three places by `TARGET_D7_COVARIANT_COMPLETION.md` (rewritten 2026-09-12).**
+> D9's *action* (§1) was adopted as ground truth and D7 was rewritten to it — that part stands.
+> Three corrections now live in D7:
+> 1. **§1 vs §2 factor of 2.** With the prefactor $a_0^2/8\pi G$ written in §1, the variation
+>    gives $\mu=\mathcal{J}'$, not $2\mathcal{J}'$. The *shape* $x/(1+x)$ is unaffected; the
+>    factor fixes the tracking slope $\lambda_s$ and hence $G_N/\hat G$. See D7 §2.1. **[D]**
+> 2. **The scale inside $\mathcal{J}$ is not $a_0$.** Matching SZ's deep-MOND and tracking
+>    normalisations forces $\tilde a_0=(1+\lambda_s)a_0$. See D7 §2.2. **[D]**
+> 3. **§0.4's "EMBEDDED-VIABLE" is downgraded.** D7 §4.2 derives, from this same
+>    $\mu(x)=x/(1+x)$, a constant anomalous solar-system acceleration $\tilde a_0\ge a_0$
+>    (1.5 arcsec/cy at Mercury vs a $10^{-3}$ bound). The embedding into AeST is sound; the
+>    *free function being embedded* fails the solar system. **[X]** for "viable".
+>
+> §1 (the action), §3 (the integration), §4.2 (convexity), and the $c_T=c$ / $\Phi=\Psi$
+> arguments all stand and are strengthened in D7 §5–§7.
+
 ---
 
 ## 0. Executive Verdict & Epistemic Status
