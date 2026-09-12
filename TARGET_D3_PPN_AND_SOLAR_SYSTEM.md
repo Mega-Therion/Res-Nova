@@ -411,14 +411,29 @@ every F(𝒴,𝒬)*; regularity plus `Φ−Ψ→0` at infinity kills the residua
 
 $$\boxed{\;\Phi=\Psi\ \Rightarrow\ \gamma_{\rm PPN}=1\ \text{exactly, for any }\mathcal J\;}$$
 
-**Why the scalar reaches the metric at all, then — the asymmetry that is the whole answer [D].**
-The mixing term `2(2−K_B)J^μ∇_μφ` *does* have an O(ε) piece: `J^0·𝒬₀`, and `𝒬=g^{00}A_0∂_0φ`
-has the O(ε) piece `−𝒬₀Ψ`. Both are linear **only because the background `∂_0φ=𝒬₀≠0`
-(the Higgs/ghost-condensate phase) supplies a timelike vector to pair with**, and both carry
-`g^{00}`, never `g^{ij}`. There is no background `A^i` or `∂_iφ` for a spatial index to pair
-with, so the `ij` sector has no linear source. **γ=1 is forced by spatial isotropy of the
-AeST background (`A^i=0`, `∂_iφ̄=0`), not by any property of J.** Swapping F_dual→F_std
-changes nothing in this sector — the question posed in D7 §7 is answered: **F-independent.**
+**What is actually verified, and a correction to a first draft of this section [D].** The two
+statements the sympy block below establishes *without assumption* are:
+(i) `𝒴 = q^{μν}∇_μφ∇_νφ` is O(ε²) **identically** (there is no background `∂_iφ̄` and `A^i=0`);
+(ii) `𝒬 = g^{μν}A_μ∇_νφ` has an O(ε) piece, `−𝒬₀Ψ`, and that piece carries `g^{00}` and
+**never** `g^{ij}`.
+Those two alone give the boxed result: J enters only through `𝒴`, `𝒴` is quadratic, and the one
+linear scalar-sector perturbation lives in the `00` sector. **Retracted from a first draft of
+this section [X]:** the claim that φ reaches `g_{00}` linearly via `J^0𝒬₀` in the mixing term
+`2(2−K_B)J^μ∇_μφ`. Computing `J^0` rather than positing it:
+`J_0 = A^α∇_αA_0 = A^0(∂_0A_0 − Γ^j_{00}A_j) + A^i∇_iA_0`, and for static fields
+`Γ^j_{00}=∂_jΨ = O(ε)` against `A_j = ∂_jζ = O(ε)`, while `A^i = O(ε)` against
+`∇_iA_0 = O(ε)` — so **`J^0 = O(ε²)` and the mixing term has no linear piece at all.**
+The sympy block below inserts `J^0` as a generic O(ε) symbol and is therefore *permissive*;
+the true order is higher, which only strengthens the conclusion.
+
+**So the mechanism, stated correctly [D]:** the one linear-in-ε entry of the φ/A sector into
+the Einstein equations is `F_𝒬·δ𝒬 = −F_𝒬𝒬₀Ψ`, which is exactly the source of the `μ²Φ` mass
+term in §8.0's eq. (2) — an independent consistency check against Verwayen et al. It requires
+`𝒬₀≠0`, i.e. the Higgs/ghost-condensate phase, and it carries `g^{00}`. **There is no
+background spatial vector (`A^i=0`) or background spatial gradient (`∂_iφ̄=0`) for a spatial
+index to pair with, so the traceless `ij` sector has no linear source for any F.** γ=1 is a
+property of the AeST background's spatial isotropy, not of J. Swapping F_dual→F_std changes
+nothing here — the question posed in D7 §7 is answered: **F-independent.**
 
 Reproduce (order counting, sympy):
 ```
@@ -471,7 +486,7 @@ $$\varepsilon_{\mathcal J}\equiv\frac{2\mathcal Y\mathcal J''}{\mathcal J'}
 | Mercury | 3.546×10⁸ | **7.95×10⁻¹⁸** | 2.82×10⁻⁹ |
 | Saturn | 5.787×10⁵ | **2.99×10⁻¹²** | 1.73×10⁻⁶ |
 
-**Derived statement [D]:** *the free function's contribution to β−1 is suppressed by ε_J, i.e.
+**Statement, with the label split [D]/[C]:** `ε_J` itself is **[D]** (sympy, above). The *inference* that β's J-dependence is multiplicatively O(ε_J) is **[C]**: it rests on the premise that the exactly-linear case `J=λ_s𝒴` collapses to GR-with-rescaled-`G` at **2PN**, whereas that collapse is established here only for the **linear quasistatic** system. This is precisely the genus of error §7.4 committed, so it is labelled, not smuggled. Under that premise: *the free function's contribution to β−1 is suppressed by ε_J, i.e.
 `≲10⁻¹⁷` at Mercury for μ_std, against the MESSENGER bound `|β−1|<2.3×10⁻⁴`. β is not where
 the choice of μ can break this theory.* **Open [O]:** the remaining, J-independent part of
 β−1 is a function of `(λ_s,K_B)` alone, and it is **not computed** here or anywhere in the
@@ -569,15 +584,58 @@ the strongest, which inverts `TARGET_D1_SUPPLEMENT` §4's framing. At `λ_s→0`
 | **Saturn (Cassini)** | **9.583** | **6.458×10⁻⁵** | **9.643×10⁻¹⁷** | **6.727×10⁻²⁹** | **50.5** | **2.70** |
 | Uranus | 19.22 | 1.606×10⁻⁵ | 3.878×10⁻¹⁶ | 1.349×10⁻²⁸ | 25.2 | 1.93 |
 
+**The Q₂ mapping is the weak link, so the bound is cross-checked by a second observable [D].**
+`Q₂ᵉᑫ = δg/r` treats a *monopole* correction (`δg ∝ r²` is spherically symmetric, `∇²δΦ = −4kr ≠ 0`,
+i.e. an effective source density) as if it were the *anisotropic* quadrupole coefficient Hees
+et al. bound. That mapping is inherited from D7 §4.3, where it was applied to a constant force
+and where a 5.7×10⁵ kill survives a factor-few error. Here the margin is 50× and `λ_s^max` is
+its cube root, so the mapping carries the whole result — the same structural move as the
+corpus's twice-retracted "1137×". It therefore needs an independent route.
+
+**Route 2: anomalous perihelion precession.** For `δg = k r^n` added to `G_NM/r²`, near-circular
+apsidal precession per orbit is `Δϖ = π(n+2)\,δg(r)/g_N(r)`. **Formula self-check:** at `n=0`
+this is `2π ã₀r²/G_NM`, which is D7 §4.3's μ_dual formula verbatim, and evaluating it at
+Mercury returns **1.517 arcsec/century** against D7 §4.3's 1.52 — the formula is validated
+against the corpus's own prior calculation. For μ_std, `δg ∝ r²` so **n=2 and the coefficient
+is 4π, not 2π**:
+
+$$\Delta\varpi=\frac{4\pi\,\delta g}{g_N}=\frac{2\pi(1+\lambda_s)^{3}a_0^{2}r^{4}}{(G_NM)^{2}}
+\quad\Longrightarrow\quad \dot\varpi\ \propto\ r^{5/2}$$
+
+| field point | Δϖ̇ (arcsec/cy), λ_s→0 | ephemeris bound used | margin | **λ_s ≤** |
+|---|:-:|:-:|:-:|:-:|
+| Mercury | 4.28×10⁻⁹ | 3×10⁻⁵ | 7009 | 18.1 |
+| Earth | 4.59×10⁻⁸ | 1×10⁻⁴ | 2179 | 12.0 |
+| Mars | 1.32×10⁻⁷ | 5×10⁻⁶ | 38.0 | 2.36 |
+| **Saturn** | **1.31×10⁻⁵** | **1×10⁻⁴** | **7.61** | **0.97** |
+
+**The two routes agree on the structure and on the order [D]; they differ by ~2.8× in λ_s [C].**
+Saturn binds under both (`r^{5/2}` is even more outer-planet-weighted than `Q₂ᵉᑫ ∝ r`), Mercury
+is the *least* constraining point under both, and both land at `λ_s = O(1)`. **Honest labelling:
+the existence of an O(1) upper bound on λ_s is [D]; the specific number is [C]** — the Q₂ route
+because of the monopole/quadrupole mapping, the precession route because the supplementary-
+precession bounds above are order-of-magnitude ephemeris values without provenance in this repo.
+**Quote `λ_s ≲ 1–3`, binding at Saturn, and take `λ_s ≲ 1` if a single conservative number is
+needed.** Handing the ephemeris bounds to the falsifier for a provenance-compliant replacement.
+
+**Why any bound is defensible at all: the signal is not degenerate with the fitted parameters [D].**
+`δg ∝ r²` has a radial profile orthogonal to everything absorbed in an ephemeris fit — a
+mis-estimated `GM_⊙` is `r⁻²`, a solar `J₂` is `r⁻⁴`, a cosmological-constant term is `r¹`, and
+the MOND external-field quadrupole is `r¹` *and* anisotropic. An `r²` monopole cannot be
+reabsorbed into any of them, which is what makes the growth with `r` a genuine signal rather
+than a fitting artefact.
+
 **Two results [D]:**
 - μ_std's margin at the field point where the Cassini `Q₂` datum actually lives (Saturn, where
   Cassini was) is **50×, not 1300×.** The 1300× figure is Mercury-specific and is the most
   favourable point in the solar system. `TARGET_D1_SUPPLEMENT` §4.1 should be read with that
   correction; the verdict (μ_std survives, μ_dual does not) is unchanged and the contrast is
   still 4–5 orders of magnitude, since μ_dual's residual is `≥a₀` at *every* radius.
-- **First upper bound on λ_s in this corpus: `λ_s ≲ 2.7` (Saturn/Cassini).** D7 §2.2 recorded
-  `λ_s∈(0,∞)` unfixed by the MOND limit **[O]**; this closes the upper half. Equivalently
-  `G_N/Ĝ = 1+1/λ_s ≳ 1.37` and `ã₀ = (1+λ_s)a₀ ≲ 3.7a₀`. The lower half is still open.
+- **First upper bound on λ_s in this corpus: `λ_s = O(1)`, binding at Saturn** — `≲2.7` by the
+  `Q₂ᵉᑫ` route, `≲1.0` by the precession route. D7 §2.2 recorded `λ_s∈(0,∞)` unfixed by the MOND
+  limit **[O]**; this closes the upper half. At `λ_s≲1`: `G_N/Ĝ = 1+1/λ_s ≳ 2` and
+  `ã₀ = (1+λ_s)a₀ ≲ 2a₀`. Existence of the bound **[D]**, the number **[C]** (see above). The
+  lower half is still open.
 
 Reproduce:
 ```
@@ -603,10 +661,13 @@ EOF
 | Verwayen et al. arXiv:2304.05134 state Φ=Ψ for the general J; contains no `g_{0i}`, no PPN, no β | [C] | §8.0, PDF retrieved 2026-09-12 |
 | Every source of the traceless `Σ_ij` in AeST is O(ε²); the `ij` equation is homogeneous at linear order | **[D]** | §8.1 table + sympy |
 | ⇒ Φ=Ψ, γ_PPN=1 **exactly, for every F(𝒴,𝒬)** — F_dual and F_std alike | **[D]** | §8.1 |
-| The mechanism is spatial isotropy of the background (`A^i=0`, `∂_iφ̄=0`), not J; φ reaches `g_{00}` linearly only via `𝒬₀≠0` | **[D]** | §8.1 |
+| The mechanism is spatial isotropy of the background (`A^i=0`, `∂_iφ̄=0`), not J | **[D]** | §8.1 |
+| `J^0 = O(ε²)`: the mixing term `2(2−K_B)J^μ∇_μφ` has **no** linear piece — first-draft claim retracted | **[X]**→**[D]** | §8.1 |
+| The one linear φ/A entry is `F_𝒬δ𝒬 = −F_𝒬𝒬₀Ψ`, = the `μ²Φ` mass term of §8.0 eq. (2) | **[D]** | §8.1 |
 | Lensing: `Φ+Ψ=2Φ`, `α=4G_NM_dyn/bc²`, no slip — Cassini γ satisfied identically | **[D]** | §8.1 |
 | `ε_J=2𝒴J″/J′ = 1/(1+x²)` (μ_std) vs `1/(1+x)` (μ_dual) | **[D]** | §8.2, sympy |
-| Free-function contribution to β−1 is ≲10⁻¹⁷ at Mercury for μ_std | **[D]** | §8.2 |
+| `ε_J` computed | **[D]** | §8.2, sympy |
+| Inference that β's J-dependence is multiplicatively O(ε_J) ⇒ ≲10⁻¹⁷ at Mercury | **[C]** | §8.2 — premise: `J=λ_s𝒴` collapses to GR-with-rescaled-G at 2PN, shown only for the linear system |
 | The (λ_s,K_B) part of β−1 | **[O]** | §8.2 — genuine 2PN AeST calc, unattempted anywhere |
 | AeST vector locus `c₁=−c₃=K_B/2, c₂=c₄=0` ⇒ `c₁₃=c₁₂₃=0`; `s₁²=s₂²=1`, `s₀²=0` | **[D]** | §8.3 |
 | FJ substitution gives `α₁=−2K_B`, `α₂=∞` — **not a prediction**, the series is inapplicable | **[X]** | §8.3; Jacobson arXiv:0801.1547 §8 verbatim |
@@ -617,7 +678,12 @@ EOF
 | `δg=(1+λ_s)³a₀²/(2g_N)`, confirmed by exact 50-digit solve at five λ_s | **[D]** | §8.4 |
 | Residual **grows as r²**; Mercury is the weakest test, Saturn the binding one | **[D]** | §8.4 |
 | μ_std margin at Saturn = **50×**, not the 1300× quoted for Mercury in `TARGET_D1_SUPPLEMENT` §4.1 | **[D]** | §8.4 |
-| **`λ_s ≲ 2.7`** — first upper bound on λ_s in this corpus | **[D]** | §8.4 |
+| `Δϖ = π(n+2)δg/g_N`; at n=0 returns D7 §4.3's 1.52 arcsec/cy for μ_dual (formula self-check) | **[D]** | §8.4 |
+| μ_std precession Δϖ̇ ∝ r^{5/2}; Saturn 1.31×10⁻⁵ arcsec/cy | **[D]** | §8.4 |
+| `δg ∝ r²` is a **monopole**; `Q₂ᵉᑫ=δg/r` against an anisotropic-quadrupole bound is the weak link | **[D]** | §8.4 |
+| `r²` profile not degenerate with `GM_⊙`(r⁻²), `J₂`(r⁻⁴), Λ(r¹) or the MOND EFE quadrupole(r¹, anisotropic) | **[D]** | §8.4 |
+| **Existence of an O(1) upper bound on λ_s**, binding at Saturn — first in this corpus | **[D]** | §8.4 |
+| The number: `λ_s ≲ 2.7` (Q₂ route) / `≲1.0` (precession route); quote `λ_s ≲ 1–3` | **[C]** | §8.4 — mapping + bound provenance |
 
 ### 8.6 Verdict
 
@@ -636,8 +702,11 @@ the `c₁₂₃=0` Maxwell locus where Foster–Jacobson's PPN expansion is, in 
 citing FJ was never going to work; AeST fills that mode with the scalar, and the resulting
 `g_{0i}` expansion has never been written down by anyone. **The single tightest *evaluable*
 obstruction is therefore §8.4**: μ_std's residual force `(1+λ_s)³a₀²/2g_N` grows as `r²`, so
-the binding test is Saturn rather than Mercury, the margin there is **50×** rather than the
-1300× the corpus currently quotes, and requiring it gives the first real constraint on the
-tracking slope, **`λ_s ≲ 2.7`**. Handing off: the exact numerics above to the falsifier; the
+the binding test is Saturn rather than Mercury, the margin there is **50×** (`Q₂ᵉᑫ` route) or **7.6×**
+(perihelion-precession route) rather than the 1300× the corpus currently quotes, and requiring
+it gives the first real constraint on the tracking slope, **`λ_s = O(1)`** — `≲2.7` and `≲1.0`
+by the two routes. The *existence* of that bound is **[D]**; the number is **[C]**, limited by
+the monopole-vs-quadrupole mapping in the first route and by ephemeris-bound provenance in the
+second. Handing off: the exact numerics above to the falsifier; the
 Lean statement `Φ=Ψ ⇐ A^i=0 ∧ ∂_iφ̄=0`, whose substitutability test is whether it still closes
 when the background is given a spatial aether component, to the formalizer.
