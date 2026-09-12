@@ -39,10 +39,23 @@ D1s: F/x² → 0   (C3 ✗),  F/x³ → ∞   (C4 ✗),  J(𝒴) ~ λ_s·𝒴   
 ```
 
 `√(1+x²)−1` fails D2's own C3 and C4 and gives a **linear** `J(𝒴)`, i.e. no deep-MOND limit.
-`TARGET_D1_SUPPLEMENT` §1, §3 (Legendre dual) and §5 (ghost-free `J′`, `J′+2𝒴J″`) are
-computed on the wrong-normalization object and need re-running. **§4 (the exact Mercury
-solve) is unaffected** — it uses `μ_std(g_φ/a₀)·g_φ = ĝ` directly, which does not reference
-`F`'s normalization. **`[O]` — flagged, not fixed here (scope).**
+`TARGET_D1_SUPPLEMENT` §1, §3 (Legendre dual) and §5 (ghost-free conditions) are computed on
+the wrong-normalization object. **§4 (the exact Mercury solve) is unaffected** — it uses
+`μ_std(g_φ/a₀)·g_φ = ĝ` directly, which does not reference `F`'s normalization.
+
+**§5's conclusion survives and improves — error in derivation, not in verdict `[D]`.**
+Redone correctly with `J(𝒴)=2λ_s a₀²F(√𝒴/a₀)`, `u=√𝒴/a₀`, `F′=uμ` (sympy, §7):
+
+```
+F''(x)      = x(2+x²)/(1+x²)^{3/2}                  > 0  ∀x>0   (convex, ghost-free)
+J'(𝒴)       = λ_s √𝒴/√(𝒴+a₀²) = λ_s μ(u)            > 0,  → λ_s as 𝒴→∞  (correct Newtonian limit)
+J'+2𝒴J''    = λ_s √𝒴(𝒴+2a₀²)/(𝒴+a₀²)^{3/2}          > 0  ∀𝒴>0
+```
+
+Both `TARGET_D7` §5 conditions hold, and `J′→λ_s` is the *right* Newtonian limit where the
+D1-supplement's normalization wrongly gave `J′→0`. **§3's Legendre dual is dead, not
+rescaled:** `p = F′ = x²/√(1+x²) → ∞`, so the conjugate momentum is unbounded and the `(0,1)`
+inversion and `H=(1−p²)^{−1/2}−1` do not survive in any form. `[X]`
 
 Everything below uses D2's convention `F′(x) = x·μ(x)`.
 
@@ -139,41 +152,77 @@ warning applies here with equal force. **§3 and §4 are one result, not two.**
 
 ---
 
-## 5. Why the `±1` alphabet, and not `{0,1}` `[C]`
+## 5. Why the chiral coordinate, and not the presence coordinate `[C]`
 
-This is the one substantive physical input, and it is the honest crux.
+This is the one substantive physical input, and it is the honest crux. It must be stated
+carefully, because the obvious framing ("a different alphabet") is **wrong**.
 
-D2 §6 read `μ` as a *probability* — "degree of Newtonian dominance", `p ∈ (0,1)` — so the
-`{0,1}` alphabet and the odds rectification followed. But this corpus's own substrate is
-**chiral, not binary-presence**: the `V₂(ℝ³)` / Cartan-triality substrate, the SU(2)→SO(3)
-double cover, and D2 §8's own "**dual-channel**" decomposition all describe a two-signed
-degree of freedom, whose sufficient statistic is a **magnetization in `(−1,+1)`**, not an
-occupation probability in `(0,1)`. For a `±1` variable the mean is not a probability and the
-odds map is not its canonical rectification — `artanh` is.
+**`{0,1}` and `{−1,+1}` are the same two-state exponential family `[D]`**, related by
+`m = 2p−1`. Fisher information is not a scalar under reparametrization:
 
-> **The claim, stated exactly:** *given* that the interpolation variable is the mean of a
-> `±1` chiral channel rather than of a `{0,1}` presence channel, μ_std is forced, by the same
-> Fisher/rectification argument that forces μ_dual in the binary case. `[D]` for the
-> implication; `[C]` for the identification of the channel as `±1`.
+$$\mathcal I_\pm(m)=\mathcal I(p)\left(\tfrac{dp}{dm}\right)^2=\frac{1}{p(1-p)}\cdot\tfrac14=\frac{1}{1-m^2},
+\qquad \operatorname{logit}p = 2\operatorname{artanh}m .$$
 
-Supporting, not proving: the "dual channel" name in D2 §8 already asserts two channels; a
-two-channel (`±`) alphabet is the literal reading of it. D2's own `{0,1}` reading is the one
-that is anomalous relative to the rest of the corpus.
+So `ℐ_±` is **not a new channel's** Fisher information — it is D2's, written in a different
+coordinate on the same manifold. The canonical parameters agree up to a factor 2.
+
+**The objection this exposes, stated against ourselves `[O]`:** if the coordinate is free,
+`F′²·ℐ_u(μ)=x^k` has *no invariant content*. Choose `ℐ_u(μ) := x(μ)^{k−2}/μ²` and solve
+`(dp/du)² = ℐ_u/ℐ(p)` for the reparametrization, and any target `μ` can be manufactured.
+**The identity selects nothing until the coordinate is independently fixed.** This objection
+applies with equal force to `TARGET_D2` §7 and to §4 above; it is the sharpest form of D2's
+own Q1′ and it was not visible in the Padé framing.
+
+**What fixes the coordinate — the physical claim `[C]`:** the two coordinates differ in what
+the deep-MOND limit `μ→0` *means*.
+
+| coordinate | `μ→0` reads as | rectification | selected μ |
+|---|---|---|---|
+| presence `p ∈ (0,1)` | the channel is **absent** | odds `p/(1−p)` | `x/(1+x)` |
+| chirality `m ∈ (−1,1)` | the channel is **unpolarized** (equal ±) | rapidity `artanh m` | `x/√(1+x²)` |
+
+A `±1` chiral degree of freedom **cannot be absent — only unpolarized.** If the internal
+channel is chiral (SU(2)→SO(3) double cover; the `V₂(ℝ³)`/Cartan-triality substrate), then
+`m`, not `p`, is the physically meaningful coordinate, its `x→0` limit is the unpolarized
+state, and `μ_std` follows. This is a statement about the `x→0` boundary condition, not an
+aesthetic choice of parametrization — which is exactly why it can carry weight the Fisher
+identity alone cannot.
+
+> **The claim, stated exactly:** *given* that the interpolation variable is the polarization
+> of a chiral `±1` channel (so that `μ→0` is *unpolarized*, not *absent*), μ_std is forced by
+> the same Fisher/rectification argument that forces μ_dual under the presence reading.
+> `[D]` for the implication; `[C]` for the identification of the channel as chiral.
+
+**Not evidence — explicitly withdrawn:** `TARGET_D2` §8's "**dual-channel**" decomposition is
+*not* support for this. There, "dual channel" means `F = F_Newton − F_correction`, two
+**additive terms in the action**, not a ±1 polarization. Worse, `F_std` has no clean two-term
+split at all (§6.1, `TARGET_D1_SUPPLEMENT` §3) — so D2 §8 is a constraint `F_std` *fails*,
+not a corroboration. Equivocating on the word "dual" would be the error CLAUDE.md's D41
+precedent exists to prevent.
 
 ---
 
 ## 6. What is NOT derived `[O]` — read before citing
 
-1. **Postulate R / the `±1` alphabet is an input.** This is a postulate swap of the same kind
+0. **D2 constraint 4 is DROPPED, not satisfied.** Theorem 9.1 had four constraints. This
+   document's theorem uses constraint 1 (constitutive), **replaces** constraint 2 (Padé
+   minimality) with Postulate R, keeps constraint 3's `μ′(0)=1`, and **abandons constraint 4**
+   (the additive `F = F_Newton − F_correction` split) as unsatisfiable for `F_std` — consistent
+   with `TARGET_D1_SUPPLEMENT` §3's `[O]`. "Same shape as Theorem 9.1" would overclaim.
+   Accurate statement: **replaces constraint 2, drops constraint 4.** `[O]`
+1. **The Fisher identity alone has no invariant content** — §5's reparametrization objection.
+   The coordinate must be fixed physically first; the identity then records the consequence.
+   This applies retroactively to `TARGET_D2` §7. `[O]`
+2. **Postulate R / the chiral coordinate is an input.** This is a postulate swap of the same kind
    D2 §9.2 performed (Padé minimality → `odds(μ)=x`). It is *smaller and better-motivated*
    than "μ is a Padé[1/1] function" — it is a statement about the channel's alphabet, which
    the substrate arguably fixes — but it is not derived from the action. `[O]`
-2. **`μ′(0)=1` remains an input**, exactly as in D2 Theorem 9.3. No gain in parsimony is
+3. **`μ′(0)=1` remains an input**, exactly as in D2 Theorem 9.3. No gain in parsimony is
    claimed. `[O]`
-3. **No covariant argument yet.** D2's Q3 (does the Skordis–Złośnik/AeST embedding *force*
+4. **No covariant argument yet.** D2's Q3 (does the Skordis–Złośnik/AeST embedding *force*
    `μ`?) is untouched. That remains the only route that would make this physical rather than
    chosen. `[O]`
-4. **`sinh ψ = 1 → μ = 1/√2 = θ`.** True algebraically (CLM-10). **Do not build on it.** The
+5. **`sinh ψ = 1 → μ = 1/√2 = θ`.** True algebraically (CLM-10). **Do not build on it.** The
    `u ≥ γ ⟺ χ ≥ θ` anti-drift gate is **retracted (2026-09-03)**; `Res-Nova/CLAUDE.md` and
    §VI record that θ is a **ceiling, not a gate**, and it names `μ(x)=x/√(1+x²)` in that same
    retraction. Noting the coincidence; asserting nothing from it. `[O]`
@@ -231,6 +280,14 @@ print(sp.solve(sp.Eq(x**2*M**2/(1-M**2), x**4), M))                    # [x/sqrt
 for k in (3,4,5,6):
     s = sp.solve(sp.Eq(x**2*M**2/(1-M**2), x**k), M)[0]
     print(k, s, sp.limit(sp.diff(s,x), x, 0))                          # mu'(0): oo,1,0,0
+
+# corrected ghost-free / AeST conditions (§1)
+Y, a0, lam = sp.symbols('Y a0 lambda_s', positive=True)
+J = 2*lam*a0**2*F.subs(x, sp.sqrt(Y)/a0)
+print(sp.simplify(sp.diff(F,x,2)))                    # x(x**2+2)/(x**2+1)**(3/2) > 0
+print(sp.simplify(sp.diff(J,Y)), sp.limit(sp.diff(J,Y),Y,sp.oo))          # lam*sqrt(Y)/sqrt(Y+a0**2) ; lam
+print(sp.simplify(sp.diff(J,Y) + 2*Y*sp.diff(J,Y,2)))                     # > 0
+print(sp.limit(sp.diff(F,x), x, sp.oo))               # oo  -> Legendre dual of D1-supp §3 is dead
 ```
 
 Run: `python3` on the block above (sympy only). All outputs above are measured, not asserted.
@@ -241,14 +298,20 @@ Run: `python3` on the block above (sympy only). All outputs above are measured, 
 
 | result | status | §|
 |---|---|---|
-| `TARGET_D1_SUPPLEMENT` §1/§3/§5 use `F′=μ`, failing C3/C4 and the deep-MOND `J(𝒴)` | **[X]** normalization error, needs re-run | §1 |
+| `TARGET_D1_SUPPLEMENT` §1/§3/§5 use `F′=μ`, failing C3/C4 and the deep-MOND `J(𝒴)` | **[X]** normalization error | §1 |
+| Ghost-free conditions redone correctly: `F″>0`, `J′>0` with `J′→λ_s`, `J′+2𝒴J″>0` | **[D]** error in derivation, conclusion survives and improves | §1 |
+| `TARGET_D1_SUPPLEMENT` §3 Legendre dual (`p` bounded, `H=(1−p²)^{−1/2}−1`) | **[X]** dead — `p=F′→∞` | §1 |
 | `μ_std = tanh ∘ arsinh`; `x` = celerity, `μ` = velocity of one internal boost | **[D]** | §2 |
 | Rapidity conjugacy `dF/dψ=x²` + `F′=xμ` + `μ′(0)=1` ⟹ `μ_std` uniquely | **[D]** | §3 |
 | Recovered `F_std=½[x√(1+x²)−arsinh x]`, matching `TARGET_D2` §3 exactly | **[D]** | §3 |
 | Chiral Fisher identity `F′²·ℐ_±(μ)=x⁴ ⟺ μ_std`, no rational ansatz | **[D]** | §4 |
 | Family `x^k` generated; `μ′(0)=1` selects `k=4` (analogue of D2 Thm 9.3) | **[D]** | §4 |
 | §3 and §4 are one postulate, not two independent corroborations | **[D]** | §4 |
-| The `±1` chiral alphabet (vs D2's `{0,1}`) is the entire difference μ_dual↔μ_std | **[C]** | §5 |
+| `{0,1}` and `{−1,+1}` are the same exponential family; `ℐ_±` is D2's `ℐ` reparametrized | **[D]** | §5 |
+| The Fisher identity has **no invariant content** until the coordinate is fixed (hits D2 §7 too) | **[O]** objection stated against ourselves | §5 |
+| Coordinate fixed physically: chiral `μ→0` is *unpolarized*, not *absent* ⟹ rapidity ⟹ μ_std | **[C]** | §5 |
+| D2 §8 "dual-channel" cited as support for a ±1 channel | **[X]** equivocation, withdrawn | §5 |
+| D2 constraint 4 (additive Newton−correction split) | **[X]** dropped, unsatisfiable for `F_std` | §6 |
 | Postulate R / alphabet choice derived from the action | **[O]** | §6 |
 | `μ′(0)=1` derived | **[O]** | §6 |
 | AeST/Skordis–Złośnik embedding forces `μ` (D2 Q3) | **[O]** | §6 |
