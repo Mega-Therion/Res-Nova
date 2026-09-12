@@ -60,6 +60,7 @@ TARGETS=(
   HorizonScale.lean
   ITActionClosure.lean
   MuProjection.lean
+  MuStdUniqueness.lean
   PPNLimits.lean
   PillarIV_AntiDriftGate.lean
   PrintAxioms.lean

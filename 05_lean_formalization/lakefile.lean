@@ -76,6 +76,11 @@ lean_lib «ResNovaFormal» where
     `HorizonScale,
     `ITActionClosure,
     `MuProjection,
+    -- ADDED 2026-09-12. Formalizes TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md
+    -- Theorems A/B/C + the corrected ghost-free convexity. Read the file header:
+    -- Postulate R, the chiral coordinate and mu'(0)=1 are INPUTS, and A and B are
+    -- one postulate in two dresses, not two independent corroborations.
+    `MuStdUniqueness,
     `PPNLimits,
     `PillarIV_AntiDriftGate,
     `PrintAxioms,

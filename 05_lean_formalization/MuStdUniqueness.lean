@@ -1,5 +1,6 @@
 import Mathlib.Analysis.SpecialFunctions.Arsinh
 import Mathlib.Analysis.SpecialFunctions.Sqrt
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.DerivHyp
 import Mathlib.Analysis.Calculus.MeanValue
 import Mathlib.Analysis.Convex.Deriv
 import Mathlib.Tactic
@@ -56,6 +57,17 @@ against x/√(1+x²) in favour of x/(1+x).
 * `theorem_C_exponent_family`   — F′² ℐ_± = x^{2n+2} ⟺ μ = xⁿ/√(1+x^{2n})      `[thm]`
 * `theorem_C_selects_n_one`     — μ′(0) = 1 iff n = 1 (i.e. k = 4)             `[thm]`
 * `F_std_deriv2_pos` / `F_std_strictConvexOn` — ghost-free convexity           `[thm]`
+
+## Formalization gap, stated explicitly
+
+Source §4's Theorem C table runs `k = 3,4,5,6`. This file formalizes only the **even**
+branch `k = 2n+2`, `n : ℕ` — i.e. `k = 4` and `k = 6` from the table, plus every
+higher even `k`. The odd entries `k = 3, 5` need half-integer powers `x^{1/2}`,
+`x^{3/2}`, whose `μ′(0)` claims (`∞` and `0`) are limit statements at a point where
+the function is not differentiable; they are **not** proved here. The gap is a
+scope choice of this file, not a defect in the prose: the doc's selection argument
+`only μ′(0)=1 survives` is therefore machine-checked against the even competitors
+and left open against `k = 3, 5`.
 -/
 
 namespace ResNova.MuStdUniqueness
@@ -114,6 +126,10 @@ lemma hasDerivAt_sqrt_one_add_sq (x : ℝ) :
     rw [mul_div_mul_left _ _ (two_ne_zero)]
   rwa [this] at h
 
+/-- `x·μ_std(x) = x²/√(1+x²) = F_std′(x)`. -/
+lemma x_mul_mu_std (x : ℝ) : x * mu_std x = F_std_deriv x := by
+  simp [mu_std, F_std_deriv, mul_div_assoc, sq]
+
 /-- **Theorem A, constitutive half `[thm]`.** `F_std` obeys the AQUAL constitutive
 relation `F′(x) = x·μ_std(x)` (D2 constraint 1). -/
 theorem theorem_A_constitutive (x : ℝ) :
@@ -129,16 +145,18 @@ theorem theorem_A_constitutive (x : ℝ) :
         - (Real.sqrt (1 + x ^ 2))⁻¹) = x * mu_std x := by
     have hne := sqrt_one_add_sq_ne x
     have hsq := sq_sqrt_one_add_sq x
-    field_simp [mu_std]
-    nlinarith [hsq, sqrt_one_add_sq_pos x]
-  simpa [F_std, hval] using hF
+    simp only [mu_std]
+    field_simp
+    linarith [hsq]
+  have hF' : HasDerivAt F_std
+      ((1 / 2 : ℝ) * (1 * Real.sqrt (1 + x ^ 2) + x * (x / Real.sqrt (1 + x ^ 2))
+        - (Real.sqrt (1 + x ^ 2))⁻¹)) x := hF
+  rwa [hval] at hF'
 
 /-- `F_std′` as a closed form. -/
 theorem F_std_hasDerivAt (x : ℝ) : HasDerivAt F_std (F_std_deriv x) x := by
   have h := theorem_A_constitutive x
-  have : x * mu_std x = F_std_deriv x := by
-    simp [mu_std, F_std_deriv, mul_div_assoc, sq, mul_comm]
-  rwa [this] at h
+  rwa [x_mul_mu_std] at h
 
 lemma deriv_F_std : deriv F_std = F_std_deriv := funext fun x => (F_std_hasDerivAt x).deriv
 
@@ -180,15 +198,12 @@ theorem theorem_A_postulate_R_ode
   have hXne : X ψ ≠ 0 := (hXpos ψ hψ).ne'
   have hcosh : Real.cosh ψ ≠ 0 := (Real.cosh_pos ψ).ne'
   have htanh : Real.tanh ψ * X' ψ = X ψ := by
-    have := heq
-    field_simp [sq] at this ⊢
-    rcases this with h | h
-    · exact h
-    · exact absurd h hXne
-  have := congrArg (fun z => z * Real.cosh ψ) htanh
-  simp only [Real.tanh_eq_sinh_div_cosh] at this
-  field_simp at this
-  linarith [this]
+    apply mul_left_cancel₀ hXne
+    rw [← mul_assoc, heq]
+    ring
+  rw [Real.tanh_eq_sinh_div_cosh] at htanh
+  field_simp at htanh
+  linear_combination htanh
 
 /-- **Theorem A, step 2 `[thm]`.** The celerity ODE `X′ sinh = X cosh` on `(0,∞)`
 integrates to `X(ψ) = C sinh ψ`: the ratio `X/sinh` is constant. -/
@@ -198,25 +213,25 @@ theorem theorem_A_celerity_forced
     (hode : ∀ ψ ∈ Ioi (0 : ℝ), X' ψ * Real.sinh ψ = X ψ * Real.cosh ψ)
     {ψ₀ ψ : ℝ} (h0 : ψ₀ ∈ Ioi (0 : ℝ)) (h1 : ψ ∈ Ioi (0 : ℝ)) :
     X ψ * Real.sinh ψ₀ = X ψ₀ * Real.sinh ψ := by
-  set g : ℝ → ℝ := fun t => X t / Real.sinh t with hg
   have hsinh_ne : ∀ t ∈ Ioi (0 : ℝ), Real.sinh t ≠ 0 := by
     intro t ht; exact (Real.sinh_pos_iff.mpr ht).ne'
-  have hgderiv : ∀ t ∈ Ioi (0 : ℝ), HasDerivAt g 0 t := by
+  have hgderiv : ∀ t ∈ Ioi (0 : ℝ),
+      HasDerivAt (fun t : ℝ => X t / Real.sinh t) 0 t := by
     intro t ht
     have h := (hX t ht).div (Real.hasDerivAt_sinh t) (hsinh_ne t ht)
     have : (X' t * Real.sinh t - X t * Real.cosh t) / Real.sinh t ^ 2 = 0 := by
       rw [hode t ht]; simp
     rwa [this] at h
-  have hdiff : DifferentiableOn ℝ g (Ioi (0 : ℝ)) := fun t ht =>
+  have hdiff : DifferentiableOn ℝ (fun t : ℝ => X t / Real.sinh t) (Ioi (0 : ℝ)) := fun t ht =>
     ((hgderiv t ht).differentiableAt).differentiableWithinAt
-  have hzero : EqOn (deriv g) 0 (Ioi (0 : ℝ)) := by
+  have hzero : EqOn (deriv fun t : ℝ => X t / Real.sinh t) 0 (Ioi (0 : ℝ)) := by
     intro t ht; simpa using (hgderiv t ht).deriv
-  have hconst := isOpen_Ioi.is_const_of_deriv_eq_zero
-    (isPreconnected_Ioi) hdiff hzero h1 h0
+  have hconst : X ψ / Real.sinh ψ = X ψ₀ / Real.sinh ψ₀ :=
+    isOpen_Ioi.is_const_of_deriv_eq_zero (isPreconnected_Ioi) hdiff hzero h1 h0
   have h1' := hsinh_ne ψ h1
   have h0' := hsinh_ne ψ₀ h0
-  field_simp [hg] at hconst
-  linarith [hconst]
+  field_simp at hconst
+  linear_combination hconst
 
 /-- `μ_C′(0) = 1/C`: the integration constant of Theorem A is exactly the reciprocal
 of the slope at the origin, so `μ′(0)=1 ⟺ C = 1 ⟺ μ = μ_std`. Analogue of
@@ -230,11 +245,13 @@ theorem mu_fam_hasDerivAt_zero (C : ℝ) (hC : 0 < C) :
   have hnum : HasDerivAt (fun y : ℝ => y) 1 (0 : ℝ) := hasDerivAt_id 0
   have h := hnum.div hroot (Real.sqrt_ne_zero'.mpr hpos)
   have hsq : Real.sqrt (C ^ 2 + (0 : ℝ) ^ 2) = C := by
-    simp [Real.sqrt_sq hC.le]
+    norm_num [Real.sqrt_sq hC.le]
   rw [hsq] at h
-  have : (1 * C - 0 * (2 * (0 : ℝ) / (2 * C))) / C ^ 2 = 1 / C := by
+  have hval : (1 * C - 0 * (2 * (0 : ℝ) / (2 * C))) / C ^ 2 = 1 / C := by
     field_simp
-  simpa [mu_fam, this] using h
+    ring
+  rw [hval] at h
+  exact h
 
 /-- `μ′(0) = 1` selects `C = 1` in the celerity family. -/
 theorem mu_fam_normalization (C : ℝ) (hC : 0 < C)
@@ -264,10 +281,7 @@ theorem theorem_A_uniqueness
   have hs0 : Real.sinh ψ₀ ≠ 0 := (Real.sinh_pos_iff.mpr h0).ne'
   have hXeq : X ψ = Real.sinh ψ := by
     rw [hnorm] at hkey
-    field_simp at hkey
-    rcases mul_eq_mul_right_iff.mp hkey with h | h
-    · exact h
-    · exact absurd h hs0
+    exact mul_right_cancel₀ hs0 (by linarith [hkey])
   exact ⟨hXeq, by rw [hXeq, mu_std_sinh]⟩
 
 /-! ## 2. Theorem B — the chiral Fisher identity -/
@@ -277,12 +291,16 @@ theorem theorem_B_fisher_identity (x : ℝ) :
     F_std_deriv x ^ 2 * fisherChiral (mu_std x) = x ^ 4 := by
   have hne := sqrt_one_add_sq_ne x
   have hsq := sq_sqrt_one_add_sq x
-  have hmu : 1 - mu_std x ^ 2 = 1 / (1 + x ^ 2) := by
-    rw [mu_std, div_pow, hsq]
-    field_simp
-  rw [F_std_deriv, fisherChiral, hmu, div_pow, hsq]
+  have hp : (0 : ℝ) < 1 + x ^ 2 := one_add_sq_pos x
+  have hmu2 : mu_std x ^ 2 = x ^ 2 / (1 + x ^ 2) := by rw [mu_std, div_pow, hsq]
+  have hfis : fisherChiral (mu_std x) = 1 + x ^ 2 := by
+    rw [fisherChiral, hmu2,
+      show (1 : ℝ) - x ^ 2 / (1 + x ^ 2) = 1 / (1 + x ^ 2) by field_simp; ring,
+      one_div_one_div]
+  have hFd : F_std_deriv x ^ 2 = (x ^ 2) ^ 2 / (1 + x ^ 2) := by
+    rw [F_std_deriv, div_pow, hsq]
+  rw [hFd, hfis]
   field_simp
-  ring
 
 /-- **Theorem B, uniqueness `[thm]`.** On the physical branch `0 < m < 1` (the sign
 branch discussed in source §4), the chiral Fisher identity
@@ -295,24 +313,24 @@ theorem theorem_B_uniqueness {x m : ℝ} (hx : 0 < x) (hm : 0 < m) (hm1 : m < 1)
   constructor
   · intro h
     rw [fisherChiral] at h
-    have h' : x ^ 2 * m ^ 2 = x ^ 4 * (1 - m ^ 2) := by
-      field_simp at h; nlinarith [h]
-    have hm2 : m ^ 2 * (1 + x ^ 2) = x ^ 2 := by nlinarith [sq_nonneg x, hx]
-    -- m = x / √(1+x²)
-    have : (m * Real.sqrt (1 + x ^ 2)) ^ 2 = x ^ 2 := by
+    have h' : m ^ 2 = x ^ 2 * (1 - m ^ 2) := by
+      field_simp at h; linarith [h]
+    have hm2 : m ^ 2 * (1 + x ^ 2) = x ^ 2 := by linear_combination h'
+    have hsq2 : (m * Real.sqrt (1 + x ^ 2)) ^ 2 = x ^ 2 := by
       rw [mul_pow, hsq]; linarith [hm2]
-    have hpos : 0 < m * Real.sqrt (1 + x ^ 2) := by positivity
-    have : m * Real.sqrt (1 + x ^ 2) = x := by nlinarith [this, hpos, hx]
-    rw [mu_std]
-    field_simp
-    linarith [this]
+    have hfac2 : (m * Real.sqrt (1 + x ^ 2) - x) * (m * Real.sqrt (1 + x ^ 2) + x) = 0 := by
+      linear_combination hsq2
+    have hgt : 0 < m * Real.sqrt (1 + x ^ 2) + x := by positivity
+    have heq : m * Real.sqrt (1 + x ^ 2) = x := by
+      rcases mul_eq_zero.mp hfac2 with hz | hz
+      · linarith
+      · linarith
+    rw [mu_std, eq_div_iff (sqrt_one_add_sq_ne x)]
+    exact heq
   · intro h
     subst h
-    have := theorem_B_fisher_identity x
-    rw [← this, F_std_deriv, mu_std]
-    congr 1
-    field_simp
-    ring
+    rw [x_mul_mu_std]
+    exact theorem_B_fisher_identity x
 
 /-! ## 3. Theorem C — exponent selection -/
 
@@ -329,33 +347,47 @@ theorem theorem_C_exponent_family (n : ℕ) {x m : ℝ} (hx : 0 < x) (hm : 0 < m
   have hsrpos : 0 < Real.sqrt (1 + x ^ (2 * n)) := Real.sqrt_pos.mpr hp
   have hxn : x ^ (2 * n) = (x ^ n) ^ 2 := by rw [← pow_mul, mul_comm]
   have hxk : x ^ (2 * n + 2) = (x ^ n) ^ 2 * x ^ 2 := by
-    rw [pow_add, hxn]; ring
+    rw [pow_add, hxn]
   constructor
   · intro h
     rw [fisherChiral] at h
     have h' : x ^ 2 * m ^ 2 = x ^ (2 * n + 2) * (1 - m ^ 2) := by
-      field_simp at h; nlinarith [h]
+      field_simp at h; linarith [h]
     rw [hxk] at h'
     have hx2 : (0 : ℝ) < x ^ 2 := by positivity
+    have hxnpos : (0 : ℝ) < x ^ n := by positivity
     have hm2 : m ^ 2 * (1 + (x ^ n) ^ 2) = (x ^ n) ^ 2 := by
-      have := h'
-      nlinarith [this, hx2]
+      have hfac : x ^ 2 * (m ^ 2 * (1 + (x ^ n) ^ 2) - (x ^ n) ^ 2) = 0 := by
+        linear_combination h'
+      rcases mul_eq_zero.mp hfac with hz | hz
+      · exact absurd hz hx2.ne'
+      · linarith
     have hsq2 : (m * Real.sqrt (1 + x ^ (2 * n))) ^ 2 = (x ^ n) ^ 2 := by
       rw [mul_pow, hsr, hxn]; linarith [hm2]
-    have hpos : 0 < m * Real.sqrt (1 + x ^ (2 * n)) := by positivity
-    have hxnpos : (0 : ℝ) < x ^ n := by positivity
-    have heq : m * Real.sqrt (1 + x ^ (2 * n)) = x ^ n := by nlinarith [hsq2, hpos, hxnpos]
-    rw [mu_exp]
-    field_simp
-    linarith [heq]
+    have hfac2 : (m * Real.sqrt (1 + x ^ (2 * n)) - x ^ n)
+        * (m * Real.sqrt (1 + x ^ (2 * n)) + x ^ n) = 0 := by
+      linear_combination hsq2
+    have hgt : 0 < m * Real.sqrt (1 + x ^ (2 * n)) + x ^ n := by positivity
+    have heq : m * Real.sqrt (1 + x ^ (2 * n)) = x ^ n := by
+      rcases mul_eq_zero.mp hfac2 with hz | hz
+      · linarith
+      · linarith
+    rw [mu_exp, eq_div_iff hsrpos.ne']
+    exact heq
   · intro h
     subst h
-    rw [mu_exp, fisherChiral, div_pow, hsr, ← hxn]
-    have h1 : 1 - x ^ (2 * n) / (1 + x ^ (2 * n)) = 1 / (1 + x ^ (2 * n)) := by
-      field_simp
-    rw [h1, hxk, ← hxn]
-    field_simp
-    ring
+    have hmu2 : mu_exp n x ^ 2 = (x ^ n) ^ 2 / (1 + x ^ (2 * n)) := by
+      rw [mu_exp, div_pow, hsr]
+    have hfis : fisherChiral (mu_exp n x) = 1 + x ^ (2 * n) := by
+      rw [fisherChiral, hmu2, ← hxn,
+        show (1 : ℝ) - x ^ (2 * n) / (1 + x ^ (2 * n)) = 1 / (1 + x ^ (2 * n)) by
+          field_simp; ring,
+        one_div_one_div]
+    calc (x * mu_exp n x) ^ 2 * fisherChiral (mu_exp n x)
+        = x ^ 2 * (mu_exp n x) ^ 2 * fisherChiral (mu_exp n x) := by ring
+      _ = x ^ 2 * ((x ^ n) ^ 2 / (1 + x ^ (2 * n))) * (1 + x ^ (2 * n)) := by rw [hmu2, hfis]
+      _ = x ^ 2 * (x ^ n) ^ 2 := by field_simp
+      _ = x ^ (2 * n + 2) := by rw [hxk]; ring
 
 /-- `μ_n′(0) = 1` for `n = 1` (`k = 4`). -/
 theorem theorem_C_selects_n_one : HasDerivAt (mu_exp 1) 1 0 := by
@@ -409,7 +441,8 @@ theorem F_std_hasDerivAt_deriv (x : ℝ) :
       / Real.sqrt (1 + x ^ 2) ^ 2 = F_std_deriv2 x := by
     rw [F_std_deriv2]
     field_simp
-    nlinarith [hsq, sqrt_one_add_sq_pos x]
+    rw [hsq]
+    ring
   rwa [hval] at h
 
 lemma deriv_F_std_deriv : deriv F_std_deriv = F_std_deriv2 :=
@@ -430,7 +463,7 @@ theorem F_std_strictConvexOn : StrictConvexOn ℝ (Ici (0 : ℝ)) F_std := by
   · intro x hx
     rw [interior_Ici] at hx
     have : (deriv^[2] F_std) x = F_std_deriv2 x := by
-      simp [Function.iterate_succ, Function.iterate_zero, deriv_F_std, deriv_F_std_deriv]
+      simp [Function.iterate_succ, deriv_F_std, deriv_F_std_deriv]
     rw [this]
     exact F_std_deriv2_pos hx
 
