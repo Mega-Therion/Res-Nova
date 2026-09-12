@@ -44,12 +44,27 @@ $$\mathcal{F} - \frac{\mathcal{K}}{2} \mathcal{F}' = \frac{1}{2}\mathcal{K} - \s
 
 This is **bounded below** for all $\mathcal{K} > 0$ (verified numerically), confirming the absence of Ostrogradsky ghosts.
 
-## 3. Strong Coupling [P]
+## 3. Strong Coupling [X] — corrected 2026-09-12
 
-The strong coupling scale (where perturbation theory breaks down) is:
-$$\Lambda_{\text{SC}} \sim \left(\frac{a_0^2}{G}\right)^{1/4} \sim \left(\frac{(1.2 \times 10^{-10})^2}{6.67 \times 10^{-11}}\right)^{1/4} \sim 10^{-10}\;\text{eV}$$
+**Retracted.** $a_0^2/G$ has units of energy *density* (J/m³, since $[a_0^2]=$ m²/s⁴ and
+$[G]=$ m³/(kg·s²), giving $[a_0^2/G]=$ kg/(m·s²) = Pa = J/m³), not energy⁴. Taking its bare
+fourth root in SI units and calling the result "eV" is a unit error, not a scale estimate —
+the old $\sim10^{-10}$ eV number carries no dimensional content at all.
 
-This is far below any experimentally accessible scale, meaning the effective field theory description is valid for all practical purposes.
+The dimensionally correct strong-coupling scale requires restoring $\hbar$ and $c$:
+$$\Lambda_{\text{SC}}^4 \sim \frac{a_0^2}{G}(\hbar c)^3$$
+
+Evaluated with $a_0=1.116\times10^{-10}$ m/s² (this repo's own SPARC value), $G=6.674\times10^{-11}$
+m³ kg⁻¹ s⁻², $\hbar=1.0546\times10^{-34}$ J·s, $c=2.998\times10^8$ m/s:
+
+$$\Lambda_{\text{SC}} \approx 1.73\times10^{-3}\;\text{eV} = 1.73\;\text{meV}$$
+
+**This is $7.25$ orders of magnitude larger than the old figure — not "far below any
+experimentally accessible scale."** 1.73 meV is in the range of the dark-energy scale and
+laboratory sub-mm fifth-force / equivalence-principle tests (e.g. Eöt-Wash torsion-balance
+experiments probe forces down to sub-meV / sub-mm scales). Whether this specific strong-coupling
+scale is currently excluded by those experiments has **not been checked** — this is now an
+open question, not a closed "safe by many orders of magnitude" claim. **[O]**
 
 ## 4. Superluminality [O]
 
@@ -63,7 +78,7 @@ In Einstein-aether theories, the vector field perturbations can propagate superl
 |-----------|--------|--------|
 | No Ostrogradsky ghosts | ✓ [P] | $\mathcal{F}'' > 0$ for all $\mathcal{K} > 0$ |
 | Hamiltonian bounded below | ✓ [P] | $\mathcal{F} - \mathcal{K}\mathcal{F}'/2 > 0$ |
-| Strong coupling scale | ✓ [P] | $\sim 10^{-10}$ eV (far below experiments) |
+| Strong coupling scale | ❌ [X]→[O] | Corrected 2026-09-12: was a unit error (energy density's bare 1/4-power ≠ energy), actual value $\approx1.73$ meV, $7.25$ orders larger than claimed; not yet checked against fifth-force experimental bounds |
 | $c_T = c$ | ✓ [P] | Tensor sector unmodified |
 | Coupling constraints | ✓ [P] | Natural positive couplings satisfy all conditions |
 | Superluminality | ⚠️ [O] | Vector perturbations may be superluminal; no causality violation |
