@@ -1,0 +1,19 @@
+{
+  "generated": "2026-09-12",
+  "purpose": "Re-extract a0 from the SPARC 175-galaxy benchmark under the LIVE closure mu_std, closing the P1 chain: the a0(z) test's frozen a0 was extracted under the falsified mu_dual.",
+  "data_integrity": "175/175 rotmod files SHA-256 verified against VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256 (fetched from astroweb.cwru.edu/SPARC/Rotmod_LTG.zip)",
+  "n_galaxies": 175,
+  "n_points": 3391,
+  "method": "sparc_cross_validation.py's documented nuisance grid (Yd/Yb/fd, priors N(0.5,0.125)/N(0.7,0.175)/N(1.0,0.10)); a0 profile likelihood [0.5,2.5]e-10 x41, parabola-refined; 500x bootstrap over galaxies",
+  "mu_dual": { "a0_best": 9.285e-11, "bootstrap_68": [8.4872e-11, 1.0054e-10] },
+  "mu_std": { "a0_best": 1.1562e-10, "bootstrap_median": 1.15e-10, "bootstrap_68": [1.0615e-10, 1.2342e-10] },
+  "headline": "The extraction-mu dependence is REAL and LARGE: mu_std shifts a0 up by ~24% relative to mu_dual on the identical harness (direction provable: mu_std(x) > mu_dual(x) for all x>0, so the same data is pushed deeper into MOND at fixed a0, and the fit compensates with a larger a0).",
+  "validation_gap_O": "This harness does NOT reproduce A0_ESTIMATE.json's 1.107e-10 for mu_dual (it gives 9.29e-11); the original generating script's exact priors/weighting (per-galaxy published distance+inclination errors per A0_MEASUREMENT.json) live outside the repo. Exact-pipeline reproduction remains [O] - tracked on the Task Board. The dual-vs-std comparison on THIS harness is internally valid.",
+  "v3_a0z_test": {
+    "a0_used": 1.1562e-10, "xi_used": 0.17657,
+    "chi2_H_const": 11.366, "chi2_H_horizon": 10.615, "delta_chi2": 0.750,
+    "significance_sigma": 0.87, "verdict": "INCONCLUSIVE",
+    "across_bootstrap_68": {"at_boot16": 8.832, "at_boot84": -6.255, "ever_conclusive": false},
+    "note": "Neither hypothesis reaches 3 sigma anywhere in the 68% CI. Combined with the V2 result (inconclusive at the frozen a0), the 5.9 sigma constant-a0 verdict is unrecoverable under the live closure."
+  }
+}
