@@ -6,6 +6,8 @@
 
 ---
 
+> **⚠️ SUPERSESSION BANNER 2026-09-12.** This document's variational calculus is `[P]` and stands. But its headline resulting closure μ_dual(x)=x/(1+x) is **FALSIFIED** (`TARGET_D7` §4/§11: solar-system residual 5.7×10⁵ over the Cassini Q₂ bound, rescue routes exhausted). The live closure is μ_std(x)=x/√(1+x²), derived and verified in `TARGET_D1_SUPPLEMENT_MU_STD_REBUILD.md` (§1/§3/§5 re-run complete 2026-09-12 under F′=xμ); its structural uniqueness is `TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md`, with the coordinate choice empirically decided (§8). Read this document as the historical derivation of the falsified branch: the variational machinery transfers; the selected closure does not. Old status "needs re-check against μ_std" — the re-check lives in the supplement.
+
 ## 1. Problem Statement & The Variational Question
 
 In modified gravity of the AQUAL family (Bekenstein & Milgrom 1984), the weak-field scalar action takes the form:
