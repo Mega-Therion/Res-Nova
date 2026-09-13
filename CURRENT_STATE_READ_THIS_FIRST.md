@@ -68,7 +68,7 @@ one place, unambiguous, checked first, every time.
 | D2 | [P/O] | μ_std structural uniqueness exists; not yet Lean-formalized clean |
 | D3 | [P/O] | γ=1 derived (F-independent); β scoped; α₁/α₂ open with named obstruction |
 | D5 | [P/O] | AeST 𝒦(𝒬) cosmology rebuilt; non-linear structure formation unsimulated by anyone |
-| D6 | [P/O] | Ghost-free re-check under corrected action pending |
+| D6 | [P] | Ghost-free re-check CLOSED 2026-09-12 — J″(𝒴)>0 identically (`TARGET_D1_SUPPLEMENT` §5); full Hamiltonian analysis still open |
 | D7 | [P/O] | Action corrected to AeST; base solid, downstream re-checks ongoing |
 | D8 | [P] | c_T=c — upgraded to structural, strongest result in the corpus |
 | D9 | [P/O] | Ground-truth for D7 fix; factor-of-2 normalization bug found and fixed |

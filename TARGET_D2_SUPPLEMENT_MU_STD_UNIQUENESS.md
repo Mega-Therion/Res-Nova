@@ -220,6 +220,10 @@ precedent exists to prevent.
    D2 §9.2 performed (Padé minimality → `odds(μ)=x`). It is *smaller and better-motivated*
    than "μ is a Padé[1/1] function" — it is a statement about the channel's alphabet, which
    the substrate arguably fixes — but it is not derived from the action. `[O]`
+   **ADDENDUM 2026-09-12 (see §8):** while still an input, the coordinate choice is no longer
+   *free* — the presence reading is now empirically eliminated by the solar-system
+   falsification of the μ it uniquely forces. Status: `[C]`-selected, not `[O]`-free. The
+   covariant question (item 4) is untouched.
 3. **`μ′(0)=1` remains an input**, exactly as in D2 Theorem 9.3. No gain in parsimony is
    claimed. `[O]`
 4. **No covariant argument yet.** D2's Q3 (does the Skordis–Złośnik/AeST embedding *force*
@@ -320,3 +324,56 @@ Run: `python3` on the block above (sympy only). All outputs above are measured, 
 | AeST/Skordis–Złośnik embedding forces `μ` (D2 Q3) | **[O]** | §6 |
 | Born–Infeld `γ−1` and Unruh–dS readings of `√(1+x²)−1` | **[X]** wrong normalization | §6.1 |
 | α ≈ 1/137.036 anywhere in the chain | **NEGATIVE — does not appear** | §6.2 |
+
+---
+
+## 8. ADDENDUM 2026-09-12 — the coordinate choice is now empirically decided `[C]`
+
+§5's table lists two readings of the *same* two-state family, each forcing its own μ
+uniquely under the same Fisher/rectification argument (`[D]`, this document's Theorem B/C):
+
+| reading | rectification | forced μ | solar-system fate (2026-09-12) |
+|---|---|---|---|
+| presence `p∈(0,1)` | odds | `x/(1+x)` | **falsified** — constant ≈a₀ residual, 5.7×10⁵ over the Cassini Q₂ bound (`TARGET_D7` §4/§11) |
+| chirality `m∈(−1,1)` | rapidity | `x/√(1+x²)` | **survives** — exact solve clears the bound by ~1300× (`TARGET_D1_SUPPLEMENT` §4) |
+
+Until 2026-09-12 these were interchangeable postulates (§6 item 2). They no longer are. The
+solar-system solution of the corrected AeST action discriminates between them, and the
+elimination is strengthened by `TARGET_D7` §11's escape-route closure: BDEF
+(arXiv:1106.2538) proved the constant ≈a₀ residual follows for **any** free function in the
+two-derivative ghost-free sector, and every GW170817-safe screening route to p ≥ 2.34 is
+closed. So the presence reading is not merely disfavored — it is falsified *with its rescue
+routes exhausted*, inside the sector both readings share.
+
+**The claim, stated exactly:** conditional on (i) the interpolation variable being a
+polarization of the two-state family at all, (ii) `μ′(0)=1`, and (iii) the two-derivative
+AeST sector, the Cassini Q₂ bound selects the chirality coordinate over the presence
+coordinate. This is eliminative induction of the same logical shape as Dyson–Eddington
+(1919) selecting between the Newtonian half-shift and the relativistic full deflection:
+two exhaustive rival readings of one structure, one observation decides. `[D]` for the
+logical structure; `[C]` for the empirical selection.
+
+**What this does and does not change:**
+
+- It does **not** derive μ_std from the action; D2's Q3 (covariant forcing) remains `[O]`
+  and remains the only route to a true derivation. Postulate R is demoted from
+  *unconstrained choice* to *empirically selected among exactly two exhaustive readings*.
+- It supplies the argument `PEER_REVIEW_READINESS.md` item 1 anticipated: `AXIOMS_V2.lean:64`'s
+  disjunction now collapses to the right disjunct, on observational grounds rather than
+  convenience.
+- **Conditional honesty:** if the one remaining `[O]` branch-B derivation materializes (a
+  non-Horndeski aether-projected operator reaching p ≥ 2.34 with `c_T=c`), the presence
+  reading returns to live status and this section must be downgraded accordingly. The
+  elimination is exactly as strong as D7 §11 is thorough.
+
+**Reproduce — the empirical halves of the table (the μ-selection halves are §7's):**
+
+```python
+import mpmath as mp
+mp.mp.dps = 50
+a0 = mp.mpf('1.116e-10'); g_hat = mp.mpf('3.9574739366926450085961428952863635515080704975745e-2')
+# mu_dual: constant ~a0 residual vs Cassini-equivalent bound ~2.0e-16 m/s^2  (TARGET_D7 4.3)
+print("mu_dual residual/bound ~", mp.nstr(a0/mp.mpf('2.0e-16'), 3))            # ~5.7e5 OVER
+# mu_std: exact solve residual matches a0^2/(2 g_hat) (TARGET_D1_SUPPLEMENT 4)
+print("mu_std residual:", mp.nstr(a0**2/(2*g_hat), 6), "m/s^2;  margin ~", mp.nstr(mp.mpf('2.0e-16')/(a0**2/(2*g_hat)), 4))  # ~1300x BELOW
+```
