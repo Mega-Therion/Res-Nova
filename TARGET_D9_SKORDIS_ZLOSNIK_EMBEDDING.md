@@ -20,6 +20,7 @@
 > §1 (the action), §3 (the integration), §4.2 (convexity), and the $c_T=c$ / $\Phi=\Psi$
 > arguments all stand and are strengthened in D7 §5–§7.
 
+> **SYNC 2026-09-12 — μ_std revalidation (fourth correction).** `TARGET_D6_D8_D9_SUPPLEMENT_MU_STD_REVALIDATION.md` rows 3–7 re-ran this document under $F_{\rm std}$: (a) §2/§3's matching and integration hold under F_std **in the same $2J'=\mu$ convention** with $J_{\rm std} = \tfrac12[\sqrt{\mathcal{Y}(1+\mathcal{Y})} - \operatorname{arsinh}\sqrt{\mathcal{Y}}]$ and $2J' - \mu_{\rm std}(\sqrt{\mathcal{Y}}) = 0$ exactly **[D]**; (b) the deep-MOND leading coefficient $\tfrac13$ is IDENTICAL under the swap (row 6) — the old §4.1 explanation is [X] but the result stands; (c) §5's `SkordisZlosnikEmbedding.lean` still hardcodes the falsified $J_{\rm dual}$ — **[X] stale, needs the F_std rebuild** (row 3); (d) the $2J'=\mu$ vs $J'=\lambda_s\mu$ normalization muddle remains **[O]**, unresolved.
 ---
 
 ## 0. Executive Verdict & Epistemic Status

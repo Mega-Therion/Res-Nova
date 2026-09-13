@@ -9,7 +9,13 @@
 > §1/§2/§5 verdicts from `F_dual(x)=½x²−x+ln(1+x)` — **falsified 2026-09-12**
 > (`TARGET_D7` §4/§11: constant ≈a₀ solar-system residual, 5.7×10⁵ over the Cassini Q₂ bound,
 > rescue routes exhausted). Ghost-free status for F_dual is moot. The live theory is
-> F_std/AeST, and its ghost-free closure is **identical and verified twice independently**:
+> **genuine AeST** — the Skordis–Złośnik action (PRL 127, 161302; arXiv:2007.00082) with scalar
+> field $\mathcal{Y}$ and minimal matter coupling, on the $V_2(\mathbb{R}^3)$ Cartan-trialality substrate —
+> with $\mu_{\rm std}(x)=x/\sqrt{1+x^2}$ selected by the empirical coordinate elimination
+> (`TARGET_D2_SUPPLEMENT` §8) and bounded $\lambda_s \lesssim 2.7$ (Cassini Q₂) / $\lesssim 1.0$
+> (perihelion) (`TARGET_D1_SUPPLEMENT` §4). $c_T=c$ is structural and F-independent (`TARGET_D8`,
+> revalidation rows 12–15), as is PPN $\gamma=1$ (`TARGET_D3`). Its ghost-free closure is
+> **identical and verified twice independently**:
 > - `TARGET_D1_SUPPLEMENT_MU_STD_REBUILD.md` §5 (re-run 2026-09-12): J′>0, J″>0, J′+2𝒴J″>0 ∀𝒴>0
 > - `TARGET_D6_D8_D9_SUPPLEMENT_MU_STD_REVALIDATION.md` rows 9–11 (2026-09-12): same result, same
 >   closed forms, plus Hamiltonian bounded-below PASS under F_std (row 10)
@@ -35,8 +41,15 @@ The vector field $A^\mu$ has a unit-length constraint ($A^\mu A_\mu = -1$), leav
 
 $$\mathcal{F}''(\mathcal{K}) > 0 \quad \forall\, \mathcal{K} > 0$$
 
-**Verification [P]:**
-$$\mathcal{F}_{\text{dual}}''(\mathcal{K}) = \frac{2\sqrt{\mathcal{K}} + \mathcal{K}}{(1+\sqrt{\mathcal{K}})^2 \cdot 2\sqrt{\mathcal{K}}} > 0 \quad \text{for all } \mathcal{K} > 0 \quad \checkmark$$
+**Verification [P] — expression CORRECTED 2026-09-12** (`TARGET_D6_D8_D9_SUPPLEMENT` §2.2, row 2):
+> The expression previously printed here, $(2\sqrt{\mathcal{K}}+\mathcal{K})/((1+\sqrt{\mathcal{K}})^2\cdot 2\sqrt{\mathcal{K}})$,
+> is a **half-completed chain rule** — it equals $F_{\rm dual}''(x)/(2x)$ at $x=\sqrt{\mathcal K}$ (at
+> $\mathcal{K}=1$ it gives 0.375), NOT $d^2 J/d\mathcal{K}^2$. The true second derivative, with $x=\sqrt{\mathcal K}$:
+$$\frac{d^2 J_{\rm dual}}{d\mathcal{K}^2} = \frac{1}{4x\,(1+x)^2} > 0 \quad \text{for all } x>0 \quad (0.0625 \text{ at } \mathcal{K}=1)$$
+> **[X] for the old expression; [D] for the correction; the sign verdict (>0, ghost-free) survives** —
+> verified symbolically and consistent with `TARGET_D9` §4.2's correct form. The F_std analogue closes
+> identically: $d^2J_{\rm std}/d\mathcal{K}^2 = 1/(4x(1+x^2)^{3/2})$ (revalidation row 5, and
+> `TARGET_D1_SUPPLEMENT` §5 with $\lambda_s=\tfrac12$, $a_0=1$).
 
 ### 1.3 Scalar Sector
 The scalar field $\phi$ has a standard kinetic term. Ghost-free if the kinetic term has the correct sign (positive). This is satisfied by the Skordis-Złośnik (2021) construction.
