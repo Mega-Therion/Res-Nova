@@ -21,7 +21,14 @@
       "cmd": "python3 scripts/verify_mu_std.py",
       "required": true,
       "timeout": 300,
-      "why": "mu_std is the live constitutive law; these are exact symbolic identities, so any failure is a real regression, not a tolerance issue. P_math only -- proves nothing about the action-level derivation, which is [O]"
+      "why": "mu_std is the live constitutive law. These are exact symbolic identities, so any failure is a real regression, not a tolerance issue. The script also EMITS docs/recovered/mu_std_certificate.json, so the certificate is a pure function of the proof rather than a hand-maintained file that can drift. P_math only -- proves nothing about the action-level derivation, which is [O]."
+    },
+    {
+      "id": "mu-std-certificate-schema",
+      "cmd": "python3 scripts/check_mu_std_certificate.py",
+      "required": true,
+      "timeout": 120,
+      "why": "asserts the emitted certificate still carries all 9 required fields and the exact series terms (including the 7th-order tail), so a silent shape change is caught rather than absorbed"
     },
     {
       "id": "lean-kernel-verification",
