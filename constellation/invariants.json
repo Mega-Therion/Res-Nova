@@ -1,0 +1,35 @@
+{
+  "repo": "res-nova",
+  "schema_version": "1.0.0",
+  "invariants": [
+    {
+      "id": "local-gate",
+      "cmd": "bash scripts/local_gate.sh",
+      "required": true,
+      "timeout": 900,
+      "why": "the full set of checks .github/workflows/verify.yml declares: py_compile, claim consistency, gate2 inference self-test, Lean manuscript inventory, MVPC fixture manifests"
+    },
+    {
+      "id": "claim-registry-consistency",
+      "cmd": "python3 scripts/validate_claim_registry.py",
+      "required": true,
+      "timeout": 300,
+      "why": "the claim registry is the surface MVPC-X audits; drift here silently changes what the constellation believes is proved"
+    },
+    {
+      "id": "mu-std-constitutive",
+      "cmd": "python3 scripts/verify_mu_std.py",
+      "required": true,
+      "timeout": 300,
+      "why": "mu_std is the live constitutive law; these are exact symbolic identities, so any failure is a real regression, not a tolerance issue. P_math only -- proves nothing about the action-level derivation, which is [O]"
+    },
+    {
+      "id": "lean-kernel-verification",
+      "cmd": "bash 05_lean_formalization/verify_all_proofs.sh",
+      "required": false,
+      "timeout": 3600,
+      "why": "OPTIONAL ONLY because Mathlib is multi-GB and this is a release gate, exactly as verify.yml says -- not because the proofs are optional. Run before any deposit.",
+      "slow": true
+    }
+  ]
+}

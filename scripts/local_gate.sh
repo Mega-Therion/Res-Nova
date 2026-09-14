@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 # Res-Nova local verification gate.
 #
-# This runs the checks that .github/workflows/verify.yml declares. Those have
-# NOT been running: GitHub Actions is locked account-wide ("your account is
-# locked due to a billing issue"), so every push since has reported failure in
-# ~3 seconds without executing a single step. Two real regressions reached main
-# behind that silence. Until Actions runs again, this script is the gate.
+# This runs the checks that .github/workflows/verify.yml declares.
+#
+# HISTORICAL NOTE (corrected 2026-09-14): this header previously stated that
+# Actions was locked account-wide for billing and never executed. That is no
+# longer true -- runs on 2026-09-14 provision a runner and execute steps
+# normally. The ~9s "failures" were REAL: the claim-hygiene job was failing on
+# the merge result, not being skipped. Do not read a fast failure as a skipped
+# one. Run this script locally before pushing either way.
 #
 # Lean kernel verification is deliberately NOT here — it is a release gate
 # (Mathlib is multi-GB), same as the workflow says. Run

@@ -212,8 +212,8 @@ GEA vs any other completion.**
 
 | test | predicted | bound | verdict |
 |---|:-:|:-:|:-:|
-| Mercury anomalous perihelion precession, $\Delta\varpi=2\pi\tilde a_0r^2/(GM)$ per orbit | **1.5 arcsec/century** (at $\lambda_s\to0$; larger otherwise) | $\sim10^{-3}$ arcsec/cy | **violated by $\sim10^{3}$** |
-| Cassini-type quadrupole scale $\tilde a_0/r$ at Mercury | $1.9\times10^{-21}$ s⁻² | $Q_2<3.4\times10^{-27}$ s⁻² | **violated by $5.7\times10^{5}$** |
+| Mercury anomalous perihelion precession, $\Delta\varpi=2\pi\tilde a_0r^2/(GM)$ per orbit | **1.5 arcsec/century** (at $\lambda_s\to0$; larger otherwise) | $\sim10^{-3}$ arcsec/cy (INPOP10a/EPM2011, $\sim1.6$ mas/cy $2\sigma$) | **violated by $\sim10^{3}$ — this is the load-bearing test** |
+| $\tilde a_0/r$ at Mercury, dimensional magnitude only | $1.9\times10^{-21}$ s⁻² | — | **not a quadrupole/tidal ($Q_2$) coefficient — retracted claim below** |
 
 ```
 python3 - <<'EOF'
@@ -224,10 +224,22 @@ print(a0/r, (a0/r)/3.4e-27)                         # 1.93e-21 s^-2, 5.7e5
 EOF
 ```
 
-The two rows are **the same physics measured twice** (one constant residual force, expressed as
-a precession and as a quadrupole scale), not independent tests. Note also that Cassini is not
-silenced by $\Psi=\Phi$: light deflection responds to $\Phi+\Psi=2\Phi$, and the $\tilde a_0r$
-piece of $\Phi$ is in there. What §7 retires is the *$\gamma\ne1$ slip* signal, not Cassini.
+**Correction (2026-09-12), see `MU_DUAL_SOLAR_SYSTEM_RECONCILIATION_2026-09-12.md`:** the
+claim that follows — that row 2 is "the same physics as row 1, expressed as a quadrupole
+scale" — is wrong. An independent third derivation found $\tilde a_0/r$ is a monopole/dipole
+quantity (units acceleration/length), not the true ℓ=2 tidal coefficient a real Cassini-type
+$Q_2$ bound constrains. The genuine ℓ=2 term from this same anomaly is ~9 orders of magnitude
+*below* the Cassini bound, not above it — the opposite of what row 2 (now struck) claimed.
+**Row 1 (Mercury precession) is unaffected by this correction and remains the valid,
+load-bearing test** — it is a monopole/dipole effect, correctly identified and correctly
+computed, and it alone is sufficient to falsify $\mu_{\rm dual}$ for solar-system use. The
+$5.7\times10^5$ figure below is retracted as a quadrupole claim; treat it as void.
+
+~~The two rows are **the same physics measured twice** (one constant residual force, expressed
+as a precession and as a quadrupole scale), not independent tests.~~ Note also that Cassini is
+not silenced by $\Psi=\Phi$: light deflection responds to $\Phi+\Psi=2\Phi$, and the
+$\tilde a_0r$ piece of $\Phi$ is in there. What §7 retires is the *$\gamma\ne1$ slip* signal,
+not Cassini.
 
 **Corroboration in the literature [C].** This is a known class of failure, not an in-house
 novelty — which upgrades it rather than weakening it:
@@ -239,10 +251,13 @@ novelty — which upgrades it rather than weakening it:
   excludes. That is this tension, stated as a general theorem about the $\mu$ family.
 - Milgrom, arXiv:0906.4817; Hees et al. 2016 — inner-solar-system MOND/EFE anomalies.
 
-Note the second row reproduces, to within rounding, the **$Q_2\sim10^{-21}$ s⁻² that the old
+~~Note the second row reproduces, to within rounding, the **$Q_2\sim10^{-21}$ s⁻² that the old
 §6.2 attributed to the external field effect.** It is the same number; the old document then
 divided it by 250 using a screening factor that §3–§4 have now deleted. Without that factor
-the tension is the full $5.7\times10^5$. **The $Q_2$ tension is not resolved. [X] for "resolved".**
+the tension is the full $5.7\times10^5$.~~ **Retracted 2026-09-12 — see correction above; this
+was a units/category error, not a real $Q_2$ bound.** The theory is still **[X]** for
+"resolved," but on the correct ground: the Mercury precession row alone, not a false
+quadrupole tension.
 
 ### 4.4 What would have to change — two branches [D]/[O]
 
@@ -377,7 +392,7 @@ it moves from asserted to structural, and it is the reason D9 had to be ground t
 | $\mathcal{Y}\equiv0$ on FLRW ⇒ $x_0\approx5.67$, $\mathcal{F}''/\mathcal{F}'=0.00233$, $429\times$, $250\times$ all void | [X] | §3, §4 |
 | $\mathcal{F}_{\rm dual}$ is tracking, not screening | [D] | §4.1 |
 | Constant residual $g-G_NM/r^2\to\tilde a_0\ge a_0$ | **[D]**+**[C]** | §4.2; Milgrom arXiv:1205.1317 |
-| Mercury precession 1.5″/cy vs $10^{-3}$″/cy; $Q_2$ off by $5.7\times10^5$ (one effect, two expressions) | **[X]** for $\mu=x/(1+x)$ **within two-derivative AQUAL/AeST** | §4.3; Desmond arXiv:2401.04796 |
+| Mercury precession 1.5″/cy vs $\sim10^{-3}$″/cy ($\sim10^3\times$ violation) — load-bearing test; the earlier "$Q_2$ off by $5.7\times10^5$" framing is retracted as a units/category error (see §4.3 correction, 2026-09-12) | **[X]** for $\mu=x/(1+x)$ **within two-derivative AQUAL/AeST** | §4.3; Desmond arXiv:2401.04796 |
 | `AXIOMS_V2.lean:64` axiomatises $\mu=x/(1+x)\;\vee\;\mu=x/\sqrt{1+x^2}$; §4.2 breaks the disjunction | [D] | §4.4 branch A |
 | ~~Higher-derivative screening could rescue $\mu=x/(1+x)$~~ — **run down in §11, closed** | **[X]** | §11.5 |
 | BDEF prove $f'>0,\,2sf''+f'>0\Rightarrow\varphi''(r)<0$ ⇒ constant $\approx a_0$ residual is forced by ghost-freedom itself, for *any* $\mathcal{J}$ | [C] | §11.1; arXiv:1106.2538 |
@@ -492,11 +507,19 @@ radius, with $r_V\propto M^{1/3}$ for cubic-Galileon-type operators.
 **Requirement (a): galaxies must stay unscreened.** $r_V(M_{\rm gal})<r_{\rm MOND}(M_{\rm gal})=\sqrt{\hat GM/a_0}$.
 For a $10^{11}M_\odot$ spiral, $r_{\rm MOND}=11.2$ kpc, hence $r_V(M_\odot)<2.41$ pc.
 
-**Requirement (b): the solar system must be quiet.** §4.3's bound on a constant anomalous
-acceleration is $a_0/5.7\times10^5=2.0\times10^{-16}\,$m s$^{-2}$; at Mercury
-$\hat g=3.96\times10^{-2}$ m s$^{-2}$.
+**Requirement (b): the solar system must be quiet. [NEEDS RECOMPUTATION — flagged 2026-09-12,
+not fixed here.]** This bound used §4.3's now-retracted $5.7\times10^5$ figure (a units/category
+error — see §4.3 correction). §4.3's corrected, load-bearing violation factor is the Mercury
+precession ratio, $\sim10^3$, not $5.7\times10^5$ — using the wrong (larger) ratio here would
+have overstated $p_{\rm req}$, so this entire §11.3 no-go argument needs re-derivation with the
+correct $\sim10^3$ factor before its conclusion ($p_{\rm req}=2.34$, "most permissive case in
+the family") can be trusted. The original working is left below for reference, unmodified,
+pending that re-derivation — do not cite $p_{\rm req}=2.34$ as settled.
 
-$$\Rightarrow\quad p\;\ge\;\frac{\ln(2.0\times10^{-16}/3.96\times10^{-2})}{\ln(r_\mercury/r_V(M_\odot))}=\boxed{2.34}$$
+~~$a_0/5.7\times10^5=2.0\times10^{-16}\,$m s$^{-2}$; at Mercury $\hat g=3.96\times10^{-2}$ m
+s$^{-2}$.
+
+$$\Rightarrow\quad p\;\ge\;\frac{\ln(2.0\times10^{-16}/3.96\times10^{-2})}{\ln(r_\mercury/r_V(M_\odot))}=\boxed{2.34}$$~~
 
 and $p\ge2.71$ if $10^6M_\odot$ dwarfs must MOND, $p\ge3.00$ for BDEF's own conservative
 $10^3M_\odot$ choice.
@@ -542,13 +565,22 @@ background-Riemann contraction supplies. **[D]**
 quantitative, SZ's own aside that even $p\to\infty$ powers "may be in conflict with Mercury's
 orbit". **[D]**
 
-Explicit cubic-Galileon number: saturating (a) with $r_V(M_\odot)=2.41$ pc gives suppression
-$(r_\mercury/r_V)^{3/2}=6.9\times10^{-10}$, i.e. $g_\varphi=2.7\times10^{-11}$ m s$^{-2}$ —
-a factor **4** below the unscreened $\tilde a_0$, still $1.4\times10^5$ over the bound. The
-constant $\tilde a_0$ *is* removed (it degrades to $\delta g\simeq g\lambda_s\tilde a_0/2\hat g
-\sim10^{-9}g$), but what replaces it, an $r^{-1/2}$ force, is no smaller. **[D]**
+**[NEEDS RECOMPUTATION — flagged 2026-09-12, not fixed here.]** The numbers below (the
+$1.4\times10^5$-over-bound figure, and the `p_req` values in the reproduce block, which all
+divide by the retracted `5.7e5`/`ab=a0/5.7e5` ratio) inherit §4.3's retracted quadrupole-scale
+error. The correct comparison uses the Mercury-precession violation factor ($\sim10^3$), not
+$5.7\times10^5$ — this changes `ab`, every `p_req` printed below, and the "factor 4 below /
+$1.4\times10^5$ over" conclusion. Left unmodified pending a real re-derivation; do not cite
+these specific numbers as settled.
 
-Reproduce:
+Explicit cubic-Galileon number (as originally computed, now suspect per above): saturating (a)
+with $r_V(M_\odot)=2.41$ pc gives suppression $(r_\mercury/r_V)^{3/2}=6.9\times10^{-10}$, i.e.
+$g_\varphi=2.7\times10^{-11}$ m s$^{-2}$ — a factor **4** below the unscreened $\tilde a_0$,
+still $1.4\times10^5$ over the bound. The constant $\tilde a_0$ *is* removed (it degrades to
+$\delta g\simeq g\lambda_s\tilde a_0/2\hat g\sim10^{-9}g$), but what replaces it, an $r^{-1/2}$
+force, is no smaller. **[D]**
+
+Reproduce (numbers below use the retracted ratio, see flag above):
 ```
 python3 - <<'PYEOF'
 import math

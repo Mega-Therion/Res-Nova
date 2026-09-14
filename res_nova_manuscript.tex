@@ -56,7 +56,7 @@
 \date{\today}
 
 \begin{abstract}
-We study the dual-channel AQUAL potential $\mathcal{F}_{\text{dual}}(x) = \tfrac{1}{2}x^2 - x + \ln(1+x)$, whose constitutive ratio $\mathcal{F}'(x)/x$ is the ``simple'' MOND interpolation function $\mu(x) = x/(1+x)$, and carry it through to a relativistic completion with quantitative solar-system and cosmological consequences. Given four structural constraints --- constitutive-relation form, Pad\'e$[1/1]$ minimality, the MOND boundary conditions, and dual-channel splitting --- $\mathcal{F}_{\text{dual}}$ is uniquely determined; $\mu$ is the functional inverse of the Bayesian odds ratio and obeys the Fisher identity $\mathcal{F}'(x)^2\mathcal{I}(\mu(x)) = x^3$. The necessity of the Pad\'e constraint is not derived, so the uniqueness is conditional. Specifying the Skordis--Z\l{}o\'snik free function as $\mathcal{F}(\mathcal{K}) = \mathcal{F}_{\text{dual}}(\sqrt{\mathcal{K}})$ leaves the Friedmann background unmodified and places the cosmological background on the Newtonian branch, giving a linear screening ratio $\mathcal{F}''/\mathcal{F}' \approx 0.00233$: the $\sim 76\times$ structure overproduction of a uniform MOND enhancement falls to $0.23\%$ in linear growth. With Vainshtein suppression the solar-system external-field quadrupole is $Q_2 \approx 4.9\times 10^{-29}\,\mathrm{s}^{-2}$, a factor $70$ below the Cassini bound at natural $\mathcal{O}(1)$ couplings and with no fine-tuning; the residual $Q_2 \sim 10^{-29}\,\mathrm{s}^{-2}$ is a falsifiable prediction. The completion is ghost-free with $c_T = c$. Across 171 SPARC galaxies we measure $a_0 = (1.116 \pm 0.161)\times 10^{-10}\,\mathrm{m\,s^{-2}}$. A pre-registered test on 20 intermediate-redshift galaxies favours constant $a_0$ over the horizon-tied $a_0(z) = \xi c H(z)$ at $5.9\sigma$; we therefore report the horizon interpretation of $a_0$ as disfavoured by our own data. The formal core is machine-checked in Lean~4 (18 modules, no \texttt{sorry}). Non-linear structure formation, exact PPN parameters, and cluster scales remain open.
+We study the dual-channel AQUAL potential $\mathcal{F}_{\text{dual}}(x) = \tfrac{1}{2}x^2 - x + \ln(1+x)$, whose constitutive ratio $\mathcal{F}'(x)/x$ is the ``simple'' MOND interpolation function $\mu(x) = x/(1+x)$, and carry it through to a relativistic completion with quantitative solar-system and cosmological consequences. Given four structural constraints --- constitutive-relation form, Pad\'e$[1/1]$ minimality, the MOND boundary conditions, and dual-channel splitting --- $\mathcal{F}_{\text{dual}}$ is uniquely determined; $\mu$ is the functional inverse of the Bayesian odds ratio and obeys the Fisher identity $\mathcal{F}'(x)^2\mathcal{I}(\mu(x)) = x^3$. The necessity of the Pad\'e constraint is not derived, so the uniqueness is conditional. Specifying the Skordis--Z\l{}o\'snik free function as $\mathcal{F}(\mathcal{K}) = \mathcal{F}_{\text{dual}}(\sqrt{\mathcal{K}})$ leaves the Friedmann background unmodified and places the cosmological background on the Newtonian branch, giving a linear screening ratio $\mathcal{F}''/\mathcal{F}' \approx 0.00233$: the $\sim 76\times$ structure overproduction of a uniform MOND enhancement falls to $0.23\%$ in linear growth. \textbf{Correction (2026-09-12): the solar-system claim below is retracted; see the correction subsection preceding \S\ref{sec:covariant}'s original solar-system subsections.} $\mu(x)=x/(1+x)$ produces a constant, unscreened anomalous acceleration that predicts Mercury perihelion precession $\sim10^3\times$ the observed bound (INPOP10a/EPM2011) — a genuine falsification, not resolved by Vainshtein screening, which has no perturbation to act on for a constant offset. The corrected interpolation function $\mu_{\text{std}}(x)=x/\sqrt{1+x^2}$ does not have this failure mode. The completion is ghost-free with $c_T = c$ (this claim is independent of the interpolation-function choice and stands). Across 171 SPARC galaxies we measure $a_0 = (1.116 \pm 0.161)\times 10^{-10}\,\mathrm{m\,s^{-2}}$. A pre-registered test on 20 intermediate-redshift galaxies favours constant $a_0$ over the horizon-tied $a_0(z) = \xi c H(z)$ at $5.9\sigma$; we therefore report the horizon interpretation of $a_0$ as disfavoured by our own data. The formal core is machine-checked in Lean~4 (18 modules, no \texttt{sorry}). Non-linear structure formation, exact PPN parameters, and cluster scales remain open.
 \end{abstract}
 
 \keywords{Modified Newtonian Dynamics; Dual-Channel AQUAL; SPARC Galaxy Kinematics; Skordis--Z\l{}o\'snik; Lean~4 Formal Verification; Horizon Thermodynamics}
@@ -352,34 +352,71 @@ The MOND enhancement of linear growth is thus $\sim0.23\%$, not the order-unity 
 \section{Solar System and PPN Limits (D3)}
 \label{sec:solar}
 
-\subsection{The inner solar system is Newtonian by construction}
+\subsection{Correction (2026-09-12): $\mu=x/(1+x)$ is falsified for solar-system use}
 
-At Earth's orbit the dimensionless MOND correction is $a_0/g \approx 2\times10^{-8}$, roughly $1137\times$ below the Cassini sensitivity $|\gamma-1| < 2.3\times10^{-5}$ $\mathbf{[D]}$. This holds for \emph{any} MOND interpolation function, since all of them satisfy $\mu\approx1$ deep in the Newtonian regime; it is therefore not a test that discriminates $\mu = x/(1+x)$ from alternatives.
+\textbf{The three subsections below (as originally submitted) are retracted and replaced.}
+An independent re-derivation found that $\mu_{\text{dual}}(x)=x/(1+x)$ produces a
+\emph{constant}, radius-independent anomalous acceleration $\tilde a_0=(1+\lambda_s)a_0\ge a_0$
+in the covariant (AeST) embedding used in this manuscript. This is the exact spherically
+symmetric solution of the field equation on the SZ tracking branch ($J'(\mathcal{Y})\to\lambda_s
+\ne0$), not a response to a perturbation — so there is nothing for Vainshtein screening to
+suppress. The originally submitted $Q_2\approx4.9\times10^{-29}\,\text{s}^{-2}$ figure numerically
+coincides with the dipole ($\ell=1$) tidal scale reached by a different route than the one
+derived below Eq.~\ref{eq:q2pred_orig} (which invokes $\mathcal{F}''/\mathcal{F}'\times$Vainshtein
+suppression, an estimate that does not survive scrutiny of which action is actually in use in
+\S\ref{sec:covariant}); its conclusion (safety) does not follow from its stated derivation.
 
-\subsection{The external field effect and the $Q_2$ constraint}
+The correct, load-bearing discriminant is not $Q_2$ at all but \textbf{anomalous planetary
+perihelion precession}, $\Delta\varpi = 2\pi\tilde a_0 r^2/(GM)$ per orbit (verified by direct
+numerical orbit integration). At Mercury this predicts $1.5\,\text{arcsec/century}$ (retrograde,
+at $\lambda_s\to0$; larger for $\lambda_s>0$) against a real bound of
+$\sim10^{-3}\,\text{arcsec/century}$ from INPOP10a/EPM2011 supplementary-precession fits — a
+violation by $\sim10^3$, growing outward (Saturn: $7.5\,\text{arcsec/century}$). This is
+$r$-independent and not removable by tuning $\lambda_s$, $c_1$, $c_2$, or $c_3$: it is a
+property of the $1/x$ tail of $\mu_{\text{dual}}$ alone, and (per Milgrom, arXiv:1205.1317)
+this failure mode is general to interpolation functions with this tail, not specific to this
+completion.
+
+\textbf{The fix is a different interpolation function, not a different screening mechanism.}
+$\mu_{\text{std}}(x)=x/\sqrt{1+x^2}$ has no constant tail — its large-$x$ residual decays as
+$a_0^2/(2g_N)$, safely below the precession bound by several orders of magnitude. This changes
+the SPARC galaxy-scale comparison of \S\ref{sec:sparc}: under $\mu_{\text{std}}$, this theory's
+interpolation function is identical to standard MOND's, and the comparison reduces to $a_0$
+provenance (derived vs.\ fitted) alone. See the companion correction document
+\texttt{MU\_DUAL\_SOLAR\_SYSTEM\_RECONCILIATION\_2026-09-12.md} in the repository for the full
+derivation. \textbf{Open $\mathbf{[O]}$}: whether the constant $\tilde a_0$ residual could
+partially be absorbed by standard ephemeris-fit $GM$/semi-major-axis degeneracies has not been
+checked against a real ephemeris pipeline; the wrong radial scaling ($\tilde a_0$ is not
+$\propto 1/r^2$) makes this unlikely but it is not independently verified.
+
+\subsection*{[RETRACTED] The inner solar system is Newtonian by construction}
+
+At Earth's orbit the dimensionless MOND correction is $a_0/g \approx 2\times10^{-8}$, roughly $1137\times$ below the Cassini sensitivity $|\gamma-1| < 2.3\times10^{-5}$ $\mathbf{[D]}$. This holds for \emph{any} MOND interpolation function, since all of them satisfy $\mu\approx1$ deep in the Newtonian regime; it is therefore not a test that discriminates $\mu = x/(1+x)$ from alternatives. \textbf{Retracted: this fractional argument does not bound perihelion precession.} The orbital lever arm $r^2/(GM)\approx2.5\times10^{10}\,\text{s}^2/\text{m}$ converts the same $\sim2\times10^{-8}$ fractional effect into an absolute anomalous acceleration whose integrated effect over an orbit is $\sim10^3\times$ the observed precession bound. Fractional smallness of $a_0/g$ does not imply the theory is safe; see the correction above.
+
+\subsection*{[RETRACTED] The external field effect and the $Q_2$ constraint}
 
 The discriminating solar-system observable is the quadrupolar distortion $Q_2$ induced by the external Galactic field ($g_{\text{ext}} \approx 1.9\times10^{-10}\,\text{m\,s}^{-2} \approx 1.6\,a_0$ at the Sun, i.e. squarely in the MOND transition regime). Park et al.~\cite{Park2026}, using the dataset behind the DE440 ephemerides, report
 \begin{equation}
 Q_2 = (1.6 \pm 1.8)\times10^{-27}\,\text{s}^{-2},
 \end{equation}
-consistent with zero, giving a bound $|Q_2| < 3.4\times10^{-27}\,\text{s}^{-2}$. For classical AQUAL/QUMOND this is in $3$--$15\sigma$ tension with the external field effect implied by galactic rotation curves $\mathbf{[C]}$. \textbf{The non-relativistic dual-channel action does not resolve this tension}; the resolution must come from the covariant completion.
+consistent with zero, giving a bound $|Q_2| < 3.4\times10^{-27}\,\text{s}^{-2}$. For classical AQUAL/QUMOND this is in $3$--$15\sigma$ tension with the external field effect implied by galactic rotation curves $\mathbf{[C]}$. \textbf{The non-relativistic dual-channel action does not resolve this tension}; the resolution must come from the covariant completion. \textbf{Retracted: $Q_2$ is not the discriminating observable for this failure mode} — the true $\ell=2$ quadrupole term from $\tilde a_0$ is $\sim10^{-9}$ orders below this bound; Mercury precession (a monopole/dipole effect) is what falsifies $\mu_{\text{dual}}$, as corrected above.
 
-\subsection{Vainshtein screening}
+\subsection*{[RETRACTED] Vainshtein screening}
 
 The Sun's MOND radius is $r_{\text{MOND}} = \sqrt{GM_\odot/a_0} \approx 7031\,\text{AU}$, so Earth orbits at $1.4\times10^{-4}\,r_{\text{MOND}}$. Deep inside this radius the nonlinearity of $\mathcal{F}_{\text{dual}}$ supplies Vainshtein-type screening \cite{Vainshtein1972} of the response to external perturbations, with suppression scaling as $(r/r_{\text{MOND}})^{3/2} \approx 1.7\times10^{-6}$. Combining the background factor $\mathcal{F}''/\mathcal{F}'$ with the Vainshtein factor gives
 \begin{equation}
 Q_2^{\text{RMOND}} \approx 4.9\times10^{-29}\,\text{s}^{-2},
 \end{equation}
-a factor $\sim70$ below the Cassini bound $\mathbf{[D]}$, for \emph{natural} $\mathcal{O}(1)$ couplings $c_1,c_2,c_3$. No fine-tuning is required. We emphasise the epistemic status: the $(r/r_{\text{MOND}})^{3/2}$ scaling is standard, but this is a screening \emph{estimate}, not a solution of the RMOND field equations with galactic boundary conditions $\mathbf{[O]}$. The $70\times$ margin is what makes the conclusion robust to the estimate's uncertainty.
+a factor $\sim70$ below the Cassini bound $\mathbf{[D]}$, for \emph{natural} $\mathcal{O}(1)$ couplings $c_1,c_2,c_3$. No fine-tuning is required. We emphasise the epistemic status: the $(r/r_{\text{MOND}})^{3/2}$ scaling is standard, but this is a screening \emph{estimate}, not a solution of the RMOND field equations with galactic boundary conditions $\mathbf{[O]}$. The $70\times$ margin is what makes the conclusion robust to the estimate's uncertainty. \textbf{Retracted: there is nothing for Vainshtein screening to act on.} $\tilde a_0$ is the exact tracking-branch solution of the unperturbed field equation, not a perturbative response; screening mechanisms suppress responses to perturbations, and this constant offset is not one.
 
-\subsection{A falsifiable prediction}
+\subsection*{[RETRACTED] A falsifiable prediction}
 
 The framework predicts a residual quadrupole of order
 \begin{equation}
-\label{eq:q2pred}
+\label{eq:q2pred_orig}
 Q_2 \sim 10^{-29}\,\text{s}^{-2},
 \end{equation}
-roughly two orders of magnitude below present sensitivity. This is a genuine prediction rather than a consistency check: it is a nonzero value, it is specific, and it is within reach of next-generation ranging and space-based tests. A measurement establishing $|Q_2| \lesssim 10^{-30}\,\text{s}^{-2}$ would place the theory under serious pressure.
+roughly two orders of magnitude below present sensitivity. This is a genuine prediction rather than a consistency check: it is a nonzero value, it is specific, and it is within reach of next-generation ranging and space-based tests. A measurement establishing $|Q_2| \lesssim 10^{-30}\,\text{s}^{-2}$ would place the theory under serious pressure. \textbf{Retracted: superseded by the Mercury-precession falsification above, which uses existing data and does not require next-generation sensitivity.}
 
 \textbf{Open $\mathbf{[O]}$:} exact PPN $\gamma$ and $\beta$ for specified $c_1,c_2,c_3$ require the post-Newtonian expansion of the RMOND metric. The framework is in place; the expansion has not been carried out.
 
