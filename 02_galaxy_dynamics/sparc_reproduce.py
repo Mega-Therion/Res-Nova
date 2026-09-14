@@ -11,6 +11,7 @@ Usage:
   python3 sparc_reproduce.py
   python3 sparc_reproduce.py --data-dir /path/to/sparc_data --out-dir .
 """
+
 from __future__ import annotations
 
 import argparse
@@ -85,17 +86,25 @@ def v_baryon(v_gas, v_disk, v_bulge, yd: float, yb: float) -> np.ndarray:
     return np.sqrt(v_gas**2 + (yd * v_disk) ** 2 + (yb * v_bulge) ** 2)
 
 
-def predict_velocity(v_bary: np.ndarray, r_kpc: np.ndarray, a0: float, fd: float = 1.0) -> np.ndarray:
-    """GOD strict prediction: v_pred = v_bary * sqrt(tau), tau = 1/2 + sqrt(1/4 + a0/g_N).
+def predict_velocity(
+    v_bary: np.ndarray, r_kpc: np.ndarray, a0: float, fd: float = 1.0
+) -> np.ndarray:
+    """GOD prediction using mu_std(x) = x/sqrt(1+x^2) (corrected 2026-09-12 from
+    mu_dual(x)=x/(1+x), which was falsified: it leaks a constant, unscreened
+    acceleration offset at every radius, not just deep-MOND, violating
+    solar-system bounds by ~5.7e5x. See TARGET_D7_COVARIANT_COMPLETION.md Sec 4
+    and 02_galaxy_dynamics/SPARC_MU_STD_RECOMPUTE_2026-09-12.md.
 
-    This is Theorem 8.7C (DERIVATION_MU_INTERPOLATION__8_7.md). Acceleration enters
-    linearly in tau; velocity gets sqrt(tau). fd rescales radius only (nuisance tier).
+    KNOWN SEPARATE BUG, not fixed here: this script's SPARC-file parser uses
+    re.findall(r"\\d+\\.\\d+") which drops the minus sign on negative v_gas
+    values, so its output is not directly comparable to parameter_ledger.py's
+    tier-0 numbers even after this mu fix. Flagged, not fixed, in this pass.
     """
     r_m = r_kpc * KPC_TO_M / fd
     v_m = v_bary * KM_TO_M
     a_bary = v_m**2 / np.maximum(r_m, 1e-6)
-    nu = 0.5 + np.sqrt(0.25 + a0 / np.maximum(a_bary, 1e-30))
-    return v_bary * np.sqrt(np.maximum(nu, 0.0))
+    g_std = np.sqrt(0.5 * a_bary**2 + np.sqrt(0.25 * a_bary**4 + (a_bary**2) * (a0**2)))
+    return v_bary * np.sqrt(np.maximum(g_std / np.maximum(a_bary, 1e-30), 0.0))
 
 
 def chi2_data(v_obs, v_model, v_err) -> float:
