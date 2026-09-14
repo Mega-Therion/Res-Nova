@@ -20,6 +20,22 @@ Res-Nova houses the foundational physics manuscript on Geometrically Ordered Dyn
 - **Issue #50**: Evidence Atlas v1 — machine-readable versioned claim registry with commit-pinned provenance and fail-closed reproducibility gates (`evidence/v1/claim-ledger.json`).
 - **Issue #48**: Supply Res-Nova manuscript text as RYTT benchmark fixtures only.
 
+## Acceleration Scale
+
+The working value, fitted over 171 SPARC galaxies / 3375 points under
+`tau(g) = 1/2 + sqrt(1/4 + a0/g)` with per-galaxy published distance and
+inclination errors (`02_galaxy_dynamics/A0_MEASUREMENT.json`):
+
+`a0 = (1.116 \pm 0.128_{stat} \pm 0.097_{syst}) \times 10^{-10}\,\mathrm{m\,s^{-2}}` (14.4% total)
+
+`a0` is an **empirical acceleration scale**. It is numerically close to `cH0/2pi`;
+that closeness is an observation, **not** a derivation, and must not be quoted as one.
+
+**SUPERSEDED** (do not quote as current): the earlier 176-parameter in-sample
+headline `chi^2/N_g = 2.92` with `a0 = (9.433 \pm 0.050) \times 10^{-11}`. That error
+bar treated 3391 radial points as independent, and the old 5-fold CV leaked a
+single global `a0` into every test fold.
+
 ## Epistemic Standards
 
 Claims are strictly classified according to recorded evidence:
