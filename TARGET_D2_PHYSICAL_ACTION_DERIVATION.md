@@ -1,11 +1,13 @@
 # TARGET D2: Physical Action Derivation
 
-**Status:** D2_PROPOSED — Derivation framework established; information-theoretic necessity of Padé constraint still open.
-**Last updated:** 2026-08-16
+**Status:** SUPERSEDED-IN-PART 2026-09-12 — Padé theorems stand as ALGEBRA; the μ_dual they select is FALSIFIED as physics. Live structural argument: `TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md` (chiral channel, rapidity rectification, §8 empirical coordinate decision). Q3 (covariant forcing) still open.
+**Last updated:** 2026-09-12 (ledger sync)
 **Author:** R.W. Yett / Sovereign Architecture Group
 **Epistemic tag:** [P] (proved sections) / [O] (open sections) — see inline tags
 
 ---
+
+> **⚠️ SUPERSESSION BANNER 2026-09-12.** Theorems 4.1/5.1/6.1 below are `[P]` as algebra — μ_dual(x)=x/(1+x) IS the unique Padé[1/1] with μ(0)=0, μ(∞)=1, μ′(0)=1 — and that is now irrelevant: the function is **falsified** (`TARGET_D7` §4/§11). The same Fisher/rectification argument re-run on the ±1 chiral channel forces μ_std(x)=x/√(1+x²) uniquely (`TARGET_D2_SUPPLEMENT` Thm B/C), with the presence-vs-chirality coordinate choice decided empirically by Cassini Q₂ (§8, Dyson–Eddington shape). Constraint 4 (additive split) is DROPPED, not satisfied (supplement §6 item 0). Q3 — does the covariant AeST action force μ? — remains the load-bearing `[O]`.
 
 ## 1. Problem Statement
 

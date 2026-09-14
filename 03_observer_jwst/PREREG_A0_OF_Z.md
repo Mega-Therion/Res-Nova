@@ -5,7 +5,20 @@
 **Lead Investigator:** Ryan W. Yett / Res-Nova Epistemic Architecture  
 **Target Problem:** Open Problem O1 / O4 — Distinguishing Constant $a_0$ from Horizon-Evolving $a_0(z) = \xi c H(z)$  
 **Execution Script:** `03_observer_jwst/a0_of_z.py`  
-**Output Artifact:** `03_observer_jwst/A0_OF_Z_REPORT.json`  
+**Output Artifact:** `03_observer_jwst/A0_OF_Z_REPORT.json`
+
+> **📜 POST-HOC AMENDMENT NOTE 2026-09-12 (protocol text above is immutable and preserved).**
+> This pre-registration froze $\mu(x)=x/(1+x)$ — **falsified 2026-09-12** (`TARGET_D7` §4/§11).
+> The executed extraction therefore used the falsified closure. Consequences, to be resolved
+> before the 5.9σ figure is cited as live evidence anywhere (including `.zenodo.json`'s current
+> description and the v1.8.0 release):
+> 1. The 5.9σ constant-a₀ result must be **re-extracted under μ_std(x)=x/√(1+x²)** — the
+>    discrimination may survive, weaken, or invert; unknown until re-run. `[O]`
+> 2. The SPARC central value a₀=1.116×10⁻¹⁰ m/s² and its ±0.161 error budget must be checked
+>    for extraction-μ dependence. `[O]`
+> 3. The frozen-μ clause of the protocol itself is void as a *design choice*; the
+>    discriminator (constant a₀ vs ξcH(z)) is μ-independent as a hypothesis, and the
+>    re-extraction should re-freeze μ_std in a v2 protocol rather than amend this one.  
 
 ---
 

@@ -3,6 +3,23 @@ import Mathlib.Analysis.SpecialFunctions.Exp
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Ring
 
+/-!
+## ⚠️ STALE REFERENCE BANNER — added 2026-09-12 (comment only; no code changed)
+
+The `J_param` definition below hardcodes the FALSIFIED interpolating function
+mu_dual(x) = x/(1+x) (J_param u = u^2/2 - u + log(1+u)) — falsified 2026-09-12 by
+TARGET_D7 §4/§11 (solar-system residual 5.7e5 over the Cassini Q2 bound, rescue routes
+exhausted). Per TARGET_D6_D8_D9_SUPPLEMENT_MU_STD_REVALIDATION row 3, every theorem in
+this file about `J_param` is [X]-stale as physics, though the proofs remain valid as
+algebra for the object they state.
+
+The live theory uses mu_std(x) = x/sqrt(1+x^2), giving (same 2J'=mu convention, a0=1):
+  J_std(Y) = (1/2) * (sqrt(Y*(1+Y)) - asinh(sqrt(Y)))
+  J_std'(Y) = (1/2) * mu_std(sqrt(Y)) = sqrt(Y) / (2*sqrt(1+Y))
+
+TODO (needs Lean toolchain, tracked on the Task Board): rebuild this file with J_std
+and re-verify each theorem against TARGET_D6_D8_D9_SUPPLEMENT rows 4-7.
+-/
 namespace ResNova.SkordisZlosnik
 
 noncomputable section

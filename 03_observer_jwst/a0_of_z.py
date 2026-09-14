@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 """
+SUPERSEDED 2026-09-12 by a0_of_z_v2.py (frozen mu x/(1+x) was falsified,
+TARGET_D7 sec 4/11; its 5.9-sigma verdict is [X]-superseded by the inconclusive
+mu_std V2 result - see PREREG_A0_OF_Z_V2.md). Retained unmodified as the
+executed V1 protocol.
 Pre-Registered Redshift Evolution of Acceleration Scale Test:
 H_const (a0 = const) vs H_horizon (a0(z) = xi * c * H(z))
 

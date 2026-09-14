@@ -1,186 +1,41 @@
-<div align="center">
+# Res-Nova
 
-# RES NOVA
-### Geometrically Ordered Dynamics & Information Tension Theory
-**A New Thing**
+Technical manuscript, formal verification, and reproducibility package.
 
----
+![Res-Nova Evidence Atlas Lifecycle](visualizer/evidence-atlas-lifecycle.svg)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21969121.svg)](https://doi.org/10.5281/zenodo.21969121)
-[![Release](https://img.shields.io/badge/Release-v1.6.2-0052FF.svg?style=for-the-badge&logo=github)](https://github.com/Mega-Therion/Res-Nova/releases/tag/v1.6.2)
-[![Lean 4 Verified](https://img.shields.io/badge/Lean_4-43_Gate_Targets-4B32C3.svg?style=for-the-badge&logo=lean)](05_lean_formalization/)
-[![Epistemic Covenant](https://img.shields.io/badge/Epistemic-v1.6.2_%5BP%5D_%5BD%5D_%5BC%5D_%5BO%5D-D4AF37.svg?style=for-the-badge)](EPISTEMIC_BOUNDARY_v1.5.0.md)
-[![SPARC a0](https://img.shields.io/badge/SPARC_a0-1.116e--10_%C2%B1_14.4%25-00C781.svg?style=for-the-badge)](02_galaxy_dynamics/A0_MEASUREMENT.json)
-[![Vercel Live](https://img.shields.io/badge/Observatory-Live_Deployment-000000.svg?style=for-the-badge&logo=vercel)](https://res-nova-observatory.vercel.app)
+## Overview
 
-<br/>
+Res-Nova houses the foundational physics manuscript on Geometrically Ordered Dynamics and Information Tension, accompanied by an explicit claim-evidence ledger, formal Lean inventories, cosmological and galactic sector analyses, and reproducibility harnesses.
 
-**Author:** [Ryan W. Yett](https://orcid.org/0009-0001-1303-7190) &nbsp;|&nbsp; **Affiliation:** Independent Theoretical Research &nbsp;|&nbsp; **Release:** `v1.6.2` &nbsp;|&nbsp; **Epistemic seal:** `v1.6.2`
+## System Role & Boundaries
 
-[**For referees**](FOR_REFEREES.md) &nbsp;•&nbsp; [**Open problems**](OPEN_PROBLEMS_AND_TESTS.md) &nbsp;•&nbsp; [**Agent covenant**](AGENT_COVENANT.md) &nbsp;•&nbsp; [**Manuscript Source**](res_nova_manuscript.tex) &nbsp;•&nbsp; [**Observatory**](https://res-nova-observatory.vercel.app)
+- **Technical Manuscript & Scientific Corpus**: Primary source repository for theory exposition, derivations, and observational comparisons.
+- **Evidence Ledger**: Explicitly documents assumptions, derivation paths, and falsifiability criteria. A claim's presence in the ledger records auditability—it does not substitute for empirical consensus.
+- **RYTT Boundary (Issue #48)**: Selected manuscript passages are supplied to RYTT strictly as benchmark corpora. Res-Nova does not fork or embed the RYTT compiler.
+- **Auditor Boundary (Issue #50)**: Produces `evidence/v1/claim-ledger.json` for independent verification by MVPC-X. Res-Nova does not maintain the verification engine.
 
-</div>
+## Active Workstreams
 
----
+- **Issue #50**: Evidence Atlas v1 — machine-readable versioned claim registry with commit-pinned provenance and fail-closed reproducibility gates (`evidence/v1/claim-ledger.json`).
+- **Issue #48**: Supply Res-Nova manuscript text as RYTT benchmark fixtures only.
 
-## Theoretical overview
+## Epistemic Standards
 
-Res-Nova is a closed variational identity for one interpolating function, plus the relativistic parents that survive gravitational-wave speed, plus a SPARC measurement that no longer pretends to 0.4% precision.
+Claims are strictly classified according to recorded evidence:
+- **`derived`**: Supported by explicit mathematical derivation and checked assumptions.
+- **`empirically_supported`**: Correlated with identified observational datasets (e.g. SPARC, JWST) within defined scope.
+- **`conditional`**: Dependent on unresolved model choices or theoretical assumptions.
+- **`proposal` / `open`**: Active hypotheses, open problems, or pending calculations.
+- **`refuted`**: Preserved contradiction records; never silently discarded.
 
-Zero free parameters is **withdrawn** as a current claim. Dual-channel `μ` is derived. The acceleration scale is measured. Horizon language is a hypothesis under test.
-
-```
-                      Bulk Kinetic Flux + Horizon Dissipation     [motivation, not a theorem]
-                                              |
-                                              v
-                      F(x) = 1/2 x^2 - x + ln(1+x)               [P] algebraic
-                                              |
-                                              v
-                      μ(x) = x / (1+x)                           [P] F'(x)
-                                 /                    \
-                                /                      \
-              SPARC measurement [D]              Skordis-Zlosnik parent [P]/[C]
-              a0 = 1.116e-10 ± 14.4%             c_T = c, γ_PPN = 1
-```
-
----
-
-## Core pillars
-
-### 1. Dual-channel variational closure `[P]`
-
-The single-channel map whose derivative behaves like `arcsinh` inverts the required limits and is correspondence-false (`PAPER_01` is quarantined). Balancing the two channels isolates
-
-`F_{dual}(x) = x^2/2 - x + ln(1+x), \qquad x = |\nabla\Phi|/a0`
-
-`\mu(x) = F_{dual}'(x) = x/(1+x)`
-
-`\lim_{x\to 0} \mu(x) = x` (deep MOND / BTFR), `\lim_{x\to\infty} \mu(x) = 1` (Newton).
-
-That is an identity. It is not a proof that the universe chose this action.
-
-### 2. SPARC measurement `[D]` — current numbers from commit `3c90ef3e`
-
-Working value (`A0_MEASUREMENT.json`, 171 galaxies, 3375 points; bootstrap over galaxies, not points):
-
-`a0 = (1.116 \pm 0.128_{stat} \pm 0.097_{syst}) \times 10^{-10}\,\mathrm{m\,s^{-2}}` (14.4% total).
-
-`c H_0/(2\pi)` lies `0.46\sigma` away. MOND's `1.2\times 10^{-10}` lies `0.52\sigma` away. Those two inputs are not separated at `z=0`.
-
-Matched-parameter ledger (`PARAMETER_LEDGER.json`, `NFW_CONSTRAINED.json`):
-
-| Specification | Free params | Median reduced `χ²` | Role |
-| :--- | ---: | ---: | :--- |
-| GOD Tier 0 (horizon `a0`, fixed M/L) | 0 | 9.20 | only tier that tests `a0` source |
-| MOND Tier 0 (literature `a0`) | 0 | 11.35 | same |
-| GOD Tier 1 | 374 | 2.95 | shared `μ`, horizon `a0` still `[O]` |
-| MOND Tier 1 | 374 | 2.89 | shared `μ`, fitted `a0` |
-| NFW free `c` | 716 | 1.92 | 97/171 railed at `c=1`; **not** the `Λ`CDM row |
-| NFW cosmological `c` prior | 716 | 5.62 | fair `Λ`CDM-like row; 342 extra params vs GOD |
-
-**SUPERSEDED** method (do not quote as current): 176-parameter in-sample median `χ²/N_g = 2.92` with `a0 = (9.433 \pm 0.050)\times 10^{-11}`. That error bar treated 3391 radial points as independent and the old 5-fold CV leaked one global `a0` into every test fold.
-
-### 3. Covariant parents `[P]`
-
-- Pure RAQUAL / k-essence is superluminal on halo backgrounds.
-- Disformal `B(\phi)\ne 0` fails `|c_T/c_\gamma-1|\le 10^{-15}`.
-- Dual-channel `F` embeds in Skordis–Złośnik (2021) with `c_T=c` and `γ_{PPN}=1` in the physical frame.
-
----
-
-## Lean inventory
-
-The verification gate covers **43 targets** (18 manuscript modules plus 25 adjacent-programme modules declared in `05_lean_formalization/ADJACENT_MODULES.txt`), 0 `sorry`, axioms `{propext, Classical.choice, Quot.sound}`, Mathlib `5eec30bc`, Lean `v4.33.0-rc1`. Gate: `05_lean_formalization/verify_all_proofs.sh`.
-
-O6 — **closed 2026-09-08**: cold-machine fetch demonstrated (VERIFICATION_RUN_008, 8678 cache files from origin, no Mathlib on disk), and the `lean-gate` CI job runs the full gate on every push, on schedule, and on dispatch. 43/43 targets pass in CI as of `d130413`. The honest caveat remains: the Mathlib prebuilt-cache endpoint is sometimes-cold-fetchable, not reliably so.
-
-O5 — **closed 2026-09-09**: `fetch_sparc.sh` walked end-to-end from a clean clone, 175/175 SPARC checksums verified with 0 drift (VERIFICATION_RUN_009). SPARC data still is not vendored in git, by design.
-
----
-
-## Epistemic covenant
-
-`[P]` proved &nbsp;|&nbsp; `[D]` computed here &nbsp;|&nbsp; `[C]` cited &nbsp;|&nbsp; `[O]` quarantined.
-
-Full matrix: [`EPISTEMIC_BOUNDARY_v1.5.0.md`](EPISTEMIC_BOUNDARY_v1.5.0.md). Agent rules: [`AGENT_COVENANT.md`](AGENT_COVENANT.md). Opens: [`OPEN_PROBLEMS_AND_TESTS.md`](OPEN_PROBLEMS_AND_TESTS.md).
-
----
-
-## Reproduction
+## Verification & Reproducibility
 
 ```bash
-git clone https://github.com/Mega-Therion/Res-Nova.git
-cd Res-Nova
-python3 scripts/check_claim_consistency.py
+# Run local quality and claim gate
+bash scripts/local_gate.sh
 
-# Lean (see O6)
-cd 05_lean_formalization
-# lake exe cache get
-./verify_all_proofs.sh
-
-# SPARC regeneration needs data that is not in git (see 02_galaxy_dynamics/SPARC_DATA.md)
-cd ../02_galaxy_dynamics
-# python3 a0_measure.py
-# python3 parameter_ledger.py
-
-cd ..
-pdflatex -interaction=nonstopmode res_nova_manuscript.tex
-bibtex res_nova_manuscript
-pdflatex -interaction=nonstopmode res_nova_manuscript.tex
+# Validate claim registry consistency
+python scripts/validate_claim_registry.py
+python scripts/check_claim_consistency.py
 ```
-
-Python pins: `requirements.txt` / `environment.yml`. CI runs claim hygiene and `py_compile` only. It does not download Mathlib or SPARC.
-
----
-
-## Repository topology
-
-```
-Res-Nova/
-├── 01_foundational_action/       # variational papers; PAPER_01 is quarantined
-├── 02_galaxy_dynamics/           # SPARC scripts + frozen JSON
-├── 03_observer_jwst/             # high-z interface; not a completed [D] campaign
-├── 04_cosmology/                 # a0 / Ω ledgers; Ω_Λ=ln2 is [O]
-├── 05_lean_formalization/        # 43 Lean gate targets + verify_all_proofs.sh
-├── FOR_REFEREES.md
-├── OPEN_PROBLEMS_AND_TESTS.md
-├── AGENT_COVENANT.md
-├── EPISTEMIC_BOUNDARY_v1.5.0.md
-├── res_nova_manuscript.tex          # v1.5.0 technical assessment
-└── visualizer/                   # observatory
-```
-
----
-
-## Related publications (Zenodo)
-
-Concept DOIs below resolve to the latest record version. Several titles still say “zero-parameter.” Those titles are historical. They are not the current claim of this repository. Updating a Zenodo title is a DOI-owner decision, not a git edit.
-
-**SPARC / dark-matter alternative — Res-Nova lineage**
-- Information Tension: A Zero-Parameter Geometric Alternative to Dark Matter on SPARC — [10.5281/zenodo.21233977](https://doi.org/10.5281/zenodo.21233977)
-- Information Tension: Geometric Projection Replaces Dark Matter at Low Acceleration (v3, audit-corrected) — [10.5281/zenodo.21146462](https://doi.org/10.5281/zenodo.21146462)
-- Parameter-Free Acceleration Scale: A Geometric Derivation of the MOND Scale from the Cosmic Horizon — [10.5281/zenodo.21450424](https://doi.org/10.5281/zenodo.21450424)
-- Pre-Registered Falsifiable Predictions — Information Tension / Geometrodynamics (v2, corrected) — [10.5281/zenodo.21864056](https://doi.org/10.5281/zenodo.21864056)
-
-**Relativistic and cosmological completion**
-- Relativistic Formulation of the Information Tension Field — [10.5281/zenodo.20822071](https://doi.org/10.5281/zenodo.20822071)
-- ΩCDM: A Pre-Registered Cosmological Prediction — Ω_Λ = ln 2 as a Fixed Constant — [10.5281/zenodo.21867984](https://doi.org/10.5281/zenodo.21867984)
-- Pre-Registration: Ω_Λ = ln(2) — [10.5281/zenodo.21131485](https://doi.org/10.5281/zenodo.21131485)
-- Geometric Accretion Limits in Early-Universe Supermassive Black Holes — [10.5281/zenodo.20776360](https://doi.org/10.5281/zenodo.20776360)
-
-**Broader framework**
-- Universal Information Geometry (v2, corrected) — [10.5281/zenodo.20348354](https://doi.org/10.5281/zenodo.20348354)
-- The Observerse as an E8 Branching — [10.5281/zenodo.20142808](https://doi.org/10.5281/zenodo.20142808)
-- Geometrodynamica (v5) — [10.5281/zenodo.21539453](https://doi.org/10.5281/zenodo.21539453)
-- Ars Magna: Geometrically Ordered Dynamics — [10.5281/zenodo.21302150](https://doi.org/10.5281/zenodo.21302150)
-- The Law of G.O.D. — [10.5281/zenodo.20117456](https://doi.org/10.5281/zenodo.20117456)
-
----
-
-<div align="center">
-
-**Res-Nova Observatory & Research Program**
-
-*AI proposes. Machines verify. Humans audit. Evidence persists.*
-
-</div>

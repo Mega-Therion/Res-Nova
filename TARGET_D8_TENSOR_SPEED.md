@@ -91,7 +91,9 @@ $$\left| \frac{c_T}{c_\gamma} - 1 \right| = \left| e^{-2\phi} - 1 \right| \appro
 
 ## 2. Surviving Covariant Pathways & Remediation
 
-To preserve the derived dual-channel closure $\mu(x) = \frac{x}{1+x}$ while satisfying GW170817, the theory is restricted to two viable branches:
+**STALE MOTIVATION CORRECTED 2026-09-12** (revalidation row 16): the original text below motivated these branches as preserving $\mu(x)=\frac{x}{1+x}$ — a function **falsified 2026-09-12** (`TARGET_D7` §4/§11). The branches' actual value is convention-level and F-independent: they preserve $c_T=c$ for whatever $\mu$ the live theory uses (now $\mu_{\rm std}$). Every quantitative result in this document (rows 12–15) passes the F_std swap unchanged:
+
+To preserve $c_T = c$ (for the live $\mu_{\rm std}$) while satisfying GW170817, the theory is restricted to two viable branches:
 
 1. **Strictly Conformal Metric Coupling ($B(\phi) \equiv 0$):**
    * $\tilde{g}_{\mu\nu} = e^{-2\phi} g_{\mu\nu}$.

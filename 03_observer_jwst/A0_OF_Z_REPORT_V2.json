@@ -1,0 +1,92 @@
+{
+  "status": "completed",
+  "protocol": "PREREG_A0_OF_Z_V2.md",
+  "epistemic_classification": "[D] Computed Empirical Benchmark",
+  "supersedes": "A0_OF_Z_REPORT.json (extracted under falsified mu_dual)",
+  "preregistered_parameters": {
+    "H0_kms_mpc": 67.4,
+    "omega_m": 0.315,
+    "omega_lambda": 0.685,
+    "mu_function": "x / sqrt(1 + x^2)",
+    "a0_sparc_zero_ms2": 1.1160351336495209e-10,
+    "xi_frozen": 0.17043193225269834,
+    "no_nfw_parameters": true,
+    "v1_reproduction_validated": true
+  },
+  "v1_reproduction": {
+    "chi2_H_const": 5.371260049053887,
+    "chi2_H_horizon": 40.48609806449994,
+    "delta_chi2": -35.114838015446054,
+    "sigma": 5.925777418655383,
+    "favoured": "H_const"
+  },
+  "hypothesis_test_results": {
+    "chi2_H_const": 12.886145203683878,
+    "chi2_H_horizon": 8.64454969110367,
+    "delta_chi2": 4.241595512580208,
+    "sigma": 2.059513416460356,
+    "favoured": "none",
+    "verdict": "Inconclusive at 3 sigma threshold"
+  },
+  "a0_sensitivity_scan": [
+    {
+      "a0_scale": 0.7,
+      "chi2_c": 34.6247342910401,
+      "chi2_h": 5.397216145105643,
+      "dchi2": 29.227518145934454,
+      "favoured": "H_horizon"
+    },
+    {
+      "a0_scale": 0.8,
+      "chi2_c": 25.380814099563512,
+      "chi2_h": 3.5446564545600494,
+      "dchi2": 21.836157645003464,
+      "favoured": "H_horizon"
+    },
+    {
+      "a0_scale": 0.9,
+      "chi2_c": 18.223755269500895,
+      "chi2_h": 4.775720277140389,
+      "dchi2": 13.448034992360506,
+      "favoured": "H_horizon"
+    },
+    {
+      "a0_scale": 1.0,
+      "chi2_c": 12.886145203683878,
+      "chi2_h": 8.64454969110367,
+      "dchi2": 4.241595512580208,
+      "favoured": "none"
+    },
+    {
+      "a0_scale": 1.1,
+      "chi2_c": 9.150133743751088,
+      "chi2_h": 14.801911201225765,
+      "dchi2": -5.651777457474678,
+      "favoured": "none"
+    },
+    {
+      "a0_scale": 1.2,
+      "chi2_c": 6.836392683647395,
+      "chi2_h": 22.968608761552986,
+      "dchi2": -16.13221607790559,
+      "favoured": "H_const"
+    },
+    {
+      "a0_scale": 1.3,
+      "chi2_c": 5.795692456557736,
+      "chi2_h": 32.9174843273512,
+      "dchi2": -27.12179187079346,
+      "favoured": "H_const"
+    }
+  ],
+  "dataset": {
+    "source": "Published MUSE-DARK III / HUDF (Bouche+2021 / Mercier+2022)",
+    "n_galaxies": 20,
+    "n_kinematic_points": 20,
+    "redshift_range": [
+      0.413,
+      1.44
+    ],
+    "redshift_median": 0.94
+  }
+}
