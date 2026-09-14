@@ -48,6 +48,9 @@ lean_lib «ResNovaFormal» where
     `DeSitterExtremal,
     `DualChannelDerivation,
     `GODActionKinematics,
+    `NavierStokesGeometry,
+    `NavierStokesScope,
+    `NavierStokesSpec,
     -- AUDITED VACUOUS 2026-08-29 (D47_generation_index_audit.md). Compiles and is
     -- sorry-free, which is why it is gated -- but `z3NetChirality` returns 3/-3/0
     -- because those literals are written into its if-then-else, and the theorem

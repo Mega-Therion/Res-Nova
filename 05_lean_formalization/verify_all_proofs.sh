@@ -54,6 +54,9 @@ TARGETS=(
   DeSitterExtremal.lean
   DualChannelDerivation.lean
   GODActionKinematics.lean
+  NavierStokesGeometry.lean
+  NavierStokesScope.lean
+  NavierStokesSpec.lean
   GenerationIndex.lean
   DiagonalConeIndex.lean
   Hamilgrangian.lean
