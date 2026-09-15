@@ -44,6 +44,17 @@ bash verify_all_proofs.sh
 
 Preserve the transcript, Lean version, Mathlib revision, target count, and `#print axioms` output. Do not report compilation success until that command exits 0.
 
+**Lake-gate patch status — CLOSED 2026-09-15.** `NavierStokesScope.lean` and `NavierStokesSpec.lean`
+required `noncomputable` on their `alignmentGate` / `alignmentFromGate` definitions, and one proof
+needed `unfold` + `ring` in place of `simp` + `ring`. Both fixed; committed and pushed to `main` as
+`365e457` ("fix(lean): mark alignmentGate/alignmentFromGate noncomputable, fix ring proof").
+Measured: `verify_all_proofs.sh` PASS, **48/48 targets**; `check_target_inventory.py` re-run
+2026-09-15 → `PASS — 48 Lean targets; lakefile, gate, and on-disk modules agree`, exit 0.
+This closes the *build-gate* item in "Not completed" above (kernel-checked inclusion of the new
+modules). It closes **nothing analytic** — the Constantin–Fefferman-style dependencies remain
+imported/open, alignment persistence remains a definition of an obligation rather than a theorem,
+and the Clay-relevant open statement below is untouched.
+
 ## Exact remaining theorem
 
 The only Clay-relevant open statement is, in the periodic setting:
