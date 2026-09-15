@@ -22,7 +22,7 @@ This file records what this program has completed and what it has **not** comple
 - A proof of Clay/Fefferman Alternative B (or A, C, or D).
 - Derivation of alignment persistence from 3D incompressible Navier–Stokes dynamics for all admissible data.
 - A closed Lyapunov estimate eliminating the remaining positive `E^3` and `E` terms for arbitrary data.
-- Kernel-checked inclusion of the new modules in `lakefile.lean` / `verify_all_proofs.sh`.
+- ~~Kernel-checked inclusion of the new modules in `lakefile.lean` / `verify_all_proofs.sh`.~~ **Closed 2026-09-15** — see "Lake-gate patch status" below. Build-gate only; every other item in this list stands.
 - Independent PDE and Lean referee reports.
 
 ## Required Lake-gate patch
@@ -48,8 +48,9 @@ Preserve the transcript, Lean version, Mathlib revision, target count, and `#pri
 required `noncomputable` on their `alignmentGate` / `alignmentFromGate` definitions, and one proof
 needed `unfold` + `ring` in place of `simp` + `ring`. Both fixed; committed and pushed to `main` as
 `365e457` ("fix(lean): mark alignmentGate/alignmentFromGate noncomputable, fix ring proof").
-Measured: `verify_all_proofs.sh` PASS, **48/48 targets**; `check_target_inventory.py` re-run
-2026-09-15 → `PASS — 48 Lean targets; lakefile, gate, and on-disk modules agree`, exit 0.
+Measured here 2026-09-15 (gate re-run in full, not taken on report): `bash verify_all_proofs.sh` →
+`verified: 48 / 48 target(s)` / `RESULT: PASS`, **exit 0**; `check_target_inventory.py` →
+`PASS — 48 Lean targets; lakefile, gate, and on-disk modules agree`, exit 0.
 This closes the *build-gate* item in "Not completed" above (kernel-checked inclusion of the new
 modules). It closes **nothing analytic** — the Constantin–Fefferman-style dependencies remain
 imported/open, alignment persistence remains a definition of an obligation rather than a theorem,
