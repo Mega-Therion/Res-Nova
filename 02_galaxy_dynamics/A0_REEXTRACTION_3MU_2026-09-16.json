@@ -1,0 +1,40 @@
+{
+  "generated": "2026-09-16",
+  "n_galaxies": 175,
+  "n_points": 3391,
+  "purpose": "Third row of the (mu, a0) map: mu_simple = tanh(arsinh(x)/2), mu'(0)=1/2, the half-rapidity member of the rapidity-multiple family (W3 of POSTULATE_R_ISOLATION_2026-09-16.md). Same harness as sparc_a0_reextract_std.py; a0 grid extended to [0.5,4.0]e-10 x73 because mu_simple's deep-MOND sqrt(2) normalization defect pushes its a0 high.",
+  "mu_functions": {
+    "dual": "x/(1+x) [X falsified control]",
+    "std": "x/sqrt(1+x^2) [live]",
+    "simple": "x/(1+sqrt(1+x^2)) [half-rapidity, mu'(0)=1/2]"
+  },
+  "closure_forms": {
+    "dual": "g = gbar*(1/2+sqrt(1/4+a0/gbar))",
+    "std": "g = sqrt((gbar^2+sqrt(gbar^4+4*gbar^2*a0^2))/2)",
+    "simple": "g = sqrt(gbar^2+2*a0*gbar)"
+  },
+  "dual": {
+    "a0_best": 9.242001397153448e-11,
+    "bootstrap_median": 9.275051817253741e-11,
+    "bootstrap_68": [
+      8.479977263205426e-11,
+      1.002581814733611e-10
+    ]
+  },
+  "std": {
+    "a0_best": 1.1606685226039266e-10,
+    "bootstrap_median": 1.1636504997316477e-10,
+    "bootstrap_68": [
+      1.0593998420372922e-10,
+      1.2324466224914157e-10
+    ]
+  },
+  "simple": {
+    "a0_best": 5.4430268606980525e-11,
+    "bootstrap_median": 5.4580016318490214e-11,
+    "bootstrap_68": [
+      4.653078565723197e-11,
+      6.070050375705827e-11
+    ]
+  }
+}
