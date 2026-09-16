@@ -91,3 +91,32 @@ measured window; Planck +1.36σ disfavored; SH0ES/TRGB consistent), with hard
 falsifiers named in advance. The theory takes the SH0ES side. Status: the
 obligation is closed pending the H₀ landscape's resolution; the horizon-reason
 (§5.1) remains open under obligation 3's residue. No `[P]` changes.
+
+## CORRECTION 2026-09-16 (post-merge audit) — the H0 inversion is not ladder-independent
+
+Three claims above overreach. The arithmetic in `scripts/a0_prediction_audit.py`
+is correct; the interpretation is not.
+
+1. **Circular, not "independent of any ladder or the CMB."** The a0 window is
+   extracted from SPARC. SPARC (Lelli, McGaugh & Schombert 2016, arXiv:1606.09251,
+   §2 group III) takes Hubble-flow distances for **97 of 175 galaxies assuming
+   H0 = 73 km/s/Mpc**, and states this puts them "on a similar zero-point scale"
+   as its Cepheid/TRGB distances — i.e. the whole sample is on the local distance
+   ladder's zero point. Radii scale as D, so fitted accelerations scale as 1/D,
+   so a0 scales ∝ H0_assumed. Inverting a0 → H0 therefore largely returns the
+   ladder H0 SPARC was built on. Landing near SH0ES (73) is expected by
+   construction and is **not evidence** for the SH0ES side of the tension.
+2. **A 68% window is not an outright falsifier.** A true value falls outside a
+   68% interval ~32% of the time by chance. "Any survey outside [68.5, 79.7]
+   kills the identity" is withdrawn; at minimum a 95–99% interval is required,
+   and only after (1) is fixed.
+3. **"Planck disfavored" at 1.36σ is not disfavoring.** 1.36σ is statistically
+   uninformative. The window (±5.6) is consistent with every current H0
+   measurement at <2σ. The theory does not currently take a side.
+
+**What survives:** a0 = cH0/2π as a stated scale relation, and its forward
+consistency with Planck H0 at 1.4σ. **To make the prediction real:** re-extract
+a0 with distances re-scaled to a common H0 (or restricted to the non-Hubble-flow
+galaxies), propagate the distance-scale uncertainty, and quote 95% intervals.
+Status of obligation 5 reverts to **OPEN (relation stated; prediction not yet
+independent)**.

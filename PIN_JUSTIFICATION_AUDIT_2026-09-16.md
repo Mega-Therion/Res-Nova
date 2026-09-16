@@ -85,3 +85,24 @@ python3 scripts/pin_justification_audit.py    # 6/6, exit 0
 one-channel parsimony given (A)-as-derived + N4; Kramers-type doubling
 `[C]`-anchored; residue renamed **N4-derivation**. Status `[O-sharp]` — the
 convention question is closed; the primitive question is open and named.
+
+## CORRECTION 2026-09-16 (post-merge audit) — "forced" restates the premise
+
+The group computations in `scripts/pin_justification_audit.py` are correct
+(verified by re-run). The word "forced" is not. In the script's own convention the
+Pin^- lift of a reflection is `i(n·σ)` and the Pin^+ lift is `n·σ`; that Pin^-
+reflection lifts square to −I (and Pin^+ ones to +I) is the **definition** of the
+two covers, not a derived property. Premise (ii) — "orientation reversal acts on
+the channel's sheets" (N4) — is precisely the statement that reflection lifts
+square to the kernel element −I. So the argument is: N4 ⇒ Pin^-, where N4 is
+equivalent to choosing Pin^-. The 6-vs-0 and 1-vs-13 counts are a correct
+parsimony *preference*, not a forcing.
+
+Note also the sign convention for Pin^± differs between authors (e.g. whether the
+Clifford relation is v² = +|v|² or −|v|²); any claim about which cover is
+"physical" must fix the convention explicitly.
+
+**Status of obligation 4: OPEN, reduced to one named input** — derive N4 at the
+action level. Until then, Pin^- is a well-motivated choice, not a theorem.
+Minor: P2b's label says "12 reflection lifts"; the check iterates the 6 lifts
+(the 12 counts ± signs).
