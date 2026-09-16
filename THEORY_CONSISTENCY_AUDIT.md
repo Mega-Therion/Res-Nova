@@ -44,6 +44,8 @@ $$S_{\text{AQUAL}} = \int d^4x \left[ -\frac{1}{8\pi G}\nabla \Phi_N \cdot \nabl
 
 ## 3. Optical Sector: Metric $\to$ Redshift & Flux Couplings
 
+> **STALE — flagged 2026-09-16 (`LIGHT_CONE_A0_AUDIT_2026-09-16.md` §5):** the current action (AeST, `TARGET_D7_COVARIANT_COMPLETION.md` §1) couples matter and photons minimally to g_μν — no disformal optical metric. Reciprocity D_L = (1+z)²D_A then holds exactly, so the d_L^eff modulator below (an η ≠ 1 relation) is incompatible with the current photon sector; a measured η ≠ 1 would falsify that sector. Prose left unedited.
+
 The observer sector posits an effective disformal optical metric:
 $$g_{\mu\nu}^{\text{opt}} = g_{\mu\nu} + \beta(\chi) \nabla_\mu\chi \nabla_\nu\chi.$$
 

@@ -70,6 +70,11 @@ failure modes F1–F7 govern what counts as corroboration, counting, and qualifi
    reaches H only via the quasi-static premise, which is 24% off today and chosen by the
    data — premise equivalent to conclusion; not derived. Decider: a₀(z) (1.79× at z=1 vs
    constant).
+   **Light-cone pointer (2026-09-16):** `LIGHT_CONE_A0_AUDIT_2026-09-16.md` +
+   `scripts/light_cone_a0.py` (7/7) separate local/transport/inference: η = D_L/((1+z)²D_A) = 1
+   is the minimal-coupling prediction (`[C]`); (a₀^R)²/a₀^BTFR is distance-free (cancels H₀ and
+   Ω_m errors, not Υ); 3σ Hubble-vs-Λ needs ≲25% per-bin a₀ at z≈1. Data at z~2 exclude ~4a₀
+   (Milgrom 1703.06110), not yet 1.79×. Status unchanged `[O]`.
 4. **Pin⁻ justification — REOPENED 2026-09-16 (N4 round-2 Kramers step has the sign reversed: T²=(−1)^F ⇔ Pin⁺ per Witten arXiv:1508.04715; see correction in `N4_ACTION_DERIVATION_AUDIT_2026-09-16.md`). Superseded label: DERIVED-GIVEN-ONE-[C]-STEP (2026-09-16 evening: `N4_ACTION_DERIVATION_AUDIT_2026-09-16.md`, 13/13; originally reopened by post-merge correction — "forced" restates N4; parsimony preference only — see correction in `PIN_JUSTIFICATION_AUDIT_2026-09-16.md`):**
    Pin⁻ is FORCED by one-channel parsimony: given the channel has exactly two
    states (the kernel, obligation 2) and orientation reversal acts on it (N4),
