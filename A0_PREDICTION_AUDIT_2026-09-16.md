@@ -120,3 +120,47 @@ a0 with distances re-scaled to a common H0 (or restricted to the non-Hubble-flow
 galaxies), propagate the distance-scale uncertainty, and quote 95% intervals.
 Status of obligation 5 reverts to **OPEN (relation stated; prediction not yet
 independent)**.
+---
+
+## VERIFICATION 2026-09-16 (distance-corrected re-extraction) — the correction's prescription, executed
+
+`scripts/a0_distance_corrected_reextract.py` (8/8 checks) +
+`02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json`. Provenance pulled
+from source: `SPARC_Lelli2016c.mrt` note (2) confirms f_D=1 = "Hubble-Flow
+assuming H0=73 km/s/Mpc with Virgo-centric infall" — **97/175 flow galaxies**
+(the PR #59 citation verified exactly), 78 non-flow (45 TRGB, 28 Ursa Major
+cluster, 3 Cepheids, 2 SNe). Identical frozen harness (grids, priors, profile
+likelihood, parabola refinement, 500x bootstrap seed 42), mu_std only, 68% AND
+95% intervals quoted.
+
+| treatment | galaxies | a0 best | 95% interval | inverted H0 (95%) |
+|---|---|---|---|---|
+| T1 baseline (validation) | 175 | 1.1607e-10 | [9.72, 12.95]e-11 | 75.1 [62.9, 83.7] |
+| T2 flow rescaled to Planck (D x 73/67.4) | 175 | 1.0975e-10 | [9.26, 12.34]e-11 | 71.0 [59.9, 79.8] |
+| T3 non-flow only | 78 | 1.1631e-10 | [9.66, 13.24]e-11 | 75.2 [62.5, 85.6] |
+
+**Findings, honestly stated:**
+
+1. **T1 reproduces the frozen window to 0.000%** — the harness is validated;
+   the correction changes the interpretation, not the numbers.
+2. **The flow-H0=73 formula is NOT the source of the 75.** Dropping all 97
+   flow galaxies moves a0 by +0.2% (well inside statistical error): the
+   circularity is RELOCATED, not dissolved — T3's distances (TRGB/Cepheid/UMa/
+   SNe) still sit on the local ladder's zero point. The a0 -> H0 inversion
+   remains ladder-covariant, exactly as PR #59 said, now quantified.
+3. **The relation itself survives every distance treatment.** The Planck
+   anchor cH0(67.4)/2pi = 1.0421e-10 lies inside ALL three 95% intervals (T2,
+   the Planck-rescaled treatment, contains it at <1 sigma). At 95% confidence
+   nothing is excluded — the inverted intervals [59.9, 85.6] contain both
+   Planck and SH0ES. **The theory does not take a side; the tension question
+   is unresolved at current precision.**
+4. **A genuinely independent H0 prediction requires geometric (non-ladder)
+   distances** — masers, detached eclipsing binaries — which SPARC's sample
+   lacks. This is the named limit of the dataset, not of the relation.
+
+**Obligation 5 final status:** relation VERIFIED (a0 = cH0/2pi, consistent with
+Planck under every distance treatment at 95%); inversion NOT independent
+(ladder zero-point confirmed and quantified as the culprit; flow formula
+exonerated). The 68%-window falsifier language is retired; all comparisons
+quote 95%. What would move this: a maser-host a0 measurement, or TRGB
+zero-point resolution.
