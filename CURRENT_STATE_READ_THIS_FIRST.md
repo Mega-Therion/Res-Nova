@@ -108,7 +108,8 @@ block). Key state changes an agent must know:
 - a₀ = cH₀/2π is **distance-robust but its H₀ inversion is NOT independent**
   (ladder-covariant; 95% intervals only; no side taken in the Hubble
   tension; see `A0_PREDICTION_AUDIT_2026-09-16.md` VERIFICATION section).
-- Program residual inputs: μ′(0) = 1, the horizon-selection reason, the `[C]`
+- Program residual inputs: μ′(0) = 1, the horizon-selection reason (OPEN, no
+  selecting principle; a₀(z) decides — `HORIZON_SELECTION_AUDIT_2026-09-16.md`), the `[C]`
   KMS identification.
 
 
