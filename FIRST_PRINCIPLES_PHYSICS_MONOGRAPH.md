@@ -65,6 +65,8 @@ $$\mathcal{L}_{\text{IT}} = -\frac{c^4 a_0^2}{8\pi G} \left[ \sqrt{y(1+y)} - \op
 * **Cosmic Horizon Scale**: $a_0 = \frac{c H_0}{2\pi} \approx 1.20 \times 10^{-10}\text{ m/s}^2$.
 
 ### 2.3 Relativistic Metric & Lensing Invariance
+
+> **STALE — flagged 2026-09-16 (`LIGHT_CONE_A0_AUDIT_2026-09-16.md` §5):** the current action is AeST with **minimal** matter coupling to g_μν; the disformal coupling was retired 2026-09-12 (`TARGET_D7_COVARIANT_COMPLETION.md` §0–§1). Photons follow null geodesics of g, so Etherington reciprocity η = D_L/((1+z)²D_A) = 1 is the theory's prediction. The disformal-photon statement below (and the "disformal metric geometry" foundation listed in the abstract and diagram) is not current physics. Prose left unedited pending a rebuild.
 Photons and gravitational waves propagate on the disformal metric:
 $$\tilde{g}_{\mu\nu} = g_{\mu\nu} + 2\ell_P^2 \nabla_\mu\chi \nabla_\nu\chi, \quad \ell_P = \sqrt{\frac{\hbar G}{c^3}}$$
 * **Gravitational Wave Concordance**: At macroscopic wavelengths $\lambda \gg \ell_P$, $\mathcal{O}(\ell_P^2 |\nabla\chi|^2) < 10^{-16}$, guaranteeing $v_{\text{gw}} = c$ (concordant with GW170817 / GRB 170817A).
