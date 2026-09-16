@@ -29,6 +29,7 @@ Checks (exit 0 iff all pass):
   C4  T2 shifts a0 DOWN (flow fraction rescaled to the smaller Planck H0).
   C5  all 95% intervals are finite and ordered.
 """
+import tempfile
 import glob
 import json
 import re
@@ -41,8 +42,8 @@ BASE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(BASE / "02_galaxy_dynamics"))
 import sparc_a0_reextract_3mu as M  # the frozen harness: prep/fit/A0_GRID/mu_close
 
-SPARC_DIR = "/tmp/sparc_data"
-MASTER = Path("/tmp/sparc_master.mrt")
+SPARC_DIR = str(BASE / "02_galaxy_dynamics" / "sparc_data")
+MASTER = Path(__file__).resolve().parent.parent / "02_galaxy_dynamics" / "sparc_data" / "SPARC_Lelli2016c.mrt"
 H0_FLOW, H0_PLANCK = 73.0, 67.4
 MPC, KMS = 3.0856775814913673e22, 1000.0
 C_LIGHT = 2.99792458e8
@@ -134,8 +135,8 @@ def main():
     scale = H0_FLOW / H0_PLANCK
     pairs = [(f, scale if recs[f.split("/")[-1].replace("_rotmod.dat", "")][1] == 1 else 1.0)
              for f in files]
-    n2 = rescaled_copy(pairs, Path("/tmp/sparc_T2"))
-    t2 = run_treatment(sorted(str(p) for p in Path("/tmp/sparc_T2").glob("*_rotmod.dat")))
+    n2 = rescaled_copy(pairs, Path(tempfile.gettempdir()) / "sparc_T2")
+    t2 = run_treatment(sorted(str(p) for p in (Path(tempfile.gettempdir()) / "sparc_T2").glob("*_rotmod.dat")))
     note(n2 == 175, "C4a T2 rescaled files written", f"{n2}")
 
     # T3: non-flow only
