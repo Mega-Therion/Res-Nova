@@ -49,9 +49,34 @@ failure modes F1–F7 govern what counts as corroboration, counting, and qualifi
    still hide a non-covariant coupling inside 𝒥's freedom. Obligation 1 of layer 0
    moves from "no covariant argument yet" to "covariant uniqueness delivered;
    forcing residual named".
-3. **The 2π** and the Hubble-form specificity (obligation 3); de Sitter–Unruh triangle.
-4. **Pin⁻ justification** — the finite model's silent convention choice (obligation 4).
-5. **Chiral alphabet (A)** — justify or accept as primitive (obligation 2).
+3. **The 2π and the Hubble form — DISCHARGED TO THE STATED LIMIT (2026-09-16).**
+   The 2π has exactly one covariant home composable with Theorem B-cov: the
+   Euclidean closure of the K2 orbit itself — (cosh ψ, sinh ψ) closes under
+   ψ → iθ into the unit circle, period exactly 2π; the hyperbolic observer's
+   imaginary proper-time period is 2π/a (KMS/Unruh circle).
+   `TWOPI_HUBBLE_FORM_AUDIT_2026-09-16.md` + `scripts/twopi_hubble_form_audit.py`
+   (11/11). The rotation-sector 2π (S3) does not transfer (compact vs boost
+   sector); the crossing-time identity is bookkeeping, not a source. The
+   Hubble-form residue is sharp: *which horizon's circle closes the orbit*
+   (P2's measured 1.439×/0.831× factors are the discriminator). The triangle now
+   has two theorem legs (B-cov, 2π-home) and one named open question.
+4. **Pin⁻ justification — SHARPENED (2026-09-16).** The convention is a
+   selection between NON-ISOMORPHIC groups, not bookkeeping: the Pin⁻ cover of
+   the tetrahedral reflection group has exactly 1 involution (order-4 reflection
+   lifts, sheets orientation-connected); the constructed Pin⁺ counterfactual
+   has 13 (order-2 lifts, orientation-disconnected). Machine census:
+   `scripts/chiral_alphabet_substrate.py` (16/16). TRAP ON RECORD: GL(2,3), the
+   naive matrix realization of the reflection double cover, is the Pin⁺-type
+   cover (2⁺S₄) — transposition lifts square to +I; the Pin⁻ cover is the
+   binary-octahedral-type 2⁻S₄. SL(2,3)/BT as frozen is untouched (rotation
+   cover).
+5. **Chiral alphabet (A) — DISCHARGED TO THE STATED LIMIT (2026-09-16).**
+   (A) is derived-given-Pin⁻: the two states ±1 are literally the kernel
+   {±I} of the substrate's double cover; "unpolarized, not absent" is a group
+   theorem (−I is a transformation — the 2π rotation — and no absorbing element
+   exists: the presence reading has no substrate slot). Pin⁻ is what makes the
+   sheets orientation-connected. The residue is exactly obligation 4.
+   `CHIRAL_ALPHABET_SUBSTRATE_AUDIT_2026-09-16.md` + the same verifier.
 6. **a₀(z)** — 0.87σ inconclusive; 5.9σ constant-a₀ verdict unrecoverable `[X]`.
 7. **Embedding 2T ↪ SU(2) and McKay graph Ẽ₆** — literature-anchored `[O]`, not
    constructed in-corpus.

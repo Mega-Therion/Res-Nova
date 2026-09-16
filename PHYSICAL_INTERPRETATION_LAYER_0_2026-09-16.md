@@ -140,8 +140,20 @@ Data: 175 rotmod files, SHA-256 verified against
 limit — Theorem B-cov (Q3_AEST_COVARIANT_DERIVATION_2026-09-16.md) derives (B) as
 the unique covariant coupling and collapses it to μ_std; obligation 6 formalized as
 the standing falsifier battery (FALSIFIER_BATTERY_MU_A0_MAP_2026-09-16.md). N2's
-reading gains covariant-uniqueness support; the narrative statements are unchanged;
-the 2π/Hubble triangle (obligation 3) and (A) (obligation 2) remain the open core.
+reading gains covariant-uniqueness support; the narrative statements are unchanged.
+
+**Update 2026-09-16 (evening):** obligations 2 and 3 discharged to the stated
+limit. The 2π acquires a covariant home — the Euclidean closure of the K2 orbit,
+the channel's thermal circle (TWOPI_HUBBLE_FORM_AUDIT_2026-09-16.md, 11/11) —
+leaving "which horizon's circle" as the triangle's single named open leg. (A) is
+derived-given-Pin⁻: the alphabet is the kernel of the substrate's double cover,
+"unpolarized, not absent" is a group theorem, and the Pin⁺ counterfactual is
+constructed (1 vs 13 involutions — the convention selects between non-isomorphic
+groups; GL(2,3) machine-shown to be the Pin⁺-type cover, a recorded trap)
+(CHIRAL_ALPHABET_SUBSTRATE_AUDIT_2026-09-16.md, 16/16). **The six obligations
+stand at: 1 [O-sharp: forcing], 2 [O-sharp: reduced to 4], 3 [O-sharp: horizon
+selection], 4 [O-sharp: why Pin⁻], 5 [O: a₀ prediction], 6 [D: battery].
+Layer 1's remaining gate: obligations 4 and 5 are the live core.**
 
 ## 8. Ledger entry
 
