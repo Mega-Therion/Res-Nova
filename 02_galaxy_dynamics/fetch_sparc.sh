@@ -28,6 +28,9 @@ fi
 mkdir -p "${DATA_DIR}"
 TMP_ZIP="${DATA_DIR}/Rotmod_LTG.zip"
 
+echo "Downloading SPARC master table (distance method f_D per galaxy) ..."
+curl -fL -o "${DATA_DIR}/SPARC_Lelli2016c.mrt" "https://astroweb.cwru.edu/SPARC/SPARC_Lelli2016c.mrt"
+
 echo "Downloading ${URL} ..."
 curl -fL -o "${TMP_ZIP}" "${URL}"
 
