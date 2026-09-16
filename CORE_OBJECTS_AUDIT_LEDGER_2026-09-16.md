@@ -60,7 +60,7 @@ failure modes F1–F7 govern what counts as corroboration, counting, and qualifi
    Hubble-form residue is sharp: *which horizon's circle closes the orbit*
    (P2's measured 1.439×/0.831× factors are the discriminator). The triangle now
    has two theorem legs (B-cov, 2π-home) and one named open question.
-4. **Pin⁻ justification — DISCHARGED TO THE STATED LIMIT (2026-09-16).**
+4. **Pin⁻ justification — REOPENED 2026-09-16 (post-merge correction: "forced" restates N4, which is equivalent to choosing Pin⁻; parsimony preference only — see correction in `PIN_JUSTIFICATION_AUDIT_2026-09-16.md`). Originally marked discharged:**
    Pin⁻ is FORCED by one-channel parsimony: given the channel has exactly two
    states (the kernel, obligation 2) and orientation reversal acts on it (N4),
    Pin⁻ is the unique cover whose reflection sector couples to the channel's
@@ -103,7 +103,7 @@ the two scripts added 2026-09-16 are `scripts/a0_representation_audit.py` and
 `02_galaxy_dynamics/sparc_a0_reextract_3mu.py` (SHA-256-verified data, /tmp/sparc_data,
 manifest `VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256`).
 
-9. **a₀ prediction (obligation 5) — DISCHARGED TO THE STATED LIMIT (2026-09-16).**
+9. **a₀ prediction (obligation 5) — REOPENED 2026-09-16 (post-merge correction: SPARC distances assume H0=73 for 97/175 galaxies, so the H0 inversion is circular, not ladder-independent; 68% window is not a falsifier — see correction in `A0_PREDICTION_AUDIT_2026-09-16.md`). Originally marked discharged:**
    The scale relation a₀ = cH₀/2π is stated as a two-sided prediction:
    forward, Planck H₀ → a₀ = 1.0422e-10 (−1.37σ vs the μ_std window);
    backwards, the window inverts to H₀ = 75.06 ± 5.59 km/s/Mpc (68%,
