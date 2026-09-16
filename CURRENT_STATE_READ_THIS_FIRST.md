@@ -7,7 +7,8 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against repo HEAD:** 2026-09-12. If this date is more than a few days old
+**Last verified against repo HEAD:** 2026-09-16 (the audit-cycle state below supersedes
+any pre-2026-09-16 substrate claim not updated by it; commit 8ca0e34). If this date is more than a few days old
 when you read it, treat every claim below as suspect and re-derive its status from
 `PEER_REVIEW_READINESS.md` directly before using it.
 
@@ -89,3 +90,23 @@ near the top of the prompt:
 > only. If anything you find elsewhere contradicts that file, the file wins.
 
 No exceptions. If a dispatch doesn't include this line, don't send it.
+
+## 2026-09-16 audit-cycle update (current physics since the 09-12 verification)
+
+The chiral-cascade program's finite core and six interpretation obligations
+were discharged/verified on 2026-09-16; the authoritative state is
+`CORE_OBJECTS_AUDIT_LEDGER_2026-09-16.md` and
+`PHYSICAL_INTERPRETATION_LAYER_0_2026-09-16.md` (with its dated correction
+block). Key state changes an agent must know:
+
+- μ_dual is `[X]` (falsified); **μ_std is the only cosmologically comparable
+  μ-row** (a₀ = 1.1607e-10, 95% [9.72, 12.95]e-11).
+- The substrate's reflection sector is **Pin⁻, derived not assumed**
+  (N4 derived from spinoriality + thermal sheets + B-cov parity + Kramers
+  `[C]` — `N4_ACTION_DERIVATION_AUDIT_2026-09-16.md`, 13/13). GL(2,3) is the
+  Pin⁺-type cover: never use it as the reflection model.
+- a₀ = cH₀/2π is **distance-robust but its H₀ inversion is NOT independent**
+  (ladder-covariant; 95% intervals only; no side taken in the Hubble
+  tension; see `A0_PREDICTION_AUDIT_2026-09-16.md` VERIFICATION section).
+- Program residual inputs: μ′(0) = 1, the horizon-selection reason, the `[C]`
+  KMS identification.

@@ -2,6 +2,20 @@
 
 All notable changes to the Res Nova technical manuscript, formal verification, and reproducibility package.
 
+## [1.9.0] — 2026-09-16
+
+### The finite algebraic core and the six interpretation obligations (layer 0 cycle)
+- **Finite core frozen** (`CORE_OBJECTS_AUDIT_LEDGER_2026-09-16.md`): BT ≅ 2T (Q8 ⋊ C3) fully audited — order census, conjugacy-class partition {1,1,4,4,4,4,6}, complete character table, irrep dims {1,1,1,2,2,2,3}; all finite algebraic claims `[P]`.
+- **μ_std representation audit + Postulate R isolation**: input boundary mapped; μ_dual killed (`[X]`, Cassini + chiral reading); the (μ, a₀) map measured on SPARC (175 galaxies, 3391 points, frozen harness) — rows pairwise disjoint, μ_std a₀ = 1.1607e-10 is the only cosmologically comparable object.
+- **Obligations 1–6 discharged to their stated limits** (`PHYSICAL_INTERPRETATION_LAYER_0_2026-09-16.md`): Theorem B-cov (celerity identification derived as the unique covariant coupling); chiral alphabet reduced to the substrate double cover's kernel (GL(2,3) identified as the Pin⁺-type cover — a machine-verified trap); the 2π given its covariant home (the Euclidean closure of the K2 orbit, the channel's thermal circle).
+- **Correction discipline (#58 → #59)**: the obligations-4-and-5 discharge of PR #58 overclaimed; PR #59 corrected it — Pin⁻ "forcing" restated N4 (circular), and SPARC's Hubble-flow distances (97/175, f_D=1 = H₀=73 per SPARC_Lelli2016c.mrt note 2) make the window→H₀ inversion ladder-covariant; 68% windows are not falsifiers. Layer 0's evening/final block carries a dated supersession note.
+- **Distance-corrected a₀ verification (#60, 8/8, 95% intervals)**: T1 reproduces the frozen window to 0.000%; T2 (flow rescaled to Planck) shifts a₀ to 1.0975e-10 with the Planck anchor inside at <1σ; T3 (non-flow only, 78 galaxies) shifts a₀ by +0.2% — the flow formula is exonerated, the ladder zero point is the covariance, located and quantified. The relation a₀ = cH₀/2π is verified distance-robust; the inversion is NOT independent; no side is taken; maser-host geometric distances named as the mover.
+- **N4 derived from the action level (#61, 13/13)**: the bespoke input "the channel is orientation-sensitive" retired — spinoriality (frozen: 2π = −I) + thermal-circle sheets + B-cov plane-reflection parity + the Kramers antiunitary lift `[C]` select Pin⁻ structurally (Pin⁺ would need orientation to be the point inversion, which B-cov excludes).
+- **Exact-pipeline gap partially closed**: legacy a₀ = 1.107e-10 bracketed, not reproduced (reconstruction with per-galaxy D/I priors: 1.0243e-10, 68% [9.608, 10.853]e-11; +10.3% shift closes 53% of the gap; residual attributed to the original optimizer's undocumented specifics).
+- **Reproducibility (#62)**: SPARC master table + rotmods read from the repo, not /tmp; PR #60's three treatment values reconfirmed from a repo-relative run (8/8).
+
+**Program residual inputs after this cycle:** μ′(0) = 1, the horizon-selection reason, and the single `[C]` KMS/antiunitary identification.
+
 ## [1.8.0] — 2026-09-12
 
 ### Open targets closed
