@@ -96,6 +96,53 @@ All mathematical inequalities, spectral bounds, and group-theoretic properties a
 | `GalacticAcceleration.lean` | Cosmological horizon acceleration $a_0 = cH_0/2\pi$ | 🟢 100% Sorry-Free |
 | `Decoherence.lean` | GKSL generator decoherence bound $T_2 \le 2T_1$ | 🟢 100% Sorry-Free |
 
+
+
+---
+
+## Addendum — the chiral-cascade substrate audit cycle (2026-09-16)
+
+This addendum records the 2026-09-16 audit cycle's results bearing on the
+manuscript's substrate and galactic-kinematics claims. Full derivations,
+machine verifiers, and honest input tags live in the dated audit documents
+cited below; this section integrates them at manuscript level.
+
+**The channel substrate (Pin⁻(3), binary-tetrahedral finite core).** The
+two-state chiral channel of the galactic kinematics is the kernel {±I} of the
+substrate's double cover: its finite rotation core is BT ≅ 2T ≅ SL(2,3) (order
+24; classes {1,1,4,4,4,4,6}; irrep dims {1,1,1,2,2,2,3} — all machine-audited
+and frozen in `CORE_OBJECTS_AUDIT_LEDGER_2026-09-16.md`). The reflection sector
+is Pin⁻-type: plane-reflection lifts square to −I. The naive GL(2,3) matrix
+realization was exposed as the Pin⁺-type cover — a machine-verified trap
+(`CHIRAL_ALPHABET_SUBSTRATE_AUDIT_2026-09-16.md`, 16/16).
+
+**Why Pin⁻ (formerly a convention; now derived).** The orientation-coupling
+N4 is no longer a premise: the channel is spinorial (2π rotation = −I ≠ +I — a
+frozen theorem); its two states are the antipodes of the thermal circle (the
+Euclidean closure of the K2 orbit: +1 at ψ = 0, −1 at Euclidean θ = π, with
+the real orbit sheet-preserving); B-cov parity is a plane reflection of the
+celerity axis; and the reflection on the KMS circle is Euclidean time
+reversal, antiunitary, squaring to −1 on a spinorial channel (Wigner/Kramers,
+machine-checked in its minimal 2×2 instance). The covers distribute the −1
+phase oppositely (Pin⁻: plane reflections; Pin⁺: the point inversion), so the
+plane-reflection structure of B-cov parity selects Pin⁻ uniquely — Pin⁺ would
+require the theory's orientation operation to be the point inversion, which
+B-cov excludes. Residual `[C]` step: the KMS/antiunitary identification
+(literature-anchored). (`N4_ACTION_DERIVATION_AUDIT_2026-09-16.md`, 13/13.)
+
+**a₀ = cH₀/2π — verified, with honest packaging.** The μ_std extraction
+(SPARC, 175 galaxies, frozen harness) gives a₀ = 1.1607e-10, 95% [9.72,
+12.95]e-11. The 2π is the circumference of the channel's thermal circle (the
+Euclidean closure of the K2 orbit — `TWOPI_HUBBLE_FORM_AUDIT_2026-09-16.md`,
+11/11). Distance treatment (SPARC's Hubble-flow subset assumes H₀ = 73;
+97/175 galaxies): the Planck anchor cH₀(67.4)/2π = 1.0421e-10 lies inside the
+95% interval under every treatment; dropping the entire flow subset moves a₀
+by +0.2% — the inversion a₀ → H₀ is covariant with the local ladder's zero
+point, not the flow formula, and is **not an independent prediction**
+(`A0_PREDICTION_AUDIT_2026-09-16.md` + its VERIFICATION section, 8/8).
+The theory takes no side in the Hubble tension at current precision; the
+named path to independence is geometric (maser-host) distances.
+
 ---
 
 *Authored by Ryan W. Yett (`Mega-Therion`) $\cdot$ Published in the Res-Nova Canonical Repository.*
