@@ -142,6 +142,19 @@ the unique covariant coupling and collapses it to μ_std; obligation 6 formalize
 the standing falsifier battery (FALSIFIER_BATTERY_MU_A0_MAP_2026-09-16.md). N2's
 reading gains covariant-uniqueness support; the narrative statements are unchanged.
 
+**Update 2026-09-16 (evening, final):** obligations 4 and 5 discharged to the
+stated limit. Pin⁻ is forced by one-channel parsimony — the unique cover whose
+reflection sector couples to the channel's own sheets given (A)-as-derived and
+N4 (PIN_JUSTIFICATION_AUDIT_2026-09-16.md, 6/6); the residue is deriving N4 at
+the action level. The a₀ prediction is two-sided and falsifiable: the window
+inverts to H₀ = 75.06 ± 5.59 km/s/Mpc, disfavoring Planck at 1.36σ and
+consistent with SH0ES/TRGB — the theory takes the SH0ES side
+(A0_PREDICTION_AUDIT_2026-09-16.md, 8/8). **All six obligations now stand at:
+1 [O-sharp: forcing], 2 [reduced to 4], 3 [O-sharp: horizon reason], 4 [reduced
+to N4], 5 [prediction stated, awaits H₀ landscape], 6 [D: battery]. The
+program's residual input list: N4, μ′(0)=1, and the horizon-selection reason —
+three items, all named.**
+
 **Update 2026-09-16 (evening):** obligations 2 and 3 discharged to the stated
 limit. The 2π acquires a covariant home — the Euclidean closure of the K2 orbit,
 the channel's thermal circle (TWOPI_HUBBLE_FORM_AUDIT_2026-09-16.md, 11/11) —
