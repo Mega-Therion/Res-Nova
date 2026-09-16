@@ -179,3 +179,13 @@ confirmed (ratio 0.469). New binding rule: cosmological comparison of a₀ only 
 extract 1.0243e-10 [9.608, 1.0853]e-10, closing 53% of the gap to the legacy 1.107e-10
 (see ledger open-item 1). Layer 1 of interpretation opens only if/when Q3 or the Unruh triangle
 yields a derivable statement.
+
+**Correction 2026-09-16 (supersedes the two "evening/final" updates above):
+the obligations-4-and-5 paragraphs above predate PR #59 and PR #60.** Current
+state: obligation 4 = Pin^- DERIVED-given-one-[C]-step
+(N4_ACTION_DERIVATION_AUDIT, 13/13 — N4 derived from spinoriality + thermal
+sheets + B-cov parity + Kramers); obligation 5 = relation VERIFIED
+distance-robust, inversion NOT independent (PR #60: SPARC flow formula
+exonerated, ladder zero point is the covariance; 95% intervals; no side
+taken; maser distances named as the mover). The program's residual inputs:
+mu'(0)=1, the horizon-selection reason, and the [C] KMS identification.

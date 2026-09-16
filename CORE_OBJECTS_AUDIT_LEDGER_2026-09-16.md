@@ -60,7 +60,7 @@ failure modes F1–F7 govern what counts as corroboration, counting, and qualifi
    Hubble-form residue is sharp: *which horizon's circle closes the orbit*
    (P2's measured 1.439×/0.831× factors are the discriminator). The triangle now
    has two theorem legs (B-cov, 2π-home) and one named open question.
-4. **Pin⁻ justification — REOPENED 2026-09-16 (post-merge correction: "forced" restates N4, which is equivalent to choosing Pin⁻; parsimony preference only — see correction in `PIN_JUSTIFICATION_AUDIT_2026-09-16.md`). Originally marked discharged:**
+4. **Pin⁻ justification — DERIVED-GIVEN-ONE-[C]-STEP (2026-09-16 evening: `N4_ACTION_DERIVATION_AUDIT_2026-09-16.md`, 13/13; originally reopened by post-merge correction — "forced" restates N4; parsimony preference only — see correction in `PIN_JUSTIFICATION_AUDIT_2026-09-16.md`):**
    Pin⁻ is FORCED by one-channel parsimony: given the channel has exactly two
    states (the kernel, obligation 2) and orientation reversal acts on it (N4),
    Pin⁻ is the unique cover whose reflection sector couples to the channel's
@@ -127,3 +127,13 @@ manifest `VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256`).
    (masers) named as the mover. VERIFICATION section in
    `A0_PREDICTION_AUDIT_2026-09-16.md`;
    `02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json`.
+   **Round 2 (2026-09-16 evening):** N4 DERIVED rather than assumed: the
+   channel is spinorial (frozen [P]); its sheets are the thermal circle's
+   antipodes ([D]); parity is a PLANE reflection of the celerity axis (B-cov
+   [D]) whose lift passes through the Euclidean/KMS sector and so carries the
+   Kramers -1 ([C], minimal instance machine-checked); Pin^- is the unique
+   cover whose PLANE-reflection lifts square to -I — Pin^+ would need the
+   orientation operation to be the point inversion, excluded by B-cov.
+   Bespoke input N4 retired; residual inputs: mu'(0)=1, horizon reason, and
+   the [C] KMS/antiunitary identification. `scripts/n4_action_derivation.py`
+   (13/13).
