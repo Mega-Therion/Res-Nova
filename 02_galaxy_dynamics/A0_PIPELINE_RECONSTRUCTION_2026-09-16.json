@@ -1,0 +1,16 @@
+{
+  "generated": "2026-09-16",
+  "method": "mu_dual harness of sparc_a0_reextract_std.py + per-galaxy SPARC distance+inclination Gaussian priors (3x3 marginalized grids), targeting the legacy A0_ESTIMATE 1.1070467107089318e-10",
+  "n_galaxies": 175,
+  "a0_best": 1.0242616567552735e-10,
+  "bootstrap_median": 1.0151390607917236e-10,
+  "bootstrap_68": [
+    9.608172618105171e-11,
+    1.0852935589952898e-10
+  ],
+  "targets": {
+    "A0_ESTIMATE": 1.1070467107089318e-10,
+    "A0_MEASUREMENT": 1.1162688655613144e-10,
+    "harness_without_DI_priors": 9.285e-11
+  }
+}
