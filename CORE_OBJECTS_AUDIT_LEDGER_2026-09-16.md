@@ -60,7 +60,7 @@ failure modes F1–F7 govern what counts as corroboration, counting, and qualifi
    Hubble-form residue is sharp: *which horizon's circle closes the orbit*
    (P2's measured 1.439×/0.831× factors are the discriminator). The triangle now
    has two theorem legs (B-cov, 2π-home) and one named open question.
-4. **Pin⁻ justification — DERIVED-GIVEN-ONE-[C]-STEP (2026-09-16 evening: `N4_ACTION_DERIVATION_AUDIT_2026-09-16.md`, 13/13; originally reopened by post-merge correction — "forced" restates N4; parsimony preference only — see correction in `PIN_JUSTIFICATION_AUDIT_2026-09-16.md`):**
+4. **Pin⁻ justification — REOPENED 2026-09-16 (N4 round-2 Kramers step has the sign reversed: T²=(−1)^F ⇔ Pin⁺ per Witten arXiv:1508.04715; see correction in `N4_ACTION_DERIVATION_AUDIT_2026-09-16.md`). Superseded label: DERIVED-GIVEN-ONE-[C]-STEP (2026-09-16 evening: `N4_ACTION_DERIVATION_AUDIT_2026-09-16.md`, 13/13; originally reopened by post-merge correction — "forced" restates N4; parsimony preference only — see correction in `PIN_JUSTIFICATION_AUDIT_2026-09-16.md`):**
    Pin⁻ is FORCED by one-channel parsimony: given the channel has exactly two
    states (the kernel, obligation 2) and orientation reversal acts on it (N4),
    Pin⁻ is the unique cover whose reflection sector couples to the channel's
