@@ -1,0 +1,69 @@
+{
+  "generated": "2026-09-16",
+  "purpose": "Distance-corrected a0 re-extraction (obligation 5, post-PR-59): the SPARC Hubble-flow distances (f_D=1, 97/175) assume H0=73 (SPARC_Lelli2016c.mrt note 2), so the frozen window's H0 inversion is circular. Treatments: T1 baseline (validation), T2 flow rescaled to Planck H0 (D x 73/67.4), T3 non-flow galaxies only.",
+  "provenance": {
+    "master": "https://astroweb.cwru.edu/SPARC/SPARC_Lelli2016c.mrt",
+    "note2": "f_D=1: Hubble-Flow assuming H0=73 km/s/Mpc with Virgo-centric infall correction; f_D=2 TRGB; 3 Cepheids; 4 Ursa Major cluster; 5 SNe light curves",
+    "counts": {
+      "flow_H0_73": 97,
+      "non_flow": 78
+    }
+  },
+  "mu": "std (x/sqrt(1+x^2), the live row; battery-passing)",
+  "treatments": {
+    "T1_baseline_175": {
+      "n_galaxies": 175,
+      "n_points": 3391,
+      "a0_best": 1.1606685226039266e-10,
+      "bootstrap_68": [
+        1.0593998420372922e-10,
+        1.2324466224914157e-10
+      ],
+      "bootstrap_95": [
+        9.724621934913163e-11,
+        1.294964290868034e-10
+      ],
+      "H0_from_a0_95": [
+        62.89012195009516,
+        83.74666153480277
+      ],
+      "H0_from_a0_best": 75.06161722147148
+    },
+    "T2_flow_rescaled_to_Planck_67p4": {
+      "n_galaxies": 175,
+      "n_points": 3391,
+      "a0_best": 1.0975443048182621e-10,
+      "bootstrap_68": [
+        1.0080867220865686e-10,
+        1.1694987129532964e-10
+      ],
+      "bootstrap_95": [
+        9.26394956993887e-11,
+        1.2336812148194978e-10
+      ],
+      "H0_from_a0_95": [
+        59.910906777908544,
+        79.78342249891544
+      ],
+      "H0_from_a0_best": 70.97930967150683
+    },
+    "T3_nonflow_only": {
+      "n_galaxies": 78,
+      "n_points": 1406,
+      "a0_best": 1.1630564344814754e-10,
+      "bootstrap_68": [
+        1.0650292038804336e-10,
+        1.2510138105584097e-10
+      ],
+      "bootstrap_95": [
+        9.663981746209963e-11,
+        1.323925645179661e-10
+      ],
+      "H0_from_a0_95": [
+        62.49795566454227,
+        85.61962185828747
+      ],
+      "H0_from_a0_best": 75.21604591822725
+    }
+  }
+}

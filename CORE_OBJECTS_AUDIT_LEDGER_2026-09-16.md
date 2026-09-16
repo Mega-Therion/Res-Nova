@@ -103,7 +103,7 @@ the two scripts added 2026-09-16 are `scripts/a0_representation_audit.py` and
 `02_galaxy_dynamics/sparc_a0_reextract_3mu.py` (SHA-256-verified data, /tmp/sparc_data,
 manifest `VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256`).
 
-9. **a₀ prediction (obligation 5) — REOPENED 2026-09-16 (post-merge correction: SPARC distances assume H0=73 for 97/175 galaxies, so the H0 inversion is circular, not ladder-independent; 68% window is not a falsifier — see correction in `A0_PREDICTION_AUDIT_2026-09-16.md`). Originally marked discharged:**
+9. **a₀ prediction (obligation 5) — VERIFIED FINAL STATE (2026-09-16 evening: distance-corrected re-extraction executed; originally reopened by post-merge correction: SPARC distances assume H0=73 for 97/175 galaxies, so the H0 inversion is circular, not ladder-independent; 68% window is not a falsifier — see correction in `A0_PREDICTION_AUDIT_2026-09-16.md`). Originally marked discharged:**
    The scale relation a₀ = cH₀/2π is stated as a two-sided prediction:
    forward, Planck H₀ → a₀ = 1.0422e-10 (−1.37σ vs the μ_std window);
    backwards, the window inverts to H₀ = 75.06 ± 5.59 km/s/Mpc (68%,
@@ -114,3 +114,16 @@ manifest `VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256`).
    `A0_PREDICTION_AUDIT_2026-09-16.md` + `scripts/a0_prediction_audit.py` (8/8).
    Open residue stays with obligation 3 (horizon-selection reason) and item 6
    (a₀(z)).
+   **Verification (2026-09-16 evening):** `scripts/a0_distance_corrected_reextract.py`
+   (8/8) executed the correction's prescription with 95% intervals:
+   T1 baseline reproduces the frozen window (0.000%); T2 (flow rescaled to
+   Planck) shifts a0 to 1.0975e-10 with the Planck anchor inside its 95%
+   interval at <1 sigma; T3 (non-flow only, 78 galaxies) shifts a0 by only
+   +0.2% — the flow-H0=73 formula is NOT the circularity's source; the local
+   ladder zero point is (relocated, quantified). The Planck anchor cH0/2pi
+   sits inside ALL 95% intervals under every treatment: the relation is
+   verified distance-robust; the inversion is NOT independent; no side is
+   taken; the 68%-falsifier language is retired. Geometric-distance a0
+   (masers) named as the mover. VERIFICATION section in
+   `A0_PREDICTION_AUDIT_2026-09-16.md`;
+   `02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json`.
