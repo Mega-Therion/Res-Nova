@@ -60,16 +60,16 @@ failure modes F1–F7 govern what counts as corroboration, counting, and qualifi
    Hubble-form residue is sharp: *which horizon's circle closes the orbit*
    (P2's measured 1.439×/0.831× factors are the discriminator). The triangle now
    has two theorem legs (B-cov, 2π-home) and one named open question.
-4. **Pin⁻ justification — SHARPENED (2026-09-16).** The convention is a
-   selection between NON-ISOMORPHIC groups, not bookkeeping: the Pin⁻ cover of
-   the tetrahedral reflection group has exactly 1 involution (order-4 reflection
-   lifts, sheets orientation-connected); the constructed Pin⁺ counterfactual
-   has 13 (order-2 lifts, orientation-disconnected). Machine census:
-   `scripts/chiral_alphabet_substrate.py` (16/16). TRAP ON RECORD: GL(2,3), the
-   naive matrix realization of the reflection double cover, is the Pin⁺-type
-   cover (2⁺S₄) — transposition lifts square to +I; the Pin⁻ cover is the
-   binary-octahedral-type 2⁻S₄. SL(2,3)/BT as frozen is untouched (rotation
-   cover).
+4. **Pin⁻ justification — DISCHARGED TO THE STATED LIMIT (2026-09-16).**
+   Pin⁻ is FORCED by one-channel parsimony: given the channel has exactly two
+   states (the kernel, obligation 2) and orientation reversal acts on it (N4),
+   Pin⁻ is the unique cover whose reflection sector couples to the channel's
+   own sheets (all 6 lifts square to −I; 0 channel-coupled lifts, 13 involutions
+   under Pin⁺ — a second two-fold structure the substrate audit excluded).
+   Kramers-type doubling [C]-anchored. `PIN_JUSTIFICATION_AUDIT_2026-09-16.md`
+   + `scripts/pin_justification_audit.py` (6/6). Residue renamed: derive N4
+   itself at the action level. The covers stay machine-distinguishable
+   (1 vs 13 involutions); the GL(2,3) trap stays on record.
 5. **Chiral alphabet (A) — DISCHARGED TO THE STATED LIMIT (2026-09-16).**
    (A) is derived-given-Pin⁻: the two states ±1 are literally the kernel
    {±I} of the substrate's double cover; "unpolarized, not absent" is a group
@@ -102,3 +102,15 @@ obligations before promotion beyond `[C]`.
 the two scripts added 2026-09-16 are `scripts/a0_representation_audit.py` and
 `02_galaxy_dynamics/sparc_a0_reextract_3mu.py` (SHA-256-verified data, /tmp/sparc_data,
 manifest `VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256`).
+
+9. **a₀ prediction (obligation 5) — DISCHARGED TO THE STATED LIMIT (2026-09-16).**
+   The scale relation a₀ = cH₀/2π is stated as a two-sided prediction:
+   forward, Planck H₀ → a₀ = 1.0422e-10 (−1.37σ vs the μ_std window);
+   backwards, the window inverts to H₀ = 75.06 ± 5.59 km/s/Mpc (68%,
+   [68.51, 79.70]) — the theory takes the SH0ES side: Planck +1.36σ disfavored,
+   SH0ES +0.36σ, TRGB/Freedman +0.92σ consistent. Hard falsifiers named in
+   advance (any survey outside [68.5, 79.7] kills the identity). Binding rule
+   honored: comparison valid for μ_std only (battery T1/T2 pass).
+   `A0_PREDICTION_AUDIT_2026-09-16.md` + `scripts/a0_prediction_audit.py` (8/8).
+   Open residue stays with obligation 3 (horizon-selection reason) and item 6
+   (a₀(z)).
