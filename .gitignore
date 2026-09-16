@@ -37,3 +37,4 @@ THE_ONE_PAGE_*_EXTRACTED.txt
 
 # assurance evidence logs are cited as claim witnesses and must be tracked
 !assurance/evidence/*.log
+.claude/worktrees/
