@@ -136,6 +136,13 @@ python3 02_galaxy_dynamics/sparc_a0_reextract_3mu.py /tmp/sparc_data
 Data: 175 rotmod files, SHA-256 verified against
 `VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256` (2026-09-16).
 
+**Update 2026-09-16 (later the same day):** obligation 1 discharged to the stated
+limit — Theorem B-cov (Q3_AEST_COVARIANT_DERIVATION_2026-09-16.md) derives (B) as
+the unique covariant coupling and collapses it to μ_std; obligation 6 formalized as
+the standing falsifier battery (FALSIFIER_BATTERY_MU_A0_MAP_2026-09-16.md). N2's
+reading gains covariant-uniqueness support; the narrative statements are unchanged;
+the 2π/Hubble triangle (obligation 3) and (A) (obligation 2) remain the open core.
+
 ## 8. Ledger entry
 
 **RN-CO-06 (interpretation layer 0) — opened.** The minimal narrative is stated with

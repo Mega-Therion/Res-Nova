@@ -40,16 +40,28 @@ failure modes F1–F7 govern what counts as corroboration, counting, and qualifi
    discrepancy (~8%) is attributable to the original optimizer's undocumented
    specifics (continuous per-galaxy optimization vs. grid marginalization). The gap
    is now measured and decomposed, not merely noted.
-2. **(B) covariant derivation** — Q3/AeST target: derive that the external gradient
-   enters as sinh of the internal rapidity. Obligation 1 of layer 0.
+2. **(B) covariant derivation — DISCHARGED TO THE STATED LIMIT (2026-09-16).**
+   Theorem B-cov (`Q3_AEST_COVARIANT_DERIVATION_2026-09-16.md` +
+   `scripts/q3_covariant_derivation.py`, 19/19): given the covariant premises
+   K1–K3 the AeST action supplies, the gradient enters as sinh of the internal
+   rapidity, and (B) ⟺ μ_std identically. Residual, renamed and sharp: the
+   **K3 momentum-linearity is uniqueness, not forcing** — a covariant embedding can
+   still hide a non-covariant coupling inside 𝒥's freedom. Obligation 1 of layer 0
+   moves from "no covariant argument yet" to "covariant uniqueness delivered;
+   forcing residual named".
 3. **The 2π** and the Hubble-form specificity (obligation 3); de Sitter–Unruh triangle.
 4. **Pin⁻ justification** — the finite model's silent convention choice (obligation 4).
 5. **Chiral alphabet (A)** — justify or accept as primitive (obligation 2).
 6. **a₀(z)** — 0.87σ inconclusive; 5.9σ constant-a₀ verdict unrecoverable `[X]`.
 7. **Embedding 2T ↪ SU(2) and McKay graph Ẽ₆** — literature-anchored `[O]`, not
    constructed in-corpus.
-8. **μ_simple's a₀ prediction as falsifier battery** — any theory whose μ is not
-   μ_std-shaped is displaced ~2× in a₀ (RN-CO-05b); formalize as a standing test.
+8. **μ_simple's a₀ prediction as falsifier battery — FORMALIZED (2026-09-16).**
+   Standing harness delivered (`scripts/falsifier_battery_mu_a0_map.py` +
+   `FALSIFIER_BATTERY_MU_A0_MAP_2026-09-16.md`, exit 0): map checks A1–A3 guard
+   the frozen 3μ extraction; battery T1 (knife μ′(0)=1) / T2 (celerity (B)) gate
+   any candidate μ; reference behaviour (std passes, dual fails T2, simple fails
+   T1) is itself enforced. Binding rule live: cosmological comparison of a₀ only
+   for μ_std-shaped μ, window [1.059, 1.232]e-10.
 
 ## 3. Cycle state
 
