@@ -31,6 +31,8 @@ step() {
 
 step "py_compile" bash -c 'python3 -m py_compile 02_galaxy_dynamics/*.py scripts/check_claim_consistency.py 05_lean_formalization/check_manuscript_inventory.py scripts/render_mvpc_fixtures.py scripts/run_mvpc_adapter.py 03_observer_jwst/gate2_inference.py'
 step "claim consistency" python3 scripts/check_claim_consistency.py
+step "claim registry" python3 scripts/validate_claim_registry.py
+step "claim registry fixtures" python3 scripts/test_claim_registry_fixtures.py
 step "gate2 inference self-test" python3 03_observer_jwst/gate2_inference.py --self-test
 step "lean target inventory" python3 05_lean_formalization/check_target_inventory.py
 step "lean manuscript inventory" python3 05_lean_formalization/check_manuscript_inventory.py
