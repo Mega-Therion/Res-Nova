@@ -53,5 +53,6 @@
   "a0_claimed_cH0_over_2pi": 1.0421152108506952e-10,
   "a0_mond_empirical": 1.2e-10,
   "tension_claim_sigma": 0.46175003838310674,
-  "tension_mond_sigma": 0.5213883886344357
+  "tension_mond_sigma": 0.5213883886344357,
+  "status": "SUPERSEDED 2026-09-17 (annotated; all original fields preserved): this 171-galaxy pre-audit extraction (a0 = 1.1163e-10) is retained for provenance only. The live cosmological comparison object is the mu_std row per the frozen core-objects ledger: T1 (all 175 galaxies) a0 = 1.1607e-10, 95% [9.72, 12.95]e-11; T3 (non-flow, 78 galaxies) a0 = 1.16306e-10 \u2014 see A0_PREDICTION_AUDIT_2026-09-16.md and A0_DISTANCE_CORRECTED_2026-09-16.json (PRs #59/#60). Cited by the public Res Nova Research Atlas (resnova-hub-f4ucvy3e.manus.space) as of release 7a087b0; the atlas headline should track the mu_std row. Two PRs of program state postdate the atlas: PR #69 (HORIZON_SELECTION_AUDIT_2026-09-16.md, apparent-horizon candidate home, 10/10) and PR #70 (A0_HIGHZ_COROLLARY_COMPARISON_2026-09-17.md, corollary vs RC100, 11/11)."
 }
