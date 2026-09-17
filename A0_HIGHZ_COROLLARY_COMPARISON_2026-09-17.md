@@ -3,7 +3,7 @@
 **Status:** the apparent-horizon corollary is CONSTRAINED, not confirmed, not
 excluded `[O]`. Its first encounter with high-z data leans AGAINST it in
 shape, with every reading calibration-limited.
-**Date:** 2026-09-17 (follows PR #68 `A0_HIGHZ_MEASUREMENT_2026-09-16.md` and
+**Date:** 2026-09-17 (follows PR #68 `02_galaxy_dynamics/A0_HIGHZ_MEASUREMENT_2026-09-16.md` and
 PR #69 `HORIZON_SELECTION_AUDIT_2026-09-16.md`).
 **Tags:** `[P]` proved · `[D]` derived/verified here · `[C]` cited/calibration-dependent · `[O]` open · `[X]` killed
 **Machine:** `scripts/a0_highz_corollary_comparison.py` — 11/11, exit 0.
