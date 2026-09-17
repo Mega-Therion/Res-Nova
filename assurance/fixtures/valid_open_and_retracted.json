@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.1",
+  "registry_status": "fixture",
+  "claims": [
+    {
+      "id": "FIX-VALID-OPEN",
+      "wording": "An open research question with no evidence artifact -- must validate, since proposed/open claims are not required to carry an artifact.",
+      "state": "proposed",
+      "assurance_level": "fixture",
+      "formal_artifacts": [],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [],
+      "verification_commands": [],
+      "independent_witness": "https://example.invalid/fixture",
+      "limitations": "Fixture only; not a real claim.",
+      "status_owner": "fixture",
+      "claim_type": "phenomenological-posit",
+      "quotation_type": "paraphrase",
+      "source_locator": "assurance/fixtures/valid_open_and_retracted.json#FIX-VALID-OPEN",
+      "falsifiability": {"test": null, "scope": null, "result": "not_run"},
+      "last_verified_commit": "0000000000000000000000000000000000000000"
+    },
+    {
+      "id": "FIX-VALID-RETRACTED",
+      "wording": "A retracted claim contradicted by a real test -- retracted is exempt from the status-upgrade rule, since retraction is the correct response to contradiction.",
+      "state": "retracted",
+      "assurance_level": "fixture",
+      "formal_artifacts": [],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [],
+      "verification_commands": [],
+      "independent_witness": "https://example.invalid/fixture",
+      "limitations": "Fixture only; not a real claim.",
+      "status_owner": "fixture",
+      "claim_type": "structural-correction",
+      "quotation_type": "paraphrase",
+      "source_locator": "assurance/fixtures/valid_open_and_retracted.json#FIX-VALID-RETRACTED",
+      "falsifiability": {"test": "fixture test", "scope": "fixture scope", "result": "contradicted"},
+      "last_verified_commit": "0000000000000000000000000000000000000000"
+    }
+  ]
+}

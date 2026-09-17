@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.1",
+  "registry_status": "fixture",
+  "claims": [
+    {
+      "id": "FIX-VALID-01",
+      "wording": "A fixture claim used only to exercise the validator.",
+      "state": "proposed",
+      "assurance_level": "fixture",
+      "formal_artifacts": [],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [],
+      "verification_commands": [],
+      "independent_witness": "https://example.invalid/fixture",
+      "limitations": "Fixture only; not a real claim.",
+      "status_owner": "fixture",
+      "claim_type": "phenomenological-posit",
+      "quotation_type": "paraphrase",
+      "source_locator": "assurance/fixtures/valid_minimal.json#FIX-VALID-01",
+      "falsifiability": {"test": null, "scope": null, "result": "not_run"},
+      "last_verified_commit": "0000000000000000000000000000000000000000"
+    }
+  ]
+}

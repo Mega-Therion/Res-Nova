@@ -48,11 +48,20 @@ python3 05_lean_formalization/check_target_inventory.py   # lakefile == gate == 
 python3 05_lean_formalization/check_manuscript_inventory.py  # manuscript == disk - adjacent
 ```
 
-`assurance/claims.json` now covers **all 14 claims** in `CLAIM_EVIDENCE_LEDGER.md`, plus
-CLM-15 and CLM-16 (Pillar IV). A green registry means every ledger claim carries a state,
-its artifacts, its assumptions, a verification command and a stated limitation — it does
-**not** mean every claim is proved. Read the states: 7 formally-verified, 3 computed,
-2 conditional, 2 proposed, 2 retracted.
+`assurance/claims.json` now covers **all 43 claims**: the 14 in `CLAIM_EVIDENCE_LEDGER.md`,
+CLM-15/CLM-16 (Pillar IV), and the 27 new/rescored claims from
+`CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md` (D2/D3/D5/D6/D7/D9, plus CLM-AX-02 and
+CLM-O1-01). Every record also carries `claim_type`, `quotation_type`, `source_locator`,
+a `falsifiability` test record, and a `last_verified_commit` (issue #50's schema). A
+green registry means every claim carries a state, its artifacts, its assumptions, a
+verification command, a stated limitation, and a source locator — it does **not** mean
+every claim is proved. `scripts/validate_claim_registry.py` fails closed if a claim's own
+`falsifiability.result` is `contradicted` but its `state` still asserts current support
+(`formally-verified`/`derived`/`computed`/`empirically-supported`) — such a claim must be
+`retracted` or `conditional`. `scripts/test_claim_registry_fixtures.py` exercises that rule
+against fixtures in `assurance/fixtures/`. Read the states:
+`python3 scripts/generate_assurance_report.py` regenerates the count table in
+`assurance/ASSURANCE_REPORT.md`.
 
 Two states are load-bearing and easy to misread. `conditional` (CLM-10) means the algebra
 is exact but rests on an adopted premise — `sinh(psi)=1` is not selected by any covariant

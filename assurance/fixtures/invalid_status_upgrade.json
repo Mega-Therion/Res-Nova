@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.1",
+  "registry_status": "fixture",
+  "claims": [
+    {
+      "id": "FIX-INVALID-02",
+      "wording": "A claim that a real test contradicted, but which still claims formally-verified status -- the forbidden status upgrade issue #50 requires be caught.",
+      "state": "formally-verified",
+      "assurance_level": "fixture",
+      "formal_artifacts": ["assurance/ASSURANCE_CONTRACT.md"],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [],
+      "verification_commands": [],
+      "independent_witness": "https://example.invalid/fixture",
+      "limitations": "Fixture only; not a real claim.",
+      "status_owner": "fixture",
+      "claim_type": "algebraic-identity",
+      "quotation_type": "paraphrase",
+      "source_locator": "assurance/fixtures/invalid_status_upgrade.json#FIX-INVALID-02",
+      "falsifiability": {"test": "fixture test", "scope": "fixture scope", "result": "contradicted"},
+      "last_verified_commit": "0000000000000000000000000000000000000000"
+    }
+  ]
+}

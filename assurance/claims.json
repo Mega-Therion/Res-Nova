@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "registry_status": "expanded",
   "claims": [
     {
@@ -21,7 +21,16 @@
       ],
       "independent_witness": "assurance/evidence/res_nova_verify_final.log",
       "limitations": "This does not establish physical uniqueness or empirical adequacy.",
-      "status_owner": "Res-Nova formalization maintainers"
+      "status_owner": "Res-Nova formalization maintainers",
+      "claim_type": "algebraic-identity",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-01",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
     {
       "id": "CLM-02",
@@ -42,7 +51,16 @@
       ],
       "independent_witness": "assurance/evidence/res_nova_verify_final.log",
       "limitations": "Selection is by ELIMINATION within the two candidate ansaetze considered: powerLaw_solves_dilaton_eom shows sigma(r)=k/r with k^2=2c^4/a0^2 satisfies the EOM, while exp_profile_fails_cubic shows the linear-BC exponential cannot. This does not establish that no third ansatz exists. laws_differ separately proves x/(x+1) and x/sqrt(1+x^2) are distinct functions, so the earlier corpus contradiction between them was real. CAS companion mu_residual_witness.py (11/11) lives in the Chyren repo at Research_and_Data/02_Documents/, outside this repository.",
-      "status_owner": "Res-Nova formalization maintainers"
+      "status_owner": "Res-Nova formalization maintainers",
+      "claim_type": "formal-proof",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-02",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
     {
       "id": "CLM-03",
@@ -62,7 +80,16 @@
       ],
       "independent_witness": "EPISTEMIC_BOUNDARY_v1.5.0.md",
       "limitations": "The route is proven CLOSED, not merely unattempted. HorizonScale.lean's kms_cancellation_equilibrium shows the KMS factor 2*pi appears in both the Unruh and Gibbons-Hawking temperatures and cancels identically, so thermal horizon matching yields a = c*H with coefficient xi = 1. two_pi_divisor_not_derived records that obtaining a0 = c*H/(2*pi) therefore requires dividing by 2*pi as a separate postulate. Any derivation of the 2*pi must come from somewhere other than KMS/horizon-temperature matching.",
-      "status_owner": "Res-Nova theory maintainers"
+      "status_owner": "Res-Nova theory maintainers",
+      "claim_type": "phenomenological-posit",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-03",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
     {
       "id": "CLM-04",
@@ -85,7 +112,16 @@
       ],
       "independent_witness": "02_galaxy_dynamics/SPARC_PARAMETER_BUDGET.md",
       "limitations": "The strict result is a poor absolute fit and does not by itself establish physical validity or causality.",
-      "status_owner": "Res-Nova empirical maintainers"
+      "status_owner": "Res-Nova empirical maintainers",
+      "claim_type": "empirical-measurement",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-04",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
     {
       "id": "CLM-05",
@@ -106,7 +142,16 @@
       ],
       "independent_witness": "CLAIM_EVIDENCE_LEDGER.md",
       "limitations": "This record governs wording and comparison scope; it is not itself a new fit.",
-      "status_owner": "Res-Nova empirical maintainers"
+      "status_owner": "Res-Nova empirical maintainers",
+      "claim_type": "structural-correction",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-05",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
     {
       "id": "CLM-06",
@@ -129,7 +174,16 @@
       ],
       "independent_witness": "02_galaxy_dynamics/PARAMETER_LEDGER.json",
       "limitations": "This is a deliberately poor-fitting control, not a result. It exists to bound the baryons-only baseline.",
-      "status_owner": "Res-Nova formalization maintainers"
+      "status_owner": "Res-Nova formalization maintainers",
+      "claim_type": "empirical-measurement",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-06",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
     {
       "id": "CLM-07",
@@ -151,7 +205,16 @@
       ],
       "independent_witness": "02_galaxy_dynamics/PARAMETER_LEDGER.json",
       "limitations": "Control baseline only; a poor absolute fit is the expected and intended outcome.",
-      "status_owner": "Res-Nova formalization maintainers"
+      "status_owner": "Res-Nova formalization maintainers",
+      "claim_type": "empirical-measurement",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-07",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
     {
       "id": "CLM-08",
@@ -174,7 +237,16 @@
       ],
       "independent_witness": "05_lean_formalization/REPRODUCE.md",
       "limitations": "The current gate declares 29 targets; lakefile.lean is configuration and is not a target. Formal elaboration is not empirical confirmation.",
-      "status_owner": "Res-Nova formalization maintainers"
+      "status_owner": "Res-Nova formalization maintainers",
+      "claim_type": "formal-proof",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-08",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
     {
       "id": "CLM-09",
@@ -190,7 +262,16 @@
       "verification_commands": [],
       "independent_witness": "CLAIM_EVIDENCE_LEDGER.md",
       "limitations": "Covariant Maxwell / null-geodesic derivations and cosmological perturbation tests remain open.",
-      "status_owner": "Res-Nova formalization maintainers"
+      "status_owner": "Res-Nova formalization maintainers",
+      "claim_type": "phenomenological-posit",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-09",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
     {
       "id": "CLM-10",
@@ -215,7 +296,16 @@
       ],
       "independent_witness": "06_unification_and_spin/rapidity_uniqueness_results.json",
       "limitations": "Algebra is exact to 100 decimal places below the premise. The premise itself is not derived, so the selection is conditional.",
-      "status_owner": "Res-Nova formalization maintainers"
+      "status_owner": "Res-Nova formalization maintainers",
+      "claim_type": "algebraic-identity",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-10",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
     {
       "id": "CLM-11",
@@ -241,7 +331,16 @@
       ],
       "independent_witness": "06_unification_and_spin/two_channel_ceiling_results.json",
       "limitations": "The algebra is proved. Identification of chi_s with a physical black-hole spin ceiling is an empirical observation, not a derivation; two_channel_ceiling_results.json records physical_spin_ceiling_status = NOT DERIVED.",
-      "status_owner": "Res-Nova formalization maintainers"
+      "status_owner": "Res-Nova formalization maintainers",
+      "claim_type": "algebraic-identity",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-11",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
     {
       "id": "CLM-12",
@@ -263,7 +362,16 @@
       ],
       "independent_witness": "assurance/evidence/res_nova_verify_final.log",
       "limitations": "Does not establish that MOND emerges independently of MOND assumptions; the boundary conditions that fix the form are the definition of MOND.",
-      "status_owner": "Res-Nova formalization maintainers"
+      "status_owner": "Res-Nova formalization maintainers",
+      "claim_type": "algebraic-identity",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-12",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
     {
       "id": "CLM-13",
@@ -283,7 +391,16 @@
       ],
       "independent_witness": "assurance/evidence/res_nova_verify_final.log",
       "limitations": "An algebraic identity over the reals. It does NOT derive galactic gravity from a statistical estimation process or from a minimum-Fisher-information variational principle.",
-      "status_owner": "Res-Nova formalization maintainers"
+      "status_owner": "Res-Nova formalization maintainers",
+      "claim_type": "algebraic-identity",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-13",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
     {
       "id": "CLM-14",
@@ -303,7 +420,16 @@
       ],
       "independent_witness": "assurance/evidence/res_nova_verify_final.log",
       "limitations": "Establishes the transform and its convexity. No physical interpretation of the conjugate momentum is established here.",
-      "status_owner": "Res-Nova formalization maintainers"
+      "status_owner": "Res-Nova formalization maintainers",
+      "claim_type": "algebraic-identity",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-14",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
     {
       "id": "CLM-15",
@@ -324,7 +450,16 @@
       ],
       "independent_witness": "FIG_TREE_MONOGRAPH.md",
       "limitations": "The ceiling C_max = theta is a standard optical-Bloch result. What remains a framework claim, and is not established here, is the identification of that maximum with the sovereign band constant theta. The Uhlmann fidelity statement 'F >= 1/2 <=> chi >= 1/sqrt(2)' is still open and is not formalized.",
-      "status_owner": "Res-Nova theory maintainers"
+      "status_owner": "Res-Nova theory maintainers",
+      "claim_type": "structural-correction",
+      "quotation_type": "paraphrase",
+      "source_locator": "FIG_TREE_MONOGRAPH.md (Pillar IV retraction, 2026-09-03)",
+      "falsifiability": {
+        "test": "GKSL steady-state coherence C(x) monotonicity check",
+        "scope": "PillarIV_AntiDriftGate.lean",
+        "result": "contradicted"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
     {
       "id": "CLM-16",
@@ -344,7 +479,753 @@
       ],
       "independent_witness": "assurance/evidence/res_nova_verify_final.log",
       "limitations": "16 theorems close on [propext, Classical.choice, Quot.sound] only, and perturbing the constants (mu 1 -> mu 2, kappaBand 7/10 -> 8/10, 1/(2 sqrt2) -> 1/(3 sqrt2)) breaks the proofs, so the values are derived rather than assumed. The earlier anti-drift gate u >= gamma <=> chi >= theta is FALSE and retracted: the steady-state coherence is non-monotonic. Nothing here certifies that the modelled generator describes a physical system.",
-      "status_owner": "Res-Nova formalization maintainers"
+      "status_owner": "Res-Nova formalization maintainers",
+      "claim_type": "formal-proof",
+      "quotation_type": "paraphrase",
+      "source_locator": "PillarIV_AntiDriftGate.lean (corrected theorem set)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D2-01",
+      "wording": "F_dual is uniquely determined given 4 structural constraints (constitutive-relation, Pade[1/1], MOND boundary conditions, dual-channel).",
+      "state": "derived",
+      "assurance_level": "symbolic-derivation",
+      "claim_type": "algebraic-identity",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "The four listed structural constraints are adopted, not independently derived (necessity of the Pade[1/1] constraint is CLM-D2-05, still open)."
+      ],
+      "verification_commands": [
+        "SymPy verification embedded in TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Theorem 9.1"
+      ],
+      "independent_witness": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md",
+      "limitations": "Uniqueness is conditional on the four adopted constraints, not a first-principles selection of F_dual.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-01 (TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.9 Theorem 9.1)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D2-02",
+      "wording": "mu(x) = x/(1+x) is the unique Pade[1/1] rational function satisfying mu(0)=0, mu(infinity)=1, mu'(0)=1.",
+      "state": "derived",
+      "assurance_level": "symbolic-derivation",
+      "claim_type": "algebraic-identity",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "Restriction to the Pade[1/1] rational-function class."
+      ],
+      "verification_commands": [
+        "SymPy verification embedded in TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Theorem 5.1"
+      ],
+      "independent_witness": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md",
+      "limitations": "Uniqueness holds only within the adopted Pade[1/1] class; the class itself is not derived.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-02 (TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.5 Theorem 5.1)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D2-03",
+      "wording": "mu is the inverse of the odds-ratio function, i.e. mu has Bayesian-odds structure.",
+      "state": "derived",
+      "assurance_level": "symbolic-derivation",
+      "claim_type": "algebraic-identity",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "Definition of odds(p) = p/(1-p) as the reference function."
+      ],
+      "verification_commands": [
+        "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.6 Theorem 6.1"
+      ],
+      "independent_witness": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md",
+      "limitations": "An algebraic correspondence, not a derivation of a Bayesian-inference origin for mu.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-03 (TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.6 Theorem 6.1)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D2-04",
+      "wording": "F'(x)^2 * I(mu(x)) = x^3 (Fisher-information identity linking the action derivative to Bernoulli Fisher information).",
+      "state": "derived",
+      "assurance_level": "symbolic-derivation",
+      "claim_type": "algebraic-identity",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "I(mu) denotes Bernoulli Fisher information at parameter mu."
+      ],
+      "verification_commands": [
+        "SymPy verification embedded in TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Theorem 7.1"
+      ],
+      "independent_witness": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md",
+      "limitations": "Algebraic identity only; does not establish that a minimum-Fisher-information principle selects mu (open, see CLM-D2-05 note in the same source).",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-04 (TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.7 Theorem 7.1)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D2-05",
+      "wording": "Pade[1/1] necessity (why the interpolation class must be Pade[1/1] rather than some other structural closure) can be derived from first principles.",
+      "state": "proposed",
+      "assurance_level": "open-research-question",
+      "claim_type": "phenomenological-posit",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [],
+      "verification_commands": [],
+      "independent_witness": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md",
+      "limitations": "Open. No derivation exists in this corpus; Pade[1/1] is adopted, not derived.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-05 (TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.9 Q1-Q4)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D3-01",
+      "wording": "MOND correction at Earth is approximately 2e-8 (1-mu, non-relativistic force law); the previously stated '1137x below Cassini' comparison is retracted as a category error (1-mu and gamma-1 are not comparable quantities).",
+      "state": "retracted",
+      "assurance_level": "governance-control",
+      "claim_type": "structural-correction",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D3_PPN_AND_SOLAR_SYSTEM.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [],
+      "verification_commands": [],
+      "independent_witness": "TARGET_D3_PPN_AND_SOLAR_SYSTEM.md",
+      "limitations": "The retracted '1137x below Cassini' framing must not be cited; only the corrected ~2e-8 (1-mu) figure and TARGET_D3 Theorem 3.1 are live.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D3-01 (TARGET_D3_PPN_AND_SOLAR_SYSTEM.md Sec.2)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D3-02",
+      "wording": "PPN parameters depend on the D7 covariant completion, not on mu directly.",
+      "state": "derived",
+      "assurance_level": "formal-algebraic",
+      "claim_type": "algebraic-identity",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D3_PPN_AND_SOLAR_SYSTEM.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "The D7 covariant completion as currently written (see CLM-D7-07 correction) is the reference embedding."
+      ],
+      "verification_commands": [
+        "TARGET_D3_PPN_AND_SOLAR_SYSTEM.md Sec.3 Theorem 3.1"
+      ],
+      "independent_witness": "TARGET_D3_PPN_AND_SOLAR_SYSTEM.md",
+      "limitations": "Conditional on the specific covariant completion adopted; not a completion-independent result.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D3-02 (TARGET_D3_PPN_AND_SOLAR_SYSTEM.md Sec.3 Theorem 3.1)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D3-03",
+      "wording": "Vainshtein screening resolves the Q2 tension: the screened Q2 sits 119x below the Cassini bound (corrected 2026-09-12 from a misstated 70x that used the retracted F''/F'=0.004 figure).",
+      "state": "derived",
+      "assurance_level": "numerical-derivation",
+      "claim_type": "algebraic-identity",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D7_SUPPLEMENT_COUPLING_OPTIMIZATION.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "Vainshtein-class screening as specified in the covariant completion (TARGET_D7_COVARIANT_COMPLETION.md)."
+      ],
+      "verification_commands": [
+        "TARGET_D7_SUPPLEMENT_COUPLING_OPTIMIZATION.md Sec.3"
+      ],
+      "independent_witness": "TARGET_D7_SUPPLEMENT_COUPLING_OPTIMIZATION.md",
+      "limitations": "Depends on the corrected F''/F' value; the earlier 70x figure is superseded, not merely re-derived.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D3-03 (TARGET_D7_SUPPLEMENT_COUPLING_OPTIMIZATION.md Sec.3)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D5-01",
+      "wording": "Non-relativistic 2x MOND enhancement produces 76x excess structure-growth before screening is applied.",
+      "state": "computed",
+      "assurance_level": "numerical-integration",
+      "claim_type": "empirical-measurement",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D5_COSMOLOGICAL_SECTOR.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "Linear-theory growth-factor mapping used in TARGET_D5 Sec.4.3 before any screening correction."
+      ],
+      "verification_commands": [
+        "TARGET_D5_COSMOLOGICAL_SECTOR.md Sec.4.3, numerically integrated"
+      ],
+      "independent_witness": "TARGET_D5_COSMOLOGICAL_SECTOR.md",
+      "limitations": "Pre-screening figure only; the screened, physically relevant number is CLM-D5-02.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D5-01 (TARGET_D5_COSMOLOGICAL_SECTOR.md Sec.4.3)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D5-02",
+      "wording": "RMOND linear screening reduces the structure-growth enhancement to approximately 0.23% (F''/F' = 1/(2 x0^2 (1+x0)) ~= 0.00233; corrected 2026-09-08 from an earlier ~0.4%).",
+      "state": "derived",
+      "assurance_level": "numerical-derivation",
+      "claim_type": "algebraic-identity",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D7_COVARIANT_COMPLETION.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "Linear-regime screening approximation; does not account for non-linear structure formation (see CLM-D5-03)."
+      ],
+      "verification_commands": [
+        "TARGET_D7_COVARIANT_COMPLETION.md Sec.4.1"
+      ],
+      "independent_witness": "TARGET_D7_COVARIANT_COMPLETION.md",
+      "limitations": "Linear-regime only. Non-linear consistency is CLM-D5-03, resolved INCONCLUSIVE (see falsifiability below), not this claim.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D5-02 (TARGET_D7_COVARIANT_COMPLETION.md Sec.4.1)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D5-03",
+      "wording": "RMOND's non-linear structure formation is consistent with observations; the linear-regime 0.23% deviation from LCDM does not blow up in the non-linear regime.",
+      "state": "conditional",
+      "assurance_level": "pre-registered-simulation",
+      "claim_type": "test-outcome",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "OPEN_PROBLEMS_AND_TESTS.md"
+      ],
+      "data_artifacts": [
+        "04_cosmology/D5_RUN"
+      ],
+      "assumptions": [
+        "Hassani-Lombriser MG-evolution parametrization (arXiv:2003.05927) stands in for the exact Res-Nova non-linear model; no model-specific N-body exists."
+      ],
+      "verification_commands": [
+        "PREREG_D5_MG_EVOLUTION.md frozen protocol; 04_cosmology/D5_RUN artifacts"
+      ],
+      "independent_witness": "04_cosmology/D5_RUN",
+      "limitations": "Resolved INCONCLUSIVE at validation config (256^3/200 Mpc/h, seed 42): worst bin 3.03% at k=1.354 h/Mpc, z=1, between the 1% consistency bound and the 5% tension threshold. Status stays open pending k0-sensitivity analysis or a model-specific solver; this is NOT a validated, NOT a falsified result.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D5-03 (OPEN_PROBLEMS_AND_TESTS.md \"D5 -- Non-linear structure formation\", resolved 2026-09-11)",
+      "falsifiability": {
+        "test": "Two-arm MG-evolution mapping (Hassani-Lombriser) vs LCDM/Vainshtein-class arms, V0-V2 frozen verdict rules, PREREG_D5_MG_EVOLUTION.md",
+        "scope": "z in {0,1}, k in [0.05, 2.5] h/Mpc, 256^3 particles/grid, L=200 Mpc/h",
+        "result": "inconclusive"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D6-01",
+      "wording": "F_dual is ghost-free: F''(K) > 0 for all K > 0.",
+      "state": "derived",
+      "assurance_level": "symbolic-derivation",
+      "claim_type": "algebraic-identity",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D6_RELATIVISTIC_STABILITY.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [],
+      "verification_commands": [
+        "TARGET_D6_RELATIVISTIC_STABILITY.md Sec.1.2, symbolically verified"
+      ],
+      "independent_witness": "TARGET_D6_RELATIVISTIC_STABILITY.md",
+      "limitations": "Ghost-freedom within the stated action; not a full relativistic stability proof beyond this kinetic term.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D6-01 (TARGET_D6_RELATIVISTIC_STABILITY.md Sec.1.2)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D6-02",
+      "wording": "The Hamiltonian is bounded below.",
+      "state": "derived",
+      "assurance_level": "symbolic-derivation",
+      "claim_type": "algebraic-identity",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D6_RELATIVISTIC_STABILITY.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [],
+      "verification_commands": [
+        "TARGET_D6_RELATIVISTIC_STABILITY.md Sec.2"
+      ],
+      "independent_witness": "TARGET_D6_RELATIVISTIC_STABILITY.md",
+      "limitations": "Boundedness within the stated action only.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D6-02 (TARGET_D6_RELATIVISTIC_STABILITY.md Sec.2)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D6-03",
+      "wording": "The strong-coupling scale is approximately 1e-10 eV, far below the energy scales of current experiments.",
+      "state": "computed",
+      "assurance_level": "numerical-computation",
+      "claim_type": "empirical-measurement",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D6_RELATIVISTIC_STABILITY.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "Strong-coupling scale estimate follows the effective-field-theory power counting stated in TARGET_D6 Sec.3."
+      ],
+      "verification_commands": [
+        "TARGET_D6_RELATIVISTIC_STABILITY.md Sec.3"
+      ],
+      "independent_witness": "TARGET_D6_RELATIVISTIC_STABILITY.md",
+      "limitations": "An EFT power-counting estimate, not a measured or independently cross-checked bound.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D6-03 (TARGET_D6_RELATIVISTIC_STABILITY.md Sec.3)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D7-01",
+      "wording": "RMOND action with F_dual is written and verified.",
+      "state": "retracted",
+      "assurance_level": "governance-control",
+      "claim_type": "structural-correction",
+      "formal_artifacts": [],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [],
+      "verification_commands": [],
+      "independent_witness": "TARGET_D7_COVARIANT_COMPLETION.md",
+      "limitations": "Superseded 2026-09-12: this was written against a vector-field (generalized Einstein-aether) K, not D9's actual scalar AeST field Y. See CLM-D7-07 for the corrected version.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D7-01",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D7-02",
+      "wording": "Background Friedmann equations are unmodified.",
+      "state": "retracted",
+      "assurance_level": "governance-control",
+      "claim_type": "structural-correction",
+      "formal_artifacts": [],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [],
+      "verification_commands": [],
+      "independent_witness": "TARGET_D7_COVARIANT_COMPLETION.md",
+      "limitations": "Void as of 2026-09-12: Y is identically zero on FLRW under the corrected AeST action, so the entire background-acceleration-ratio calculation this claim rested on (x0 ~= 5.67) does not apply.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D7-02",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D7-03",
+      "wording": "Linear screening factor F''/F' ~= 0.00233 at the background Newtonian level.",
+      "state": "retracted",
+      "assurance_level": "governance-control",
+      "claim_type": "structural-correction",
+      "formal_artifacts": [],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [],
+      "verification_commands": [],
+      "independent_witness": "TARGET_D7_COVARIANT_COMPLETION.md",
+      "limitations": "Void as of 2026-09-12, same root cause as CLM-D7-02: computed from a vector K field that is not the action's actual field content. The derived 429x and 250x suppression factors are void, not merely miscalculated.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D7-03",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D7-04",
+      "wording": "c_T = c (the tensor speed matches the speed of light, satisfying the GW170817 constraint).",
+      "state": "derived",
+      "assurance_level": "formal-algebraic",
+      "claim_type": "algebraic-identity",
+      "formal_artifacts": [
+        "05_lean_formalization/TensorSpeed.lean"
+      ],
+      "computational_artifacts": [
+        "TARGET_D7_COVARIANT_COMPLETION.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "AeST's minimal coupling as corrected 2026-09-12: no transverse-traceless piece in delta A, F^2 is the unique aether combination that leaves h^TT unmodified."
+      ],
+      "verification_commands": [
+        "TARGET_D7_COVARIANT_COMPLETION.md Sec.8"
+      ],
+      "independent_witness": "TARGET_D7_COVARIANT_COMPLETION.md",
+      "limitations": "Upgraded 2026-09-12 from an asserted citation to a structural consequence of the corrected action; still conditional on that specific minimal-coupling embedding.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D7-04 (TARGET_D7_COVARIANT_COMPLETION.md Sec.8)",
+      "falsifiability": {
+        "test": "GW170817 tensor-speed constraint",
+        "scope": "gravitational-wave/electromagnetic-counterpart timing bound",
+        "result": "supported"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D7-05",
+      "wording": "Natural O(1) coupling constants satisfy all constraints.",
+      "state": "retracted",
+      "assurance_level": "governance-control",
+      "claim_type": "structural-correction",
+      "formal_artifacts": [],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [],
+      "verification_commands": [],
+      "independent_witness": "TARGET_D7_SUPPLEMENT_COUPLING_OPTIMIZATION.md",
+      "limitations": "Void as of 2026-09-12: c1, c2, c3 do not exist in the corrected AeST action (K_B is the only aether coupling). TARGET_D7_SUPPLEMENT needs a full rewrite, not yet done.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D7-05",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D7-06",
+      "wording": "Exact PPN gamma, beta for specific coupling values.",
+      "state": "retracted",
+      "assurance_level": "governance-control",
+      "claim_type": "structural-correction",
+      "formal_artifacts": [],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [],
+      "verification_commands": [],
+      "independent_witness": "TARGET_D3_PPN_AND_SOLAR_SYSTEM.md",
+      "limitations": "Superseded: gamma=1 now follows from the Skordis-Zlosnik embedding's own Psi=Phi identity (see CLM-D3-05, itself void), not from computing couplings. The result is Psi=Phi exactly with no fifth-force slip, which independently invalidates the Foster-Jacobson-based margins previously reported.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D7-06",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D7-07",
+      "wording": "D7 action corrected to the genuine AeST form: scalar Y = q^{mu nu} grad_mu(phi) grad_nu(phi), minimal coupling, aether enters only via K_B F_{mu nu} F^{mu nu} (Skordis-Zlosnik arXiv:2007.00082 eq. 5).",
+      "state": "computed",
+      "assurance_level": "symbolic-verification",
+      "claim_type": "structural-correction",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D7_COVARIANT_COMPLETION.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "Skordis-Zlosnik (arXiv:2007.00082) eq. 5 as the reference AeST action."
+      ],
+      "verification_commands": [
+        "TARGET_D7_COVARIANT_COMPLETION.md, full rewrite 2026-09-12, F_dual transfer J(Y)=2 lambda_s a0tilde^2 F_dual(sqrt(Y)/a0tilde), J'=lambda_s xtilde/(1+xtilde), verified symbolically"
+      ],
+      "independent_witness": "TARGET_D7_COVARIANT_COMPLETION.md",
+      "limitations": "This is a correction record, not an independent physical derivation of the AeST action; it fixes CLM-D7-01/02/03/05's field-content error.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D7-07",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D7-08",
+      "wording": "On AeST's tracking branch (not the screening branch), the exact solar-system solution for F_dual gives g = G_N M/r^2 + a0tilde, an r-independent anomalous acceleration with a0tilde = (1+lambda_s) a0 -- an apparent falsification of mu = x/(1+x) within two-derivative AeST/AQUAL.",
+      "state": "conditional",
+      "assurance_level": "analytic-plus-cited-bound-conditional",
+      "claim_type": "falsification-result",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D7_COVARIANT_COMPLETION.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "Two-derivative AeST/AQUAL as corrected in CLM-D7-07; the tracking branch (not a higher-derivative screening extension) is the one analyzed."
+      ],
+      "verification_commands": [
+        "TARGET_D7_COVARIANT_COMPLETION.md Sec.4.2; corroborated by Milgrom arXiv:1205.1317 and Desmond arXiv:2401.04796"
+      ],
+      "independent_witness": "TARGET_D7_COVARIANT_COMPLETION.md",
+      "limitations": "a0tilde/r at Cassini scale exceeds the Q2 bound by 5.7e5. Escape requires Skordis-Zlosnik's higher-derivative screening, which is not built anywhere in this corpus -- open. This result directly bears on CLM-AX-02's mu=x/(1+x) disjunct.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D7-08 (TARGET_D7_COVARIANT_COMPLETION.md Sec.4.2)",
+      "falsifiability": {
+        "test": "Cassini Q2 PPN bound on anomalous r-independent acceleration",
+        "scope": "solar-system scale, tracking-branch two-derivative AeST/AQUAL with mu=x/(1+x)",
+        "result": "contradicted"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D9-01",
+      "wording": "D9 embedding normalization: mu = J' vs 2J'; a0tilde vs a0.",
+      "state": "retracted",
+      "assurance_level": "governance-control",
+      "claim_type": "structural-correction",
+      "formal_artifacts": [],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [],
+      "verification_commands": [],
+      "independent_witness": "TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md",
+      "limitations": "Corrected 2026-09-12: TARGET_D9 Sec.1 and Sec.2 disagreed by a factor of 2 in the prefactor (1/8 pi G_hat); a0tilde=(1+lambda_s) a0 != a0 was previously conflated with a0. Fixed in the TARGET_D9 header, but not yet propagated to any dependent numeric claim beyond D3/D7.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D9-01 (TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-AX-02",
+      "wording": "AXIOMS_V2.lean:64 disjunction: mu(x) = x/(1+x) OR mu(x) = x/sqrt(1+x^2).",
+      "state": "conditional",
+      "assurance_level": "formal-axiom-with-empirical-constraint",
+      "claim_type": "formal-proof",
+      "formal_artifacts": [
+        "05_lean_formalization/AXIOMS_V2.lean"
+      ],
+      "computational_artifacts": [
+        "TARGET_D7_COVARIANT_COMPLETION.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "weak_field_balance as stated in AXIOMS_V2.lean line 64 admits either disjunct; the axiom itself is not falsified by CLM-D7-08."
+      ],
+      "verification_commands": [
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
+      ],
+      "independent_witness": "TARGET_D7_COVARIANT_COMPLETION.md",
+      "limitations": "One disjunct (mu(x)=x/(1+x)) is contradicted by CLM-D7-08's solar-system result within two-derivative AeST. The axiom's disjunction survives as written, but any downstream claim that silently assumes the first disjunct -- which is this repo's entire mu=x/(1+x) program outside the Vainshtein-screened D3/D7-07 track -- must either switch branches or invoke Skordis-Zlosnik's higher-derivative screening. Not yet resolved anywhere in the corpus.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "exact",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-AX-02 (05_lean_formalization/AXIOMS_V2.lean:64)",
+      "falsifiability": {
+        "test": "Cassini Q2 PPN bound (via CLM-D7-08)",
+        "scope": "solar-system scale, first disjunct only",
+        "result": "contradicted"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-O1-01",
+      "wording": "a0 = cH horizon identification (rescored from [P] to [P/O]: 5.67x discrepancy, O4 disfavours at 5.9 sigma).",
+      "state": "conditional",
+      "assurance_level": "literature-plus-open-problem",
+      "claim_type": "phenomenological-posit",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "OPEN_PROBLEMS_AND_TESTS.md"
+      ],
+      "data_artifacts": [
+        "02_galaxy_dynamics/A0_MEASUREMENT.json"
+      ],
+      "assumptions": [
+        "SPARC-measured a0 = (1.116 +/- 0.128 stat +/- 0.097 syst) x 1e-10 m/s^2 is compared against the horizon formula cH0/(2 pi)."
+      ],
+      "verification_commands": [
+        "OPEN_PROBLEMS_AND_TESTS.md O1"
+      ],
+      "independent_witness": "02_galaxy_dynamics/A0_MEASUREMENT.json",
+      "limitations": "Rescored down from an earlier [P]: the identification sits at 0.46 sigma from cH0/(2pi) by itself, but the independent O4 high-z redshift test disfavours the horizon-tied a0(z) hypothesis at 5.9 sigma against constant a0. Never say 'derived from the horizon' -- see O1 quarantine language in OPEN_PROBLEMS_AND_TESTS.md.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-O1-01 (OPEN_PROBLEMS_AND_TESTS.md O1, O4)",
+      "falsifiability": {
+        "test": "a0(z) = xi c H(z) vs constant a0 on independent high-z dynamical tracers",
+        "scope": "20 MUSE-DARK III / HUDF galaxies, 0.413 <= z <= 1.44, median z=0.94",
+        "result": "contradicted"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D2-00",
+      "wording": "F_dual is uniquely determined from first principles (rescored from [P] to [P/O]: conditional on the adopted Pade choice; necessity of that choice is open).",
+      "state": "conditional",
+      "assurance_level": "formal-algebraic-under-adopted-premise",
+      "claim_type": "algebraic-identity",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "Same four structural constraints as CLM-D2-01, including the adopted Pade[1/1] closure."
+      ],
+      "verification_commands": [
+        "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.9"
+      ],
+      "independent_witness": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md",
+      "limitations": "Uniqueness given the constraints is proved (CLM-D2-01); necessity of the Pade[1/1] constraint itself remains open (CLM-D2-05). This record tracks the rescore of the umbrella claim, distinct from CLM-D2-01's narrower theorem.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-00 (Rescored Claims table)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D3-05",
+      "wording": "gamma = beta = 1 exactly, Cassini margin 1.1e8, MESSENGER margin 1.6e5 (TARGET_D3 Sec.7).",
+      "state": "retracted",
+      "assurance_level": "governance-control",
+      "claim_type": "structural-correction",
+      "formal_artifacts": [],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [],
+      "verification_commands": [],
+      "independent_witness": "TARGET_D3_PPN_AND_SOLAR_SYSTEM.md",
+      "limitations": "Void: derived for a generalized Einstein-aether action (D7-as-originally-written), which was not D9's actual AeST action. Under the corrected AeST, Psi=Phi exactly (no fifth-force slip, cited via Skordis-Zlosnik) so the margin framing is moot -- but CLM-D7-08's anomalous acceleration a0tilde is a separate, much larger problem the margin calculation never tested for.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D3-05 (Rescored Claims table)",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     }
   ]
 }
