@@ -49,7 +49,7 @@ failure modes F1–F7 govern what counts as corroboration, counting, and qualifi
    still hide a non-covariant coupling inside 𝒥's freedom. Obligation 1 of layer 0
    moves from "no covariant argument yet" to "covariant uniqueness delivered;
    forcing residual named".
-3. **The 2π and the Hubble form — DISCHARGED TO THE STATED LIMIT (2026-09-16).**
+3. **The 2π and the Hubble form — SHARPENED (`[O-sharp]`, 2026-09-16 evening: `HORIZON_SELECTION_AUDIT_2026-09-16.md`, 10/10; 2π home discharged 2026-09-16):**
    The 2π has exactly one covariant home composable with Theorem B-cov: the
    Euclidean closure of the K2 orbit itself — (cosh ψ, sinh ψ) closes under
    ψ → iθ into the unit circle, period exactly 2π; the hyperbolic observer's
@@ -60,6 +60,17 @@ failure modes F1–F7 govern what counts as corroboration, counting, and qualifi
    Hubble-form residue is sharp: *which horizon's circle closes the orbit*
    (P2's measured 1.439×/0.831× factors are the discriminator). The triangle now
    has two theorem legs (B-cov, 2π-home) and one named open question.
+   **Horizon Selection Update (2026-09-16 evening):** `HORIZON_SELECTION_AUDIT_2026-09-16.md`
+   + `scripts/horizon_selection_audit.py` (10/10, exit 0) identifies the candidate
+   physical home as the FLRW apparent (trapping) horizon $R_A = c/H$ with semiclassical
+   temperature $T_A = \hbar H / (2\pi k_B)$ (Hayward 1998; Cai & Kim 2005) `[C]`. This
+   reproduces $a_0 = c H / (2\pi)$ without $\Omega$ factors or approximations. The measured
+   de Sitter misidentification factors ($1.439\times$ high, $0.831\times$ low) are verified
+   artifacts of forcing pure de Sitter event horizons onto a matter+vacuum universe `[D]`
+   (converging to 1 as $\Omega_m \to 0$). The redshift evolution corollary $a_0(z) \propto H(z)$
+   predicts $a_0(1)/a_0(0) = 1.790$ ($1.405\times$ at $z=0.6$), connected to the open $0.87\sigma$
+   JWST test. Status: **SHARPENED** (`[O-sharp]`), not CLOSED-derived (the local-to-global
+   channel coupling remains an open postulate).
    **Horizon-selection residue — STATUS 2026-09-16 (late): OPEN, numerically narrowed,
    no selection principle.** `HORIZON_SELECTION_AUDIT_2026-09-16.md` +
    `scripts/horizon_selection_audit.py` (11/11). Against T3 95% at both distance zero
