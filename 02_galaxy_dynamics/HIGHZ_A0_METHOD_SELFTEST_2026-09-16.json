@@ -1,0 +1,1152 @@
+{
+ "generated": "2026-09-16",
+ "module": "02_galaxy_dynamics/highz_a0_method.py",
+ "status": "METHOD ONLY \u2014 estimator not run on RC100 observables (blind)",
+ "anchor": {
+  "a0": 1.1630564344814754e-10,
+  "ci68": [
+   1.0650292038804336e-10,
+   1.2510138105584097e-10
+  ],
+  "ci95": [
+   9.663981746209963e-11,
+   1.323925645179661e-10
+  ],
+  "n_galaxies": 78,
+  "mu": "std (x/sqrt(1+x^2), the live row; battery-passing)",
+  "T1_a0": 1.1606685226039266e-10,
+  "T1_ci95": [
+   9.724621934913163e-11,
+   1.294964290868034e-10
+  ]
+ },
+ "leverage": {
+  "x=1": {
+   "x": 1.0,
+   "gbar_over_a0": 0.7071067811865475,
+   "f_implied": 0.29289321881345254,
+   "dlna0_dlngbar_fixed_g": -2.0,
+   "dlna0_dfdm_fixed_g": 2.8284271247461903,
+   "dlna0_dlng_fixed_f": 1.0,
+   "dlna0_dlng_fixed_gbar": 3.0,
+   "abs_df_dlna0_fixed_g": 0.35355339059327373
+  },
+  "x=3": {
+   "x": 3.0,
+   "gbar_over_a0": 2.846049894151541,
+   "f_implied": 0.05131670194948623,
+   "dlna0_dlngbar_fixed_g": -10.0,
+   "dlna0_dfdm_fixed_g": 10.540925533894598,
+   "dlna0_dlng_fixed_f": 1.0,
+   "dlna0_dlng_fixed_gbar": 11.0,
+   "abs_df_dlna0_fixed_g": 0.09486832980505139
+  },
+  "x=10": {
+   "x": 10.0,
+   "gbar_over_a0": 9.950371902099892,
+   "f_implied": 0.004962809790010847,
+   "dlna0_dlngbar_fixed_g": -101.0,
+   "dlna0_dfdm_fixed_g": 101.50374377332099,
+   "dlna0_dlng_fixed_f": 1.0,
+   "dlna0_dlng_fixed_gbar": 102.0,
+   "abs_df_dlna0_fixed_g": 0.009851853368415734
+  },
+  "x=30": {
+   "x": 30.0,
+   "gbar_over_a0": 29.98334720937463,
+   "f_implied": 0.000555093020845665,
+   "dlna0_dlngbar_fixed_g": -901.0,
+   "dlna0_dfdm_fixed_g": 901.5004165895383,
+   "dlna0_dlng_fixed_f": 1.0,
+   "dlna0_dlng_fixed_gbar": 902.0,
+   "abs_df_dlna0_fixed_g": 0.0011092618279457873
+  }
+ },
+ "fdm_pm0.1_table": [
+  {
+   "x": 3.0,
+   "gbar_over_a0": 2.846049894151541,
+   "f_implied": 0.05131670194948623,
+   "a0_ratio_f_plus": 1.869606854338048,
+   "a0_ratio_f_minus": null,
+   "f_minus_value": -0.048683298050513774,
+   "linear_dlna0_df": 10.540925533894598
+  },
+  {
+   "x": 10.0,
+   "gbar_over_a0": 9.950371902099892,
+   "f_implied": 0.004962809790010847,
+   "a0_ratio_f_plus": 4.982938319953204,
+   "a0_ratio_f_minus": null,
+   "f_minus_value": -0.09503719020998916,
+   "linear_dlna0_df": 101.50374377332099
+  },
+  {
+   "x": 30.0,
+   "gbar_over_a0": 29.98334720937463,
+   "f_implied": 0.000555093020845665,
+   "a0_ratio_f_plus": 14.576795951912464,
+   "a0_ratio_f_minus": null,
+   "f_minus_value": -0.09944490697915434,
+   "linear_dlna0_df": 901.5004165895383
+  }
+ ],
+ "geometry": {
+  "b1": 1.6783469900166612,
+  "burkert_2b1": 3.3566939800333224,
+  "cyl_enclosed_at_Re": 0.5,
+  "k_sphere_half_mass (G(M/2)/Re^2)": 0.5,
+  "k_thin_freeman_Re": 0.6251542489941105,
+  "k_q0.20_Re": 0.5368423097600156,
+  "k_q0.25_Re": 0.518440240649872,
+  "k_q1_sphere_deprojected_Re (M3D(<Re)/M)": 0.3409221465783503,
+  "r_half_3d_over_Re_n1": 1.3248257254557188,
+  "bulge_n4_Reb1kpc_k_at_R_kpc": {
+   "2": 0.6142635977928375,
+   "3": 0.725438634017433,
+   "5": 0.8421368975356159,
+   "8": 0.917925931140724
+  }
+ },
+ "rc100_inputs": {
+  "N": 100,
+  "bins": {
+   "z<1.2": 32,
+   "z>=1.2": 68
+  },
+  "sigmaDM_check_pass": 100,
+  "sigmaDM_check_off": [],
+  "e_Vc_over_Vc": {
+   "min": 0.19117647058823528,
+   "median": 0.2,
+   "max": 0.20238095238095238
+  },
+  "s_lng_median": 0.46224387870859684,
+  "e_fDM_median": 0.12,
+  "s_lngb_median": 0.5480414014918094,
+  "k_eff=(1-f)Vc^2Re/(G Mbar)": {
+   "median": 0.595390995047386,
+   "16_84": [
+    0.4821425276352974,
+    0.7178967742084011
+   ],
+   "min": 0.10726845788466746,
+   "max": 0.8600628254276552
+  },
+  "gbar_a_over_gbar_b(q0.2,BT=0)": {
+   "median": 1.1090612348117035,
+   "16_84": [
+    0.8981082876671338,
+    1.3372581874664409
+   ]
+  },
+  "log10_gbar_a_over_anchor": {
+   "median": 0.1976840117201211,
+   "16_84": [
+    -0.15852187016130814,
+    0.5499170875931356
+   ]
+  },
+  "log10_gobs_over_anchor": {
+   "median": 0.3599192459252683,
+   "min": -0.5092608501061434,
+   "max": 1.1791120507704904
+  },
+  "pressure_p=3.36sig0^2/Vc^2": {
+   "median": 0.14026852809732332,
+   "max": 1.578406766822371,
+   "n_p_ge_1": 2,
+   "p_ge_1": [
+    "zC 405501",
+    "K20 ID5"
+   ]
+  },
+  "n_f_minus_1sigma_le_0": 19,
+  "fisher_at_anchor": {
+   "all": {
+    "N": 100,
+    "x_median": 2.290510257080209,
+    "x_16_84": [
+     1.2267669705281974,
+     4.98592025502876
+    ],
+    "f_implied_median": 0.08354571029535363,
+    "sigma_lna0_fisher": 0.09063770237349905,
+    "N_eff": 58.52262646167345,
+    "sigma_lna0_per_galaxy_median": 0.9902110993356388,
+    "frac_per_galaxy_sigma_lna0_gt_1": 0.49,
+    "top_info_galaxies": [
+     "U4 22199",
+     "COS4 10048",
+     "zC 405226",
+     "U4 27256",
+     "GS4 03228",
+     "EGS 13035123",
+     "COS4 24012",
+     "GS4 13143"
+    ]
+   },
+   "z<1.2": {
+    "N": 32,
+    "x_median": 1.9216427479211515,
+    "x_16_84": [
+     0.8253253415020081,
+     4.594372486601102
+    ],
+    "f_implied_median": 0.11314055522752414,
+    "sigma_lna0_fisher": 0.13734711406738703,
+    "N_eff": 22.411481128630378,
+    "sigma_lna0_per_galaxy_median": 0.7842080114688353,
+    "frac_per_galaxy_sigma_lna0_gt_1": 0.25,
+    "top_info_galaxies": [
+     "U4 22199",
+     "GS4 03228",
+     "EGS 13035123",
+     "GS4 13143",
+     "GS4 29973",
+     "U3 05138",
+     "GS3 23200",
+     "GS4 00984"
+    ]
+   },
+   "z>=1.2": {
+    "N": 68,
+    "x_median": 2.80513780135705,
+    "x_16_84": [
+     1.3687663852859613,
+     5.056007238701012
+    ],
+    "f_implied_median": 0.05806369324276728,
+    "sigma_lna0_fisher": 0.12063498246207074,
+    "N_eff": 36.946762977769886,
+    "sigma_lna0_per_galaxy_median": 1.1847789513696838,
+    "frac_per_galaxy_sigma_lna0_gt_1": 0.6029411764705882,
+    "top_info_galaxies": [
+     "COS4 10048",
+     "zC 405226",
+     "U4 27256",
+     "COS4 24012",
+     "COS4 19753",
+     "GS3 24273",
+     "COS4 08775",
+     "K20 ID8"
+    ]
+   }
+  },
+  "fisher_at_1.791x": {
+   "all": {
+    "N": 100,
+    "x_median": 1.278900199374768,
+    "x_16_84": [
+     0.6849620159286418,
+     2.7838750726012065
+    ],
+    "f_implied_median": 0.21224910963583732,
+    "sigma_lna0_fisher": 0.06959293735001895,
+    "N_eff": 78.9373419397451,
+    "sigma_lna0_per_galaxy_median": 0.6796415914665034,
+    "frac_per_galaxy_sigma_lna0_gt_1": 0.2,
+    "top_info_galaxies": [
+     "U4 22199",
+     "J0901+1814",
+     "GS3 24273",
+     "GS4 32976",
+     "zC 405226",
+     "U4 27256",
+     "COS4 10048",
+     "D3a 15504"
+    ]
+   }
+  }
+ },
+ "distance": {
+  "slopes": {
+   "w=0,x=3": {
+    "dln_gobs": -1.0000000000211215,
+    "dln_gbar_phot": 0.0,
+    "dln_a0_fdm": -1.0000000000211215,
+    "predicted_a0_fdm": -1.0
+   },
+   "w=0,x=10": {
+    "dln_gobs": -0.999999999910099,
+    "dln_gbar_phot": 0.0,
+    "dln_a0_fdm": -0.999999999910099,
+    "predicted_a0_fdm": -1.0
+   },
+   "w=1,x=3": {
+    "dln_gobs": -1.0000000000211215,
+    "dln_gbar_phot": 0.0,
+    "dln_a0_fdm": -11.000090000551147,
+    "predicted_a0_fdm": -11.0
+   },
+   "w=1,x=10": {
+    "dln_gobs": -0.999999999910099,
+    "dln_gbar_phot": 0.0,
+    "dln_a0_fdm": -102.01010134447222,
+    "predicted_a0_fdm": -102.0
+   }
+  },
+  "zp": {
+   "z=0.9": {
+    "D_A(70,0.3)/D_A(Planck)": 0.9703478253918778,
+    "D_A(70,0.3)/D_A(73,0.3)": 1.0428571428571427,
+    "D_A(70,0.3)/D_A(70,0.3153)": 1.0083780845818204
+   },
+   "z=1.5": {
+    "D_A(70,0.3)/D_A(Planck)": 0.9732542680741489,
+    "D_A(70,0.3)/D_A(73,0.3)": 1.042857142857143,
+    "D_A(70,0.3)/D_A(70,0.3153)": 1.011398437725511
+   },
+   "z=2.2": {
+    "D_A(70,0.3)/D_A(Planck)": 0.9752380795524642,
+    "D_A(70,0.3)/D_A(73,0.3)": 1.0428571428571427,
+    "D_A(70,0.3)/D_A(70,0.3153)": 1.0134599995349243
+   }
+  }
+ },
+ "asimov_bias_lna0": {
+  "fdm,1x": -0.0001344941692309476,
+  "mbar,1x": 0.04193383353273461,
+  "fdm,1.791x": -0.023528635876633786,
+  "mbar,1.791x": 0.03495256667181934
+ },
+ "injection": {
+  "fdm,all,1x": {
+   "n_real": 60,
+   "N_gal": 100,
+   "a0_true_over_anchor": 1.0,
+   "route": "fdm",
+   "report": "gauss",
+   "sig_int_injected": 0.1,
+   "median_bias_lna0": -0.039216697590763516,
+   "mean_bias_lna0": -0.036005043751482606,
+   "ensemble_sd_lna0": 0.08628673786320429,
+   "ensemble_16_84_lna0": [
+    -0.1258756640536879,
+    0.052376226661285386
+   ],
+   "median_reported_halfwidth68_lna0": 0.08356801860185925,
+   "frac_open_68": 0.0,
+   "frac_at_grid_edge": 0.0,
+   "coverage68": 0.55,
+   "coverage95": 0.9666666666666667,
+   "binom_3sigma_68": 0.18021279088899322,
+   "binom_3sigma_95": 0.08440971508067066,
+   "alt_hypothesis": "1.791x",
+   "median_dchi2_alt": 47.83901879785373,
+   "frac_alt_excluded_95": 1.0,
+   "frac_alt_excluded_3sigma": 1.0
+  },
+  "fdm,all,1.791x": {
+   "n_real": 60,
+   "N_gal": 100,
+   "a0_true_over_anchor": 1.791,
+   "route": "fdm",
+   "report": "gauss",
+   "sig_int_injected": 0.1,
+   "median_bias_lna0": -0.04156409697063346,
+   "mean_bias_lna0": -0.039885539158147826,
+   "ensemble_sd_lna0": 0.07094607786012946,
+   "ensemble_16_84_lna0": [
+    -0.1180598451067803,
+    0.026494322735330998
+   ],
+   "median_reported_halfwidth68_lna0": 0.06576673152185997,
+   "frac_open_68": 0.0,
+   "frac_at_grid_edge": 0.0,
+   "coverage68": 0.5666666666666667,
+   "coverage95": 0.9,
+   "binom_3sigma_68": 0.18021279088899322,
+   "binom_3sigma_95": 0.08440971508067066,
+   "alt_hypothesis": "1x",
+   "median_dchi2_alt": 42.26487869406442,
+   "frac_alt_excluded_95": 1.0,
+   "frac_alt_excluded_3sigma": 1.0
+  },
+  "fdm,z<1.2,1x": {
+   "n_real": 30,
+   "N_gal": 32,
+   "a0_true_over_anchor": 1.0,
+   "route": "fdm",
+   "report": "gauss",
+   "sig_int_injected": 0.1,
+   "median_bias_lna0": -0.043707623628364445,
+   "mean_bias_lna0": -0.022867991587980186,
+   "ensemble_sd_lna0": 0.12205604786021995,
+   "ensemble_16_84_lna0": [
+    -0.11001871397187003,
+    0.09665336574972955
+   ],
+   "median_reported_halfwidth68_lna0": 0.1318056546587183,
+   "frac_open_68": 0.0,
+   "frac_at_grid_edge": 0.0,
+   "coverage68": 0.8,
+   "coverage95": 0.9666666666666667,
+   "binom_3sigma_68": 0.2548593729883208,
+   "binom_3sigma_95": 0.11937336386313323,
+   "alt_hypothesis": "1.791x",
+   "median_dchi2_alt": 19.946385310957048,
+   "frac_alt_excluded_95": 0.9666666666666667,
+   "frac_alt_excluded_3sigma": 0.9666666666666667
+  },
+  "fdm,z<1.2,1.791x": {
+   "n_real": 30,
+   "N_gal": 32,
+   "a0_true_over_anchor": 1.791,
+   "route": "fdm",
+   "report": "gauss",
+   "sig_int_injected": 0.1,
+   "median_bias_lna0": -0.04117206052640476,
+   "mean_bias_lna0": -0.021169696451093383,
+   "ensemble_sd_lna0": 0.11180912872047162,
+   "ensemble_16_84_lna0": [
+    -0.1207328873304057,
+    0.10132186538726427
+   ],
+   "median_reported_halfwidth68_lna0": 0.10972966997820066,
+   "frac_open_68": 0.0,
+   "frac_at_grid_edge": 0.0,
+   "coverage68": 0.7,
+   "coverage95": 0.9333333333333333,
+   "binom_3sigma_68": 0.2548593729883208,
+   "binom_3sigma_95": 0.11937336386313323,
+   "alt_hypothesis": "1x",
+   "median_dchi2_alt": 16.084990198996955,
+   "frac_alt_excluded_95": 1.0,
+   "frac_alt_excluded_3sigma": 0.9
+  },
+  "fdm,z>=1.2,1x": {
+   "n_real": 30,
+   "N_gal": 68,
+   "a0_true_over_anchor": 1.0,
+   "route": "fdm",
+   "report": "gauss",
+   "sig_int_injected": 0.1,
+   "median_bias_lna0": -0.0147297728841842,
+   "mean_bias_lna0": -0.03784575772405804,
+   "ensemble_sd_lna0": 0.1177836620746595,
+   "ensemble_16_84_lna0": [
+    -0.13567263929639167,
+    0.060884032769156264
+   ],
+   "median_reported_halfwidth68_lna0": 0.11774378359539828,
+   "frac_open_68": 0.0,
+   "frac_at_grid_edge": 0.0,
+   "coverage68": 0.7,
+   "coverage95": 0.9333333333333333,
+   "binom_3sigma_68": 0.2548593729883208,
+   "binom_3sigma_95": 0.11937336386313323,
+   "alt_hypothesis": "1.791x",
+   "median_dchi2_alt": 28.562543777106125,
+   "frac_alt_excluded_95": 1.0,
+   "frac_alt_excluded_3sigma": 1.0
+  },
+  "fdm,z>=1.2,1.791x": {
+   "n_real": 30,
+   "N_gal": 68,
+   "a0_true_over_anchor": 1.791,
+   "route": "fdm",
+   "report": "gauss",
+   "sig_int_injected": 0.1,
+   "median_bias_lna0": -0.029307958734909434,
+   "mean_bias_lna0": -0.04230791282284881,
+   "ensemble_sd_lna0": 0.09133582117396549,
+   "ensemble_16_84_lna0": [
+    -0.1241170714269353,
+    0.04670015688072169
+   ],
+   "median_reported_halfwidth68_lna0": 0.08975920947351401,
+   "frac_open_68": 0.0,
+   "frac_at_grid_edge": 0.0,
+   "coverage68": 0.6,
+   "coverage95": 0.9333333333333333,
+   "binom_3sigma_68": 0.2548593729883208,
+   "binom_3sigma_95": 0.11937336386313323,
+   "alt_hypothesis": "1x",
+   "median_dchi2_alt": 23.839094581248684,
+   "frac_alt_excluded_95": 1.0,
+   "frac_alt_excluded_3sigma": 0.9666666666666667
+  },
+  "fdm,all,1x,bounded-report": {
+   "n_real": 30,
+   "N_gal": 100,
+   "a0_true_over_anchor": 1.0,
+   "route": "fdm",
+   "report": "bounded",
+   "sig_int_injected": 0.1,
+   "median_bias_lna0": 0.1676876923644226,
+   "mean_bias_lna0": 0.17257708315356599,
+   "ensemble_sd_lna0": 0.0646310214411301,
+   "ensemble_16_84_lna0": [
+    0.10094923261569236,
+    0.23680795177389583
+   ],
+   "median_reported_halfwidth68_lna0": 0.06383094405545542,
+   "frac_open_68": 0.0,
+   "frac_at_grid_edge": 0.0,
+   "coverage68": 0.03333333333333333,
+   "coverage95": 0.36666666666666664,
+   "binom_3sigma_68": 0.2548593729883208,
+   "binom_3sigma_95": 0.11937336386313323,
+   "alt_hypothesis": "1.791x",
+   "median_dchi2_alt": 36.43695614958921,
+   "frac_alt_excluded_95": 1.0,
+   "frac_alt_excluded_3sigma": 1.0
+  },
+  "mbar,all,1x": {
+   "n_real": 30,
+   "N_gal": 100,
+   "a0_true_over_anchor": 1.0,
+   "route": "mbar",
+   "report": "gauss",
+   "sig_int_injected": 0.1,
+   "median_bias_lna0": -0.017031982548711966,
+   "mean_bias_lna0": -0.04568137987100561,
+   "ensemble_sd_lna0": 0.24506712274087494,
+   "ensemble_16_84_lna0": [
+    -0.28051661824515306,
+    0.19459321515967046
+   ],
+   "median_reported_halfwidth68_lna0": 0.19183537753691215,
+   "frac_open_68": 0.0,
+   "frac_at_grid_edge": 0.0,
+   "coverage68": 0.6,
+   "coverage95": 0.9,
+   "binom_3sigma_68": 0.2548593729883208,
+   "binom_3sigma_95": 0.11937336386313323,
+   "alt_hypothesis": "1.791x",
+   "median_dchi2_alt": 12.039942870506273,
+   "frac_alt_excluded_95": 0.9333333333333333,
+   "frac_alt_excluded_3sigma": 0.6666666666666666
+  },
+  "fdm,all,1.791x,bounded-report": {
+   "n_real": 30,
+   "N_gal": 100,
+   "a0_true_over_anchor": 1.791,
+   "route": "fdm",
+   "report": "bounded",
+   "sig_int_injected": 0.1,
+   "median_bias_lna0": 0.05578127857344484,
+   "mean_bias_lna0": 0.05152255872315751,
+   "ensemble_sd_lna0": 0.05752364668001696,
+   "ensemble_16_84_lna0": [
+    -0.014991570560226252,
+    0.10967752227344874
+   ],
+   "median_reported_halfwidth68_lna0": 0.051554719403340776,
+   "frac_open_68": 0.0,
+   "frac_at_grid_edge": 0.0,
+   "coverage68": 0.5,
+   "coverage95": 0.8666666666666667,
+   "binom_3sigma_68": 0.2548593729883208,
+   "binom_3sigma_95": 0.11937336386313323,
+   "alt_hypothesis": "1x",
+   "median_dchi2_alt": 70.50219753385461,
+   "frac_alt_excluded_95": 1.0,
+   "frac_alt_excluded_3sigma": 1.0
+  },
+  "mbar,all,1.791x": {
+   "n_real": 30,
+   "N_gal": 100,
+   "a0_true_over_anchor": 1.791,
+   "route": "mbar",
+   "report": "gauss",
+   "sig_int_injected": 0.1,
+   "median_bias_lna0": -0.014040920183699512,
+   "mean_bias_lna0": -0.02457537007209088,
+   "ensemble_sd_lna0": 0.1710574254600983,
+   "ensemble_16_84_lna0": [
+    -0.16485261688509129,
+    0.12708089232227238
+   ],
+   "median_reported_halfwidth68_lna0": 0.14381093305470305,
+   "frac_open_68": 0.0,
+   "frac_at_grid_edge": 0.0,
+   "coverage68": 0.7,
+   "coverage95": 0.8666666666666667,
+   "binom_3sigma_68": 0.2548593729883208,
+   "binom_3sigma_95": 0.11937336386313323,
+   "alt_hypothesis": "1x",
+   "median_dchi2_alt": 11.642395052990235,
+   "frac_alt_excluded_95": 0.9,
+   "frac_alt_excluded_3sigma": 0.7
+  }
+ },
+ "discrimination_1x_vs_1.791x": {
+  "fdm,all,1x": {
+   "alt": "1.791x",
+   "median_dchi2_alt": 47.83901879785373,
+   "frac_excl_95": 1.0,
+   "frac_excl_3sigma": 1.0
+  },
+  "fdm,all,1.791x": {
+   "alt": "1x",
+   "median_dchi2_alt": 42.26487869406442,
+   "frac_excl_95": 1.0,
+   "frac_excl_3sigma": 1.0
+  },
+  "fdm,z<1.2,1x": {
+   "alt": "1.791x",
+   "median_dchi2_alt": 19.946385310957048,
+   "frac_excl_95": 0.9666666666666667,
+   "frac_excl_3sigma": 0.9666666666666667
+  },
+  "fdm,z<1.2,1.791x": {
+   "alt": "1x",
+   "median_dchi2_alt": 16.084990198996955,
+   "frac_excl_95": 1.0,
+   "frac_excl_3sigma": 0.9
+  },
+  "fdm,z>=1.2,1x": {
+   "alt": "1.791x",
+   "median_dchi2_alt": 28.562543777106125,
+   "frac_excl_95": 1.0,
+   "frac_excl_3sigma": 1.0
+  },
+  "fdm,z>=1.2,1.791x": {
+   "alt": "1x",
+   "median_dchi2_alt": 23.839094581248684,
+   "frac_excl_95": 1.0,
+   "frac_excl_3sigma": 0.9666666666666667
+  },
+  "fdm,all,1x,bounded-report": {
+   "alt": "1.791x",
+   "median_dchi2_alt": 36.43695614958921,
+   "frac_excl_95": 1.0,
+   "frac_excl_3sigma": 1.0
+  },
+  "mbar,all,1x": {
+   "alt": "1.791x",
+   "median_dchi2_alt": 12.039942870506273,
+   "frac_excl_95": 0.9333333333333333,
+   "frac_excl_3sigma": 0.6666666666666666
+  },
+  "fdm,all,1.791x,bounded-report": {
+   "alt": "1x",
+   "median_dchi2_alt": 70.50219753385461,
+   "frac_excl_95": 1.0,
+   "frac_excl_3sigma": 1.0
+  },
+  "mbar,all,1.791x": {
+   "alt": "1x",
+   "median_dchi2_alt": 11.642395052990235,
+   "frac_excl_95": 0.9,
+   "frac_excl_3sigma": 0.7
+  }
+ },
+ "systematics_asimov": {
+  "1x": {
+   "base_lna0_minus_true": -0.0001344941692309476,
+   "rows": [
+    {
+     "systematic": "fDM zero-point +0.05",
+     "dlna0": 0.22196899127849434,
+     "at_edge": false,
+     "note": "AC on vs off / G20 A.4"
+    },
+    {
+     "systematic": "fDM zero-point -0.05",
+     "dlna0": -0.23474429342648762,
+     "at_edge": false,
+     "note": "halo c 4->2 at z~2.3 / G20 A.4"
+    },
+    {
+     "systematic": "fDM zero-point +0.11",
+     "dlna0": 0.4638875333868242,
+     "at_edge": false,
+     "note": "MCMC minus chi2 fDM offset / G20 A.4"
+    },
+    {
+     "systematic": "fDM zero-point -0.11",
+     "dlna0": -0.5363907550840636,
+     "at_edge": false,
+     "note": "same, reversed"
+    },
+    {
+     "systematic": "IMF dlogM*=+0.23, f*=0.5, w=1",
+     "dlna0": -0.8191392845654164,
+     "at_edge": false,
+     "note": "w=0 (data-dominated fit) gives exactly 0; +0.23 = Salpeter vs Chabrier (G20)"
+    },
+    {
+     "systematic": "IMF dlogM*=+0.30, f*=0.5, w=1",
+     "dlna0": -1.6093034182648687,
+     "at_edge": true,
+     "note": "w=0 (data-dominated fit) gives exactly 0; +0.23 = Salpeter vs Chabrier (G20)"
+    },
+    {
+     "systematic": "IMF dlogM*=-0.20, f*=0.5, w=1",
+     "dlna0": 0.6341579033384015,
+     "at_edge": false,
+     "note": "w=0 (data-dominated fit) gives exactly 0; +0.23 = Salpeter vs Chabrier (G20)"
+    },
+    {
+     "systematic": "IMF dlogM*=+0.23, f*=0.67, w=1",
+     "dlna0": -1.378048529702113,
+     "at_edge": false,
+     "note": "w=0 (data-dominated fit) gives exactly 0; +0.23 = Salpeter vs Chabrier (G20)"
+    },
+    {
+     "systematic": "IMF dlogM*=+0.30, f*=0.67, w=1",
+     "dlna0": 0.6430938242780577,
+     "at_edge": false,
+     "note": "w=0 (data-dominated fit) gives exactly 0; +0.23 = Salpeter vs Chabrier (G20)"
+    },
+    {
+     "systematic": "IMF dlogM*=-0.20, f*=0.67, w=1",
+     "dlna0": 0.7985701110073897,
+     "at_edge": false,
+     "note": "w=0 (data-dominated fit) gives exactly 0; +0.23 = Salpeter vs Chabrier (G20)"
+    },
+    {
+     "systematic": "gas dlogMgas=+0.25, fgas=0.33, w=1",
+     "dlna0": -0.8718436289842266,
+     "at_edge": false,
+     "note": "T20: +/-0.25 dex CO/dust mass systematics; G20: Mgas/M* ~0.5-1 at z~1-2.5"
+    },
+    {
+     "systematic": "gas dlogMgas=-0.25, fgas=0.33, w=1",
+     "dlna0": 0.5158662711075053,
+     "at_edge": false,
+     "note": "T20: +/-0.25 dex CO/dust mass systematics; G20: Mgas/M* ~0.5-1 at z~1-2.5"
+    },
+    {
+     "systematic": "gas dlogMgas=+0.25, fgas=0.50, w=1",
+     "dlna0": -0.9273256191160861,
+     "at_edge": false,
+     "note": "T20: +/-0.25 dex CO/dust mass systematics; G20: Mgas/M* ~0.5-1 at z~1-2.5"
+    },
+    {
+     "systematic": "gas dlogMgas=-0.25, fgas=0.50, w=1",
+     "dlna0": 0.7251223089428862,
+     "at_edge": false,
+     "note": "T20: +/-0.25 dex CO/dust mass systematics; G20: Mgas/M* ~0.5-1 at z~1-2.5"
+    },
+    {
+     "systematic": "pressure alpha=0.500 (vbar_fixed)",
+     "dlna0": -0.5544187649765178,
+     "at_edge": false,
+     "note": "test amplitude"
+    },
+    {
+     "systematic": "pressure alpha=0.500 (f_fixed)",
+     "dlna0": -0.16201291107053706,
+     "at_edge": false,
+     "note": "test amplitude"
+    },
+    {
+     "systematic": "pressure alpha=1.500 (vbar_fixed)",
+     "dlna0": 0.411923678518221,
+     "at_edge": false,
+     "note": "test amplitude"
+    },
+    {
+     "systematic": "pressure alpha=1.500 (f_fixed)",
+     "dlna0": 0.11147461177073126,
+     "at_edge": false,
+     "note": "test amplitude"
+    },
+    {
+     "systematic": "pressure alpha=0.825 (vbar_fixed)",
+     "dlna0": -0.19186808540864675,
+     "at_edge": false,
+     "note": "Sersic n=0.5 dlnSigma/dlnr at Re"
+    },
+    {
+     "systematic": "pressure alpha=0.825 (f_fixed)",
+     "dlna0": -0.043724880901617524,
+     "at_edge": false,
+     "note": "Sersic n=0.5 dlnSigma/dlnr at Re"
+    },
+    {
+     "systematic": "pressure alpha=1.093 (vbar_fixed)",
+     "dlna0": 0.09039134904099555,
+     "at_edge": false,
+     "note": "Sersic n=2 dlnSigma/dlnr at Re"
+    },
+    {
+     "systematic": "pressure alpha=1.093 (f_fixed)",
+     "dlna0": 0.021737697118737742,
+     "at_edge": false,
+     "note": "Sersic n=2 dlnSigma/dlnr at Re"
+    },
+    {
+     "systematic": "beam/Vc dlnVc=+0.05 (vbar_fixed)",
+     "dlna0": 0.45506984712363874,
+     "at_edge": false,
+     "note": "test amplitude; RC100 methods A/B/C agree within combined errors"
+    },
+    {
+     "systematic": "beam/Vc dlnVc=+0.05 (f_fixed)",
+     "dlna0": 0.09956735498425928,
+     "at_edge": false,
+     "note": "test amplitude; RC100 methods A/B/C agree within combined errors"
+    },
+    {
+     "systematic": "beam/Vc dlnVc=-0.05 (vbar_fixed)",
+     "dlna0": -0.5022526628701627,
+     "at_edge": false,
+     "note": "test amplitude; RC100 methods A/B/C agree within combined errors"
+    },
+    {
+     "systematic": "beam/Vc dlnVc=-0.05 (f_fixed)",
+     "dlna0": -0.09925195387900487,
+     "at_edge": false,
+     "note": "test amplitude; RC100 methods A/B/C agree within combined errors"
+    },
+    {
+     "systematic": "beam/Vc dlnVc=+0.10 (vbar_fixed)",
+     "dlna0": 0.8223498731868872,
+     "at_edge": false,
+     "note": "test amplitude; RC100 methods A/B/C agree within combined errors"
+    },
+    {
+     "systematic": "beam/Vc dlnVc=+0.10 (f_fixed)",
+     "dlna0": 0.2030744424192754,
+     "at_edge": false,
+     "note": "test amplitude; RC100 methods A/B/C agree within combined errors"
+    },
+    {
+     "systematic": "beam/Vc dlnVc=-0.10 (vbar_fixed)",
+     "dlna0": -0.9247027887851118,
+     "at_edge": false,
+     "note": "test amplitude; RC100 methods A/B/C agree within combined errors"
+    },
+    {
+     "systematic": "beam/Vc dlnVc=-0.10 (f_fixed)",
+     "dlna0": -0.19830474349272365,
+     "at_edge": false,
+     "note": "test amplitude; RC100 methods A/B/C agree within combined errors"
+    },
+    {
+     "systematic": "distance RC100 -> Planck 67.36/0.3153 (w=0)",
+     "dlna0": 0.03066977258360737,
+     "at_edge": false,
+     "note": "z_med=1.53, D_ass/D_true=0.9734"
+    },
+    {
+     "systematic": "distance RC100 -> Planck 67.36/0.3153 (w=1)",
+     "dlna0": -0.07782816425933703,
+     "at_edge": false,
+     "note": "prior-dominated limit"
+    },
+    {
+     "systematic": "distance RC100 -> H0=73 (w=0)",
+     "dlna0": -0.03956870570727489,
+     "at_edge": false,
+     "note": "z_med=1.53, D_ass/D_true=1.0429"
+    },
+    {
+     "systematic": "distance RC100 -> H0=73 (w=1)",
+     "dlna0": 0.117104874939713,
+     "at_edge": false,
+     "note": "prior-dominated limit"
+    }
+   ]
+  },
+  "1.791x": {
+   "base_lna0_minus_true": -0.023528635876633786,
+   "rows": [
+    {
+     "systematic": "fDM zero-point +0.05",
+     "dlna0": 0.1735539736300602,
+     "at_edge": false,
+     "note": "AC on vs off / G20 A.4"
+    },
+    {
+     "systematic": "fDM zero-point -0.05",
+     "dlna0": -0.18432848881418806,
+     "at_edge": false,
+     "note": "halo c 4->2 at z~2.3 / G20 A.4"
+    },
+    {
+     "systematic": "fDM zero-point +0.11",
+     "dlna0": 0.36618239536683106,
+     "at_edge": false,
+     "note": "MCMC minus chi2 fDM offset / G20 A.4"
+    },
+    {
+     "systematic": "fDM zero-point -0.11",
+     "dlna0": -0.42468928885026713,
+     "at_edge": false,
+     "note": "same, reversed"
+    },
+    {
+     "systematic": "IMF dlogM*=+0.23, f*=0.5, w=1",
+     "dlna0": -0.8430409063012831,
+     "at_edge": false,
+     "note": "w=0 (data-dominated fit) gives exactly 0; +0.23 = Salpeter vs Chabrier (G20)"
+    },
+    {
+     "systematic": "IMF dlogM*=+0.30, f*=0.5, w=1",
+     "dlna0": -1.0147918430168446,
+     "at_edge": false,
+     "note": "w=0 (data-dominated fit) gives exactly 0; +0.23 = Salpeter vs Chabrier (G20)"
+    },
+    {
+     "systematic": "IMF dlogM*=-0.20, f*=0.5, w=1",
+     "dlna0": 0.4495666749945926,
+     "at_edge": false,
+     "note": "w=0 (data-dominated fit) gives exactly 0; +0.23 = Salpeter vs Chabrier (G20)"
+    },
+    {
+     "systematic": "IMF dlogM*=+0.23, f*=0.67, w=1",
+     "dlna0": -0.9192585144353309,
+     "at_edge": false,
+     "note": "w=0 (data-dominated fit) gives exactly 0; +0.23 = Salpeter vs Chabrier (G20)"
+    },
+    {
+     "systematic": "IMF dlogM*=+0.30, f*=0.67, w=1",
+     "dlna0": -1.4290309102326049,
+     "at_edge": false,
+     "note": "w=0 (data-dominated fit) gives exactly 0; +0.23 = Salpeter vs Chabrier (G20)"
+    },
+    {
+     "systematic": "IMF dlogM*=-0.20, f*=0.67, w=1",
+     "dlna0": 0.5871385437677752,
+     "at_edge": false,
+     "note": "w=0 (data-dominated fit) gives exactly 0; +0.23 = Salpeter vs Chabrier (G20)"
+    },
+    {
+     "systematic": "gas dlogMgas=+0.25, fgas=0.33, w=1",
+     "dlna0": -0.6179411582749488,
+     "at_edge": false,
+     "note": "T20: +/-0.25 dex CO/dust mass systematics; G20: Mgas/M* ~0.5-1 at z~1-2.5"
+    },
+    {
+     "systematic": "gas dlogMgas=-0.25, fgas=0.33, w=1",
+     "dlna0": 0.3637967968870335,
+     "at_edge": false,
+     "note": "T20: +/-0.25 dex CO/dust mass systematics; G20: Mgas/M* ~0.5-1 at z~1-2.5"
+    },
+    {
+     "systematic": "gas dlogMgas=+0.25, fgas=0.50, w=1",
+     "dlna0": -0.8098361506284881,
+     "at_edge": false,
+     "note": "T20: +/-0.25 dex CO/dust mass systematics; G20: Mgas/M* ~0.5-1 at z~1-2.5"
+    },
+    {
+     "systematic": "gas dlogMgas=-0.25, fgas=0.50, w=1",
+     "dlna0": 0.5242020774531788,
+     "at_edge": false,
+     "note": "T20: +/-0.25 dex CO/dust mass systematics; G20: Mgas/M* ~0.5-1 at z~1-2.5"
+    },
+    {
+     "systematic": "pressure alpha=0.500 (vbar_fixed)",
+     "dlna0": -0.35975814650610616,
+     "at_edge": false,
+     "note": "test amplitude"
+    },
+    {
+     "systematic": "pressure alpha=0.500 (f_fixed)",
+     "dlna0": -0.1404509047340703,
+     "at_edge": false,
+     "note": "test amplitude"
+    },
+    {
+     "systematic": "pressure alpha=1.500 (vbar_fixed)",
+     "dlna0": 0.31133030697105823,
+     "at_edge": false,
+     "note": "test amplitude"
+    },
+    {
+     "systematic": "pressure alpha=1.500 (f_fixed)",
+     "dlna0": 0.09943851719993191,
+     "at_edge": false,
+     "note": "test amplitude"
+    },
+    {
+     "systematic": "pressure alpha=0.825 (vbar_fixed)",
+     "dlna0": -0.1424771246476766,
+     "at_edge": false,
+     "note": "Sersic n=0.5 dlnSigma/dlnr at Re"
+    },
+    {
+     "systematic": "pressure alpha=0.825 (f_fixed)",
+     "dlna0": -0.0440792912934711,
+     "at_edge": false,
+     "note": "Sersic n=0.5 dlnSigma/dlnr at Re"
+    },
+    {
+     "systematic": "pressure alpha=1.093 (vbar_fixed)",
+     "dlna0": 0.06818156150204757,
+     "at_edge": false,
+     "note": "Sersic n=2 dlnSigma/dlnr at Re"
+    },
+    {
+     "systematic": "pressure alpha=1.093 (f_fixed)",
+     "dlna0": 0.019302861089443013,
+     "at_edge": false,
+     "note": "Sersic n=2 dlnSigma/dlnr at Re"
+    },
+    {
+     "systematic": "beam/Vc dlnVc=+0.05 (vbar_fixed)",
+     "dlna0": 0.34579866689840344,
+     "at_edge": false,
+     "note": "test amplitude; RC100 methods A/B/C agree within combined errors"
+    },
+    {
+     "systematic": "beam/Vc dlnVc=+0.05 (f_fixed)",
+     "dlna0": 0.09901804557672023,
+     "at_edge": false,
+     "note": "test amplitude; RC100 methods A/B/C agree within combined errors"
+    },
+    {
+     "systematic": "beam/Vc dlnVc=-0.05 (vbar_fixed)",
+     "dlna0": -0.39200862393509084,
+     "at_edge": false,
+     "note": "test amplitude; RC100 methods A/B/C agree within combined errors"
+    },
+    {
+     "systematic": "beam/Vc dlnVc=-0.05 (f_fixed)",
+     "dlna0": -0.09873276467599368,
+     "at_edge": false,
+     "note": "test amplitude; RC100 methods A/B/C agree within combined errors"
+    },
+    {
+     "systematic": "beam/Vc dlnVc=+0.10 (vbar_fixed)",
+     "dlna0": 0.6491523976769855,
+     "at_edge": false,
+     "note": "test amplitude; RC100 methods A/B/C agree within combined errors"
+    },
+    {
+     "systematic": "beam/Vc dlnVc=+0.10 (f_fixed)",
+     "dlna0": 0.19811205227708228,
+     "at_edge": false,
+     "note": "test amplitude; RC100 methods A/B/C agree within combined errors"
+    },
+    {
+     "systematic": "beam/Vc dlnVc=-0.10 (vbar_fixed)",
+     "dlna0": -0.722473588290999,
+     "at_edge": false,
+     "note": "test amplitude; RC100 methods A/B/C agree within combined errors"
+    },
+    {
+     "systematic": "beam/Vc dlnVc=-0.10 (f_fixed)",
+     "dlna0": -0.20276783963099376,
+     "at_edge": false,
+     "note": "test amplitude; RC100 methods A/B/C agree within combined errors"
+    },
+    {
+     "systematic": "distance RC100 -> Planck 67.36/0.3153 (w=0)",
+     "dlna0": 0.02541230030687558,
+     "at_edge": false,
+     "note": "z_med=1.53, D_ass/D_true=0.9734"
+    },
+    {
+     "systematic": "distance RC100 -> Planck 67.36/0.3153 (w=1)",
+     "dlna0": -0.04947536007608733,
+     "at_edge": false,
+     "note": "prior-dominated limit"
+    },
+    {
+     "systematic": "distance RC100 -> H0=73 (w=0)",
+     "dlna0": -0.04440432944084449,
+     "at_edge": false,
+     "note": "z_med=1.53, D_ass/D_true=1.0429"
+    },
+    {
+     "systematic": "distance RC100 -> H0=73 (w=1)",
+     "dlna0": 0.0687979774760521,
+     "at_edge": false,
+     "note": "prior-dominated limit"
+    }
+   ]
+  },
+  "mbar_geometry": {
+   "1x": {
+    "base_lna0_minus_true": 0.037437775930481365,
+    "k: q0.20 -> sphere M/2": 0.16824258379608992,
+    "k: q0.20 -> thin Freeman": -0.41741515609795243,
+    "k: q0.20 -> q=0.25": 0.0841838629467695,
+    "k: q0.20 -> deprojected sphere": 0.9053389080190648,
+    "M_bar +0.1 dex": -0.67405247048994,
+    "M_bar -0.1 dex": 0.5040926228492033
+   },
+   "1.791x": {
+    "base_lna0_minus_true": 0.02788512224284645,
+    "k: q0.20 -> sphere M/2": 0.13277493808558205,
+    "k: q0.20 -> thin Freeman": -0.3118982599104356,
+    "k: q0.20 -> q=0.25": 0.0658445352228334,
+    "k: q0.20 -> deprojected sphere": 0.7432767807338223,
+    "M_bar +0.1 dex": -0.49237169868193575,
+    "M_bar -0.1 dex": 0.4046973603926176
+   }
+  }
+ },
+ "checks": [
+  {
+   "name": "S1 closure g*mu(g/a0)=gbar; exact inverse and fDM inverse round-trip",
+   "pass": true
+  },
+  {
+   "name": "S1b inverse undefined for f<=0 / gbar>=g (censoring is real)",
+   "pass": true
+  },
+  {
+   "name": "S2 leverage derivatives == finite differences; d/dln gbar + d/dln g = 1",
+   "pass": true
+  },
+  {
+   "name": "S3a n=1 deprojection: numeric inner integral == K0 closed form",
+   "pass": true
+  },
+  {
+   "name": "S3b Abel deprojection re-projects to the Sersic Sigma (n=1,4)",
+   "pass": true
+  },
+  {
+   "name": "S3c q->0 spheroid == Freeman thin disk (B&T 2.165)",
+   "pass": true
+  },
+  {
+   "name": "S3d k -> 1 far outside (total mass)",
+   "pass": true
+  },
+  {
+   "name": "S3e Burkert 3.36 == 2 b_1; projected enclosed fraction at Re == 1/2",
+   "pass": true
+  },
+  {
+   "name": "S3f G20 A: thick disk (q~0.25) V(Re) ~10% below Freeman",
+   "pass": true
+  },
+  {
+   "name": "S4 RC100 transcription: Sigma_DM(<Re) recomputed from (fDM,Vc,Re) matches column",
+   "pass": true
+  },
+  {
+   "name": "S5 distance log-slopes: g_obs -1 (PR #67 rotation-curve exponent), photometric gbar 0, fDM-route a0 -1-w(1+x^2)",
+   "pass": true
+  },
+  {
+   "name": "S6 estimator recovers a0 with errors /10 (both routes, both truths)",
+   "pass": false
+  },
+  {
+   "name": "S7 Asimov (noise-free) bias at RC100 error sizes < 0.05 in ln a0",
+   "pass": true
+  },
+  {
+   "name": "S8 fdm route N=100 truth 1x: |median bias| < ensemble sd/3",
+   "pass": false
+  },
+  {
+   "name": "S9 fdm route N=100 truth 1x: 68%/95% profile intervals calibrated (3-sigma binomial)",
+   "pass": true
+  },
+  {
+   "name": "S8 fdm route N=100 truth 1.791x: |median bias| < ensemble sd/3",
+   "pass": false
+  },
+  {
+   "name": "S9 fdm route N=100 truth 1.791x: 68%/95% profile intervals calibrated (3-sigma binomial)",
+   "pass": true
+  },
+  {
+   "name": "S10 IMF shift has zero effect in the data-dominated (w=0) limit",
+   "pass": true
+  }
+ ],
+ "runtime_s": 250.3867793083191
+}

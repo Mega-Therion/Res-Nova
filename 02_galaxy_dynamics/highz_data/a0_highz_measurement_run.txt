@@ -1,0 +1,179 @@
+====================================================================================================
+a0_highz_measurement.py  (2026-09-16, branch measure/a0-highz)  all a0(z) numbers are [C]
+====================================================================================================
+anchor T3: a0=1.16306e-10  68%=[1.0650292038804336e-10, 1.2510138105584097e-10]  95%=[9.663981746209963e-11, 1.323925645179661e-10]  sigma_ln(anchor)=0.0805
+
+CHECKS (data / provenance / readings)
+  [PASS] C0 anchor is T3 non-flow (1.16306e-10, 95% [0.96640,1.32393]e-10)  
+  [PASS] C1 source-hash provenance (file hash only, NOT cell values): sha256 of cached sources match CSV headers (fetch_highz_data.sh exit 0)  exit=0; PASS  RC100_NestorShachar2023_table3_transcribed.csv (source-hash only; cell values not re-compared) <- _src/2209.12199v1.pdf sha256 a04738e47a61; PASS  RC41_Genzel2020.csv (source-hash only; cell values not re-compared) <- _src/arXiv_2006.03046_eprint.pdf sha256 a8bf2f52caa7; PASS  G17_Genzel2017.csv (source-hash only; cell values not re-compared) <- _src/arXiv_1703.04310_eprint.pdf sha256 9926059ed950; PASS  Ubler2017_KMOS3D_TFR.csv (source-hash only; cell values not re-compared) <- _src/Ubler2017_J_ApJ_842_121_table3.dat sha256 b46ee156730a; HAND  HighZ_TF_published_fits.csv; HAND  Ciocan2026_MUSEDARKIII_a0.csv
+  [PASS] C2 readings reproduce HORIZON_SELECTION values (H 1.323/1.791/3.034, K 0.942/0.962/1.214)  H=[1.322, 1.791, 3.033] K=[0.942, 0.962, 1.215]
+  [PASS] C3 dedupe: RC41 (41) and G17 (6) all map onto RC100 rows (z agree <0.02); unique galaxies == 100  unique=100 added={'RC41': 0, 'G17': 0} z-mismatch=0
+  [PASS] C4 RC100 transcription internal check (Sigma_DM recomputed) >= 93/100  100/100
+
+RESULTS
+REGIME: g_obs/a0_T3 median 2.29 [16-84% 1.23,4.99], frac x<1: 0.11; g_bar(fDM)/a0 median 1.58, frac<1: 0.29
+--- variant: route=fdm 2bin z<1.2|>=1.2 [headline] nominal
+  z[0.0,1.2) N= 32 z_eff=0.867  a0/a0_T3=2.597  68%[2.254, 2.998] 95%[1.954, 3.427]  sig_int=0.20  edge=False  pred H/L/K=1.654/1.000/0.948
+  z[1.2,9.0) N= 68 z_eff=1.960  a0/a0_T3=2.286  68%[2.100, 2.482] 95%[1.930, 2.685]  sig_int=0.10  edge=False  pred H/L/K=2.976/1.000/1.200
+  power-law GOF: chi2_min=9.04 on 1 dof (p=2.65e-03); Birge factor 9.04
+  Hubble  chi2=   18.06  dchi2 vs free-n=   9.02 (stat-only nominal 1-dof 3.00 sig; Birge 1.00; cov68-corrected 2.27) | with anchor calib nuisance 0.5 ln: dchi2=13.89 (3.73 sig)
+  Lambda  chi2=   61.93  dchi2 vs free-n=  52.90 (stat-only nominal 1-dof 7.27 sig; Birge 2.42; cov68-corrected 5.50) | with anchor calib nuisance 0.5 ln: dchi2=0.11 (0.33 sig)
+  Kodama  chi2=   49.08  dchi2 vs free-n=  40.05 (stat-only nominal 1-dof 6.33 sig; Birge 2.11; cov68-corrected 4.78) | with anchor calib nuisance 0.5 ln: dchi2=3.48 (1.87 sig)
+  [calib-nuisance fit] n=0.11 95%[-0.49,0.70]; best fixed reading: Lambda  (1-dof sigmas on non-nested readings are indicative only; not bootstrap-calibrated)
+  power law n=0.79 68%[0.69,0.89] 95%[0.58,0.99] chi2=9.04 edge=False
+  Hubble vs Lambda: chi2_L - chi2_H = +43.88 (LR = 3.37e+09 for Hubble); Kodama vs Lambda: +12.85;  favored fixed reading: Hubble
+  SHAPE-ONLY (anchor dropped, normalization free): chi2 Hubble=17.19 Lambda=0.63 Kodama=4.80; free n=-0.27 95%[-0.99,0.43]; chi2_L-chi2_H=-16.56; favored shape: Lambda
+--- variant: route=fdm 4bin 0.6-1.0-1.5-2.0-2.6 nominal
+  z[0.6,1.0) N= 26 z_eff=0.821  a0/a0_T3=2.471  68%[2.091, 2.888] 95%[1.780, 3.362]  sig_int=0.20  edge=False  pred H/L/K=1.609/1.000/0.945
+  z[1.0,1.5) N= 18 z_eff=1.229  a0/a0_T3=2.634  68%[2.245, 3.078] 95%[1.916, 3.749]  sig_int=0.10  edge=False  pred H/L/K=2.044/1.000/0.998
+  z[1.5,2.0) N= 15 z_eff=1.558  a0/a0_T3=2.544  68%[2.182, 2.945] 95%[1.822, 3.415]  sig_int=0.10  edge=False  pred H/L/K=2.442/1.000/1.075
+  z[2.0,2.6) N= 41 z_eff=2.258  a0/a0_T3=2.196  68%[1.960, 2.452] 95%[1.750, 2.719]  sig_int=0.10  edge=False  pred H/L/K=3.405/1.000/1.312
+  power-law GOF: chi2_min=12.70 on 3 dof (p=5.33e-03); Birge factor 4.23
+  Hubble  chi2=   20.95  dchi2 vs free-n=   8.25 (stat-only nominal 1-dof 2.87 sig; Birge 1.40; cov68-corrected 2.17) | with anchor calib nuisance 0.5 ln: dchi2=16.85 (4.11 sig)
+  Lambda  chi2=   62.21  dchi2 vs free-n=  49.51 (stat-only nominal 1-dof 7.04 sig; Birge 3.42; cov68-corrected 5.32) | with anchor calib nuisance 0.5 ln: dchi2=0.03 (0.16 sig)
+  Kodama  chi2=   51.07  dchi2 vs free-n=  38.37 (stat-only nominal 1-dof 6.19 sig; Birge 3.01; cov68-corrected 4.68) | with anchor calib nuisance 0.5 ln: dchi2=6.68 (2.58 sig)
+  [calib-nuisance fit] n=0.05 95%[-0.49,0.57]; best fixed reading: Lambda  (1-dof sigmas on non-nested readings are indicative only; not bootstrap-calibrated)
+  power law n=0.78 68%[0.68,0.95] 95%[0.58,1.07] chi2=12.70 edge=False
+  Hubble vs Lambda: chi2_L - chi2_H = +41.26 (LR = 9.1e+08 for Hubble); Kodama vs Lambda: +11.14;  favored fixed reading: Hubble
+  SHAPE-ONLY (anchor dropped, normalization free): chi2 Hubble=20.93 Lambda=1.17 Kodama=8.60; free n=-0.26 95%[-0.88,0.35]; chi2_L-chi2_H=-19.76; favored shape: Lambda
+--- variant: route=mbar 2bin z<1.2|>=1.2 [headline] nominal
+  z[0.0,1.2) N= 32 z_eff=0.867  a0/a0_T3=3.363  68%[2.791, 4.026] 95%[2.315, 4.762]  sig_int=0.00  edge=False  pred H/L/K=1.654/1.000/0.948
+  z[1.2,9.0) N= 68 z_eff=1.960  a0/a0_T3=2.491  68%[2.093, 2.924] 95%[1.738, 3.378]  sig_int=0.00  edge=False  pred H/L/K=2.976/1.000/1.200
+  power-law GOF: chi2_min=9.86 on 1 dof (p=1.69e-03); Birge factor 9.86
+  Hubble  chi2=   13.41  dchi2 vs free-n=   3.55 (stat-only nominal 1-dof 1.88 sig; Birge 0.60; cov68-corrected 1.42) | with anchor calib nuisance 0.5 ln: dchi2=7.31 (2.70 sig)
+  Lambda  chi2=   40.89  dchi2 vs free-n=  31.02 (stat-only nominal 1-dof 5.57 sig; Birge 1.77; cov68-corrected 4.21) | with anchor calib nuisance 0.5 ln: dchi2=0.24 (0.49 sig)
+  Kodama  chi2=   37.81  dchi2 vs free-n=  27.95 (stat-only nominal 1-dof 5.29 sig; Birge 1.68; cov68-corrected 4.00) | with anchor calib nuisance 0.5 ln: dchi2=2.76 (1.66 sig)
+  [calib-nuisance fit] n=0.20 95%[-0.59,0.97]; best fixed reading: Lambda  (1-dof sigmas on non-nested readings are indicative only; not bootstrap-calibrated)
+  power law n=0.99 68%[0.84,1.14] 95%[0.69,1.28] chi2=9.86 edge=False
+  Hubble vs Lambda: chi2_L - chi2_H = +27.47 (LR = 9.24e+05 for Hubble); Kodama vs Lambda: +3.07;  favored fixed reading: Hubble
+  SHAPE-ONLY (anchor dropped, normalization free): chi2 Hubble=12.46 Lambda=1.48 Kodama=4.76; free n=-0.66 95%[-1.74,0.40]; chi2_L-chi2_H=-10.98; favored shape: Lambda
+--- variant: route=mbar 4bin 0.6-1.0-1.5-2.0-2.6 nominal
+  z[0.6,1.0) N= 26 z_eff=0.821  a0/a0_T3=3.234  68%[2.622, 3.955] 95%[2.120, 4.768]  sig_int=0.00  edge=False  pred H/L/K=1.609/1.000/0.945
+  z[1.0,1.5) N= 18 z_eff=1.229  a0/a0_T3=3.208  68%[2.405, 4.177] 95%[1.761, 5.301]  sig_int=0.00  edge=False  pred H/L/K=2.044/1.000/0.998
+  z[1.5,2.0) N= 15 z_eff=1.558  a0/a0_T3=3.087  68%[2.181, 4.173] 95%[1.425, 5.437]  sig_int=0.00  edge=False  pred H/L/K=2.442/1.000/1.075
+  z[2.0,2.6) N= 41 z_eff=2.258  a0/a0_T3=2.257  68%[1.782, 2.786] 95%[1.366, 3.355]  sig_int=0.00  edge=False  pred H/L/K=3.405/1.000/1.312
+  power-law GOF: chi2_min=11.68 on 3 dof (p=8.57e-03); Birge factor 3.89
+  Hubble  chi2=   16.36  dchi2 vs free-n=   4.68 (stat-only nominal 1-dof 2.16 sig; Birge 1.10; cov68-corrected 1.64) | with anchor calib nuisance 0.5 ln: dchi2=9.80 (3.13 sig)
+  Lambda  chi2=   41.87  dchi2 vs free-n=  30.19 (stat-only nominal 1-dof 5.49 sig; Birge 2.78; cov68-corrected 4.15) | with anchor calib nuisance 0.5 ln: dchi2=0.12 (0.34 sig)
+  Kodama  chi2=   39.31  dchi2 vs free-n=  27.63 (stat-only nominal 1-dof 5.26 sig; Birge 2.66; cov68-corrected 3.97) | with anchor calib nuisance 0.5 ln: dchi2=3.94 (1.98 sig)
+  [calib-nuisance fit] n=0.11 95%[-0.61,0.85]; best fixed reading: Lambda  (1-dof sigmas on non-nested readings are indicative only; not bootstrap-calibrated)
+  power law n=0.96 68%[0.81,1.11] 95%[0.66,1.26] chi2=11.68 edge=False
+  Hubble vs Lambda: chi2_L - chi2_H = +25.51 (LR = 3.47e+05 for Hubble); Kodama vs Lambda: +2.56;  favored fixed reading: Hubble
+  SHAPE-ONLY (anchor dropped, normalization free): chi2 Hubble=15.44 Lambda=1.85 Kodama=6.46; free n=-0.62 95%[-1.63,0.34]; chi2_L-chi2_H=-13.59; favored shape: Lambda
+--- variant: route=fdm 2bin Mstar +0.2 dex (w=1 prior-dominated)
+  z[0.0,1.2) N= 32 z_eff=0.867  a0/a0_T3=1.282  68%[1.045, 1.565] 95%[0.840, 1.902]  sig_int=0.35  edge=False  pred H/L/K=1.654/1.000/0.948
+  z[1.2,9.0) N= 68 z_eff=1.960  a0/a0_T3=0.639  68%[0.440, 0.836] 95%[open, 1.035]  sig_int=0.20  edge=False  pred H/L/K=2.976/1.000/1.200
+  power-law GOF: chi2_min=3.69 on 1 dof (p=5.48e-02); Birge factor 3.69
+  Hubble  chi2=   54.76  dchi2 vs free-n=  51.07 (stat-only nominal 1-dof 7.15 sig; Birge 3.72; cov68-corrected 5.40) | with anchor calib nuisance 0.5 ln: dchi2=16.24 (4.03 sig)
+  Lambda  chi2=    4.61  dchi2 vs free-n=   0.93 (stat-only nominal 1-dof 0.96 sig; Birge 0.50; cov68-corrected 0.73) | with anchor calib nuisance 0.5 ln: dchi2=2.20 (1.48 sig)
+  Kodama  chi2=    9.17  dchi2 vs free-n=   5.48 (stat-only nominal 1-dof 2.34 sig; Birge 1.22; cov68-corrected 1.77) | with anchor calib nuisance 0.5 ln: dchi2=5.99 (2.45 sig)
+  [calib-nuisance fit] n=-0.69 95%[-1.69,0.21]; best fixed reading: Lambda  (1-dof sigmas on non-nested readings are indicative only; not bootstrap-calibrated)
+  power law n=-0.19 68%[-0.40,-0.00] 95%[-0.63,0.18] chi2=3.69 edge=False
+  Hubble vs Lambda: chi2_L - chi2_H = -50.14 (LR = 1.29e-11 for Hubble); Kodama vs Lambda: -4.56;  favored fixed reading: Lambda
+  SHAPE-ONLY (anchor dropped, normalization free): chi2 Hubble=15.11 Lambda=4.45 Kodama=8.15; free n=-1.54 95%[-3.00,-0.11]; chi2_L-chi2_H=-10.67; favored shape: Lambda
+--- variant: route=mbar 2bin Mstar +0.2 dex
+  z[0.0,1.2) N= 32 z_eff=0.867  a0/a0_T3=2.021  68%[1.608, 2.497] 95%[1.260, 3.024]  sig_int=0.00  edge=False  pred H/L/K=1.654/1.000/0.948
+  z[1.2,9.0) N= 68 z_eff=1.960  a0/a0_T3=0.839  68%[0.402, 1.223] 95%[open, 1.595]  sig_int=0.00  edge=False  pred H/L/K=2.976/1.000/1.200
+  power-law GOF: chi2_min=6.42 on 1 dof (p=1.13e-02); Birge factor 6.42
+  Hubble  chi2=   22.99  dchi2 vs free-n=  16.57 (stat-only nominal 1-dof 4.07 sig; Birge 1.61; cov68-corrected 3.08) | with anchor calib nuisance 0.5 ln: dchi2=10.09 (3.18 sig)
+  Lambda  chi2=    7.44  dchi2 vs free-n=   1.02 (stat-only nominal 1-dof 1.01 sig; Birge 0.40; cov68-corrected 0.76) | with anchor calib nuisance 0.5 ln: dchi2=0.56 (0.75 sig)
+  Kodama  chi2=    9.25  dchi2 vs free-n=   2.83 (stat-only nominal 1-dof 1.68 sig; Birge 0.66; cov68-corrected 1.27) | with anchor calib nuisance 0.5 ln: dchi2=3.50 (1.87 sig)
+  [calib-nuisance fit] n=-0.38 95%[-1.44,0.59]; best fixed reading: Lambda  (1-dof sigmas on non-nested readings are indicative only; not bootstrap-calibrated)
+  power law n=0.25 68%[0.01,0.46] 95%[-0.27,0.65] chi2=6.42 edge=False
+  Hubble vs Lambda: chi2_L - chi2_H = -15.55 (LR = 0.00042 for Hubble); Kodama vs Lambda: -1.80;  favored fixed reading: Lambda
+  SHAPE-ONLY (anchor dropped, normalization free): chi2 Hubble=13.45 Lambda=4.55 Kodama=7.72; free n=-1.94 95%[-3.00,-0.15]; chi2_L-chi2_H=-8.90; favored shape: Lambda
+--- variant: route=fdm 2bin Mstar -0.2 dex (w=1 prior-dominated)
+  z[0.0,1.2) N= 32 z_eff=0.867  a0/a0_T3=4.055  68%[3.634, 4.526] 95%[3.271, 5.033]  sig_int=0.10  edge=False  pred H/L/K=1.654/1.000/0.948
+  z[1.2,9.0) N= 68 z_eff=1.960  a0/a0_T3=3.926  68%[3.658, 4.211] 95%[3.416, 4.507]  sig_int=0.10  edge=False  pred H/L/K=2.976/1.000/1.200
+  power-law GOF: chi2_min=20.65 on 1 dof (p=5.50e-06); Birge factor 20.65
+  Hubble  chi2=   33.90  dchi2 vs free-n=  13.24 (stat-only nominal 1-dof 3.64 sig; Birge 0.80; cov68-corrected 2.75) | with anchor calib nuisance 0.5 ln: dchi2=13.51 (3.68 sig)
+  Lambda  chi2=  144.02  dchi2 vs free-n= 123.37 (stat-only nominal 1-dof 11.11 sig; Birge 2.44; cov68-corrected 8.40) | with anchor calib nuisance 0.5 ln: dchi2=1.14 (1.07 sig)
+  Kodama  chi2=  132.07  dchi2 vs free-n= 111.42 (stat-only nominal 1-dof 10.56 sig; Birge 2.32; cov68-corrected 7.98) | with anchor calib nuisance 0.5 ln: dchi2=4.16 (2.04 sig)
+  [calib-nuisance fit] n=0.26 95%[-0.22,0.76]; best fixed reading: Lambda  (1-dof sigmas on non-nested readings are indicative only; not bootstrap-calibrated)
+  power law n=1.28 68%[1.18,1.37] 95%[1.09,1.46] chi2=20.65 edge=False
+  Hubble vs Lambda: chi2_L - chi2_H = +110.13 (LR = 8.2e+23 for Hubble); Kodama vs Lambda: +11.95;  favored fixed reading: Hubble
+  SHAPE-ONLY (anchor dropped, normalization free): chi2 Hubble=19.08 Lambda=0.07 Kodama=4.32; free n=-0.05 95%[-0.63,0.49]; chi2_L-chi2_H=-19.01; favored shape: Lambda
+--- variant: route=mbar 2bin Mstar -0.2 dex
+  z[0.0,1.2) N= 32 z_eff=0.867  a0/a0_T3=5.043  68%[4.261, 5.948] 95%[3.611, open]  sig_int=0.00  edge=False  pred H/L/K=1.654/1.000/0.948
+  z[1.2,9.0) N= 68 z_eff=1.960  a0/a0_T3=4.187  68%[3.676, 4.749] 95%[3.228, 5.346]  sig_int=0.00  edge=False  pred H/L/K=2.976/1.000/1.200
+  power-law GOF: chi2_min=16.86 on 1 dof (p=4.02e-05); Birge factor 16.86
+  Hubble  chi2=   31.88  dchi2 vs free-n=  15.02 (stat-only nominal 1-dof 3.88 sig; Birge 0.94; cov68-corrected 2.93) | with anchor calib nuisance 0.5 ln: dchi2=6.44 (2.54 sig)
+  Lambda  chi2=   95.52  dchi2 vs free-n=  78.65 (stat-only nominal 1-dof 8.87 sig; Birge 2.16; cov68-corrected 6.70) | with anchor calib nuisance 0.5 ln: dchi2=1.39 (1.18 sig)
+  Kodama  chi2=   89.27  dchi2 vs free-n=  72.41 (stat-only nominal 1-dof 8.51 sig; Birge 2.07; cov68-corrected 6.43) | with anchor calib nuisance 0.5 ln: dchi2=3.47 (1.86 sig)
+  [calib-nuisance fit] n=0.43 95%[-0.28,1.13]; best fixed reading: Lambda  (1-dof sigmas on non-nested readings are indicative only; not bootstrap-calibrated)
+  power law n=1.45 68%[1.32,1.57] 95%[1.18,1.71] chi2=16.86 edge=False
+  Hubble vs Lambda: chi2_L - chi2_H = +63.63 (LR = 6.57e+13 for Hubble); Kodama vs Lambda: +6.24;  favored fixed reading: Hubble
+  SHAPE-ONLY (anchor dropped, normalization free): chi2 Hubble=12.91 Lambda=0.78 Kodama=4.04; free n=-0.40 95%[-1.21,0.50]; chi2_L-chi2_H=-12.13; favored shape: Lambda
+--- variant: route=fdm 2bin gas +0.2 dex (w=1 prior-dominated)
+  z[0.0,1.2) N= 32 z_eff=0.867  a0/a0_T3=1.999  68%[1.723, 2.313] 95%[1.482, 2.652]  sig_int=0.20  edge=False  pred H/L/K=1.654/1.000/0.948
+  z[1.2,9.0) N= 68 z_eff=1.960  a0/a0_T3=1.425  68%[1.214, 1.649] 95%[1.019, 1.878]  sig_int=0.20  edge=False  pred H/L/K=2.976/1.000/1.200
+  power-law GOF: chi2_min=7.43 on 1 dof (p=6.41e-03); Birge factor 7.43
+  Hubble  chi2=   27.87  dchi2 vs free-n=  20.43 (stat-only nominal 1-dof 4.52 sig; Birge 1.66; cov68-corrected 3.42) | with anchor calib nuisance 0.5 ln: dchi2=16.36 (4.04 sig)
+  Lambda  chi2=   16.60  dchi2 vs free-n=   9.17 (stat-only nominal 1-dof 3.03 sig; Birge 1.11; cov68-corrected 2.29) | with anchor calib nuisance 0.5 ln: dchi2=0.45 (0.67 sig)
+  Kodama  chi2=   17.06  dchi2 vs free-n=   9.63 (stat-only nominal 1-dof 3.10 sig; Birge 1.14; cov68-corrected 2.35) | with anchor calib nuisance 0.5 ln: dchi2=5.12 (2.26 sig)
+  [calib-nuisance fit] n=-0.23 95%[-0.97,0.46]; best fixed reading: Lambda  (1-dof sigmas on non-nested readings are indicative only; not bootstrap-calibrated)
+  power law n=0.44 68%[0.31,0.58] 95%[0.17,0.71] chi2=7.43 edge=False
+  Hubble vs Lambda: chi2_L - chi2_H = -11.27 (LR = 0.00357 for Hubble); Kodama vs Lambda: -0.47;  favored fixed reading: Lambda
+  SHAPE-ONLY (anchor dropped, normalization free): chi2 Hubble=18.98 Lambda=2.63 Kodama=7.65; free n=-0.75 95%[-1.69,0.15]; chi2_L-chi2_H=-16.35; favored shape: Lambda
+--- variant: route=mbar 2bin gas +0.2 dex
+  z[0.0,1.2) N= 32 z_eff=0.867  a0/a0_T3=2.715  68%[2.221, 3.287] 95%[1.808, 3.921]  sig_int=0.00  edge=False  pred H/L/K=1.654/1.000/0.948
+  z[1.2,9.0) N= 68 z_eff=1.960  a0/a0_T3=1.654  68%[1.291, 2.040] 95%[0.955, 2.439]  sig_int=0.00  edge=False  pred H/L/K=2.976/1.000/1.200
+  power-law GOF: chi2_min=8.30 on 1 dof (p=3.96e-03); Birge factor 8.30
+  Hubble  chi2=   14.70  dchi2 vs free-n=   6.40 (stat-only nominal 1-dof 2.53 sig; Birge 0.88; cov68-corrected 1.91) | with anchor calib nuisance 0.5 ln: dchi2=8.89 (2.98 sig)
+  Lambda  chi2=   19.44  dchi2 vs free-n=  11.14 (stat-only nominal 1-dof 3.34 sig; Birge 1.16; cov68-corrected 2.52) | with anchor calib nuisance 0.5 ln: dchi2=0.02 (0.15 sig)
+  Kodama  chi2=   19.36  dchi2 vs free-n=  11.06 (stat-only nominal 1-dof 3.33 sig; Birge 1.15; cov68-corrected 2.51) | with anchor calib nuisance 0.5 ln: dchi2=3.06 (1.75 sig)
+  [calib-nuisance fit] n=-0.06 95%[-0.94,0.78]; best fixed reading: Lambda  (1-dof sigmas on non-nested readings are indicative only; not bootstrap-calibrated)
+  power law n=0.67 68%[0.50,0.84] 95%[0.31,1.00] chi2=8.30 edge=False
+  Hubble vs Lambda: chi2_L - chi2_H = +4.74 (LR = 10.7 for Hubble); Kodama vs Lambda: +0.08;  favored fixed reading: Hubble
+  SHAPE-ONLY (anchor dropped, normalization free): chi2 Hubble=13.70 Lambda=2.93 Kodama=6.47; free n=-1.07 95%[-2.36,0.15]; chi2_L-chi2_H=-10.78; favored shape: Lambda
+--- variant: route=fdm 2bin gas -0.2 dex (w=1 prior-dominated)
+  z[0.0,1.2) N= 32 z_eff=0.867  a0/a0_T3=3.108  68%[2.693, 3.544] 95%[2.354, 4.046]  sig_int=0.20  edge=False  pred H/L/K=1.654/1.000/0.948
+  z[1.2,9.0) N= 68 z_eff=1.960  a0/a0_T3=2.993  68%[2.772, 3.230] 95%[2.570, 3.473]  sig_int=0.10  edge=False  pred H/L/K=2.976/1.000/1.200
+  power-law GOF: chi2_min=10.69 on 1 dof (p=1.08e-03); Birge factor 10.69
+  Hubble  chi2=   15.46  dchi2 vs free-n=   4.77 (stat-only nominal 1-dof 2.18 sig; Birge 0.67; cov68-corrected 1.65) | with anchor calib nuisance 0.5 ln: dchi2=10.88 (3.30 sig)
+  Lambda  chi2=   94.15  dchi2 vs free-n=  83.46 (stat-only nominal 1-dof 9.14 sig; Birge 2.79; cov68-corrected 6.91) | with anchor calib nuisance 0.5 ln: dchi2=1.06 (1.03 sig)
+  Kodama  chi2=   77.34  dchi2 vs free-n=  66.65 (stat-only nominal 1-dof 8.16 sig; Birge 2.50; cov68-corrected 6.17) | with anchor calib nuisance 0.5 ln: dchi2=2.87 (1.70 sig)
+  [calib-nuisance fit] n=0.31 95%[-0.27,0.87]; best fixed reading: Lambda  (1-dof sigmas on non-nested readings are indicative only; not bootstrap-calibrated)
+  power law n=1.04 68%[0.93,1.13] 95%[0.83,1.23] chi2=10.69 edge=False
+  Hubble vs Lambda: chi2_L - chi2_H = +78.69 (LR = 1.22e+17 for Hubble); Kodama vs Lambda: +16.81;  favored fixed reading: Hubble
+  SHAPE-ONLY (anchor dropped, normalization free): chi2 Hubble=14.49 Lambda=0.08 Kodama=2.94; free n=-0.09 95%[-0.75,0.61]; chi2_L-chi2_H=-14.41; favored shape: Lambda
+--- variant: route=mbar 2bin gas -0.2 dex
+  z[0.0,1.2) N= 32 z_eff=0.867  a0/a0_T3=3.948  68%[3.303, 4.694] 95%[2.768, 5.525]  sig_int=0.00  edge=False  pred H/L/K=1.654/1.000/0.948
+  z[1.2,9.0) N= 68 z_eff=1.960  a0/a0_T3=3.223  68%[2.781, 3.709] 95%[2.391, 4.220]  sig_int=0.00  edge=False  pred H/L/K=2.976/1.000/1.200
+  power-law GOF: chi2_min=11.55 on 1 dof (p=6.77e-04); Birge factor 11.55
+  Hubble  chi2=   17.90  dchi2 vs free-n=   6.35 (stat-only nominal 1-dof 2.52 sig; Birge 0.74; cov68-corrected 1.91) | with anchor calib nuisance 0.5 ln: dchi2=6.29 (2.51 sig)
+  Lambda  chi2=   64.40  dchi2 vs free-n=  52.85 (stat-only nominal 1-dof 7.27 sig; Birge 2.14; cov68-corrected 5.50) | with anchor calib nuisance 0.5 ln: dchi2=0.86 (0.93 sig)
+  Kodama  chi2=   58.21  dchi2 vs free-n=  46.66 (stat-only nominal 1-dof 6.83 sig; Birge 2.01; cov68-corrected 5.16) | with anchor calib nuisance 0.5 ln: dchi2=2.88 (1.70 sig)
+  [calib-nuisance fit] n=0.35 95%[-0.39,1.09]; best fixed reading: Lambda  (1-dof sigmas on non-nested readings are indicative only; not bootstrap-calibrated)
+  power law n=1.20 68%[1.07,1.34] 95%[0.93,1.47] chi2=11.55 edge=False
+  Hubble vs Lambda: chi2_L - chi2_H = +46.50 (LR = 1.25e+10 for Hubble); Kodama vs Lambda: +6.19;  favored fixed reading: Hubble
+  SHAPE-ONLY (anchor dropped, normalization free): chi2 Hubble=11.57 Lambda=0.80 Kodama=3.75; free n=-0.44 95%[-1.42,0.53]; chi2_L-chi2_H=-10.76; favored shape: Lambda
+  (fDM route at w=0, data-dominated: mass shifts leave fDM unchanged -> identical to nominal, exactly)
+PRIOR-TREND TEST: d ln(g_bar/g_obs)/d ln(1+z): photometric-input prior (RC41 n=41) +0.533; fitted (RC100 fDM) +0.380. A recovered a0(z) trend that tracks the prior's own trend is not separable from the prior [O].
+BTFR CROSS-CHECK (distance-dependent, a0_BTFR ∝ D_L^-2; H0-convention zp systematic 2 ln(73/67.36) = 0.161 in ln a0, PR #67):
+  z[0.6,1.1) Ubler N= 65 median V^4/(G M_bar)/a0_T3 = 4.99; RC100 N= 31 median = 2.62
+  z[1.1,1.8) Ubler N= 24 median V^4/(G M_bar)/a0_T3 = 3.40; RC100 N= 28 median = 2.67
+  z[1.8,2.7) Ubler N= 46 median V^4/(G M_bar)/a0_T3 = 3.49; RC100 N= 41 median = 2.16
+  Deep-MOND conversion V^4 = G M a0 needs g/a0 << 1; RC100 (same KMOS3D/SINS parent population) has frac x<1 = 0.11 -> NOT CONVERTIBLE. Numbers above are regime-biased (Newtonian-regime V^4/GM >> a0) and are not a0.
+  Ubler bTFR YJ subsample z~0.9: offset -0.44 dex vs Lelli+16 -> formal deep-MOND ratio 10^(-offset) = 2.75 [NOT CONVERTIBLE: regime]
+  Ubler bTFR K subsample z~2.3: offset -0.27 dex vs Lelli+16 -> formal deep-MOND ratio 10^(-offset) = 1.86 [NOT CONVERTIBLE: regime]
+EXTERNAL (not merged): Ciocan+2026 MUSE-DARK III a0(z~1) = 2.38 +0.12/-0.10 e-10 (95% CI; LCDM decomposition) -> /a0_T3 = 2.05; vs the paper's own local 1.2e-10 = 1.98
+
+SYSTEMATICS SUMMARY (2-bin): route, component, shift, favored fixed reading, n, n 95%
+  fdm  Mstar +0.2  Lambda  n=-0.19 95%[-0.63,+0.18]  | shape-only favored Lambda  n95%[-3.00,-0.11]
+  mbar Mstar +0.2  Lambda  n=+0.25 95%[-0.27,+0.65]  | shape-only favored Lambda  n95%[-3.00,-0.15]
+  fdm  Mstar -0.2  Hubble  n=+1.28 95%[+1.09,+1.46]  | shape-only favored Lambda  n95%[-0.63,+0.49]
+  mbar Mstar -0.2  Hubble  n=+1.45 95%[+1.18,+1.71]  | shape-only favored Lambda  n95%[-1.21,+0.50]
+  fdm  gas   +0.2  Lambda  n=+0.44 95%[+0.17,+0.71]  | shape-only favored Lambda  n95%[-1.69,+0.15]
+  mbar gas   +0.2  Hubble  n=+0.67 95%[+0.31,+1.00]  | shape-only favored Lambda  n95%[-2.36,+0.15]
+  fdm  gas   -0.2  Hubble  n=+1.04 95%[+0.83,+1.23]  | shape-only favored Lambda  n95%[-0.75,+0.61]
+  mbar gas   -0.2  Hubble  n=+1.20 95%[+0.93,+1.47]  | shape-only favored Lambda  n95%[-1.42,+0.53]
+
+SIMULATION CHECKS (RC100 error sizes, true g_bar = fDM-route values, sigma_int=0.1, 24 realizations each, 2-bin)
+  [PASS] C5 injection-recovery: |median per-bin ln a0 bias| < sep/8 (sep = ln 1.791 = 0.583; threshold set a priori)  median bias -0.0265, sd 0.106, cov95 0.93
+  [PASS] C6 [unverified guard: errors x3 sabotage did not fire] sensitivity: Lambda-truth data reject Hubble form at 95% in >= 80% of realizations  rate 1.00
+  [PASS] C7 [unverified guard: errors x3 sabotage did not fire] sensitivity: Hubble-truth data reject Lambda-constant at 95% in >= 80% of realizations  rate 1.00
+  [PASS] C8 Lambda-truth: median fitted n within 0.3 of 0  median n -0.03
+  [PASS] C9 z-label shuffle on Hubble-truth data: shape-only n 95% CI covers 0 in >= 80% (unshuffled covers 0 in <= 20%)  shuffled 0.96, unshuffled 0.17
+
+CHECKS: 10/10 pass; runtime 187s

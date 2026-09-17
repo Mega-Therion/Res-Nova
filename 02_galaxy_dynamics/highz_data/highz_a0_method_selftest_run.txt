@@ -1,0 +1,109 @@
+anchor T3: a0=1.16306e-10 95%=[9.663981746209963e-11, 1.323925645179661e-10]  (CURRENT_STATE headline is T1 1.1607e-10)
+[PASS] S1 closure g*mu(g/a0)=gbar; exact inverse and fDM inverse round-trip closure 6.7e-16 inv 8.9e-13 fdm-inv 1.2e-12 nu 1.8e-15
+[PASS] S1b inverse undefined for f<=0 / gbar>=g (censoring is real) 
+[PASS] S2 leverage derivatives == finite differences; d/dln gbar + d/dln g = 1 worst rel 1.1e-08
+  x=   3 gbar/a0=2.846 f_impl=0.05132 a0'(f+0.1)/a0=1.870 a0'(f-0.1)=None lin dlna0/df=10.5
+  x=  10 gbar/a0=9.950 f_impl=0.00496 a0'(f+0.1)/a0=4.983 a0'(f-0.1)=None lin dlna0/df=101.5
+  x=  30 gbar/a0=29.983 f_impl=0.00056 a0'(f+0.1)/a0=14.577 a0'(f-0.1)=None lin dlna0/df=901.5
+[PASS] S3a n=1 deprojection: numeric inner integral == K0 closed form 5.3e-15
+[PASS] S3b Abel deprojection re-projects to the Sersic Sigma (n=1,4) 7.1e-12
+[PASS] S3c q->0 spheroid == Freeman thin disk (B&T 2.165) q=0 3.6e-12, q=1e-3 8.2e-04
+[PASS] S3d k -> 1 far outside (total mass) 2.2e-03
+[PASS] S3e Burkert 3.36 == 2 b_1; projected enclosed fraction at Re == 1/2 2b1=3.3567
+[PASS] S3f G20 A: thick disk (q~0.25) V(Re) ~10% below Freeman V ratio 0.911
+  geometry: {'b1': 1.6783, 'burkert_2b1': 3.3567, 'cyl_enclosed_at_Re': 0.5, 'k_sphere_half_mass (G(M/2)/Re^2)': 0.5, 'k_thin_freeman_Re': 0.6252, 'k_q0.20_Re': 0.5368, 'k_q0.25_Re': 0.5184, 'k_q1_sphere_deprojected_Re (M3D(<Re)/M)': 0.3409, 'r_half_3d_over_Re_n1': 1.3248, 'bulge_n4_Reb1kpc_k_at_R_kpc': {'2': 0.6142635977928375, '3': 0.725438634017433, '5': 0.8421368975356159, '8': 0.917925931140724}}
+[PASS] S4 RC100 transcription: Sigma_DM(<Re) recomputed from (fDM,Vc,Re) matches column 100/100 within rounding; off: []
+  k_eff: {'median': 0.595390995047386, '16_84': [0.4821425276352974, 0.7178967742084011], 'min': 0.10726845788466746, 'max': 0.8600628254276552}  gbar_a/gbar_b: {'median': 1.1090612348117035, '16_84': [0.8981082876671338, 1.3372581874664409]}
+  fisher: {'all': (0.09063770237349905, 58.52262646167345, 2.290510257080209), 'z<1.2': (0.13734711406738703, 22.411481128630378, 1.9216427479211515), 'z>=1.2': (0.12063498246207074, 36.946762977769886, 2.80513780135705)}
+[PASS] S5 distance log-slopes: g_obs -1 (PR #67 rotation-curve exponent), photometric gbar 0, fDM-route a0 -1-w(1+x^2) {"w=0,x=3": -1.0, "w=0,x=10": -1.0, "w=1,x=3": -11.0, "w=1,x=10": -102.01}
+[FAIL] S6 estimator recovers a0 with errors /10 (both routes, both truths) max |dln a0| 0.0418
+[PASS] S7 Asimov (noise-free) bias at RC100 error sizes < 0.05 in ln a0 {"fdm,1x": -0.0001, "mbar,1x": 0.0419, "fdm,1.791x": -0.0235, "mbar,1.791x": 0.035}
+  fdm,all,1x: {"n_real": 60, "N_gal": 100, "a0_true_over_anchor": 1.0, "route": "fdm", "report": "gauss", "sig_int_injected": 0.1, "median_bias_lna0": -0.0392, "mean_bias_lna0": -0.036, "ensemble_sd_lna0": 0.0863, "ensemble_16_84_lna0": [-0.1258756640536879, 0.052376226661285386], "median_reported_halfwidth68_lna0": 0.0836, "frac_open_68": 0.0, "frac_at_grid_edge": 0.0, "coverage68": 0.55, "coverage95": 0.9667, "binom_3sigma_68": 0.1802, "binom_3sigma_95": 0.0844, "alt_hypothesis": "1.791x", "median_dchi2_alt": 47.839, "frac_alt_excluded_95": 1.0, "frac_alt_excluded_3sigma": 1.0} [29s]
+  fdm,all,1.791x: {"n_real": 60, "N_gal": 100, "a0_true_over_anchor": 1.791, "route": "fdm", "report": "gauss", "sig_int_injected": 0.1, "median_bias_lna0": -0.0416, "mean_bias_lna0": -0.0399, "ensemble_sd_lna0": 0.0709, "ensemble_16_84_lna0": [-0.1180598451067803, 0.026494322735330998], "median_reported_halfwidth68_lna0": 0.0658, "frac_open_68": 0.0, "frac_at_grid_edge": 0.0, "coverage68": 0.5667, "coverage95": 0.9, "binom_3sigma_68": 0.1802, "binom_3sigma_95": 0.0844, "alt_hypothesis": "1x", "median_dchi2_alt": 42.2649, "frac_alt_excluded_95": 1.0, "frac_alt_excluded_3sigma": 1.0} [23s]
+  fdm,z<1.2,1x: bias -0.044 sd 0.122 cov68 0.80 cov95 0.97 alt-excl95 0.97
+  fdm,z<1.2,1.791x: bias -0.041 sd 0.112 cov68 0.70 cov95 0.93 alt-excl95 1.00
+  fdm,z>=1.2,1x: bias -0.015 sd 0.118 cov68 0.70 cov95 0.93 alt-excl95 1.00
+  fdm,z>=1.2,1.791x: bias -0.029 sd 0.091 cov68 0.60 cov95 0.93 alt-excl95 1.00
+  fdm,all,1x,bounded-report: bias +0.168 cov68 0.03
+  mbar,all,1x: bias -0.017 sd 0.245 cov68 0.60 alt-excl95 0.93
+  fdm,all,1.791x,bounded-report: bias +0.056 cov68 0.50
+  mbar,all,1.791x: bias -0.014 sd 0.171 cov68 0.70 alt-excl95 0.90
+[FAIL] S8 fdm route N=100 truth 1x: |median bias| < ensemble sd/3 bias -0.0392 sd 0.0863
+[PASS] S9 fdm route N=100 truth 1x: 68%/95% profile intervals calibrated (3-sigma binomial) cov68 0.550 cov95 0.967
+[FAIL] S8 fdm route N=100 truth 1.791x: |median bias| < ensemble sd/3 bias -0.0416 sd 0.0709
+[PASS] S9 fdm route N=100 truth 1.791x: 68%/95% profile intervals calibrated (3-sigma binomial) cov68 0.567 cov95 0.900
+  systematics @ 1x:
+    fDM zero-point +0.05                             dln a0 = +0.222
+    fDM zero-point -0.05                             dln a0 = -0.235
+    fDM zero-point +0.11                             dln a0 = +0.464
+    fDM zero-point -0.11                             dln a0 = -0.536
+    IMF dlogM*=+0.23, f*=0.5, w=1                    dln a0 = -0.819
+    IMF dlogM*=+0.30, f*=0.5, w=1                    dln a0 = -1.609  [EDGE]
+    IMF dlogM*=-0.20, f*=0.5, w=1                    dln a0 = +0.634
+    IMF dlogM*=+0.23, f*=0.67, w=1                   dln a0 = -1.378
+    IMF dlogM*=+0.30, f*=0.67, w=1                   dln a0 = +0.643
+    IMF dlogM*=-0.20, f*=0.67, w=1                   dln a0 = +0.799
+    gas dlogMgas=+0.25, fgas=0.33, w=1               dln a0 = -0.872
+    gas dlogMgas=-0.25, fgas=0.33, w=1               dln a0 = +0.516
+    gas dlogMgas=+0.25, fgas=0.50, w=1               dln a0 = -0.927
+    gas dlogMgas=-0.25, fgas=0.50, w=1               dln a0 = +0.725
+    pressure alpha=0.500 (vbar_fixed)                dln a0 = -0.554
+    pressure alpha=0.500 (f_fixed)                   dln a0 = -0.162
+    pressure alpha=1.500 (vbar_fixed)                dln a0 = +0.412
+    pressure alpha=1.500 (f_fixed)                   dln a0 = +0.111
+    pressure alpha=0.825 (vbar_fixed)                dln a0 = -0.192
+    pressure alpha=0.825 (f_fixed)                   dln a0 = -0.044
+    pressure alpha=1.093 (vbar_fixed)                dln a0 = +0.090
+    pressure alpha=1.093 (f_fixed)                   dln a0 = +0.022
+    beam/Vc dlnVc=+0.05 (vbar_fixed)                 dln a0 = +0.455
+    beam/Vc dlnVc=+0.05 (f_fixed)                    dln a0 = +0.100
+    beam/Vc dlnVc=-0.05 (vbar_fixed)                 dln a0 = -0.502
+    beam/Vc dlnVc=-0.05 (f_fixed)                    dln a0 = -0.099
+    beam/Vc dlnVc=+0.10 (vbar_fixed)                 dln a0 = +0.822
+    beam/Vc dlnVc=+0.10 (f_fixed)                    dln a0 = +0.203
+    beam/Vc dlnVc=-0.10 (vbar_fixed)                 dln a0 = -0.925
+    beam/Vc dlnVc=-0.10 (f_fixed)                    dln a0 = -0.198
+    distance RC100 -> Planck 67.36/0.3153 (w=0)      dln a0 = +0.031
+    distance RC100 -> Planck 67.36/0.3153 (w=1)      dln a0 = -0.078
+    distance RC100 -> H0=73 (w=0)                    dln a0 = -0.040
+    distance RC100 -> H0=73 (w=1)                    dln a0 = +0.117
+  systematics @ 1.791x:
+    fDM zero-point +0.05                             dln a0 = +0.174
+    fDM zero-point -0.05                             dln a0 = -0.184
+    fDM zero-point +0.11                             dln a0 = +0.366
+    fDM zero-point -0.11                             dln a0 = -0.425
+    IMF dlogM*=+0.23, f*=0.5, w=1                    dln a0 = -0.843
+    IMF dlogM*=+0.30, f*=0.5, w=1                    dln a0 = -1.015
+    IMF dlogM*=-0.20, f*=0.5, w=1                    dln a0 = +0.450
+    IMF dlogM*=+0.23, f*=0.67, w=1                   dln a0 = -0.919
+    IMF dlogM*=+0.30, f*=0.67, w=1                   dln a0 = -1.429
+    IMF dlogM*=-0.20, f*=0.67, w=1                   dln a0 = +0.587
+    gas dlogMgas=+0.25, fgas=0.33, w=1               dln a0 = -0.618
+    gas dlogMgas=-0.25, fgas=0.33, w=1               dln a0 = +0.364
+    gas dlogMgas=+0.25, fgas=0.50, w=1               dln a0 = -0.810
+    gas dlogMgas=-0.25, fgas=0.50, w=1               dln a0 = +0.524
+    pressure alpha=0.500 (vbar_fixed)                dln a0 = -0.360
+    pressure alpha=0.500 (f_fixed)                   dln a0 = -0.140
+    pressure alpha=1.500 (vbar_fixed)                dln a0 = +0.311
+    pressure alpha=1.500 (f_fixed)                   dln a0 = +0.099
+    pressure alpha=0.825 (vbar_fixed)                dln a0 = -0.142
+    pressure alpha=0.825 (f_fixed)                   dln a0 = -0.044
+    pressure alpha=1.093 (vbar_fixed)                dln a0 = +0.068
+    pressure alpha=1.093 (f_fixed)                   dln a0 = +0.019
+    beam/Vc dlnVc=+0.05 (vbar_fixed)                 dln a0 = +0.346
+    beam/Vc dlnVc=+0.05 (f_fixed)                    dln a0 = +0.099
+    beam/Vc dlnVc=-0.05 (vbar_fixed)                 dln a0 = -0.392
+    beam/Vc dlnVc=-0.05 (f_fixed)                    dln a0 = -0.099
+    beam/Vc dlnVc=+0.10 (vbar_fixed)                 dln a0 = +0.649
+    beam/Vc dlnVc=+0.10 (f_fixed)                    dln a0 = +0.198
+    beam/Vc dlnVc=-0.10 (vbar_fixed)                 dln a0 = -0.722
+    beam/Vc dlnVc=-0.10 (f_fixed)                    dln a0 = -0.203
+    distance RC100 -> Planck 67.36/0.3153 (w=0)      dln a0 = +0.025
+    distance RC100 -> Planck 67.36/0.3153 (w=1)      dln a0 = -0.049
+    distance RC100 -> H0=73 (w=0)                    dln a0 = -0.044
+    distance RC100 -> H0=73 (w=1)                    dln a0 = +0.069
+  mbar geometry: {"1x": {"base_lna0_minus_true": 0.037437775930481365, "k: q0.20 -> sphere M/2": 0.16824258379608992, "k: q0.20 -> thin Freeman": -0.41741515609795243, "k: q0.20 -> q=0.25": 0.0841838629467695, "k: q0.20 -> deprojected sphere": 0.9053389080190648, "M_bar +0.1 dex": -0.67405247048994, "M_bar -0.1 dex": 0.5040926228492033}, "1.791x": {"base_lna0_minus_true": 0.02788512224284645, "k: q0.20 -> sphere M/2": 0.13277493808558205, "k: q0.20 -> thin Freeman": -0.3118982599104356, "k: q0.20 -> q=0.25": 0.0658445352228334, "k: q0.20 -> deprojected sphere": 0.7432767807338223, "M_bar +0.1 dex": -0.49237169868193575, "M_bar -0.1 dex": 0.4046973603926176}}
+[PASS] S10 IMF shift has zero effect in the data-dominated (w=0) limit 0.0e+00
+written: 02_galaxy_dynamics/HIGHZ_A0_METHOD_SELFTEST_2026-09-16.json
+
+15/18 checks passed  (250s)
