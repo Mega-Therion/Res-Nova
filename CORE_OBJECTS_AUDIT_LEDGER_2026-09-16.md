@@ -87,6 +87,19 @@ failure modes F1–F7 govern what counts as corroboration, counting, and qualifi
    Ω_m errors, not Υ); 3σ Hubble-vs-Λ needs ≲25% per-bin a₀ at z≈1. Data at z~2 exclude ~4a₀
    (Milgrom 1703.06110), not yet 1.79×. Status unchanged `[O]`.
    **a₀(z) measurement pointer (2026-09-16):** `A0_HIGHZ_MEASUREMENT_2026-09-16.md` + `scripts/a0_highz_measurement.py` (10/10; helper self-test 15/18, S6/S8 open): RC100 high-z a₀ is flat at ~2.2–2.6× a₀_T3 over z=0.6–2.6 `[C]`; shape favors constancy, the z=0 step is calibration-limited; data CANNOT TELL Hubble form from constancy — horizon selection stays `[O]`.
+   **Corollary-comparison round (2026-09-17):** `A0_HIGHZ_COROLLARY_COMPARISON_2026-09-17.md`
+   + `scripts/a0_highz_corollary_comparison.py` (11/11): the apparent-horizon corollary
+   (a0(z) = a0(0)√(Ω_m(1+z)³+Ω_Λ), 1.790× at z=1, ln-separation 0.582) misses BOTH RC100
+   2-bin intervals in opposite directions (1.654 vs 2.597 [1.954,3.427]; 2.976 vs 2.286
+   [1.930,2.685]) — the flatness tension behind the shape-only Δχ² 8.9–19.8. NOT an
+   exclusion: both ln-deviations (0.45, 0.27) are under the 0.5-ln cross-method
+   calibration nuisance; the fDM-prior z-trend confound (+0.53 vs fitted +0.38) can fake
+   constancy; beam-smearing untested; S8 self-test at the corollary's own 1.791× injection
+   shows bias −0.0416 ln ≪ 0.582 (not a resolution artifact). The falsifier is LIVE and
+   two-sided: flatness surviving the confounds kills the H(z)-coupling leg; confound
+   resolution leaves the corollary standing. Paths: maser-anchored calibration,
+   beam-smearing treatment, x<1 high-z disks. Ciocan+2026 2.05× sits 0.14 ln from the
+   corollary.
 4. **Pin⁻ justification — REOPENED 2026-09-16 (N4 round-2 Kramers step has the sign reversed: T²=(−1)^F ⇔ Pin⁺ per Witten arXiv:1508.04715; see correction in `N4_ACTION_DERIVATION_AUDIT_2026-09-16.md`). Superseded label: DERIVED-GIVEN-ONE-[C]-STEP (2026-09-16 evening: `N4_ACTION_DERIVATION_AUDIT_2026-09-16.md`, 13/13; originally reopened by post-merge correction — "forced" restates N4; parsimony preference only — see correction in `PIN_JUSTIFICATION_AUDIT_2026-09-16.md`):**
    Pin⁻ is FORCED by one-channel parsimony: given the channel has exactly two
    states (the kernel, obligation 2) and orientation reversal acts on it (N4),
