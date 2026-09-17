@@ -38,3 +38,6 @@ THE_ONE_PAGE_*_EXTRACTED.txt
 # assurance evidence logs are cited as claim witnesses and must be tracked
 !assurance/evidence/*.log
 .claude/worktrees/
+
+# arXiv source PDFs fetched for high-z transcription checks (not vendored)
+02_galaxy_dynamics/highz_data/_src/

@@ -1,0 +1,51 @@
+# G17 -- Genzel, Foerster Schreiber, Uebler, et al. 2017, Nature 543, 397,
+# 'Strongly baryon-dominated disk galaxies at the peak of galaxy formation ten billion years ago' (arXiv:1703.04310v1, only version).
+# SOURCE: https://arxiv.org/pdf/1703.04310v1  (identical bytes served by https://export.arxiv.org/e-print/1703.04310)
+# SOURCE sha256 9926059ed950486e6982e3ec612303b4415832a3a01c091fc0035e564259e5d4 (file 02_galaxy_dynamics/highz_data/_src/arXiv_1703.04310_eprint.pdf, gitignored, not committed).
+# No machine-readable table (Nature paper; no VizieR catalog; arXiv has no TeX source -- Word PDF). Values are from the
+# PDF text layer of 'Table 1. Physical Parameters of Observed Star-Forming Galaxies' (PDF p.5). Nature version NOT compared.
+# Built by scripts/highz_ingest_rc41_g17_kmos3d.py.
+#
+# CONVENTIONS (quoted): 'All physical units are based on a concordance, flat LCDM cosmology with Omega_m=0.3,
+# Omega_baryon/Omega_m=0.17, H0=70 km s-1 Mpc-1' (Fig. 1 caption). IMF: stellar masses from SED fits 'adopting ... an
+# IMF[43]', ref 43 = Chabrier (2003). Gas: 'We computed molecular gas masses from the general scaling relations
+# between star formation rates, stellar masses, and molecular gas masses' ... 'the gas masses estimated from these
+# scaling relations may be lower limits' (Methods).
+# PRESSURE SUPPORT: corrected. Footnote a (quoted): 'Total circular velocity at the half-light radius (rest-frame
+# optical) R1/2, including bulge, exponential disk (n=1) and dark matter, and corrected for asymmetric drift:
+# vc(R)^2=vrot(R)^2+3.36 sigma0^2 (R/R1/2)|n=1.'
+#
+# COLUMNS (Table 1 rows; masses printed in units of 1e11 M_sun):
+#   Priors block: 'M* (10^11 M_sun)' -> Mstar_prior (+-err); 'Mbaryon(gas+stars) (10^11 M_sun)' -> Mbar_prior (+-err);
+#   'H-band R1/2 (kpc)' -> R12_Hband_prior (+-err); 'inclination (deg)' (+-err); 'dark matter concentration parameter c' -> c_halo.
+#   Fit block: 'vc(R1/2) (km/s)^a' -> Vc_R12_kms; 'R1/2(n=1) (kpc)' -> R12_n1_fit_kpc; 'sigma0 (km/s)' -> sigma0_kms;
+#   'Mbaryon(gas+stars, including bulge) (10^11 M_sun)' -> Mbar_fit_incl_bulge; 'Mbulge/Mbaryon';
+#   'fDM(R1/2)=(vDM/vc)^2|R=R1/2^b' -> fDM_R12. Footnote b (quoted): 'numbers in the parentheses giving the +-2rms
+#   (delta chi^2=4, ~95% probability) uncertainties, or upper limits. We use an NFW halo of concentration parameter c,
+#   and no adiabatic contraction.' -> fDM_R12_2rms_err when printed '(+-x)', fDM_R12_upper_limit_2rms when '(<x)'.
+#   'redshift', 'kpc/arcsec' as printed. derived_* = log10(value x 1e11), not printed in the paper.
+#   Vc_R12_kms is evaluated at R1/2 -- which R1/2 (H-band prior or n=1 fit) is not stated beyond footnote a; both are kept.
+#   No uncertainty is printed for Vc, R12_n1_fit, sigma0 or Mbar_fit.
+#   VALIDATOR COVERAGE: only 'kpc/arcsec' (vs the stated cosmology), the value+-error syntax and Mbar_prior >= M*_prior
+#   are checked. Vc_R12_kms, sigma0_kms, R12_n1_fit_kpc, Mbar_fit, Mbulge/Mbar, c and fDM have NO independent check
+#   beyond the text layer (single table, 6 rows, read against the rendered page).
+#
+# OVERLAP / DOUBLE COUNTING: all 6 galaxies are in RC41 (Genzel+2020 uses 'the 6 RCs from Genzel et al. 2017') and in
+# RC100. Values differ between the files because they are successive re-analyses, NOT independent measurements;
+# use at most one file per galaxy:
+#   COS4 01351: Vc = 276 (G17) / 290 (RC41) / 267 (RC100) km/s; fDM = 0.21 / 0.29 / 0.38
+#   D3a 6397: Vc = 310 (G17) / 308 (RC41) / 225 (RC100) km/s; fDM = 0.17 / 0.22 / 0.13
+#   GS4 43501: Vc = 257 (G17) / 257 (RC41) / 240 (RC100) km/s; fDM = 0.19 / 0.19 / 0.31
+#   zC 406690: Vc = 301 (G17) / 301 (RC41) / 276 (RC100) km/s; fDM = 0.0 / 0.02 / 0.04
+#   zC 400569: Vc = 364 (G17) / 289 (RC41) / 241 (RC100) km/s; fDM = 0.0 / 0.05 / 0.16
+#   D3a 15504: Vc = 299 (G17) / 268 (RC41) / 234 (RC100) km/s; fDM = 0.12 / 0.08 / 0.24
+# VALIDATORS (PASS at build): sha256; 6 names; every value+-error parsed; Mbar_prior >= Mstar_prior;
+# printed kpc/arcsec reproduced by FlatLambdaCDM(70,0.3) to <=0.02.
+# NA = not given in the paper.
+galaxy,z,Vc_R12_kms,R12_n1_fit_kpc,R12_Hband_prior_kpc,e_R12_Hband_prior_kpc,Mbar_fit_incl_bulge_1e11Msun,Mbar_prior_1e11Msun,e_Mbar_prior_1e11Msun,Mstar_prior_1e11Msun,e_Mstar_prior_1e11Msun,fDM_R12,fDM_R12_2rms_err,fDM_R12_upper_limit_2rms,sigma0_kms,Mbulge_over_Mbar,inclination_deg,e_inclination_deg,c_halo,kpc_per_arcsec,derived_logMbar_fit,derived_logMbar_prior,derived_logMstar_prior,in_RC41,RC41_row,in_RC100,RC100_idx
+COS4 01351,0.854,276,7.3,8.6,1.3,1.7,0.9,0.5,0.54,0.16,0.21,0.1,NA,39,0.2,75,5,6.8,7.68,11.230,10.954,10.732,1,9,1,18
+D3a 6397,1.500,310,7.4,5.9,0.8,2.3,2.3,1.1,1.2,0.37,0.17,NA,0.38,73,0.35,30,5,5,8.46,11.362,11.362,11.079,1,21,1,46
+GS4 43501,1.613,257,4.9,4.9,0.7,1.0,0.75,0.37,0.41,0.12,0.19,0.09,NA,39,0.4,62,5,5,8.47,11.000,10.875,10.613,1,23,1,54
+zC 406690,2.196,301,5.5,5.5,1,1.7,1.4,0.7,0.42,0.12,0.0,NA,0.08,74,0.6,25,12,4,8.26,11.230,11.146,10.623,1,31,1,77
+zC 400569,2.242,364,3.3,4,2,1.7,2.5,1.2,1.2,0.37,0.0,NA,0.07,34,0.37,45,10,4,8.23,11.230,11.398,11.079,1,35,1,85
+D3a 15504,2.383,299,6,6.3,1,2.1,2.0,1.0,1.1,0.34,0.12,NA,0.26,76,0.15,34,5,4,8.14,11.322,11.301,11.041,1,38,1,91

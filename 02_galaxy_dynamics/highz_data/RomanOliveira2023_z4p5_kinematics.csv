@@ -1,0 +1,10 @@
+# source: Roman-Oliveira F., Fraternali F., Rizzo F. 2023, MNRAS 521, 1045, arXiv:2302.03049
+# extracted: 2026-09-16 from arXiv e-print main.tex tables tab:data, tab:masses, tab:vel
+# tracer: [CII] 158um ALMA, 3DBarolo; AzTEC1 not a disc -> absent from tab:vel
+# IMF: Chabrier (SFR normalised); M_H2 from literature CO with alpha_CO 0.8 (3 for J081740)
+# pressure_support_corrected: NO (paper states these rotation velocities must not be used for dynamics; see RomanOliveira2024 file)
+ID,z,Vrot_max_kms,Vrot_max_kms_ep,Vrot_max_kms_em,Vrot_max_kms_flag,Vrot_ext_kms,Vrot_ext_kms_ep,Vrot_ext_kms_em,Vrot_ext_kms_flag,sigma_mean_kms,sigma_mean_kms_ep,sigma_mean_kms_em,sigma_mean_kms_flag,sigma_ext_kms,sigma_ext_kms_ep,sigma_ext_kms_em,sigma_ext_kms_flag,SFR_Msun_yr,SFR_ep,SFR_em,SFR_flag,M_H2_Msun_literature_verbatim
+BRI1335-0417,4.4071,198,17,16,,125,27,26,,75,10,10,,57,11,11,,5100,1500,1500,,1.0 \pm 0.1 e11
+J081740,4.2603,277,40,38,,249,50,53,,50,13,13,,33,13,13,,166,344,103,,8.8 \pm 2.6 e10
+SGP38326-1,4.4238,562,24,26,,548,61,71,,58,12,12,,46,11,9,,1830,,,approx,\sim1.9 e11
+SGP38326-2,4.4274,417,51,66,,409,39,48,,49,16,14,,40,13,11,,882,,,approx,\sim7.6 e10

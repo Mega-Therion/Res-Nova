@@ -75,6 +75,7 @@ failure modes F1–F7 govern what counts as corroboration, counting, and qualifi
    is the minimal-coupling prediction (`[C]`); (a₀^R)²/a₀^BTFR is distance-free (cancels H₀ and
    Ω_m errors, not Υ); 3σ Hubble-vs-Λ needs ≲25% per-bin a₀ at z≈1. Data at z~2 exclude ~4a₀
    (Milgrom 1703.06110), not yet 1.79×. Status unchanged `[O]`.
+   **a₀(z) measurement pointer (2026-09-16):** `A0_HIGHZ_MEASUREMENT_2026-09-16.md` + `scripts/a0_highz_measurement.py` (10/10; helper self-test 15/18, S6/S8 open): RC100 high-z a₀ is flat at ~2.2–2.6× a₀_T3 over z=0.6–2.6 `[C]`; shape favors constancy, the z=0 step is calibration-limited; data CANNOT TELL Hubble form from constancy — horizon selection stays `[O]`.
 4. **Pin⁻ justification — REOPENED 2026-09-16 (N4 round-2 Kramers step has the sign reversed: T²=(−1)^F ⇔ Pin⁺ per Witten arXiv:1508.04715; see correction in `N4_ACTION_DERIVATION_AUDIT_2026-09-16.md`). Superseded label: DERIVED-GIVEN-ONE-[C]-STEP (2026-09-16 evening: `N4_ACTION_DERIVATION_AUDIT_2026-09-16.md`, 13/13; originally reopened by post-merge correction — "forced" restates N4; parsimony preference only — see correction in `PIN_JUSTIFICATION_AUDIT_2026-09-16.md`):**
    Pin⁻ is FORCED by one-channel parsimony: given the channel has exactly two
    states (the kernel, obligation 2) and orientation reversal acts on it (N4),

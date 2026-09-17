@@ -1,0 +1,15 @@
+# source: Lelli F., Di Teodoro E.M., Fraternali F. et al. 2021, Science 371, 713, arXiv:2102.05957
+# extracted: 2026-09-16 by hand from arXiv e-print Lelli2021.Science.tex Table S2 ("MCMC results", 1-sigma)
+# galaxy: ALESS 073.1 (LESS J033229.3-275619), z=4.75 ([CII], ALMA ~0.11 arcsec = 0.7 kpc)
+# cosmology: LCDM (supplement); M_baryon = sum of baryonic components within 3.5 kpc
+# pressure_support_corrected: YES (paper applies asymmetric-drift correction); rotation-curve points figure-only, NOT tabulated here
+quantity,value,err_plus,err_minus,unit
+inclination,22.0,2.9,2.9,deg
+M_gas,0.5,0.4,0.4,1e10 Msun
+M_disk,2.4,0.9,1.0,1e10 Msun
+M_bulge,2.3,0.6,0.6,1e10 Msun
+V200,263,81,80,km/s
+C200,2.9,0.9,0.9,
+M200,8.1,2.7,2.7,1e11 Msun
+M_baryon,5.2,1.2,1.2,1e10 Msun
+Mbul_over_Mbaryon,0.44,0.11,0.12,

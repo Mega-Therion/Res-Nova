@@ -1,0 +1,134 @@
+# RC41 -- Genzel, Price, Uebler, Foerster Schreiber, et al. 2020, ApJ 902, 98,
+# 'Rotation Curves in z~1-2 Star-Forming Disks: Evidence for Cored Dark Matter Distributions' (arXiv:2006.03046v2).
+# SOURCE: https://arxiv.org/pdf/2006.03046v2  (identical bytes served by https://export.arxiv.org/e-print/2006.03046)
+# SOURCE sha256 a8bf2f52caa7f9eb387c8c87429d0e2bad11308c33a1973de4f9770410c3f7d6 (file 02_galaxy_dynamics/highz_data/_src/arXiv_2006.03046_eprint.pdf, gitignored, not committed).
+# No machine-readable table exists: not on VizieR (J/ApJ/902/98 -> 'Table or Catalog not found', queried 2026-09-16);
+# arXiv has no TeX source (Word-generated PDF). Values come from the PDF text layer (pdftotext -layout) of
+# Table 1 (PDF p.15) and Table D1 (PDF p.53), checked by eye against 450-dpi renders. Journal (IOP) version NOT compared.
+# Built by scripts/highz_ingest_rc41_g17_kmos3d.py; every validator listed below passed at build time.
+#
+# PAPER CONVENTIONS (Table 1 caption, quoted): 'We are adopting a Omega_m=0.3, H0=70 km/s/Mpc LCDM Universe, and a
+# Chabrier (2003) initial stellar mass function. Effective radii, inclinations, input stellar masses are derived from
+# analysis of the optical HST ancillary information'. Gas priors: 'scaling relations give a prior on Mgas (e.g. Tacconi
+# et al. 2018, Scoville et al. 2017)' (App. A).
+# PRESSURE SUPPORT: Vc_Re_kms is the model total CIRCULAR velocity v_c(R_e) (= Table 1 col 5 = Table D1 col 16).
+# The paper's rotation velocity is v_rot^2 = v_circ^2 - 2 sigma0^2 (R/R_d) (eq. A5, 'asymmetric drift'); so Vc is
+# already pressure-support corrected. Do not re-apply a correction.
+# CIRCULARITY WARNING: logMbar (D1 col 10) and logMstar_fit (D1 col 7) are DYNAMICAL-FIT outputs, not photometric.
+# Verified identity on all 41 rows: logMbar = log10(10^logMstar_fit + 10^logMgas) to <=0.011 dex, i.e. col 7 is
+# Mbar_fit - Mgas. fDM_Re (D1 col 27, 'averages between AC on and off', fDM = v_DM^2/v_c^2 at R_e) comes from the same
+# fit. The photometric prior is logMstar_HSTinput_T1 (Table 1 col 8, printed to 0.1 dex); col 11 is printed
+# 'DlogM_baryon fit-input' (the 'D' is the PDF's rendering of Delta).
+#
+# COLUMNS (printed Table 1 / Table D1 column numbers; D1 skips 3-6; header text quoted as printed):
+#   rc41_row = col 1; galaxy_T1 = Table 1 col 1 'galaxy'; galaxy_D1 = D1 col 2 'Target' (multi-line cells joined)
+#   z = T1 col 2 'z'; kpc_per_arcsec_T1 = T1 col 7 'kpc/arcsec'; logMstar_HSTinput_T1 = T1 col 8 'logM_* HST input (M_sun)'
+#   BT_optical_T1 = T1 col 9 'B/T optical light' (NA = blank in paper); environment_T1 = T1 col 11 'satellite/companion/merger'
+#   (text, transcribed from the render; NA = blank). T1 cols 3,12-16 (morphology, companion geometry) omitted.
+#   logMstar_fit = D1 col 7 'logM* (M_sun)'
+#   logMDM_Moster18 = D1 col 8 'logM_DM (M_sun) Moster18'
+#   logMgas = D1 col 9 'logM_gas (M_sun)'
+#   logMbar = D1 col 10 'logM_baryon (M_sun)'
+#   dlogMbar_fit_minus_input = D1 col 11 'DlogM_baryon (M_sun) fit-input'
+#   md_baryon_Moster18 = D1 col 12 'm_d,baryon Moster18'
+#   md_baryon_prime_fDM_NFW = D1 col 13 'm_d,baryon' f_DM & NFW'
+#   dlogSFR_MS_W14 = D1 col 14 'dlog(SFR/SFR(MS)) W14'
+#   SFR_Msun_yr = D1 col 15 'SFR (M_sun/yr)'
+#   Vc_Re_kms = D1 col 16 'v_c (R_e) (km/s)'
+#   sigma0_kms = D1 col 17 'sigma_0 (km/s)'
+#   Re_kpc = D1 col 18 'R_e (kpc)'
+#   nS = D1 col 19 'n_S'
+#   inclination_deg = D1 col 20 'inclination (deg)'
+#   BT_dyn = D1 col 21 'B/T'
+#   Rvir_kpc_Moster18 = D1 col 22 'R_virial (kpc) Moster18'
+#   SigmaDM_Re_Moster18_Msun_kpc2 = D1 col 23 'S_DM(R_e) (M_sun kpc^-2) Moster18'
+#   SigmaDM_Re_fit_Msun_kpc2 = D1 col 24 'S_DM(R_e) (M_sun kpc^-2) from fit'
+#   dMDM_Re_deficit_data_minus_Moster18 = D1 col 25 'DM_DM(R_e)-deficit data-Moster18'
+#   lambda_jbar_over_jDM_thick_turb = D1 col 26 'lambda'(j_baryon/j_DM) thick, turbulent disk'
+#   fDM_Re = D1 col 27 'f_DM (R_e)'
+#   e_fDM_Re = D1 col 28 'Df_DM'
+#   alpha_inner = D1 col 29 'alpha_inner'
+#   e_alpha_inner = D1 col 30 'Dalpha_inner'
+#   Rout_over_Re = D1 col 31 'R_out/R_e'
+#   c_halo = D1 col 32 'c DM-halo'
+#   mode = D1 col 33 'Mode' (instrument; transcribed from render); FWHM_arcsec = D1 col 34; Tint_h = D1 col 35 'T_int (h)'
+#   e_fDM_Re (col 28 'Df_DM') and e_alpha_inner (col 30): the paper states it 'adopt[s] the MCMC uncertainties' (App. A).
+#   D1 cols 23-25 print 'S_DM' = Sigma_DM. No uncertainties are published for Vc, Re, logMbar in this table.
+# VALIDATOR COVERAGE PER COLUMN: independently cross-checked = D1 cols 16 (Vc), 18 (Re), 20 (inclination), 21 (B/T)
+#   [each equals its Table 1 twin] and cols 7, 9, 10 [baryon identity]; z, rc41_row and names are cross-checked
+#   against RC100 / KMOS3D. All other numeric columns (8, 11-15, 17, 19, 22-32, 34, 35 and T1 cols 7-9) rest on
+#   the PDF text layer alone, eyeball-checked against the 450-dpi render, with no independent arithmetic check.
+#   derived_logMbar_input = logMbar - dlogMbar_fit_minus_input (arithmetic on two printed columns; NOT printed in paper).
+#   in_RC100/RC100_idx/RC100_name: match to RC100_NestorShachar2023_table3_transcribed.csv by normalized-name alias
+#   (uppercase, strip space _ - ( ) /; composites split on / space -; aliases shared by >1 RC41 row dropped).
+#   in_G17: galaxy is one of the 6 in Genzel+2017 (G17_Genzel2017.csv). kmos3d_id: KMOS3D ID whose ID or original
+#   targeting ID matches an alias (KMOS3D_Wisnioski2019.csv); NA = not a KMOS3D target.
+#
+# OVERLAP / DOUBLE COUNTING: G17 (6) is a subset of RC41 (41), which is a subset of RC100 (100): all 41 RC41 rows
+# match an RC100 row (41/41). The same galaxy carries different values in the three files -- these are successive
+# re-analyses by the same team, NOT independent measurements; use at most one file per galaxy:
+#   COS4 01351: Vc = 276 (G17) / 290 (RC41) / 267 (RC100) km/s; fDM = 0.21 / 0.29 / 0.38
+#   D3a 6397: Vc = 310 (G17) / 308 (RC41) / 225 (RC100) km/s; fDM = 0.17 / 0.22 / 0.13
+#   GS4 43501: Vc = 257 (G17) / 257 (RC41) / 240 (RC100) km/s; fDM = 0.19 / 0.19 / 0.31
+#   zC 406690: Vc = 301 (G17) / 301 (RC41) / 276 (RC100) km/s; fDM = 0.0 / 0.02 / 0.04
+#   zC 400569: Vc = 364 (G17) / 289 (RC41) / 241 (RC100) km/s; fDM = 0.0 / 0.05 / 0.16
+#   D3a 15504: Vc = 299 (G17) / 268 (RC41) / 234 (RC100) km/s; fDM = 0.12 / 0.08 / 0.24
+# RC41 vs RC100 name/z notes: Table 1 prints GS4_32976, Table D1 prints GS4_32796 (row 8); RC100 prints GS4 32976.
+# Table 1 prints G4-38153 / G4_24985 where D1 prints EGS4_38153 / EGS4_24985 (rows 18, 19).
+#   z differs >0.005: BX389 z(RC41)=2.18 z(RC100)=2.17
+#   z differs >0.005: K20_ID7-GS4_29868 z(RC41)=2.23 z(RC100)=2.22
+#   KMOS3D has GS4_32976: yes (z=0.83115, logM*=10.37)
+#   KMOS3D has GS4_32796: no
+#   KMOS3D has GS4_33689: no
+#   KMOS3D maps original target GS3_22466 -> GS4_33639 (z=2.23481); RC41 row 34 prints GS4_33689, one digit different -- the RC41 row is linked to KMOS3D through GS3_22466
+#   Every RC41 row with a kmos3d_id has |z_RC41 - z_KMOS3D| <= 0.01 (validator).
+#
+# VALIDATORS (all PASS at build): sha256 of source; 41 rows in each table; 26 numeric cells per D1 row;
+# T1 v_c/R_e/B/T_dyn == D1 cols 16/18/21 exactly and T1 inclination == D1 col 20 to <=0.5 deg, all 41 rows;
+# baryon identity above. The cosmology is confirmed by G17's printed 'kpc/arcsec' row (reproduced to <=0.02
+# by astropy FlatLambdaCDM(H0=70, Om0=0.3)). RC41 T1 col 7 is looser: max |diff| 0.132; rows off by >0.06: row 1 (z=0.66) printed 6.9 vs 6.975; row 3 (z=0.73) printed 7.2 vs 7.264; row 11 (z=0.92) printed 7.9 vs 7.839; row 22 (z=1.53) printed 8.6 vs 8.468; row 32 (z=2.21) printed 8.2 vs 8.260. The peak proper scale in that cosmology is 8.472 kpc/arcsec, so a printed 8.6 cannot be exact:
+# treat kpc_per_arcsec_T1 as indicative only.
+# PAPER-INTERNAL DISCREPANCIES: row 13: inclination printed 49.5 in Table 1 but 50 in Table D1. inclination_deg carries the D1 value, inclination_T1 the Table 1 value.
+# NA = not given in the paper.
+rc41_row,galaxy_T1,galaxy_D1,z,Vc_Re_kms,Re_kpc,logMbar,logMstar_fit,logMgas,fDM_Re,e_fDM_Re,sigma0_kms,nS,inclination_deg,inclination_T1,BT_dyn,BT_optical_T1,logMstar_HSTinput_T1,dlogMbar_fit_minus_input,derived_logMbar_input,kpc_per_arcsec_T1,logMDM_Moster18,md_baryon_Moster18,md_baryon_prime_fDM_NFW,dlogSFR_MS_W14,SFR_Msun_yr,Rvir_kpc_Moster18,SigmaDM_Re_Moster18_Msun_kpc2,SigmaDM_Re_fit_Msun_kpc2,dMDM_Re_deficit_data_minus_Moster18,lambda_jbar_over_jDM_thick_turb,alpha_inner,e_alpha_inner,Rout_over_Re,c_halo,mode,FWHM_arcsec,Tint_h,environment_T1,in_RC100,RC100_idx,RC100_name,in_G17,kmos3d_id,aliases_normalized
+1,EGS3_10098/EGS4_30084,EGS3_10098/EGS4_30084,0.66,326,3.0,10.95,10.85,10.24,0.15,0.143,15,1,31,31,0.60,NA,11.1,-0.26,11.21,6.9,12.39,0.0364,0.099,0.49,52.0,218,3.1E+08,2.1E+08,-2.7E+09,0.0262,0.10,0.32,2.5,7.3,NOEMA,0.75,21,NA,1,3,EGS3 10098,0,NA,EGS310098;EGS310098EGS430084;EGS430084
+2,U3_21388,U3_21388,0.67,230,7.0,10.48,10.41,9.66,0.66,0.093,55,1,82,82,0.05,0.39,10.8,-0.35,10.83,7.0,11.87,0.0410,0.045,-0.37,4.8,145,1.5E+08,1.5E+08,-9.9E+08,0.0621,0.88,0.22,2.0,7.2,KMOS,0.54,8,NA,1,4,U3 21388,0,U4_29145,U321388
+3,EGS4_21351,EGS4_21351,0.73,187,3.3,10.6,10.43,10.11,0.02,0.120,10,1,47,47,0.46,0.21,10.9,-0.51,11.11,7.2,11.89,0.0518,9.953,0.72,79.5,144,1.9E+08,1.6E+07,-5.9E+09,0.0307,0.06,0.18,3.5,6.8,NOEMA,0.76,19,NA,1,5,EGS4 21351,0,NA,EGS421351
+4,EGS4_11261,EGS4_11261,0.75,327,4.0,11.04,10.92,10.43,0.23,0.100,15,1,60,60,0.50,NA,11.3,-0.33,11.37,7.3,12.47,0.0375,0.041,0.56,85.0,223,3.0E+08,2.9E+08,-4.4E+08,0.0322,0.05,0.15,3.1,6.6,NOEMA,0.86,24,NA,1,7,EGS4 11261,0,NA,EGS411261
+5,GS4_13143,GS4_13143,0.76,156,5.6,10.34,10.04,10.04,0.41,0.105,22,1.3,74,74,0.70,NA,9.8,0.22,10.12,7.4,11.61,0.0534,0.068,0.33,12.0,115,1.2E+08,1.1E+08,-1.3E+09,0.0558,1.47,0.30,2.9,6.5,KMOS,0.52,9,interaction,1,8,GS4 13143,0,GS4_13143,GS413143
+6,U3_05138,U3_05138,0.81,145,7.5,10.52,10.35,10.03,0.33,0.139,13,1,55,55,0.50,0.03,10.2,0.15,10.37,7.5,11.82,0.0502,0.331,-0.30,6.0,133,1.4E+08,5.6E+07,-1.5E+10,0.0552,0.71,0.42,1.5,6.5,SINF-J,0.73,16,companion,1,13,U3 05138,0,U4_07799,U305138
+7,GS4_03228,GS4_03228,0.82,146,7.1,10.18,9.77,9.97,0.67,0.092,15,1,78,78,0.80,NA,9.5,0.28,9.90,7.6,11.48,0.0499,0.026,0.48,10.1,102,1.0E+08,1.4E+08,5.8E+09,0.0766,1.56,0.22,1.5,6.5,KMOS,0.53,8,NA,1,15,GS4 03228,0,GS4_03228,GS403228
+8,GS4_32976,GS4_32796,0.83,249,6.8,10.76,10.54,10.36,0.49,0.072,40,1,68,68,0.90,0.09,10.4,0.17,10.59,7.6,11.99,0.0591,0.021,0.22,22.0,150,1.8E+08,2.8E+08,1.5E+10,0.0615,1.63,0.19,2.2,6.5,KMOS,0.52,7,NA,1,16,GS4 32976,0,GS4_32976,GS432796;GS432976
+9,COS4_01351,COS4_01351,0.85,290,8.0,11.22,10.99,10.84,0.29,0.136,55,0.9,68,68,0.24,0.02,10.7,0.26,10.96,7.7,12.54,0.0473,0.175,0.50,57.0,227,3.0E+08,1.7E+08,-2.6E+10,0.0410,1.30,0.28,2.2,6.5,SINF-J+KMOS,0.64,12,NA,1,18,COS4 01351,1,COS4_01351,COS401351
+10,COS3_22796,COS3_22796,0.91,145,9.0,10.23,10.02,9.81,0.80,0.168,15,1,58,58,0.15,0.10,10.3,-0.30,10.53,7.8,11.61,0.0419,0.028,-0.05,11.1,108,1.1E+08,1.3E+08,5.6E+09,0.0861,0.89,0.39,1.7,6.1,SINF-J,0.65,12,NA,1,22,COS3 22796,0,COS4_21904,COS322796
+11,U3_15226,U3_15226,0.92,194,5.5,10.8,10.70,10.12,0.21,0.084,21,1,50,50,0.55,0.24,11.1,-0.41,11.21,7.9,12.15,0.0442,0.421,0.05,31.0,164,2.2E+08,8.2E+07,-1.3E+10,0.0335,0.09,0.23,3.1,6.1,KMOS,0.75,20,NA,1,25,U3 15226,0,U4_21533,U315226
+12,GS4_05881,GS4_05881,0.99,200,5.6,10.36,9.99,10.12,0.64,0.055,50,1.3,60,60,0.85,NA,9.8,0.21,10.15,8.0,11.59,0.0591,0.012,0.46,19.0,103,1.3E+08,2.6E+08,1.3E+10,0.0645,1.72,0.15,2.4,6,KMOS,0.57,14,NA,1,26,GS4 05881,0,GS4_05881,GS405881
+13,COS3_16954,COS3_16954,1.03,282,8.1,10.9,10.61,10.59,0.58,0.076,46,1,50,49.5,0.50,0.08,10.7,-0.13,11.03,8.1,12.05,0.0701,0.016,0.55,100.0,146,1.9E+08,3.6E+08,3.4E+10,0.0763,1.37,0.30,2.2,6.1,SINF-J,0.9,4,companion?,1,30,COS3 16954,0,COS4_16172,COS316954
+14,COS3_04796,COS3_04796,1.03,269,9.7,11.22,10.99,10.83,0.35,0.132,10,1.07,50,50,0.18,0.04,10.8,0.19,11.03,8.1,12.52,0.0500,0.166,0.25,51.0,208,2.9E+08,1.7E+08,-3.6E+10,0.0649,1.31,0.37,1.6,6.1,SINF-J,0.7,10,satellite,1,31,COS3 04796,0,COS4_04669,COS304796
+15,EGS_13035123,EGS_13035123,1.12,220,10.2,11.12,10.90,10.73,0.20,0.100,15,1,24,24,0.20,0.06,11.2,-0.28,11.40,8.2,12.38,0.0555,0.942,0.31,126.0,180,2.6E+08,6.3E+07,-6.3E+10,0.0594,0.07,0.21,1.8,6,NOEMA,0.6,56,NA,1,32,EGS 13035123,0,NA,EGS13035123
+16,EGS_13004291,EGS_13004291,1.20,354,3.0,11.12,10.51,11.00,0.02,0.083,50,1.3,27,27,0.61,NA,11.0,-0.46,11.58,8.3,11.96,0.1455,6.938,1.25,630.0,127,2.4E+08,4.6E+07,-5.6E+09,0.0434,0.12,0.44,2.3,6,NOEMA,0.5,38,late stage merger,1,33,EGS 13004291,0,NA,EGS13004291
+17,EGS_13003805,EGS_13003805,1.23,393,5.6,11.5,11.20,11.19,0.02,0.104,30,1.2,37,37,0.29,NA,11.2,-0.03,11.53,8.3,12.76,0.0545,10.541,0.56,200.0,233,4.6E+08,4.1E+07,-4.1E+10,0.0388,0.19,0.44,2.1,5.9,NOEMA,0.63,20,NA,1,34,EGS 13003805,0,NA,EGS13003805
+18,G4-38153,EGS4_38153,1.36,356,5.9,11.3,10.94,11.05,0.33,0.122,68,1,75,75,0.16,NA,10.4,0.50,10.80,8.4,12.39,0.0807,0.050,0.25,78.0,167,2.9E+08,3.5E+08,6.7E+09,0.0454,1.70,0.26,2.0,5,NOEMA,0.6,30,NA,1,37,EGS4 38153,0,NA,EGS438153;G438153
+19,G4_24985,EGS4_24985,1.40,300,4.6,11,10.79,10.58,0.30,0.083,30,1,40,40,0.40,NA,10.9,-0.11,11.11,8.4,12.22,0.0600,0.029,0.37,99.0,144,2.7E+08,3.6E+08,6.0E+09,0.0414,1.30,0.51,3.8,5,LBT/NOEMA,0.85,80,NA,1,39,EGS4 24985,0,NA,EGS424985;G424985
+20,zC_403741,zC_403741,1.45,204,2.6,10.53,10.32,10.12,0.12,0.077,64,1,28,28,0.68,NA,10.7,-0.33,10.86,8.5,11.81,0.0529,0.360,0.30,60.0,103,2.1E+08,9.7E+07,-2.4E+09,0.0213,0.10,0.38,2.2,5,SINF-H100+H250,0.35,6,NA,1,43,zC 403741,0,NA,ZC403741
+21,D3a_6397,D3a_6397,1.50,308,6.4,11.15,10.89,10.81,0.22,0.113,67,1,30,30,0.57,NA,11.1,-0.19,11.34,8.5,12.32,0.0678,0.179,0.53,214.0,150,2.9E+08,1.9E+08,-1.2E+10,0.0451,1.18,0.47,1.5,5,SINF-K100,0.35,9,NA,1,46,D3a 6397,1,NA,D3A6397
+22,EGS_13011166,EGS_13011166,1.53,348,6.3,11.27,10.81,11.08,0.19,0.074,40,1,60,60,0.55,NA,11.1,-0.27,11.54,8.6,12.24,0.1082,0.222,0.74,375.0,139,2.8E+08,2.0E+08,-9.0E+09,0.0633,0.49,0.43,2.5,5,LBT/NOEMA,0.75,15,NA,1,50,EGS 13011166,0,NA,EGS13011166
+23,GS4_43501 (GK 2438),GS4_43501 GK_2438,1.61,257,4.9,10.94,10.69,10.59,0.19,0.122,39,0.6,62,62,0.40,0.06,10.6,0.08,10.86,8.5,12.11,0.0680,0.181,0.07,53.0,123,2.7E+08,1.8E+08,-6.9E+09,0.0398,1.17,0.35,2.9,5,SINF-H250/KMOS,0.55,22,NA,1,54,GS4 43501,1,GS4_43501,GK2438;GS443501;GS443501GK2438
+24,GS4_14152,GS4_14152,1.62,397,6.8,11.58,11.38,11.15,0.08,0.133,35,1,55,55,0.23,NA,11.3,0.08,11.50,8.5,12.88,0.0504,1.901,0.13,167.0,222,5.2E+08,1.1E+08,-6.0E+10,0.0415,0.93,0.50,2.0,5,SINF-H250,0.55,12,NA,1,55,GS4 14152,0,GS4_14152,GS414152
+25,K20_ID9-GS4_27404,K20_ID9-GS4_27404,2.04,250,7.1,10.94,10.63,10.64,0.42,0.144,18,1,48,48,0.30,0.14,10.6,-0.02,10.96,8.3,12.05,0.0776,0.087,0.03,81.0,103,2.4E+08,2.3E+08,-1.8E+09,0.0728,1.04,0.46,1.9,4,SINF-K250,0.45,6,NA,1,62,K20 ID9,0,GS4_27404,GS427404;K20ID9;K20ID9GS427404
+26,zC_405501,zC_405501,2.15,139,5.0,10.65,10.14,10.49,0.15,0.162,60,0.2,75,75,0.07,NA,9.9,0.22,10.43,8.3,11.71,0.0868,4.467,0.60,60.0,76,2.0E+08,2.9E+07,-1.3E+10,0.0255,0.59,0.39,2.4,4,SINF-K100/K250,0.3,8,interacting group with 3 members,1,67,zC 405501,0,NA,ZC405501
+27,SSA22_MD41,SSA22_MD41,2.17,189,7.1,9.9,9.20,9.80,0.90,0.124,71,0.4,72,72,0.05,NA,9.9,-0.66,10.56,8.3,11.28,0.0420,0.004,0.60,130.0,54,1.1E+08,3.2E+08,3.3E+10,0.0713,0.79,0.37,2.1,4,SINF-K250,0.55,7,NA,1,70,SSA22 MD41,0,NA,SSA22MD41
+28,BX389,Q2343-BX_389,2.18,331,7.4,11.2,10.86,10.94,0.40,0.132,76,0.2,76,76,0.30,NA,10.6,0.26,10.94,8.3,12.23,0.0936,0.072,0.10,100.0,113,3.0E+08,3.4E+08,6.1E+09,0.0621,1.53,0.29,1.5,4,SINF-K100/K250,0.45,9,satellite,1,71,BX389,0,NA,BX389;Q2343BX389
+29,zC_407302,zC_407302,2.18,280,4.0,10.92,10.38,10.77,0.14,0.066,22,1,60,60,0.50,NA,10.4,-0.01,10.93,8.3,11.87,0.1131,0.416,0.77,340.0,85,2.5E+08,1.4E+08,-5.2E+09,0.0595,1.02,0.45,2.4,4,SINF-K100,0.27,19,satellite,1,73,zC 407302,0,NA,ZC407302
+30,GS3_24273,GS3_24273,2.19,222,7.0,10.83,10.51,10.54,0.25,0.112,20,1,60,60,0.80,0.15,11.0,-0.49,11.32,8.3,11.96,0.0744,0.338,0.31,267.0,91,2.4E+08,1.2E+08,-1.8E+10,0.0714,0.07,0.18,2.4,4,KMOS,0.57,16,NA,1,74,GS3 24273,0,GS4_35951,GS324273
+31,zC_406690,zC_406690,2.20,301,4.5,11.1,10.51,10.97,0.02,0.059,68,0.2,25,25,0.90,NA,10.6,-0.11,11.21,8.3,11.96,0.1389,12.589,0.55,300.0,91,2.7E+08,3.2E+07,-1.5E+10,0.0500,0.15,0.42,2.4,4,SINF-K100,0.3,10,interacting fluffy satellite,1,77,zC 406690,1,NA,ZC406690
+32,BX610,Q2343-BX_610,2.21,327,4.9,11.07,10.65,10.86,0.29,0.134,65,1,39,39,0.42,NA,11.0,-0.35,11.42,8.2,12.06,0.1016,0.062,-0.34,60.0,98,2.9E+08,3.5E+08,4.9E+09,0.0555,0.86,0.46,2.0,4,SINF-K100/K250,0.6,34,NA,1,78,BX610,0,NA,BX610;Q2343BX610
+33,K20_ID7-GS4_29868,K20_ID7-GS4_29868,2.23,308,8.2,11.11,10.63,10.94,0.57,0.108,68,0.2,64,64,0.03,NA,10.3,0.35,10.76,8.2,12.04,0.1170,0.036,0.30,101.0,96,2.5E+08,4.1E+08,3.5E+10,0.0849,1.30,0.21,1.7,4,SINF-K100/K250+KMOS,0.38,33,two companions?,1,81,K20 ID7,0,GS4_29868,GS429868;K20ID7;K20ID7GS429868
+34,K20_ID6-GS3_22466-GS4_33689,K20_ID6-GS3_22466-GS4_33689,2.24,162,5.0,10.73,10.36,10.49,0.30,0.147,60,0.5,31,31,0.30,NA,10.4,-0.07,10.80,8.2,11.85,0.0760,0.537,0.17,99.0,83,2.4E+08,1.0E+08,-1.1E+10,0.0288,0.11,0.30,1.8,4,SINF-K100/K250+KMOS,0.42,26,minor merger,1,84,K20 ID6,0,GS4_33639,GS322466;GS433689;K20ID6;K20ID6GS322466GS433689
+35,zC_400569,zC_400569,2.24,289,4.0,11.04,10.79,10.68,0.05,0.097,45,1,45,45,0.70,NA,11.1,-0.29,11.33,8.2,12.17,0.0737,10.965,0.19,240.0,106,3.4E+08,3.5E+07,-1.5E+10,0.0361,0.14,0.36,2.0,4,SINF-K100,0.35,22,group with 3 members,1,85,zC 400569,1,NA,ZC400569
+36,BX482,Q2346-BX_482,2.26,293,5.8,10.91,10.48,10.71,0.57,0.136,67,0.2,60,60,0.02,NA,10.3,0.22,10.69,8.2,11.93,0.0948,0.015,0.20,80.0,88,2.5E+08,5.4E+08,3.0E+10,0.0655,0.81,0.43,2.0,4,SINF-K100/K250,0.3,18,interacting group with 3 members,1,86,BX482,0,NA,BX482;Q2346;Q2346BX482
+37,COS4_02672,COS4_02672,2.31,190,7.4,10.9,10.58,10.62,0.25,0.189,55,0.5,62,62,0.10,NA,10.6,0.01,10.89,8.2,12.00,0.0788,0.378,-0.10,72.0,91,2.6E+08,1.2E+08,-2.3E+10,0.0458,1.05,0.38,1.7,4,SINF-K250+KMOS,0.5,14,companion,1,89,COS4 02672,0,COS4_02672,COS402672
+38,D3a_15504,D3a_15504,2.38,268,6.1,11.18,10.94,10.81,0.08,0.080,68,1,40,40,0.30,NA,11.0,-0.10,11.28,8.1,12.28,0.0789,15.136,-0.06,146.0,111,3.7E+08,2.7E+07,-4.0E+10,0.0401,0.23,0.35,2.4,4,SINF-K100/K250,0.4,47,interacting satellite,1,91,D3a 15504,1,NA,D3A15504
+39,D3a_6004,D3a_6004,2.39,416,5.3,11.5,11.30,11.07,0.05,0.112,68,0.4,20,20,0.44,NA,11.5,-0.20,11.70,8.1,12.61,0.0783,3.162,-0.05,355.0,142,5.2E+08,1.0E+08,-3.6E+10,0.0396,0.30,0.44,1.8,4,SINF-K100/K250,0.4,23,companion?,1,92,D3a 6004,0,NA,D3A6004
+40,GS4_37124,GS4_37124,2.43,260,3.2,10.8,10.44,10.55,0.25,0.069,50,1,67,67,0.70,0.20,10.6,-0.15,10.95,8.1,11.91,0.0781,0.079,0.28,194.0,82,3.1E+08,3.1E+08,-3.7E+07,0.0375,1.17,0.34,3.5,4,KMOS,0.43,17,NA,1,94,GS4 37124,0,GS4_37124,GS437124
+41,GS4_42930 (GK 2363),GS4_42930 GK_2363,2.45,171,2.8,10.45,10.13,10.17,0.11,0.118,40,1.2,59,59,0.50,0.25,10.3,-0.20,10.65,8.1,11.72,0.0541,0.939,-0.09,70.0,70,2.7E+08,7.9E+07,-4.6E+09,0.0276,0.17,0.32,1.7,4,SINF-K100,0.25,20,NA,1,97,GS4 42930,0,GS4_42930,GK2363;GS442930;GS442930GK2363
