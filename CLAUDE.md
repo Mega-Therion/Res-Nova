@@ -38,6 +38,11 @@ assessment.
 
 ## Assurance layer
 
+Before creating any new claim-tracking artifact (e.g. from a GitHub issue naming a
+specific path like `evidence/v1/`), check `assurance/claims.json` first — it may
+already be the live, CI-gated registry. Extend it in place rather than building a
+parallel one.
+
 Four cheap checks run in seconds and gate scope, not mathematics. Run them before the
 Lean gate; they catch drift that the Lean gate is too slow to iterate on.
 
