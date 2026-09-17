@@ -4,6 +4,11 @@ All notable changes to the Res Nova technical manuscript, formal verification, a
 
 ## [1.9.0] — 2026-09-16
 
+### 2026-09-17 (v1.9.x, post-PR-70 hygiene)
+- Moved `A0_HIGHZ_MEASUREMENT_2026-09-16.md` to `02_galaxy_dynamics/` (path fix: the
+  public Research Atlas cites the prefixed path; the doc now sits with its data,
+  scripts, and run logs). All in-repo references updated. No content changes.
+
 ### The finite algebraic core and the six interpretation obligations (layer 0 cycle)
 - **Finite core frozen** (`CORE_OBJECTS_AUDIT_LEDGER_2026-09-16.md`): BT ≅ 2T (Q8 ⋊ C3) fully audited — order census, conjugacy-class partition {1,1,4,4,4,4,6}, complete character table, irrep dims {1,1,1,2,2,2,3}; all finite algebraic claims `[P]`.
 - **μ_std representation audit + Postulate R isolation**: input boundary mapped; μ_dual killed (`[X]`, Cassini + chiral reading); the (μ, a₀) map measured on SPARC (175 galaxies, 3391 points, frozen harness) — rows pairwise disjoint, μ_std a₀ = 1.1607e-10 is the only cosmologically comparable object.
