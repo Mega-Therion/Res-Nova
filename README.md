@@ -1,5 +1,14 @@
 # Res-Nova
 
+<p align="left">
+  <a href="https://doi.org/10.5281/zenodo.21969121"><img src="https://img.shields.io/badge/Zenodo-10.5281%2Fzenodo.21969121-024dad?style=flat-square&logo=doi&logoColor=white" alt="Zenodo DOI"></a>
+  <a href="https://resnova-hub-f4ucvy3e.manus.space"><img src="https://img.shields.io/badge/Research%20Atlas-resnova--hub-0070f3?style=flat-square&logo=safari&logoColor=white" alt="Res Nova Atlas"></a>
+  <a href="https://huggingface.co/datasets/ChyRho/res-nova"><img src="https://img.shields.io/badge/Hugging%20Face-ChyRho%2Fres--nova-FFD21E?style=flat-square&logo=huggingface&logoColor=black" alt="Hugging Face Dataset"></a>
+  <a href="https://orcid.org/0009-0001-1303-7190"><img src="https://img.shields.io/badge/ORCID-0009--0001--1303--7190-A6CE39?style=flat-square&logo=orcid&logoColor=white" alt="ORCID"></a>
+  <a href="https://www.linkedin.com/in/r-w-yett-152085293/"><img src="https://img.shields.io/badge/LinkedIn-R.W._Yett-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+  <a href="https://x.com/_chyrho_"><img src="https://img.shields.io/badge/X-@__ChyRho__-000000?style=flat-square&logo=x&logoColor=white" alt="X"></a>
+</p>
+
 Technical manuscript, formal verification, and reproducibility package.
 
 ![Res-Nova Evidence Atlas Lifecycle](visualizer/evidence-atlas-lifecycle.svg)
