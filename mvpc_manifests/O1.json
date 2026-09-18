@@ -9,7 +9,7 @@
   "artifacts": [
     {
       "path": "02_galaxy_dynamics/A0_MEASUREMENT.json",
-      "sha256": "d71297842f50a9f8f43d5c66855c3ed3b284672178b22808236c28053679f73a"
+      "sha256": "cc82ae74567ffcdbf0d066fab6ea7aaf310995c747ac61fb1241f45d42f6fe46"
     },
     {
       "path": "04_cosmology/A0_AND_OMEGA_NORMALIZATION_LEDGER.md",
