@@ -78,9 +78,11 @@ TARGETS=(
   SovereignRegularity.lean
   SovereignSemiotics.lean
   TensorSpeed.lean
-  TrialityFixedSubalgebra.lean
-  TrialityG2.lean
-  YettParadigm.lean
+  TrialityFixedSubalgebra.lean \
+  TrialityG2.lean \
+  YettParadigm.lean \
+  LeptonMassCollar.lean \
+  NavierStokesCorticalBound.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------
