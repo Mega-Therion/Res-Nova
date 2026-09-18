@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "cassini_bound": 2.3e-05,
+  "x_benchmark": 60000000.0,
+  "delta_gamma_dual": 1.6666666388888892e-08,
+  "dual_safety_margin": 1380.000023,
+  "delta_gamma_std": 2.220446049250313e-16,
+  "std_safety_margin": 103582791429.52141,
+  "disformal_screening_concordance": "CERTIFIED [P]"
+}
