@@ -74,6 +74,16 @@ Hamilgrangian.lean
 # dynamics, so it is not a result of this manuscript.
 RamanujanGapDerivation.lean
 
+# --- Multi-generational lepton mass collar ---
+# Formal enclosure proofs for Ramanujan tau-ladder modular ratios and collar area
+# scaling containing CODATA tau/muon mass ratio.
+LeptonMassCollar.lean
+
+# --- 2D Cortical Riemannian Manifold Enstrophy Program ---
+# Vanishing vortex stretching and monotonic enstrophy dissipation on (C, g)
+# with Re_c = sqrt(2) algebraic duality with theta_geom = 1/sqrt(2).
+NavierStokesCorticalBound.lean
+
 # --- FIG Tree monograph ---
 # The Lindblad coherence ceiling (chi <= theta) is Theorem VI.1 of
 # FIG_TREE_MONOGRAPH.md, not of this paper. The earlier identification of the
