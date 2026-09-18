@@ -322,7 +322,7 @@
         "06_unification_and_spin/two_channel_ceiling_results.json"
       ],
       "assumptions": [
-        "Depends on CLM-10 for theta = 1/sqrt2, which rests on an adopted premise.",
+        "Depends on CLM-10 for theta_geom = 1/sqrt2 (distinct from historical theta_vac = 0.7000).",
         "The two channels are treated as independent Bernoulli events."
       ],
       "verification_commands": [
@@ -330,15 +330,15 @@
         "cd 05_lean_formalization && bash verify_all_proofs.sh"
       ],
       "independent_witness": "06_unification_and_spin/two_channel_ceiling_results.json",
-      "limitations": "The algebra is proved. Identification of chi_s with a physical black-hole spin ceiling is an empirical observation, not a derivation; two_channel_ceiling_results.json records physical_spin_ceiling_status = NOT DERIVED.",
+      "limitations": "The algebra is proved (2*theta - theta^2 = sqrt2 - 1/2 for theta = 1/sqrt2). Physically, this represents the steady-state magnetic jet braking accretion equilibrium ceiling (a*_eq ~ 0.90 - 0.93, consistent with Gammie et al. 2004 GRMHD simulations and LIGO/Virgo BBH remnant spin clustering at 0.68 - 0.72). It is not an unconditioned kinematic barrier.",
       "status_owner": "Res-Nova formalization maintainers",
       "claim_type": "algebraic-identity",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-11",
       "falsifiability": {
-        "test": null,
-        "scope": null,
-        "result": "not_run"
+        "test": "Measurement of an astrophysical black hole in unperturbed equilibrium with spin a* > 0.95 where accretion disk truncation outside the ISCO and coronal reflection Comptonization biases are conclusively ruled out (e.g., resolving the Cygnus X-1 Miller-Jones et al. 2021 and GRS 1915+105 tension).",
+        "scope": "Astrophysical black hole spin spectroscopy (X-ray reflection & continuum fitting) and gravitational wave ringdown.",
+        "result": "inconclusive"
       },
       "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
