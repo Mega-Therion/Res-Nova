@@ -56,6 +56,7 @@ DiagonalConeIndex.lean            # ADDED 2026-09-09, ported from
 
 # --- Millennium-problem correspondence sketches ---
 RamanujanModularBounds.lean      # modular bounds, RH leg
+RiemannSpectralExpander.lean     # Ramanujan expander ladder & Alon-Boppana gap mechanics, RH leg
 
 # --- Other sovereign-corpus work ---
 SovereignSemiotics.lean          # RYTT semiotics

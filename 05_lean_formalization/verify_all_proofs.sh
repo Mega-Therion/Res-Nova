@@ -83,7 +83,8 @@ TARGETS=(
   YettParadigm.lean \
   LeptonMassCollar.lean \
   NavierStokesCorticalBound.lean \
-  YangMillsCasimirBound.lean
+  YangMillsCasimirBound.lean \
+  RiemannSpectralExpander.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------

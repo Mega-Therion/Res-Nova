@@ -103,5 +103,6 @@ lean_lib «ResNovaFormal» where
     `RamanujanGapDerivation,
     `LeptonMassCollar,
     `NavierStokesCorticalBound,
-    `YangMillsCasimirBound
+    `YangMillsCasimirBound,
+    `RiemannSpectralExpander
   ]
