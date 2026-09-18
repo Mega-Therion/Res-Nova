@@ -84,6 +84,11 @@ LeptonMassCollar.lean
 # with Re_c = sqrt(2) algebraic duality with theta_geom = 1/sqrt(2).
 NavierStokesCorticalBound.lean
 
+# --- Yang-Mills Gauge Theory & Casimir Mass Gap Program ---
+# Positive spectral mass gap Delta_YM(N) = (kappa / theta) * (N - 1),
+# exact SU(3)/SU(2) ratio = 2, and rigorous enclosure bounds at theta_geom = 1/sqrt(2).
+YangMillsCasimirBound.lean
+
 # --- FIG Tree monograph ---
 # The Lindblad coherence ceiling (chi <= theta) is Theorem VI.1 of
 # FIG_TREE_MONOGRAPH.md, not of this paper. The earlier identification of the

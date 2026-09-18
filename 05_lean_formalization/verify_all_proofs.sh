@@ -82,7 +82,8 @@ TARGETS=(
   TrialityG2.lean \
   YettParadigm.lean \
   LeptonMassCollar.lean \
-  NavierStokesCorticalBound.lean
+  NavierStokesCorticalBound.lean \
+  YangMillsCasimirBound.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------
