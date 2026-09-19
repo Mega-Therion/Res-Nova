@@ -84,7 +84,8 @@ TARGETS=(
   LeptonMassCollar.lean \
   NavierStokesCorticalBound.lean \
   YangMillsCasimirBound.lean \
-  RiemannSpectralExpander.lean
+  RiemannSpectralExpander.lean \
+  StiefelLaplaceEigenvalue.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------

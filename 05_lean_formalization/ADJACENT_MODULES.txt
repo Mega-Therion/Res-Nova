@@ -90,6 +90,10 @@ NavierStokesCorticalBound.lean
 # exact SU(3)/SU(2) ratio = 2, and rigorous enclosure bounds at theta_geom = 1/sqrt(2).
 YangMillsCasimirBound.lean
 
+# --- Stiefel Manifold Laplace-Beltrami & Mass Gap Program ---
+# Closed-form eigenvalue lambda_1(V_k(R^n)) = k(n - (k+1)/2) and strictly positive mass gap.
+StiefelLaplaceEigenvalue.lean
+
 # --- FIG Tree monograph ---
 # The Lindblad coherence ceiling (chi <= theta) is Theorem VI.1 of
 # FIG_TREE_MONOGRAPH.md, not of this paper. The earlier identification of the
