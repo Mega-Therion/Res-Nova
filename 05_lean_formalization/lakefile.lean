@@ -104,5 +104,6 @@ lean_lib «ResNovaFormal» where
     `LeptonMassCollar,
     `NavierStokesCorticalBound,
     `YangMillsCasimirBound,
-    `RiemannSpectralExpander
+    `RiemannSpectralExpander,
+    `StiefelLaplaceEigenvalue
   ]
