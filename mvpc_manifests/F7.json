@@ -15,7 +15,7 @@
     },
     {
       "path": "05_lean_formalization/CosmologicalSector.lean",
-      "sha256": "b16b3ddcd867e057bd72692c98b4934a8b4289b67002d5b103d5e9a03425f968",
+      "sha256": "6c1cdc04b248cf4ec4829f5a39194890f3b5e715369044476bda012d981c0165",
       "role": "physics_proof"
     },
     {

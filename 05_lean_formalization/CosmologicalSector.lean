@@ -2,6 +2,22 @@ import Mathlib.Analysis.SpecialFunctions.Log.Basic
 import Mathlib.Data.Real.Basic
 
 /-!
+# SUPERSEDED 2026-09-20 -- minimal quadratic time sector
+
+This module carries the quadratic K(Q) cosmology. The minimal quadratic choice
+does not shield the CMB: its exact adiabatic sound speed is (Q - Q_0)/Q, which
+rises monotonically toward 1 -- a sound speed approaching c, against the
+requirement c_ad^2 <~ 0.02 at recombination.
+
+**Use `CoshCosmology.lean` instead.** It formalises the Skordis-Zlosnik Cosh
+completion, where c_ad^2 = r tanh Z / (1 + r Z) is bounded by the width ratio r
+at every redshift, and the curvature at the minimum K_QQ(Q_0) = 2 K_2 carries no
+Z_0, so the quasistatic mass is untouched by whatever early-time width the CMB
+requires.
+
+Retained because it is cited. The arithmetic below is correct; the model it
+assumes is not the theory's.
+
 # Milestone D5: Cosmological Sector & Perturbation Formalization
 Author: Ryan W. Yett (Mega-Therion / Chyren Sovereign Intelligence)
 ORCID: 0009-0001-1303-7190
