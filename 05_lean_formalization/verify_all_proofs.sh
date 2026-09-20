@@ -86,6 +86,7 @@ TARGETS=(
   YangMillsCasimirBound.lean \
   RiemannSpectralExpander.lean \
   StiefelLaplaceEigenvalue.lean
+  QuarkMassLadder.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------
