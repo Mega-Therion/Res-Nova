@@ -66,9 +66,30 @@ EXEMPT = (
     "CHANGELOG", "OPEN_PROBLEMS", "VERIFICATION_RUN",
 )
 # A line that marks the entity as dead is a correct mention, not a violation.
+# A document-level notice remediates the mentions it actually covers. Local
+# +/-3-line context cannot see a banner 200 lines above, so the head of the
+# file is checked separately -- but PER ENTITY. A V_240 substrate banner does
+# NOT license an unqualified F_dual claim later in the same file; an earlier
+# version of this rule exempted whole files and silenced 28 of them.
+FILE_NOTICE = re.compile(
+    r"BRANCH NOTICE|SUBSTRATE NOTICE|SUPERSEDED|RETRACTED|"
+    r"retired (branch|substrate)|falsified .{0,30}(branch|function)", re.I)
+FILE_NOTICE_HEAD_LINES = 40
+
+
+def head_notice_covers(head: str, label: str) -> bool:
+    """True only if the head notice names the entity this mention is about."""
+    if not FILE_NOTICE.search(head):
+        return False
+    for other_label, pat, _ in RETIRED:
+        if other_label == label and pat.search(head):
+            return True
+    return False
+
 RETIRED_CONTEXT = re.compile(
     r"retire|retract|falsif|dead|do not use|superseded|obsolete|"
-    r"no[- ]go|historical|deprecat|\[X\]|void|predates", re.I)
+    r"no[- ]go|historical|deprecat|\[X\]|void|predates|"
+    r"ruled out|excluded by", re.I)
 
 
 def tracked() -> list[Path]:
@@ -107,6 +128,7 @@ def scan(skip_baseline: bool = False) -> list[str]:
             lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
         except OSError:
             continue
+        head = "\n".join(lines[:FILE_NOTICE_HEAD_LINES])
         for n, line in enumerate(lines, 1):
             window = "\n".join(lines[max(0, n - 3):n + 2])
             if RETIRED_CONTEXT.search(window):
@@ -114,6 +136,8 @@ def scan(skip_baseline: bool = False) -> list[str]:
             for label, pat, instead in RETIRED:
                 m = pat.search(line)
                 if m:
+                    if head_notice_covers(head, label):
+                        break
                     if baseline_key(rel, label, line) in base:
                         break
                     hits.append(f"{rel}:{n}: {label} -- {m.group(0)[:40]!r}\n"

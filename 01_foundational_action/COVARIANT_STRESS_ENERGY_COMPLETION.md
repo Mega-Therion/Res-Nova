@@ -1,5 +1,20 @@
 # Covariant Stress-Energy Completion & Post-Newtonian PPN $\gamma$ Limits
 
+> **BRANCH NOTICE (2026-09-20).** The results below concern
+> $\mathcal{F}_{\text{dual}}(x) = \tfrac12 x^2 - x + \ln(1+x)$ and its constitutive
+> ratio $\mu(x) = x/(1+x)$. **That branch was falsified on 2026-09-12** — it leaves
+> an unscreened solar-system anomalous acceleration far above the Cassini bound —
+> and the theory is rebuilt on $\mu_{\text{std}}(x) = x/\sqrt{1+x^2}$.
+>
+> The algebraic statements here remain **true as mathematics**: $\mathcal{F}_{\text{dual}}$
+> really does have the stated constitutive structure, Padé minimality and
+> ghost-freedom. What is retracted is their status as claims about the *physical*
+> model. A `[P]` below should be read as "proved about $\mathcal{F}_{\text{dual}}$",
+> not "proved about the theory". See `TARGET_D1_SUPPLEMENT_MU_STD_REBUILD.md`
+> for the live derivation.
+
+
+
 **Author:** Ryan W. Yett / Chyren Autonomous Code Engineering  
 **Repository:** `Research_and_Data/Res_Nova_Monograph/01_foundational_action`  
 **Classification:** Canonical Architectural Specification (`[P]` Math / `[D]` Derivation / `[O]` Physical Model Conjectures)  
