@@ -41,6 +41,9 @@ step "mvpc fixture manifests" python3 scripts/render_mvpc_fixtures.py --check
 # without network; CI and release run --online to check DataCite agreement.
 step "publication metadata audit" python3 scripts/audit_publication_metadata.py
 step "publication audit self-test" python3 scripts/audit_publication_metadata.py --self-test
+# Physics grounding. A module a manuscript offers as evidence must say what its
+# symbols denote; 0 sorry is not the same as touching the world.
+step "physics grounding audit" python3 scripts/grounding_audit.py --check
 
 echo
 if [ "$fails" -eq 0 ]; then
