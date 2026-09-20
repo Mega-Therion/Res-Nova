@@ -68,6 +68,7 @@ TARGETS=(
   PPNLimitsStd.lean
   LambdaSBound.lean
   PrecessionBound.lean
+  CoshCosmology.lean
   PPNLimits.lean
   PillarIV_AntiDriftGate.lean
   PrintAxioms.lean

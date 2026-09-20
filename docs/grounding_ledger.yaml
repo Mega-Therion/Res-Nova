@@ -80,6 +80,15 @@ modules:
     observable: "planetary perihelion residuals. Saturn is binding: Hees et al. 2014 PRD 89:102002 (direct Cassini limit, 0.43 mas/cy) and Fienga et al. 2011 CMDA 111:363 Table 5 (INPOP10a supplementary advance, 0.15 +/- 0.65 mas/cy). Mercury: Park et al. 2017 AJ 153:121. Mars: Konopliv et al. 2011 Icarus 211:401"
     falsifier: "a measured perihelion residual with r^(5/2) radial scaling above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
+  - module: CoshCosmology
+    tier: ARITH
+    theorems: 6
+    structures: 0
+    plain_real_defs: 0
+    denotes: "the FLRW K(Q) time-sector and Cosh early-universe completion; adiabatic sound speed c_ad^2 <= r < 1 avoiding early superluminality and preserving the CMB acoustic scale"
+    observable: "Planck 2018 CMB acoustic peak locations (multipole positions l_n) and acoustic scale theta_*, requiring c_ad^2 < 0.02 during radiation domination (a ~ 10^-4) and late-time dark energy w -> -1"
+    falsifier: "a primordial or recombination-era adiabatic scalar sound speed exceeding c_ad^2 > 0.02, or late-time equation of state departing from w = -1"
+
   - module: CosmologicalSector
     tier: ARITH
     theorems: 4

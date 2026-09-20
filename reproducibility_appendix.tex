@@ -1,7 +1,7 @@
 \section*{Appendix A: Lean~4 Source Inventory and Verification Provenance}
 \label{app:lean_theorems}
 
-The tracked Lean~4 sources under \texttt{05\_lean\_formalization/} comprise \textbf{27 modules},
+The tracked Lean~4 sources under \texttt{05\_lean\_formalization/} comprise \textbf{28 modules},
 enumerated in Table~\ref{tab:lean_modules}. This appendix records the headline declarations per
 module and the provenance of the verification run; it adds no claim beyond that table.
 
@@ -22,6 +22,7 @@ global \texttt{axiom}; that is a statement about \texttt{axiom} declarations onl
 \toprule
 \textbf{Module} & \textbf{Headline declarations} \\ \midrule
 \multicolumn{2}{@{}l}{\emph{Proof modules}} \\ \midrule
+\texttt{CoshCosmology.lean} & \texttt{cosh\_curvature\_independent\_of\_Z0}, \texttt{cad\_sq\_early\_saturation}, \texttt{cad\_sq\_pos}, \texttt{late\_time\_equation\_of\_state}, \texttt{quadratic\_exceeds\_threshold}, \texttt{quadratic\_bounded\_by\_one} \\
 \texttt{CosmologicalSector.lean} & \texttt{log\_two\_pos}, \texttt{log\_two\_lt\_one}, \texttt{matter\_density\_bounds}, \texttt{spatial\_flatness\_sum} \\
 \texttt{CovariantCompletion.lean} & \texttt{raqual\_superluminal\_obstruction}, \texttt{disformal\_gamma\_ppn\_unity}, \texttt{preferred\_frame\_parameters\_zero}, \texttt{flrw\_projected\_gradient\_zero}, \texttt{no\_dynamical\_dark\_energy\_density} \\
 \texttt{DeSitterExtremal.lean} & \texttt{desitter\_lapse\_horizon}, \texttt{expr\_cH\_over\_2pi\_pos}, \texttt{desitter\_flat\_limit}, \texttt{volume\_law\_weight\_nonneg} \\
