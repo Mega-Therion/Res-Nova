@@ -121,7 +121,7 @@ not $a_0 = \frac{cH_0}{2\pi}$. The additional $1/(2\pi)$ divisor is an open boun
   - [`02_galaxy_dynamics/PARAMETER_LEDGER.json`](02_galaxy_dynamics/PARAMETER_LEDGER.json)
   - [`02_galaxy_dynamics/NFW_CONSTRAINED.json`](02_galaxy_dynamics/NFW_CONSTRAINED.json)
 * **Summary:**
-  - Working measurement: $a_0 = (1.116 \pm 0.128_{\text{stat}} \pm 0.097_{\text{syst}})\times 10^{-10}\text{ m/s}^2$ (total 14.4% error) across 171 galaxies (3,375 points).
+  - Working measurement: $a_0 = (1.116 \pm 0.128_{\text{stat}} \pm 0.097_{\text{syst}})\times 10^{-10}\text{ m/s}^2$ (total 14.4% error) across 171 galaxies (3,375 points). **SUPERSEDED 2026-09-17 — provenance only.** The live object is the $\mu_{\text{std}}$ row, $a_0 = 1.1607\times10^{-10}$ on 175 galaxies (3,391 points). The gap between the two is *not* the closure effect: it mixes sample, distance treatment and closure. On one frozen harness the closure effect alone is $9.2420\times10^{-11}\to1.16067\times10^{-10}$, **+25.6%**. See `docs/A0_CLOSURE_EVOLUTION.md`.
   - Tension with horizon $cH_0/(2\pi)$: $0.46\sigma$; tension with MOND $1.2\times 10^{-10}$: $0.52\sigma$.
   - Tier 1 matched nuisance GOD fit: 374 parameters (171 galaxies), median $\chi^2_{\text{data}}/N_g = 2.95$.
   - NFW with cosmological concentration prior: 716 parameters (342 extra knobs vs GOD), median $\chi^2_{\text{data}}/N_g = 5.62$.

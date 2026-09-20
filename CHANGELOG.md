@@ -2,6 +2,36 @@
 
 All notable changes to the Res Nova technical manuscript, formal verification, and reproducibility package.
 
+## Tag anomaly — `v2.0.0` is NOT the latest release (documented 2026-09-20)
+
+`git tag -l` lists a **`v2.0.0`**, and by semver it outranks every other tag in this
+repo. It is not the latest state and must not be treated as one.
+
+| tag | commit | commit date |
+|---|---|---|
+| `v1.8.0` | `dd445d8` | 2026-09-12 |
+| `v1.9.0` | `517047f` | 2026-09-18 |
+| `v2.0.0` | `7f749f7` | **2026-08-19** |
+
+`v2.0.0` is **chronologically the oldest of the three**, by about a month. It is an
+ancestor of `main` and has no changelog entry of its own — it appears nowhere in this
+file or in any tracked `.md`/`.json`, which is how it went unnoticed.
+
+Its tag message reads "Res-Nova v2.0.0 Formal Release with verified Lean 4 claims and
+compiled preprints". That release predates two retirements that invalidate its substrate:
+
+- the **V₂₄₀ big-dimension frame**, retired **2026-08-25** (6 days after the tag);
+- **μ_dual = x/(1+x)**, falsified **2026-09-12** (3.5 weeks after the tag).
+
+So anyone resolving "latest version" by version number lands on a release built on a
+retired substrate and a falsified interpolation function, carrying a tag message that
+asserts verification.
+
+**Disposition.** The tag is left in place — it is a real historical release and
+deleting a published tag rewrites the record. The correct latest release is **`v1.9.0`**.
+Anything citing `v2.0.0` should be repointed. A future release that genuinely supersedes
+1.9.x needs a version above 2.0.0 to avoid colliding with this tag.
+
 ## [1.9.0] — 2026-09-16
 
 ### 2026-09-17 (v1.9.x, post-PR-70 hygiene)
