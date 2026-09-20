@@ -56,7 +56,13 @@ RETIRED = [
 
 # Surfaces where a retired entity is a defect. Everything else -- archives,
 # logs, retracted papers, audit scripts, this file -- may name them freely.
-LIVE_GLOBS = ("*.tex", "*.md")
+# zenodo*.json is here because it is a PUBLISHED DESCRIPTION -- it becomes the
+# public deposit record -- and C-04 sat open in it for weeks precisely because
+# this gate only ever looked at prose. Measurement artifacts (A0_REEXTRACTION_*,
+# PARAMETER_LEDGER, claims.json) are deliberately NOT globbed: a data file that
+# records a0 under mu_dual as the falsified control must name it, and scanning
+# those would punish correct provenance.
+LIVE_GLOBS = ("*.tex", "*.md", "zenodo*.json")
 EXEMPT = (
     "raw/Logs/", "80_Archive/", "obsidian_vault_legacy/", "archive/",
     "docs/recovered/", "archive_previous_iterations/", "Tier_2_Physics_Attempt/",
