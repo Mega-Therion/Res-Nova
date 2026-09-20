@@ -75,7 +75,7 @@
     },
     {
       "path": "05_lean_formalization/SkordisZlosnikEmbedding.lean",
-      "sha256": "4201136312032716d04e52e6ba242bf0193b258fb73afadae784fef326b7df25",
+      "sha256": "2c2b599935e308322b43d916636f85114438eab1a6f11287ac248c5f71d0eacc",
       "role": "physics_proof"
     },
     {

@@ -4,29 +4,30 @@ import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Ring
 
 /-!
-## ✅ DUAL INTERPOLATING EMBEDDING FORMALIZATION
+# SUPERSEDED 2026-09-20 -- historical formal algebra on falsified branch
 
-This module formally mechanizes:
-1. The historical dual-channel functional `J_param` and its relation to `mu_dual(x) = x/(1+x)`.
-2. The physically verified standard constitutive functional `J_std` where
-   `mu_std(x) = x / sqrt(1 + x^2)` satisfies Cassini Solar System screening and SPARC galaxy dynamics.
--/
-namespace ResNova.SkordisZlosnik
+This module mechanizes the Skordis-Złośnik kinetic potential matching to the
+historical dual-channel functional `J_param` and its reduction to `mu_dual(x) = x / (1 + x)`.
+`mu_dual` was **falsified [X]** on 2026-09-12 due to unscreened solar-system anomalous acceleration.
+The live theory is rebuilt on `mu_std(x) = x / sqrt(1 + x^2)` within genuine AeST (`PPNLimitsStd.lean`).
+The mathematical theorems below remain verified algebraic results for `J_param`, but
+the physical embedding of `mu_dual` is retired `[X]`. Retained for historical provenance.
 
-noncomputable section
-
-/-!
-# Target D9: Formal Skordis-Złośnik (RMOND) Parent Membership Verification
+## Historical Target D9: Formal Skordis-Złośnik (RMOND) Parent Membership Verification
 
 Epistemic Status:
-- Skordis-Złośnik kinetic potential J(Y) matching to dual-channel closure: [P] PROVED.
-- Quasistatic weak-field reduction to mu(x) = x/(1+x): [P] PROVED.
+- Skordis-Złośnik kinetic potential J(Y) matching to dual-channel closure: [P] PROVED (algebraic).
+- Quasistatic weak-field reduction to mu(x) = x/(1+x): [P] PROVED (for J_param; physically falsified [X]).
 - Non-negative, strictly positive gradient response J'(Y) > 0 for Y > 0: [P] PROVED.
 - Asymptotic recovery: 2 * J'(x^2) -> 1 as x -> ∞: [P] PROVED.
 - Deep-MOND scaling: 2 * J'(x^2) / x -> 1 as x -> 0: [P] PROVED.
 - Luminal tensor mode speed c_T = c_gamma = 1 (identical physical metric frame): [P] PROVED.
-- Membership Verdict: EMBEDDED-VIABLE [P].
+- Membership Verdict: HISTORICAL DUAL EMBEDDING [X-RETIRED PHYSICALLY; ALGEBRA PROVED [P]].
 -/
+
+namespace ResNova.SkordisZlosnik
+
+noncomputable section
 
 /-- Dual-channel kinetic function in terms of x = sqrt(Y) -/
 def F_dual (x : ℝ) : ℝ := (1 / 2) * x^2 - x + Real.log (1 + x)

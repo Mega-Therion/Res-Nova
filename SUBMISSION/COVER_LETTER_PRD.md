@@ -7,6 +7,13 @@
 
 ---
 
+> **SUBMISSION REVISION NOTE (2026-09-20 · v1.9.0):**
+> This cover letter documents the original submission under $\mu_{\text{dual}}(x) = x/(1+x)$.
+> Following the repository's internal audits on 2026-09-12 and 2026-09-20:
+> 1. $\mu_{\text{dual}}$ produced an unscreened solar-system anomalous acceleration ($10^3\times$ Cassini bound) and was **falsified [X]**; the manuscript and theory are rebuilt on $\mu_{\text{std}}(x) = x/\sqrt{1+x^2}$ where the $1/(2x^2)$ tail satisfies planetary precession ($\lambda_s \lesssim 1.0$) and Cassini $Q_2$ ($\lambda_s \lesssim 2.7$).
+> 2. The $5.9\sigma$ preference for constant $a_0$ is **retracted [X]** as closure-sensitive; the pre-registered intermediate-$z$ test under $\mu_{\text{std}}$ is inconclusive ($\Delta\chi^2 = +4.24$, $2.06\sigma$), leaving $a_0(z)$ open.
+> 3. The formal Lean 4 verification suite has expanded from 17 to 28 core manuscript modules (58 total gated monorepo modules), all verified with 0 sorry.
+
 Dear Editors,
 
 I submit for your consideration the manuscript *Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark*.

@@ -7,8 +7,8 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against repo HEAD:** 2026-09-16 (the audit-cycle state below supersedes
-any pre-2026-09-16 substrate claim not updated by it; commit 8ca0e34). If this date is more than a few days old
+**Last verified against repo HEAD:** 2026-09-20 (the audit-cycle state below supersedes
+any pre-2026-09-16 substrate claim not updated by it; commit `85953d0`). If this date is more than a few days old
 when you read it, treat every claim below as suspect and re-derive its status from
 `PEER_REVIEW_READINESS.md` directly before using it.
 
@@ -67,8 +67,8 @@ one place, unambiguous, checked first, every time.
 |---|---|---|
 | D1 | [P] | Variational derivation — needs re-check against μ_std (in progress) |
 | D2 | [P/O] | μ_std structural uniqueness exists; not yet Lean-formalized clean |
-| D3 | [P/O] | γ=1 derived (F-independent); β scoped; α₁/α₂ open with named obstruction |
-| D5 | [P/O] | AeST 𝒦(𝒬) cosmology rebuilt; non-linear structure formation unsimulated by anyone |
+| D3 | [P/D/O] | γ=1 derived; precession bound λ_s ≲ 2.2 [D]; Cassini Q₂ bound λ_s ≲ 2.7 [D] (0.97 withdrawn); β scoped; α₁/α₂ open |
+| D5 | [P/O] | Cosh cosmology time-sector formalized (`CoshCosmology.lean`, 6 theorems, 0 sorry, ARITH); non-linear structure formation unsimulated |
 | D6 | [P] | Ghost-free CLOSED 2026-09-12, twice-verified (`TARGET_D1_SUPPLEMENT` §5 + D6/D8/D9 revalidation rows 9–10); open: Λ_SC ≈ 1.8 meV vs fifth-force tests [O], J-normalization muddle [O], AeST superluminality [O] |
 | D7 | [P/O] | Action corrected to AeST; base solid, downstream re-checks ongoing |
 | D8 | [P] | c_T=c — upgraded to structural, strongest result in the corpus |
@@ -113,10 +113,9 @@ block). Key state changes an agent must know:
 
 - μ_dual is `[X]` (falsified); **μ_std is the only cosmologically comparable
   μ-row** (a₀ = 1.1607e-10, 95% [9.72, 12.95]e-11).
-- The substrate's reflection sector is **Pin⁻, derived not assumed**
-  (N4 derived from spinoriality + thermal sheets + B-cov parity + Kramers
-  `[C]` — `N4_ACTION_DERIVATION_AUDIT_2026-09-16.md`, 13/13). GL(2,3) is the
-  Pin⁺-type cover: never use it as the reflection model.
+- The substrate's reflection sector: **Pin⁻ selection is OPEN again [O]**
+  (Obligation 4 reopened 2026-09-16 per the correction block below; chain (i)–(v)
+  under the standard Witten dictionary selects Pin⁺, not Pin⁻; see `CORE_OBJECTS_AUDIT_LEDGER_2026-09-16.md:103`).
 - a₀ = cH₀/2π is **distance-robust but its H₀ inversion is NOT independent**
   (ladder-covariant; 95% intervals only; no side taken in the Hubble
   tension; see `A0_PREDICTION_AUDIT_2026-09-16.md` VERIFICATION section).

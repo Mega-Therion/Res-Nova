@@ -12,7 +12,7 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 **Closure path:** a derivation of the factor `1/(2\pi)` from a stated action plus a stated equilibrium condition, with the `2\pi` surviving after the same cancellations that already killed earlier KMS attempts (`CORPUS_DEPENDENCY_MAP.md` Root 2). Until that exists, do not say “derived.”
 
-**Test path:** `a_0(z) = \xi\, c\, H(z)` on independent high-`z` dynamical tracers (strong lenses, resolved high-`z` rotation, or spacecraft-equivalent kinematic maps). One universe at one epoch cannot tell “tied to the horizon” from “happens to be constant.” This test is not in the repo.
+**Test path:** `a_0(z) = \xi\, c\, H(z)` on independent high-`z` dynamical tracers (strong lenses, resolved high-`z` rotation, or spacecraft-equivalent kinematic maps). One universe at one epoch cannot tell “tied to the horizon” from “happens to be constant.” The preliminary intermediate-z analysis harness exists (`03_observer_jwst/a0_of_z_v2.py`); high-z resolved confirmation remains open.
 
 **Quarantine:** “`a0` is an empirical acceleration scale, numerically consistent with `cH_0/(2\pi)` inside present errors.” Never: “`a0` is derived from the Hubble scale.”
 
@@ -54,9 +54,9 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 **Claim (not granted):** early galaxies confirm the theory.
 
-**Status:** `[O]` — for the JWST/NIRSpec confirmation campaign only. The pre-registered `a0(z)` hypothesis test inside this directory has been completed as `[D]` (data-status note, 2026-09-09).
+**Status:** `[O]`. The pre-registered intermediate-`z` `a0(z)` test under the live $\mu_{\text{std}}$ closure is inconclusive ($\Delta\chi^2 = +4.24$, $2.06\sigma$; `A0_OF_Z_REPORT_V2.json`). The earlier $5.9\sigma$ result under $\mu_{\text{dual}}$ was retracted on 2026-09-12 (`PREREG_A0_OF_Z_V2.md:46`).
 
-**Data-status note (2026-09-09):** the pre-registered redshift test is closed, not open. Pre-registration `PREREG_A0_OF_Z.md` was frozen before data evaluation; evaluation artifacts `a0_of_z.py` and `A0_OF_Z_REPORT.json` (status `completed`, `[D] Computed Empirical Benchmark`) report constant `a0` favoured over the horizon-tied `a0(z) = xi * c * H(z)` at 5.9 sigma on 20 MUSE-DARK III / HUDF galaxies (0.413 <= z <= 1.44, median 0.94). The manuscript's O4 bullet and summary reflect this and are consistent. The *remaining* open scope of this entry is the JWST/NIRSpec high-`z` extension: a frozen, pre-registered catalog, a statistic, and a public script that emits a JSON the ledger can cite. Until that campaign has its JSON, JWST language stays out of the abstract.
+**Data-status note (Updated 2026-09-20):** the 2026-09-09 $5.9\sigma$ result is retracted `[X]` as closure-dependent. Re-extraction under $\mu_{\text{std}}$ (`03_observer_jwst/a0_of_z_v2.py`, `A0_OF_Z_REPORT_V2.json`) finds neither constant $a_0$ nor horizon-tied $a_0(z)$ preferred above $3\sigma$ across the MUSE-DARK III sample. The test status is OPEN `[O]`. The *remaining* open scope of this entry is the JWST/NIRSpec high-`z` extension: a frozen, pre-registered catalog, a statistic, and a public script that emits a JSON the ledger can cite. Until that campaign has its JSON, JWST language stays out of the abstract.
 
 **Closure path:** a frozen, pre-registered catalog, a statistic, and a public script that emits a JSON the ledger can cite.
 
