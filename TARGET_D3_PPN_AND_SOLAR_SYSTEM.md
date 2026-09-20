@@ -584,7 +584,17 @@ the strongest, which inverts `TARGET_D1_SUPPLEMENT` §4's framing. At `λ_s→0`
 | **Saturn (Cassini)** | **9.583** | **6.458×10⁻⁵** | **9.643×10⁻¹⁷** | **6.727×10⁻²⁹** | **50.5** | **2.70** |
 | Uranus | 19.22 | 1.606×10⁻⁵ | 3.878×10⁻¹⁶ | 1.349×10⁻²⁸ | 25.2 | 1.93 |
 
-**The Q₂ mapping is the weak link, so the bound is cross-checked by a second observable [D].**
+**ROUTE 1 IS A HEURISTIC, NOT A BOUND (settled 2026-09-20).** `Q₂ᵉᑫ = δg/r`
+compares two different geometric objects. `δg ∝ r²` is an **isotropic central**
+perturbation — a monopole; `∇²δΦ = −4kr ≠ 0`, i.e. an effective source density.
+The published `Q₂` is the **traceless anisotropic** coefficient of the MOND
+external-field effect, `Φ_EFE = −½ Q₂ (z² − r²/3)`. Reading a monopole against
+a quadrupole bound is an order-of-magnitude comparison and cannot be more.
+Route 1 is therefore **demoted to a heuristic magnitude check [C]** and is no
+longer quoted as the bound. This is the same category error as the corpus's
+twice-retracted "1137×", caught before it shipped rather than after.
+
+**Route 2 is the bound.**
 `Q₂ᵉᑫ = δg/r` treats a *monopole* correction (`δg ∝ r²` is spherically symmetric, `∇²δΦ = −4kr ≠ 0`,
 i.e. an effective source density) as if it were the *anisotropic* quadrupole coefficient Hees
 et al. bound. That mapping is inherited from D7 §4.3, where it was applied to a constant force
@@ -626,11 +636,47 @@ someone reads the tables, the citations establish that a real measurement
 exists at roughly this precision, not that these are the exact published
 numbers.
 
-**The two routes agree on the structure and on the order [D]; they differ by ~2.8× in λ_s [C].**
+**Route 2 derivation, re-derived independently 2026-09-20 [D].** For any
+isotropic central perturbation `δg = k rⁿ` on a near-circular orbit, the apsidal
+angle `Φ = π/√(3 + rF′/F)` expands to `Φ ≈ π(1 − (n+2)u/2)` with `u = δg/g_N`,
+giving `Δϖ = π(n+2) δg/g_N` per revolution — for `n = 2`, exactly `4π δg/g_N`.
+Dividing by `P = 2π√(r³/GM)`:
+
+$$\dot\varpi=\frac{(1+\lambda_s)^{3}a_0^{2}\,r^{5/2}}{(GM)^{3/2}}$$
+
+**Note the denominator is `(GM)^{3/2}`, not `√(GM)`** — the `√(GM)` form that
+circulated is dimensionally wrong by a factor `GM` (it returns `1.7×10¹⁵`
+arcsec/cy at Saturn). Verified two ways at Mercury, Mars and Saturn: the closed
+form and the two-step `Δϖ/P` route agree to machine precision, and reproduce
+the table's `4.28×10⁻⁹`, `1.32×10⁻⁷`, `1.31×10⁻⁵` arcsec/cy.
+
+Formalized in `05_lean_formalization/PrecessionBound.lean`: monotone in `r` and
+in `λ_s`, the ceiling inversion, and strict positivity of the bounded quantity —
+0 sorry, standard axioms. `precession_mono_r` carries `r² √r` against Route 1's
+`r`, so the outer solar system binds far harder here, proved rather than asserted.
+
+**The two routes agree on the structure and on the order; they differ by ~2.8× in λ_s.**
 Saturn binds under both (`r^{5/2}` is even more outer-planet-weighted than `Q₂ᵉᑫ ∝ r`), Mercury
-is the *least* constraining point under both, and both land at `λ_s = O(1)`. **Honest labelling (reviewed 2026-09-20): the existence of an O(1) upper bound
-on λ_s is [D]; the specific number remains [C].** The provenance gap is now
-closed — every ephemeris bound carries a Crossref-checked DOI — but provenance
+is the *least* constraining point under both, and both land at `λ_s = O(1)`. **Tier, reviewed 2026-09-20 after the Route 1 demotion.**
+
+| component | tier | why |
+|---|:-:|---|
+| existence of an O(1) ceiling on λ_s | **[D]** | follows from the derivation plus any finite precession bound |
+| the precession formula `ϖ̇ = (1+λ_s)³a₀²r^{5/2}/(GM)^{3/2}` | **[D]** | re-derived from Gauss/apsidal-angle independently; verified two ways numerically; formalized in Lean, 0 sorry |
+| Saturn binds, not Mercury | **[D]** | `precession_mono_r`, proved |
+| Route 1's `Q₂ᵉᑫ` comparison | **[C]** | monopole read against a quadrupole datum; heuristic only |
+| **λ_s ≤ 0.97 as a number** | **[D*]** | derivation exact, but rests on `\|ϖ̇\| < 1.0×10⁻⁴` arcsec/cy at Saturn |
+
+**The one remaining input.** The geometric objection that kept this at [C] is
+gone: Route 2 compares like with like. What the number now rests on is a single
+empirical value — the Saturn precession residual. That value is attributed to
+INPOP17a Table 6, but `Viswanathan et al. 2018, MNRAS 476:1877` is the **lunar**
+ephemeris paper, and the Saturn planetary residual belongs to the INPOP/Fienga
+planetary series. **[D\*] means: derived given that bound; confirm the source
+and it is [D] outright.** That is one table lookup, not a research problem, and
+it is the last thing between λ_s ≲ 1.0 and a fully derived result.
+
+The provenance gap is now closed — every ephemeris bound carries a Crossref-checked DOI — but provenance
 was only one of the two reasons the number was tiered [C], and it was not the
 binding one. The Q₂ route still maps a monopole residual (δg ∝ r² is spherically
 symmetric) onto an anisotropic quadrupole datum, and the precession route's

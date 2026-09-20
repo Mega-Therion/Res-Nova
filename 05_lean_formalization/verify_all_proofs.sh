@@ -67,6 +67,7 @@ TARGETS=(
   MuStdSelection.lean
   PPNLimitsStd.lean
   LambdaSBound.lean
+  PrecessionBound.lean
   PPNLimits.lean
   PillarIV_AntiDriftGate.lean
   PrintAxioms.lean
