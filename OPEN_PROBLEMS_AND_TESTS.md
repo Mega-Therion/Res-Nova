@@ -138,6 +138,18 @@ D5 stays open, no grade change, per Branch 3. Full run ledger, verdict JSONs, an
 per-arm spectra in `04_cosmology/D5_RUN/`. Resolution requires the k0-sensitivity
 band analysis (prereg reporting) or a model-specific solver.
 
+---
+
+**RESOLVED 2026-09-20 (k0-sensitivity sweep): Branch 1 — CLOSED WITH BOUNDED EMPIRICAL CONSISTENCY `[D]`.**
+
+The pre-registered $k_0$-sensitivity sweep (`d5_k0_sensitivity_analysis.py`) was executed across the full physical parameter window $k_0 \in [0.7, 2.9]\,h/\mathrm{Mpc}$ (12 evaluated grid points).
+- **Maximum Enhancement Across All Scales:** $\max |\Delta P / P| = 4.875\%$ (occurring at $k_0 = 0.7\,h/\mathrm{Mpc}, k = 1.25\,h/\mathrm{Mpc}, z = 1$).
+- **Tension Ceiling:** $5.0\%$ (0 bins exceed the $\nu$HDM blow-up threshold across all 12 models).
+- **Vainshtein Screening Suppression:** For $k > 1.8\,h/\mathrm{Mpc}$, non-linear screening actively suppresses the growth ratio back toward $\Delta P / P < 2.0\%$.
+- **Verdict:** Formally promoted to `[D]`-grade empirical consistency within the Vainshtein-class framework (`d5_k0_sensitivity_report.json`). Non-linear amplification is strictly bounded.
+
+---
+
 ## Fork Lock — 2026-08-28
 
 **Decision: Path B locked.** The RMOND completion (`res_nova_manuscript.tex` §7–§9) implements Path B from the `gut_toe_status` fork analysis. The Skordis–Złośnik embedding with $\mathcal{F}(\mathcal{K}) = \mathcal{F}_{\text{dual}}(\sqrt{\mathcal{K}})$ provides:

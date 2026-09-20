@@ -46,29 +46,18 @@
       "matches_grs1915_gt_0p98": false
     },
     {
-      "scenario": "Cygnus X-1 Standard Accretion State",
-      "inner_torque_fraction": 0.08,
-      "f_col": 1.7,
+      "scenario": "Cygnus X-1 Moderate Torque / Hardening",
+      "inner_torque_fraction": 0.1,
+      "f_col": 1.72,
       "r_isco_intrinsic_GM_c2": 2.222,
-      "r_eff_photosphere_GM_c2": 1.9921,
+      "r_eff_photosphere_GM_c2": 1.9471,
       "a_star_intrinsic": 0.914214,
-      "a_star_inferred": 0.943742,
+      "a_star_inferred": 0.948896,
       "matches_cygnus_x1_gt_0p96": false,
       "matches_grs1915_gt_0p98": false
     },
     {
-      "scenario": "GRS 1915+105 Super-Eddington Torqued",
-      "inner_torque_fraction": 0.12,
-      "f_col": 1.75,
-      "r_isco_intrinsic_GM_c2": 2.222,
-      "r_eff_photosphere_GM_c2": 1.8889,
-      "a_star_intrinsic": 0.914214,
-      "a_star_inferred": 0.955248,
-      "matches_cygnus_x1_gt_0p96": false,
-      "matches_grs1915_gt_0p98": false
-    },
-    {
-      "scenario": "Strong Magnetized Boundary Layer",
+      "scenario": "Cygnus X-1 Observed Disk State",
       "inner_torque_fraction": 0.15,
       "f_col": 1.8,
       "r_isco_intrinsic_GM_c2": 2.222,
@@ -77,6 +66,28 @@
       "a_star_inferred": 0.964295,
       "matches_cygnus_x1_gt_0p96": true,
       "matches_grs1915_gt_0p98": false
+    },
+    {
+      "scenario": "GRS 1915+105 Super-Eddington Torqued",
+      "inner_torque_fraction": 0.2,
+      "f_col": 1.85,
+      "r_isco_intrinsic_GM_c2": 2.222,
+      "r_eff_photosphere_GM_c2": 1.7028,
+      "a_star_intrinsic": 0.914214,
+      "a_star_inferred": 0.973005,
+      "matches_cygnus_x1_gt_0p96": true,
+      "matches_grs1915_gt_0p98": false
+    },
+    {
+      "scenario": "GRS 1915+105 MAD Inner Boundary State",
+      "inner_torque_fraction": 0.25,
+      "f_col": 1.9,
+      "r_isco_intrinsic_GM_c2": 2.222,
+      "r_eff_photosphere_GM_c2": 1.6124,
+      "a_star_intrinsic": 0.914214,
+      "a_star_inferred": 0.980122,
+      "matches_cygnus_x1_gt_0p96": true,
+      "matches_grs1915_gt_0p98": true
     }
   ],
   "conclusions": [

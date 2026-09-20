@@ -1,7 +1,7 @@
 /-
-Copyright (c) 2026 Ryan W. Yett / Chyren / Res-Nova. All rights reserved.
+Copyright (c) 2026 R.W. Yett / Chyren / Res-Nova. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Ryan W. Yett, Antigravity
+Authors: R.W. Yett, Antigravity
 -/
 import Mathlib.Data.Real.Basic
 import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
@@ -12,7 +12,7 @@ import Mathlib.Tactic
 
 This module formally analyzes the thermal horizon matching hypothesis between the
 Gibbons-Hawking de Sitter cosmological horizon temperature and the local Unruh temperature
-of an accelerated observer.
+of an accelerated observer, as well as the holographic Freeman surface density relation.
 
 ## Main Theoretical Results
 
@@ -28,8 +28,16 @@ of an accelerated observer.
    Obtaining `a₀ = c * H / (2 * π)` requires dividing by `2 * π` as an unproved
    auxiliary postulate (`[O]`). The first-principles thermal equilibrium produces `a = c * H`.
 
+4. `freeman_surface_density_relation`:
+   The geometric Poisson boundary projection connects the acceleration scale `a₀` to
+   the critical Freeman galactic central surface density `Σ₀ = a₀ / (2 * π * G)`.
+
+5. `freeman_density_from_horizon`:
+   Under the horizon-scale relation `a₀ = c * H / (2 * π)`, the Freeman surface density
+   is exactly `Σ₀ = (c * H) / (4 * π² * G)`.
+
 ## Epistemic Boundary
-- Mathematical status: `[P]` (Formal algebraic proof of 2π KMS cancellation).
+- Mathematical status: `[P]` (Formal algebraic proof of 2π KMS cancellation and Freeman relation).
 - Physical identification of `a₀` with SPARC: `[O]` (Requires Workstream B empirical redshift test).
 -/
 
@@ -110,6 +118,42 @@ theorem verlinde_entropic_cancellation (hbar c H kB : ℝ)
   have h_hbar_ne : hbar ≠ 0 := ne_of_gt h_hbar
   field_simp
 
+/-- Freeman surface density definition: Σ₀ = a₀ / (2 * π * G). -/
+def freeman_surface_density (a0 G : ℝ) : ℝ :=
+  a0 / (2 * Real.pi * G)
+
+/-- Freeman relation equivalence: Σ₀ = a₀ / (2 * π * G) ↔ a₀ = 2 * π * G * Σ₀. -/
+theorem freeman_surface_density_relation (a0 G : ℝ) (hG : G > 0) (h_pi : Real.pi > 0) :
+    freeman_surface_density a0 G * (2 * Real.pi * G) = a0 := by
+  unfold freeman_surface_density
+  have h_denom : 2 * Real.pi * G ≠ 0 := by
+    apply mul_ne_zero
+    · exact mul_ne_zero (by norm_num) (ne_of_gt h_pi)
+    · exact ne_of_gt hG
+  exact div_mul_cancel₀ a0 h_denom
+
+/-- Freeman surface density expressed in terms of cosmological Hubble horizon scale
+    when a₀ = (c * H) / (2 * π):
+    Σ₀ = (c * H) / (4 * π² * G). -/
+theorem freeman_density_from_horizon (c H G : ℝ) (hG : G > 0) (h_pi : Real.pi > 0) :
+    freeman_surface_density ((c * H) / (2 * Real.pi)) G = (c * H) / (4 * Real.pi ^ 2 * G) := by
+  unfold freeman_surface_density
+  have h_pi_ne : Real.pi ≠ 0 := ne_of_gt h_pi
+  have hG_ne : G ≠ 0 := ne_of_gt hG
+  have h_two_ne : (2 : ℝ) ≠ 0 := by norm_num
+  have h_denom1 : 2 * Real.pi ≠ 0 := mul_ne_zero h_two_ne h_pi_ne
+  have h_denom2 : 2 * Real.pi * G ≠ 0 := mul_ne_zero h_denom1 hG_ne
+  field_simp
+  ring
+
+/-- Positivity of Freeman surface density given positive fundamental parameters. -/
+theorem freeman_surface_density_pos (a0 G : ℝ) (ha : a0 > 0) (hG : G > 0) (_h_pi : Real.pi > 0) :
+    freeman_surface_density a0 G > 0 := by
+  unfold freeman_surface_density
+  have h_denom : 2 * Real.pi * G > 0 := by positivity
+  exact div_pos ha h_denom
+
 end
 
 end ResNova.HorizonScale
+

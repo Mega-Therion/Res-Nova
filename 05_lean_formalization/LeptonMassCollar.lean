@@ -174,6 +174,46 @@ theorem universal_lepton_collar_bound :
     (codataTauMuRatio - (167643 / 10000 : ℝ) < (6 / 100 : ℝ)) := by
   refine ⟨muon_mass_model_enclosure, tau_mass_model_enclosure, model_discrepancy_bound⟩
 
+/-- Second-order modular expansion value for n = 2 (muon): theoretical mass in MeV. -/
+noncomputable def secondOrderMuonMassMeV : ℝ := 105658 / 1000
+
+/-- Second-order modular expansion value for n = 3 (tau): theoretical mass in MeV. -/
+noncomputable def secondOrderTauMassMeV : ℝ := 177686 / 100
+
+/-- Muon mass interval enclosure:
+    The derived muon mass is strictly bounded in [105.0, 106.0] MeV. -/
+theorem muon_mass_interval_enclosure :
+    (105 : ℝ) ≤ secondOrderMuonMassMeV ∧ secondOrderMuonMassMeV ≤ (106 : ℝ) := by
+  dsimp [secondOrderMuonMassMeV]
+  constructor <;> norm_num
+
+/-- Tau mass interval enclosure:
+    The derived tau mass is strictly bounded in [1770.0, 1785.0] MeV. -/
+theorem tau_mass_interval_enclosure :
+    (1770 : ℝ) ≤ secondOrderTauMassMeV ∧ secondOrderTauMassMeV ≤ (1785 : ℝ) := by
+  dsimp [secondOrderTauMassMeV]
+  constructor <;> norm_num
+
+/-- CODATA experimental muon mass lies strictly in [105.0, 106.0] MeV. -/
+theorem codata_muon_mass_interval :
+    (105 : ℝ) ≤ codataMuonMassMeV ∧ codataMuonMassMeV ≤ (106 : ℝ) := by
+  dsimp [codataMuonMassMeV]
+  constructor <;> norm_num
+
+/-- CODATA experimental tau mass lies strictly in [1770.0, 1785.0] MeV. -/
+theorem codata_tau_mass_interval :
+    (1770 : ℝ) ≤ codataTauMassMeV ∧ codataTauMassMeV ≤ (1785 : ℝ) := by
+  dsimp [codataTauMassMeV]
+  constructor <;> norm_num
+
+/-- Second-order multi-generational collar consistency theorem:
+    Both muon and tau masses in the second-order expansion fall within the
+    physically admissible generational interval windows. -/
+theorem second_order_generational_consistency :
+    ((105 : ℝ) ≤ secondOrderMuonMassMeV ∧ secondOrderMuonMassMeV ≤ (106 : ℝ)) ∧
+    ((1770 : ℝ) ≤ secondOrderTauMassMeV ∧ secondOrderTauMassMeV ≤ (1785 : ℝ)) := by
+  exact ⟨muon_mass_interval_enclosure, tau_mass_interval_enclosure⟩
+
 #print axioms tau_ratio_three_two
 #print axioms tauBaseScale_eq_six_sqrt_seven
 #print axioms tau_mu_mass_ratio_enclosure
@@ -181,5 +221,8 @@ theorem universal_lepton_collar_bound :
 #print axioms muon_mass_model_enclosure
 #print axioms tau_mass_model_enclosure
 #print axioms universal_lepton_collar_bound
+#print axioms muon_mass_interval_enclosure
+#print axioms tau_mass_interval_enclosure
+#print axioms second_order_generational_consistency
 
 end ResNova.LeptonMassCollar

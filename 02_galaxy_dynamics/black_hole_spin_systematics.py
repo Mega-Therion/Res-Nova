@@ -81,9 +81,10 @@ def run_cygnus_x1_simulation() -> Dict[str, Any]:
     scenarios = [
         {"name": "Ideal Novikov-Thorne (Zero Torque)", "torque_fraction": 0.00, "f_col": 1.60},
         {"name": "Mild Magnetic Torque (GRMHD Typical)", "torque_fraction": 0.04, "f_col": 1.65},
-        {"name": "Cygnus X-1 Standard Accretion State", "torque_fraction": 0.08, "f_col": 1.70},
-        {"name": "GRS 1915+105 Super-Eddington Torqued", "torque_fraction": 0.12, "f_col": 1.75},
-        {"name": "Strong Magnetized Boundary Layer", "torque_fraction": 0.15, "f_col": 1.80},
+        {"name": "Cygnus X-1 Moderate Torque / Hardening", "torque_fraction": 0.10, "f_col": 1.72},
+        {"name": "Cygnus X-1 Observed Disk State", "torque_fraction": 0.15, "f_col": 1.80},
+        {"name": "GRS 1915+105 Super-Eddington Torqued", "torque_fraction": 0.20, "f_col": 1.85},
+        {"name": "GRS 1915+105 MAD Inner Boundary State", "torque_fraction": 0.25, "f_col": 1.90},
     ]
     
     results = []

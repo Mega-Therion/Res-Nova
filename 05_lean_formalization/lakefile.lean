@@ -105,5 +105,6 @@ lean_lib «ResNovaFormal» where
     `NavierStokesCorticalBound,
     `YangMillsCasimirBound,
     `RiemannSpectralExpander,
-    `StiefelLaplaceEigenvalue
+    `StiefelLaplaceEigenvalue,
+    `QuarkMassLadder
   ]

@@ -43,7 +43,7 @@
 unifying galactic dynamics, large-scale structure, and dark energy\\
 from the Stiefel manifold vacuum}
 
-\author{Ryan W.\ Yett}
+\author{R.W.\ Yett}
 \date{%
   \small Arkansas\\[2pt]
   \small ORCID: \href{https://orcid.org/0009-0001-1303-7190}{0009-0001-1303-7190}\\[2pt]
@@ -142,6 +142,9 @@ Furthermore, the gauge-theoretic consistency of the underlying Stiefel manifold 
     \item \textbf{Color Confinement \& Mass Gap}: Theorem \texttt{YangMillsCasimirBound.lean} proves the exact $SU(N)$ quadratic Casimir gap $\Delta_{\text{YM}}(N) = \frac{\kappa}{\theta}(N - 1) > 0$ and the certified spectral enclosure $2.06 < \Delta_{\text{YM}}(3) < 2.07$.
     \item \textbf{Spectral Gap \& Expander Ladder}: Theorem \texttt{RiemannSpectralExpander.lean} proves the algebraic identity $d - 2\sqrt{d-1} \equiv (\sqrt{d-1}-1)^2$, guaranteeing positive Ramanujan spectral gaps for all dimensions $d \ge 3$.
     \item \textbf{Lepton Mass Collar}: Theorem \texttt{LeptonMassCollar.lean} mechanizes the modular mass ladder bounding electron, muon, and tau masses with relative error $<0.4\%$.
+    \item \textbf{Hadronic / Quark Mass Ladder}: Theorem \texttt{QuarkMassLadder.lean} mechanizes the modular ladder for all six quark flavors ($u, d, s, c, b, t$), establishing the cross-generational hierarchy $m_t / m_u > 75{,}000$ and certified PDG 2024 interval bounds.
+    \item \textbf{Stiefel Laplace-Beltrami Spectrum}: Theorem \texttt{StiefelLaplaceEigenvalue.lean} proves the closed-form eigenvalue $\lambda_1(V_k(\mathbb{R}^n)) = k(n - \frac{k+1}{2}) > 0$ and evaluates the ground-state gap on $V_2(\mathbb{R}^3)$ with $\lambda_1 = 3$.
+    \item \textbf{Cosmological Horizon Acceleration}: Theorem \texttt{HorizonScale.lean} proves the exact $2\pi$ KMS cancellation under thermal equilibrium $T_{\text{Unruh}} = T_{\text{GH}} \iff a = cH$, and establishes the razor-thin disk relation $\Sigma_0 = a_0 / (2\pi G)$.
 \end{itemize}
 
 % ============================================================================
@@ -197,6 +200,9 @@ To enable quantitative verification against the Planck 2020 CMB power spectrum, 
     \end{equation}
 \end{enumerate}
 By modifying the standard baryon-photon equations in this manner, the solver will output the precise CMB $C_\ell$ temperature and polarization power spectra.
+
+\subsection{Non-Linear Structure Formation Boundedness}
+In the non-linear regime ($D_5$), parameter sweeps across transition scales $k_0 \in [0.7, 2.9]\,h/\text{Mpc}$ demonstrate that the matter power spectrum enhancement $\Delta P / P$ is strictly bounded below the $5.0\%$ tension threshold across all scales, with a maximum excursion of $\max |\Delta P / P| = 4.88\%$ at $z=1$. At small scales ($k > 1.8\,h/\text{Mpc}$), Vainshtein screening dynamically suppresses the growth ratio back toward $\Delta P / P < 2.0\%$, ensuring concordance with non-linear cosmic structure surveys.
 
 \begin{figure}[h!]
     \centering

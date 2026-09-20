@@ -1,0 +1,160 @@
+{
+  "analysis_name": "D5_k0_sensitivity_band_closure",
+  "author": "R.W. Yett",
+  "timestamp": "2026-09-20T05:39:00Z",
+  "protocol": "PREREG_D5_MG_EVOLUTION.md",
+  "nominal_config": {
+    "k0_z0": 1.4337669386734644,
+    "k0_z1": 0.7168834693367322,
+    "worst_bin_measured": 0.030259935153029716,
+    "worst_bin_k": 1.353676,
+    "tension_threshold": 0.05
+  },
+  "sensitivity_band_z0": [
+    0.7,
+    2.9
+  ],
+  "sweep_points": [
+    {
+      "k0_z0_hmpc": 0.7,
+      "k0_z1_hmpc": 0.35,
+      "f_tilde_at_k0_z0": 0.8284271247461903,
+      "f_tilde_at_k1_z0": 0.6714225576437133,
+      "f_tilde_at_k1_z1": 0.3371602298360729,
+      "predicted_peak_dp_z1": 0.013193123894662075,
+      "bounded_under_5pct": true
+    },
+    {
+      "k0_z0_hmpc": 0.8571428571428571,
+      "k0_z1_hmpc": 0.42857142857142855,
+      "f_tilde_at_k0_z0": 0.8284271247461903,
+      "f_tilde_at_k1_z0": 0.766661070866975,
+      "f_tilde_at_k1_z1": 0.4253643585641171,
+      "predicted_peak_dp_z1": 0.01707073866417882,
+      "bounded_under_5pct": true
+    },
+    {
+      "k0_z0_hmpc": 1.0142857142857142,
+      "k0_z1_hmpc": 0.5071428571428571,
+      "f_tilde_at_k0_z0": 0.8284271247461903,
+      "f_tilde_at_k1_z0": 0.8335394293356364,
+      "f_tilde_at_k1_z1": 0.5071086846383084,
+      "predicted_peak_dp_z1": 0.020899675880001946,
+      "bounded_under_5pct": true
+    },
+    {
+      "k0_z0_hmpc": 1.1714285714285715,
+      "k0_z1_hmpc": 0.5857142857142857,
+      "f_tilde_at_k0_z0": 0.8284271247461903,
+      "f_tilde_at_k1_z0": 0.8796573342150926,
+      "f_tilde_at_k1_z1": 0.5805967626667868,
+      "predicted_peak_dp_z1": 0.02458739741195931,
+      "bounded_under_5pct": true
+    },
+    {
+      "k0_z0_hmpc": 1.3285714285714287,
+      "k0_z1_hmpc": 0.6642857142857144,
+      "f_tilde_at_k0_z0": 0.8284271247461903,
+      "f_tilde_at_k1_z0": 0.9114393436956296,
+      "f_tilde_at_k1_z1": 0.6450909131609605,
+      "predicted_peak_dp_z1": 0.02806799286207874,
+      "bounded_under_5pct": true
+    },
+    {
+      "k0_z0_hmpc": 1.4857142857142858,
+      "k0_z1_hmpc": 0.7428571428571429,
+      "f_tilde_at_k0_z0": 0.8284271247461903,
+      "f_tilde_at_k1_z0": 0.9335614787888373,
+      "f_tilde_at_k1_z1": 0.7006324981216012,
+      "predicted_peak_dp_z1": 0.031298221555238065,
+      "bounded_under_5pct": true
+    },
+    {
+      "k0_z0_hmpc": 1.642857142857143,
+      "k0_z1_hmpc": 0.8214285714285715,
+      "f_tilde_at_k0_z0": 0.8284271247461903,
+      "f_tilde_at_k1_z0": 0.9492008078339342,
+      "f_tilde_at_k1_z1": 0.7477804286182566,
+      "predicted_peak_dp_z1": 0.034253885092376445,
+      "bounded_under_5pct": true
+    },
+    {
+      "k0_z0_hmpc": 1.8,
+      "k0_z1_hmpc": 0.9,
+      "f_tilde_at_k0_z0": 0.8284271247461903,
+      "f_tilde_at_k1_z0": 0.9604562655189217,
+      "f_tilde_at_k1_z1": 0.7873872717195135,
+      "predicted_peak_dp_z1": 0.03692626547224193,
+      "bounded_under_5pct": true
+    },
+    {
+      "k0_z0_hmpc": 1.9571428571428573,
+      "k0_z1_hmpc": 0.9785714285714286,
+      "f_tilde_at_k0_z0": 0.8284271247461903,
+      "f_tilde_at_k1_z0": 0.9687063161912354,
+      "f_tilde_at_k1_z1": 0.8204266362195078,
+      "predicted_peak_dp_z1": 0.03931864654346835,
+      "bounded_under_5pct": true
+    },
+    {
+      "k0_z0_hmpc": 2.1142857142857148,
+      "k0_z1_hmpc": 1.0571428571428574,
+      "f_tilde_at_k0_z0": 0.8284271247461903,
+      "f_tilde_at_k1_z0": 0.9748617498483946,
+      "f_tilde_at_k1_z1": 0.8478744745337704,
+      "predicted_peak_dp_z1": 0.04144304864127753,
+      "bounded_under_5pct": true
+    },
+    {
+      "k0_z0_hmpc": 2.2714285714285714,
+      "k0_z1_hmpc": 1.1357142857142857,
+      "f_tilde_at_k0_z0": 0.8284271247461903,
+      "f_tilde_at_k1_z0": 0.9795317917100506,
+      "f_tilde_at_k1_z1": 0.8706377110283687,
+      "predicted_peak_dp_z1": 0.04331732196340304,
+      "bounded_under_5pct": true
+    },
+    {
+      "k0_z0_hmpc": 2.428571428571429,
+      "k0_z1_hmpc": 1.2142857142857144,
+      "f_tilde_at_k0_z0": 0.8284271247461903,
+      "f_tilde_at_k1_z0": 0.983130218595393,
+      "f_tilde_at_k1_z1": 0.8895189565929535,
+      "predicted_peak_dp_z1": 0.044962706102748225,
+      "bounded_under_5pct": true
+    },
+    {
+      "k0_z0_hmpc": 2.5857142857142863,
+      "k0_z1_hmpc": 1.2928571428571431,
+      "f_tilde_at_k0_z0": 0.8284271247461903,
+      "f_tilde_at_k1_z0": 0.985942704960042,
+      "f_tilde_at_k1_z1": 0.9052055687599483,
+      "predicted_peak_dp_z1": 0.04640190319510895,
+      "bounded_under_5pct": true
+    },
+    {
+      "k0_z0_hmpc": 2.742857142857143,
+      "k0_z1_hmpc": 1.3714285714285714,
+      "f_tilde_at_k0_z0": 0.8284271247461903,
+      "f_tilde_at_k1_z0": 0.9881697598327708,
+      "f_tilde_at_k1_z1": 0.9182732392778652,
+      "predicted_peak_dp_z1": 0.0476576537279576,
+      "bounded_under_5pct": true
+    },
+    {
+      "k0_z0_hmpc": 2.9,
+      "k0_z1_hmpc": 1.45,
+      "f_tilde_at_k0_z0": 0.8284271247461903,
+      "f_tilde_at_k1_z0": 0.9899543883411008,
+      "f_tilde_at_k1_z1": 0.9291970084460179,
+      "predicted_peak_dp_z1": 0.048751760702962874,
+      "bounded_under_5pct": true
+    }
+  ],
+  "conclusions": {
+    "tension_verdict": "ZERO TENSION (all bins < 5% across entire sensitivity band)",
+    "mechanism": "Vainshtein screening suppresses growth at k >> k0, preventing runaway structure overproduction",
+    "nuHDM_catastrophe_ruled_out": true,
+    "epistemic_classification": "[D] Verified Bounded Empirical Consistency (No Runaway Structure Overproduction)"
+  }
+}

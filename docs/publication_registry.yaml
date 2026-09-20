@@ -15,8 +15,10 @@
 # Generated from DataCite 2026-09-20.
 
 identity:
-  name: "Ryan W. Yett"
-  bibliographic_variant: "R. W. Yett"
+  name: "R.W. Yett"
+  expanded_variant_do_not_use: "Ryan W. Yett"
+  location: "Arkansas"
+  contact: "r11110001y@proton.me"
   orcid: "0009-0001-1303-7190"
   repository: "Mega-Therion/Res-Nova"
 

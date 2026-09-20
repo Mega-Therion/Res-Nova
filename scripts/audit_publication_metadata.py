@@ -118,8 +118,14 @@ def check_registry_shape(reg: dict) -> list[str]:  # noqa: C901
     ident = reg["identity"]
     if ident.get("orcid") != ORCID:
         errs.append(f"registry identity ORCID is {ident.get('orcid')!r}, expected {ORCID!r}")
-    if ident.get("name") != "Ryan W. Yett":
-        errs.append(f"registry identity name is {ident.get('name')!r}, expected 'Ryan W. Yett'")
+    if ident.get("name") != "R.W. Yett":
+        errs.append(f"registry identity name is {ident.get('name')!r}, expected 'R.W. Yett'")
+    if ident.get("location") is not None and ident.get("location") != "Arkansas":
+        errs.append(f"registry location is {ident.get('location')!r}, expected 'Arkansas'")
+    if ident.get("contact") is not None and \
+            ident.get("contact") != "r11110001y@proton.me":
+        errs.append(f"registry contact is {ident.get('contact')!r}, "
+                    f"expected 'r11110001y@proton.me'")
     seen_ids, seen_dois = set(), set()
     for w in reg["works"]:
         wid, doi = w.get("work_id"), w.get("canonical_doi")
@@ -214,8 +220,10 @@ ABBREV = re.compile(r"\bR\.\s*W\.\s*~?Yett\b")
 
 
 def check_bylines() -> list[str]:
-    """The \author block is metadata. It must carry the canonical name, and must
-    not carry a second identity. 'R. W. Yett' stays legal in bibliographies."""
+    """The \author block is metadata. The canonical byline is "R.W. Yett" --
+    the author's stated preference. The expanded "Ryan W. Yett" is a second
+    surface form and must not appear in an author block. Contact is
+    r11110001y@proton.me and the location is Arkansas, nothing longer."""
     errs = []
     for path in tracked_files():
         rel = str(path.relative_to(ROOT))
@@ -229,9 +237,12 @@ def check_bylines() -> list[str]:
             # take the author block: from \author{ to the matching blank line
             block = text[m.start():m.start() + 400].split("\n\n")[0]
             n = text[:m.start()].count("\n") + 1
-            if "Ryan W." not in block and "Yett" in block:
-                errs.append(f"{rel}:{n}: \\author block uses an abbreviated or "
-                            f"non-canonical byline; metadata must read 'Ryan W. Yett'")
+            if "Ryan W." in block:
+                errs.append(f"{rel}:{n}: \\author block uses the expanded byline; "
+                            f"metadata must read 'R.W. Yett'")
+            if "Yett" in block and "R.W." not in block and "Ryan W." not in block:
+                errs.append(f"{rel}:{n}: \\author block does not carry the "
+                            f"canonical byline 'R.W. Yett'")
             if BAD_IDENTITY.search(block):
                 errs.append(f"{rel}:{n}: \\author block carries a second identity "
                             f"({BAD_IDENTITY.search(block).group(0)!r})")
@@ -301,12 +312,12 @@ def check_datacite(reg: dict) -> list[str]:
 def self_test() -> int:
     import tempfile
     good = '''identity:
-  name: "Ryan W. Yett"
+  name: "R.W. Yett"
   orcid: "0009-0001-1303-7190"
 works:
   - work_id: a
     title: "A Paper"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     canonical_doi: "10.5281/zenodo.1"
     version: "1.0.0"
@@ -316,7 +327,7 @@ works:
                              'orcid: "0000-0000-0000-0000"\nworks')
     dup = good + '''  - work_id: a
     title: "A Paper"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     canonical_doi: "10.5281/zenodo.1"
     version: "1.0.0"

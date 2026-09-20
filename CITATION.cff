@@ -17,9 +17,10 @@ abstract: >-
   (Geometrically Ordered Dynamics and Information Tension).
 authors:
   - family-names: Yett
-    given-names: Ryan W.
+    given-names: R.W.
     orcid: "https://orcid.org/0009-0001-1303-7190"
-    affiliation: "Independent Researcher, Arkansas, USA"
+    affiliation: "Arkansas"
+    email: "r11110001y@proton.me"
 repository-code: "https://github.com/Mega-Therion/Res-Nova"
 version: "1.9.0"
 license: CC-BY-4.0
@@ -41,7 +42,7 @@ references:
       — Dual-Channel Variational Closure
     authors:
       - family-names: Yett
-        given-names: Ryan W.
+        given-names: R.W.
         orcid: "https://orcid.org/0009-0001-1303-7190"
     doi: "10.5281/zenodo.21539453"
     year: 2026
