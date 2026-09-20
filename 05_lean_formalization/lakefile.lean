@@ -86,6 +86,7 @@ lean_lib «ResNovaFormal» where
     `MuStdUniqueness,
     `MuStdSelection,
     `PPNLimitsStd,
+    `LambdaSBound,
     `PPNLimits,
     `PillarIV_AntiDriftGate,
     `PrintAxioms,
