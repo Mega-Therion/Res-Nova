@@ -135,7 +135,7 @@
       ],
       "data_artifacts": [],
       "assumptions": [
-        "Parameter totals are interpreted according to the repository\u2019s tier definitions."
+        "Parameter totals are interpreted according to the repository’s tier definitions."
       ],
       "verification_commands": [
         "python3 scripts/check_claim_consistency.py"

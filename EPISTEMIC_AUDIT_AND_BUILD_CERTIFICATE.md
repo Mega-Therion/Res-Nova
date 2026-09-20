@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-19  
 **Repository:** Res-Nova / Chyren Autonomous Research Subsystem  
-**Author:** Ryan W. Yett (`0009-0001-1303-7190`)  
+**Author:** R.W. Yett (`0009-0001-1303-7190`)
 **Status:** ALL VERIFICATION GATES PASS (8/8 Local Gate, 0 Overfull Warnings, Lean 4 Zero-Sorry)
 
 ---

@@ -2,7 +2,7 @@
 
 **Document Status:** Immutable Pre-Registered Hypothesis Testing Protocol  
 **Repository:** `Mega-Therion/Res-Nova` (`03_observer_jwst/`)  
-**Lead Investigator:** Ryan W. Yett / Res-Nova Epistemic Architecture  
+**Lead Investigator:** R.W. Yett
 **Target Problem:** Open Problem O1 / O4 — Distinguishing Constant $a_0$ from Horizon-Evolving $a_0(z) = \xi c H(z)$  
 **Execution Script:** `03_observer_jwst/a0_of_z.py`  
 **Output Artifact:** `03_observer_jwst/A0_OF_Z_REPORT.json`

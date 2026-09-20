@@ -8,7 +8,7 @@
 > live model.
 **Target Manuscript**: *Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark* (`res_nova_manuscript.tex` / `v1.6.2`)  
 **Protocols Applied**: `physics-primitive-notation-mapper`, `math-reasoning`, `theoretical-physics-peer-review`  
-**Authorship / Epistemic Ledger**: Ryan W. Yett / Council of 9 — ORCID `0009-0001-1303-7190`  
+**Authorship / Epistemic Ledger**: R.W. Yett / Council of 9 — ORCID `0009-0001-1303-7190`  
 
 ---
 
@@ -88,7 +88,7 @@ $$\text{Theorem: } \quad \mathcal{F}_{\text{dual}}'(x)^2 \cdot \mathcal{I}(\mu(x
 REFEREE REPORT
 Journal: Physical Review D / High Energy & Gravitational Physics
 Manuscript: Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark
-Author: Ryan W. Yett / Council of 9
+Author: R.W. Yett / Council of 9
 Epistemic Score: 98/100 (HIGH EXCELLENCE / ACCEPT WITH DISTINCTION)
 ```
 

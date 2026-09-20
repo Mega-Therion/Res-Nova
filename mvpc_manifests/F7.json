@@ -10,27 +10,27 @@
   "artifacts": [
     {
       "path": "05_lean_formalization/AXIOMS_V2.lean",
-      "sha256": "da126026abdbad6be497c4f9d2a058a109db273a9f0aadbf9b39930b1c48e0bc",
+      "sha256": "33ec99bf6f4f05fcb0da220632580a13ebd29175572cacdcee34577b107a686f",
       "role": "assumptions"
     },
     {
       "path": "05_lean_formalization/CosmologicalSector.lean",
-      "sha256": "6c1cdc04b248cf4ec4829f5a39194890f3b5e715369044476bda012d981c0165",
+      "sha256": "16403800592a6ea303366c4f770c91b4bfbb649272e664e5473590e100b50cde",
       "role": "physics_proof"
     },
     {
       "path": "05_lean_formalization/CovariantCompletion.lean",
-      "sha256": "e7d4ffb57512a3cc9afdfdb9ffa3e19496cb49529b76b62cae6ab05842695839",
+      "sha256": "3905ba902960527ffcec3fb176b562a9764f916c17d59e073b2e29d94765f690",
       "role": "physics_proof"
     },
     {
       "path": "05_lean_formalization/DeSitterExtremal.lean",
-      "sha256": "4866e866dcc6eb66fc948af0eaaa9489173950667f4040fcabcbae01c3377ff9",
+      "sha256": "c0a405bb80718f01aa8c5fbbf57f45963af54dcaa5869ab1101c73d204f0efd7",
       "role": "physics_proof"
     },
     {
       "path": "05_lean_formalization/DualChannelDerivation.lean",
-      "sha256": "4ccc44d3afda1c0d6f4ffb83d8a28dac2e72cac0e8cb47bcb95823fa282b4cbe",
+      "sha256": "c2c5e4ec54008457a4121b8517e11e674a458ada3fcf6c1b01ec3275f0672fae",
       "role": "physics_proof"
     },
     {
@@ -50,7 +50,7 @@
     },
     {
       "path": "05_lean_formalization/PPNLimits.lean",
-      "sha256": "0808bb9931f698b8df6a8c94f2d122f89a5afd3b40e4530ce3997060f66808a9",
+      "sha256": "fa48b37b83632361d864b19c3af4b64f6295d6137236ab9aa21234fc0d9e8ad8",
       "role": "physics_proof"
     },
     {
@@ -65,12 +65,12 @@
     },
     {
       "path": "05_lean_formalization/RelativisticStability.lean",
-      "sha256": "ff869e61fdd9b5ec0d376ef532a7e4b411b66223294ea950ff7abc9029cd6196",
+      "sha256": "8fa606adc86b83ffb6971f7c1121fed4bbff8ff0b02c3817029d783cae052368",
       "role": "physics_proof"
     },
     {
       "path": "05_lean_formalization/SOCasimirGenuine.lean",
-      "sha256": "ecd765cbb7dc461b5882d7d38abf8b3a6f0eaf5d5a803813d4e32095f383d4ad",
+      "sha256": "56ca852bc560bcc40d8a93d7fd1487e3d008f61cf9e91f324d44b67674b86dbf",
       "role": "physics_proof"
     },
     {
@@ -110,7 +110,7 @@
     "pass": true
   },
   "epistemic_boundary": {
-    "provenance": "O6 \u2014 walked once in a clean worktree at 07185a6 (lake exe cache get + 17/17 PASS, VERIFICATION_RUN_007). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate.",
+    "provenance": "O6 — walked once in a clean worktree at 07185a6 (lake exe cache get + 17/17 PASS, VERIFICATION_RUN_007). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate.",
     "audit_note": "Elaboration certifies that statements follow from their encoded definitions; it does not certify assumptions carried as typeclass or structure fields (see THEORY_ASSUMPTION_AUDIT.md)."
   }
 }

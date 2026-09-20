@@ -3,7 +3,7 @@
 **Document Status:** Immutable Pre-Registered Protocol
 **Registered:** 2026-09-09 (before the test was run)
 **Repository:** `Mega-Therion/Res-Nova` (`04_cosmology/`)
-**Author:** Ryan W. Yett / Res-Nova Epistemic Architecture
+**Author:** R.W. Yett
 **Target:** Open problem O3 (`OPEN_PROBLEMS_AND_TESTS.md`)
 
 ---

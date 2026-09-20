@@ -1,5 +1,5 @@
 # 🌌 Complete Visual Geometrodynamics ToE Map & Formal Derivation Suite
-**Author**: Ryan W. Yett / Council of 9  
+**Author**: R.W. Yett / Council of 9
 **Epistemic Standard**: Lean 4 formal verification gate  
 **Status**: `[thm]` for formal Lean proofs | `[def]` for physical definitions | `[C]` for theoretical conjectures | `[O]` for experimental observations  
 

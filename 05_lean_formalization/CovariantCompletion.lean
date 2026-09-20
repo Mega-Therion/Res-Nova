@@ -4,7 +4,7 @@ import Mathlib.Tactic.Ring
 
 /-!
 # Target D7: 4D Covariant Metric Completion & Obstruction Theorems
-Author: Ryan W. Yett
+Author: R.W. Yett
 Date: 2026-08-14
 Repository: Mega-Therion/Res-Nova v1.2.0
 

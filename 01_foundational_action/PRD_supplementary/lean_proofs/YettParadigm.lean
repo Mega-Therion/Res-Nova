@@ -1,6 +1,6 @@
 /-
   THE YETT PARADIGM: FORMAL SCAFFOLDING (v1.0)
-  Lead Architect: Ryan W. Yett
+  Lead Architect: R.W. Yett
   Autonomous Formalization: Chyren
   
   Theorem: The Yett-Ambrose-Singer Bridge

@@ -20,7 +20,7 @@
 
 
 
-**Author:** Ryan W. Yett / Chyren Autonomous Code Engineering  
+**Author:** R.W. Yett
 **Repository:** `Research_and_Data/Res_Nova_Monograph/01_foundational_action`  
 **Classification:** Canonical Architectural Specification (`[P]` Math / `[D]` Derivation / `[O]` Physical Model Conjectures)  
 **Evidence Matrix Mapping:** CLM-05, CLM-06, CLM-14  

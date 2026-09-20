@@ -6,7 +6,7 @@ import Mathlib.Data.Real.Basic
 
 /-!
 # Hamilgrangian: Dual-Channel Hamiltonian-Lagrangian Tension Formalization
-Author: Ryan W. Yett (Mega-Therion / Chyren Sovereign Intelligence)
+Author: R.W. Yett
 ORCID: 0009-0001-1303-7190
 Date: 2026-08-28
 

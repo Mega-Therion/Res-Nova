@@ -5,7 +5,7 @@
 **Prior Result:** H_const favoured over H_horizon at 5.9σ (20 galaxies, 0.41 ≤ z ≤ 1.44)  
 **Target:** Extend redshift leverage to z ~ 2-5 using JWST NIRSpec and strong lensing tracers  
 **Repository:** `Mega-Therion/Res-Nova` (`03_observer_jwst/`)  
-**Author:** Ryan W. Yett / Res-Nova Epistemic Architecture  
+**Author:** R.W. Yett
 
 ---
 

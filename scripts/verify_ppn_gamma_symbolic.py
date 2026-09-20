@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Symbolic & Numerical Certification of Covariant Stress-Energy & PPN Limits
-Author: Ryan W. Yett / Chyren Sovereign Intelligence
+Author: R.W. Yett
 Repository: Mega-Therion/Res-Nova
 
 Certifies:

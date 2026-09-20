@@ -3,7 +3,7 @@
 **To:** The Editors, Physical Review D
 **Section:** Gravitation and Cosmology (Modified gravity / alternatives to dark matter)
 **Manuscript:** *Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark*
-**Author:** Ryan W. Yett (independent researcher; ORCID 0009-0001-1303-7190)
+**Author:** R.W. Yett (independent researcher; ORCID 0009-0001-1303-7190)
 
 ---
 
@@ -52,6 +52,6 @@ I would understand if the editors prefer referees at greater remove from the cit
 Thank you for your consideration.
 
 Sincerely,
-Ryan W. Yett
+R.W. Yett
 Independent Theoretical Research
 ORCID 0009-0001-1303-7190

@@ -1,17 +1,17 @@
 PUBLICATION METADATA AUDIT
 --------------------------
-Date (UTC)                   2026-09-20 05:42
-Commit                       a0e0829
+Date (UTC)                   2026-09-20 20:04
+Commit                       eb24ba8
 Tag                          v1.9.0
-Mode                         online (DataCite)
+Mode                         offline
 
 Registry shape               PASS
 DOI registry coverage        PASS
 Local title vs registry      PASS
 Manuscript bylines           PASS
 Release-vs-paper lineage     PASS
-DataCite agreement           PASS
+DataCite agreement           SKIPPED (pass --online)
 Works in registry            122
-Identity                     Ryan W. Yett <0009-0001-1303-7190>
+Identity                     R.W. Yett <0009-0001-1303-7190>
 
 VERDICT                      PASS

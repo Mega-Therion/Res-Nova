@@ -4,7 +4,7 @@ import Mathlib.Data.Real.Basic
 
 /-!
 # Milestone D2: First-Principles Derivation of Dual-Channel Action from Relative Entropy
-Author: Ryan W. Yett (Mega-Therion / Chyren Sovereign Intelligence)
+Author: R.W. Yett
 ORCID: 0009-0001-1303-7190
 Date: 2026-08-14
 

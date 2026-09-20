@@ -2,7 +2,7 @@
 """
 Canonical SPARC Re-Run with Derived Closure mu(x) = x / (1 + x)
 Work Order D4 - Pre-Registered Execution
-Author: Ryan W. Yett / Mega-Therion / Chyren Sovereign Intelligence
+Author: R.W. Yett
 Date: 2026-08-14
 """
 

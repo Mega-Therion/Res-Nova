@@ -1,5 +1,5 @@
 /-
-Copyright (c) 2026 Ryan W. Yett. Released under Apache 2.0.
+Copyright (c) 2026 R.W. Yett. Released under Apache 2.0.
 
 # The SO(N) quadratic Casimir in the defining representation — genuine formalisation
 

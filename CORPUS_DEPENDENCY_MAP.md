@@ -7,7 +7,7 @@
 > remain valid as mathematics *about* the retired branch; none is a claim about the
 > live model.
 **Framework:** Chyren / Res-Nova Epistemic Architecture  
-**Author:** Ryan W. Yett ([ORCID: 0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190))  
+**Author:** R.W. Yett ([ORCID: 0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190))
 **Date:** 2026-08-14 (Aligned to v1.5.0, 2026-08-16)  
 **Primary Dataset:** 138 Master LaTeX Documents ([`corpus_graph.json`](corpus_graph.json))
 

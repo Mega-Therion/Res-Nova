@@ -19,7 +19,7 @@
 > live model.
 
 
-**Author / Lead Investigator:** Ryan W. Yett ([ORCID: 0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190))  
+**Author / Lead Investigator:** R.W. Yett ([ORCID: 0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190))  
 **Repository (Res-Nova):** `Mega-Therion/Res-Nova`  
 **Res-Nova Release:** `v1.5.0`  
 **Evaluation Standard:** Sovereign Epistemic Covenant & Newton Epistemic Taxonomy (`[P]`, `[D]`, `[C]`, `[O]`)

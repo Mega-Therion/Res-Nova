@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 SPARC Derived mu(x) = x / (1 + x) Benchmark vs Legacy Control
-Author: Ryan W. Yett / Res-Nova Program
+Author: R.W. Yett
 Date: 2026-08-14
 
 Evaluates:

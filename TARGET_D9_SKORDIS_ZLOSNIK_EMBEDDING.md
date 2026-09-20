@@ -14,7 +14,7 @@
 > for the live derivation.
 
 
-**Author:** Ryan W. Yett ([ORCID: 0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190))  
+**Author:** R.W. Yett ([ORCID: 0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190))
 **Date:** 2026-08-14  
 **Framework:** Res-Nova (v1.4.0)  
 **Standard:** Sovereign Epistemic Covenant (`[P]` Proved, `[D]` Direct Empirical, `[C]` Cited, `[O]` Open / Quarantined)

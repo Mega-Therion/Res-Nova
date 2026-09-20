@@ -4,7 +4,7 @@ import Mathlib.Data.Real.Basic
 
 /-!
 # Chyren v2.0 Axiomatic Foundation & Dependency Frame
-Author: Ryan W. Yett (Mega-Therion / Chyren Sovereign Intelligence)
+Author: R.W. Yett
 ORCID: 0009-0001-1303-7190
 Date: 2026-08-14
 

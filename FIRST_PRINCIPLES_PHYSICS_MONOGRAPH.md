@@ -1,7 +1,7 @@
 # 🌌 Geometrically Ordered Dynamics & Information Tension Theory
 ## A Ground-Up First-Principles Monograph on Geometric Unification
 
-**Author**: Ryan W. Yett (`Mega-Therion`)  
+**Author**: R.W. Yett (`Mega-Therion`)
 **Formal Verification**: Lean 4 (Mathlib 4) Sorry-Free Certified  
 **Date**: August 2026
 
@@ -147,7 +147,7 @@ named path to independence is geometric (maser-host) distances.
 
 ---
 
-*Authored by Ryan W. Yett (`Mega-Therion`) $\cdot$ Published in the Res-Nova Canonical Repository.*
+*Authored by R.W. Yett $\cdot$ Published in the Res-Nova Canonical Repository.*
 
 
 > **CORRECTION 2026-09-16 (post-merge, PR #61 step v sign reversed):** the standard dictionary (Witten, *Fermion Path Integrals and Topological Phases*, arXiv:1508.04715, §1 and App. A) is Kramers T² = (−1)^F ⇔ spatial/Euclidean reflection R² = +1 ⇔ **Pin⁺**; T² = +1 ⇔ R² = (−1)^F ⇔ Pin⁻ — same convention as this corpus (Pin⁺ reflection lifts square +1). The Wick rotation supplies the factor that flips the sign; the minimal instance (iσ_yK)² = −I is the Lorentzian T, whose Euclidean reflection image squares to +I. So chain (i)–(v) as stated selects **Pin⁺**, not Pin⁻. Pin⁻ requires T² = +1 (Majorana-chain / class BDI sector). Obligation 4 is **OPEN** again; the arithmetic in `scripts/n4_action_derivation.py` is correct, the physics identification in step (v) is not.

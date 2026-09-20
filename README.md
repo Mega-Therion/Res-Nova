@@ -21,7 +21,7 @@ resolves to the newest version.
 
 | | |
 | :--- | :--- |
-| Author | Ryan W. Yett |
+| Author | R.W. Yett |
 | ORCID | [0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190) |
 | Repository | [Mega-Therion/Res-Nova](https://github.com/Mega-Therion/Res-Nova) |
 | Concept DOI (always latest) | [10.5281/zenodo.21539453](https://doi.org/10.5281/zenodo.21539453) |

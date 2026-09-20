@@ -1,6 +1,6 @@
 # Res-Nova v1.5.0 Epistemic Boundary
 
-**Author:** Ryan W. Yett ([ORCID: 0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190))
+**Author:** R.W. Yett ([ORCID: 0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190))
 **Repository:** `Mega-Therion/Res-Nova`
 **Physics seal:** `v1.4.0` (`651a70d8`)
 **Empirical seal:** `3c90ef3e` (2026-08-15 SPARC measurement)

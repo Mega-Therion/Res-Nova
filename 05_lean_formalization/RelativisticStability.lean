@@ -3,7 +3,7 @@ import Mathlib.Data.Real.Basic
 
 /-!
 # Milestone D6: Relativistic Completion & Ghost-Free Hamiltonian Analysis
-Author: Ryan W. Yett (Mega-Therion / Chyren Sovereign Intelligence)
+Author: R.W. Yett
 ORCID: 0009-0001-1303-7190
 Date: 2026-08-14
 

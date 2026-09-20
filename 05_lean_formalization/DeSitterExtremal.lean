@@ -1,7 +1,7 @@
 /-
-Copyright (c) 2026 Ryan W. Yett / Chyren. All rights reserved.
+Copyright (c) 2026 R.W. Yett. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Ryan W. Yett, Antigravity
+Authors: R.W. Yett, Antigravity
 -/
 import Mathlib.Data.Real.Basic
 import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic

@@ -1,7 +1,7 @@
 # 🌌 Target O1: First-Principles Horizon Acceleration Scale Derivation & KMS $2\pi$ Cancellation Audit
 
 **Document Status:** Formal Mathematical Analysis & Epistemic Audit  
-**Author / Investigator:** Ryan W. Yett / Res-Nova Epistemic Architecture  
+**Author / Investigator:** R.W. Yett
 **Lean 4 Formal Proof:** [`05_lean_formalization/HorizonScale.lean`](file:///05_lean_formalization/HorizonScale.lean) (`kms_cancellation_equilibrium`, `horizon_acceleration_ratio_is_one`, `verlinde_entropic_cancellation`)  
 **Epistemic Taxonomy:** `[P]` (Formal algebraic proof of $2\pi$ cancellation) / `[O]` (Horizon-scale identification with SPARC $a_0$)  
 

@@ -9,7 +9,7 @@
   "artifacts": [
     {
       "path": "05_lean_formalization/DualChannelDerivation.lean",
-      "sha256": "4ccc44d3afda1c0d6f4ffb83d8a28dac2e72cac0e8cb47bcb95823fa282b4cbe",
+      "sha256": "c2c5e4ec54008457a4121b8517e11e674a458ada3fcf6c1b01ec3275f0672fae",
       "theorems": [
         "dual_channel_flux_algebra",
         "mu_derived_inversion",

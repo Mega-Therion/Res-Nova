@@ -21,7 +21,7 @@ arithmetic below is correct; the interpolation function it assumes is not the
 theory's.
 
 # Milestone D3: Parameterized Post-Newtonian (PPN) & Solar System Limits
-Author: Ryan W. Yett (Mega-Therion / Chyren Sovereign Intelligence)
+Author: R.W. Yett
 ORCID: 0009-0001-1303-7190
 Date: 2026-08-14
 
