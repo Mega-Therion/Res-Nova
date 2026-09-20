@@ -8,7 +8,7 @@ past states, kept for provenance, not current physics. This file and the two it 
 are the only current physics.**
 
 **Last verified against repo HEAD:** 2026-09-20 (the audit-cycle state below supersedes
-any pre-2026-09-16 substrate claim not updated by it; commit `85953d0`). If this date is more than a few days old
+any pre-2026-09-16 substrate claim not updated by it; commit `726820f`). If this date is more than a few days old
 when you read it, treat every claim below as suspect and re-derive its status from
 `PEER_REVIEW_READINESS.md` directly before using it.
 
@@ -67,7 +67,7 @@ one place, unambiguous, checked first, every time.
 |---|---|---|
 | D1 | [P] | Variational derivation — needs re-check against μ_std (in progress) |
 | D2 | [P/O] | μ_std structural uniqueness exists; not yet Lean-formalized clean |
-| D3 | [P/D/O] | γ=1 derived; precession bound λ_s ≲ 2.2 [D]; Cassini Q₂ bound λ_s ≲ 2.7 [D] (0.97 withdrawn); β scoped; α₁/α₂ open |
+| D3 | [P/D/O] | γ=1 derived [D]; **binding bound λ_s ≲ 2.2 [D]** from Saturn perihelion precession (Hees et al. 2014 PRD 89:102002, 0.43 mas/cy); the Q₂ᵉᶛ comparison (λ_s ≲ 2.7) is a **magnitude heuristic [C]**, demoted 2026-09-20; λ_s ≤ 0.97 **withdrawn** (needed a ceiling tighter than INPOP10a's own 1σ); β scoped; α₁/α₂ [O] with a named obstruction (c₁₂₃=0 Maxwell locus) |
 | D5 | [P/O] | Cosh cosmology time-sector formalized (`CoshCosmology.lean`, 6 theorems, 0 sorry, ARITH); non-linear structure formation unsimulated |
 | D6 | [P] | Ghost-free CLOSED 2026-09-12, twice-verified (`TARGET_D1_SUPPLEMENT` §5 + D6/D8/D9 revalidation rows 9–10); open: Λ_SC ≈ 1.8 meV vs fifth-force tests [O], J-normalization muddle [O], AeST superluminality [O] |
 | D7 | [P/O] | Action corrected to AeST; base solid, downstream re-checks ongoing |

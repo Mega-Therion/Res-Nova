@@ -312,6 +312,8 @@ FOUND, NOT FIXED: 01_foundational_action/PRD_Relativistic_Extension.tex requires
 
 ## Phase 3 — Pillar IV
 
+> **Scope note (added 2026-09-20).** The module counts in the captured output below (28, then 29) are verbatim records of that historical run and are left unedited. They are **not** the current gate scope. As of commit `726820f`, `05_lean_formalization/check_target_inventory.py` reports **59 Lean targets** with lakefile, gate, and on-disk modules in agreement. Two different counts are both current and must not be conflated: **59** is the gate scope (everything on disk is built and checked) and **28** is the manuscript scope quoted in `reproducibility_appendix.tex` (gate scope minus the modules listed in `ADJACENT_MODULES.txt`, which are scoped out of the manuscript and never out of the gate). `check_manuscript_inventory.py` fails if that 28 is changed.
+
 ### verify_all_proofs.sh Before Changes
 
 - **Exit code**: `1`
