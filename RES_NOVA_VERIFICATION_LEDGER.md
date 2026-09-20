@@ -12,6 +12,11 @@
 > model. A `[P]` below should be read as "proved about $\mathcal{F}_{\text{dual}}$",
 > not "proved about the theory". See `TARGET_D1_SUPPLEMENT_MU_STD_REBUILD.md`
 > for the live derivation.
+> The retired objects named below are $\mathcal{F}_{\text{dual}}$ / `F_dual` and
+> $\mu_{\text{dual}}(x) = x/(1+x)$, **falsified 2026-09-12**. The live branch is
+> $\mu_{\text{std}}(x) = x/\sqrt{1+x^2}$ (AeST / Skordis–Złośnik). Statements here
+> remain valid as mathematics *about* the retired branch; none is a claim about the
+> live model.
 
 
 **Author / Lead Investigator:** Ryan W. Yett ([ORCID: 0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190))  

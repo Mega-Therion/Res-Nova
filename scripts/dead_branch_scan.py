@@ -36,7 +36,11 @@ RETIRED = [
                 r"\\mu\s*\(\s*x\s*\)\s*=\s*x\s*/\s*\(\s*1\s*\+\s*x\s*\)"),
      "mu_std(x) = x/sqrt(1+x^2); mu_dual falsified 2026-09-12"),
     ("F_dual kinetic function",
-     re.compile(r"F_\{?\\?(?:text|mathrm)?\{?dual\}?|F_dual"),
+     # \mathcal{F}_{\text{dual}} is the form the LaTeX actually uses and the
+     # old pattern missed it entirely: there is no contiguous "F_" in
+     # "\mathcal{F}_{\text{dual}}", so the dead entity's commonest written
+     # form slipped the gate completely. Allow a "}" between F and "_".
+     re.compile(r"F\}?_\{?\\?(?:text|mathrm|rm)?\s*\{?dual\}?|F_dual"),
      "the mu_std branch; F_dual falsified with mu_dual"),
     ("V_240 big-dimension substrate",
      re.compile(r"V_\{?240\}?|57,?600\s*[-\s]*dimensional|"
@@ -81,7 +85,7 @@ EXEMPT = (
 # NOT license an unqualified F_dual claim later in the same file; an earlier
 # version of this rule exempted whole files and silenced 28 of them.
 FILE_NOTICE = re.compile(
-    r"BRANCH NOTICE|SUBSTRATE NOTICE|SUPERSEDED|RETRACTED|"
+    r"BRANCH NOTICE|BRANCH NOTE|SUBSTRATE NOTICE|SUPERSEDED|RETRACTED|"
     r"retired (branch|substrate)|falsified .{0,30}(branch|function)", re.I)
 # 200, not 40: a LaTeX preamble routinely runs past 100 lines, so a banner
 # placed correctly right after \maketitle sat OUTSIDE a 40-line window and the
@@ -110,7 +114,23 @@ def head_notice_covers(head: str, label: str) -> bool:
     for i, line in enumerate(lines):
         if not FILE_NOTICE.search(line):
             continue
-        block = "\n".join(lines[i:i + NOTICE_BLOCK_LINES])
+        # Bound the block by the notice's OWN structure, not a fixed window.
+        # A fixed window absorbed ordinary prose that followed a short banner,
+        # which is how a V_240 notice could still cover an F_dual mention.
+        # Terminate on: a blank line; the line closing a \fbox/\parbox group
+        # ("}}"); or leaving a markdown blockquote run.
+        quoted = line.lstrip().startswith(">")
+        span = []
+        for ln in lines[i:i + NOTICE_BLOCK_LINES]:
+            if span:
+                if not ln.strip():
+                    break
+                if quoted and not ln.lstrip().startswith(">"):
+                    break
+            span.append(ln)
+            if "}}" in ln:
+                break
+        block = "\n".join(span)
         if any(p.search(block) for p in pats):
             return True
     return False
@@ -174,6 +194,32 @@ def load_baseline() -> set[str]:
             if l.strip() and not l.startswith("#")}
 
 
+def scan_lines(lines: list[str], rel: str, base: set[str]) -> list[str]:
+    """Decide every line of ONE surface.
+
+    Split out of scan() so the permissiveness regression (--regression) can
+    drive the REAL decision path over synthetic fixtures. If the test had its
+    own copy of this logic it could pass while scan() rotted, which is the
+    failure mode the regression exists to catch."""
+    hits = []
+    head = "\n".join(lines[:FILE_NOTICE_HEAD_LINES])
+    for n, line in enumerate(lines, 1):
+        window = "\n".join(lines[max(0, n - 3):n + 2])
+        if RETIRED_CONTEXT.search(window):
+            continue
+        for label, pat, instead in RETIRED:
+            m = pat.search(line)
+            if m:
+                if head_notice_covers(head, label):
+                    break
+                if baseline_key(rel, label, line) in base:
+                    break
+                hits.append(f"{rel}:{n}: {label} -- {m.group(0)[:40]!r}\n"
+                            f"      use instead: {instead}")
+                break
+    return hits
+
+
 def scan(skip_baseline: bool = False) -> list[str]:
     base = load_baseline() if skip_baseline else set()
     hits = []
@@ -182,22 +228,88 @@ def scan(skip_baseline: bool = False) -> list[str]:
             lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
         except OSError:
             continue
-        head = "\n".join(lines[:FILE_NOTICE_HEAD_LINES])
-        for n, line in enumerate(lines, 1):
-            window = "\n".join(lines[max(0, n - 3):n + 2])
-            if RETIRED_CONTEXT.search(window):
-                continue
-            for label, pat, instead in RETIRED:
-                m = pat.search(line)
-                if m:
-                    if head_notice_covers(head, label):
-                        break
-                    if baseline_key(rel, label, line) in base:
-                        break
-                    hits.append(f"{rel}:{n}: {label} -- {m.group(0)[:40]!r}\n"
-                                f"      use instead: {instead}")
-                    break
+        hits.extend(scan_lines(lines, rel, base))
     return hits
+
+
+# --------------------------------------------------------------------------
+# Permissiveness regression.
+#
+# This rule has failed OPEN twice, both times silently, and both times it was
+# an ad-hoc manual injection test that caught it -- never the self-test:
+#
+#   1. The first file-notice rule exempted the WHOLE file once any notice
+#      appeared in its head. A V_240 banner in PAPER_02 then silenced an
+#      injected F_dual claim, and 28 of 130 files were wholly blind.
+#   2. Fixing that, the head window was later widened 40 -> 200 so banners
+#      after a LaTeX \maketitle could be seen. head_notice_covers() asked only
+#      whether the entity appeared ANYWHERE IN THE HEAD, so with a wide window
+#      ordinary body prose naming F_dual satisfied it -- a V_240 banner again
+#      licensed an F_dual claim.
+#
+# Both are the same failure: a notice about entity A excusing a live claim
+# about entity B. These fixtures pin that shut. They run the real scan_lines()
+# path and touch no tracked file, so the gate can never leave the repo dirty.
+# --------------------------------------------------------------------------
+
+_PREAMBLE = ["\\documentclass{article}"] + [f"% preamble filler {i}" for i in range(120)]
+_V240_NOTICE = [
+    "\\fbox{\\parbox{0.9\\textwidth}{\\textbf{SUBSTRATE NOTICE (2026-09-20).}",
+    "This document states its substrate on the big-dimension frame",
+    "$V_{240}(\\mathbb{R}^{57{,}600})$, which was \\textbf{retired 2026-08-25}.",
+    "The live substrate is $V_2(\\mathbb{R}^3)$ via Cartan triality.}}",
+]
+_FDUAL_NOTICE = [
+    "\\textbf{BRANCH NOTICE.} The results below are proved about",
+    "$\\mathcal{F}_{\\text{dual}}$, a \\textbf{retired} branch falsified 2026-09-12.",
+]
+_FILLER = [f"Ordinary body text line {i}." for i in range(40)]
+_CLAIM_FDUAL = ["We adopt $F_{dual}$ as the live kinetic function."]
+_CLAIM_V240 = ["The substrate is $V_{240}(\\mathbb{R}^{57{,}600})$."]
+
+
+def _regression_cases() -> list[tuple[str, list[str], str, bool]]:
+    """(name, lines, entity-label-substring, must_fire)"""
+    return [
+        # The two historical escapes, in fixture form.
+        ("V_240 notice must NOT license an F_dual claim",
+         _PREAMBLE + _V240_NOTICE + _FILLER + _CLAIM_FDUAL, "F_dual", True),
+        ("body prose naming F_dual in the head must NOT license it either",
+         _PREAMBLE + _V240_NOTICE
+         + ["Historically F_dual was studied here."] + _FILLER
+         + _CLAIM_FDUAL, "F_dual", True),
+        # The exemption must still work for the entity it names.
+        ("V_240 notice DOES cover V_240 mentions",
+         _PREAMBLE + _V240_NOTICE + _FILLER + _CLAIM_V240, "V_240", False),
+        ("F_dual notice DOES cover F_dual mentions",
+         _PREAMBLE + _FDUAL_NOTICE + _FILLER + _CLAIM_FDUAL, "F_dual", False),
+        # A banner placed after a long preamble must be visible at all.
+        ("notice past line 40 is still seen (head window)",
+         _PREAMBLE + _FILLER + _V240_NOTICE + _FILLER + _CLAIM_V240, "V_240", False),
+        # No notice anywhere: the claim must fire.
+        ("unremediated F_dual claim fires",
+         _PREAMBLE + _FILLER + _CLAIM_FDUAL, "F_dual", True),
+        # Local remediation on the line itself still works.
+        ("inline 'ruled out' remediates",
+         _PREAMBLE + ["$F_{dual}$ is ruled out by solar-system screening."],
+         "F_dual", False),
+    ]
+
+
+def regression() -> int:
+    bad = 0
+    for name, lines, entity, must_fire in _regression_cases():
+        hits = scan_lines(lines, "fixture.tex", set())
+        fired = any(entity in h for h in hits)
+        if fired != must_fire:
+            want = "FIRE" if must_fire else "stay silent"
+            print(f"  REGRESSION FAIL: {name}\n"
+                  f"    expected the gate to {want}; it did not.")
+            bad += 1
+    verdict = "PASS" if not bad else "FAIL"
+    print(f"dead_branch permissiveness regression: {verdict} "
+          f"({len(_regression_cases())} fixtures, 0 tracked files touched)")
+    return 1 if bad else 0
 
 
 def self_test() -> int:
@@ -228,9 +340,13 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--self-test", action="store_true")
+    ap.add_argument("--regression", action="store_true",
+                    help="permissiveness fixtures; touches no tracked file")
     args = ap.parse_args()
     if args.self_test:
         return self_test()
+    if args.regression:
+        return regression()
 
     hits = scan(skip_baseline=args.check)
     base = load_baseline()

@@ -1,5 +1,12 @@
 # 📋 Claim-to-Evidence Ledger: Grand Monograph Assessment
 
+> **BRANCH NOTICE (2026-09-20).** This document discusses a retired branch.
+> The retired objects named below are $\mathcal{F}_{\text{dual}}$ / `F_dual` and
+> $\mu_{\text{dual}}(x) = x/(1+x)$, **falsified 2026-09-12**. The live branch is
+> $\mu_{\text{std}}(x) = x/\sqrt{1+x^2}$ (AeST / Skordis–Złośnik). Statements here
+> remain valid as mathematics *about* the retired branch; none is a claim about the
+> live model.
+
 **Evaluation Standard:** formal verification gate and epistemic tagging  
 **Target Repository:** `Mega-Therion/Res-Nova` (repository root)  
 **Evaluation Date:** 2026-08-14  

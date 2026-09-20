@@ -3,7 +3,7 @@
 # Content-keyed: <path>::<entity>::sha1(normalised line)[:12]. Keying on
 # file:line meant inserting text above a mention produced a phantom violation.
 #
-# Triaged 2026-09-20 (53 -> 23). Everything left here is a KEEP-AS-CONTRAST
+# Triaged 2026-09-20 (53 -> 28). Everything left here is a KEEP-AS-CONTRAST
 # mention: a retired entity named in order to compare it with the live branch,
 # to inventory a Lean identifier, or to record a correction. Categories:
 #   - TARGET_D3 / TARGET_D2: comparison prose and Lean listings ("transfers
@@ -33,10 +33,15 @@ TARGET_D2_PHYSICAL_ACTION_DERIVATION.md::F_dual kinetic function::4757f5629cff
 TARGET_D2_PHYSICAL_ACTION_DERIVATION.md::F_dual kinetic function::c956610dcf33
 TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::F_dual kinetic function::0d35e13f65da
 TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::F_dual kinetic function::2ea4793e509e
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::F_dual kinetic function::382763e6cf82
 TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::F_dual kinetic function::7b8aaf5fa6a7
 TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::F_dual kinetic function::81fddc168833
 TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::F_dual kinetic function::9ef5a489862b
 TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::F_dual kinetic function::c8a431722ae4
 TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::F_dual kinetic function::fb83664fc34e
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::generalized Einstein-aether completion::894d09846ffc
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::generalized Einstein-aether completion::f60d0291603b
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::mu_dual interpolating function::7622ecd1192c
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::mu_dual interpolating function::fbfcd61072ca
 TARGET_D6_D8_D9_SUPPLEMENT_MU_STD_REVALIDATION.md::F_dual kinetic function::3c9a8dca1f42
 TTEY_COUPLING_AND_THRUST_ACCOUNTING.md::F_dual kinetic function::41cab30ca840
