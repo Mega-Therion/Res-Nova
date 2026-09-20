@@ -617,7 +617,16 @@ $$\Delta\varpi=\frac{4\pi\,\delta g}{g_N}=\frac{2\pi(1+\lambda_s)^{3}a_0^{2}r^{4
 | Mercury | 4.28×10⁻⁹ | 3×10⁻⁵ | Park et al. 2017, AJ **153**:121, [10.3847/1538-3881/aa5be2](https://doi.org/10.3847/1538-3881/aa5be2) | 7009 | 18.1 |
 | Earth | 4.59×10⁻⁸ | 1×10⁻⁴ | Pitjev & Pitjeva 2013, MNRAS **432**:3431, [10.1093/mnras/stt695](https://doi.org/10.1093/mnras/stt695) | 2179 | 12.0 |
 | Mars | 1.32×10⁻⁷ | 5×10⁻⁶ | Konopliv et al. 2011, Icarus **211**:401, [10.1016/j.icarus.2010.10.004](https://doi.org/10.1016/j.icarus.2010.10.004) | 38.0 | 2.36 |
-| **Saturn** | **1.31×10⁻⁵** | **1×10⁻⁴** | Hees et al. 2014, PRD **89**:102002, [10.1103/PhysRevD.89.102002](https://doi.org/10.1103/PhysRevD.89.102002); Viswanathan et al. 2018, MNRAS **476**:1877, [10.1093/mnras/sty096](https://doi.org/10.1093/mnras/sty096) | **7.61** | **0.97** |
+| **Saturn** | **1.31×10⁻⁵** | **4.3×10⁻⁴** | Hees et al. 2014, PRD **89**:102002, [10.1103/PhysRevD.89.102002](https://doi.org/10.1103/PhysRevD.89.102002) — direct Cassini bound on Saturn's anomalous precession, 0.43 mas/cy | **33.0** | **2.21** |
+| Saturn (alt.) | 1.31×10⁻⁵ | 6.5×10⁻⁴ | Fienga et al. 2011, CMDA **111**:363, [10.1007/s10569-011-9377-8](https://doi.org/10.1007/s10569-011-9377-8), Table 5: ϖ̇_sup = 0.15 ± 0.65 mas/cy — 1σ reading | 49.8 | 2.68 |
+
+**Why not 0.10 mas/cy (λ_s ≤ 0.97).** That ceiling was carried in earlier drafts
+and does not survive contact with the datum. INPOP10a Table 5 gives Saturn's
+supplementary advance as **0.15 ± 0.65 mas/cy**. A 0.10 mas/cy ceiling is 6.5×
+tighter than the measurement's own 1σ, and tighter than its central value. It
+cannot be read off this table, so λ_s ≤ 0.97 is **withdrawn**. The defensible
+readings are 2.21 (Hees 2014, direct Cassini) and 2.68 (Fienga 1σ), and the
+conservative number to quote is **λ_s ≲ 2.2**.
 
 **Provenance status (2026-09-20).** Each DOI above was checked against Crossref:
 it resolves, and author/journal/volume/page match. Three of the references
@@ -665,16 +674,24 @@ is the *least* constraining point under both, and both land at `λ_s = O(1)`. **
 | the precession formula `ϖ̇ = (1+λ_s)³a₀²r^{5/2}/(GM)^{3/2}` | **[D]** | re-derived from Gauss/apsidal-angle independently; verified two ways numerically; formalized in Lean, 0 sorry |
 | Saturn binds, not Mercury | **[D]** | `precession_mono_r`, proved |
 | Route 1's `Q₂ᵉᑫ` comparison | **[C]** | monopole read against a quadrupole datum; heuristic only |
-| **λ_s ≤ 0.97 as a number** | **[D*]** | derivation exact, but rests on `\|ϖ̇\| < 1.0×10⁻⁴` arcsec/cy at Saturn |
+| **λ_s ≲ 2.2 as a number** | **[D]** | derivation exact; bound is Hees et al. 2014 PRD **89**:102002, a direct Cassini limit on Saturn's anomalous precession (0.43 mas/cy). Fienga et al. 2011 CMDA **111**:363 Table 5 (0.15 ± 0.65 mas/cy) gives 2.68 at 1σ |
+| ~~λ_s ≤ 0.97~~ | **withdrawn** | rested on a 0.10 mas/cy ceiling, 6.5× tighter than the INPOP10a 1σ and tighter than its central value |
 
-**The one remaining input.** The geometric objection that kept this at [C] is
-gone: Route 2 compares like with like. What the number now rests on is a single
-empirical value — the Saturn precession residual. That value is attributed to
-INPOP17a Table 6, but `Viswanathan et al. 2018, MNRAS 476:1877` is the **lunar**
-ephemeris paper, and the Saturn planetary residual belongs to the INPOP/Fienga
-planetary series. **[D\*] means: derived given that bound; confirm the source
-and it is [D] outright.** That is one table lookup, not a research problem, and
-it is the last thing between λ_s ≲ 1.0 and a fully derived result.
+**Resolved 2026-09-20.** The source was found and checked: Saturn's
+supplementary advance is INPOP10a — Fienga et al. 2011, CMDA **111**:363,
+Table 5 — not INPOP17a, which is the lunar ephemeris. Crossref confirms title,
+authors, journal, volume and pages. With a real datum the number is **[D]**.
+
+The lookup also settled *which* number. It is not 0.97: that required a
+0.10 mas/cy ceiling, and Table 5 reports **0.15 ± 0.65 mas/cy**, so 0.10 is
+tighter than the 1σ *and* tighter than the central value. Reading the table
+promoted the tier and **withdrew the tightest number in the same step** — which
+is what checking a source is for.
+
+Derived bound: **λ_s ≲ 2.2** (Hees et al. 2014, direct Cassini limit on
+Saturn's anomalous precession, 0.43 mas/cy → 2.21); INPOP10a's 1σ gives 2.68.
+The corpus's long-standing λ_s ≲ 1–3 framing was right — 0.97 was the outlier,
+not the headline.
 
 The provenance gap is now closed — every ephemeris bound carries a Crossref-checked DOI — but provenance
 was only one of the two reasons the number was tiered [C], and it was not the

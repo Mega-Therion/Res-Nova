@@ -42,6 +42,25 @@ def row(r_au: float, lam: float = 0.0):
     return g_n, delta_g, q2, margin, margin ** (1 / 3) - 1
 
 
+# Saturn perihelion-precession bounds, with provenance. The precession route
+# (D3 section 8.4) is the primary one: it has no monopole/quadrupole mismatch.
+#   theory at Saturn, lambda_s -> 0:  1.305e-5 arcsec/century
+SATURN_PRECESSION_READINGS = [
+    ("Hees et al. 2014, PRD 89:102002 (direct Cassini)", 0.43e-3),
+    ("Fienga et al. 2011, CMDA 111:363 Table 5, 1 sigma", 0.65e-3),
+    # 0.10 mas/cy was carried in earlier drafts and is WITHDRAWN: it is tighter
+    # than the INPOP10a 1 sigma (0.65) and than its central value (0.15).
+]
+THEORY_SATURN_ASCY = 1.305e-5
+
+
+def saturn_lambda_readings() -> None:
+    print("Saturn precession route, lambda_s ceilings:")
+    for label, bound in SATURN_PRECESSION_READINGS:
+        margin = bound / THEORY_SATURN_ASCY
+        print(f"  {label:<52} margin {margin:5.1f}  lambda_s <= {margin ** (1/3) - 1:.2f}")
+
+
 def main() -> None:
     tol = 0.02
     print(f"{'body':<9}{'g_N':>11}{'delta_g':>12}{'Q2':>12}{'margin':>9}"
@@ -62,6 +81,8 @@ def main() -> None:
     print(f"  Q2 doubling r             x{b[2] / a[2]:.2f}   (r^1 -> 2.00)")
     print(f"  ceiling doubling r        x{b[4] / a[4]:.3f}  (tightens)")
     print("  => the outermost body with a datum binds; Mercury is the weakest test.")
+    print()
+    saturn_lambda_readings()
 
 
 if __name__ == "__main__":
