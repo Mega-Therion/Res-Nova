@@ -77,6 +77,16 @@ def classify(path: Path) -> dict:
     }
 
 
+def is_none(value: str | None) -> bool:
+    """A denotation of "none" is often written with its reason attached --
+    "none. Arithmetic about k(n-(k+1)/2), no manifold appears". Treat any
+    answer that opens with "none" as the negative answer, or the gate will
+    demand an observable for a module that just told us it has none."""
+    if not value:
+        return True
+    return value.strip().lower().lstrip('"').startswith("none")
+
+
 def load_ledger() -> dict:
     """Minimal reader: module -> {denotes, observable, falsifier}."""
     if not LEDGER.exists():
@@ -214,8 +224,8 @@ def main() -> int:
                     continue        # known, dated, being worked down
                 problems.append(f"{mod}: cited by {where} but the ledger does "
                                 f"not say what it denotes physically")
-            elif r["tier"] == "ARITH" and e.get("denotes") != "none" \
-                    and not e.get("observable"):
+            elif r["tier"] == "ARITH" and not is_none(e.get("denotes")) \
+                    and is_none(e.get("observable")):
                 problems.append(f"{mod}: cited by {where} as physics, but it "
                                 f"quantifies only over ℝ and names no observable")
         print()
