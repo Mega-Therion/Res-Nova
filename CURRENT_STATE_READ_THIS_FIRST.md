@@ -84,12 +84,24 @@ trusting anything dated earlier.
 Every task brief that asks an agent to write physics content **must** include, verbatim,
 near the top of the prompt:
 
-> Before writing anything, read `/home/mega/Res-Nova/CURRENT_STATE_READ_THIS_FIRST.md` in
+> Before writing anything, read
+> `/home/mega/Chyren/Research_and_Data/Res_Nova_Monograph/CURRENT_STATE_READ_THIS_FIRST.md` in
 > full. Do not use any vault file under `raw/Logs/`, `80_Archive/`, or
 > `obsidian_vault_legacy/` as a source of current physics — those are historical records
 > only. If anything you find elsewhere contradicts that file, the file wins.
 
 No exceptions. If a dispatch doesn't include this line, don't send it.
+
+**Path corrected 2026-09-20.** This rule previously pointed at
+`/home/mega/Res-Nova/CURRENT_STATE_READ_THIS_FIRST.md`, which does not exist. An
+agent following the rule verbatim got file-not-found and proceeded unbriefed —
+the anti-drift mechanism failing in exactly the way it was written to prevent.
+
+**Enforced since 2026-09-20** by `scripts/dead_branch_scan.py`, wired into
+`scripts/local_gate.sh`: retired entities (μ_dual, F_dual, the V₂₄₀ substrate,
+generalized Einstein-aether, the internal-gauge soldering, `a0_z_analysis.png`)
+now fail the gate if they appear on a live surface. Reading this file is no
+longer the only thing standing between a dead branch and the corpus.
 
 ## 2026-09-16 audit-cycle update (current physics since the 09-12 verification)
 

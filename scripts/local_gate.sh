@@ -44,6 +44,10 @@ step "publication audit self-test" python3 scripts/audit_publication_metadata.py
 # Physics grounding. A module a manuscript offers as evidence must say what its
 # symbols denote; 0 sorry is not the same as touching the world.
 step "physics grounding audit" python3 scripts/grounding_audit.py --check
+# Retired constructions must not appear on a live surface. CURRENT_STATE_READ_
+# THIS_FIRST.md said so in prose; this enforces it.
+step "dead-branch scan" python3 scripts/dead_branch_scan.py --check
+step "dead-branch self-test" python3 scripts/dead_branch_scan.py --self-test
 
 echo
 if [ "$fails" -eq 0 ]; then

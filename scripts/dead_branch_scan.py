@@ -1,0 +1,163 @@
+#!/usr/bin/env python3
+"""Fail the build when a retired construction appears on a live surface.
+
+CURRENT_STATE_READ_THIS_FIRST.md exists because an external agent built a brief
+from cached material and wrote four papers on a function that had been falsified
+two hours earlier. The countermeasure was a document agents are told to read.
+
+A document is not a countermeasure. On 2026-09-20 a fresh Claude session
+re-derived the internal-gauge soldering no-go -- retracted seven weeks earlier,
+with an audit already on disk -- and published three canonical notes on top of
+it. The instruction to read the file was in place. It did not help, partly
+because the dispatch rule pointed at a path that did not exist.
+
+This makes the same rule mechanical: retired entities fail the gate.
+
+    python3 scripts/dead_branch_scan.py            # report
+    python3 scripts/dead_branch_scan.py --check    # exit 1 on a live hit
+    python3 scripts/dead_branch_scan.py --self-test
+"""
+from __future__ import annotations
+
+import argparse
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+BASELINE = ROOT / "docs" / "dead_branch_baseline.txt"
+
+# (label, pattern, what to use instead)
+RETIRED = [
+    ("mu_dual interpolating function",
+     re.compile(r"\\mu_\{?\\?(?:text|mathrm)?\{?dual\}?|mu_dual|"
+                r"\\mu\s*\(\s*x\s*\)\s*=\s*x\s*/\s*\(\s*1\s*\+\s*x\s*\)"),
+     "mu_std(x) = x/sqrt(1+x^2); mu_dual falsified 2026-09-12"),
+    ("F_dual kinetic function",
+     re.compile(r"F_\{?\\?(?:text|mathrm)?\{?dual\}?|F_dual"),
+     "the mu_std branch; F_dual falsified with mu_dual"),
+    ("V_240 big-dimension substrate",
+     re.compile(r"V_\{?240\}?|57,?600\s*[-\s]*dimensional|"
+                r"V_m\(\\mathbb\{R\}\^N\).{0,40}240"),
+     "V_2(R^3) via Cartan triality; V_240 retired 2026-08-25"),
+    ("generalized Einstein-aether completion",
+     re.compile(r"generali[sz]ed Einstein[- ]aether|disformal coupling.{0,30}"
+                r"vector field"),
+     "AeST (Skordis-Zlosnik, arXiv:2007.00082); retired 2026-09-12"),
+    ("internal-gauge soldering",
+     re.compile(r"internal[- ]gauge soldering|baryon[- ]to[- ]internal[- ]curvature"),
+     "AeST covariant completion; retracted 2026-08-02"),
+    ("fabricated a0(z) figure",
+     re.compile(r"a0_z_analysis\.png"),
+     "do not cite -- 3 of 5 points fabricated"),
+]
+
+# Surfaces where a retired entity is a defect. Everything else -- archives,
+# logs, retracted papers, audit scripts, this file -- may name them freely.
+LIVE_GLOBS = ("*.tex", "*.md")
+EXEMPT = (
+    "raw/Logs/", "80_Archive/", "obsidian_vault_legacy/", "archive/",
+    "docs/recovered/", "archive_previous_iterations/", "Tier_2_Physics_Attempt/",
+    "CURRENT_STATE_READ_THIS_FIRST.md", "scripts/", "SOLDERING_",
+    "PEER_REVIEW_READINESS.md", "TARGET_D7_COVARIANT_COMPLETION.md",
+    "TARGET_D1_SUPPLEMENT", "TARGET_D2_SUPPLEMENT", "_AUDIT_", "AUDIT_LEDGER",
+    "CHANGELOG", "OPEN_PROBLEMS", "VERIFICATION_RUN",
+)
+# A line that marks the entity as dead is a correct mention, not a violation.
+RETIRED_CONTEXT = re.compile(
+    r"retire|retract|falsif|dead|do not use|superseded|obsolete|"
+    r"no[- ]go|historical|deprecat|\[X\]|void|predates", re.I)
+
+
+def tracked() -> list[Path]:
+    out = subprocess.run(["git", "-C", str(ROOT), "ls-files"],
+                         capture_output=True, text=True).stdout.splitlines()
+    return [ROOT / f for f in out
+            if any(Path(f).match(g) for g in LIVE_GLOBS)
+            and not any(e in f for e in EXEMPT)]
+
+
+def load_baseline() -> set[str]:
+    if not BASELINE.exists():
+        return set()
+    return {l.strip() for l in BASELINE.read_text(encoding="utf-8").splitlines()
+            if l.strip() and not l.startswith("#")}
+
+
+def scan(skip_baseline: bool = False) -> list[str]:
+    base = load_baseline() if skip_baseline else set()
+    hits = []
+    for path in tracked():
+        rel = str(path.relative_to(ROOT))
+        try:
+            lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+        except OSError:
+            continue
+        for n, line in enumerate(lines, 1):
+            window = "\n".join(lines[max(0, n - 3):n + 2])
+            if RETIRED_CONTEXT.search(window):
+                continue
+            for label, pat, instead in RETIRED:
+                m = pat.search(line)
+                if m:
+                    if f"{rel}:{n}" in base:
+                        break
+                    hits.append(f"{rel}:{n}: {label} -- {m.group(0)[:40]!r}\n"
+                                f"      use instead: {instead}")
+                    break
+    return hits
+
+
+def self_test() -> int:
+    cases = [
+        ("mu_dual(x) = x/(1+x) is the interpolating function", True),
+        ("the V_240 substrate underlies the frame", True),
+        ("see a0_z_analysis.png for the fit", True),
+        ("mu_std(x) = x/sqrt(1+x^2) is the live branch", False),
+        ("mu_dual was falsified on 2026-09-12 and is retired", False),
+    ]
+    fails = 0
+    for text, should_hit in cases:
+        hit = any(p.search(text) for _, p, _ in RETIRED)
+        ctx = bool(RETIRED_CONTEXT.search(text))
+        flagged = hit and not ctx
+        if flagged != should_hit:
+            print(f"SELF-TEST FAIL: {text!r} -> flagged={flagged}, "
+                  f"expected {should_hit}", file=sys.stderr)
+            fails += 1
+    if fails:
+        return 1
+    print(f"dead_branch_scan self-test: PASS ({len(cases)} cases, "
+          f"{len(RETIRED)} retired entities tracked)")
+    return 0
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--check", action="store_true")
+    ap.add_argument("--self-test", action="store_true")
+    args = ap.parse_args()
+    if args.self_test:
+        return self_test()
+
+    hits = scan(skip_baseline=args.check)
+    base = load_baseline()
+    print("DEAD-BRANCH SCAN")
+    print("-" * 16)
+    print(f"{'retired entities tracked':<34}{len(RETIRED)}")
+    print(f"{'live surfaces scanned':<34}{len(tracked())}")
+    print(f"{'violations':<34}{len(hits)}")
+    if args.check and base:
+        print(f"{'baselined, awaiting triage':<34}{len(base)}")
+    if hits:
+        print()
+        for h in hits[:20]:
+            print("  " + h)
+        if len(hits) > 20:
+            print(f"  ... and {len(hits) - 20} more")
+    return 1 if (hits and args.check) else 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
