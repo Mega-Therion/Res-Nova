@@ -58,7 +58,17 @@ class Axiom_A2_EntanglementGeometry (M : Type*) [MetricSpace M] (Q : Type*) [Nor
 class Axiom_A3_Equilibrium (Q : Type*) [NormedAddCommGroup Q] [InnerProductSpace ℂ Q] : Prop where
   maximal_vacuum_entanglement : ∀ (_V : Set Q), ∃ (S_max : ℝ), S_max ≥ 0
 
-/-- Axiom A4 (Variational Closure): The weak-field constitutive relation μ(x) is uniquely fixed by variational extremization of the entropic action. -/
+/-- Axiom A4 (Variational Closure): The weak-field constitutive relation μ(x) is uniquely fixed by variational extremization of the entropic action.
+
+**The disjunction below is not the end of the story.** As stated, A4 still admits
+`x / (1 + x)` — `mu_dual`, falsified 2026-09-12 for leaving an anomalous
+acceleration in the solar system far above the Cassini and Mercury bounds.
+
+`MuStdSelection.lean` closes it: the inverse-square screening condition
+`ScreenedTail` is satisfied by `mu_std` (`mu_std_screened`) and cannot be
+satisfied by `mu_dual` for any constant (`mu_dual_not_screened`), so the
+disjunction collapses (`screening_selects_mu_std`). The dead branch is now
+excluded inside the formal system, not only in prose. -/
 class Axiom_A4_VariationalClosure (μ : ℝ → ℝ) : Prop where
   closure_is_interpolation : IsInterpolationFunction μ
   weak_field_balance : ∀ (x : ℝ), x > 0 → μ x = x / (1 + x) ∨ μ x = x / Real.sqrt (1 + x^2)

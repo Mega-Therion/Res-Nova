@@ -64,6 +64,7 @@ TARGETS=(
   ITActionClosure.lean
   MuProjection.lean
   MuStdUniqueness.lean
+  MuStdSelection.lean
   PPNLimits.lean
   PillarIV_AntiDriftGate.lean
   PrintAxioms.lean

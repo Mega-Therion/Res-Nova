@@ -84,6 +84,7 @@ lean_lib «ResNovaFormal» where
     -- Postulate R, the chiral coordinate and mu'(0)=1 are INPUTS, and A and B are
     -- one postulate in two dresses, not two independent corroborations.
     `MuStdUniqueness,
+    `MuStdSelection,
     `PPNLimits,
     `PillarIV_AntiDriftGate,
     `PrintAxioms,

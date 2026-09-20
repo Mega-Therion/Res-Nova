@@ -22,483 +22,492 @@ modules:
     theorems: 18
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: CartanTrialityGenerations
     tier: ARITH
     theorems: 4
     structures: 0
     plain_real_defs: 0
-    denotes: "none. Discrete order bounds n % 3 < 3 and integer arithmetic; no Spin(8) representations, Lie algebras, or triality outer automorphisms appear in the module."
-    observable: "none"
-    falsifier: "none"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: ChiralCellularDuality
     tier: ARITH
     theorems: 3
     structures: 0
     plain_real_defs: 0
-    denotes: "none. Combinatorial properties of an involution sigma(sigma(x)) = x and integer coordinate parities; no physical cell, spatial manifold, or field dynamics appears in the module."
-    observable: "none"
-    falsifier: "none"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: ChiralCrackSketch
     tier: ARITH
     theorems: 9
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: ChiralHolonomyOrientation
     tier: ARITH
     theorems: 8
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: ChiralPartner
     tier: ARITH
     theorems: 15
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: ChiralResidue
     tier: ARITH
     theorems: 37
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: CosmologicalSector
     tier: ARITH
     theorems: 4
     structures: 0
     plain_real_defs: 2
-    denotes: "the cosmological density parameters Omega_Lambda := ln(2) approx 0.6931 and Omega_m := 1 - ln(2) approx 0.3069 as claimed cosmological coincidence entropy values for a flat FLRW universe"
-    observable: "Planck 2018 / DES cosmological background data for Omega_Lambda (0.6847 +/- 0.0073) and Omega_m (0.3153 +/- 0.0073)"
-    falsifier: "cosmological parameter measurements ruling out Omega_Lambda in the neighbourhood of ln(2) or establishing spatial curvature Omega_k != 0"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: CovariantCompletion
     tier: ARITH
     theorems: 8
     structures: 0
     plain_real_defs: 1
-    denotes: "relativistic scalar-tensor perturbation speeds c_parallel^2 = 1 + 1/(1+x), disformal metric PPN parameters (gamma_PPN = 1, alpha_1 = alpha_2 = 0), and static FLRW background scalar decoupling; equations evaluated as algebraic real relations without dynamic metric tensor"
-    observable: "Cassini PPN bound |gamma_PPN - 1| < 2.3e-5, lunar laser ranging alpha_1/alpha_2 bounds, and cosmological w(z) equation of state"
-    falsifier: "measured deviation of gamma_PPN from 1 above 2.3e-5, non-zero preferred-frame PPN alpha_1/alpha_2, or dynamical scalar dark energy w != -1"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: DeSitterExtremal
     tier: ARITH
     theorems: 4
     structures: 0
     plain_real_defs: 0
-    denotes: "none. Algebraic properties of the static de Sitter horizon radius r = 1/H and positivity of the product c*H/(2*pi); the horizon acceleration formula is posited as a definition rather than derived from field equations."
-    observable: "none"
-    falsifier: "none"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: DiagonalConeIndex
     tier: ARITH
     theorems: 12
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: DualChannelDerivation
     tier: ARITH
     theorems: 4
     structures: 0
     plain_real_defs: 0
-    denotes: "the AQUAL simple interpolating function mu(x) = x/(1+x) and its associated scalar kinetic potential F(x) = x^2/2 - x + ln(1+x), evaluated as real functions where x = g/a_0"
-    observable: "SPARC galaxy rotation curves via the AQUAL simple mu interpolating function"
-    falsifier: "rotation curve kinematics ruling out the simple mu function mu(x) = x/(1+x) in favor of the standard or exponential mu families"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: FiniteSU2Envelope
     tier: ARITH
     theorems: 17
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: GODActionKinematics
     tier: ARITH
     theorems: 3
     structures: 0
     plain_real_defs: 0
-    denotes: "algebraic identities linking total acceleration a_tot, baryonic acceleration a_bary, and Milgrom acceleration a_0 in the simple-mu MOND relation a_tot^2 = a_bary (a_tot + a_0), and the asymptotic Baryonic Tully-Fisher scaling v^4 = G M a_0"
-    observable: "Baryonic Tully-Fisher Relation (BTFR) and SPARC galaxy rotation velocities"
-    falsifier: "a systematic break in the BTFR v^4 proportional to M_bary scaling or failure of the simple-mu relation across galaxy disks"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: GenerationCycleChirality
     tier: ARITH
     theorems: 11
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: GenerationIndex
     tier: ARITH
     theorems: 2
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: HorizonScale
     tier: ARITH
     theorems: 6
     structures: 0
     plain_real_defs: 0
-    denotes: "the de Sitter horizon acceleration scale a = cH and the surface density a_0/(2 pi G); both are algebraic identities among named constants"
-    observable: "SPARC a_0 and the Freeman disk surface density"
-    falsifier: "a_0 measured outside the quoted band"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: LeptonMassCollar
     tier: ARITH
     theorems: 18
     structures: 0
     plain_real_defs: 11
-    denotes: "charged lepton masses, entered as constants and bounded by a modular expression fitted to CODATA"
-    observable: "CODATA lepton masses"
-    falsifier: "a CODATA revision outside the collar, or the fit being shown to be a post-hoc match"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
+
+  - module: MuStdSelection
+    tier: ARITH
+    theorems: 6
+    structures: 0
+    plain_real_defs: 0
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: NavierStokesCorticalBound
     tier: ARITH
     theorems: 7
     structures: 0
     plain_real_defs: 2
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: NavierStokesScope
     tier: ARITH
     theorems: 3
     structures: 0
     plain_real_defs: 1
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: PrintAxioms
     tier: ARITH
     theorems: 0
     structures: 0
     plain_real_defs: 0
-    denotes: "none. CI diagnostic module checking axiom footprints of CovariantCompletion theorems; contains no physical definitions or empirical models."
-    observable: "none"
-    falsifier: "none"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: PrintAxiomsD8
     tier: ARITH
     theorems: 6
     structures: 0
     plain_real_defs: 0
-    denotes: "none. Axiomatic CI diagnostic confirming dependence strictly on standard Lean 4 axioms [propext, Classical.choice, Quot.sound] for tensor speed identities."
-    observable: "none"
-    falsifier: "none"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: QuarkMassLadder
     tier: ARITH
     theorems: 10
     structures: 0
     plain_real_defs: 13
-    denotes: "quark masses in MeV, entered as literal constants (m_u = 2.16, m_d = 4.67, ...) and compared against PDG values"
-    observable: "PDG 2024 quark mass table"
-    falsifier: "a PDG revision moving a mass outside the stated enclosure"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: RamanujanGapDerivation
     tier: ARITH
     theorems: 5
     structures: 0
     plain_real_defs: 1
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: RamanujanModularBounds
     tier: ARITH
     theorems: 2
     structures: 0
     plain_real_defs: 0
-    denotes: "none. Real product non-negativity W*(1-u_p) >= 0 under non-negative factors; no modular forms, Ramanujan tau function, or Hecke eigenvalues appear in the formalization."
-    observable: "none"
-    falsifier: "none"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: RapidityEquipartition
     tier: ARITH
     theorems: 4
     structures: 0
     plain_real_defs: 1
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: RelativisticStability
     tier: ARITH
     theorems: 3
     structures: 0
     plain_real_defs: 0
-    denotes: "first and second derivative positivity F'(x) = x^2/(1+x) > 0 and F''(x) = (x^2+2x)/(1+x)^2 > 0 asserting strict convexity and absence of Ostrogradsky ghost instabilities for the dual-channel kinetic Lagrangian"
-    observable: "stable scalar field propagation in galactic halo potential backgrounds"
-    falsifier: "presence of negative-energy ghost modes or gradient instabilities in scalar perturbation spectra"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: RiemannSpectralExpander
     tier: ARITH
     theorems: 9
     structures: 0
     plain_real_defs: 0
-    denotes: "none. The spectral gap of a d-regular Ramanujan expander as an arithmetic expression in d; no graph, adjacency operator or spectrum appears."
-    observable: "none"
-    falsifier: "none"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: SU2FiniteFaithfulness
     tier: ARITH
     theorems: 3
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: SkordisZlosnikEmbedding
     tier: ARITH
     theorems: 8
     structures: 0
     plain_real_defs: 0
-    denotes: "the AQUAL interpolating function mu(x) and kinetic scalar J(Y) of the Skordis-Zlosnik model, as real-valued functions; the field equations they come from are not formalized here"
-    observable: "SPARC rotation curves via the mu it induces"
-    falsifier: "a mu shape excluded by SPARC at the fitted M/L"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: SovereignSpinCeiling
     tier: ARITH
     theorems: 6
     structures: 0
     plain_real_defs: 1
-    denotes: "none. The quantity sqrt(2) - 1/2 as a real number, asserted to be a Kerr spin ceiling; no metric, horizon or geodesic appears in the module."
-    observable: "none"
-    falsifier: "none"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: StiefelLaplaceEigenvalue
     tier: ARITH
     theorems: 8
     structures: 0
     plain_real_defs: 0
-    denotes: "none. Arithmetic about the closed-form expression k(n-(k+1)/2), which is named after the Stiefel Laplace-Beltrami eigenvalue but is defined here as a function of two reals. No manifold, metric or operator appears in the module."
-    observable: "none"
-    falsifier: "none"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: TensorSpeed
     tier: ARITH
     theorems: 10
     structures: 0
     plain_real_defs: 0
-    denotes: "tensor-mode propagation speed c_T as a function of the Jacobson-Mattingly parameter c13, as an algebraic identity rather than a derived field equation"
-    observable: "GW170817 constraint |c_T/c - 1| < 1e-15"
-    falsifier: "a measured c_T differing from c at the stated precision"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: TetrahedralAction
     tier: ARITH
     theorems: 9
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: TetrahedralEvenness
     tier: ARITH
     theorems: 3
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: TetrahedralQuotient
     tier: ARITH
     theorems: 17
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: YangMillsCasimirBound
     tier: ARITH
     theorems: 11
     structures: 0
     plain_real_defs: 1
-    denotes: "none. SU(N) generator counts and Casimir ratios as arithmetic on ℕ and ℝ; no gauge field, connection or Hamiltonian appears."
-    observable: "none"
-    falsifier: "none"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: YettParadigm
     tier: ARITH
     theorems: 5
     structures: 0
     plain_real_defs: 0
-    denotes: "none. Elementary inequalities on real parameters defining an assumed Hamiltonian spectral gap kappa^2 <= lambda1 - lambda0, monotonic energy decay E(t) <= E0, and an assumed threshold theta <= chi; no Hamiltonian operator, Hilbert space, or physical trajectory dynamics appears in the module."
-    observable: "none"
-    falsifier: "none"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: AXIOMS_V2
     tier: STRUCT
     theorems: 2
     structures: 10
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: Hamilgrangian
     tier: STRUCT
     theorems: 16
     structures: 20
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: ITActionClosure
     tier: STRUCT
     theorems: 6
     structures: 4
     plain_real_defs: 0
-    denotes: "the algebraic equivalence between the proposed tau-tension law and the AQUAL simple-mu relation, the deep-MOND BTFR scaling v^4 = a_0 G M, and the n=2 isothermal density profile producing flat rotation curves"
-    observable: "SPARC galactic rotation curves and the Baryonic Tully-Fisher relation"
-    falsifier: "a systematic deviation from the simple-mu interpolation function or failure of asymptotic rotation curve flatness in isothermal profiles"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: MuProjection
     tier: STRUCT
     theorems: 10
     structures: 5
     plain_real_defs: 0
-    denotes: "the standard MOND interpolating function mu(x) = x/sqrt(1+x^2) interpreted as a geometric projection cosine, its contrast with the rational simple-mu branch x/(1+x), and power-law solutions to the associated scalar equation of motion"
-    observable: "SPARC galaxy rotation curves and radial acceleration relation (RAR)"
-    falsifier: "high-precision rotation curve data ruling out mu(x) = x/sqrt(1+x^2) or establishing an incompatible acceleration transition width"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: MuStdUniqueness
     tier: STRUCT
     theorems: 28
     structures: 35
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: NavierStokesGeometry
     tier: STRUCT
     theorems: 1
     structures: 2
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: NavierStokesSpec
     tier: STRUCT
     theorems: 2
     structures: 2
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: PPNLimits
     tier: STRUCT
     theorems: 6
     structures: 4
     plain_real_defs: 0
-    denotes: "the fractional deviation 1 - mu(x) = 1/(1+x) of the scalar-tensor effective coupling from Newtonian gravity in the solar system acceleration regime x = g/a_0 >> 1"
-    observable: "Cassini solar conjunction radar time delay (|gamma - 1| < 2.3e-5) and MESSENGER Mercury perihelion precession (|beta - 1| < 2.3e-4)"
-    falsifier: "solar system tracking measurements detecting an anomalous non-Newtonian deviation 1 - mu(x) > 1/(1+x) at planetary orbital scales"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: PillarIV_AntiDriftGate
     tier: STRUCT
     theorems: 25
     structures: 17
     plain_real_defs: 1
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: SOCasimirGenuine
     tier: STRUCT
     theorems: 8
     structures: 32
     plain_real_defs: 0
-    denotes: "none. The so(n) quadratic Casimir operator and eigenvalue C_2(fund) = (n-1)/2 computed over concrete matrix generators in the defining representation; a theorem of Lie algebra representation theory, not an empirical physical claim."
-    observable: "none"
-    falsifier: "none"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: SU2CarrierRungs
     tier: STRUCT
     theorems: 4
     structures: 8
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: SU2MatrixEnvelope
     tier: STRUCT
     theorems: 9
     structures: 18
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: SovereignRegularity
     tier: STRUCT
     theorems: 8
     structures: 3
     plain_real_defs: 0
-    denotes: "none. A geometric 3D vector inequality for unit vector sine-modulus and a tautological projection of an assumed pointwise vorticity bound; no Navier-Stokes PDE, fluid velocity field dynamics, or time integral appears in the formalization."
-    observable: "none"
-    falsifier: "none"
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: SovereignSemiotics
     tier: STRUCT
     theorems: 3
     structures: 1
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: TrialityFixedSubalgebra
     tier: STRUCT
     theorems: 6
     structures: 6
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
 
   - module: TrialityG2
     tier: STRUCT
     theorems: 7
     structures: 17
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the weak-field constitutive function mu(x) of the AeST sector and a solar-system screening condition on its approach to the Newtonian limit"
+    observable: "Cassini gamma_PPN bound and Mercury perihelion precession, which set the tail requirement"
+    falsifier: "a solar-system bound that mu_std fails, or evidence that mu approaches 1 slower than inverse-square"
