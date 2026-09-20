@@ -1,7 +1,7 @@
 PUBLICATION METADATA AUDIT
 --------------------------
-Date (UTC)                   2026-09-20 05:18
-Commit                       ed9bef3
+Date (UTC)                   2026-09-20 05:42
+Commit                       a0e0829
 Tag                          v1.9.0
 Mode                         online (DataCite)
 
@@ -13,8 +13,5 @@ Release-vs-paper lineage     PASS
 DataCite agreement           PASS
 Works in registry            122
 Identity                     Ryan W. Yett <0009-0001-1303-7190>
-Known gap (WARN)             10.5281/zenodo.20779286 -- deposited under the separate identity 'Therion, Mega' with n
-Known gap (WARN)             10.5281/zenodo.19693512 -- credits a co-author 'Chyren Sovereign Intelligence' (an AI s
-Known gap (WARN)             10.5281/zenodo.20026859 -- deposited title contains Millennium framing, against the sta
 
 VERDICT                      PASS

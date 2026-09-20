@@ -23,25 +23,18 @@ identity:
 # Gaps that cannot be fixed from inside this repository. Each needs an edit on
 # the Zenodo record itself. The audit reports these as WARN rather than FAIL so
 # they stay visible without blocking the build; anything NOT listed here fails.
-known_gaps:
-  - doi: "10.5281/zenodo.20779286"
-    issue: "deposited under the separate identity 'Therion, Mega' with no ORCID -- this is a second scholarly identity and will fragment indexing"
-    action: "edit the Zenodo record: creator 'Yett, Ryan W.', ORCID 0009-0001-1303-7190"
-    opened: "2026-09-19"
-  - doi: "10.5281/zenodo.19693512"
-    issue: "credits a co-author 'Chyren Sovereign Intelligence' (an AI system) and carries no ORCID"
-    action: "edit the Zenodo record: sole creator 'Yett, Ryan W.' with ORCID; move the tooling credit to the description"
-    opened: "2026-09-20"
-  - doi: "10.5281/zenodo.20026859"
-    issue: "deposited title contains Millennium framing, against the standing directive"
-    action: "retitle the Zenodo record; use plain problem names"
-    opened: "2026-09-20"
+known_gaps: []
+  # All three deposits were corrected on Zenodo 2026-09-20 and verified against
+  # the DataCite API, so there are no open gaps:
+  #   20779286  creator "Therion, Mega", no ORCID  -> "Yett, Ryan W." + ORCID
+  #   19693512  AI co-author + Millennium title    -> sole author, retitled
+  #   20026859  AI contributor + Millennium title  -> removed, retitled
 
 works:
   - work_id: the_yett_paradigm_complete_unified
-    title: "The Yett Paradigm: Complete Unified Framework (Millennium Solutions, Quantum Gravity, & Chy-Bridge)"
-    author: "Yett, Ryan W.; Chyren Sovereign Intelligence"
-    orcid: ""
+    title: "The Yett Paradigm: Complete Unified Framework (Quantum Gravity & Chy-Bridge)"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
     resource_type: "Report"
     canonical_doi: "10.5281/zenodo.19693512"
     lineage: manuscript
@@ -56,7 +49,7 @@ works:
     is_new_version_of: []
 
   - work_id: the_yett_paradigm_complete_unified_2
-    title: "The Yett Paradigm: Complete Unified Framework (Millennium Solutions, Quantum Gravity, & Chy-Bridge)"
+    title: "The Yett Paradigm: Complete Unified Framework (Quantum Gravity & Chy-Bridge)"
     author: "Yett, Ryan W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
@@ -1621,8 +1614,8 @@ works:
 
   - work_id: verified_qubit_decoherence_and_stiefel
     title: "Verified Qubit Decoherence and Stiefel Manifold Topology"
-    author: "Therion, Mega"
-    orcid: ""
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
     resource_type: "Dataset"
     canonical_doi: "10.5281/zenodo.20779286"
     lineage: manuscript
