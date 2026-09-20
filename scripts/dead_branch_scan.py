@@ -26,6 +26,9 @@ import sys
 import hashlib
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import corpus_surfaces  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 BASELINE = ROOT / "docs" / "dead_branch_baseline.txt"
 
@@ -141,38 +144,13 @@ RETIRED_CONTEXT = re.compile(
     r"ruled out|excluded by", re.I)
 
 
-# Surfaces OUTSIDE this submodule that must still be scanned. C-00 of the
-# 2026-09-20 contradiction log: GUT_TOE_CANONICAL_SCOPE.md calls itself "the
-# single canonical reference for the scope, status and roadmap" of the whole
-# program, and carried a [P] tag on the falsified mu_dual -- but it lives in
-# the PARENT repo, so `git ls-files` here never listed it and this gate had
-# never once looked at the document every agent is pointed to. Paths are
-# relative to the parent of the submodule root.
-EXTRA_SCAN_ROOTS = ["00_CANONICAL"]
-
-
-def _ls_files(repo: Path, prefix: str = "") -> list[str]:
-    r = subprocess.run(["git", "-C", str(repo), "ls-files", prefix or "."],
-                       capture_output=True, text=True)
-    return r.stdout.splitlines() if r.returncode == 0 else []
-
-
-def _keep(rel: str) -> bool:
-    return (any(Path(rel).match(g) for g in LIVE_GLOBS)
-            and not any(e in rel for e in EXEMPT))
-
-
+# Surface enumeration lives in scripts/corpus_surfaces.py -- the single place
+# that binds this submodule to 00_CANONICAL. Three gates were each written with
+# their own `git -C <submodule> ls-files` and all three were blind to the
+# canonical directory; sharing the helper stops the next one repeating it.
 def tracked() -> list[tuple[Path, str]]:
     """(absolute path, display path) for every live surface this gate owns."""
-    out = [(ROOT / f, f) for f in _ls_files(ROOT) if _keep(f)]
-    parent = ROOT.parent
-    for extra in EXTRA_SCAN_ROOTS:
-        if not (parent / extra).is_dir():
-            continue
-        for f in _ls_files(parent, extra):
-            if _keep(f):
-                out.append((parent / f, f"../{f}"))
-    return out
+    return corpus_surfaces.surfaces(LIVE_GLOBS, EXEMPT)
 
 
 def baseline_key(rel: str, label: str, line: str) -> str:

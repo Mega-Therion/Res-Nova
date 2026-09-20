@@ -17,35 +17,22 @@ import argparse
 import subprocess
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import corpus_surfaces  # noqa: E402
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# Surfaces outside this submodule that must still be validated. PHYSICS_CORE.md
-# -- the file whose frontmatter was actually broken, and the reason this check
-# exists -- lives in the PARENT repo, so a submodule-only `git ls-files` never
-# saw it. Same blind spot that hid C-00 from the dead-branch scanner.
-EXTRA_SCAN_ROOTS = ["00_CANONICAL"]
+# Enumeration is shared -- see scripts/corpus_surfaces.py. PHYSICS_CORE.md, the
+# file whose frontmatter this check exists to protect, lives in 00_CANONICAL in
+# the PARENT repo, which a submodule-only ls-files never saw.
 SKIP = ("raw/", "80_Archive/", "docs/recovered/", "archive")
 
 
-def _ls(repo: Path, prefix: str = "") -> list[str]:
-    r = subprocess.run(["git", "-C", str(repo), "ls-files", prefix or "*.md"],
-                       capture_output=True, text=True)
-    return r.stdout.splitlines() if r.returncode == 0 else []
-
-
 def tracked_md_files() -> list[tuple[Path, str]]:
-    """(absolute path, display path) for every markdown surface we validate."""
-    out = [(ROOT / f, f) for f in _ls(ROOT) if not any(s in f for s in SKIP)]
-    parent = ROOT.parent
-    for extra in EXTRA_SCAN_ROOTS:
-        if not (parent / extra).is_dir():
-            continue
-        for f in _ls(parent, f"{extra}/*.md"):
-            if not any(s in f for s in SKIP):
-                out.append((parent / f, f"../{f}"))
-    return out
+    return corpus_surfaces.tracked_markdown(SKIP)
+
 
 def check_content(content: str, rel: str) -> list[str]:
     """Validate one file's frontmatter. Split from check_file so the

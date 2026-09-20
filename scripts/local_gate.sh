@@ -46,6 +46,7 @@ step "publication audit self-test" python3 scripts/audit_publication_metadata.py
 step "physics grounding audit" python3 scripts/grounding_audit.py --check
 # Retired constructions must not appear on a live surface. CURRENT_STATE_READ_
 # THIS_FIRST.md said so in prose; this enforces it.
+step "corpus surfaces self-test" python3 scripts/corpus_surfaces.py
 step "dead-branch scan" python3 scripts/dead_branch_scan.py --check
 step "dead-branch self-test" python3 scripts/dead_branch_scan.py --self-test
 step "dead-branch permissiveness" python3 scripts/dead_branch_scan.py --regression
