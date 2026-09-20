@@ -19,6 +19,7 @@ stable: files in the parent repo are shown with a `../` prefix.
 """
 from __future__ import annotations
 
+import os
 import subprocess
 from pathlib import Path
 
@@ -36,10 +37,19 @@ DEFAULT_SKIP = (
     "Tier_2_Physics_Attempt/",
 )
 
+_GIT_LEAK_VARS = frozenset((
+    "GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_OBJECT_DIRECTORY",
+    "GIT_ALTERNATE_OBJECT_DIRECTORIES", "GIT_PREFIX",
+))
+
 
 def _ls_files(repo: Path, pathspec: str) -> list[str]:
+    # In git hooks (e.g. pre-push, pre-commit), git exports GIT_DIR and friends
+    # pointing at the invoking repo's git dir. If we inspect another repo (like
+    # parent repo's 00_CANONICAL), we must strip these so git finds the right repo.
+    clean_env = {k: v for k, v in os.environ.items() if k not in _GIT_LEAK_VARS}
     r = subprocess.run(["git", "-C", str(repo), "ls-files", pathspec],
-                       capture_output=True, text=True)
+                       capture_output=True, text=True, env=clean_env)
     return r.stdout.splitlines() if r.returncode == 0 else []
 
 
