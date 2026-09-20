@@ -207,6 +207,37 @@ def check_local_titles(reg: dict) -> list[str]:
     return errs
 
 
+# ------------------------------------------------------------- bylines ---
+AUTHOR_CMD = re.compile(r"\\author\{", re.M)
+BAD_IDENTITY = re.compile(r"Mega-Therion|Therion,\s*Mega|Chyren Sovereign Intelligence", re.I)
+ABBREV = re.compile(r"\bR\.\s*W\.\s*~?Yett\b")
+
+
+def check_bylines() -> list[str]:
+    """The \author block is metadata. It must carry the canonical name, and must
+    not carry a second identity. 'R. W. Yett' stays legal in bibliographies."""
+    errs = []
+    for path in tracked_files():
+        rel = str(path.relative_to(ROOT))
+        if not rel.endswith(".tex") or is_historical(rel) or "05_lean" in rel:
+            continue
+        try:
+            text = path.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            continue
+        for m in AUTHOR_CMD.finditer(text):
+            # take the author block: from \author{ to the matching blank line
+            block = text[m.start():m.start() + 400].split("\n\n")[0]
+            n = text[:m.start()].count("\n") + 1
+            if "Ryan W." not in block and "Yett" in block:
+                errs.append(f"{rel}:{n}: \\author block uses an abbreviated or "
+                            f"non-canonical byline; metadata must read 'Ryan W. Yett'")
+            if BAD_IDENTITY.search(block):
+                errs.append(f"{rel}:{n}: \\author block carries a second identity "
+                            f"({BAD_IDENTITY.search(block).group(0)!r})")
+    return errs
+
+
 def check_datacite(reg: dict) -> list[str]:
     errs = []
     for w in reg["works"]:
@@ -302,6 +333,7 @@ def main() -> int:
         ("Registry shape", check_registry_shape(reg)),
         ("DOI registry coverage", check_coverage_and_surfaces(reg)),
         ("Local title vs registry", check_local_titles(reg)),
+        ("Manuscript bylines", check_bylines()),
     ]
     if args.online:
         sections.append(("DataCite agreement", check_datacite(reg)))
