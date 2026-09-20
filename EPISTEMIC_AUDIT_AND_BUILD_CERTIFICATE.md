@@ -75,11 +75,13 @@ Formalization in module `05_lean_formalization/StiefelLaplaceEigenvalue.lean`:
      - `stiefel_v240_r57600_exact`: $\lambda_1(240, 57600) = 13{,}795{,}080$
   5. `stiefel_mass_gap_pos`: Strict positivity of the spectral mass gap $\Delta(k, n, R, c_{\text{scale}}) > 0$ for positive scale and radius.
 
+*Epistemic boundary:* Lean certifies the algebraic and spectral consequences of the closed-form expression, not the differential-geometric manifold construction. Non-vacuity is not certified by the kernel; substitutability testing is the appropriate check and is not run here.
+
 ---
 
 ## 4. Empirical Evaluation of Critical Galactic Surface Density [emp]
 
-The transition surface mass density between the Newtonian and modified acceleration regimes in disk galaxies is given by:
+The transition surface mass density between the Newtonian and modified acceleration regimes in disk galaxies is the standard MOND surface-density scale (Milgrom 1983):
 $$\Sigma_c \equiv \frac{a_0}{2\pi G}$$
 
 ### Physical Calculation
@@ -101,8 +103,11 @@ $$\Sigma_c = 0.2861513 \times 478.8308 = 137.0180\,M_\odot/\mathrm{pc}^2$$
 ### Comparison with Astronomical Observations
 - **Observed Freeman (1970) / SPARC Disk Central Surface Density:**
   $$\Sigma_{c,\mathrm{obs}} = 137 \pm 9\,M_\odot/\mathrm{pc}^2$$
-- **Residual:**
+- **Residual against Central Value:**
   $$\frac{|137.0180 - 137.0|}{137.0} = 0.0132\%$$
 
-### Epistemic Tag
-This comparison is classified as **`[emp]`** (Empirical match against observational astronomy data), not a formal theorem `[thm]`.
+### Epistemic Boundary & Literature Context
+- **Classification:** Classified as **`[emp]`** (Empirical match against observational astronomy data), not a formal theorem `[thm]`.
+- **Literature Attribution:** The agreement between the MOND acceleration scale $a_0$ and Freeman's central disk surface density law $\Sigma_0 \approx 137\,M_\odot/\mathrm{pc}^2$ is a long-standing, well-known baseline in the MOND literature (Milgrom 1983; Freeman 1970), not a novel prediction of this framework.
+- **Band Resolution:** Although the central values agree to $0.013\%$, the empirical observational band ($\pm 9\,M_\odot/\mathrm{pc}^2$) is $\pm 6.6\%$ wide, meaning the empirical alignment is resolved at the few-percent level.
+
