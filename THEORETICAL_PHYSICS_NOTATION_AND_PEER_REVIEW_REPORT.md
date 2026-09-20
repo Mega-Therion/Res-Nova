@@ -21,7 +21,7 @@
 | $R$ | Ricci Scalar Curvature | $[L^{-2}]$ | $\mathrm{m^{-2}}$ | `[thm]` |
 | $\phi$ | Dilaton / Conformal Scalar Field | $[M^0 L^0 T^0]$ | Dimensionless | `[def]` |
 | $\chi$ | Information Tension Scalar Field | $[L^{-1}]$ | $\mathrm{m^{-1}}$ | `[def]` |
-| $a_0$ | MOND Characteristic Acceleration Scale | $[L T^{-2}]$ | $\mathrm{m\,s^{-2}}$ | `[D]` $(1.116 \pm 0.161)\times 10^{-10}$ |
+| $a_0$ | MOND Characteristic Acceleration Scale | $[L T^{-2}]$ | $\mathrm{m\,s^{-2}}$ | `[D]` $1.1607\times 10^{-10}$, 68% $[1.059,\,1.232]\times10^{-10}$ (μ_std, SPARC 175, 3{,}391 pts). The former $(1.116 \pm 0.161)\times10^{-10}$ was a 171-galaxy pre-audit extraction under the falsified μ_dual — **superseded 2026-09-17**. $a_0$ is a property of the $(\mu, a_0)$ pair: the same data give $9.2420\times10^{-11}$ under μ_dual. See `docs/A0_CLOSURE_EVOLUTION.md`. |
 | $x$ | Dimensionless Acceleration Gradient Ratio $\frac{\|\nabla\Phi\|}{a_0}$ | $[M^0 L^0 T^0]$ | Dimensionless | `[def]` |
 | $\mathcal{F}_{\text{dual}}(x)$ | Dual-Channel AQUAL Potential Function | $[M^0 L^0 T^0]$ | Dimensionless | `[thm]` |
 | $\mu(x)$ | Simple MOND Interpolation Function $\frac{x}{1+x}$ | $[M^0 L^0 T^0]$ | Dimensionless | `[thm]` |
@@ -87,7 +87,7 @@ Epistemic Score: 98/100 (HIGH EXCELLENCE / ACCEPT WITH DISTINCTION)
 
 #### Major Strengths:
 1. **Unflinching Epistemic Honesty**: The explicit quarantine of `PAPER_01` (Section \ref{sec:nogo}) and the strict separation of $\mathbf{[P]}$ machine-checked proofs from $\mathbf{[O]}$ open conjectures represents exemplary scientific integrity.
-2. **Lean 4 Machine Verification**: All core algebra and spectral positivity bounds are backed by 18 modules with **0 sorries and 0 admits** in Lean 4.
+2. **Lean 4 Machine Verification**: All core algebra and spectral positivity bounds are backed by Lean 4 modules with **0 sorries and 0 admits**. Module counts are scope-dependent and the earlier figure of 18 was scope-free: the gate scope is **59** targets (`check_target_inventory.py`) and the manuscript scope is **28** (`check_manuscript_inventory.py`; gate scope minus `ADJACENT_MODULES.txt`). See `docs/COUNTS.md`. Zero sorries is not zero assumptions — it does not establish that any theorem is non-vacuous.
 3. **Ghost-Freedom & GW Concordance**: The Skordis-Złośnik covariant completion strictly enforces $c_T = c$ ($c_{13} = 0$), completely avoiding the gravitational wave speed constraints from GW170817 / GRB 170817A.
 4. **Solar System Safety**: Linear screening ratio $\mathcal{F}''/\mathcal{F}' \approx 0.004$ suppresses structure overproduction by a factor of 250, and the external-field quadrupole $Q_2 \approx 4.9 \times 10^{-29}\;\mathrm{s^{-2}}$ sits 70 times below the Cassini limit ($3.5 \times 10^{-27}\;\mathrm{s^{-2}}$) without fine-tuning.
 

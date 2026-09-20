@@ -1,5 +1,14 @@
 # Consolidation & Salvage Plan — the corpus before the μ_std rewrite
 
+> **SUPERSESSION NOTE (2026-09-20).** This plan was written while the 5.9σ $a_0(z)$
+> result and the 171-galaxy SPARC fit were live. Both have since changed and the plan is
+> **not** to be executed against them as written: the 5.9σ figure is `[X]`-retracted (the
+> μ_std re-run is INCONCLUSIVE at 2.06σ with the preference reversed), and the live SPARC
+> object is the 175-galaxy μ_std row, $a_0 = 1.1607\times10^{-10}$ — the 171-galaxy
+> extraction is retained for provenance only. Salvage targets that depend on either are
+> void until restated. See `docs/A0_CLOSURE_EVOLUTION.md` and `PEER_REVIEW_READINESS.md`.
+
+
 > Planning document, 2026-09-12. Contains **no new physics claims**; every salvaged
 > item is tagged with its current epistemic grade and must be re-derived under μ_std
 > before entering the manuscript. Companion to `RECOVERED_MATERIAL.md` (which is the
