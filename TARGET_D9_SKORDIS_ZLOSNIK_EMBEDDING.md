@@ -45,7 +45,9 @@
 EPISTEMIC VERDICT: TARGET D9 (SKORDIS-ZŁOŚNIK RMOND PARENT MEMBERSHIP)
 ========================================================================================================
 1. Covariant Action Membership:
-   The derived dual-channel closure F_dual(x) = ½x² − x + ln(1+x) EMBEDS EXACTLY [P] into the
+   The derived dual-channel closure F_dual(x) = ½x² − x + ln(1+x) — **retired**, falsified
+2026-09-12; the live closure is the mu_std branch — EMBEDS EXACTLY [P about a retired
+branch] into the
    Skordis–Złośnik (SZ, Phys. Rev. Lett. 127, 161302, 2021) relativistic MOND framework
    via the kinetic scalar potential:
        J(Y) = ½Y − √Y + ln(1 + √Y)   where Y ≡ (1/a₀²) g^μν ∇̂_μ ϕ ∇̂_ν ϕ.

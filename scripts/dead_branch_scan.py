@@ -83,15 +83,35 @@ EXEMPT = (
 FILE_NOTICE = re.compile(
     r"BRANCH NOTICE|SUBSTRATE NOTICE|SUPERSEDED|RETRACTED|"
     r"retired (branch|substrate)|falsified .{0,30}(branch|function)", re.I)
-FILE_NOTICE_HEAD_LINES = 40
+# 200, not 40: a LaTeX preamble routinely runs past 100 lines, so a banner
+# placed correctly right after \maketitle sat OUTSIDE a 40-line window and the
+# gate could not see it. This is safe only because the exemption is
+# entity-scoped -- head_notice_covers() still requires the notice to name the
+# very entity being flagged, so a V_240 banner never licenses an F_dual claim
+# no matter how wide this window is.
+FILE_NOTICE_HEAD_LINES = 200
+
+
+NOTICE_BLOCK_LINES = 14
 
 
 def head_notice_covers(head: str, label: str) -> bool:
-    """True only if the head notice names the entity this mention is about."""
-    if not FILE_NOTICE.search(head):
+    """True only if a notice BLOCK in the head names this very entity.
+
+    The entity must appear inside the notice itself, not merely somewhere in
+    the head. Requiring only "somewhere in the head" was wrong: once the head
+    window grew past a LaTeX preamble, ordinary body prose mentioning F_dual
+    satisfied it, and a V_240 banner silently licensed an F_dual claim -- the
+    exact over-permissiveness this function exists to prevent."""
+    lines = head.splitlines()
+    pats = [pat for lbl, pat, _ in RETIRED if lbl == label]
+    if not pats:
         return False
-    for other_label, pat, _ in RETIRED:
-        if other_label == label and pat.search(head):
+    for i, line in enumerate(lines):
+        if not FILE_NOTICE.search(line):
+            continue
+        block = "\n".join(lines[i:i + NOTICE_BLOCK_LINES])
+        if any(p.search(block) for p in pats):
             return True
     return False
 
@@ -220,7 +240,7 @@ def main() -> int:
     print(f"{'live surfaces scanned':<34}{len(tracked())}")
     print(f"{'violations':<34}{len(hits)}")
     if args.check and base:
-        print(f"{'baselined, awaiting triage':<34}{len(base)}")
+        print(f"{'baselined (triaged, accepted)':<34}{len(base)}")
     if hits:
         print()
         for h in hits[:20]:

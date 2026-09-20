@@ -7,10 +7,17 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against repo HEAD:** 2026-09-20 (the audit-cycle state below supersedes
-any pre-2026-09-16 substrate claim not updated by it; commit `726820f`). If this date is more than a few days old
-when you read it, treat every claim below as suspect and re-derive its status from
-`PEER_REVIEW_READINESS.md` directly before using it.
+**Last verified against the physics:** 2026-09-20 (the audit-cycle state below supersedes
+any pre-2026-09-16 substrate claim not updated by it).
+
+This line is **enforced**, not decorative: `scripts/current_state_freshness.py` fails the
+gate if any physics surface — the Lean modules, the manuscript, `PEER_REVIEW_READINESS.md`
+or any `TARGET_D*` — has a commit dated after this date. Documentation and tooling churn
+does not trip it. It previously pinned a commit SHA, which moved on every commit and so
+was stale the moment it was written; a pin that is always wrong is not a check.
+
+If the date is more than three days old when you read it, treat every claim below as
+suspect and re-derive its status from `PEER_REVIEW_READINESS.md` before using it.
 
 ---
 

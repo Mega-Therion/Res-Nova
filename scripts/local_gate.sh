@@ -51,6 +51,8 @@ step "dead-branch self-test" python3 scripts/dead_branch_scan.py --self-test
 # One tier vocabulary. Four were in simultaneous use before 2026-09-20.
 step "tier legend" python3 scripts/tier_legend_check.py --check
 step "tier legend self-test" python3 scripts/tier_legend_check.py --self-test
+step "current-state freshness" python3 scripts/current_state_freshness.py
+step "current-state self-test" python3 scripts/current_state_freshness.py --self-test
 
 echo
 if [ "$fails" -eq 0 ]; then
