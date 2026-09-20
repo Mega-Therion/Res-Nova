@@ -48,7 +48,7 @@ Ryan W.\ Yett\thanks{ORCID: \href{https://orcid.org/0009-0001-1303-7190}{0009-00
 \maketitle
 
 \begin{abstract}
-We present a unified geometrodynamic framework synthesizing the Anti-de~Sitter (AdS) entanglement first-law derivation of linearized gravity with a de~Sitter (dS) Information Tension theory yielding the MOND acceleration scale $a_0 \sim cH_0$ and dark energy density fraction $\Omega_\Lambda \approx \ln 2 \approx 0.693$. The underlying algebraic infrastructure---$\mathfrak{so}(N)$ Casimir positivity, spectral gap energy monotonicity, and Beale--Kato--Majda conditional regularity---is machine-checked in Lean~4 (toolchain \texttt{v4.30.0-rc2}) with zero kernel errors, zero \texttt{sorry} axioms, and zero vacuous proofs. Every physical claim is explicitly classified under a formal epistemic taxonomy: \textbf{[thm]} for machine-checked theorems, \textbf{[emp]} for empirical computations against astronomical data, \textbf{[conj]} for physical conjectures, \textbf{[open]} for unsettled physical parameters, and \textbf{[note]} for aesthetic observations. The Lean formalizations verify the conditional logical scaffolding; the physical hypotheses are stated as explicit postulates of the theory.
+We present a unified geometrodynamic framework synthesizing the Anti-de~Sitter (AdS) entanglement first-law derivation of linearized gravity with a de~Sitter (dS) Information Tension theory yielding the MOND acceleration scale $a_0 \sim cH_0$ and dark energy density fraction $\Omega_\Lambda \approx \ln 2 \approx 0.693$. The underlying algebraic infrastructure---$\mathfrak{so}(N)$ Casimir positivity, spectral gap energy monotonicity, and Beale--Kato--Majda conditional regularity---is machine-checked in Lean~4 (toolchain \texttt{v4.30.0-rc2}) with zero kernel errors and zero \texttt{sorry} axioms. Non-vacuity is not certified by the kernel: substitutability testing is the appropriate check and is not run here. Every physical claim is explicitly classified under a formal epistemic taxonomy: \textbf{[thm]} for machine-checked theorems, \textbf{[emp]} for empirical computations against astronomical data, \textbf{[conj]} for physical conjectures, \textbf{[open]} for unsettled physical parameters, and \textbf{[note]} for aesthetic observations. The Lean formalizations verify the conditional logical scaffolding; the physical hypotheses are stated as explicit postulates of the theory.
 \end{abstract}
 
 \vspace{0.3cm}
@@ -264,11 +264,11 @@ The precise MOND-scale acceleration $a_0 = cH_0/(2\pi) \approx 1.13 \times 10^{-
 
 \begin{proposition}[Cross-Scale Critical Surface Density --- {\normalfont\texttt{[emp]}}]
 \label{thm:sigma_crit}
-The galactic critical surface mass density $\Sigma_c$ governing the transition to the modified acceleration regime in disk galaxies is given by:
+The galactic critical surface mass density $\Sigma_c$ governing the transition to the modified acceleration regime in disk galaxies is the standard MOND surface-density scale~\cite{milgrom1983}:
 \begin{equation}\label{eq:sigma_crit}
   \Sigma_c \equiv \frac{a_0}{2\pi G}.
 \end{equation}
-Evaluating $\Sigma_c$ with the empirical MOND acceleration threshold $a_0 = 1.20 \times 10^{-10}\;\mathrm{m/s^2}$ and Newton's gravitational constant $G = 6.6743 \times 10^{-11}\;\mathrm{m^3/(kg\cdot s^2)}$ yields $\Sigma_c = 137.02\;M_\odot/\mathrm{pc}^2$, matching the observed Freeman disk central surface density threshold $\Sigma_{c,\mathrm{obs}} = 137 \pm 9\;M_\odot/\mathrm{pc}^2$ within $0.01\%$.
+Evaluating $\Sigma_c$ with the empirical MOND acceleration threshold $a_0 = 1.20 \times 10^{-10}\;\mathrm{m/s^2}$ and Newton's gravitational constant $G = 6.6743 \times 10^{-11}\;\mathrm{m^3/(kg\cdot s^2)}$ yields $\Sigma_c = 137.02\;M_\odot/\mathrm{pc}^2$, which lies inside the observed Freeman disk central surface density band $\Sigma_{c,\mathrm{obs}} = 137 \pm 9\;M_\odot/\mathrm{pc}^2$~\cite{freeman1970}. The central values agree to $0.01\%$, but the observational band is $\pm 6.6\%$ wide, so the agreement is only resolved at the few-percent level. This coincidence between the MOND surface-density scale and Freeman's law is a long-standing observation in the MOND literature, not a new prediction of this framework.
 \end{proposition}
 
 \begin{conjecture}[Pleroma Duality Principle --- {\normalfont\texttt{[conj]}}]
@@ -360,6 +360,11 @@ G.~W.\ Gibbons and S.~W.\ Hawking,
 F.~W.\ Hehl, P.\ von~der~Heyde, G.~D.\ Kerlick, and J.~M.\ Nester,
 ``General relativity with spin and torsion: foundations and prospects,''
 \textit{Rev.\ Mod.\ Phys.}\ \textbf{48}, 393 (1976).
+
+\bibitem{freeman1970}
+K.~C. Freeman,
+\emph{On the Disks of Spiral and S0 Galaxies},
+Astrophys.\ J.\ \textbf{160}, 811 (1970).
 
 \bibitem{jacobson1995}
 T.\ Jacobson,
