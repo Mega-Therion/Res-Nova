@@ -48,6 +48,9 @@ step "physics grounding audit" python3 scripts/grounding_audit.py --check
 # THIS_FIRST.md said so in prose; this enforces it.
 step "dead-branch scan" python3 scripts/dead_branch_scan.py --check
 step "dead-branch self-test" python3 scripts/dead_branch_scan.py --self-test
+# One tier vocabulary. Four were in simultaneous use before 2026-09-20.
+step "tier legend" python3 scripts/tier_legend_check.py --check
+step "tier legend self-test" python3 scripts/tier_legend_check.py --self-test
 
 echo
 if [ "$fails" -eq 0 ]; then
