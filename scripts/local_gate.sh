@@ -54,6 +54,9 @@ step "tier legend" python3 scripts/tier_legend_check.py --check
 step "tier legend self-test" python3 scripts/tier_legend_check.py --self-test
 step "current-state freshness" python3 scripts/current_state_freshness.py
 step "current-state self-test" python3 scripts/current_state_freshness.py --self-test
+# YAML frontmatter validity check.
+step "frontmatter validity" python3 scripts/check_frontmatter.py --check
+step "frontmatter self-test" python3 scripts/check_frontmatter.py --self-test
 
 echo
 if [ "$fails" -eq 0 ]; then
