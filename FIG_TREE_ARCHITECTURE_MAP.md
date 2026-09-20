@@ -116,11 +116,14 @@ $$\chi \in [\chi_Y, \, \kappa_Y] = \left[ \frac{1}{\sqrt{2}}, \; \sqrt{\theta(2-
 | Title | DOI | Status | Role in FIG Tree |
 | :--- | :--- | :--- | :--- |
 | **IO/OI Unified Transmission Monograph** | *Pending Deposit* | **🟢 Staged (`v1.10.0`)** | Active Master Synthesis Monograph |
-| **The Law of GOD** | [10.5281/zenodo.20026859](https://doi.org/10.5281/zenodo.20026859) | Published | Foundational Theory Blueprint |
-| **Verified Qubit & Stiefel Topology** | [10.5281/zenodo.20779286](https://doi.org/10.5281/zenodo.20779286) | Published | Formal Stiefel Verification |
-| **ADCCL White Paper: Chiral Threshold** | [10.5281/zenodo.20027635](https://doi.org/10.5281/zenodo.20027635) | Published | $\chi_{\text{floor}} = 1/\sqrt{2}$ Proof |
-| **RY-Hamiltonian & Information Tension** | [10.5281/zenodo.20027643](https://doi.org/10.5281/zenodo.20027643) | Published | Tension Tensor Derivation |
-| **Neuro-Topological Specification** | [10.5281/zenodo.20027645](https://doi.org/10.5281/zenodo.20027645) | Published | Cognitive Agent Mechanics |
-| **OmegA Architecture** | [10.5281/zenodo.20027647](https://doi.org/10.5281/zenodo.20027647) | Published | Autonomous Multi-Agent Mesh |
-| **Resource Holonomy & 4D SO(4)** | [10.5281/zenodo.20027651](https://doi.org/10.5281/zenodo.20027651) | Published | Gauge Transport Geometry |
-| **Trinity Survey: 409 JWST/Hubble Signals** | [10.5281/zenodo.20027657](https://doi.org/10.5281/zenodo.20027657) | Published | Observational Telemetry Data |
+| **The Yett Paradigm: Complete Unified Framework** | [10.5281/zenodo.20026859](https://doi.org/10.5281/zenodo.20026859) | Published | Foundational theory blueprint (v3.0.0) |
+| **Verified Qubit Decoherence and Stiefel Manifold Topology** | [10.5281/zenodo.20779286](https://doi.org/10.5281/zenodo.20779286) | Published | Formal Stiefel verification |
+| **Information Tension Theory: A Geometric Replacement for Dark Matter** | [10.5281/zenodo.20027635](https://doi.org/10.5281/zenodo.20027635) | Published | Core IT statement |
+| **The Anti-Drift Cognitive Control Loop (ADCCL)** | [10.5281/zenodo.20027643](https://doi.org/10.5281/zenodo.20027643) | Published | $\chi_{\text{floor}} = 1/\sqrt{2}$ proof |
+| **The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap** | [10.5281/zenodo.20027645](https://doi.org/10.5281/zenodo.20027645) | Published | Spectral gap construction |
+| **OmegA: A Layered Architecture for Sovereign Cognitive Agents** | [10.5281/zenodo.20027647](https://doi.org/10.5281/zenodo.20027647) | Published | Autonomous multi-agent mesh |
+| **Neuro-Topological Stability: Biological Regularity and Navier-Stokes** | [10.5281/zenodo.20027651](https://doi.org/10.5281/zenodo.20027651) | Published | Cognitive/PDE regularity |
+| **Resource Holonomy: Market Stability and the Critical Line of Sovereignty** | [10.5281/zenodo.20027657](https://doi.org/10.5281/zenodo.20027657) | Published | Gauge transport geometry |
+
+> Every DOI in this table is a reference to `docs/publication_registry.yaml`, which is generated from DataCite. Row labels are the deposited record titles, not local nicknames. `scripts/audit_publication_metadata.py` fails if a label and its DOI disagree -- an earlier revision of this table was off by one row for five consecutive entries.
+

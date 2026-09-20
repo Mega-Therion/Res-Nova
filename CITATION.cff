@@ -1,0 +1,47 @@
+# This file describes the REPOSITORY -- the manuscript source, the Lean 4
+# formalization, and the reproducibility package -- not the papers it contains.
+# Each paper cites its own DOI. The authoritative list of paper DOIs is
+# docs/publication_registry.yaml, and scripts/audit_publication_metadata.py
+# checks this file against it.
+#
+# Note: when both CITATION.cff and .zenodo.json are present, Zenodo uses
+# .zenodo.json for GitHub release archiving. .zenodo.json stays the release
+# authority; this file is what GitHub renders as "Cite this repository".
+cff-version: 1.2.0
+message: "If you use this repository, please cite it as below."
+type: software
+title: "Res Nova: technical manuscript, formal verification, and reproducibility package"
+abstract: >-
+  Manuscript source, Lean 4 formalization, verification gates, claim/evidence
+  ledger, and the SPARC reproducibility package for the Res Nova programme
+  (Geometrically Ordered Dynamics and Information Tension).
+authors:
+  - family-names: Yett
+    given-names: Ryan W.
+    orcid: "https://orcid.org/0009-0001-1303-7190"
+    affiliation: "Independent Researcher, Arkansas, USA"
+repository-code: "https://github.com/Mega-Therion/Res-Nova"
+version: "1.9.0"
+license: CC-BY-4.0
+keywords:
+  - formal verification
+  - Lean 4
+  - modified gravity
+  - MOND
+  - AeST
+  - SPARC
+  - reproducibility
+# Add `doi:` here once a GitHub release of THIS repository has its own Zenodo
+# archival DOI. Do not put a paper DOI in this field -- the repository and the
+# papers are different objects.
+references:
+  - type: article
+    title: >-
+      Res Nova: Geometrically Ordered Dynamics and Information Tension
+      — Dual-Channel Variational Closure
+    authors:
+      - family-names: Yett
+        given-names: Ryan W.
+        orcid: "https://orcid.org/0009-0001-1303-7190"
+    doi: "10.5281/zenodo.21539453"
+    year: 2026

@@ -37,6 +37,10 @@ step "gate2 inference self-test" python3 03_observer_jwst/gate2_inference.py --s
 step "lean target inventory" python3 05_lean_formalization/check_target_inventory.py
 step "lean manuscript inventory" python3 05_lean_formalization/check_manuscript_inventory.py
 step "mvpc fixture manifests" python3 scripts/render_mvpc_fixtures.py --check
+# Publication identity. Offline by default so the gate stays fast and works
+# without network; CI and release run --online to check DataCite agreement.
+step "publication metadata audit" python3 scripts/audit_publication_metadata.py
+step "publication audit self-test" python3 scripts/audit_publication_metadata.py --self-test
 
 echo
 if [ "$fails" -eq 0 ]; then
