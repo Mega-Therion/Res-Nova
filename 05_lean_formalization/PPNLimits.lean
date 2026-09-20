@@ -3,6 +3,23 @@ import Mathlib.Data.Real.Basic
 import Mathlib.Topology.MetricSpace.Basic
 
 /-!
+# SUPERSEDED 2026-09-20 -- built on the falsified branch
+
+This module computes the solar-system margins from `mu(x) = x / (1 + x)`.
+That is `mu_dual`, falsified 2026-09-12 for leaving an anomalous acceleration
+in the solar system. As the note further down says, these theorems "depend on
+the specific dual-channel mu(x) = x/(1+x) ... Substituting a different
+interpolation function breaks them" -- which is exactly what happened.
+
+**Use `PPNLimitsStd.lean` instead.** It proves the same bounds under
+`mu_std(x) = x / sqrt(1 + x^2)`, where the deviation falls as `1/(2x^2)`
+rather than `1/x`, improving every margin by eight to nine orders of
+magnitude (MESSENGER: 5.6e-18 against a 2.3e-4 threshold).
+
+Retained because it is cited in the manuscripts and in the claim ledger. The
+arithmetic below is correct; the interpolation function it assumes is not the
+theory's.
+
 # Milestone D3: Parameterized Post-Newtonian (PPN) & Solar System Limits
 Author: Ryan W. Yett (Mega-Therion / Chyren Sovereign Intelligence)
 ORCID: 0009-0001-1303-7190

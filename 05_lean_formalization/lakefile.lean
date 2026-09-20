@@ -85,6 +85,7 @@ lean_lib «ResNovaFormal» where
     -- one postulate in two dresses, not two independent corroborations.
     `MuStdUniqueness,
     `MuStdSelection,
+    `PPNLimitsStd,
     `PPNLimits,
     `PillarIV_AntiDriftGate,
     `PrintAxioms,

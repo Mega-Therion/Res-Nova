@@ -65,6 +65,7 @@ TARGETS=(
   MuProjection.lean
   MuStdUniqueness.lean
   MuStdSelection.lean
+  PPNLimitsStd.lean
   PPNLimits.lean
   PillarIV_AntiDriftGate.lean
   PrintAxioms.lean
