@@ -1,59 +1,62 @@
-# file:line of retired-entity mentions present on live surfaces as of
-# 2026-09-20, when dead_branch_scan.py was introduced. The gate fails on
-# anything NOT listed here, so new dead-branch contamination is blocked
-# while these are triaged. Some are legitimate -- e.g. a comparison against
-# the literature's MOND mu(x)=x/(1+x) is not a use of the falsified branch.
-# Delete a line once that mention is corrected or confirmed legitimate.
-01_foundational_action/COVARIANT_STRESS_ENERGY_COMPLETION.md:92
-01_foundational_action/PAPER_09_ALGEBRAIC_EQUIVALENCE_OF_TAU_TENSION_AND_AQUAL_SIMPLE_MU.tex:219
-01_foundational_action/PRD_Relativistic_Extension.tex:138
-01_foundational_action/Res_Nova_Geometrically_Ordered_Dynamics_and_Information_Tension.tex:75
-02_galaxy_dynamics/A0_HIGHZ_MEASUREMENT_2026-09-16.md:151
-02_galaxy_dynamics/SPARC_PARAMETER_BUDGET.md:7
-03_observer_jwst/IO_OI_ACADEMIC.tex:87
-03_observer_jwst/IO_OI_UNIFIED_TRANSMISSION_MONOGRAPH.tex:228
-03_observer_jwst/IO_OI_UNIFIED_TRANSMISSION_MONOGRAPH.tex:229
-03_observer_jwst/IO_OI_UNIFIED_TRANSMISSION_MONOGRAPH.tex:242
-03_observer_jwst/IO_OI_UNIFIED_TRANSMISSION_MONOGRAPH.tex:245
-03_observer_jwst/IO_OI_UNIFIED_TRANSMISSION_MONOGRAPH.tex:401
-03_observer_jwst/PREREG_A0_OF_Z.md:65
-CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md:13
-CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md:24
-CORPUS_DEPENDENCY_MAP.md:72
-FIG_TREE_ASSET_LEDGER.md:77
-FIG_TREE_ASSET_LEDGER.md:80
-FIG_TREE_ASSET_LEDGER.md:93
-GHOSTFREE_AND_SCREENING_CORRECTION_2026-09-08.md:55
-GROUNDED_BRICKS_VS_HYPOTHESIS_MAP.md:28
-RES_NOVA_VERIFICATION_LEDGER.md:14
-SUBMISSION/COVER_LETTER_PRD.md:14
-SUBMISSION/COVER_LETTER_PRD.md:16
-SUBMISSION/COVER_LETTER_PRD.md:26
-TARGET_D1_VARIATIONAL_DERIVATION.md:38
-TARGET_D2_PHYSICAL_ACTION_DERIVATION.md:114
-TARGET_D2_PHYSICAL_ACTION_DERIVATION.md:18
-TARGET_D2_PHYSICAL_ACTION_DERIVATION.md:194
-TARGET_D2_PHYSICAL_ACTION_DERIVATION.md:254
-TARGET_D2_PHYSICAL_ACTION_DERIVATION.md:273
-TARGET_D2_PHYSICAL_ACTION_DERIVATION.md:278
-TARGET_D2_PHYSICAL_ACTION_DERIVATION.md:282
-TARGET_D2_PHYSICAL_ACTION_DERIVATION.md:70
-TARGET_D2_PHYSICAL_ACTION_DERIVATION.md:92
-TARGET_D3_PPN_AND_SOLAR_SYSTEM.md:131
-TARGET_D3_PPN_AND_SOLAR_SYSTEM.md:179
-TARGET_D3_PPN_AND_SOLAR_SYSTEM.md:202
-TARGET_D3_PPN_AND_SOLAR_SYSTEM.md:263
-TARGET_D3_PPN_AND_SOLAR_SYSTEM.md:341
-TARGET_D3_PPN_AND_SOLAR_SYSTEM.md:357
-TARGET_D3_PPN_AND_SOLAR_SYSTEM.md:43
-TARGET_D3_PPN_AND_SOLAR_SYSTEM.md:435
-TARGET_D3_PPN_AND_SOLAR_SYSTEM.md:564
-TARGET_D3_PPN_AND_SOLAR_SYSTEM.md:677
-TARGET_D3_PPN_AND_SOLAR_SYSTEM.md:695
-TARGET_D6_D8_D9_SUPPLEMENT_MU_STD_REVALIDATION.md:69
-TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md:33
-TTEY_COUPLING_AND_THRUST_ACCOUNTING.md:14
-res_nova_manuscript.tex:163
-res_nova_manuscript.tex:205
-res_nova_manuscript.tex:236
-res_nova_manuscript.tex:391
+# Content-keyed baseline of retired-entity mentions on live surfaces as of
+# 2026-09-20. Each key is file::entity::sha1(normalised line)[:12], so the
+# entry survives edits elsewhere in the file but stops matching if the
+# mention itself is changed. Line-number keys were tried first and produced
+# phantom violations whenever text was inserted above a baselined line.
+#
+# Not all of these are defects: a comparison against the literature's MOND
+# mu(x)=x/(1+x), or a sentence contrasting F_dual with F_std, is correct
+# usage. Delete a key once that mention is corrected or confirmed fine.
+01_foundational_action/COVARIANT_STRESS_ENERGY_COMPLETION.md::mu_dual interpolating function::36a011777648
+01_foundational_action/PAPER_09_ALGEBRAIC_EQUIVALENCE_OF_TAU_TENSION_AND_AQUAL_SIMPLE_MU.tex::V_240 big-dimension substrate::53719c2dcd43
+01_foundational_action/PRD_Relativistic_Extension.tex::mu_dual interpolating function::a806395e2356
+01_foundational_action/Res_Nova_Geometrically_Ordered_Dynamics_and_Information_Tension.tex::V_240 big-dimension substrate::48c451a16399
+02_galaxy_dynamics/A0_HIGHZ_MEASUREMENT_2026-09-16.md::fabricated a0(z) figure::0b519f87332b
+02_galaxy_dynamics/SPARC_PARAMETER_BUDGET.md::mu_dual interpolating function::a5a43ebcae6f
+03_observer_jwst/IO_OI_ACADEMIC.tex::V_240 big-dimension substrate::f104b510564f
+03_observer_jwst/IO_OI_UNIFIED_TRANSMISSION_MONOGRAPH.tex::V_240 big-dimension substrate::0985ab31b3dc
+03_observer_jwst/IO_OI_UNIFIED_TRANSMISSION_MONOGRAPH.tex::V_240 big-dimension substrate::5e22b518cca4
+03_observer_jwst/IO_OI_UNIFIED_TRANSMISSION_MONOGRAPH.tex::V_240 big-dimension substrate::6368fdc5e789
+03_observer_jwst/IO_OI_UNIFIED_TRANSMISSION_MONOGRAPH.tex::V_240 big-dimension substrate::65108bf48710
+03_observer_jwst/IO_OI_UNIFIED_TRANSMISSION_MONOGRAPH.tex::V_240 big-dimension substrate::e876e6f018b6
+03_observer_jwst/PREREG_A0_OF_Z.md::mu_dual interpolating function::903bcceda9e2
+CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md::F_dual kinetic function::4e902cbb68bf
+CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md::F_dual kinetic function::ec87c86e3c81
+CORPUS_DEPENDENCY_MAP.md::mu_dual interpolating function::eaaa9c0f159f
+FIG_TREE_ASSET_LEDGER.md::F_dual kinetic function::68b4d2c28d11
+FIG_TREE_ASSET_LEDGER.md::F_dual kinetic function::7afb9b5c28b7
+FIG_TREE_ASSET_LEDGER.md::F_dual kinetic function::d895e86094e0
+GHOSTFREE_AND_SCREENING_CORRECTION_2026-09-08.md::F_dual kinetic function::19969b747c86
+GROUNDED_BRICKS_VS_HYPOTHESIS_MAP.md::V_240 big-dimension substrate::578483619a89
+RES_NOVA_VERIFICATION_LEDGER.md::mu_dual interpolating function::d3870a5d8fba
+SUBMISSION/COVER_LETTER_PRD.md::F_dual kinetic function::8cbca3716d77
+SUBMISSION/COVER_LETTER_PRD.md::F_dual kinetic function::c1da3f3a37c6
+SUBMISSION/COVER_LETTER_PRD.md::F_dual kinetic function::c54c6ecfd1a5
+TARGET_D1_VARIATIONAL_DERIVATION.md::mu_dual interpolating function::22e14018d7f5
+TARGET_D2_PHYSICAL_ACTION_DERIVATION.md::F_dual kinetic function::0e63b70b32d8
+TARGET_D2_PHYSICAL_ACTION_DERIVATION.md::F_dual kinetic function::11fb512de368
+TARGET_D2_PHYSICAL_ACTION_DERIVATION.md::F_dual kinetic function::4757f5629cff
+TARGET_D2_PHYSICAL_ACTION_DERIVATION.md::F_dual kinetic function::c956610dcf33
+TARGET_D2_PHYSICAL_ACTION_DERIVATION.md::mu_dual interpolating function::0be603b34bad
+TARGET_D2_PHYSICAL_ACTION_DERIVATION.md::mu_dual interpolating function::455734ebd77e
+TARGET_D2_PHYSICAL_ACTION_DERIVATION.md::mu_dual interpolating function::583bc9514a92
+TARGET_D2_PHYSICAL_ACTION_DERIVATION.md::mu_dual interpolating function::778cbede4572
+TARGET_D2_PHYSICAL_ACTION_DERIVATION.md::mu_dual interpolating function::d7db5271e7b3
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::F_dual kinetic function::0d35e13f65da
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::F_dual kinetic function::2ea4793e509e
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::F_dual kinetic function::7b8aaf5fa6a7
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::F_dual kinetic function::81fddc168833
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::F_dual kinetic function::9ef5a489862b
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::F_dual kinetic function::c8a431722ae4
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::F_dual kinetic function::fb83664fc34e
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::generalized Einstein-aether completion::894d09846ffc
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::generalized Einstein-aether completion::f60d0291603b
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::mu_dual interpolating function::7622ecd1192c
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::mu_dual interpolating function::fbfcd61072ca
+TARGET_D6_D8_D9_SUPPLEMENT_MU_STD_REVALIDATION.md::F_dual kinetic function::3c9a8dca1f42
+TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md::F_dual kinetic function::be6ad5ee6455
+TTEY_COUPLING_AND_THRUST_ACCOUNTING.md::F_dual kinetic function::41cab30ca840
+res_nova_manuscript.tex::mu_dual interpolating function::609d52455af1
+res_nova_manuscript.tex::mu_dual interpolating function::7bd7719e035d
+res_nova_manuscript.tex::mu_dual interpolating function::e8e026e27f2b
+res_nova_manuscript.tex::mu_dual interpolating function::e99f9176471c

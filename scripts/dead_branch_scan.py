@@ -23,6 +23,7 @@ import argparse
 import re
 import subprocess
 import sys
+import hashlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -78,6 +79,18 @@ def tracked() -> list[Path]:
             and not any(e in f for e in EXEMPT)]
 
 
+def baseline_key(rel: str, label: str, line: str) -> str:
+    """Key a baselined mention by its CONTENT, not its line number.
+
+    Keying on file:line meant that inserting text anywhere above a baselined
+    mention shifted it and the gate reported a phantom new violation -- which
+    is exactly what happened when D3 gained its citation block. The hash of
+    the normalised line survives edits elsewhere in the file and still changes
+    if the mention itself is edited."""
+    digest = hashlib.sha1(" ".join(line.split()).encode("utf-8")).hexdigest()[:12]
+    return f"{rel}::{label}::{digest}"
+
+
 def load_baseline() -> set[str]:
     if not BASELINE.exists():
         return set()
@@ -101,7 +114,7 @@ def scan(skip_baseline: bool = False) -> list[str]:
             for label, pat, instead in RETIRED:
                 m = pat.search(line)
                 if m:
-                    if f"{rel}:{n}" in base:
+                    if baseline_key(rel, label, line) in base:
                         break
                     hits.append(f"{rel}:{n}: {label} -- {m.group(0)[:40]!r}\n"
                                 f"      use instead: {instead}")

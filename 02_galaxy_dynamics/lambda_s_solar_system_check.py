@@ -16,7 +16,11 @@ from __future__ import annotations
 A0 = 1.116e-10          # m/s^2, SPARC-measured (D3 §8)
 GM_SUN = 1.32712440018e20   # m^3/s^2, IAU nominal
 AU = 1.495978707e11     # m, IAU definition
-Q2_MAX = 3.4e-27        # s^-2, Cassini-type quadrupole ceiling used in D3 §8
+# s^-2, Cassini quadrupole ceiling. Park, Hees, Famaey, Desmond & Durakovic
+# (2026), Phys. Rev. D, doi:10.1103/r7n8-kw38, arXiv:2602.17884. DOI checked
+# against Crossref 2026-09-20; the numeric value is as carried in D3 section 8
+# and has not been re-extracted from the paper's tables.
+Q2_MAX = 3.4e-27
 
 # (body, r/AU, published g_N, delta_g, Q2, margin, lambda_s ceiling)
 PUBLISHED = [

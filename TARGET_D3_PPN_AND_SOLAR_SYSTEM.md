@@ -573,7 +573,7 @@ Verified by exact 50-digit `mpmath` Newton solve (not asymptotics) at
 **The residual grows as r².** Expressed as a Cassini-type quadrupole scale `Q₂≈δg/r ∝ r`, the
 margin therefore *shrinks linearly with orbital radius* — Mercury is the **weakest** test, not
 the strongest, which inverts `TARGET_D1_SUPPLEMENT` §4's framing. At `λ_s→0` (most permissive),
-`a₀=1.116×10⁻¹⁰` m s⁻² (SPARC), `Q₂ < 3.4×10⁻²⁷` s⁻²:
+`a₀=1.116×10⁻¹⁰` m s⁻² (SPARC), `Q₂ < 3.4×10⁻²⁷` s⁻² (Park, Hees, Famaey, Desmond & Durakovic 2026, PRD, [10.1103/r7n8-kw38](https://doi.org/10.1103/r7n8-kw38), arXiv:2602.17884 — `\cite{Park2026}`; **not** "Hees et al. 2026 PRL", which does not exist):
 
 | field point | r (AU) | g_N (m s⁻²) | δg (m s⁻²) | Q₂ᵉᑫ=δg/r (s⁻²) | margin | **λ_s ≤** |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -602,17 +602,42 @@ is 4π, not 2π**:
 $$\Delta\varpi=\frac{4\pi\,\delta g}{g_N}=\frac{2\pi(1+\lambda_s)^{3}a_0^{2}r^{4}}{(G_NM)^{2}}
 \quad\Longrightarrow\quad \dot\varpi\ \propto\ r^{5/2}$$
 
-| field point | Δϖ̇ (arcsec/cy), λ_s→0 | ephemeris bound used | margin | **λ_s ≤** |
-|---|:-:|:-:|:-:|:-:|
-| Mercury | 4.28×10⁻⁹ | 3×10⁻⁵ | 7009 | 18.1 |
-| Earth | 4.59×10⁻⁸ | 1×10⁻⁴ | 2179 | 12.0 |
-| Mars | 1.32×10⁻⁷ | 5×10⁻⁶ | 38.0 | 2.36 |
-| **Saturn** | **1.31×10⁻⁵** | **1×10⁻⁴** | **7.61** | **0.97** |
+| field point | Δϖ̇ (arcsec/cy), λ_s→0 | bound used | source | margin | **λ_s ≤** |
+|---|:-:|:-:|:--|:-:|:-:|
+| Mercury | 4.28×10⁻⁹ | 3×10⁻⁵ | Park et al. 2017, AJ **153**:121, [10.3847/1538-3881/aa5be2](https://doi.org/10.3847/1538-3881/aa5be2) | 7009 | 18.1 |
+| Earth | 4.59×10⁻⁸ | 1×10⁻⁴ | Pitjev & Pitjeva 2013, MNRAS **432**:3431, [10.1093/mnras/stt695](https://doi.org/10.1093/mnras/stt695) | 2179 | 12.0 |
+| Mars | 1.32×10⁻⁷ | 5×10⁻⁶ | Konopliv et al. 2011, Icarus **211**:401, [10.1016/j.icarus.2010.10.004](https://doi.org/10.1016/j.icarus.2010.10.004) | 38.0 | 2.36 |
+| **Saturn** | **1.31×10⁻⁵** | **1×10⁻⁴** | Hees et al. 2014, PRD **89**:102002, [10.1103/PhysRevD.89.102002](https://doi.org/10.1103/PhysRevD.89.102002); Viswanathan et al. 2018, MNRAS **476**:1877, [10.1093/mnras/sty096](https://doi.org/10.1093/mnras/sty096) | **7.61** | **0.97** |
+
+**Provenance status (2026-09-20).** Each DOI above was checked against Crossref:
+it resolves, and author/journal/volume/page match. Three of the references
+originally proposed for this table did not survive that check and are *not*
+used — there is no Pitjeva & Pitjev 2014 MNRAS **444**:4016 (the MNRAS paper is
+Pitjev & Pitjeva **2013**, **432**:3431), INPOP17a is Viswanathan et al. 2018
+MNRAS **476**:1877 and is a *lunar* ephemeris paper rather than CMDA **130**:77,
+and there is no Hees et al. 2026 PRL (the Cassini MOND constraint is Hees et al.
+**2014** PRD **89**:102002, superseded by Park et al. 2026 PRD, already
+`\cite{Park2026}` in this corpus).
+
+**What is still not verified.** The papers are real and correctly identified.
+The *numerical* bound attributed to each has not been re-extracted from its
+published tables — the values above are as carried in this document. Until
+someone reads the tables, the citations establish that a real measurement
+exists at roughly this precision, not that these are the exact published
+numbers.
 
 **The two routes agree on the structure and on the order [D]; they differ by ~2.8× in λ_s [C].**
 Saturn binds under both (`r^{5/2}` is even more outer-planet-weighted than `Q₂ᵉᑫ ∝ r`), Mercury
-is the *least* constraining point under both, and both land at `λ_s = O(1)`. **Honest labelling:
-the existence of an O(1) upper bound on λ_s is [D]; the specific number is [C]** — the Q₂ route
+is the *least* constraining point under both, and both land at `λ_s = O(1)`. **Honest labelling (reviewed 2026-09-20): the existence of an O(1) upper bound
+on λ_s is [D]; the specific number remains [C].** The provenance gap is now
+closed — every ephemeris bound carries a Crossref-checked DOI — but provenance
+was only one of the two reasons the number was tiered [C], and it was not the
+binding one. The Q₂ route still maps a monopole residual (δg ∝ r² is spherically
+symmetric) onto an anisotropic quadrupole datum, and the precession route's
+numerical values have not been re-extracted from the cited tables. Citations fix
+*where the numbers came from*, not *whether the mapping is right*. Promoting the
+number to [D] would require redoing the Q₂ mapping properly, or reading the
+published tables. The original labelling** — the Q₂ route
 because of the monopole/quadrupole mapping, the precession route because the supplementary-
 precession bounds above are order-of-magnitude ephemeris values without provenance in this repo.
 **Quote `λ_s ≲ 1–3`, binding at Saturn, and take `λ_s ≲ 1` if a single conservative number is
@@ -624,6 +649,26 @@ mis-estimated `GM_⊙` is `r⁻²`, a solar `J₂` is `r⁻⁴`, a cosmological-
 the MOND external-field quadrupole is `r¹` *and* anisotropic. An `r²` monopole cannot be
 reabsorbed into any of them, which is what makes the growth with `r` a genuine signal rather
 than a fitting artefact.
+
+**Why Saturn is the benchmark and not Uranus.** Uranus has the tighter nominal
+margin (25.2× against Saturn's 50.5×, giving λ_s ≤ 1.93), and since δg grows as
+r² that is exactly what the structure predicts — `LambdaSBound.outer_ceiling_tighter`
+proves a larger radius never gives a weaker ceiling. The bound is nonetheless
+quoted at Saturn, because *margin* and *evidential weight* are different things:
+
+- **Saturn** has thirteen years of continuous Cassini radio ranging (2004–2017),
+  a coherent two-way Doppler and range dataset at cm-level precision, analysed
+  for exactly this signal in Hees et al. 2014 and Park et al. 2026.
+- **Uranus** has one flyby — Voyager 2 in 1986 — and is otherwise constrained by
+  ground-based optical astrometry, whose systematics over a 84-year orbital
+  period are not at the level where a 25× margin means what it appears to mean.
+  Less than half a Uranian orbit has been observed with modern techniques.
+
+Quoting Uranus would tighten the number while weakening the evidence behind it.
+The conservative choice is the datum with the measurement history, so Saturn
+remains the official binding benchmark. If an outer-planet ranging constraint of
+Cassini quality ever exists, the r² growth means the bound tightens immediately
+and the structure theorem says by how much.
 
 **Two results [D]:**
 - μ_std's margin at the field point where the Cassini `Q₂` datum actually lives (Saturn, where

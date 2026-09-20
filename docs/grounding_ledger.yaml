@@ -23,7 +23,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: CartanTrialityGenerations
@@ -32,7 +32,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: ChiralCellularDuality
@@ -41,7 +41,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: ChiralCrackSketch
@@ -50,7 +50,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: ChiralHolonomyOrientation
@@ -59,7 +59,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: ChiralPartner
@@ -68,7 +68,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: ChiralResidue
@@ -77,7 +77,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: CosmologicalSector
@@ -86,7 +86,7 @@ modules:
     structures: 0
     plain_real_defs: 2
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: CovariantCompletion
@@ -95,7 +95,7 @@ modules:
     structures: 0
     plain_real_defs: 1
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: DeSitterExtremal
@@ -104,7 +104,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: DiagonalConeIndex
@@ -113,7 +113,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: DualChannelDerivation
@@ -122,7 +122,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: FiniteSU2Envelope
@@ -131,7 +131,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: GODActionKinematics
@@ -140,7 +140,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: GenerationCycleChirality
@@ -149,7 +149,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: GenerationIndex
@@ -158,7 +158,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: HorizonScale
@@ -167,7 +167,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: LambdaSBound
@@ -176,7 +176,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: LeptonMassCollar
@@ -185,7 +185,7 @@ modules:
     structures: 0
     plain_real_defs: 11
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: MuStdSelection
@@ -194,7 +194,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: NavierStokesCorticalBound
@@ -203,7 +203,7 @@ modules:
     structures: 0
     plain_real_defs: 2
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: NavierStokesScope
@@ -212,7 +212,7 @@ modules:
     structures: 0
     plain_real_defs: 1
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: PPNLimitsStd
@@ -221,7 +221,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: PrintAxioms
@@ -230,7 +230,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: PrintAxiomsD8
@@ -239,7 +239,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: QuarkMassLadder
@@ -248,7 +248,7 @@ modules:
     structures: 0
     plain_real_defs: 13
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: RamanujanGapDerivation
@@ -257,7 +257,7 @@ modules:
     structures: 0
     plain_real_defs: 1
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: RamanujanModularBounds
@@ -266,7 +266,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: RapidityEquipartition
@@ -275,7 +275,7 @@ modules:
     structures: 0
     plain_real_defs: 1
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: RelativisticStability
@@ -284,7 +284,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: RiemannSpectralExpander
@@ -293,7 +293,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: SU2FiniteFaithfulness
@@ -302,7 +302,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: SkordisZlosnikEmbedding
@@ -311,7 +311,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: SovereignSpinCeiling
@@ -320,7 +320,7 @@ modules:
     structures: 0
     plain_real_defs: 1
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: StiefelLaplaceEigenvalue
@@ -329,7 +329,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: TensorSpeed
@@ -338,7 +338,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: TetrahedralAction
@@ -347,7 +347,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: TetrahedralEvenness
@@ -356,7 +356,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: TetrahedralQuotient
@@ -365,7 +365,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: YangMillsCasimirBound
@@ -374,7 +374,7 @@ modules:
     structures: 0
     plain_real_defs: 1
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: YettParadigm
@@ -383,7 +383,7 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: AXIOMS_V2
@@ -392,7 +392,7 @@ modules:
     structures: 10
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: Hamilgrangian
@@ -401,7 +401,7 @@ modules:
     structures: 20
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: ITActionClosure
@@ -410,7 +410,7 @@ modules:
     structures: 4
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: MuProjection
@@ -419,7 +419,7 @@ modules:
     structures: 5
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: MuStdUniqueness
@@ -428,7 +428,7 @@ modules:
     structures: 35
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: NavierStokesGeometry
@@ -437,7 +437,7 @@ modules:
     structures: 2
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: NavierStokesSpec
@@ -446,7 +446,7 @@ modules:
     structures: 2
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: PPNLimits
@@ -455,7 +455,7 @@ modules:
     structures: 4
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: PillarIV_AntiDriftGate
@@ -464,7 +464,7 @@ modules:
     structures: 17
     plain_real_defs: 1
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: SOCasimirGenuine
@@ -473,7 +473,7 @@ modules:
     structures: 32
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: SU2CarrierRungs
@@ -482,7 +482,7 @@ modules:
     structures: 8
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: SU2MatrixEnvelope
@@ -491,7 +491,7 @@ modules:
     structures: 18
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: SovereignRegularity
@@ -500,7 +500,7 @@ modules:
     structures: 3
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: SovereignSemiotics
@@ -509,7 +509,7 @@ modules:
     structures: 1
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: TrialityFixedSubalgebra
@@ -518,7 +518,7 @@ modules:
     structures: 6
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
 
   - module: TrialityG2
@@ -527,5 +527,5 @@ modules:
     structures: 17
     plain_real_defs: 0
     denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini-type quadrupole ceiling Q_2 < 3.4e-27 s^-2 at Saturn, and planetary perihelion precession residuals"
+    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
     falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
