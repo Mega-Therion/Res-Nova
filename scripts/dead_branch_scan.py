@@ -64,6 +64,9 @@ EXEMPT = (
     "PEER_REVIEW_READINESS.md", "TARGET_D7_COVARIANT_COMPLETION.md",
     "TARGET_D1_SUPPLEMENT", "TARGET_D2_SUPPLEMENT", "_AUDIT_", "AUDIT_LEDGER",
     "CHANGELOG", "OPEN_PROBLEMS", "VERIFICATION_RUN",
+    # Audit artifacts whose SUBJECT is the retired entities. Naming a dead
+    # branch in order to flag it is the intended use, not a violation.
+    "RES_NOVA_INVENTORY_", "RES_NOVA_CONTRADICTION_LOG_",
 )
 # A line that marks the entity as dead is a correct mention, not a violation.
 # A document-level notice remediates the mentions it actually covers. Local
@@ -92,12 +95,38 @@ RETIRED_CONTEXT = re.compile(
     r"ruled out|excluded by", re.I)
 
 
-def tracked() -> list[Path]:
-    out = subprocess.run(["git", "-C", str(ROOT), "ls-files"],
-                         capture_output=True, text=True).stdout.splitlines()
-    return [ROOT / f for f in out
-            if any(Path(f).match(g) for g in LIVE_GLOBS)
-            and not any(e in f for e in EXEMPT)]
+# Surfaces OUTSIDE this submodule that must still be scanned. C-00 of the
+# 2026-09-20 contradiction log: GUT_TOE_CANONICAL_SCOPE.md calls itself "the
+# single canonical reference for the scope, status and roadmap" of the whole
+# program, and carried a [P] tag on the falsified mu_dual -- but it lives in
+# the PARENT repo, so `git ls-files` here never listed it and this gate had
+# never once looked at the document every agent is pointed to. Paths are
+# relative to the parent of the submodule root.
+EXTRA_SCAN_ROOTS = ["00_CANONICAL"]
+
+
+def _ls_files(repo: Path, prefix: str = "") -> list[str]:
+    r = subprocess.run(["git", "-C", str(repo), "ls-files", prefix or "."],
+                       capture_output=True, text=True)
+    return r.stdout.splitlines() if r.returncode == 0 else []
+
+
+def _keep(rel: str) -> bool:
+    return (any(Path(rel).match(g) for g in LIVE_GLOBS)
+            and not any(e in rel for e in EXEMPT))
+
+
+def tracked() -> list[tuple[Path, str]]:
+    """(absolute path, display path) for every live surface this gate owns."""
+    out = [(ROOT / f, f) for f in _ls_files(ROOT) if _keep(f)]
+    parent = ROOT.parent
+    for extra in EXTRA_SCAN_ROOTS:
+        if not (parent / extra).is_dir():
+            continue
+        for f in _ls_files(parent, extra):
+            if _keep(f):
+                out.append((parent / f, f"../{f}"))
+    return out
 
 
 def baseline_key(rel: str, label: str, line: str) -> str:
@@ -122,8 +151,7 @@ def load_baseline() -> set[str]:
 def scan(skip_baseline: bool = False) -> list[str]:
     base = load_baseline() if skip_baseline else set()
     hits = []
-    for path in tracked():
-        rel = str(path.relative_to(ROOT))
+    for path, rel in tracked():
         try:
             lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
         except OSError:
