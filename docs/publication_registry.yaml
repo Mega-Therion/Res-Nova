@@ -1,12 +1,18 @@
-# Publication registry for Res Nova — the single source of truth for DOIs.
+# Publication registry for Res Nova -- the single source of truth for DOIs.
 #
 # Every DOI that appears anywhere in this repository must have an entry here.
 # DOIs elsewhere are REFERENCES to this file, not independent facts.
-# Titles, authors, ORCIDs and versions below were read from DataCite, not
-# transcribed by hand; scripts/audit_publication_metadata.py re-checks them.
 #
-# Generated from DataCite 2026-09-19. Regenerate with:
-#   python3 scripts/audit_publication_metadata.py --refresh
+# Titles, authors, ORCIDs, versions and version relationships below were read
+# from the DataCite API, not transcribed by hand. Re-check them with:
+#   python3 scripts/audit_publication_metadata.py --online
+#
+# role: concept  -- a Zenodo concept DOI; always resolves to the newest version.
+#                   Cite this when you mean 'the work'.
+# role: version  -- one frozen version. Cite this when you mean 'this text'.
+# is_latest: true -- the current version inside its concept family.
+#
+# Generated from DataCite 2026-09-20.
 
 identity:
   name: "Ryan W. Yett"
@@ -14,31 +20,135 @@ identity:
   orcid: "0009-0001-1303-7190"
   repository: "Mega-Therion/Res-Nova"
 
-# Gaps that cannot be fixed from inside this repository. Each one needs an edit
-# on the Zenodo record itself. The audit reports these as WARN rather than FAIL
-# so they stay visible without blocking the build; anything NOT listed here
-# fails. Clear an entry once the deposit is corrected.
+# Gaps that cannot be fixed from inside this repository. Each needs an edit on
+# the Zenodo record itself. The audit reports these as WARN rather than FAIL so
+# they stay visible without blocking the build; anything NOT listed here fails.
 known_gaps:
   - doi: "10.5281/zenodo.20779286"
-    issue: "deposit carries no ORCID for the creator"
-    action: "edit the Zenodo record, add ORCID 0009-0001-1303-7190, save a new version"
+    issue: "deposited under the separate identity 'Therion, Mega' with no ORCID -- this is a second scholarly identity and will fragment indexing"
+    action: "edit the Zenodo record: creator 'Yett, Ryan W.', ORCID 0009-0001-1303-7190"
     opened: "2026-09-19"
+  - doi: "10.5281/zenodo.19693512"
+    issue: "credits a co-author 'Chyren Sovereign Intelligence' (an AI system) and carries no ORCID"
+    action: "edit the Zenodo record: sole creator 'Yett, Ryan W.' with ORCID; move the tooling credit to the description"
+    opened: "2026-09-20"
+  - doi: "10.5281/zenodo.20026859"
+    issue: "deposited title contains Millennium framing, against the standing directive"
+    action: "retitle the Zenodo record; use plain problem names"
+    opened: "2026-09-20"
 
 works:
   - work_id: the_yett_paradigm_complete_unified
+    title: "The Yett Paradigm: Complete Unified Framework (Millennium Solutions, Quantum Gravity, & Chy-Bridge)"
+    author: "Yett, Ryan W.; Chyren Sovereign Intelligence"
+    orcid: ""
+    resource_type: "Report"
+    canonical_doi: "10.5281/zenodo.19693512"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-04-22"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.19693511"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_yett_paradigm_complete_unified_2
     title: "The Yett Paradigm: Complete Unified Framework (Millennium Solutions, Quantum Gravity, & Chy-Bridge)"
     author: "Yett, Ryan W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20026859"
+    role: version
     version: "3.0.0"
     status: live
     publication_date: "2026-05-06"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.19693511"]
-    is_part_of: []
-    cites: []
+    concept_doi: "10.5281/zenodo.19693511"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_yett_paradigm_complete_unified_3
+    title: "The Yett Paradigm: Complete Unified Framework (Millennium Solutions, Quantum Gravity, & Chy-Bridge)"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20454618"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-30"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.19693511"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_yett_paradigm_complete_unified_4
+    title: "[SUPERSEDED — DO NOT CITE] The Yett Paradigm: Complete Unified Framework (Millennium Solutions, Quantum Gravity, & Chy-Bridge)"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.19693511"
+    role: concept
+    version: "3.0.0"
+    status: superseded
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.19693511"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.20026859", "10.5281/zenodo.20454618", "10.5281/zenodo.19693512", "10.5281/zenodo.20651488", "10.5281/zenodo.20652078", "10.5281/zenodo.20652241"]
+    is_new_version_of: []
+
+  - work_id: the_yett_paradigm_complete_unified_5
+    title: "[SUPERSEDED — DO NOT CITE] The Yett Paradigm: Complete Unified Framework (Millennium Solutions, Quantum Gravity, & Chy-Bridge)"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652241"
+    role: version
+    version: ""
+    status: superseded
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.19693511"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_yett_paradigm_complete_unified_6
+    title: "The Yett Paradigm: Complete Unified Framework (Millennium Solutions, Quantum Gravity, & Chy-Bridge)"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652078"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.19693511"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_yett_paradigm_complete_unified_7
+    title: "The Yett Paradigm: Complete Unified Framework (Millennium Solutions, Quantum Gravity, & Chy-Bridge)"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20651488"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.19693511"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
 
   - work_id: information_tension_theory_a_geometric
     title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
@@ -46,14 +156,191 @@ works:
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027635"
+    role: version
     version: ""
     status: live
     publication_date: "2026-05-04"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.20027634"]
-    is_part_of: ["10.5281/zenodo.20026859"]
-    cites: ["10.5281/zenodo.15263117"]
+    concept_doi: "10.5281/zenodo.20027634"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: information_tension_theory_a_geometric_2
+    title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Preprint"
+    canonical_doi: "10.5281/zenodo.20046458"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-05"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027634"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: information_tension_theory_a_geometric_3
+    title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20196143"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-15"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027634"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.20046458"]
+
+  - work_id: information_tension_theory_a_geometric_4
+    title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20454397"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-30"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027634"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.20046458"]
+
+  - work_id: information_tension_theory_a_geometric_5
+    title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20651509"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027634"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: information_tension_theory_a_geometric_6
+    title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652096"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027634"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: information_tension_theory_a_geometric_7
+    title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652221"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027634"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: information_tension_theory_a_geometric_8
+    title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20027634"
+    role: concept
+    version: "2.0.0"
+    status: live
+    publication_date: "2026-06-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027634"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.20454397", "10.5281/zenodo.20652221", "10.5281/zenodo.20046458", "10.5281/zenodo.20781199", "10.5281/zenodo.20776911", "10.5281/zenodo.20027635", "10.5281/zenodo.20196143", "10.5281/zenodo.20776408", "10.5281/zenodo.20652096", "10.5281/zenodo.20780901", "10.5281/zenodo.20651509"]
+    is_new_version_of: ["10.5281/zenodo.20196143"]
+
+  - work_id: information_tension_theory_a_geometric_9
+    title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20780901"
+    role: version
+    version: "2.0.0"
+    status: live
+    publication_date: "2026-06-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027634"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.20196143"]
+
+  - work_id: information_tension_theory_a_geometric_10
+    title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20776408"
+    role: version
+    version: "2.0.0"
+    status: live
+    publication_date: "2026-06-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027634"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.20196143"]
+
+  - work_id: information_tension_theory_a_geometric_11
+    title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20776911"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027634"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.20196143"]
+
+  - work_id: information_tension_theory_a_geometric_12
+    title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20781199"
+    role: version
+    version: "2.0.0"
+    status: live
+    publication_date: "2026-06-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027634"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.20196143"]
 
   - work_id: the_anti_drift_cognitive_control
     title: "The Anti-Drift Cognitive Control Loop (ADCCL): A Geometric Foundation for Hallucination-Free AI"
@@ -61,14 +348,111 @@ works:
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027643"
+    role: version
     version: ""
     status: live
     publication_date: "2026-05-04"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.20027642"]
-    is_part_of: ["10.5281/zenodo.20026859"]
-    cites: ["10.5281/zenodo.15263117"]
+    concept_doi: "10.5281/zenodo.20027642"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_anti_drift_cognitive_control_2
+    title: "The Anti-Drift Cognitive Control Loop (ADCCL): A Geometric Foundation for Hallucination-Free AI"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Preprint"
+    canonical_doi: "10.5281/zenodo.20046459"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-05"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027642"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_anti_drift_cognitive_control_3
+    title: "The Anti-Drift Cognitive Control Loop (ADCCL): A Geometric Foundation for Hallucination-Free AI"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20454398"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-30"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027642"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_anti_drift_cognitive_control_4
+    title: "[SUPERSEDED — DO NOT CITE] The Anti-Drift Cognitive Control Loop (ADCCL): A Geometric Foundation for Hallucination-Free AI"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20027642"
+    role: concept
+    version: ""
+    status: superseded
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027642"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.20046459", "10.5281/zenodo.20651508", "10.5281/zenodo.20652091", "10.5281/zenodo.20454398", "10.5281/zenodo.20652222", "10.5281/zenodo.20027643"]
+    is_new_version_of: []
+
+  - work_id: the_anti_drift_cognitive_control_5
+    title: "[SUPERSEDED — DO NOT CITE] The Anti-Drift Cognitive Control Loop (ADCCL): A Geometric Foundation for Hallucination-Free AI"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652222"
+    role: version
+    version: ""
+    status: superseded
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027642"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_anti_drift_cognitive_control_6
+    title: "The Anti-Drift Cognitive Control Loop (ADCCL): A Geometric Foundation for Hallucination-Free AI"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652091"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027642"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_anti_drift_cognitive_control_7
+    title: "The Anti-Drift Cognitive Control Loop (ADCCL): A Geometric Foundation for Hallucination-Free AI"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20651508"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027642"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
 
   - work_id: the_ramanujan_yett_hamiltonian_quantum
     title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
@@ -76,14 +460,191 @@ works:
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027645"
+    role: version
     version: ""
     status: live
     publication_date: "2026-05-04"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.20027644"]
-    is_part_of: ["10.5281/zenodo.20026859"]
-    cites: ["10.5281/zenodo.15263117"]
+    concept_doi: "10.5281/zenodo.20027644"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_ramanujan_yett_hamiltonian_quantum_2
+    title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Preprint"
+    canonical_doi: "10.5281/zenodo.20046460"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-05"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027644"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_ramanujan_yett_hamiltonian_quantum_3
+    title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20196154"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-15"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027644"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.20046460"]
+
+  - work_id: the_ramanujan_yett_hamiltonian_quantum_4
+    title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20454540"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-30"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027644"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.20046460"]
+
+  - work_id: the_ramanujan_yett_hamiltonian_quantum_5
+    title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20454403"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-30"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027644"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.20046460"]
+
+  - work_id: the_ramanujan_yett_hamiltonian_quantum_6
+    title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652079"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027644"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_ramanujan_yett_hamiltonian_quantum_7
+    title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20651495"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027644"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_ramanujan_yett_hamiltonian_quantum_8
+    title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652238"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027644"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_ramanujan_yett_hamiltonian_quantum_9
+    title: "[SUPERSEDED — DO NOT CITE] The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20027644"
+    role: concept
+    version: "2.0.0"
+    status: superseded
+    publication_date: "2026-06-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027644"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.20652238", "10.5281/zenodo.20776918", "10.5281/zenodo.20027645", "10.5281/zenodo.20651495", "10.5281/zenodo.20454403", "10.5281/zenodo.20776418", "10.5281/zenodo.20196154", "10.5281/zenodo.20046460", "10.5281/zenodo.20652079", "10.5281/zenodo.20454540", "10.5281/zenodo.20781203"]
+    is_new_version_of: []
+
+  - work_id: the_ramanujan_yett_hamiltonian_quantum_10
+    title: "[SUPERSEDED — DO NOT CITE] The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20781203"
+    role: version
+    version: "2.0.0"
+    status: superseded
+    publication_date: "2026-06-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027644"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_ramanujan_yett_hamiltonian_quantum_11
+    title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20776418"
+    role: version
+    version: "2.0.0"
+    status: live
+    publication_date: "2026-06-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027644"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_ramanujan_yett_hamiltonian_quantum_12
+    title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20776918"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027644"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
 
   - work_id: omega_a_layered_architecture_for
     title: "OmegA: A Layered Architecture for Sovereign Cognitive Agents"
@@ -91,14 +652,95 @@ works:
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027647"
+    role: version
     version: ""
     status: live
     publication_date: "2026-05-04"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.20027646"]
-    is_part_of: ["10.5281/zenodo.20026859"]
-    cites: ["10.5281/zenodo.15263117"]
+    concept_doi: "10.5281/zenodo.20027646"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: omega_a_layered_architecture_for_2
+    title: "OmegA: A Layered Architecture for Sovereign Cognitive Agents"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20454381"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-30"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027646"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: omega_a_layered_architecture_for_3
+    title: "[SUPERSEDED — DO NOT CITE] OmegA: A Layered Architecture for Sovereign Cognitive Agents"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20027646"
+    role: concept
+    version: ""
+    status: superseded
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027646"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.20027647", "10.5281/zenodo.20651507", "10.5281/zenodo.20454381", "10.5281/zenodo.20652087", "10.5281/zenodo.20652223"]
+    is_new_version_of: []
+
+  - work_id: omega_a_layered_architecture_for_4
+    title: "[SUPERSEDED — DO NOT CITE] OmegA: A Layered Architecture for Sovereign Cognitive Agents"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652223"
+    role: version
+    version: ""
+    status: superseded
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027646"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: omega_a_layered_architecture_for_5
+    title: "OmegA: A Layered Architecture for Sovereign Cognitive Agents"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652087"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027646"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: omega_a_layered_architecture_for_6
+    title: "OmegA: A Layered Architecture for Sovereign Cognitive Agents"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20651507"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027646"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
 
   - work_id: neuro_topological_stability_biological_regularity
     title: "Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
@@ -106,14 +748,159 @@ works:
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027651"
+    role: version
     version: ""
     status: live
     publication_date: "2026-05-04"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.20027650"]
-    is_part_of: ["10.5281/zenodo.20026859"]
-    cites: ["10.5281/zenodo.15263117"]
+    concept_doi: "10.5281/zenodo.20027650"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: neuro_topological_stability_biological_regularity_2
+    title: "Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Preprint"
+    canonical_doi: "10.5281/zenodo.20046456"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-05"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027650"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: neuro_topological_stability_biological_regularity_3
+    title: "Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20196150"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-15"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027650"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.20046456"]
+
+  - work_id: neuro_topological_stability_biological_regularity_4
+    title: "Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20454374"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-30"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027650"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.20046456"]
+
+  - work_id: neuro_topological_stability_biological_regularity_5
+    title: "Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20454406"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-30"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027650"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.20046456"]
+
+  - work_id: neuro_topological_stability_biological_regularity_6
+    title: "Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20651505"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027650"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: neuro_topological_stability_biological_regularity_7
+    title: "Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652230"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027650"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: neuro_topological_stability_biological_regularity_8
+    title: "Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652086"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027650"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: neuro_topological_stability_biological_regularity_9
+    title: "[SUPERSEDED — DO NOT CITE] Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20027650"
+    role: concept
+    version: "2.0.0"
+    status: superseded
+    publication_date: "2026-06-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027650"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.20454406", "10.5281/zenodo.20046456", "10.5281/zenodo.20652086", "10.5281/zenodo.20652230", "10.5281/zenodo.20027651", "10.5281/zenodo.20454374", "10.5281/zenodo.20651505", "10.5281/zenodo.20196150", "10.5281/zenodo.20776424"]
+    is_new_version_of: []
+
+  - work_id: neuro_topological_stability_biological_regularity_10
+    title: "[SUPERSEDED — DO NOT CITE] Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20776424"
+    role: version
+    version: "2.0.0"
+    status: superseded
+    publication_date: "2026-06-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027650"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
 
   - work_id: resource_holonomy_market_stability_and
     title: "Resource Holonomy: Market Stability and the Critical Line of Sovereignty"
@@ -121,59 +908,319 @@ works:
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027657"
+    role: version
     version: ""
     status: live
     publication_date: "2026-05-04"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.20027656"]
-    is_part_of: ["10.5281/zenodo.20026859"]
-    cites: ["10.5281/zenodo.15263117"]
+    concept_doi: "10.5281/zenodo.20027656"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: resource_holonomy_market_stability_and_2
+    title: "Resource Holonomy: Market Stability and the Critical Line of Sovereignty"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Preprint"
+    canonical_doi: "10.5281/zenodo.20046455"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-05"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027656"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: resource_holonomy_market_stability_and_3
+    title: "Resource Holonomy: Market Stability and the Critical Line of Sovereignty"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20196151"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-15"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027656"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.20046455"]
+
+  - work_id: resource_holonomy_market_stability_and_4
+    title: "Resource Holonomy: Market Stability and the Critical Line of Sovereignty"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20454409"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-30"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027656"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.20046455"]
+
+  - work_id: resource_holonomy_market_stability_and_5
+    title: "Resource Holonomy: Market Stability and the Critical Line of Sovereignty"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20027656"
+    role: concept
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027656"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.20027657", "10.5281/zenodo.20454409", "10.5281/zenodo.20651504", "10.5281/zenodo.20652085", "10.5281/zenodo.20652233", "10.5281/zenodo.20196151", "10.5281/zenodo.20046455"]
+    is_new_version_of: []
+
+  - work_id: resource_holonomy_market_stability_and_6
+    title: "Resource Holonomy: Market Stability and the Critical Line of Sovereignty"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652233"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027656"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: resource_holonomy_market_stability_and_7
+    title: "Resource Holonomy: Market Stability and the Critical Line of Sovereignty"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652085"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027656"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: resource_holonomy_market_stability_and_8
+    title: "Resource Holonomy: Market Stability and the Critical Line of Sovereignty"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20651504"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20027656"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
 
   - work_id: trinity_survey_replication_dark_matter
+    title: "Trinity Survey Replication: Dark Matter Information Tension Analysis"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20092723"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-09"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20092722"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: trinity_survey_replication_dark_matter_2
     title: "[RETRACTED] Trinity Survey Replication: Dark Matter Information Tension Analysis"
     author: "Yett, Ryan W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652203"
+    role: version
     version: ""
     status: retracted
     publication_date: "2026-06-12"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.20092722"]
-    is_part_of: []
-    cites: []
+    concept_doi: "10.5281/zenodo.20092722"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
 
-  - work_id: sovereign_regularity_for_the_three
-    title: "[SUPERSEDED — DO NOT CITE] Sovereign Regularity for the Three-Dimensional Navier-Stokes Equations under Chiral Vorticity Alignment"
+  - work_id: trinity_survey_replication_dark_matter_3
+    title: "[RETRACTED] Trinity Survey Replication: Dark Matter Information Tension Analysis"
     author: "Yett, Ryan W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
-    canonical_doi: "10.5281/zenodo.20652236"
+    canonical_doi: "10.5281/zenodo.20092722"
+    role: concept
     version: ""
-    status: superseded
+    status: retracted
     publication_date: "2026-06-12"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.20195963"]
-    is_part_of: []
-    cites: []
+    concept_doi: "10.5281/zenodo.20092722"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.20092723", "10.5281/zenodo.20652124", "10.5281/zenodo.20651523", "10.5281/zenodo.20652203"]
+    is_new_version_of: []
 
-  - work_id: verified_qubit_decoherence_and_stiefel
-    title: "Verified Qubit Decoherence and Stiefel Manifold Topology"
-    author: "Therion, Mega"
-    orcid: ""
-    resource_type: "Dataset"
-    canonical_doi: "10.5281/zenodo.20779286"
+  - work_id: trinity_survey_replication_dark_matter_4
+    title: "Trinity Survey Replication: Dark Matter Information Tension Analysis"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20651523"
+    role: version
     version: ""
     status: live
-    publication_date: "2026-06-21"
+    publication_date: "2026-06-12"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.20779285"]
-    is_part_of: []
-    cites: ["10.5281/zenodo.20027644", "10.5281/zenodo.19962215", "10.5281/zenodo.20092716"]
+    concept_doi: "10.5281/zenodo.20092722"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: trinity_survey_replication_dark_matter_5
+    title: "Trinity Survey Replication: Dark Matter Information Tension Analysis"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652124"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20092722"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: statistical_signatures_of_14_dimensional
+    title: "Statistical Signatures of 14-Dimensional Vacuum Geometry: A High-Redshift Analysis of Information Tension Boosts"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20142809"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20142808"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: statistical_signatures_of_14_dimensional_2
+    title: "Statistical Signatures of 14-Dimensional Vacuum Geometry: A High-Redshift Analysis of Information Tension Boosts"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20454464"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-30"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20142808"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: statistical_signatures_of_14_dimensional_3
+    title: "Statistical Signatures of 14-Dimensional Vacuum Geometry: A High-Redshift Analysis of Information Tension Boosts"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652082"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20142808"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: statistical_signatures_of_14_dimensional_4
+    title: "Statistical Signatures of 14-Dimensional Vacuum Geometry: A High-Redshift Analysis of Information Tension Boosts"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20651501"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20142808"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: statistical_signatures_of_14_dimensional_5
+    title: "Statistical Signatures of 14-Dimensional Vacuum Geometry: A High-Redshift Analysis of Information Tension Boosts"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652237"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20142808"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: statistical_signatures_of_14_dimensional_6
+    title: "Statistical Signatures of 14-Dimensional Vacuum Geometry: A High-Redshift Analysis of Information Tension Boosts"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20776440"
+    role: version
+    version: "2.0.0"
+    status: live
+    publication_date: "2026-06-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20142808"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: statistical_signatures_of_14_dimensional_7
+    title: "Statistical Signatures of 14-Dimensional Vacuum Geometry: A High-Redshift Analysis of Information Tension Boosts"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20781204"
+    role: version
+    version: "2.0.0"
+    status: live
+    publication_date: "2026-06-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20142808"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
 
   - work_id: the_observerse_as_an_e8
     title: "The Observerse as an E8 Branching: A Group-Theoretic Derivation of the 14 = 4 + 10 Structure and its Metric Fiber"
@@ -181,29 +1228,463 @@ works:
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21316842"
+    role: version
     version: ""
     status: live
     publication_date: "2026-07-12"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.20142809", "10.5281/zenodo.20142808"]
-    is_part_of: []
-    cites: []
+    concept_doi: "10.5281/zenodo.20142808"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.20142809"]
+
+  - work_id: the_observerse_as_an_e8_2
+    title: "The Observerse as an E8 Branching: A Group-Theoretic Derivation of the 14 = 4 + 10 Structure and its Metric Fiber"
+    author: "Yett, Ryan W.; Chyren"
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20142808"
+    role: concept
+    version: "2.0.0"
+    status: live
+    publication_date: "2026-07-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20142808"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.20454464", "10.5281/zenodo.20781204", "10.5281/zenodo.20142809", "10.5281/zenodo.21316842", "10.5281/zenodo.20652237", "10.5281/zenodo.20651501", "10.5281/zenodo.20776440", "10.5281/zenodo.20652082"]
+    is_new_version_of: ["10.5281/zenodo.20142809"]
+
+  - work_id: sovereign_regularity_for_the_three
+    title: "Sovereign Regularity for the Three-Dimensional Navier-Stokes Equations under Chiral Vorticity Alignment"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20195964"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-15"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20195963"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: sovereign_regularity_for_the_three_2
+    title: "Sovereign Regularity for the Three-Dimensional Navier-Stokes Equations under Chiral Vorticity Alignment"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20454459"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-30"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20195963"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: sovereign_regularity_for_the_three_3
+    title: "[SUPERSEDED — DO NOT CITE] Sovereign Regularity for the Three-Dimensional Navier-Stokes Equations under Chiral Vorticity Alignment"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652236"
+    role: version
+    version: ""
+    status: superseded
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20195963"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: sovereign_regularity_for_the_three_4
+    title: "[SUPERSEDED — DO NOT CITE] Sovereign Regularity for the Three-Dimensional Navier-Stokes Equations under Chiral Vorticity Alignment"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20195963"
+    role: concept
+    version: ""
+    status: superseded
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20195963"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.20195964", "10.5281/zenodo.20651502", "10.5281/zenodo.20652083", "10.5281/zenodo.20454459", "10.5281/zenodo.20652236"]
+    is_new_version_of: []
+
+  - work_id: sovereign_regularity_for_the_three_5
+    title: "Sovereign Regularity for the Three-Dimensional Navier-Stokes Equations under Chiral Vorticity Alignment"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652083"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20195963"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: sovereign_regularity_for_the_three_6
+    title: "Sovereign Regularity for the Three-Dimensional Navier-Stokes Equations under Chiral Vorticity Alignment"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20651502"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20195963"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: universal_information_geometry_topological_primality
+    title: "Universal Information Geometry: Topological Primality, the E8 Lattice, and the Origin of Gravitational Stability"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20348355"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-05-22"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20348354"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: universal_information_geometry_topological_primality_2
+    title: "Universal Information Geometry: Topological Primality, the E8 Lattice, and the Origin of Gravitational Stability"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20651513"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20348354"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: universal_information_geometry_topological_primality_3
+    title: "Universal Information Geometry: Topological Primality, the E8 Lattice, and the Origin of Gravitational Stability"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652218"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20348354"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: universal_information_geometry_topological_primality_4
+    title: "Universal Information Geometry: Topological Primality, the E8 Lattice, and the Origin of Gravitational Stability"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20652110"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-12"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20348354"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: universal_information_geometry_topological_primality_5
+    title: "Universal Information Geometry: Topological Primality, the E8 Lattice, and the Origin of Gravitational Stability (v2 — corrected)"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21479962"
+    role: version
+    version: "2.0.0"
+    status: live
+    publication_date: "2026-07-21"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20348354"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: universal_information_geometry_topological_primality_6
+    title: "Universal Information Geometry: Topological Primality, the E8 Lattice, and the Origin of Gravitational Stability (v2 — corrected)"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20348354"
+    role: concept
+    version: "2.0.0"
+    status: live
+    publication_date: "2026-07-21"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20348354"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.21479962", "10.5281/zenodo.20652110", "10.5281/zenodo.20652218", "10.5281/zenodo.20348355", "10.5281/zenodo.20651513"]
+    is_new_version_of: []
 
   - work_id: geometric_accretion_limits_in_early
     title: "Geometric Accretion Limits in Early Universe Supermassive Black Holes: A Falsifiable Prediction from Information Tension Theory"
     author: "Yett, Ryan W."
     orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20780765"
+    role: version
+    version: "1.0.0"
+    status: live
+    publication_date: "2026-06-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20776360"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: geometric_accretion_limits_in_early_2
+    title: "Geometric Accretion Limits in Early Universe Supermassive Black Holes: A Falsifiable Prediction from Information Tension Theory"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20776361"
+    role: version
+    version: "1.0.0"
+    status: live
+    publication_date: "2026-06-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20776360"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: geometric_accretion_limits_in_early_3
+    title: "Geometric Accretion Limits in Early Universe Supermassive Black Holes: A Falsifiable Prediction from Information Tension Theory"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.20776916"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20776360"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: geometric_accretion_limits_in_early_4
+    title: "Geometric Accretion Limits in Early Universe Supermassive Black Holes: A Falsifiable Prediction from Information Tension Theory"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.21367552"
+    role: version
     version: ""
     status: live
     publication_date: "2026-07-15"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.20776360"]
-    is_part_of: ["10.5281/zenodo.20117457"]
-    cites: []
+    concept_doi: "10.5281/zenodo.20776360"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: geometric_accretion_limits_in_early_5
+    title: "Geometric Accretion Limits in Early Universe Supermassive Black Holes: A Falsifiable Prediction from Information Tension Theory"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.20776360"
+    role: concept
+    version: "1.0.0"
+    status: live
+    publication_date: "2026-07-15"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20776360"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.20776916", "10.5281/zenodo.21367552", "10.5281/zenodo.20776361", "10.5281/zenodo.20780765"]
+    is_new_version_of: []
+
+  - work_id: verified_qubit_decoherence_and_stiefel
+    title: "Verified Qubit Decoherence and Stiefel Manifold Topology"
+    author: "Therion, Mega"
+    orcid: ""
+    resource_type: "Dataset"
+    canonical_doi: "10.5281/zenodo.20779286"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-21"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20779285"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: formally_verified_qubit_decoherence_with
+    title: "Formally Verified Qubit Decoherence, with Stiefel Manifold Connectivity Groundwork (Lean 4)"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Software"
+    canonical_doi: "10.5281/zenodo.20779434"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-06-21"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20779285"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: quantum_spearhead_formally_verified_qubit
+    title: "Quantum Spearhead: Formally Verified Qubit Decoherence under Chiral Geometric Constraints"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.20779285"
+    role: concept
+    version: ""
+    status: live
+    publication_date: "2026-07-15"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20779285"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.20779286", "10.5281/zenodo.20779434", "10.5281/zenodo.21367587"]
+    is_new_version_of: []
+
+  - work_id: quantum_spearhead_formally_verified_qubit_2
+    title: "Quantum Spearhead: Formally Verified Qubit Decoherence under Chiral Geometric Constraints"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.21367587"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-07-15"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20779285"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: information_tension_geometric_projection_explains
+    title: "[SUPERSEDED — DO NOT CITE] Information Tension: Geometric Projection Explains Galactic Rotation Without Dark Matter Halos — SPARC Validation, Pre-Registered Falsifiers, and FAIR Data Package"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Preprint"
+    canonical_doi: "10.5281/zenodo.21146463"
+    role: version
+    version: "1.0.0"
+    status: superseded
+    publication_date: "2026-06-25"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21146462"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: information_tension_geometric_projection_replaces
+    title: "Information Tension: Geometric Projection Replaces Dark Matter at Low Acceleration (v2 — corrected, machine-verified)"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21449838"
+    role: version
+    version: "2.0.0"
+    status: live
+    publication_date: "2026-07-18"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21146462"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21146463"]
+
+  - work_id: information_tension_geometric_projection_replaces_2
+    title: "Information Tension: Geometric Projection Replaces Dark Matter at Low Acceleration (v2 — corrected, machine-verified)"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21479842"
+    role: version
+    version: "2.0.0"
+    status: live
+    publication_date: "2026-07-18"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21146462"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21146463"]
+
+  - work_id: information_tension_geometric_projection_replaces_3
+    title: "Information Tension: Geometric Projection Replaces Dark Matter at Low Acceleration (v3 — audit-corrected)"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21504895"
+    role: version
+    version: "2.1.0"
+    status: live
+    publication_date: "2026-07-23"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21146462"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21479842"]
+
+  - work_id: information_tension_geometric_projection_replaces_4
+    title: "Information Tension: Geometric Projection Replaces Dark Matter at Low Acceleration (v3 — audit-corrected)"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21146462"
+    role: concept
+    version: "2.1.0"
+    status: live
+    publication_date: "2026-07-23"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21146462"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.21479842", "10.5281/zenodo.21504895", "10.5281/zenodo.21449838", "10.5281/zenodo.21146463"]
+    is_new_version_of: ["10.5281/zenodo.21479842"]
+
+  - work_id: information_tension_theory_a_geometric_13
+    title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
+    author: "Yett, Ryan W.; Chyren Sovereign Intelligence"
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21233978"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-07-07"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21233977"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
 
   - work_id: information_tension_a_zero_parameter
     title: "Information Tension: A Zero-Parameter Geometric Alternative to Dark Matter on SPARC"
@@ -211,29 +1692,95 @@ works:
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.21367564"
+    role: version
     version: ""
     status: live
     publication_date: "2026-07-15"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.21233977"]
-    is_part_of: ["10.5281/zenodo.20117457"]
-    cites: []
+    concept_doi: "10.5281/zenodo.21233977"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: information_tension_a_zero_parameter_2
+    title: "Information Tension: A Zero-Parameter Geometric Alternative to Dark Matter on SPARC"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.21233977"
+    role: concept
+    version: ""
+    status: live
+    publication_date: "2026-07-15"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21233977"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.21367564", "10.5281/zenodo.21233978"]
+    is_new_version_of: []
 
   - work_id: ars_magna_geometrically_ordered_dynamics
     title: "Ars Magna: Geometrically Ordered Dynamics — Information Tension, Sovereign Cognition, and Machine-Verified Foundations"
     author: "Yett, Ryan W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21304078"
+    role: version
+    version: "1.0.1"
+    status: live
+    publication_date: "2026-07-10"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21302150"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: ars_magna_geometrically_ordered_dynamics_2
+    title: "Ars Magna: Geometrically Ordered Dynamics — Information Tension, Sovereign Cognition, and Machine-Verified Foundations"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21302151"
+    role: version
+    version: "1.0.0"
+    status: live
+    publication_date: "2026-07-10"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21302150"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: ars_magna_geometrically_ordered_dynamics_3
+    title: "Ars Magna: Geometrically Ordered Dynamics — Information Tension, Sovereign Cognition, and Machine-Verified Foundations"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21384483"
+    role: version
     version: "1.1.0"
     status: live
     publication_date: "2026-07-15"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.21302150"]
-    is_part_of: []
-    cites: []
+    concept_doi: "10.5281/zenodo.21302150"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: ars_magna_geometrically_ordered_dynamics_4
+    title: "Ars Magna: Geometrically Ordered Dynamics — Information Tension, Sovereign Cognition, and Machine-Verified Foundations"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21302150"
+    role: concept
+    version: "1.1.0"
+    status: live
+    publication_date: "2026-07-15"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21302150"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.21384483", "10.5281/zenodo.21302151", "10.5281/zenodo.21304078"]
+    is_new_version_of: []
 
   - work_id: field_identity_and_entanglement_the
     title: "Field Identity and Entanglement: The Information-Tension Field as Relational Identity"
@@ -241,14 +1788,31 @@ works:
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21450433"
+    role: version
     version: "1.0.0"
     status: live
     publication_date: "2026-07-20"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.21450432"]
-    is_part_of: []
-    cites: []
+    concept_doi: "10.5281/zenodo.21450432"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: field_identity_and_entanglement_the_2
+    title: "Field Identity and Entanglement: The Information-Tension Field as Relational Identity"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21450432"
+    role: concept
+    version: "1.0.0"
+    status: live
+    publication_date: "2026-07-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21450432"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.21450433"]
+    is_new_version_of: []
 
   - work_id: the_bridge_of_bridges_isomorphism
     title: "The Bridge of Bridges: Isomorphism as Foundation — Homotopy, Holonomy, Holography, Homeostasis"
@@ -256,44 +1820,111 @@ works:
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21450453"
+    role: version
     version: "1.0.0"
     status: live
     publication_date: "2026-07-20"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.21450452"]
-    is_part_of: []
-    cites: []
+    concept_doi: "10.5281/zenodo.21450452"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
 
-  - work_id: universal_information_geometry_topological_primality
-    title: "Universal Information Geometry: Topological Primality, the E8 Lattice, and the Origin of Gravitational Stability (v2 — corrected)"
+  - work_id: the_bridge_of_bridges_isomorphism_2
+    title: "The Bridge of Bridges: Isomorphism as Foundation — Homotopy, Holonomy, Holography, Homeostasis"
     author: "Yett, Ryan W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
-    canonical_doi: "10.5281/zenodo.21479962"
+    canonical_doi: "10.5281/zenodo.21450452"
+    role: concept
+    version: "1.0.0"
+    status: live
+    publication_date: "2026-07-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21450452"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.21450453"]
+    is_new_version_of: []
+
+  - work_id: geometrodynamica_geometrically_ordered_dynamics_an
+    title: "Geometrodynamica: Geometrically Ordered Dynamics — An E8 Stiefel Holonomy Synthesis of Cosmology, Field Theory, and Formal Verification"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "BookChapter"
+    canonical_doi: "10.5281/zenodo.21539454"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-07-24"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21539453"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: geometrodynamica_geometrically_ordered_dynamics_an_2
+    title: "Geometrodynamica: Geometrically Ordered Dynamics — An E8 Stiefel Holonomy Synthesis of Cosmology, Field Theory, and Formal Verification (v2 — corrected)"
+    author: "Yett, Ryan W.; Chyren"
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Book"
+    canonical_doi: "10.5281/zenodo.21544746"
+    role: version
     version: "2.0.0"
     status: live
-    publication_date: "2026-07-21"
+    publication_date: "2026-07-25"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.20348354"]
-    is_part_of: []
-    cites: []
+    concept_doi: "10.5281/zenodo.21539453"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21539454"]
 
-  - work_id: information_tension_geometric_projection_replaces
-    title: "Information Tension: Geometric Projection Replaces Dark Matter at Low Acceleration (v3 — audit-corrected)"
+  - work_id: geometrodynamica_geometrically_ordered_dynamics_an_3
+    title: "Geometrodynamica: Geometrically Ordered Dynamics — An E8 Stiefel Holonomy Synthesis of Cosmology, Field Theory, and Formal Verification (v3)"
+    author: "Yett, Ryan W.; Chyren"
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Book"
+    canonical_doi: "10.5281/zenodo.21583646"
+    role: version
+    version: "3.0.0"
+    status: live
+    publication_date: "2026-07-26"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21539453"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21544746"]
+
+  - work_id: geometrodynamica_geometrically_ordered_dynamics_an_4
+    title: "Geometrodynamica: Geometrically Ordered Dynamics — An E8 Stiefel Holonomy Synthesis of Cosmology, Field Theory, and Formal Verification (v4)"
     author: "Yett, Ryan W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
-    canonical_doi: "10.5281/zenodo.21504895"
-    version: "2.1.0"
+    canonical_doi: "10.5281/zenodo.21623111"
+    role: version
+    version: "4.0.0"
     status: live
-    publication_date: "2026-07-23"
+    publication_date: "2026-07-27"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.21479842", "10.5281/zenodo.21146462"]
-    is_part_of: []
-    cites: []
+    concept_doi: "10.5281/zenodo.21539453"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21583646"]
+
+  - work_id: geometrodynamica_geometrically_ordered_dynamics_an_5
+    title: "Geometrodynamica: Geometrically Ordered Dynamics — An E8 Stiefel Holonomy Synthesis of Cosmology, Field Theory, and Formal Verification (v5)"
+    author: "Yett, Ryan W.; Chyren"
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21660856"
+    role: version
+    version: "5.0.0"
+    status: live
+    publication_date: "2026-07-28"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21539453"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21623111"]
 
   - work_id: res_nova_geometrically_ordered_dynamics
     title: "Res Nova: Geometrically Ordered Dynamics and Information Tension — Dual-Channel Action, Covariant Completion, and Formal Verification"
@@ -301,14 +1932,31 @@ works:
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21539453"
+    role: concept
     version: "5.0.0"
     status: live
     publication_date: "2026-08-24"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: []
-    is_part_of: []
-    cites: []
+    concept_doi: "10.5281/zenodo.21539453"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.21544746", "10.5281/zenodo.21623111", "10.5281/zenodo.21583646", "10.5281/zenodo.21660856", "10.5281/zenodo.21539454", "10.5281/zenodo.22079177"]
+    is_new_version_of: []
+
+  - work_id: res_nova_geometrically_ordered_dynamics_2
+    title: "Res Nova: Geometrically Ordered Dynamics and Information Tension — Dual-Channel Action, Covariant Completion, and Formal Verification"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.22079177"
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-08-24"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21539453"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
 
   - work_id: dual_channel_variational_closure_covariant
     title: "Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark"
@@ -316,11 +1964,28 @@ works:
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21969121"
+    role: version
     version: "v1.6.2"
     status: live
     publication_date: "2026-08-16"
     repository: "Mega-Therion/Res-Nova"
-    source_path: null   # fill in when the manuscript source lives in this repo
-    is_version_of: ["10.5281/zenodo.21969120"]
-    is_part_of: []
-    cites: []
+    concept_doi: "10.5281/zenodo.21969120"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: dual_channel_variational_closure_covariant_2
+    title: "Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21969120"
+    role: concept
+    version: "v1.6.2"
+    status: live
+    publication_date: "2026-08-16"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21969120"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.21969121"]
+    is_new_version_of: []

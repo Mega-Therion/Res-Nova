@@ -37,6 +37,12 @@ LIVE_SURFACES = ("README.md", "CITATION.cff", ".zenodo.json",
 HISTORICAL = ("archive/", "docs/recovered/", "/old_", "verification_runs/",
               "CHANGELOG", "_previous_", "archive_previous_iterations/")
 
+# First cells that name a metadata field rather than a work.
+FIELD_LABEL = re.compile(
+    r"^(concept|current|version|release|latest|previous|earlier|archived|"
+    r"repository|repo|author|orcid|tag|date|status|doi|citation|identifier)\b",
+    re.I)
+
 SCAN_GLOBS = ("*.md", "*.tex", "*.bib", "*.json", "*.cff", "*.yml", "*.yaml", "*.txt")
 
 
@@ -125,10 +131,15 @@ def check_registry_shape(reg: dict) -> list[str]:  # noqa: C901
         seen_dois.add(doi)
         if not doi:
             errs.append(f"{wid}: no canonical_doi")
+        author = (w.get("author") or "")
+        if w.get("status") == "live" and author and "Yett" not in author:
+            if doi not in {g.get("doi") for g in reg.get("known_gaps", [])}:
+                errs.append(f"{wid} ({doi}): deposited under {author!r}, not the "
+                            f"canonical identity 'Yett, Ryan W.'")
         if w.get("status") == "live" and w.get("orcid") != ORCID:
             if doi in {g.get("doi") for g in reg.get("known_gaps", [])}:
                 continue          # tracked in known_gaps, reported separately
-            errs.append(f"{wid}: live work lacks the canonical ORCID "
+            errs.append(f"{wid} ({doi}): live work lacks the canonical ORCID "
                         f"(has {w.get('orcid')!r}) -- fix it on the Zenodo record")
     return errs
 
@@ -176,9 +187,16 @@ def check_local_titles(reg: dict) -> list[str]:
                 w = by_doi.get(doi)
                 if not w:
                     continue
-                label = line.split("|")[1].strip() if line.count("|") >= 2 else ""
+                # Only a table that pairs a WORK NAME with a DOI can contradict
+                # itself. A two-column key/value table ("Concept DOI | 10.x")
+                # states a field name, not a title, so it is not a claim.
+                if line.count("|") < 4:
+                    continue
+                label = line.split("|")[1].strip()
                 label = re.sub(r"[*`\[\]]", "", label).strip()
                 if len(label) < 6:
+                    continue
+                if FIELD_LABEL.search(label) or "doi.org" in label or DOI_RE.search(label):
                     continue
                 title = w["title"].lower()
                 key = re.sub(r"[^a-z0-9 ]", " ", label.lower()).split()

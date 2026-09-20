@@ -33,5 +33,25 @@
     {
       "identifier": "cmblensing"
     }
+  ],
+  "version": "1.9.0",
+  "related_identifiers": [
+    {
+      "relation": "isVersionOf",
+      "identifier": "10.5281/zenodo.21539453",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "relation": "isNewVersionOf",
+      "identifier": "10.5281/zenodo.22079177",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "relation": "isSupplementedBy",
+      "identifier": "https://github.com/Mega-Therion/Res-Nova",
+      "scheme": "url"
+    }
   ]
 }
