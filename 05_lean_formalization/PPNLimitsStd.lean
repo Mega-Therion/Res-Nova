@@ -37,7 +37,20 @@ noncomputable def deviation (x : ℝ) : ℝ := 1 - mu_std x
 
 /-- **The inverse-square screening bound.** For `x ≥ 1`,
 `1 - mu_std x ≤ 1 / (2 x^2)`. This is the quantitative content of the
-`ScreenedTail` condition that selects `mu_std` over `mu_dual`. -/
+`ScreenedTail` condition that selects `mu_std` over `mu_dual`.
+
+Why the exponent is 2 and not 1, stated structurally: `mu_std x = x / sqrt (1 + x^2)`
+depends on `x` only through `x^2`, so its expansion about `x = ∞` carries **only even
+powers** -- `1 - 1/(2 x^2) + 3/(8 x^4) - ...`. `mu_dual x = x / (1 + x)` has no such
+parity and its expansion carries the odd term first -- `1 - 1/x + 1/x^2 - ...`. The
+odd `1/x` term is what survives to the solar system and puts `mu_dual`'s anomalous
+Mercury precession ~10^3x over the INPOP10a bound.
+
+This is an algebraic parity fact about the two functions, not a statement about
+frequencies, harmonics or filtering: `x = g / a₀` is a static ratio of accelerations
+with no conjugate variable, and the precession it drives is a secular effect of a
+radial perturbation (Gauss' equations), not a resonance. See
+`Chyren_Second_Brain/04_BRIDGES_AND_ONTOLOGY/HARMONIC_FRAMING_ASSESSMENT_2026-09-20.md`. -/
 theorem deviation_le_inv_two_sq {x : ℝ} (hx : 1 ≤ x) :
     deviation x ≤ 1 / (2 * x ^ 2) := by
   have hx0 : (0 : ℝ) < x := lt_of_lt_of_le zero_lt_one hx
