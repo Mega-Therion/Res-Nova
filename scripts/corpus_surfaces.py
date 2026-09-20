@@ -43,6 +43,17 @@ _GIT_LEAK_VARS = frozenset((
 ))
 
 
+class SurfaceEnumerationError(RuntimeError):
+    """git could not be queried, so the surface list is INCOMPLETE.
+
+    Returning [] on a git failure is fail-open: a transient error (a stale
+    index.lock from a background job, a repo mid-operation) silently collapses
+    the scan to fewer files, and every gate downstream then reports a clean
+    PASS over a smaller corpus. This happened for real -- a parent-repo git
+    call failed during a pre-push hook and scope dropped 162 -> 147 files with
+    00_CANONICAL gone entirely, while each individual check still said PASS."""
+
+
 def _ls_files(repo: Path, pathspec: str) -> list[str]:
     # In git hooks (e.g. pre-push, pre-commit), git exports GIT_DIR and friends
     # pointing at the invoking repo's git dir. If we inspect another repo (like
@@ -50,7 +61,14 @@ def _ls_files(repo: Path, pathspec: str) -> list[str]:
     clean_env = {k: v for k, v in os.environ.items() if k not in _GIT_LEAK_VARS}
     r = subprocess.run(["git", "-C", str(repo), "ls-files", pathspec],
                        capture_output=True, text=True, env=clean_env)
-    return r.stdout.splitlines() if r.returncode == 0 else []
+    if r.returncode != 0:
+        raise SurfaceEnumerationError(
+            f"git ls-files failed in {repo} (rc={r.returncode}): "
+            f"{r.stderr.strip() or 'no stderr'}. The surface list would be "
+            f"INCOMPLETE, so no gate result from this run is trustworthy. "
+            f"Retry; if it persists check for a stale index.lock or a "
+            f"background process writing to that repository.")
+    return r.stdout.splitlines()
 
 
 def surfaces(globs: tuple[str, ...],
@@ -100,11 +118,15 @@ def self_test() -> int:
         bad.append("tracked_markdown() returned nothing")
     if not tex:
         bad.append("tracked_tex() returned nothing")
-    if not canon:
-        bad.append("tracked_canonical() returned nothing -- 00_CANONICAL lost")
+    parent_present = any((ROOT.parent / e).is_dir() for e in EXTRA_SCAN_ROOTS)
+    if not canon and parent_present:
+        bad.append("tracked_canonical() returned nothing though 00_CANONICAL "
+                   "exists on disk -- the binding is broken")
+    elif not canon and not EXTRA_SCAN_ROOTS:
+        bad.append("EXTRA_SCAN_ROOTS is empty -- 00_CANONICAL is unscannable")
 
     # The defect this module exists to prevent.
-    if not any(r.startswith("../00_CANONICAL/") for _, r in md):
+    if parent_present and not any(r.startswith("../00_CANONICAL/") for _, r in md):
         bad.append("tracked_markdown() is blind to 00_CANONICAL")
 
     # Display paths must be unique and stable (baselines are keyed on them).
