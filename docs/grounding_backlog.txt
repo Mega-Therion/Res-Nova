@@ -4,21 +4,6 @@
 # The gate fails on any module NOT listed here, so new ungrounded citations
 # are blocked while this backlog is worked down. Delete a line once that
 # module's denotes/observable/falsifier are filled in.
-CartanTrialityGenerations
-ChiralCellularDuality
-CosmologicalSector
-CovariantCompletion
-DeSitterExtremal
-DualChannelDerivation
-GODActionKinematics
-ITActionClosure
-MuProjection
-PPNLimits
-PrintAxioms
-PrintAxiomsD8
-RamanujanModularBounds
-RelativisticStability
-SOCasimirGenuine
-SovereignRegularity
-YettParadigm
-modules cited by a manuscript     37
+# All cited manuscript modules have had their physical denotations,
+# observables, and falsifiers written into docs/grounding_ledger.yaml.
+# Backlog cleared on 2026-09-20.

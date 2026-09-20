@@ -31,18 +31,18 @@ modules:
     theorems: 4
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "none. Discrete order bounds n % 3 < 3 and integer arithmetic; no Spin(8) representations, Lie algebras, or triality outer automorphisms appear in the module."
+    observable: "none"
+    falsifier: "none"
 
   - module: ChiralCellularDuality
     tier: ARITH
     theorems: 3
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "none. Combinatorial properties of an involution sigma(sigma(x)) = x and integer coordinate parities; no physical cell, spatial manifold, or field dynamics appears in the module."
+    observable: "none"
+    falsifier: "none"
 
   - module: ChiralCrackSketch
     tier: ARITH
@@ -85,27 +85,27 @@ modules:
     theorems: 4
     structures: 0
     plain_real_defs: 2
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the cosmological density parameters Omega_Lambda := ln(2) approx 0.6931 and Omega_m := 1 - ln(2) approx 0.3069 as claimed cosmological coincidence entropy values for a flat FLRW universe"
+    observable: "Planck 2018 / DES cosmological background data for Omega_Lambda (0.6847 +/- 0.0073) and Omega_m (0.3153 +/- 0.0073)"
+    falsifier: "cosmological parameter measurements ruling out Omega_Lambda in the neighbourhood of ln(2) or establishing spatial curvature Omega_k != 0"
 
   - module: CovariantCompletion
     tier: ARITH
     theorems: 8
     structures: 0
     plain_real_defs: 1
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "relativistic scalar-tensor perturbation speeds c_parallel^2 = 1 + 1/(1+x), disformal metric PPN parameters (gamma_PPN = 1, alpha_1 = alpha_2 = 0), and static FLRW background scalar decoupling; equations evaluated as algebraic real relations without dynamic metric tensor"
+    observable: "Cassini PPN bound |gamma_PPN - 1| < 2.3e-5, lunar laser ranging alpha_1/alpha_2 bounds, and cosmological w(z) equation of state"
+    falsifier: "measured deviation of gamma_PPN from 1 above 2.3e-5, non-zero preferred-frame PPN alpha_1/alpha_2, or dynamical scalar dark energy w != -1"
 
   - module: DeSitterExtremal
     tier: ARITH
     theorems: 4
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "none. Algebraic properties of the static de Sitter horizon radius r = 1/H and positivity of the product c*H/(2*pi); the horizon acceleration formula is posited as a definition rather than derived from field equations."
+    observable: "none"
+    falsifier: "none"
 
   - module: DiagonalConeIndex
     tier: ARITH
@@ -121,9 +121,9 @@ modules:
     theorems: 4
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the AQUAL simple interpolating function mu(x) = x/(1+x) and its associated scalar kinetic potential F(x) = x^2/2 - x + ln(1+x), evaluated as real functions where x = g/a_0"
+    observable: "SPARC galaxy rotation curves via the AQUAL simple mu interpolating function"
+    falsifier: "rotation curve kinematics ruling out the simple mu function mu(x) = x/(1+x) in favor of the standard or exponential mu families"
 
   - module: FiniteSU2Envelope
     tier: ARITH
@@ -139,9 +139,9 @@ modules:
     theorems: 3
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "algebraic identities linking total acceleration a_tot, baryonic acceleration a_bary, and Milgrom acceleration a_0 in the simple-mu MOND relation a_tot^2 = a_bary (a_tot + a_0), and the asymptotic Baryonic Tully-Fisher scaling v^4 = G M a_0"
+    observable: "Baryonic Tully-Fisher Relation (BTFR) and SPARC galaxy rotation velocities"
+    falsifier: "a systematic break in the BTFR v^4 proportional to M_bary scaling or failure of the simple-mu relation across galaxy disks"
 
   - module: GenerationCycleChirality
     tier: ARITH
@@ -202,18 +202,18 @@ modules:
     theorems: 0
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "none. CI diagnostic module checking axiom footprints of CovariantCompletion theorems; contains no physical definitions or empirical models."
+    observable: "none"
+    falsifier: "none"
 
   - module: PrintAxiomsD8
     tier: ARITH
     theorems: 6
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "none. Axiomatic CI diagnostic confirming dependence strictly on standard Lean 4 axioms [propext, Classical.choice, Quot.sound] for tensor speed identities."
+    observable: "none"
+    falsifier: "none"
 
   - module: QuarkMassLadder
     tier: ARITH
@@ -238,9 +238,9 @@ modules:
     theorems: 2
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "none. Real product non-negativity W*(1-u_p) >= 0 under non-negative factors; no modular forms, Ramanujan tau function, or Hecke eigenvalues appear in the formalization."
+    observable: "none"
+    falsifier: "none"
 
   - module: RapidityEquipartition
     tier: ARITH
@@ -256,9 +256,9 @@ modules:
     theorems: 3
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "first and second derivative positivity F'(x) = x^2/(1+x) > 0 and F''(x) = (x^2+2x)/(1+x)^2 > 0 asserting strict convexity and absence of Ostrogradsky ghost instabilities for the dual-channel kinetic Lagrangian"
+    observable: "stable scalar field propagation in galactic halo potential backgrounds"
+    falsifier: "presence of negative-energy ghost modes or gradient instabilities in scalar perturbation spectra"
 
   - module: RiemannSpectralExpander
     tier: ARITH
@@ -355,9 +355,9 @@ modules:
     theorems: 5
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "none. Elementary inequalities on real parameters defining an assumed Hamiltonian spectral gap kappa^2 <= lambda1 - lambda0, monotonic energy decay E(t) <= E0, and an assumed threshold theta <= chi; no Hamiltonian operator, Hilbert space, or physical trajectory dynamics appears in the module."
+    observable: "none"
+    falsifier: "none"
 
   - module: AXIOMS_V2
     tier: STRUCT
@@ -382,18 +382,18 @@ modules:
     theorems: 6
     structures: 4
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the algebraic equivalence between the proposed tau-tension law and the AQUAL simple-mu relation, the deep-MOND BTFR scaling v^4 = a_0 G M, and the n=2 isothermal density profile producing flat rotation curves"
+    observable: "SPARC galactic rotation curves and the Baryonic Tully-Fisher relation"
+    falsifier: "a systematic deviation from the simple-mu interpolation function or failure of asymptotic rotation curve flatness in isothermal profiles"
 
   - module: MuProjection
     tier: STRUCT
     theorems: 10
     structures: 5
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the standard MOND interpolating function mu(x) = x/sqrt(1+x^2) interpreted as a geometric projection cosine, its contrast with the rational simple-mu branch x/(1+x), and power-law solutions to the associated scalar equation of motion"
+    observable: "SPARC galaxy rotation curves and radial acceleration relation (RAR)"
+    falsifier: "high-precision rotation curve data ruling out mu(x) = x/sqrt(1+x^2) or establishing an incompatible acceleration transition width"
 
   - module: MuStdUniqueness
     tier: STRUCT
@@ -427,9 +427,9 @@ modules:
     theorems: 6
     structures: 4
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "the fractional deviation 1 - mu(x) = 1/(1+x) of the scalar-tensor effective coupling from Newtonian gravity in the solar system acceleration regime x = g/a_0 >> 1"
+    observable: "Cassini solar conjunction radar time delay (|gamma - 1| < 2.3e-5) and MESSENGER Mercury perihelion precession (|beta - 1| < 2.3e-4)"
+    falsifier: "solar system tracking measurements detecting an anomalous non-Newtonian deviation 1 - mu(x) > 1/(1+x) at planetary orbital scales"
 
   - module: PillarIV_AntiDriftGate
     tier: STRUCT
@@ -445,9 +445,9 @@ modules:
     theorems: 8
     structures: 32
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "none. The so(n) quadratic Casimir operator and eigenvalue C_2(fund) = (n-1)/2 computed over concrete matrix generators in the defining representation; a theorem of Lie algebra representation theory, not an empirical physical claim."
+    observable: "none"
+    falsifier: "none"
 
   - module: SU2CarrierRungs
     tier: STRUCT
@@ -472,9 +472,9 @@ modules:
     theorems: 8
     structures: 3
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "none. A geometric 3D vector inequality for unit vector sine-modulus and a tautological projection of an assumed pointwise vorticity bound; no Navier-Stokes PDE, fluid velocity field dynamics, or time integral appears in the formalization."
+    observable: "none"
+    falsifier: "none"
 
   - module: SovereignSemiotics
     tier: STRUCT
