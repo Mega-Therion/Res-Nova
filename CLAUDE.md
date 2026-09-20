@@ -86,7 +86,11 @@ asset with its measured exit code.
 
 ## Conventions
 
-`[P]` proved · `[D]` derived · `[A]` axiom · `[C]` conjectured · `[O]` open · `[X]` killed.
+`[P]` proved · `[D]` derived · `[A]` axiom · `[C]` **cited** · `[conj]` conjectured · `[E]` empirical · `[O]` open · `[X]` killed.
+
+`[C]` is **Cited**, not conjectured — see `docs/EPISTEMIC_TIER_LEGEND.md`, which is
+canonical. This line read "`[C]` conjectured" until 2026-09-20, inverting the
+evidentiary weight of every citation a reader checked against it.
 
 Record failed identities and rejected coincidences explicitly rather than dropping them.
 See `Chyren_Second_Brain/50_Mathematical_Notation/derivations/D41`, which logs a
