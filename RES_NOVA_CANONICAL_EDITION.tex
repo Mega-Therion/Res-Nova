@@ -144,15 +144,21 @@ To ensure complete mathematical integrity, all structural theorems, representati
 \centering
 \begin{tabular}{lll}
 \toprule
-\textbf{Formal Module} & \textbf{Physical Invariant Verified} & \textbf{Status} \\
+\textbf{Formal Module} & \textbf{What the module states} & \textbf{Tier} \\
 \midrule
-\texttt{CartanTrialityGenerations.lean} & $S_3$ order 6, $\mathbb{Z}_3$ order 3 permutation orbit & \textbf{0 sorrys, 0 admits} \\
-\texttt{ChiralCellularDuality.lean} & Ground-state energy positivity $E_p(\theta) \ge 0$ & \textbf{0 sorrys, 0 admits} \\
-\texttt{RamanujanModularBounds.lean} & Deligne spectral Fourier mode bounds $|u_p| \le 1$ & \textbf{0 sorrys, 0 admits} \\
-\texttt{GalacticAcceleration.lean} & Horizon scale $a_0 = c H_0 / 2\pi$ derivation & \textbf{0 sorrys, 0 admits} \\
+\texttt{CartanTrialityGenerations.lean} & Integer order bounds $n \bmod 3 < 3$; no $\mathrm{Spin}(8)$ representation or triality automorphism appears & \texttt{[arith]} \\
+\texttt{ChiralCellularDuality.lean} & Properties of an abstract involution $\sigma(\sigma(x)) = x$ and coordinate parities; no cell, manifold or field & \texttt{[arith]} \\
+\texttt{RamanujanModularBounds.lean} & Real product non-negativity $W(1-u_p) \ge 0$; no modular form, $\tau$ function or Hecke eigenvalue appears & \texttt{[arith]} \\
+\texttt{GalacticAcceleration.lean} & The identity $a_0 = c H_0 / 2\pi$ among named constants, with $a_0$ compared against the SPARC value & \texttt{[emp]} \\
 \bottomrule
 \end{tabular}
-\caption{Lean 4 Machine-Checked Formal Verification Matrix}
+\caption{Lean~4 modules. All elaborate with no \texttt{sorry} on the standard
+axioms. \texttt{[arith]} marks a module that quantifies over $\mathbb{R}$ or
+$\mathbb{N}$ rather than over a manifold, group or operator: the kernel certifies
+the arithmetic, and the physical reading is supplied by the surrounding text
+rather than by the proof. \texttt{[emp]} marks a comparison against measured data.
+Per-module statements of what is and is not denoted physically are kept in
+\texttt{docs/grounding\_ledger.yaml}.}
 \end{table}
 
 \section{Conclusion}
