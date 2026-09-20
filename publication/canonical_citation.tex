@@ -1,0 +1,58 @@
+% Canonical citation block -- shared by every current Res Nova manuscript.
+%
+% Usage, after \maketitle:
+%   \input{../publication/canonical_citation}   % adjust depth as needed
+%   \canonicalcitation
+%     {Title as deposited}%
+%     {concept DOI}%
+%     {current version DOI}%
+%     {repository tag}%
+%     {version-history sentence, or empty}
+%
+% The DOIs are declared in docs/publication_registry.yaml and checked against
+% DataCite by scripts/audit_publication_metadata.py. Do not hand-edit a DOI
+% here without updating the registry -- the gate will fail.
+\providecommand{\resnovaorcid}{0009-0001-1303-7190}
+\providecommand{\resnovarepo}{https://github.com/Mega-Therion/Res-Nova}
+
+\newcommand{\canonicalcitation}[5]{%
+  \bigskip
+  \noindent\rule{\linewidth}{0.4pt}\par\smallskip
+  \noindent\textbf{Canonical citation.}\ Yett, R.~W. (2026).
+  \emph{#1}. Zenodo. \href{https://doi.org/#2}{https://doi.org/#2}\par
+  \smallskip
+  \noindent\begin{tabular}{@{}ll@{}}
+    Author & Ryan W. Yett\\
+    ORCID & \href{https://orcid.org/\resnovaorcid}{\resnovaorcid}\\
+    Repository & \href{\resnovarepo}{github.com/Mega-Therion/Res-Nova}\\
+    Concept DOI (always latest) & \href{https://doi.org/#2}{#2}\\
+    This version & \href{https://doi.org/#3}{#3}\\
+    Repository tag & \texttt{#4}\\
+  \end{tabular}\par
+  \ifx\relax#5\relax\else
+    \smallskip\noindent\textbf{Version history.}\ #5\par
+  \fi
+  \smallskip\noindent\rule{\linewidth}{0.4pt}\par
+  \bigskip
+}
+
+% For a manuscript that has NOT been deposited yet. It must not display a DOI
+% it does not have, and it must not borrow the DOI of a different work.
+%   \pendingcitation{repository tag}
+\newcommand{\pendingcitation}[1]{%
+  \bigskip
+  \noindent\rule{\linewidth}{0.4pt}\par\smallskip
+  \noindent\textbf{Citation.}\ This manuscript has no DOI yet: it is not
+  deposited. Cite it by repository and commit until a DOI is minted. Do not
+  cite another record's DOI in its place.\par
+  \smallskip
+  \noindent\begin{tabular}{@{}ll@{}}
+    Author & Ryan W. Yett\\
+    ORCID & \href{https://orcid.org/\resnovaorcid}{\resnovaorcid}\\
+    Repository & \href{\resnovarepo}{github.com/Mega-Therion/Res-Nova}\\
+    Repository tag & \texttt{#1}\\
+    DOI & not yet deposited\\
+  \end{tabular}\par
+  \smallskip\noindent\rule{\linewidth}{0.4pt}\par
+  \bigskip
+}

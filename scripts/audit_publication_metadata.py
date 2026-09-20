@@ -238,6 +238,36 @@ def check_bylines() -> list[str]:
     return errs
 
 
+def check_release_lineage(reg: dict) -> list[str]:
+    """A GitHub release archive records the repository at a tag, not the text of
+    a paper. Citing one as a manuscript's own DOI is the defect that shipped in
+    README.md and res_nova_manuscript.tex."""
+    release = {w["canonical_doi"] for w in reg["works"]
+               if w.get("lineage") == "release" and w.get("canonical_doi")}
+    if not release:
+        return []
+    context = re.compile(r"archive|historical|supersed|release|separate lineage",
+                         re.I)
+    errs = []
+    for path in tracked_files():
+        rel = str(path.relative_to(ROOT))
+        if not rel.endswith(".tex") or is_historical(rel) or "05_lean" in rel:
+            continue
+        try:
+            lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+        except OSError:
+            continue
+        for n, line in enumerate(lines, 1):
+            # LaTeX wraps; the qualifying wording may sit a line or two away.
+            window = "\n".join(lines[max(0, n - 4):n + 3])
+            for doi in set(OWN_DOI_RE.findall(line)):
+                if doi in release and not context.search(window):
+                    errs.append(f"{rel}:{n}: cites {doi}, a GitHub release "
+                                f"archive, with no wording marking it as an "
+                                f"archive -- do not cite a release as the paper")
+    return errs
+
+
 def check_datacite(reg: dict) -> list[str]:
     errs = []
     for w in reg["works"]:
@@ -319,6 +349,9 @@ def main() -> int:
     ap.add_argument("--online", action="store_true",
                     help="also verify every canonical DOI against DataCite")
     ap.add_argument("--self-test", action="store_true")
+    ap.add_argument("--report", metavar="PATH",
+                    help="also write the audit report to PATH, for archiving "
+                         "alongside a release")
     args = ap.parse_args()
     if args.self_test:
         return self_test()
@@ -334,26 +367,51 @@ def main() -> int:
         ("DOI registry coverage", check_coverage_and_surfaces(reg)),
         ("Local title vs registry", check_local_titles(reg)),
         ("Manuscript bylines", check_bylines()),
+        ("Release-vs-paper lineage", check_release_lineage(reg)),
     ]
     if args.online:
         sections.append(("DataCite agreement", check_datacite(reg)))
 
-    print("PUBLICATION METADATA AUDIT")
-    print("-" * 26)
+    import datetime
+    import subprocess as sp
+    head = sp.run(["git", "-C", str(ROOT), "rev-parse", "--short", "HEAD"],
+                  capture_output=True, text=True).stdout.strip()
+    tag = sp.run(["git", "-C", str(ROOT), "describe", "--tags", "--abbrev=0"],
+                 capture_output=True, text=True).stdout.strip() or "(untagged)"
+    out: list[str] = []
+
+    def emit(line: str = "") -> None:
+        out.append(line)
+        print(line)
+
+    emit("PUBLICATION METADATA AUDIT")
+    emit("-" * 26)
+    emit(f"{'Date (UTC)':<28} {datetime.datetime.now(datetime.UTC):%Y-%m-%d %H:%M}")
+    emit(f"{'Commit':<28} {head}")
+    emit(f"{'Tag':<28} {tag}")
+    emit(f"{'Mode':<28} {'online (DataCite)' if args.online else 'offline'}")
+    emit()
     total = 0
     for name, errs in sections:
-        print(f"{name:<28} {'PASS' if not errs else f'FAIL ({len(errs)})'}")
+        emit(f"{name:<28} {'PASS' if not errs else f'FAIL ({len(errs)})'}")
         total += len(errs)
     if not args.online:
-        print(f"{'DataCite agreement':<28} SKIPPED (pass --online)")
-    print(f"{'Works in registry':<28} {len(reg['works'])}")
+        emit(f"{'DataCite agreement':<28} SKIPPED (pass --online)")
+    emit(f"{'Works in registry':<28} {len(reg['works'])}")
+    emit(f"{'Identity':<28} {reg['identity'].get('name')} "
+         f"<{reg['identity'].get('orcid')}>")
     for g in reg.get("known_gaps", []):
-        print(f"{'Known gap (WARN)':<28} {g.get('doi')} -- needs a Zenodo-side edit")
+        emit(f"{'Known gap (WARN)':<28} {g.get('doi')} -- {g.get('issue', '')[:60]}")
+    emit()
+    emit(f"{'VERDICT':<28} {'PASS' if not total else f'FAIL ({total} finding(s))'}")
     if total:
-        print()
+        emit()
         for name, errs in sections:
             for e in errs:
-                print(f"  [{name}] {e}")
+                emit(f"  [{name}] {e}")
+    if args.report:
+        Path(args.report).write_text("\n".join(out) + "\n", encoding="utf-8")
+        print(f"\nreport written to {args.report}")
     return 1 if total else 0
 
 
