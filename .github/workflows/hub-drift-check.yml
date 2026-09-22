@@ -1,0 +1,28 @@
+name: Hub drift check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "assurance/claims.json"
+      - "CLAIM_EVIDENCE_LEDGER.md"
+      - "RELEASE_CHECKLIST.md"
+
+jobs:
+  check-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check hub drift and notify
+        env:
+          HUB_DISPATCH_TOKEN: ${{ secrets.HUB_DISPATCH_TOKEN }}
+          HEAD_SHA: ${{ github.sha }}
+        run: |
+          if [ -z "$HUB_DISPATCH_TOKEN" ]; then
+            echo "::warning::HUB_DISPATCH_TOKEN secret not set -- skipping drift notification. See scripts/check_hub_drift.py docstring."
+            exit 0
+          fi
+          python3 scripts/check_hub_drift.py
