@@ -67,6 +67,29 @@ RapidityEquipartition.lean       # rapidity equipartition
 # Physically adjacent to this paper's F_dual, but its results are presented in
 # HAMILGRANGIAN_CANONICAL.tex, not in this manuscript's Table 2.
 Hamilgrangian.lean
+MuStdDuality.lean                # ADDED 2026-09-24. The x -> 1/x involution
+                                 # (a -> a0^2/a) on BOTH branches. Companion to
+                                 # MuStdUniqueness.lean, which IS a manuscript
+                                 # result; this one is not, because its results
+                                 # are presented in HAMILGRANGIAN_CANONICAL.tex
+                                 # (sec:involutions), not in Table 2.
+                                 # PROVED [P], 8 theorems, no sorry, standard
+                                 # axioms only: mu_std(1/x) = 1/sqrt(1+x^2);
+                                 # theorem_livedual mu_std(1/x)^2 + mu_std(x)^2
+                                 # = 1, which through MuStdUniqueness's
+                                 # mu_std_sinh reads beta^2 + gamma^-2 = 1;
+                                 # odds(1-p) = 1/odds(p), which is WHY 1/x is
+                                 # the involution to test; and the dead-branch
+                                 # contrast mu_dual(1/x) = 1 - mu_dual(x).
+                                 # Sabotage-tested: replacing theorem_livedual's
+                                 # RHS with 2 fails to elaborate.
+                                 # [O], stated in the module header: reading x
+                                 # as a celerity and naming tanh/cosh as
+                                 # beta/gamma is MuStdUniqueness's Postulate R,
+                                 # not re-derived; and nothing here selects
+                                 # a -> a0^2/a as a symmetry of the DYNAMICS.
+                                 # mu_dual is physically excluded; its theorem
+                                 # is recorded for contrast only.
 
 # --- Information-theoretic spectral bounds ---
 # Not anchored to physics: RamanujanGapDerivation derives the spectral gap of a

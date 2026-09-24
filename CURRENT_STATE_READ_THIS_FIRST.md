@@ -7,7 +7,7 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against the physics:** 2026-09-20 (the audit-cycle state below supersedes
+**Last verified against the physics:** 2026-09-24 (the audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it).
 
 This line is **enforced**, not decorative: `scripts/current_state_freshness.py` fails the
@@ -50,6 +50,16 @@ one place, unambiguous, checked first, every time.
   `TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md`.
 - If you see μ(x)=x/(1+x) — or F_dual = x²/2 − x + ln(1+x) — anywhere in a source you're
   reading, that source predates 2026-09-12's correction and its physics content is void.
+- **Added 2026-09-24 — the branches differ structurally, not just numerically.** Under the
+  exchange x ↦ 1/x (i.e. a ↦ a₀²/a, Newtonian ↔ deep-MOND about the transition scale) the
+  dead branch satisfies μ_dual(1/x) = 1 − μ_dual(x): the duality holds in μ itself. The live
+  branch does **not**. It satisfies μ_std(1/x)² + μ_std(x)² = 1 — the duality survives one
+  level down, in μ². Via `MuStdUniqueness.lean`'s `mu_std_sinh` that reads β² + γ⁻² = 1, the
+  defining relation of the Lorentz factor. Machine-checked in `MuStdDuality.lean` (8 theorems,
+  no sorry, standard axioms, sabotage-tested). **This is algebra, not new physics:** reading x
+  as a celerity is Postulate R, still `[O]`, and nothing there selects a ↦ a₀²/a as a symmetry
+  of the dynamics. Results are presented in `HAMILGRANGIAN_CANONICAL.tex`, so the module is
+  scoped adjacent and is not a Table 2 result.
 
 ### 2. The substrate is V₂(ℝ³) via Cartan triality, NOT V₂₄₀(ℝ^N)
 
