@@ -10,17 +10,40 @@ import Mathlib.Tactic
 /-!
 # Conditional Sovereign Spin-Ceiling Algebra & Astrophysical Accretion Shift
 
-This module formally proves the exact algebraic value and interval enclosure of the
-Sovereign spin ceiling `a* = √2 - 1/2 ∈ (0.914, 0.915)`, as well as the monotonicity theorem
-governing apparent Novikov-Thorne spin inference in the presence of inner-edge magnetic torque.
+This module proves the exact algebraic value and interval enclosure of the two-channel
+polynomial at `θ = 1/√2`, and a monotonicity theorem for apparent Novikov-Thorne spin
+inference under inner-edge magnetic torque.
+
+## DOCSTRING CORRECTION 2026-09-24 — κ versus κ²
+
+An earlier version of this header called `a* = √2 - 1/2 ∈ (0.914, 0.915)` "the Sovereign
+spin ceiling". **That value is `κ²`, not `κ`.** The corpus defines the ceiling as
+`κ = √(θ(2−θ))`, so at `θ = 1/√2`:
+
+* `κ² = 2θ − θ² = √2 − 1/2 = 0.91421…`  ← what `two_theta_sub_theta_sq` and the
+  enclosure theorems below are about;
+* `κ  = √(√2 − 1/2)   = 0.95615…`       ← what `sovereign_spin_ceiling_eq` computes,
+  and the quantity that is actually a ceiling.
+
+The theorems were always correct; only the header mislabelled `κ²` as the ceiling. A spin
+`a*` lies in `[0,1]` so both numbers are dimensionally admissible and the type does not
+catch the error — hence this note.
+
+**Third value, do not conflate.** Elsewhere the corpus carries `κ = 0.95394…`, which is
+`√(θ(2−θ))` at the *adopted* `θ = 7/10`, not at `θ = 1/√2`. The two κ's differ by
+`2.2×10⁻³`. `θ = 7/10`'s provenance failed audit on 2026-09-24 (see
+`HAMILGRANGIAN_CANONICAL.tex` `rem:thetaprov`); `θ = 1/√2` is independently derived three
+ways. Nothing here selects between them — this module is conditional on its adopted `θ`,
+as its own definition says.
 
 ## Main Results
 
 1. `two_theta_sub_theta_sq`:
-   The two-channel polynomial at threshold `θ = 1/√2` yields `2θ - θ² = √2 - 1/2`.
+   The two-channel polynomial at threshold `θ = 1/√2` yields `2θ - θ² = √2 - 1/2`. (This
+   is `κ²`.)
 
 2. `sovereign_spin_ceiling_enclosure`:
-   Mechanizes numerical interval bounds: `0.914 < √2 - 1/2 < 0.915`.
+   Mechanizes numerical interval bounds on that polynomial: `0.914 < √2 - 1/2 < 0.915`.
 
 3. `novikov_thorne_torque_apparent_spin_shift`:
    Proves that when an inner torque reduces the effective radiative emission radius
