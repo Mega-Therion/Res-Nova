@@ -64,6 +64,7 @@ TARGETS=(
   ITActionClosure.lean
   MuProjection.lean
   MuStdUniqueness.lean
+  MuStdDuality.lean
   MuStdSelection.lean
   PPNLimitsStd.lean
   LambdaSBound.lean
