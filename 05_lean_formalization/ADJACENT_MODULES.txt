@@ -67,6 +67,22 @@ RapidityEquipartition.lean       # rapidity equipartition
 # Physically adjacent to this paper's F_dual, but its results are presented in
 # HAMILGRANGIAN_CANONICAL.tex, not in this manuscript's Table 2.
 Hamilgrangian.lean
+GateHolonomySusceptibility.lean  # ADDED 2026-09-24. The substrate-holonomy
+                                 # calculation: theta as normalised solid angle
+                                 # on V_2(R^3) = UT(S^2), and kappa as its
+                                 # susceptibility. Results presented in
+                                 # HAMILGRANGIAN_CANONICAL.tex
+                                 # (sec:substrate-holonomy), not Table 2.
+                                 # PROVED [P], 8 theorems, no sorry, standard
+                                 # axioms: kappa(1-cos phi) = sin phi;
+                                 # d/dphi (1-cos phi) = kappa(1-cos phi) EXACTLY;
+                                 # kappa is the UNIQUE such function; and the
+                                 # Pythagorean kappa^2+(1-theta)^2 = 1.
+                                 # Sabotage-tested (kappa := sqrt(th(3-th)) fails).
+                                 # [conj] the identification theta := Omega/2pi.
+                                 # [O] why the base angle is arccos(1-ln2), and
+                                 # whether alpha_fs is an angle increment --
+                                 # NEITHER is used in any proof here.
 MuStdDuality.lean                # ADDED 2026-09-24. The x -> 1/x involution
                                  # (a -> a0^2/a) on BOTH branches. Companion to
                                  # MuStdUniqueness.lean, which IS a manuscript

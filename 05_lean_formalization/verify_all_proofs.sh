@@ -65,6 +65,7 @@ TARGETS=(
   MuProjection.lean
   MuStdUniqueness.lean
   MuStdDuality.lean
+  GateHolonomySusceptibility.lean
   MuStdSelection.lean
   PPNLimitsStd.lean
   LambdaSBound.lean
