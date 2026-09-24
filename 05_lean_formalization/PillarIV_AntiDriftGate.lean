@@ -480,8 +480,17 @@ with probability `t`, the probability at least one fires is `1 - (1 - t)^2`. It 
 strictly increasing on `[0,1]`, so it *does* support an iff. The chiral doubling
 is not decoration here; doubling the channel is what buys back the gate.
 
-The band ceiling is its square root: `kappa = sqrt (t * (2 - t))`, which at
-`t = 7/10` is `sqrt (91/100) = 0.953939...`, the corpus value. And
+The band ceiling is its square root: `kappa = sqrt (t * (2 - t))`.
+
+**LOCK 2026-09-24.** `t` is locked to the chiral floor `theta_g = 1/sqrt 2`,
+giving `kappa = sqrt (sqrt 2 - 1/2) = 0.9561451576...`. The value `t = 7/10`
+(`kappa = sqrt (91/100) = 0.953939...`) is **RETIRED**: its dimension-ratio
+provenance failed audit (cited source D13 does not exist; the real source gives
+40600/57600 = 0.70486 and rounds; both denominators belong to a substrate
+retired 2026-08-25). `theta_g` carries three independent derivations. The
+theorem `kappaBand_at_seven_tenths` below remains a true evaluation of
+`kappaBand` at 7/10 and is retained as the historical record, NOT as the corpus
+value. And
 `kappa^2 + (1 - t)^2 = 1` exactly -- `kappa` and the unfired complement are the
 legs of a unit hypotenuse, which is why a probability union produces a constant
 that behaves like a direction cosine. -/
@@ -537,12 +546,28 @@ theorem theta_le_kappaBand {t : ℝ} (ht : t ∈ Set.Icc (0 : ℝ) 1) :
   calc t = Real.sqrt (t ^ 2) := by rw [Real.sqrt_sq ht.1]
     _ ≤ Real.sqrt (twoChannelUnion t) := Real.sqrt_le_sqrt hle
 
-/-- The corpus value: at `t = 7/10` the ceiling is `sqrt (91/100) = 0.953939...`. -/
+/-- **RETIRED value**, kept as a true evaluation and historical record: at
+`t = 7/10` the ceiling is `sqrt (91/100) = 0.953939...`. This is no longer the
+corpus value — see the LOCK note in the module header. -/
 theorem kappaBand_at_seven_tenths :
     kappaBand (7 / 10) = Real.sqrt (91 / 100) := by
   unfold kappaBand twoChannelUnion
   norm_num
 
+/-- **THE LOCKED CORPUS VALUE (2026-09-24).** At the chiral floor
+`theta_g = 1/sqrt 2` the two-channel union is `sqrt 2 - 1/2`, so the ceiling is
+`kappa = sqrt (sqrt 2 - 1/2) = 0.9561451576...`. Every number in the band is then
+algebraic in `sqrt 2` alone. -/
+theorem kappaBand_at_chiral_floor :
+    kappaBand (1 / Real.sqrt 2) = Real.sqrt (Real.sqrt 2 - 1 / 2) := by
+  unfold kappaBand twoChannelUnion
+  have h2 : (0:ℝ) < Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)
+  have hsq : Real.sqrt 2 ^ 2 = (2:ℝ) := Real.sq_sqrt (by norm_num)
+  congr 1
+  field_simp
+  nlinarith [hsq, h2]
+
+#print axioms kappaBand_at_chiral_floor
 #print axioms trace_steady_state
 #print axioms bloch_coherence_le_theta
 #print axioms bloch_coherence_eq_theta_iff
