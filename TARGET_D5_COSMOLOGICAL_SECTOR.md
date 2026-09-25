@@ -426,6 +426,29 @@ and is not computed in SZ's PRL either (they defer to Skordis et al. 2021). **[O
 >
 > See `05_Scripts_and_Tools/cmb_aest/STATUS.md` for the full record — including a retraction
 > that was drafted and **withdrawn before commit** because it was itself wrong.
+>
+> ### ✓ RESOLVED LATER THE SAME DAY — §3.3's CDM-LIKE CONCLUSION IS SUPPORTED
+>
+> The `c_s^2` above is superseded, but the **§3.3 conclusion it was meant to defend now has
+> direct numerical support**, and the `+110/e-fold` runaway that blocked this sector is
+> explained. Two integrator bugs, **neither of them in the field equations**:
+>
+> 1. **`dK/dQ` units.** SZ integrate the background scalar equation once
+>    ("Cosmological observables") to `dK/dQ = I_0/a^3` with `8πG̃ρ̄_0 = 𝒬_0 I_0`, i.e.
+>    **`dK/dQ = 8πG̃ρ̄(a)/𝒬_0`** — exact, needing neither `𝒦_2` nor `𝒵_0`.
+>    `boltzmann_full.py` used the dimensionless `sinh 𝒵`, **51.5× too large at every `a`**.
+> 2. **The single-species Poisson closure** `Ψ = Φ = −δ/(2P)`, which makes AeST the only
+>    source of the potentials. The pathology tracks `a_eq = 2.90×10⁻⁴` exactly — the ratio
+>    `δ/δ_CDM` is `−109` at `a_i/a_eq = 0.34`, **flips sign at equality**, and converges to
+>    `0.83–0.91` above it.
+>
+> With both accounted for, matter-era runs give **`δ_AeST/δ_CDM = 0.83–1.06`** across
+> `k = 0.01–0.1 Mpc⁻¹`, `r = 10⁻³–10⁻²` — the dustlike behaviour SZ describe and §3.3 claims.
+>
+> **Scope:** a single-species toy, not a Boltzmann solve. Evidence, not a spectrum, and
+> **nothing here may be quoted for `a < a_eq`**. Independent check on the parameter set:
+> `𝒦_2 = 8πG̃ρ̄_0/(4𝒬_0²w_0) = 97.0` gives `μ⁻¹ = 0.9895 Mpc`, landing on SZ's own stated
+> requirement `μ⁻¹ ≳ 1 Mpc`.
 
 
 §1.3 flagged that c²_ad is a background thermodynamic derivative, **not** a propagation
@@ -693,7 +716,7 @@ Full scripts: `kq.py`, `num.py`, `num2.py` (session scratchpad).
 | 𝒴 is quadratic in perturbations ⇒ a₀, μ(x), λ_s absent from linear cosmology; **ξ = 1** | **[D]**+[C] | §3.1 |
 | ℱ ~ 𝒴^{3/2} non-analytic at 𝒴 = 0 ⇒ no amplitude-linear regime for the scalar | [D] | §3.1 |
 | Π ∝ c²_ad ⇒ CDM limit; Cosh at r = 10⁻³ gives Π ≲ 10⁻³δ | **[D]**+[C] | §3.3 |
-| ⚠ **SUPERSEDED 2026-09-24 — UNRESOLVED — which mode carries δ on FLRW is not established; see §3.5 correction.** Jeans cutoff **k_J = 0.68 Mpc⁻¹**, from the DERIVED c²_s = [(2−K_B)+𝓕_𝒴]/𝒦_𝒬𝒬 — 3–70× **above** the linear MPS window, so §3.3's CDM-like conclusion holds quantitatively (upgraded 2026-09-24 from the c_ad stand-in estimate) | **[D]** | §3.5 |
+| ⚠ **SUPERSEDED 2026-09-24 — UNRESOLVED as a number — but §3.3's CDM-like conclusion is now numerically supported; see the §3.5 correction and its RESOLVED addendum.** Jeans cutoff **k_J = 0.68 Mpc⁻¹**, from the DERIVED c²_s = [(2−K_B)+𝓕_𝒴]/𝒦_𝒬𝒬 — 3–70× **above** the linear MPS window, so §3.3's CDM-like conclusion holds quantitatively (upgraded 2026-09-24 from the c_ad stand-in estimate) | **[D]** | §3.5 |
 | ⚠ **number SUPERSEDED 2026-09-24 (§3.5 correction); the structural half stands.** c²_s/c²_ad = 𝒬₀²a³/(2w₀μ²) = 2.1×10⁻⁶ at a=10⁻²; c_ad is **not** a propagation speed and must never be substituted for one | **[D]** | §3.5 |
 | (S1) Π = (1+w)γ/φ̇ exactly; (S2) vector-eq bracket term = γ; system closes on (δ,θ,E,α) — none stated in SZ | **[D]** | §3.6 |
 | **SZ's adiabatic ICs cite `Skordis, Ilić, Zlosnik, in preparation (2021)` — VERIFIED NEVER PUBLISHED** (INSPIRE: 0 papers by all three; none of 17 AeST-titled papers 2021–2025 carries cosmological perturbations). Their CMB/MPS figures are **reported, not reproducible** | **[C]**/**[O]** | §5 |
