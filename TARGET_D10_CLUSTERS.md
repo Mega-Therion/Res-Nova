@@ -285,14 +285,36 @@ A real prediction requires the nonperturbative solve with a **physical** outer c
 the cluster embedded in the cosmological background, not `Φ → 0` in vacuum. That is the
 next calculation, and it is now precisely specified.
 
-### A separate finding that needs its own attention `[O]`
+### ~~A separate finding~~ — **CORRECTED within the hour** `[D]`
 
-The AeST quasi-static limit produces the force law `g = g_N + √(g_N a₀ₑ𝒻𝒻)`. **That is not
-`μ_std = x/√(1+x²)`**, which D10 §2 and the SPARC fits use. The two agree in the deep-MOND
-limit but differ through the transition — visibly so here, `1.96` vs `1.54` on the same data.
+I first wrote here that "the corpus's galaxy-scale interpolation and its own action's
+quasi-static limit are not the same function", on the strength of `1.96` vs `1.54`.
+**That comparison was not fair and the claim is withdrawn.** I had used only the *MOND
+branch* of `J` across the whole range.
 
-**So the corpus's galaxy-scale interpolation and its own action's quasi-static limit are not
-the same function.** Whether the SPARC result survives being redone with the AeST-native
-force law is untested, and it bears directly on checklist items 1 and 5. This is logged as an
-open item rather than resolved, because it was found while doing something else and has not
-been checked against `TARGET_D1`/`TARGET_D2`.
+Differentiating SZ's full `ℱ` (Letter, `Fcal_exp` neighbourhood) gives the exact result
+
+    J′(v) = λ_s·v / ( (1+λ_s)·a₀ + v ) ,      v = √𝒴 = |∇φ|
+
+so `u_E = J′v = λ_s v²/((1+λ_s)a₀ + v)`, which **interpolates properly**:
+
+| regime | `u_E` | force law |
+| --- | --- | --- |
+| `v ≫ (1+λ_s)a₀` | `λ_s v` | `g = g_N(1 + 1/λ_s)` — **Newtonian**, with `G` rescaled |
+| `v ≪ (1+λ_s)a₀` | `λ_s v²/((1+λ_s)a₀)` | `g = √(g_N·a₀(1+λ_s)/λ_s)` — **MOND** |
+
+So the action *does* have a Newtonian limit at finite `λ_s`, and there is **no inconsistency
+with `μ_std` to report**. What I compared was the `λ_s → ∞` limit, in which the crossover
+`(1+λ_s)a₀` runs off to infinity and the MOND branch applies everywhere.
+
+**The cluster numbers above are unaffected.** At `g_N/a₀ ≈ 0.1` and `λ_s = 2.2` (D3's bound)
+one has `v ≈ 0.38 a₀` against a crossover at `3.2 a₀`, so the sample sits **well inside the
+MOND branch** — which is the branch §8 used. §2 and §8 stand.
+
+**What survives as genuinely open `[O]`.** SZ state they model screening as `λ_s → ∞`, and
+their CMB/MPS models are run at `λ_s = ∞`. But `J′ → v/a₀` in that limit, i.e. the MOND
+branch everywhere and **no Newtonian regime at all** — while `TARGET_D3` derives `λ_s ≲ 2.2`
+from Saturn's precession, which is finite. Those two statements are in tension, and the
+tension is *in the published theory*, not in this corpus's use of it. Resolving it means
+pinning down what `λ_s → ∞` is doing in SZ's cosmology runs versus their quasi-static limit.
+**Not resolved here**, and deliberately not asserted either way.
