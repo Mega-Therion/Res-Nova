@@ -1,6 +1,6 @@
 # TARGET D10: Galaxy Clusters
 
-**Status:** D10_FIRST_RESULT — **the quasi-static limit FAILS clusters by a factor 1.96, exactly as MOND does.** This is the corpus's first cluster test of any kind. The failure is *inherited*, not novel, and it is **not** fixable by tuning `a₀` or the baryon budget — both escapes are closed quantitatively in §4. What it does **not** test is whether AeST's `𝒦(𝒬)` dust component clusters in halos; that is the live question and it is stated as `[O]` in §6.
+**Status:** D10_FIRST_RESULT — **the pure-MOND limit fails clusters by a factor 1.96, exactly as MOND does** (§2), and neither `a₀` nor the baryon budget can rescue it (§4). **But §7 shows that limit does not apply at `r₅₀₀` in the first place**: AeST's own quasi-static equation is *Helmholtz*, not Poisson, and SZ's validity radius `r_C` falls at **0.54 r₅₀₀ for 12/12 clusters** while sitting a factor ~7 outside any galaxy disc. So §2 is a correct test of **pure MOND** and is **not** the AeST prediction. The AeST prediction is `[O]` and is now a sharply posed calculation.
 **Last updated:** 2026-09-24
 **Author:** R.W. Yett / Sovereign Architecture Group
 **Epistemic tag:** `[P]` proved · `[D]` derived · `[C]` cited · `[O]` open · `[X]` killed
@@ -117,6 +117,64 @@ matter" must now carry this exception explicitly.
 **Does not:** falsify AeST as a whole. The test treats clusters as pure MOND, which is
 correct for the quasi-static limit but ignores structure the theory actually has.
 
+## 7. **The MOND limit does not apply at `r₅₀₀`** `[D]` — added same day
+
+SZ state, in the passage defining the quasi-static limit:
+
+> *"The solution for `Φ` will be as obtained from [AQUAL] only for `r ≲ r_C` where
+> `r_C ∼ (r_M μ⁻²)^(1/3)`, and oscillatory for `r ≳ r_C`. We require `μ⁻¹ ≳ 1 Mpc` so that
+> MOND behavior according to [AQUAL] may still be attained **in galaxies**."*
+
+Note the last two words. MOND behaviour is guaranteed **in galaxies**, not everywhere.
+
+### The mass scale is fixed, not free
+
+`μ = √(2𝒦₂/(2−K_B))·𝒬₀`, and `𝒦₂` is fixed by SZ's own `w₀ = 8πG̃ρ̄₀/(4𝒬₀²𝒦₂)`. At the
+corpus's parameters (`w₀ = 1.23×10⁻⁸`, `𝒬₀ = 0.1 Mpc⁻¹`, `K_B = 0.1`, `Ω_Λ = ln 2`):
+
+    𝒦₂ = 97.0   →   μ⁻¹ = 0.9895 Mpc
+
+This lands on SZ's stated requirement `μ⁻¹ ≳ 1 Mpc` essentially exactly — an independent
+check that the parameter identification is right, since nothing was tuned to produce it.
+
+### Where `r_C` falls
+
+| scale | `r_M` | `r_C` | extent probed | MOND valid? |
+| --- | --- | --- | --- | --- |
+| Milky-Way-scale galaxy (`M_bar = 5×10¹⁰ M☉`) | 0.008 Mpc | **0.20 Mpc** | ~0.03 Mpc | **yes**, by ~7× |
+| the 12 clusters of §2 | 0.25–0.69 Mpc | 0.62–0.88 Mpc | `r₅₀₀` = 1.07–1.71 Mpc | **NO, 12/12** |
+
+**Median `r_C/r₅₀₀` = 0.54.** Every cluster in the sample is probed at roughly **twice** the
+radius where AeST's MOND solution stops being valid — while every galaxy sits comfortably
+inside it. The theory has a built-in transition scale that falls precisely in the gap
+between the regime where MOND works and the regime where it is known to fail.
+
+### Why: the equation is Helmholtz, not Poisson
+
+Varying SZ's published quasi-static action `NT_quasi_Phi` with respect to `Φ` gives
+
+    ∇²Φ + μ²Φ − ∇²φ = 8πG̃ρ/(2 − K_B)
+
+The `+μ²Φ` term with a **positive** sign makes this a **Helmholtz** operator — not Poisson,
+and crucially **not Yukawa**. The point-mass Green's function goes as `cos(μr)/r`:
+**oscillatory, not exponentially screened.** That is exactly SZ's "oscillatory for `r ≳ r_C`".
+
+**Honest limit of this derivation.** `J(𝒴)` was dropped, which degenerates the `φ` sector
+(its equation collapses to `∇²φ = ∇²Φ`, and back-substitution gives the contentless
+`μ²Φ = 8πG̃ρ/(2−K_B)`). So this establishes the **operator structure only**. With `J(𝒴)`
+present, `∇²φ` is replaced by the nonlinear AQUAL/MOND operator. Script:
+`05_Scripts_and_Tools/clusters/quasistatic_field_equation.py`.
+
+### What §7 does to §2
+
+It does **not** retract §2. §2 correctly measures what the *pure-MOND* limit predicts, which
+is the right thing to measure and the thing the literature reports. What §7 establishes is
+that **§2 is not the AeST prediction at `r₅₀₀`**, and that the gap between them is not a
+loophole invented to escape a bad result — it is a scale AeST fixes from parameters already
+pinned by the cosmological background.
+
+---
+
 ## 6. The open question this hands forward `[O]`
 
 **AeST is not MOND.** It carries a `𝒦(𝒬)` sector whose background energy density
@@ -127,13 +185,25 @@ A component that behaves like CDM cosmologically may also **clump in halos**. If
 it supplies exactly the kind of mass this test finds missing, and the factor of 2 could be
 accounted for by the theory's own field rather than by undetected baryons.
 
-**That is untested.** It requires the quasi-static limit of the *full* AeST system in a
-cluster potential — not the MOND limit — and specifically whether `𝒬` develops a bound
-overdensity on Mpc scales. Until that calculation exists, §2 stands as the honest state:
-**the MOND limit fails clusters, and whether AeST's own dust rescues it is unknown.**
+**That is untested**, and §7 now gives it a second, sharper edge: the deviation from MOND
+at cluster radii is not merely *possible*, it is **required** by the `μ²Φ` term, at a radius
+computed from parameters already fixed by the background.
+
+**The calculation this corpus now owes, stated precisely:**
+
+> Solve `∇²Φ + μ²Φ = 8πG̃ρ/(2−K_B) + ∇·[AQUAL operator on φ]` for a realistic cluster
+> baryon profile, out to `r₅₀₀ ≈ 2 r_C`, and compute `M_dyn(r₅₀₀)`. Compare with the
+> lensing `M₅₀₀` of §2. The question is whether the Helmholtz term supplies the missing
+> factor ≈ 2, overshoots, or has the wrong sign.
+
+Two distinct things could close the gap and they are **not** the same mechanism:
+(a) the `μ²Φ` oscillatory term in the quasi-static sector (§7), and
+(b) clumping of the `𝒦(𝒬)` dust component (§6 above).
+Either would differentiate AeST from MOND. Both are open.
 
 This is the sharpest single open item in the corpus, because it is the one place where a
-theory that otherwise reduces to MOND could actually differ from it.
+theory that otherwise reduces to MOND is *structurally required* to differ from it, at a
+scale it does not get to choose.
 
 ---
 
