@@ -1,6 +1,6 @@
 # TARGET D10: Galaxy Clusters
 
-**Status:** D10_FIRST_RESULT — **the pure-MOND limit fails clusters by a factor 1.96, exactly as MOND does** (§2), and neither `a₀` nor the baryon budget can rescue it (§4). **But §7 shows that limit does not apply at `r₅₀₀` in the first place**: AeST's own quasi-static equation is *Helmholtz*, not Poisson, and SZ's validity radius `r_C` falls at **0.54 r₅₀₀ for 12/12 clusters** while sitting a factor ~7 outside any galaxy disc. So §2 is a correct test of **pure MOND** and is **not** the AeST prediction. The AeST prediction is `[O]` and is now a sharply posed calculation.
+**Status:** D10_FIRST_RESULT — **the pure-MOND limit fails clusters by a factor 1.96** (§2), and neither `a₀` nor the baryon budget can rescue it (§4). **But §7 shows that limit does not apply at `r₅₀₀` in the first place**: AeST's own quasi-static equation is *Helmholtz*, not Poisson, and SZ's validity radius `r_C` falls at **0.54 r₅₀₀ for 12/12 clusters** while sitting a factor ~7 outside any galaxy disc. So §2 is a correct test of **pure MOND** and is **not** the AeST prediction. **§8 then shows the `μ²Φ` term has the right sign and roughly the right size to close the gap** — median `R` falls 1.96 → 1.13 at first order — but the expansion parameter is 0.81, so that is *sign and order of magnitude, not a number*. §8 also flags that AeST's own force law is **not** `μ_std`, which bears on items 1 and 5.
 **Last updated:** 2026-09-24
 **Author:** R.W. Yett / Sovereign Architecture Group
 **Epistemic tag:** `[P]` proved · `[D]` derived · `[C]` cited · `[O]` open · `[X]` killed
@@ -220,3 +220,79 @@ committed verbatim as downloaded from `cdsarc.cds.unistra.fr/ftp/J/ApJ/911/82/`.
 Related: `TARGET_D5_COSMOLOGICAL_SECTOR.md` §3.3 (dustlike perturbations),
 `TARGET_D3_PPN_AND_SOLAR_SYSTEM.md` (the other place `λ_s` binds),
 `TARGET_D7_COVARIANT_COMPLETION.md` (the AeST action).
+
+---
+
+## 8. The `μ²Φ` term: right sign, roughly right size `[D]`/`[O]` — added same day
+
+§7 said the MOND limit does not apply at `r₅₀₀`. This section asks what the `μ²` term
+actually *does*. Script: `05_Scripts_and_Tools/clusters/aest_mu2_correction.py`.
+
+### The system, from SZ's own diagonalisation
+
+SZ diagonalise `NT_quasi_Phi` with `Φ = Φ_E + φ`. The kinetic sector separates **exactly**
+(verified symbolically), leaving
+
+    ∇²Φ_E          + μ²Φ = 4πG ρ_bary
+    ∇·(J′ ∇φ)      + μ²Φ = 4πG ρ_bary          Φ = Φ_E + φ
+
+Subtracting: `∇²Φ_E = ∇·(J′∇φ)`, i.e. `u_E = J′(v²)v` in spherical symmetry. With SZ's MOND
+form `J = 2λ_s/(3(1+λ_s)a₀)·𝒴^{3/2}` this gives `u_E = v²/a₀ₑ𝒻𝒻`,
+`a₀ₑ𝒻𝒻 = a₀(1+λ_s)/λ_s → a₀` as `λ_s → ∞`. At `μ = 0` it reproduces the MOND law
+`g → √(g_N a₀ₑ𝒻𝒻)` exactly — checked symbolically.
+
+### The nonperturbative solve is ill-posed, and that is recorded, not tuned away
+
+`∇²Φ + μ²Φ = source` with `Φ(r_max) = 0` is **Helmholtz**, so it has resonances wherever
+`μ r_max ≈ nπ`. With `μ⁻¹ = 0.99 Mpc` the first sits at ≈ 3.1 Mpc — inside the range one
+wants to integrate. `solve_bvp` fails on 8–12 of 12 clusters and, where it converges,
+returns `M_dyn` up to 50× `M₅₀₀`. **That is the resonance, not a prediction.**
+
+### First order in `μ²`, which is well posed
+
+    W(r) = r²u_E = G M_bary(r) − μ² ∫₀^r r′²Φ(r′) dr′
+
+`Φ < 0` in a potential well, so **the correction is positive — the `μ²` term adds effective
+mass.** Evaluating on the unperturbed MOND solution:
+
+| cluster | `R(μ_std)` | `R(AeST, MOND)` | `R(AeST, +μ²)` | `W/W₀` |
+| --- | --- | --- | --- | --- |
+| RX-J1347.5-1145 | 2.86 | 2.20 | 1.35 | 2.13 |
+| ABELL-1763 | 1.75 | 1.29 | 0.83 | 1.93 |
+| CL-J1226.9+3332 | 4.70 | 3.78 | 2.68 | 1.75 |
+| ABELL-1689 | 1.98 | 1.52 | 0.95 | 2.04 |
+| MACS-J0717.5+3745 | 2.16 | 1.59 | 1.13 | 1.69 |
+| ABELL-773 | 2.17 | 1.72 | 1.15 | 1.90 |
+| ABELL-209 | 1.92 | 1.50 | 1.03 | 1.82 |
+| ABELL-2142 | 1.76 | 1.37 | 0.93 | 1.84 |
+| RXC-J0532.9-3701 | 1.89 | 1.48 | 1.09 | 1.62 |
+| ABELL-383 | 1.93 | 1.55 | 1.13 | 1.68 |
+| ABELL-2034 | 2.31 | 1.93 | 1.36 | 1.81 |
+| RXC-J0232.2-4420 | 1.89 | 1.52 | 1.18 | 1.53 |
+| **MEDIAN** | **1.96** | **1.54** | **1.13** | **1.81** |
+
+**The median discrepancy falls from 1.96 to 1.13.** The `μ²` term has the **right sign** and
+**approximately the right magnitude** to account for the cluster gap.
+
+### What this is NOT `[O]`
+
+**The expansion parameter is `W/W₀ − 1 = 0.81`. That is not small.** First order is at the
+edge of its validity, so this establishes **sign and order of magnitude, not a number**.
+`1.13` must not be quoted as a prediction. `μ r₅₀₀ ≈ 1.45 rad` — the sample sits about
+halfway to the first resonance, which is exactly why the expansion is marginal.
+
+A real prediction requires the nonperturbative solve with a **physical** outer condition —
+the cluster embedded in the cosmological background, not `Φ → 0` in vacuum. That is the
+next calculation, and it is now precisely specified.
+
+### A separate finding that needs its own attention `[O]`
+
+The AeST quasi-static limit produces the force law `g = g_N + √(g_N a₀ₑ𝒻𝒻)`. **That is not
+`μ_std = x/√(1+x²)`**, which D10 §2 and the SPARC fits use. The two agree in the deep-MOND
+limit but differ through the transition — visibly so here, `1.96` vs `1.54` on the same data.
+
+**So the corpus's galaxy-scale interpolation and its own action's quasi-static limit are not
+the same function.** Whether the SPARC result survives being redone with the AeST-native
+force law is untested, and it bears directly on checklist items 1 and 5. This is logged as an
+open item rather than resolved, because it was found while doing something else and has not
+been checked against `TARGET_D1`/`TARGET_D2`.
