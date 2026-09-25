@@ -388,6 +388,46 @@ and is not computed in SZ's PRL either (they defer to Skordis et al. 2021). **[O
 
 ### 3.5 The perturbation sound speed, DERIVED from the action **[D]** — added 2026-09-24
 
+> ### ⚠ CORRECTION 2026-09-24 (same day) — §3.5 IS SUPERSEDED BY THE PUBLISHED FORMULA
+>
+> The derivation below is **wrong away from the screening limit**, and the published answer
+> existed all along. Skordis–Złośnik `arXiv:2109.13287` eq. `speed_of_sound`, on Minkowski:
+>
+> $$c_s^2=\frac{(2-K_B)}{\mathcal{K}_2 K_B}\Big(1+\tfrac{1}{2}K_B\lambda_s\Big)$$
+>
+> and its eq. `Fcal_exp` gives $\mathcal{F}_\mathcal{Y}=(2-K_B)\lambda_s$. Substituting that
+> into the boxed result below, with $\mathcal{K_{QQ}}=2\mathcal{K}_2$:
+>
+> $$\frac{c^2_{s,\S3.5}}{c^2_{s,\rm SZ}}=\frac{K_B(1+\lambda_s)}{2+K_B\lambda_s}\;\longrightarrow\;
+> \begin{cases} K_B/2 & \lambda_s=0\\ 1 & \lambda_s\to\infty\end{cases}$$
+>
+> So §3.5 is **wrong at $\lambda_s=0$ and right only in the screening limit**. What is *shown*
+> is that the quadratic gradient term is $(\partial\chi)^2/a^2$, not $(\partial\varphi)^2/a^2$,
+> while the kinetic term sits in $\delta\mathcal{Q}\sim\delta\dot\varphi$ — different variables,
+> so $c_s^2$ is not $B/A$ of a single field until the $\alpha$ mixing is diagonalised. That the
+> missing factor is specifically the vector-kinetic normalisation is **inferred, not shown**.
+>
+> **$k_J=0.68\,\mathrm{Mpc}^{-1}$ is UNRESOLVED, not merely "to be recomputed."** SZ's $c_s^2$
+> is the *massive* branch $\omega^2=c_s^2k^2+\mathcal{M}^2$; their other branch is
+> $\omega^2=0$, evolving as $A_0+B_0t$. **Which branch carries $\delta$ on FLRW is not
+> established**, and the Letter's MOND models use $\lambda_s=\infty$, where $c_s^2$ diverges
+> and a naive $k_J$ would vanish — contradicting their own MPS fit. No number here is
+> defensible yet; the two §3.5 rows in the summary ledger are marked accordingly.
+>
+> **What survives, and is now confirmed against the source.** The *structural* claim stands:
+> $c_{\rm ad}$ is **not** a propagation speed. And $\chi\equiv\varphi+\dot{\bar\phi}\alpha$ is
+> SZ's own verbatim definition, here *derived* rather than adopted, from
+> $\mathcal{Y}=(\nabla\phi)^2+\mathcal{Q}^2=(\partial_i\chi)^2/a^2+O(\epsilon^3)$.
+>
+> **New and exact:** $\Pi=(1+w)\gamma/\dot{\bar\phi}$ with $\gamma=\dot\varphi-\dot{\bar\phi}\Psi$
+> — the $\nabla^2[K_B E_\alpha+(2-K_B)\chi]$ block cancels identically between SZ's
+> `delta_field_relation` and `Pi_delta_E_alpha`. This **simplifies SZ's own vector equation**
+> (Letter line 480), whose first bracketed term $\dot{\bar\phi}\Pi/(1+w)$ is then just $\gamma$.
+>
+> See `05_Scripts_and_Tools/cmb_aest/STATUS.md` for the full record — including a retraction
+> that was drafted and **withdrawn before commit** because it was itself wrong.
+
+
 §1.3 flagged that c²_ad is a background thermodynamic derivative, **not** a propagation
 speed, and deferred the real one to **[O]**. It is now derived.
 
@@ -653,8 +693,8 @@ Full scripts: `kq.py`, `num.py`, `num2.py` (session scratchpad).
 | 𝒴 is quadratic in perturbations ⇒ a₀, μ(x), λ_s absent from linear cosmology; **ξ = 1** | **[D]**+[C] | §3.1 |
 | ℱ ~ 𝒴^{3/2} non-analytic at 𝒴 = 0 ⇒ no amplitude-linear regime for the scalar | [D] | §3.1 |
 | Π ∝ c²_ad ⇒ CDM limit; Cosh at r = 10⁻³ gives Π ≲ 10⁻³δ | **[D]**+[C] | §3.3 |
-| Jeans cutoff **k_J = 0.68 Mpc⁻¹**, from the DERIVED c²_s = [(2−K_B)+𝓕_𝒴]/𝒦_𝒬𝒬 — 3–70× **above** the linear MPS window, so §3.3's CDM-like conclusion holds quantitatively (upgraded 2026-09-24 from the c_ad stand-in estimate) | **[D]** | §3.5 |
-| c²_s/c²_ad = 𝒬₀²a³/(2w₀μ²) = 2.1×10⁻⁶ at a=10⁻²; c_ad is **not** a propagation speed and must never be substituted for one | **[D]** | §3.5 |
+| ⚠ **SUPERSEDED 2026-09-24 — UNRESOLVED — which mode carries δ on FLRW is not established; see §3.5 correction.** Jeans cutoff **k_J = 0.68 Mpc⁻¹**, from the DERIVED c²_s = [(2−K_B)+𝓕_𝒴]/𝒦_𝒬𝒬 — 3–70× **above** the linear MPS window, so §3.3's CDM-like conclusion holds quantitatively (upgraded 2026-09-24 from the c_ad stand-in estimate) | **[D]** | §3.5 |
+| ⚠ **number SUPERSEDED 2026-09-24 (§3.5 correction); the structural half stands.** c²_s/c²_ad = 𝒬₀²a³/(2w₀μ²) = 2.1×10⁻⁶ at a=10⁻²; c_ad is **not** a propagation speed and must never be substituted for one | **[D]** | §3.5 |
 | (S1) Π = (1+w)γ/φ̇ exactly; (S2) vector-eq bracket term = γ; system closes on (δ,θ,E,α) — none stated in SZ | **[D]** | §3.6 |
 | **SZ's adiabatic ICs cite `Skordis, Ilić, Zlosnik, in preparation (2021)` — VERIFIED NEVER PUBLISHED** (INSPIRE: 0 papers by all three; none of 17 AeST-titled papers 2021–2025 carries cosmological perturbations). Their CMB/MPS figures are **reported, not reproducible** | **[C]**/**[O]** | §5 |
 | SZ **solve** the Higgs-duration problem (Cosh/Exp + their Boltzmann runs); not an open problem | **[C]** | §2.1 |
@@ -703,7 +743,8 @@ the μ⁻¹ mismatch above, which is inherited from the source rather than intro
 
 **The sector is in better shape than it was this morning, on two counts and one caveat.**
 
-1. **The sound speed is no longer open.** §1.3 deferred it; §3.5 derives it from the
+1. **The sound speed is no longer open** — but see the §3.5 CORRECTION of 2026-09-24: the
+   published SZ formula supersedes the value derived here. §1.3 deferred it; §3.5 derives it from the
    quadratic action. The answer, c²_s = [(2−K_B)+𝓕_𝒴]/𝒦_𝒬𝒬, is **not** in SZ's PRL, and
    it settles the softest of the three r-constraints: k_J = 0.68 Mpc⁻¹, comfortably above
    the data. §3.3's CDM-like structure formation is confirmed, not merely asserted.
