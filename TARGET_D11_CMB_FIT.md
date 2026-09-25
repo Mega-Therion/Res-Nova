@@ -1,6 +1,6 @@
 # TARGET D11: The CMB fit — Ω_Λ = ln 2 against Planck
 
-**Status:** D11_FIRST_RESULT — **the pre-registered Ω_Λ = ln 2 model survives its first contact with real Planck TT data.** Refitting under the constraint costs **Δχ² = +4.7 for one fewer fitted parameter** (2.17σ, p = 0.030), which **BIC scores as a tie (ΔBIC = +0.28)**. Two findings cut the other way: **P2 is a tautology**, not an independent prediction (§5), and the first, unrefit pass would have reported Δχ² = +120 had it not been caught (§3). Perturbations are **not** tested here.
+**Status:** D11_FIRST_RESULT — the pre-registered Ω_Λ = ln 2 model **survives, but the margin narrows when polarization is added.** TT alone: **Δχ² = +4.7** for one fewer parameter (2.17σ), **ΔBIC = +0.28 — a tie**. Adding TE+EE (§9): **Δχ² = +7.2** (2.68σ, p = 0.007), **ΔBIC = +1.79** — still under the conventional threshold but at its edge, and **moving adversely**. Two findings cut against the pre-registration: **P2 is a tautology** (§5), and an unrefit first pass would have reported a false Δχ² = +120 (§3). Perturbations are **not** tested anywhere here.
 **Last updated:** 2026-09-25
 **Author:** R.W. Yett / Sovereign Architecture Group
 **Epistemic tag:** `[P]` proved · `[D]` derived · `[C]` cited · `[O]` open · `[X]` killed
@@ -135,3 +135,63 @@ python3 cmb_refit_ln2.py           # §4, both refits  (~10 min, CLASS ~1.7 s/ev
 Related: `TARGET_D5_COSMOLOGICAL_SECTOR.md` (perturbations),
 `TARGET_D10_CLUSTERS.md` (the other empirical item closed this week),
 `cmb_aest/STATUS.md` (the full running record, including retractions).
+
+---
+
+## 9. Polarization: TT + TE + EE `[D]` — added 2026-09-25
+
+TT alone is the weakest of the three. Polarization roughly triples the bin count and is more
+sensitive to the perturbation sector, so it is the sharper test of the same constraint.
+Same method, same free parameters, `τ` fixed on both sides. Script: `cmb_refit_ttteee.py`.
+
+**Data:** Planck 2018 binned TE `R3.02` and EE `R3.02`, Legacy Archive, committed alongside.
+**Bins:** TT 83 + TE 66 + EE 66 = **215**.
+
+### Method validation, per spectrum
+
+Planck's own best-fit columns scored the same way:
+
+| | χ² | bins | χ²/N |
+| --- | --- | --- | --- |
+| TT | 65.1 | 83 | 0.78 |
+| TE | 72.7 | 66 | 1.10 |
+| EE | 62.9 | 66 | 0.95 |
+| **all** | **200.8** | **215** | **0.93** |
+
+### Result
+
+| | free params | χ² | H₀ |
+| --- | --- | --- | --- |
+| **Ω_Λ = ln 2 imposed** | 4 | **235.2** | 67.93 |
+| ΛCDM, `h` free | 5 | **228.0** | 66.61 |
+
+| statistic | TT only (§4) | **TT+TE+EE** |
+| --- | --- | --- |
+| Δχ² | +4.7 | **+7.2** |
+| significance | 2.17σ (p = 0.030) | **2.68σ (p = 0.007)** |
+| ΔAIC | +2.7 | **+5.2** |
+| **ΔBIC** | +0.28 | **+1.79** (ln N = 5.37) |
+
+**The constraint is still not excluded** — `ΔBIC = 1.79` remains below the conventional
+`|ΔBIC| < 2` threshold. But it has moved from a clean tie to the edge of it, and **the
+direction is adverse**: more data, more tension. That is the signature of a model that is
+slightly wrong rather than one that is right, and it should be stated plainly.
+
+### The caveat that could explain the entire growth
+
+**TT, TE and EE are measured from the same maps and are strongly correlated.** The binned
+files ship no covariance, so all 215 bins are treated as independent. That **overstates the
+information content**, which inflates Δχ². The increase from 4.7 to 7.2 may therefore be
+**partly or wholly an artifact of the missing covariance**, not a real sharpening.
+
+Corroborating this: the pipeline's H₀ offset is **not stable**. Its ΛCDM fit gives 66.77 on
+TT and 66.61 on TT+TE+EE against Planck's published 67.36 — offsets of −0.59 and −0.75. The
+§6 offset correction therefore cannot be trusted to 0.2, and **P1 remains unverified here**
+by either dataset.
+
+### What this changes
+
+It promotes §8 item 1 from optional polish to **the necessary next step**. Whether
+`Ω_Λ = ln 2` is a tie or is mildly disfavoured cannot be settled without the real
+`plik_lite` TTTEEE likelihood and its covariance. Everything above is a consistent,
+identically-applied comparison; none of it is the Planck likelihood.
