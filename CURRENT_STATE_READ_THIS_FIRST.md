@@ -70,6 +70,26 @@ one place, unambiguous, checked first, every time.
 - The arithmetic 240²=57,600 remains a true E8 root-count identity. It is **not** the
   ambient dimension of anything physical in the current theory.
 
+### 2b. AeST's CMB result is REPORTED, NOT VERIFIED — added 2026-09-24
+
+The claim "AeST fits Planck" traces to Skordis & Zlosnik PRL 127, 161302, Figs. 1-2.
+**Those figures rest on adiabatic initial conditions whose only citation is
+`C. Skordis, S. Ilić, T. G. Zlosnik, in preparation (2021)` — verified on INSPIRE to
+have never been published** (zero papers by all three; none of the 17 AeST-titled
+papers 2021-2025 carries cosmological perturbations). Nothing suggests the result is
+wrong, and those authors have published extensively on AeST since — but no one outside
+that group can currently check it.
+
+**Carry it as reported-not-verified wherever the AeST cosmology is cited.** The
+initial conditions themselves were derived independently on 2026-09-24
+(`TARGET_D5` §3.5-3.6, `05_Scripts_and_Tools/cmb_aest/`), which removes the dependency
+for the ICs specifically but does not reproduce their Boltzmann run.
+
+Also settled the same day: the perturbation sound speed is
+**c²_s = [(2−K_B)+𝓕_𝒴]/𝒦_𝒬𝒬**, derived from the quadratic action and **not** equal to
+c²_ad (which exceeds it by ~10⁶ at a = 10⁻²). Jeans cutoff k_J = 0.68 Mpc⁻¹, above the
+linear MPS window. **Never substitute c_ad for a propagation speed.**
+
 ### 3. The covariant completion action is AeST, NOT generalized Einstein-aether
 
 - D7's action was rewritten 2026-09-12 to genuine AeST (Skordis-Złośnik arXiv:2007.00082):

@@ -1,6 +1,17 @@
 # TARGET D5: Cosmological Sector
 
-**Status:** D5_REWRITTEN_TO_AeST_K(Q) (2026-09-12). The entire pre-2026-09-12 content is
+**Status:** D5_REWRITTEN_TO_AeST_K(Q) (2026-09-12); **§3.5, §3.6 and §5.0 added 2026-09-24.**
+
+**2026-09-24 additions, in one line each:**
+* **§3.5** — the perturbation sound speed **derived from the action**:
+  c²_s = [(2−K_B)+𝓕_𝒴]/𝒦_𝒬𝒬, *not* c²_ad, which it exceeds by 10⁶ at a = 10⁻².
+  Jeans cutoff **k_J = 0.68 Mpc⁻¹**, 3–70× above the linear MPS window, so §3.3 holds
+  quantitatively and §2.4's constraint 3 is upgraded **[D]-weak/[O] → [D]**.
+* **§3.6** — two exact simplifications of SZ's system, neither in their paper:
+  **(S1)** Π = (1+w)γ/φ̇ exactly; **(S2)** the vector-equation bracket term is γ.
+* **§5.0** — SZ's adiabatic ICs cite a paper **verified never published**; their CMB/MPS
+  figures are *reported*, not reproducible. The ICs have been derived here instead.
+ The entire pre-2026-09-12 content is
 **void [X]** and retired in place below (§0). It computed cosmology from a free function of the
 *vector* kinetic scalar 𝒦 and from a uniform MOND enhancement ξ; neither exists in the AeST
 action that `TARGET_D7` was corrected to tonight. On FLRW, 𝒴 ≡ 0 identically, so the MOND free
@@ -111,8 +122,12 @@ too stiff early on". **The quadratic 𝒦 is excluded. [D]** (`num.py`, §8.)
 thermodynamic derivative, **not a propagation speed** — the perturbation speed of a
 shift-symmetric k-essence has the bounded form 𝒦_𝒬/(𝒦_𝒬+𝒬𝒦_𝒬𝒬), and SZ themselves claim only
 positivity ("clearly, w ≥ 0 and c²_ad ≥ 0"), not sub-luminality. The kill above needs no
-causality argument; it runs entirely through Π. Deriving the actual c²_s from SZ eqs. (9)–(12)
-in the k²→∞ limit (cf. their linear-stability paper arXiv:2109.13287) is **[O]**.
+causality argument; it runs entirely through Π. **Deriving the actual c²_s: CLOSED 2026-09-24, §3.5** —
+it is c²_s = [(2−K_B)+𝓕_𝒴]/𝒦_𝒬𝒬, obtained from the quadratic action rather than from
+eqs. (9)–(12), and it is ~10⁻⁶ of c²_ad at a = 10⁻². The original text follows.
+
+> causality argument; it runs entirely through Π. Deriving the actual c²_s from SZ eqs. (9)–(12)
+> in the k²→∞ limit (cf. their linear-stability paper arXiv:2109.13287) is **[O]**.
 
 ---
 
@@ -371,6 +386,88 @@ and is not computed in SZ's PRL either (they defer to Skordis et al. 2021). **[O
 
 ---
 
+### 3.5 The perturbation sound speed, DERIVED from the action **[D]** — added 2026-09-24
+
+§1.3 flagged that c²_ad is a background thermodynamic derivative, **not** a propagation
+speed, and deferred the real one to **[O]**. It is now derived.
+
+**Expand the action to quadratic order in the scalar perturbation.** Two facts do the work:
+
+1. 𝒴 = q^{μν}∇_μφ∇_νφ **vanishes on the background** (§3.1), so at quadratic order it is
+   *pure gradient*: 𝒴 = (∂_i φ⃗)²/a².
+2. 𝒬 = Â^μ∇_μφ is **linear** in φ̇ (not quadratic, unlike standard k-essence X), so
+   (δ𝒬)² supplies the time-kinetic term.
+
+Hence the relevant part of the quadratic Lagrangian is
+
+$$\mathcal{L}_2 \sim \tfrac12\big(2\mathcal{K}_{\mathcal{QQ}}\big)(\delta\dot\varphi)^2
+-\big[(2-K_B)+\mathcal{F}_{\mathcal{Y}}\big]\frac{(\partial\varphi)^2}{a^2}$$
+
+and for $\mathcal{L}=\tfrac{A}{2}\dot\varphi^2-\tfrac{B}{2}(\partial\varphi)^2/a^2$ the speed is
+$c_s^2=B/A$:
+
+$$\boxed{\;c_s^2=\frac{(2-K_B)+\mathcal{F}_{\mathcal{Y}}}{\mathcal{K}_{\mathcal{QQ}}}
+\;\xrightarrow[\;\mathcal{Y}\to0\;]{}\;\frac{2-K_B}{\mathcal{K}_{\mathcal{QQ}}}\;}$$
+
+(𝓕_𝒴 ~ 𝒴^{1/2} → 0 as 𝒴 → 0, which the MOND limit requires — §3.1.)
+**This expression does not appear in SZ's PRL.**
+
+**It is nothing like c²_ad, and the gap is six orders of magnitude.** Using
+c²_ad = 𝒦_𝒬/(𝒬𝒦_{𝒬𝒬}) and, for the Cosh, 𝒦_𝒬 = 2𝒦₂𝒵₀ sinh𝒵 with
+μ² = 2𝒦₂𝒬₀²/(2−K_B):
+
+$$\frac{c_s^2}{c_{\rm ad}^2}=\frac{(2-K_B)\mathcal{Q}}{\mathcal{K}_\mathcal{Q}}
+=\frac{\mathcal{Q}_0^2\,a^3}{2w_0\mu^2}$$
+
+which **grows as a³**, i.e. c_s ≪ c_ad early. With μ⁻¹ = 1 Mpc and 𝒬₀ ~ H₀ the ratio is
+**2.1×10⁻⁶ at a = 10⁻²** — c_s is ~10⁻³ of c_ad through the epoch that matters.
+
+**Consequence for the Jeans scale (this supersedes §2.4 constraint 3):**
+
+| r | k_J,min using c_ad | k_J,min using **c_s** | MPS window 0.01–0.2 Mpc⁻¹ |
+|---|:-:|:-:|:-:|
+| 10⁻³ | 0.0336 | **0.68** | above it |
+| 10⁻² | 0.0157 | **0.68** | above it |
+| 2×10⁻² | 0.0125 | **0.68** | above it |
+
+**k_J = 0.68 Mpc⁻¹ sits 3–70× above the linear MPS data window.** §3.3's conclusion —
+that structure formation is ordinary CDM-like growth with a cutoff below the smallest
+scale the data probe — **stands, and is now quantitative rather than an
+order-of-magnitude orientation.** Constraint 3 of §2.4 is upgraded from **[D]-weak/[O]**
+to **[D]**, and it is *weaker* than the estimate suggested, not stronger.
+
+**Recorded failure, so it is not repeated.** An attempt on 2026-09-24 to integrate the
+five-variable system numerically substituted c²_ad for c_s (having "cleared" the two as
+equivalent by comparing them only *asymptotically*, where the ratio is ≈1). That gave
+δ_φ/δ_CDM ≈ 0.001 above k = 0.05 — structure annihilated — in flat contradiction with SZ.
+The cause was a slaved reduction that eliminated E and α to cure numerical stiffness,
+thereby discarding the very sector that carries the gradient term and hence sets c_s.
+**SZ warn of exactly this**: "the system does not close under the fluid variables, but
+rather depends on the vector field perturbations α and E" (§3.2). Any reduction to
+(δ,θ) is valid for the background and for stiffness; it is **not** valid for the sound
+speed. See `Research_and_Data/05_Scripts_and_Tools/cmb_aest/STATUS.md`.
+
+### 3.6 Two exact simplifications of SZ's system **[D]** — added 2026-09-24
+
+Neither is stated in SZ's PRL; both are verified symbolically (residual identically 0).
+
+**(S1)** The gradient term cancels identically between the δ-definition and the
+Π-definition:
+$$\Pi=\frac{(1+w)\,\gamma}{\dot{\bar\phi}}\qquad\text{exactly, all }k,\ \text{all }a.$$
+So Π carries no *explicit* k-dependence, and superhorizon (where G ~ k² → 0)
+**Π = c²_ad δ exactly** — which is what makes the adiabatic initial conditions solvable
+in closed form.
+
+**(S2)** Consequently the vector equation's first bracket term collapses:
+$\dot{\bar\phi}\Pi/(1+w)=\gamma$, so
+$$K_B(\dot E+HE)=\mathcal{K}_\mathcal{Q}\chi-(2-K_B)\Big[\gamma+(H+\dot{\bar\phi})\chi-3c_{\rm ad}^2H\dot{\bar\phi}\alpha\Big].$$
+
+**Closure.** With χ = φ̇(θ+α) and γ = φ̇Π/(1+w), the system closes on (δ, θ, E, α) given
+a metric history — useful for implementation, but see §3.5 on what a *reduction* of it
+destroys.
+
+---
+
 ## 4. DESI and the w₀–w_a question: a category error, stated plainly **[D]**
 
 The task asks whether DESI DR1's evolving-dark-energy preference can be matched, and whether the
@@ -398,6 +495,40 @@ would be overclaiming. **[D]**/**[O]**
 ---
 
 ## 5. What is actually open **[O]**
+
+### 5.0 SZ's own CMB/MPS result is NOT REPRODUCIBLE — verified 2026-09-24 **[C]**/**[O]**
+
+§2.1 states, correctly as reportage, that SZ "evolve Cosh and Exp through their own
+Boltzmann code (their Figs. 1–2) and find Planck-consistent CMB and MPS." **That result
+cannot currently be checked by anyone outside their group.**
+
+The only citation SZ give for the adiabatic initial conditions behind those figures is,
+verbatim from `newRMONDLett.bbl`:
+
+> C. Skordis, S. Ilić, and T. G. Zlosnik, *in preparation* (2021).
+
+Checked on INSPIRE, 2026-09-24:
+* papers co-authored by **all three**: **zero**, five years on;
+* all **17** papers with "aether scalar tensor" in the title (2021–2025) — Minkowski
+  linear stability, Hamiltonian formalism, quasistatic spherical solutions, galaxy
+  clusters, neutron stars, stealth black holes, bouncing/inflationary variants,
+  dynamical-systems background analyses — **none** presents cosmological perturbations,
+  a Boltzmann/CMB calculation, or initial conditions;
+* checked and rejected as the successor: arXiv:2303.00038 (different theory —
+  generalised Einstein-Aether; different authors — Thomas, Mozaffari, Zlosnik).
+
+**Stated without prejudice:** "in preparation" papers often never appear, the authors
+have published extensively on AeST since, and nothing found here suggests their result
+is wrong. But **this corpus's path to a viable relativistic completion rests on a
+cosmological result that is reported, not verified.** That status should be carried
+explicitly wherever the AeST cosmology is cited downstream.
+
+Partial mitigation, 2026-09-24: the adiabatic ICs were **derived from scratch** for this
+sector (superhorizon Π = c²_ad δ exactly by (S1), δ frozen to O(r²), δ_φ = (1+w)(−3Φ/2),
+θ_φ = Ψ/2H, plus the field variables χ, α, E) — see
+`05_Scripts_and_Tools/cmb_aest/adiabatic_ics.py`. That removes the dependency for the
+*initial conditions* specifically. It does **not** reproduce SZ's Boltzmann run.
+
 
 Ranked, and deliberately *not* including the Higgs-phase-duration problem, which §2 closes.
 
@@ -522,7 +653,10 @@ Full scripts: `kq.py`, `num.py`, `num2.py` (session scratchpad).
 | 𝒴 is quadratic in perturbations ⇒ a₀, μ(x), λ_s absent from linear cosmology; **ξ = 1** | **[D]**+[C] | §3.1 |
 | ℱ ~ 𝒴^{3/2} non-analytic at 𝒴 = 0 ⇒ no amplitude-linear regime for the scalar | [D] | §3.1 |
 | Π ∝ c²_ad ⇒ CDM limit; Cosh at r = 10⁻³ gives Π ≲ 10⁻³δ | **[D]**+[C] | §3.3 |
-| Free-streaming cutoff k_J ~ O(1) Mpc⁻¹ — softest of the three constraints (uses c_ad as a stand-in speed; system does not close on fluid variables) | [D]-weak/[O] | §2.4 |
+| Jeans cutoff **k_J = 0.68 Mpc⁻¹**, from the DERIVED c²_s = [(2−K_B)+𝓕_𝒴]/𝒦_𝒬𝒬 — 3–70× **above** the linear MPS window, so §3.3's CDM-like conclusion holds quantitatively (upgraded 2026-09-24 from the c_ad stand-in estimate) | **[D]** | §3.5 |
+| c²_s/c²_ad = 𝒬₀²a³/(2w₀μ²) = 2.1×10⁻⁶ at a=10⁻²; c_ad is **not** a propagation speed and must never be substituted for one | **[D]** | §3.5 |
+| (S1) Π = (1+w)γ/φ̇ exactly; (S2) vector-eq bracket term = γ; system closes on (δ,θ,E,α) — none stated in SZ | **[D]** | §3.6 |
+| **SZ's adiabatic ICs cite `Skordis, Ilić, Zlosnik, in preparation (2021)` — VERIFIED NEVER PUBLISHED** (INSPIRE: 0 papers by all three; none of 17 AeST-titled papers 2021–2025 carries cosmological perturbations). Their CMB/MPS figures are **reported, not reproducible** | **[C]**/**[O]** | §5 |
 | SZ **solve** the Higgs-duration problem (Cosh/Exp + their Boltzmann runs); not an open problem | **[C]** | §2.1 |
 | SZ do not fit 𝒵₀ or prefer Cosh vs Exp; "Higgs-like" quartic is MOND-incompatible | [C] | §2.1 |
 | AeST predicts w_DE = −1; DESI evolving-w neither predicted nor accommodated; Geometrodynamica (−0.831,−0.720) does not transfer | [D]/**[X]** | §4 |
@@ -562,3 +696,30 @@ perturbation theory are now derived and ΛCDM-consistent, with one honest cost (
 against ΛCDM's two, and Ω_c demoted to an integration constant) and one genuinely critical
 remaining item — **non-linear structure formation in AeST, which nobody has simulated** — plus
 the μ⁻¹ mismatch above, which is inherited from the source rather than introduced here.
+
+---
+
+## 11. Addendum 2026-09-24 — what changed, and one correction to my own work
+
+**The sector is in better shape than it was this morning, on two counts and one caveat.**
+
+1. **The sound speed is no longer open.** §1.3 deferred it; §3.5 derives it from the
+   quadratic action. The answer, c²_s = [(2−K_B)+𝓕_𝒴]/𝒦_𝒬𝒬, is **not** in SZ's PRL, and
+   it settles the softest of the three r-constraints: k_J = 0.68 Mpc⁻¹, comfortably above
+   the data. §3.3's CDM-like structure formation is confirmed, not merely asserted.
+
+2. **Two exact identities** (§3.6) simplify SZ's system and make the adiabatic initial
+   conditions solvable in closed form.
+
+3. **The caveat cuts the other way** (§5.0): the Boltzmann result this sector leans on
+   rests on unpublished initial conditions. "SZ find Planck-consistent CMB and MPS" must
+   be carried as **reported, not verified**, wherever it appears downstream.
+
+**A correction to work done the same day, recorded so it is not repeated.** An earlier
+pass on 2026-09-24 concluded, from a numerical integration, that k_J,min ≈ 0.013–0.07
+Mpc⁻¹ lay *inside* the MPS window and that §3.3's claim was therefore wrong. **That
+conclusion is withdrawn.** It substituted c²_ad for the propagation speed — precisely
+the substitution §1.3 warns against and §2.4 already flagged **[D]-weak** — after
+"clearing" the two by comparing them only *asymptotically*, where the ratio is ≈1 rather
+than 10⁻⁶. The document's original caveat was correct and sufficient; the error was in
+overriding it. Full record: `05_Scripts_and_Tools/cmb_aest/STATUS.md`.
