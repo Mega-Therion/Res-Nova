@@ -318,3 +318,65 @@ from Saturn's precession, which is finite. Those two statements are in tension, 
 tension is *in the published theory*, not in this corpus's use of it. Resolving it means
 pinning down what `λ_s → ∞` is doing in SZ's cosmology runs versus their quasi-static limit.
 **Not resolved here**, and deliberately not asserted either way.
+
+---
+
+## 9. The nonperturbative solve fails — for a reason inside the model `[D]` — added 2026-09-25
+
+§8 said a real prediction needs the nonperturbative solve with a **physical** outer
+condition rather than `Φ → 0` in vacuum. That was attempted. It does not converge, and the
+reason is structural.
+
+### The setup, done correctly this time
+
+§8's solve sourced the Helmholtz equation on the **total** density and truncated at an
+arbitrary `r_max`. Both are wrong cosmologically. Corrected:
+
+* source on the **density contrast** `δρ = ρ_gas − ρ̄_m(z)`, which is **compensated** — there
+  is a radius `r_c` where the enclosed excess mass returns to zero;
+* boundary conditions `W(r_min) = 0` and `Φ(r_c) = 0`. At `r_c` the cluster exerts no
+  further influence, so this is a gauge choice, not a truncation;
+* the **full** `J′(v) = λ_s v/((1+λ_s)a₀ + v)`, not just its MOND branch.
+
+For ABELL-1689: `r_c = 15.3 r₅₀₀ = 25.5 Mpc`.
+
+### The controlled test
+
+Same cluster, same source, same boundary conditions — **only `μ` varied**:
+
+| | result |
+| --- | --- |
+| `μ = 0` (pure MOND, compensated) | **converged** |
+| `μ = ` real AeST value | **failed** — "maximum number of mesh nodes exceeded" |
+
+Resolution is not the issue: it still fails at **29,000 nodes per wavelength**.
+
+### The mechanism
+
+1. `μ r_c = 25.8 rad` — about **4.1 full Helmholtz oscillations** inside the compensation
+   radius.
+2. That oscillation drives the enclosed effective mass, hence `g_N`, **through zero** about
+   once per half-period. At `μ = 0` there is exactly **one** crossing (at `r_c`, by
+   construction) and the solver handles it.
+3. The MOND branch gives `v ∼ √(u_E A/λ_s)`, so `dv/du_E ∼ 1/√u_E` **diverges** at every
+   crossing. Measured: `dv/du_E =` 6.0, 60, 6.0×10², 6.0×10³ at `u_E/a₀ =` 10⁻², 10⁻⁴,
+   10⁻⁶, 10⁻⁸.
+
+**The right-hand side is non-Lipschitz at every zero of `g_N`, and the `μ²` term manufactures
+a sequence of them that pure MOND does not have.**
+
+### What this means
+
+The `μ²Φ` term is **not a free bonus** that supplies the missing cluster mass. It buys the
+right sign and roughly the right size (§8) at the cost of the **well-posedness** of the
+boundary-value problem. §8's first-order estimate — median `R` from 1.96 to 1.13, expansion
+parameter 0.81 — is therefore the most that can be claimed from this sector. The
+nonperturbative solve does not merely fail to converge; **it fails for a reason internal to
+the model.**
+
+**Not resolved, and the options are named:** a regularised interpolation (Hölder rather than
+square-root near `g_N = 0`), a non-spherical or time-dependent treatment, or the conclusion
+that the quasi-static limit is inapplicable at `r ∼ 15 r₅₀₀`. Each is a real research step;
+none is a tuning knob.
+
+Script: `05_Scripts_and_Tools/clusters/aest_cluster_compensated.py`.
