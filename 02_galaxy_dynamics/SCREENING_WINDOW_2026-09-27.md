@@ -47,9 +47,16 @@ reaches into galaxy disks and SPARC degrades fast. That upper wall is set by the
   the window would narrow toward **~0.5–1 pc**. That is an inference, not a quoted bound.
 
 ## Status and what is not done
-- **Phenomenological.** No action was written. The M^{1/4} law is borrowed from BDE 2011, which
-  gives one covariant realization. Building screening into AeST (`TARGET_D7` §4.4 Branch B)
-  remains `[O]`.
+- **Phenomenological.** No action was written.
+- **CORRECTION (same day): BDE 2011 is NOT an admissible realization here.** `TARGET_D7` §11.2
+  shows its screening term carries a Riemann-coupled G₄(X)/G₅ operator, which GW170817 (c_T = c)
+  excludes. §11.3 shows the c_T-safe Galileon sector caps the Vainshtein exponent at p → 2⁻. The
+  M^{1/4} scaling was borrowed here purely as a phenomenological profile.
+- The covariant routes still open are those in `TARGET_D7` §11.4, both unbuilt `[O]`:
+  (i) aether-projected operators built from q^{μν}∇_μ∇_νφ and A^μ, which lie outside Horndeski so
+  the c_T theorem does not formally apply; (ii) conformal (chameleon/symmetron-type) screening, which
+  is c_T-safe but breaks AeST's shift symmetry — a different theory, not a repair.
+- This test covers the nesting/external-field item that `TARGET_D7` §11.4 lists as "not computed".
 - Galaxy screening is applied radially from the centre using the total baryonic mass. A disk
   treatment could shift the upper wall.
 - No canonical length has been identified in the window. r_☉ is a new scale, so this adds a
