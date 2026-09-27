@@ -54,29 +54,34 @@ def mercury_residual(nu, a0):
     return float((nu(np.array([gN / a0]))[0] - 1) * gN)
 
 
-out = {"validation": {}, "derived_a0": A0_DERIVED, "results": {}}
-print("VALIDATION vs Hees et al. 2016 Table 2 (g_e = 1.9e-10):")
-for name, a0, want_q, want_Q2 in (("mu_std (nu_2)", 1.60e-10, 0.10, 26e-27), ("RAR (nu-bar_0.5)", 1.48e-10, 0.131, 31e-27),
-                                  ("mu_std (nu_2)", 1.60e-10 * 1.9 / 1.9, 0.10, 26e-27)):
-    Q, q = Q2(NU[name], a0, 1.9e-10)
-    out["validation"][name] = {"a0": a0, "minus_q": -q, "Q2": Q, "hees_minus_q": want_q, "hees_Q2": want_Q2}
-    print(f"  {name:22s} a0={a0:.2e}  -q={-q:.4f} (Hees {want_q})  Q2={Q:.2e} (Hees {want_Q2:.0e})")
+def main():
+    out = {"validation": {}, "derived_a0": A0_DERIVED, "results": {}}
+    print("VALIDATION vs Hees et al. 2016 Table 2 (g_e = 1.9e-10):")
+    for name, a0, want_q, want_Q2 in (("mu_std (nu_2)", 1.60e-10, 0.10, 26e-27), ("RAR (nu-bar_0.5)", 1.48e-10, 0.131, 31e-27),
+                                      ("mu_std (nu_2)", 1.60e-10 * 1.9 / 1.9, 0.10, 26e-27)):
+        Q, q = Q2(NU[name], a0, 1.9e-10)
+        out["validation"][name] = {"a0": a0, "minus_q": -q, "Q2": Q, "hees_minus_q": want_q, "hees_Q2": want_Q2}
+        print(f"  {name:22s} a0={a0:.2e}  -q={-q:.4f} (Hees {want_q})  Q2={Q:.2e} (Hees {want_Q2:.0e})")
 
-print(f"\nDERIVED a0 = {A0_DERIVED:.4e} m/s^2;  Cassini: Q2 = (3 +/- 3)e-27 s^-2")
-for name, nu in NU.items():
-    row = {"mercury_monopole_residual": mercury_residual(nu, A0_DERIVED)}
-    for ge in (1.9e-10, 2.4e-10):
-        Q, q = Q2(nu, A0_DERIVED, ge)
-        row[f"ge={ge:.1e}"] = {"eta": ge / A0_DERIVED, "minus_q": -q, "Q2": Q, "sigma_from_cassini": (Q - 3e-27) / 3e-27}
-    out["results"][name] = row
-    print(f"  {name:22s} Mercury monopole residual {row['mercury_monopole_residual']:.2e} m/s^2 (bound ~2e-16)")
-    for ge in (1.9e-10, 2.4e-10):
-        r = row[f"ge={ge:.1e}"]
-        print(f"      g_e={ge:.1e}: eta={r['eta']:.2f}  -q={r['minus_q']:.4f}  Q2={r['Q2']:.2e}  -> {r['sigma_from_cassini']:+.1f} sigma")
-print("\nQ2 vs a0 (g_e = 1.9e-10), to see where each function would pass:")
-for name, nu in NU.items():
-    s = []
-    for a0 in (0.6e-10, 0.8e-10, 1.0e-10, A0_DERIVED, 1.2e-10, 1.6e-10):
-        s.append(f"{a0*1e10:.2f}:{Q2(nu, a0, 1.9e-10)[0]*1e27:.1f}")
-    print(f"  {name:22s} " + "  ".join(s) + "   (a0 in 1e-10 : Q2 in 1e-27)")
-json.dump(out, open("EFE_QUADRUPOLE_Q2.json", "w"), indent=1)
+    print(f"\nDERIVED a0 = {A0_DERIVED:.4e} m/s^2;  Cassini: Q2 = (3 +/- 3)e-27 s^-2")
+    for name, nu in NU.items():
+        row = {"mercury_monopole_residual": mercury_residual(nu, A0_DERIVED)}
+        for ge in (1.9e-10, 2.4e-10):
+            Q, q = Q2(nu, A0_DERIVED, ge)
+            row[f"ge={ge:.1e}"] = {"eta": ge / A0_DERIVED, "minus_q": -q, "Q2": Q, "sigma_from_cassini": (Q - 3e-27) / 3e-27}
+        out["results"][name] = row
+        print(f"  {name:22s} Mercury monopole residual {row['mercury_monopole_residual']:.2e} m/s^2 (bound ~2e-16)")
+        for ge in (1.9e-10, 2.4e-10):
+            r = row[f"ge={ge:.1e}"]
+            print(f"      g_e={ge:.1e}: eta={r['eta']:.2f}  -q={r['minus_q']:.4f}  Q2={r['Q2']:.2e}  -> {r['sigma_from_cassini']:+.1f} sigma")
+    print("\nQ2 vs a0 (g_e = 1.9e-10), to see where each function would pass:")
+    for name, nu in NU.items():
+        s = []
+        for a0 in (0.6e-10, 0.8e-10, 1.0e-10, A0_DERIVED, 1.2e-10, 1.6e-10):
+            s.append(f"{a0*1e10:.2f}:{Q2(nu, a0, 1.9e-10)[0]*1e27:.1f}")
+        print(f"  {name:22s} " + "  ".join(s) + "   (a0 in 1e-10 : Q2 in 1e-27)")
+    json.dump(out, open("EFE_QUADRUPOLE_Q2.json", "w"), indent=1)
+
+
+if __name__ == "__main__":
+    main()

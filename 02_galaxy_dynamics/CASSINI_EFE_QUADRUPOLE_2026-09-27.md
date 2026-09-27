@@ -84,7 +84,38 @@ decides the shape. That narrows parameter 2 without deriving it.
 - Higher-derivative screening (SZ's open door, `TARGET_D7` §4.4 Branch B) could in principle
   suppress the EFE quadrupole. Unbuilt.
 
+## Follow-up — the three escape routes (same day)
+
+**1. Newer Cassini bound: tighter, not looser.** The 2026 analysis (arXiv:2602.17884,
+PRD) gives **Q₂ = (1.6 ± 1.8)×10⁻²⁷ s⁻²**, a 40% improvement. Against it: μ_std **+8.7σ**,
+RAR **+18.8σ**. The route is closed.
+
+**2. AeST does not escape (two-derivative sector).** This repo's AeST reduces to the AQUAL form in
+the quasistatic limit (`SkordisZlosnikEmbedding.lean`: `sz_aqual_reduction`; `TARGET_D7` §2.1).
+QUMOND *underestimates* AQUAL Q₂ (Milgrom 2009 Tab. I, via Hees 2016), so the AeST verdict is at
+least as bad as the QUMOND numbers above. The route is closed within two-derivative AeST. Higher-
+derivative screening (`TARGET_D7` §4.4 Branch B) remains the only opening, and it is unbuilt [O].
+
+**3. Pareto scan: the cheapest shape that passes** — `cassini_pareto_scan.py` → `CASSINI_PARETO_SCAN.json`.
+There are three Hees families (ν_n, ν̄_α, ν̂_α) on fine grids at the derived a0, ledger nuisance
+treatment. PASS means Q₂ ≤ 5.2×10⁻²⁷ (2σ, 2026 bound) at both g_e = 1.9 and 2.4×10⁻¹⁰:
+
+| function | Q₂ (1.9 / 2.4) | σ (2026) | tier 0 median / agg | tier 1 median / agg |
+|---|---|---|---|---|
+| μ_std = ν₂ (live, FAILS) | 16.7 / 17.2 | +8.7 | 11.08 / 93.6 | 3.36 / 6.09 |
+| **ν̂₄ (best passing)** | 4.9 / 2.5 | +1.8 | 12.45 / 121.2 | 3.51 / 7.57 |
+| ν₅ | 4.0 / 2.3 | +1.3 | 12.58 / 124.4 | 3.67 / 7.95 |
+| ν̂₅ | 3.0 / 1.3 | +0.8 | 12.58 / 125.0 | 3.67 / 8.02 |
+| ν₈ | 1.6 / 0.7 | 0.0 | 12.77 / 129.1 | 3.78 / 8.62 |
+
+- The ν̄_α family never reaches the 2σ bound: Q₂ at g_e = 1.9 plateaus near 5.3×10⁻²⁷ (+2.0σ) as
+  α grows.
+- **The price of passing Cassini at the derived a0 is about +4% on the tier-1 median and +24% on
+  the tier-1 aggregate, relative to μ_std** (ν̂₄: 3.51 / 7.57 vs 3.36 / 6.09).
+- Passing sits at the sharp end of every family (ν_n with n ≳ 5, ν̂_α with α ≳ 4).
+
 ## Sources
+- Cassini 2026, *Improved constraints on modified Newtonian gravity from Cassini radio tracking data* — https://arxiv.org/abs/2602.17884
 - Hees, Famaey, Angus, Gentile, *Combined Solar System and rotation curve constraints on MOND*, MNRAS 455, 449 (2016) — https://arxiv.org/abs/1510.01369
 - Hees et al., *Constraints on MOND theory from radio tracking data of the Cassini spacecraft*, PRD 89, 102002 (2014) — https://arxiv.org/abs/1402.6950
 - Desmond et al., *On the tension between the RAR and Solar System quadrupole in modified gravity MOND* — https://arxiv.org/abs/2401.04796
