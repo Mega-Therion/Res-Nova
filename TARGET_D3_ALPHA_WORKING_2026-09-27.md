@@ -173,3 +173,69 @@ which they show may have an unbounded Hamiltonian for k < μ ≲ Mpc⁻¹. **It 
 2. Gravi-Cherenkov estimate for the c_s ≈ 2×10⁻³ c massive scalar (EMS-type bound) `[O]`.
 3. Until then, D3's α₁/α₂ entry reads: "not defined by standard PPN in AeST (static residual
    symmetry, SZ 2022); the branch selection is open."
+
+---
+
+# Working note 4 (same day): what holds the aether, and what is still held back
+
+## 13. Verified on the dragged branch `[D]`
+For a uniformly moving source (any v ≠ 0), `aest_S_check.py`:
+- **S_i ≡ ∂_iφ̃ + 𝒬₀(δu_i + h₀ᵢ) = 0 exactly**, so 𝒴 = |S|² = 0 at quadratic order;
+- **δ𝒬 = 0 exactly**;
+- **the metric is GR (G̃) even at λ_s = 0.**
+The dragged branch is independent of the free function 𝒥(𝒴) and of the 𝒬 sector.
+
+**The mechanism, stated precisely `[D]`.** In the static (held) branch, AeST's MOND channel is sourced
+through 2(2−K_B)J^μ∇_μφ by the **aether's acceleration** J = u·∇u. A static aether in a gravitational
+field is accelerated, J = ∇Ψ. On the dragged branch the aether free-falls (J = 0) and the scalar
+locks to it (𝒴 = 0), so nothing sources the MOND channel.
+
+**Prior art `[C]`.** This is the AeST analogue of Peloso & Sorbo, *Moving sources in a ghost condensate*
+(PLB 593, 25, 2004; hep-th/0404005). There, a static source's modification of gravity disappears for
+moving sources, because the corrections propagate at a tiny speed, and "the standard Newton law is
+recovered". AeST's 𝒬 sector is a ghost condensate. What is AeST-specific is the consequence: the
+quantity that disappears is the MOND channel itself.
+
+## 14. The zero mode in a weak static potential — exact, frozen-metric trial direction `[D]`
+`zero_mode_lift.py`: the zero mode realized as a genuine re-slicing, T = t − εΛ(x), u_μ = −N∂_μT,
+φ = 𝒬₀T + ϕ(x), on a static weak-field background, with the full AeST Lagrangian expanded:
+- O(ε²), flat background, time-dependent Λ: **L = K_B|∇Λ̇|² + 2𝒦₂𝒬₀²Λ̇²** (exact);
+- O(ε²), static, flat background: **zero** (the symmetry, beyond linear structure);
+- O(ε²·Ψ), static, in vacuum: **+2𝒦₂𝒬₀²Ψ|∇Λ|²**, with every other term ∝ ∇²Ψ, ∇²Φ or ∇²ϕ.
+  Equivalently the gradient energy is +2𝒦₂𝒬₀δ𝒬_bg|∇Λ|², with δ𝒬_bg = −𝒬₀Ψ.
+
+**Caveat — why this is not yet a dispersion relation.** The ansatz holds the metric fixed and moves only
+along the symmetry direction. SZ's *constrained* Y-mode Hamiltonian (PRD 106, 104041, eq. Ham_tilde:
+(2−K_B)²λ_s(1−k*²/k²)/[16K_B𝒦₂(c_s²k²+ℳ²)]·|P_Y|², with k*² = (1+1/λ_s)μ²) shows that metric
+back-reaction changes the zero mode's effective inertia (it is λ_s- and k-dependent, with a sign flip
+below k*). The frozen-metric kinetic term above is therefore a trial direction, not the normal mode.
+**The branch criterion and its table (`branch_criterion.py`) are HELD** until the constrained dispersion
+with the 𝒬 sector off its minimum (`aest_dispersion_offset.py`, running) is reconciled.
+
+## 15. HELD — not claimed
+- The held/dragged table for the Sun, wide binaries, dwarfs and galaxies (frozen-metric ω_L; the |Ψ|
+  inputs ignore large-scale-structure potentials of ~10⁻⁵; the velocity reference frame — CMB vs local
+  bulk flow — is the decisive unknown and flips the galaxy rows).
+- The Ψ > 0 gradient instability: the Minkowski derivation only covers Ψ ≤ 0 (positive masses). Voids
+  need FLRW, where the lift scales with the full background δ𝒬, including the positive dust offset.
+  To be reconciled with SZ's own k < k* unbounded-Hamiltonian result.
+- Any statement that dwarfs are Newtonian, that Cassini is solved, or that AeST loses MOND.
+
+## 16. Gravitational Cherenkov — order-of-magnitude bracket `[D]` (estimate)
+- The ghost-condensate sector's strong-coupling scale, from the Cosh function (−ℱ ⊃ 2𝒦₂δ𝒬² +
+  𝒦₂δ𝒬⁴/6𝒵₀²) at SZ's values (𝒦₂ = 7.5×10⁵, 𝒵₀ = 10⁻³ Mpc⁻¹), is **Λ = (48𝒦₂)^{1/4}(𝒵₀M_Pl)^{1/2}
+  ≈ 0.3 eV**.
+- **Emission limited to k ≲ Λ:** a 10²⁰ eV cosmic ray loses energy on ~2.5×10²¹ s, which is harmless
+  (the age is 4.4×10¹⁷ s).
+- **If the slow mode persisted with gravitational coupling up to k ~ E:** the loss time is ~10⁻²⁰ s, the
+  EMS-type exclusion.
+- The coupling factor used (SZ's G_W) is a mode-normalization factor, not a derived coupling to a
+  relativistic stress tensor. So this is an order-of-magnitude bracket, and the verdict depends on the
+  UV completion, as for the ghost condensate.
+
+## 17. D3 checklist entry for α₁/α₂ (current)
+Not defined by standard slow-motion PPN in linearized AeST: the static residual symmetry (SZ 2022's ω = 0
+mode) makes the limit non-uniform. On the branch that linear theory selects for moving sources, the
+metric is GR (α₁ = α₂ = 0) and the MOND channel is unsourced. Whether bound systems actually sit on that
+branch depends on the constrained lift (in progress), the velocity reference frame and the non-linear
+regime `[O]`.
