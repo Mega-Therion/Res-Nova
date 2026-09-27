@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+# ============================================================================================================
+# DATA WITHDRAWN 2026-09-27. The 20-point table below cannot be traced to its cited sources: Bouche+2021
+# (A&A 654, A49) is a 9-galaxy angular-momentum pilot, and "Mercier+2022 A&A 667 A75" was not found (the real
+# Mercier+2022 is A&A 665, A54, a different paper). Do not use these numbers. The real dataset is MUSE-DARK III
+# (Ciocan+2026, arXiv:2604.22613); see O4_REAL_DATA_MUSE_DARK_III_2026-09-27.md.
+# ============================================================================================================
 """
 SUPERSEDED 2026-09-12 by a0_of_z_v2.py (frozen mu x/(1+x) was falsified,
 TARGET_D7 sec 4/11; its 5.9-sigma verdict is [X]-superseded by the inconclusive

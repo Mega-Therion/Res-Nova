@@ -146,6 +146,8 @@ linear MPS window. **Never substitute c_ad for a propagation speed.**
 | D8 | [P] | c_T=c — upgraded to structural, strongest result in the corpus |
 | D9 | [P/O] | Factor-of-2 bug fixed; **μ_std embedding now derived by calculus** (`SZStdEmbedding.lean`, 2026-09-27: J_std(𝒴)=F_std(√𝒴) ⇒ 2J′=μ_std via HasDerivAt, replacing the definitional reduction); λ_s normalization still an input |
 
+**O1/O4 (2026-09-27).** The O4 20-point table is **withdrawn**: it cannot be traced to its cited sources, so the old 5.9σ and 2.06σ figures are void. The real data come from MUSE-DARK III (Ciocan+2026, arXiv:2604.22613). They give a₀(z) = (1.00±0.04)+(1.59±0.10)z. The extrapolated a₀(0) matches cH₀/2π = 1.042 at 1σ, but a₀ grows faster than H(z), and a constant a₀ (AeST as used here) is disfavoured at 13σ (stat.). See `03_observer_jwst/O4_REAL_DATA_MUSE_DARK_III_2026-09-27.md`.
+
 **Full detail, always current:** `PEER_REVIEW_READINESS.md` — read its top banner before
 trusting anything dated earlier.
 
