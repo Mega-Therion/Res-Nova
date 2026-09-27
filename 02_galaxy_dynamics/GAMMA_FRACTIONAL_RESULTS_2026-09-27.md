@@ -72,6 +72,10 @@ Findings:
 - The Mittag-Leffler order adds nothing at derived a0: α = 1 is best on tier-0 median. With literature
   a0, α ≈ 0.85 is best. Its deep-MOND constant is Γ(1 + α)² a0 = 0.894 × 1.2e-10 = 1.07e-10, close to
   the derived 1.042e-10. The Gamma factor acts as an a0 rescaling, not a new shape.
+- **Status: exploratory. μ_std remains the live interpolating function** (see
+  `CURRENT_STATE_READ_THIS_FIRST.md` §1). It carries a structural uniqueness derivation
+  (`TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md`) and clears the solar-system bound. The RAR row is a
+  fit comparison, not a proposed replacement.
 - **Caution, parameter 2:** choosing RAR over μ_std *because it fits better* is exercising the
   functional-choice parameter, not deriving it. The RAR's solar-system residual is exponentially
   screened (ν − 1 ≈ e^(−√y)). It has not been through the D7 covariant-completion checks that retired
