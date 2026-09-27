@@ -51,7 +51,11 @@ strength to the critical acceleration."
 - **Part of the SPARC gain is a weaker MOND boost.** Scaling (ν − 1) by 0.9–0.99 acts somewhat like a
   smaller effective a0. It does **not** by itself show that environment matters for galaxies.
 - **Phenomenological.** It is not derived from an action, and no covariant AeST realization exists
-  `[O]`. It is nonlocal in the same sense the standard EFE already is.
+  `[O]`. It is nonlocal in the same sense the standard EFE already is. Per `TARGET_D7` §11, the
+  Galileon/Vainshtein route is closed by c_T = c. An environment-keyed switch would have to come
+  from the §11.4 openings: aether-projected operators, or conformal/symmetron-type screening, which
+  is naturally environment-dependent but breaks shift symmetry. **Constructing either is the
+  load-bearing open item.**
 - QUMOND quadrupole; the g_ext bracket 1.9–2.4×10⁻¹⁰ follows Hees 2016.
 
 ## 3b. Per-galaxy test with shuffled controls — `environment_screening_pergalaxy.py`

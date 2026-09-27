@@ -64,7 +64,9 @@ one place, unambiguous, checked first, every time.
   disfavors Postulate R as the selector of μ (it forces n = 2). **Screening window found
   (phenomenological):** μ_std plus M^{1/4} screening (BDE 2011 scaling), with a solar screening
   radius of 0.1–1 pc, passes Cassini and leaves SPARC unchanged
-  (`02_galaxy_dynamics/SCREENING_WINDOW_2026-09-27.md`). No covariant AeST version exists [O].
+  (`02_galaxy_dynamics/SCREENING_WINDOW_2026-09-27.md`). No covariant AeST version exists [O];
+  BDE 2011 itself is c_T-excluded (`TARGET_D7` §11) — only the §11.4 openings (aether-projected
+  operators, conformal/symmetron) remain for a covariant realization.
   A size-based shield provably needs a new constant (dimensional no-go). The **parameter-free**
   environmental form S = 1 − μ_std(g_ext/a0) passes Cassini (+0.25σ / −0.10σ) and does not degrade
   SPARC (uniform and per-galaxy η from Chae 2020; per-galaxy environment NOT detected by SPARC —
