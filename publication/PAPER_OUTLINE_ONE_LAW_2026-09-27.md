@@ -72,7 +72,11 @@ unlabelled. Parameter accounting follows the two-irreducible-parameters rule: th
   - Milky Way dwarfs (LVDB, 42): penalty 1.1 after MOND's own misfit.
 - The rejected first form (S = 1 − μ) is reported, with the look-elsewhere step stated.
 - Predictions: wide-binary boost ~10%; Oort-cloud comets; dwarfs at η ≳ 0.3 with σ lower by 4–17%.
-- Covariant realization `[O]`: aether-projected operators or conformal/symmetron routes.
+- Covariant realization `[O]`, constrained: the phantom potential must live in the metric that gravitational
+  waves ride. GW170817's Shapiro delay excludes photon-only (disformal) lensing (Boran et al. 2018;
+  `AETHER_DRAG_AND_SHAPIRO_2026-09-27.md`). Conformal/symmetron routes pass GW170817 but bend no extra light
+  (Bekenstein & Sanders 1994), so they would need a separate lensing mechanism. Aether-projected (metric-level)
+  operators remain the live route.
 - Sources: `SCREENING_WINDOW_…`, `ENVIRONMENT_SCREENING_…`, `DWARF_SCREENING_TEST_2026-09-27.md`.
 
 ## 7. Laboratory and equivalence-principle bounds
@@ -82,8 +86,11 @@ unlabelled. Parameter accounting follows the two-irreducible-parameters rule: th
 ## 8. PPN status
 - γ = 1 exactly for any J (D3 §8.1) `[D]`.
 - β: J-dependence suppressed by ε_J ≲ 10⁻¹⁷ `[D]`/`[C]`; the (λ_s, K_B) part is `[O]`.
-- α₁, α₂: the Foster–Jacobson formulas do not apply at c₁₂₃ = 0 `[D]`+`[C]`. The ab-initio 1.5PN
-  calculation is **in progress** `[O]` → closes this section when done.
+- α₁, α₂: the Foster–Jacobson formulas do not apply at c₁₂₃ = 0 `[D]`+`[C]`. From the ab-initio work
+  (`TARGET_D3_ALPHA_WORKING_2026-09-27.md`, notes 1–7): slow-motion PPN does not define them on AeST's static
+  branch, because of a static residual symmetry. On the dragged branch the metric is GR, α₁ = α₂ = 0 `[D]`.
+  Which branch real systems occupy is `[O]`: spirals are undetermined, and the held threshold is computed at
+  leading order.
 - λ_s ≲ 2.2 from Saturn perihelion `[D]`.
 
 ## 9. Cosmology (brief, scoped)
@@ -104,7 +111,7 @@ unlabelled. Parameter accounting follows the two-irreducible-parameters rule: th
   parameters, stated. No new constant added by the screening.
 
 ## 12. Open problems (ranked)
-1. Covariant screening in AeST. 2. α₁/α₂ (1.5PN) and the 2PN β. 3. The a0 = cH0/2π identification
+1. Covariant screening in AeST (metric-level only, §6). 2. α₁/α₂ (1.5PN) and the 2PN β. 3. The a0 = cH0/2π identification
 from an action. 4. Non-linear structure formation. 5. Clusters (`TARGET_D10`).
 
 ## Figures

@@ -1,0 +1,8 @@
+VALIDATION tracking (expect constrained formula)     k=   100  s=                     4.49863  s/s_frozen=                  0.15  C=0.7745
+                                                               formula s = 4.4985602
+VALIDATION tracking (expect constrained formula)     k=  1000  s=                   4.4999845  s/s_frozen=                  0.15  C=0.7746
+                                                               formula s = 4.4999856
+deep MOND x=0.3 (J'=0.287, 2YJ''=0.264), k || grad phi k=   100  s=  (2.7230081 - 0.051990023j)  s/s_frozen=(0.090794 - 0.0017335j)  C=(0.6026 - 0.005752j)
+deep MOND x=0.3 (J'=0.287, 2YJ''=0.264), k || grad phi k=  1000  s= (2.7239855 + 0.0052002115j)  s/s_frozen=(0.0908 + 0.00017334j)  C=(0.6027 + 0.0005753j)
+deep MOND x=0.05 (J'=0.050, 2YJ''=0.050), k || grad phi k=   100  s= (0.54684536 + 0.018348681j)  s/s_frozen=(0.018234 + 0.00061181j)  C=(0.2701 + 0.00453j)
+deep MOND x=0.05 (J'=0.050, 2YJ''=0.050), k || grad phi k=  1000  s=(0.54743967 + 0.0018359415j)  s/s_frozen=(0.018248 + 6.1198e-5j)  C=(0.2702 + 0.000453j)

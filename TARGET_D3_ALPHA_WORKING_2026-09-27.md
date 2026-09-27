@@ -426,3 +426,110 @@ GR (α₁ = α₂ = 0), which is where §24 places the solar system.
    aether flow (axisymmetric, time-dependent).
 3. The AeST CMB/quasistatic parameter tension (D5 §2.5): at the galaxy-consistent point the CMB fit is
    unverified.
+
+---
+
+# Working note 7 (same day): the constrained threshold computed, the dwarf speed test, and the GW170817 Shapiro constraint
+
+## 26. Constrained zero-mode inertia in a local MOND background, computed `[D]`
+Files: `aest_mond_bg_fast.py` (builder), `mond_bg_inertia.py`, and the outputs `MOND_BG_INERTIA_PAR.txt` and
+`MOND_BG_INERTIA_PERP.txt`.
+
+**System.** The full constrained linear AeST system (metric in de Donder gauge, aether, scalar) on a local
+background with:
+- a 𝒬 offset q̄;
+- a uniform scalar gradient g, the local MOND field, either along k or across it;
+- local stiffnesses 𝒥′ and 2𝒴𝒥″.
+
+It is evaluated at the galaxy-consistent point of §21: K_B = 1/2, 𝒦₂ = 75, 𝒬₀ = 0.1 Mpc⁻¹, λ_s = 1.
+
+**Method.**
+- The zero-branch ω² comes from det M(ω) = 0. The determinant is evaluated numerically at 2N+1 points on
+  |ω| = 1, its coefficients recovered by inverse DFT, and the roots found by polyroots at 100 digits.
+- s = dω²/dq̄ is taken by finite difference, and C = √(s/(𝒦₂𝒬₀)).
+- The held branch requires v_rel < C·v_f. The method is first-order degenerate perturbation theory; see the
+  script docstring.
+
+**Validation.** In the tracking regime with g → 0, both directions give s = 4.49863 at k = 100 Mpc⁻¹ and
+4.49998 at k = 1000 Mpc⁻¹. The O(q̄) formula of note 5 gives 4.49856 and 4.49999.
+
+| deep-MOND background | C, k ∥ ∇ϕ | C, k ⊥ ∇ϕ |
+|---|---|---|
+| x = 0.3 (𝒥′ = 0.287, 2𝒴𝒥″ = 0.264), outer disk | 0.603 | 0.448 |
+| x = 0.05 (𝒥′ = 0.050, 2𝒴𝒥″ = 0.050), dSph | 0.270 | 0.192 |
+
+These values are stable to 3–4 digits between k = 100 and 1000 Mpc⁻¹.
+
+**Closed form, fitting all 8 points to 3–4 digits:**
+
+    C = √[(2−K_B) λ / (2 + K_B λ)],   λ = 𝒥′ (k ⊥ ∇ϕ),   λ = λ_∥ = 𝒥′ + 2𝒴𝒥″ (k ∥ ∇ϕ)
+
+- For k ⊥ ∇ϕ this is exactly §23's heuristic (0.45 / 0.19). Along the field the threshold is stiffer by a
+  factor of 1.35–1.41.
+- The ∥ case carries a small complex part of relative size ≈ 2μ/k (μ = 1 Mpc⁻¹ here). It is reported, not
+  interpreted.
+
+**Scope.**
+- This is leading-order local plane waves at one parameter point.
+- It assumes the constrained inertia measured with the 𝒬-offset lift carries over to the ∇²ϕ lift.
+- **§25 item 1 (second-order WKB or a direct solution) stays open, and the spiral row of §24 stays
+  undetermined.**
+- What changed: the §23/§24 thresholds are now computed at leading order instead of assumed, and they depend
+  on the direction of motion relative to the local field.
+
+## 27. Dwarf speed test: null for gradual drag `[E]`
+Details are in `02_galaxy_dynamics/AETHER_DRAG_AND_SHAPIRO_2026-09-27.md` §1.
+
+- Sample: 42 LVDB satellites.
+- Speeds: 103–642 km/s in the Milky Way frame and 375–1000 km/s in the CMB frame. The Milky Way moves at
+  560 km/s relative to the CMB.
+- At fixed distance and luminosity, speed does not predict log(σ_obs/σ_N) or log(σ_obs/σ_MOND+EFE):
+  |ρ| ≤ 0.11 and p ≥ 0.47 in both frames.
+
+This probes gradual drag only. Every satellite sits 18–1,647× above §26's switch, so linear-theory drag is
+invisible to a correlation test. **The §24 level test (Crater II, Carina, Leo II, Sculptor) remains the
+discriminator.**
+
+## 28. GW170817's Shapiro delay constrains the covariant completion `[D]`+`[C]`
+Details are in `02_galaxy_dynamics/AETHER_DRAG_AND_SHAPIRO_2026-09-27.md` §2.
+
+- On the GW170817 sightline, the Milky Way's μ_std phantom potential adds 94–254 days of Shapiro delay
+  (estimate). Photons and gravitational waves agree to −2.6×10⁻⁷ ≤ γ_GW − γ_EM ≤ 1.2×10⁻⁶.
+- **Photon-only lensing is excluded.** In any theory whose photon metric carries phantom potential that the
+  GW metric does not, the photon-only share must be ≲10⁻⁶–10⁻⁷ (Boran et al. 2018, the "dark matter
+  emulator" exclusion). This removes photon-only disformal lensing, B1's g̃ = g + (2/a0²)∂χ∂χ included,
+  as a source of MOND lensing. It does so independently of freeze-out: freeze-out fixes χ̇, while the halo
+  delay comes from ∇χ.
+- **Withdrawn:** the same-day proposal that a V(χ) = (χ − θ)² freeze-out (Path A) could rescue disformal
+  lensing.
+- **Conformal routes (k-mouflage, symmetron)** pass GW170817 but bend no extra light (Bekenstein & Sanders
+  1994). The lensing RAR (Brouwer et al. 2021) shows the excess, so these routes need a separate lensing
+  mechanism.
+
+**Chyren consult, recorded (2026-09-27; her citations verified against the files):**
+- B1 dropped the internal E8 term, so χ is a pure k-essence scalar.
+- B2's cone test gives Bχ̇² = 8π² ≈ 79 at χ̇ = H₀. The required freeze-out, |χ̇|/H₀ ≲ 5×10⁻⁹, has not been
+  built.
+- She recommended a conformal k-mouflage / screened scalar-tensor route. By the point above, that route
+  must supply lensing separately.
+
+**Trilemma, sharpened.**
+
+| route | MOND lensing | GW170817 speed + Shapiro | cost |
+|---|---|---|---|
+| conformal scalar | no | yes | lensing must come from elsewhere |
+| photon-only disformal | yes | **no** (Shapiro ~10²–10³ days) | excluded |
+| metric-level (AeST class) | yes | yes | aether zero mode: drag (§§11–26) |
+
+MOND lensing plus GW170817 require the phantom potential to live in the metric that gravitational waves
+ride. The covariant screening (paper outline §6) must be built at metric level.
+
+## 29. AeST + c₂(∇·A)² (zero-mode lift) — pending
+`aest_c2_ppn_pipeline.py` is running. It will test whether lifting the zero mode yields α₁ ~ −4c₁₄,eff,
+which would be O(1) and excluded by LLR (|α₁| ≲ 10⁻⁴). Recorded here when it finishes.
+
+## 30. Next
+1. Second-order WKB or a direct solution for the ∇²ϕ lift. This decides the spiral row.
+2. A non-linear dwarf-in-flow solution. This decides the dSph row.
+3. The c₂ result (§29).
+4. Covariant screening at metric level only (§28).

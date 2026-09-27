@@ -1,0 +1,10 @@
+a0 = 1.042e-10 m/s^2; NGC 4993 at Galactocentric angle 61 deg from the Sun-to-Galactic-Centre direction
+M_b=5e+10 Msun (v_f=162 km/s), g_e=0.01 a0: phantom Shapiro delay =    185 days -> 1.74 s is 1.1e-07 of it
+M_b=5e+10 Msun (v_f=162 km/s), g_e=0.02 a0: phantom Shapiro delay =    122 days -> 1.74 s is 1.6e-07 of it
+M_b=5e+10 Msun (v_f=162 km/s), g_e=0.03 a0: phantom Shapiro delay =     94 days -> 1.74 s is 2.1e-07 of it
+M_b=6e+10 Msun (v_f=170 km/s), g_e=0.01 a0: phantom Shapiro delay =    220 days -> 1.74 s is 9.2e-08 of it
+M_b=6e+10 Msun (v_f=170 km/s), g_e=0.02 a0: phantom Shapiro delay =    145 days -> 1.74 s is 1.4e-07 of it
+M_b=6e+10 Msun (v_f=170 km/s), g_e=0.03 a0: phantom Shapiro delay =    111 days -> 1.74 s is 1.8e-07 of it
+M_b=7e+10 Msun (v_f=176 km/s), g_e=0.01 a0: phantom Shapiro delay =    254 days -> 1.74 s is 7.9e-08 of it
+M_b=7e+10 Msun (v_f=176 km/s), g_e=0.02 a0: phantom Shapiro delay =    168 days -> 1.74 s is 1.2e-07 of it
+M_b=7e+10 Msun (v_f=176 km/s), g_e=0.03 a0: phantom Shapiro delay =    128 days -> 1.74 s is 1.6e-07 of it

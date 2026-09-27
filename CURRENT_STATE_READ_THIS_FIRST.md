@@ -122,6 +122,14 @@ linear MPS window. **Never substitute c_ad for a propagation speed.**
 - D7's action was rewritten 2026-09-12 to genuine AeST (Skordis-Złośnik arXiv:2007.00082):
   scalar field 𝒴, minimal matter coupling. The prior version (vector field 𝒦, disformal
   coupling) was a different theory entirely and is retired. See `TARGET_D7_COVARIANT_COMPLETION.md` §0.
+- **Added 2026-09-27: GW170817's Shapiro delay rules out photon-only lensing.** On that sightline the Milky
+  Way's μ_std phantom potential delays light by 94–254 days, and photons and gravitational waves agree to
+  −2.6×10⁻⁷ ≤ γ_GW − γ_EM ≤ 1.2×10⁻⁶. So a photon-only (disformal) metric cannot carry the MOND lensing,
+  with or without cosmological freeze-out (Boran et al. 2018). Conformal routes (k-mouflage, symmetron)
+  pass GW170817 but bend no extra light (Bekenstein & Sanders 1994). **Any covariant screening must be
+  built at metric level (AeST class).** The same-day idea of a V(χ)=(χ−θ)² freeze-out rescuing disformal
+  lensing is **withdrawn**. See `02_galaxy_dynamics/AETHER_DRAG_AND_SHAPIRO_2026-09-27.md` and D3 working
+  note 7 §28.
 
 ---
 
@@ -131,7 +139,7 @@ linear MPS window. **Never substitute c_ad for a propagation speed.**
 |---|---|---|
 | D1 | [P] | μ_std rebuild **complete** (`TARGET_D1_SUPPLEMENT`, re-run 2026-09-12); its '1300× solar-system clear' is monopole-only — EFE quadrupole fails at derived a0, duality screening restores a pass (2026-09-27) |
 | D2 | [P/O] | μ_std uniqueness rests on Postulate R, which forces n=2 and is **Cassini-disfavored** (2026-09-27); the x↦1/x duality holds for every n (`MuNDuality.lean`) so symmetry cannot select μ; galaxies select n≈2 phenomenologically (Δχ²/s 700–1400). Derivation of μ remains [O] |
-| D3 | [P/D/O] | γ=1 derived [D]; **binding bound λ_s ≲ 2.2 [D]** from Saturn perihelion precession (Hees et al. 2014 PRD 89:102002, 0.43 mas/cy); the Q₂ᵉᶛ comparison (λ_s ≲ 2.7) is a **magnitude heuristic [C]**, demoted 2026-09-20; λ_s ≤ 0.97 **withdrawn** (needed a ceiling tighter than INPOP10a's own 1σ); β scoped; α₁/α₂ [O] with a named obstruction (c₁₂₃=0 Maxwell locus) |
+| D3 | [P/D/O] | γ=1 derived [D]; **binding bound λ_s ≲ 2.2 [D]** from Saturn perihelion precession (Hees et al. 2014 PRD 89:102002, 0.43 mas/cy); the Q₂ᵉᶛ comparison (λ_s ≲ 2.7) is a **magnitude heuristic [C]**, demoted 2026-09-20; λ_s ≤ 0.97 **withdrawn** (needed a ceiling tighter than INPOP10a's own 1σ); β scoped. **α₁/α₂ (2026-09-27, `TARGET_D3_ALPHA_WORKING_2026-09-27.md` notes 1–7):** slow-motion PPN does not define them on AeST's static (held) branch, because of a static residual symmetry. On the dragged branch the metric is GR (α₁=α₂=0) [D]. Within linear theory the Sun, wide binaries and the satellite dSphs are dragged, while spirals are undetermined. The held threshold v_rel < C·v_f, with C=√[(2−K_B)λ/(2+K_Bλ)], is computed at leading order (note 7). Dwarf speed test: null for gradual drag [E] |
 | D5 | [P/O] | Cosh cosmology time-sector formalized (`CoshCosmology.lean`, 6 theorems, 0 sorry, ARITH); non-linear structure formation unsimulated |
 | D6 | [P] | Ghost-free CLOSED 2026-09-12; Λ_SC vs fifth-force: not excluded (first pass, screened); **EP vs MICROSCOPE CLOSED 2026-09-27** (η ≲ 4×10⁻⁴⁹ vs 10⁻¹⁵, `TARGET_D6_SUPPLEMENT_LSC` §4c); open: covariant screening profile [O], meV quantum effects [O], J-normalization [O], superluminality [O] |
 | D7 | [P/O] | Action corrected to AeST; base solid, downstream re-checks ongoing |
