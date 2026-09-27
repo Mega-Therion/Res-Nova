@@ -68,7 +68,10 @@ one place, unambiguous, checked first, every time.
   A size-based shield provably needs a new constant (dimensional no-go). The **parameter-free**
   environmental form S = 1 − μ_std(g_ext/a0) passes Cassini (+0.25σ / −0.10σ) and does not degrade
   SPARC (uniform and per-galaxy η from Chae 2020; per-galaxy environment NOT detected by SPARC —
-  shuffled fields do as well; `ENVIRONMENT_SCREENING_2026-09-27.md`). See
+  shuffled fields do as well; `ENVIRONMENT_SCREENING_2026-09-27.md`). **MW dwarfs (42, LVDB)
+  reject that form** (Δχ² +50…+107); the duality form S = 1/(1+η²) = μ_std(1/η)² passes Cassini,
+  is SPARC-neutral, and its dwarf penalty is not significant after MOND's own misfit
+  (`DWARF_SCREENING_TEST_2026-09-27.md`). See
   `02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md`.
 - If you see μ(x)=x/(1+x) — or F_dual = x²/2 − x + ln(1+x) — anywhere in a source you're
   reading, that source predates 2026-09-12's correction and its physics content is void.
