@@ -1133,7 +1133,7 @@
         "cd 05_lean_formalization && bash verify_all_proofs.sh"
       ],
       "independent_witness": "TARGET_D7_COVARIANT_COMPLETION.md",
-      "limitations": "One disjunct (mu(x)=x/(1+x)) is contradicted by CLM-D7-08's solar-system result within two-derivative AeST. The axiom's disjunction survives as written, but any downstream claim that silently assumes the first disjunct -- which is this repo's entire mu=x/(1+x) program outside the Vainshtein-screened D3/D7-07 track -- must either switch branches or invoke Skordis-Zlosnik's higher-derivative screening. Not yet resolved anywhere in the corpus.",
+      "limitations": "One disjunct (mu(x)=x/(1+x)) is contradicted by CLM-D7-08's solar-system result within two-derivative AeST. The axiom's disjunction survives as written, but any downstream claim that silently assumes the first disjunct -- which is this repo's entire mu=x/(1+x) program outside the Vainshtein-screened D3/D7-07 track -- must either switch branches or invoke Skordis-Zlosnik's higher-derivative screening. Not yet resolved anywhere in the corpus. ADDED 2026-09-27: the second disjunct (mu_std) also fails the Cassini EFE quadrupole in QUMOND at the derived a0 (Q2 = 1.7e-26 vs (3+/-3)e-27, ~4.6 sigma); its '~1300x clear' was the isolated-Sun monopole test only. AeST not computed. See 02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md.",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "exact",
       "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-AX-02 (05_lean_formalization/AXIOMS_V2.lean:64)",
