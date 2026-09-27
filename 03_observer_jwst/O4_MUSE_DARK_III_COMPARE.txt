@@ -1,0 +1,6 @@
+MUSE-DARK III (Ciocan+2026, arXiv:2604.22613): a0(z) = (1.00+-0.04) + (1.59+-0.10) z [1e-10 m/s^2]; whole-sample a0(z~1) = 2.38+-0.1
+derived a0(0) = cH0/2pi = 1.042e-10 (H0=67.4); implied median z = 0.87
+  constant a0     : a0(z=0.87) = 1.04e-10 vs 2.38+-0.1 -> +13.4 sigma (stat only)
+  a0 ~ H(z)       : a0(z=0.87) = 1.73e-10 vs 2.38+-0.1 -> +6.5 sigma (stat only)
+  a0 ~ (1+z)^1.5  : a0(z=0.87) = 2.67e-10 vs 2.38+-0.1 -> -2.9 sigma (stat only)
+  a0 ~ (1+z)^1.3  : a0(z=0.87) = 2.35e-10 vs 2.38+-0.1 -> +0.3 sigma (stat only)

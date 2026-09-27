@@ -1146,13 +1146,14 @@
     },
     {
       "id": "CLM-O1-01",
-      "wording": "a0 = cH horizon identification (rescored from [P] to [P/O]: 5.67x discrepancy, O4 disfavours at 5.9 sigma).",
+      "wording": "a0 = cH0/2pi horizon identification (conditional: the local normalisation matches; the a0(z) = xi c H(z) extension grows too slowly for MUSE-DARK III).",
       "state": "conditional",
       "assurance_level": "literature-plus-open-problem",
       "claim_type": "phenomenological-posit",
       "formal_artifacts": [],
       "computational_artifacts": [
-        "OPEN_PROBLEMS_AND_TESTS.md"
+        "OPEN_PROBLEMS_AND_TESTS.md",
+        "03_observer_jwst/o4_muse_dark_iii_compare.py"
       ],
       "data_artifacts": [
         "02_galaxy_dynamics/A0_MEASUREMENT.json"
@@ -1164,16 +1165,16 @@
         "OPEN_PROBLEMS_AND_TESTS.md O1"
       ],
       "independent_witness": "02_galaxy_dynamics/A0_MEASUREMENT.json",
-      "limitations": "Rescored down from an earlier [P]: the identification sits at 0.46 sigma from cH0/(2pi) by itself, but the independent O4 high-z redshift test disfavours the horizon-tied a0(z) hypothesis at 5.9 sigma against constant a0. Never say 'derived from the horizon' -- see O1 quarantine language in OPEN_PROBLEMS_AND_TESTS.md.",
+      "limitations": "Never say 'derived from the horizon' -- see O1 quarantine language in OPEN_PROBLEMS_AND_TESTS.md. The O4 20-point table was WITHDRAWN 2026-09-27: it cannot be traced to its cited sources. The earlier 5.9-sigma and 2.06-sigma O4 figures are void. The real dataset is MUSE-DARK III (Ciocan+2026, arXiv:2604.22613; 79 galaxies, 0.33<z<1.44). Its published fit a0(z) = (1.00+-0.04) + (1.59+-0.10) z gives an extrapolated a0(0) consistent with cH0/2pi = 1.042 at 1 sigma. At the sample median z = 0.87, a0 proportional to H(z) under-predicts by 6.5 sigma and constant a0 by 13.4 sigma (statistical only; M/L and pressure-support systematics not assessed; no per-galaxy data release, so no independent mu_std re-fit yet).",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-O1-01 (OPEN_PROBLEMS_AND_TESTS.md O1, O4)",
       "falsifiability": {
         "test": "a0(z) = xi c H(z) vs constant a0 on independent high-z dynamical tracers",
-        "scope": "20 MUSE-DARK III / HUDF galaxies, 0.413 <= z <= 1.44, median z=0.94",
+        "scope": "MUSE-DARK III published summary fit (79 HUDF galaxies, 0.33<z<1.44, median z~0.87); the withdrawn 20-point table is not used",
         "result": "contradicted"
       },
-      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+      "last_verified_commit": "a72e947cc3d296de44d96a2d131510e53b1389af"
     },
     {
       "id": "CLM-D2-00",

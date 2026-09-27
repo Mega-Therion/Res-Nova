@@ -14,6 +14,27 @@
 
 ---
 
+**2026-09-27 UPDATE (read first; it supersedes the rows below where they conflict).**
+- **D1.** μ_std at the derived a₀ fails the Cassini external-field quadrupole (+8.7σ). The duality screening
+  S(η)=1/(1+η²) restores a pass: Cassini passes, SPARC is neutral, dwarfs survive. The covariant realisation is
+  [O], and GW170817's Shapiro delay requires it to be metric-level.
+- **D3.**
+  - γ=1 [D]; λ_s ≲ 2.2 [D].
+  - Slow-motion PPN does not define α₁/α₂ on AeST's static branch. Moving sources drag the aether, so the
+    solar-system metric is GR, α₁=α₂=0 [D, linear theory].
+  - Lifting the zero mode with c₂ is excluded: α₁ = −4c₁₄,eff, so |α₁| ≥ 2.5 against LLR's 10⁻⁴.
+  - Open [O]: β (the λ_s, K_B part) and galaxy branch selection. Spirals are undetermined; satellites are
+    dragged and therefore Newtonian, which puts Crater II in tension.
+  - Details: `TARGET_D3_ALPHA_WORKING_2026-09-27.md`.
+- **D5.** In linear cosmology the aether co-moves with the matter flow (toy): relative velocity ≲ 10⁻³ of the
+  flow by today.
+- **D6.** EP against MICROSCOPE is closed (η ≲ 4×10⁻⁴⁹).
+- **D7.** The covariant screening must be metric-level. Photon-only disformal lensing is excluded by
+  GW170817's Shapiro delay, and conformal routes give no lensing.
+- **D9.** The μ_std embedding is now derived by calculus (`SZStdEmbedding.lean`).
+- **O4.** The table is withdrawn and MUSE-DARK III now answers the question [C] (row below).
+- **Score: 4/12 [P], 7/12 [P/O], 1/12 [O]/[C] (O4).**
+
 ## 1. Completion Matrix
 
 | Target | Status | Evidence | Peer-Reviewable? |
@@ -27,7 +48,7 @@
 | **D8** Tensor Speed | ✅ [P] | c_T = c — upgraded 2026-09-12 from asserted-via-citation to structural (no TT piece in δA under minimal AeST coupling) | ✓ |
 | **D9** Skordis-Złośnik Embedding | ⚠️ [P/O] | Was ground-truth for the D7 fix, but a factor-of-2 normalization bug (μ=𝒥′ vs 2𝒥′) and ã₀≠a₀ were found and fixed in the header 2026-09-12; not yet re-verified against `SkordisZlosnikEmbedding.lean` | ⚠️ |
 | **O1** Horizon Scale | ⚠️ [P/O] | 2π KMS cancellation proved [P]; a₀=cH identification open [O] (5.67× discrepancy, consistent with the literature's own cH₀/2π≈6× framing — see §2 below; O4's 5.9σ disfavouring is itself rescored [P/O] and now SUPERSEDED: the μ_std V2 re-run (PREREG_A0_OF_Z_V2.md, A0_OF_Z_REPORT_V2.json, 2026-09-12) is INCONCLUSIVE at 2.06σ) | ⚠️ |
-| **O4** Redshift Test | ⚠️ [P/O] | H_const preferred over H_horizon, σ=√Δχ²=5.93 reproduces exactly (rescored 2026-09-12: dataset in `a0_of_z.py` is hardcoded with no provenance/fetch script — flagged by the repo's own `gate2_inference.py` as non-Gate-1-compliant; χ²/N=0.27 is under-dispersed for 0 free params; the √Δχ² formula assumes nested models, but these are two point-hypotheses with no parameter difference); JWST expansion pre-registered. **SUPERSEDED 2026-09-12: re-extracted under the live μ_std — Δχ²=+4.24, 2.06σ, INCONCLUSIVE** (V1 harness validated to 6 decimals first); sensitivity scan shows the verdict inverts across the ±30% a₀-extraction range, so the test is hostage to the SPARC a₀ central value's own extraction-μ dependence (re-extraction under μ_std required before any re-claim). The 5.9σ figure is [X]-retracted; .zenodo.json scrubbed | ⚠️ |
+| **O4** Redshift Test | ⚠️ [O]/[C] | **2026-09-27: the 20-point table is WITHDRAWN.** It cannot be traced to its cited sources: Bouché+2021 A&A 654 A49 is a 9-galaxy pilot, and "Mercier+2022 A&A 667 A75" was not found. So the in-house 5.9σ and 2.06σ results are both void. **The real data answer the question [C]:** MUSE-DARK III (Ciocan+2026, arXiv:2604.22613; 79 galaxies, 0.33<z<1.44) finds a₀(z) = (1.00±0.04)+(1.59±0.10)z ×10⁻¹⁰. The extrapolated a₀(0) matches cH₀/2π = 1.042 at 1σ. At the median z, constant a₀ is off by 13.4σ and a₀ ∝ H(z) by 6.5σ (stat. only), so a₀ grows faster than H(z). An in-house μ_std re-fit needs their per-galaxy data. See `03_observer_jwst/O4_REAL_DATA_MUSE_DARK_III_2026-09-27.md` | ⚠️ |
 | **O5** SPARC Automation | ✅ [P] | clean-clone walk closed 2026-09-09: 175/175 checksums, 0 drift (VERIFICATION_RUN_009) | ✓ |
 | **O6** Clean Reproduction | ✅ [P] | 39/39 PASS at closure; 43/43 since #39 (SU(2) envelope rungs); CI `lean-gate` green at `d130413`; gate list ≡ lakefile roots | ✓ |
 
