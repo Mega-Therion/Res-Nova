@@ -533,3 +533,31 @@ which would be O(1) and excluded by LLR (|α₁| ≲ 10⁻⁴). Recorded here wh
 2. A non-linear dwarf-in-flow solution. This decides the dSph row.
 3. The c₂ result (§29).
 4. Covariant screening at metric level only (§28).
+
+## 31. The spiral question is a loop, and it fixes a frame requirement `[D]`/`[O]`
+Two statements are true at once. The aether and scalar produce the MOND pull that holds a spiral together.
+And that pull, through the ∇²ϕ lift of §23, holds the aether still. The loop closes only if the spiral's
+bulk velocity relative to its local aether is below the threshold C·v_f of §26. For the Milky Way's
+baryonic v_f ≈ 170 km/s that threshold is ≈ 80–100 km/s.
+
+**Frame requirement.** The Milky Way moves at 560 km/s relative to the CMB. Suppose the local aether rests
+in the CMB frame. Then linear theory puts the Milky Way 5–7× past the threshold, and the Milky Way's flat
+rotation curve contradicts that.
+
+So AeST needs one of two things:
+- the aether co-moves with the local bulk flow to ≲ 100 km/s, meaning structure formation drags it on Mpc
+  scales; or
+- the non-linear regime, which linear theory cannot reach for spirals, holds the aether. §22 shows why it
+  cannot be reached: v_rel² is not ≫ |Ψ| there.
+
+Either outcome is a D5-class calculation.
+
+**Observable consequence `[O]`.** Spirals moving fast relative to a cluster's aether should lose part of
+the boost, so their outer rotation curves should fall toward Keplerian.
+- The existing evidence is contradictory. Whitmore, Forbes & Rubin 1988 (ApJ 333, 542) found falling
+  outer rotation curves for inner-cluster spirals. Dale et al. 2001 found no trend of outer shape with
+  cluster environment.
+- The discriminating design is the one used for the dwarfs: take the outer slope of the stellar (not gas)
+  rotation curve, and regress it on |Δv| relative to the cluster mean at fixed cluster-centric radius.
+  Stellar kinematics avoid ram-pressure effects on the gas. Fixing the radius separates speed-dependent
+  drag from radius-dependent tidal truncation.
