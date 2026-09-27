@@ -589,3 +589,38 @@ the boost, so their outer rotation curves should fall toward Keplerian.
   rotation curve, and regress it on |Δv| relative to the cluster mean at fixed cluster-centric radius.
   Stellar kinematics avoid ram-pressure effects on the gas. Fixing the radius separates speed-dependent
   drag from radius-dependent tidal truncation.
+
+## 32. Linear cosmology carries the aether with the matter flow `[D]` (toy), which settles §31's frame question on large scales
+File: `Research_and_Data/05_Scripts_and_Tools/cmb_aest/aether_comoving_check.py` in the Chyren repo, with output
+in `AETHER_COMOVING_CHECK.txt`. It uses the units-fixed single-species toy of `TARGET_D5` §3.5, matter era only.
+
+**Why the variable measures relative velocity.** In SZ's Newtonian-gauge variables, A_i = ∂_iα,
+θ = varphi/φ̄̇ and χ = φ̄̇(θ + α). The scalar 𝒴 = (∂χ)²/a² is the norm of ∇φ projected orthogonal to the
+aether. So χ = 0 exactly when the aether co-moves with the AeST dust, and
+
+    R(k, a) = |θ + α| / |θ| = (aether − matter relative velocity) / (matter velocity)
+
+| k [Mpc⁻¹] | R(a = 0.1) | R(a = 1) |
+|---|---|---|
+| 0.01 | 0.006–0.008 | 2–9 × 10⁻⁶ |
+| 0.03 | 0.030 | 1.9 × 10⁻⁵ |
+| 0.1 | 0.061 | 1.9 × 10⁻⁴ |
+| 0.3 | 0.067 | 1.0 × 10⁻³ |
+
+- The R(a = 1) values are the same to 3 digits for starts at a_i = 0.002 and 0.005. They hold across
+  r = 10⁻³–10⁻² and at K_B = 0.1, λ_s = 0.
+- δ/δ_CDM(a = 1) = 0.80–1.07 at a_i = 0.005, consistent with D5 §3.5.
+- The relative velocity decays roughly as a^−2.5. The aether is pulled into co-motion; it is an attractor.
+
+**Consequence.** On linear scales the aether moves with the matter flow to ≲ 10⁻³ of the flow by today. The
+Local Group's 627 km/s CMB-frame motion is dominated by k ≲ 0.1 Mpc⁻¹, so it produces an aether wind of
+≲ 0.1 km/s. **The §31 frame requirement is met on large scales.** The Milky Way's motion relative to the CMB
+does not blow through its aether.
+
+**Still open `[O]`:** motion in the non-linear regime. That includes the Milky Way inside the Local Group,
+satellites orbiting the Milky Way, and cluster members. It is what decides the spiral row (relative
+velocities of ~50–100 km/s sit near the 80–100 km/s threshold) and the dSph row.
+
+**Scope.** This is a single-species toy with no baryons, not a Boltzmann solve. With baryons, the extra
+dust–baryon relative velocity is the standard streaming velocity, which decays ∝ 1/a (Tseliakhovich &
+Hirata 2010). It is not computed here.

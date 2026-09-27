@@ -139,6 +139,10 @@ how distant clocks are synchronized.
 - For v = 370 km/s (aether at rest in the CMB frame) that is **0.998768c from behind (Pisces side) and
   1.001235c from ahead (Crater side)**. If the local aether moves with the Milky Way (v ≈ 240 km/s), the
   asymmetry is about 0.08%.
+- **Frame update (same day, D3 note 7 §32).** Linear AeST cosmology carries the aether along with the
+  large-scale matter flow, to ≲ 10⁻³ of it. The local aether therefore moves with our cosmic neighbourhood, not
+  with the CMB frame. The CMB-frame figure (0.12%) is an upper bound; the Milky Way-frame figure (~0.08%) is
+  the more likely one, and settling it is a non-linear question.
 - No light experiment can distinguish this description from Einstein's. The measurable face of the same
   asymmetry is the redshift: the CMB is 0.12% cooler behind us. Its gravitational face is α₁/α₂.
 - The GW170817 gap is untouched by either convention, because both signals were timed at one place by one
