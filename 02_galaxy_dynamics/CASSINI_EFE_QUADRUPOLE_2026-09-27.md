@@ -150,6 +150,46 @@ the κ end. The θ end of the band is excluded and the κ end admitted, at a gal
 the tier-1 median. That the transition value *should* equal a canonical constant is `[conj]`; nothing
 here derives it.
 
+## Can the transition be derived at κ? Three routes (2026-09-27)
+
+**Route 1: symmetry.** The x ↦ 1/x duality holds for every n (`MuNDuality.lean`), so it
+cannot select n. What *does* force n = 2 is **Postulate R** (`TARGET_D2_SUPPLEMENT` §3: x = sinh ψ,
+μ = tanh ψ, the Euclidean/Lorentz ℓ² structure). Cassini excludes n = 2, so **Cassini excludes
+Postulate R as the selector of μ** within two-derivative AQUAL/AeST. Postulate R was already `[O]`;
+it is now empirically disfavored in that sector.
+
+**Route 2: structural (transition = two-channel ceiling).** Setting μₙ(1) = κ = √(θ(2−θ)) gives
+n = ln 2 / (−ln κ) = 14.69. No principle in the corpus says the transition value should equal the
+saturation ceiling. The identification is **not derived** `[conj]`.
+
+**Route 3: data silhouette** — `joint_n_likelihood.py` → `JOINT_N_LIKELIHOOD.json`. Over μₙ,
+n ∈ [2, 16], at the derived a0, tier-1 nuisance, SPARC χ² rescaled by its best χ²_red (s = 6.09):
+
+| n | μ(1) | SPARC Δχ² / s (vs n = 2) | Cassini penalty ((Q₂−1.6)/1.8)² |
+|---|---|---|---|
+| 2 (μ_std) | 0.7071 | 0 | 70.0 |
+| 3 | 0.7937 | 397 | 21.1 |
+| 4 | 0.8409 | 702 | 6.2 |
+| 5 | 0.8706 | 917 | 1.8 |
+| 8 | 0.9170 | 1246 | 0.0 |
+| 14.5 (≈ κ) | 0.9533 | 1432 | 0.2 |
+
+**Galaxies prefer the smooth transition (n = 2) by Δχ²/s ≈ 700–1400 over any Cassini-passing n.**
+The Cassini objection to n = 2 is 70. Taken at face value, the joint likelihood lands on n = 2 and
+accepts the Cassini tension. So the "+4% tier-1 median" cost quoted above understates the price:
+in total χ², the sharp shapes are strongly disfavored by SPARC.
+
+**Verdict.** Neither the symmetry nor the data places the transition at κ. Within the ℓⁿ family
+the two datasets genuinely conflict: galaxies want n ≈ 2, the solar system wants n ≳ 4.4. This is
+the Desmond tension, now quantified at the derived a0. The resolution this points to is **not** a
+sharper μ. It is **μ_std-like behaviour in galaxies plus a separate suppression in the solar
+system**, i.e. `TARGET_D7` §4.4 Branch B (higher-derivative screening) or another environment-
+dependent mechanism. That is now the leading open item `[O]`.
+
+Caveat: 3,375 SPARC points are treated as independent after rescaling. Shape-dependent systematics
+(disk geometry, distances, inclinations) could shrink the SPARC preference. Cassini is a single,
+cleaner measurement.
+
 ## Sources
 - Cassini 2026, *Improved constraints on modified Newtonian gravity from Cassini radio tracking data* — https://arxiv.org/abs/2602.17884
 - Hees, Famaey, Angus, Gentile, *Combined Solar System and rotation curve constraints on MOND*, MNRAS 455, 449 (2016) — https://arxiv.org/abs/1510.01369

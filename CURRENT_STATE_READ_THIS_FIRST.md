@@ -57,7 +57,11 @@ one place, unambiguous, checked first, every time.
   μ_std 3.36/6.09). Against the tighter 2026 Cassini bound (1.6 ± 1.8)×10⁻²⁷, μ_std is +8.7σ.
   AeST does not escape: it reduces to AQUAL (`sz_aqual_reduction`), and QUMOND underestimates
   AQUAL Q₂. μ_std stays the live function, but it is **not** solar-system-clean once the EFE is
-  included. The only open door is higher-derivative screening [O]. See
+  included. In total χ², SPARC prefers n = 2 over any Cassini-passing n by Δχ²/s ≈ 700–1400
+  (the Cassini penalty on n = 2 is 70), so a sharper μ is **not** the fix. Keep μ_std-like
+  behaviour in galaxies and find a solar-system suppression: higher-derivative screening
+  (`TARGET_D7` §4.4 Branch B) or an environment-dependent mechanism [O]. Cassini also
+  disfavors Postulate R as the selector of μ (it forces n = 2). See
   `02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md`.
 - If you see μ(x)=x/(1+x) — or F_dual = x²/2 − x + ln(1+x) — anywhere in a source you're
   reading, that source predates 2026-09-12's correction and its physics content is void.
