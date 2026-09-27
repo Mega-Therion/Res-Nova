@@ -39,15 +39,22 @@ def summ(c, k, n):
     return {"median": float(np.median(red)), "agg": float(sum(c) / max(sum(n) - sum(k), 1)), "under2": int((red < 2).sum())}
 
 gals = load(resolve_sparc_dir(None)); n = [len(g["r"]) for g in gals]
-res = {}
-print(f"derived a0 {A0_DERIVED:.4e}; Cassini 1-sigma window Q2 in [0, 6]e-27 s^-2; g_e = 1.9e-10 / 2.4e-10")
-print(f"{'function':10s} {'Q2(1.9)':>8s} {'Q2(2.4)':>8s} {'Cassini':>8s} | {'t0 med':>7s} {'t0 agg':>7s} | {'t1 med':>7s} {'t1 agg':>7s}")
-for name, nu in FUN.items():
-    q19, _ = Q2(nu, A0_DERIVED, 1.9e-10); q24, _ = Q2(nu, A0_DERIVED, 2.4e-10)
-    ok = "PASS" if max(q19, q24) <= 6e-27 else ("edge" if min(q19, q24) <= 6e-27 else "FAIL")
-    row = {"Q2_ge1.9": q19, "Q2_ge2.4": q24, "cassini": ok}
-    for tier in (0, 1):
-        c, k = zip(*[fit(g, nu, A0_DERIVED, tier) for g in gals]); row[f"tier{tier}"] = summ(c, k, n)
-    res[name] = row
-    print(f"{name:10s} {q19*1e27:8.2f} {q24*1e27:8.2f} {ok:>8s} | {row['tier0']['median']:7.2f} {row['tier0']['agg']:7.2f} | {row['tier1']['median']:7.2f} {row['tier1']['agg']:7.2f}", flush=True)
-json.dump(res, open("CASSINI_SPARC_JOINT.json", "w"), indent=1)
+
+
+def main():
+    res = {}
+    print(f"derived a0 {A0_DERIVED:.4e}; Cassini 1-sigma window Q2 in [0, 6]e-27 s^-2; g_e = 1.9e-10 / 2.4e-10")
+    print(f"{'function':10s} {'Q2(1.9)':>8s} {'Q2(2.4)':>8s} {'Cassini':>8s} | {'t0 med':>7s} {'t0 agg':>7s} | {'t1 med':>7s} {'t1 agg':>7s}")
+    for name, nu in FUN.items():
+        q19, _ = Q2(nu, A0_DERIVED, 1.9e-10); q24, _ = Q2(nu, A0_DERIVED, 2.4e-10)
+        ok = "PASS" if max(q19, q24) <= 6e-27 else ("edge" if min(q19, q24) <= 6e-27 else "FAIL")
+        row = {"Q2_ge1.9": q19, "Q2_ge2.4": q24, "cassini": ok}
+        for tier in (0, 1):
+            c, k = zip(*[fit(g, nu, A0_DERIVED, tier) for g in gals]); row[f"tier{tier}"] = summ(c, k, n)
+        res[name] = row
+        print(f"{name:10s} {q19*1e27:8.2f} {q24*1e27:8.2f} {ok:>8s} | {row['tier0']['median']:7.2f} {row['tier0']['agg']:7.2f} | {row['tier1']['median']:7.2f} {row['tier1']['agg']:7.2f}", flush=True)
+    json.dump(res, open("CASSINI_SPARC_JOINT.json", "w"), indent=1)
+
+
+if __name__ == "__main__":
+    main()

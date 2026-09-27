@@ -53,8 +53,11 @@ one place, unambiguous, checked first, every time.
   Cassini bounds it at (3 ± 3)×10⁻²⁷ s⁻². With Milgrom's exact QUMOND formula (validated against
   Hees et al. 2016 Table 2 to 3 digits) at the derived a0, **μ_std gives Q₂ = 1.7×10⁻²⁶: excluded
   at ~4.6σ.** The McGaugh RAR fails at 8–11σ. Only sharp-transition functions (ν_n with n ≳ 5,
-  ν̄_α with α ≳ 5) pass, and they fit SPARC worse. μ_std stays the live function, but it is **not**
-  solar-system-clean once the EFE is included. AeST was not computed [O]. See
+  ν̂_α with α ≳ 4) pass, and they fit SPARC worse (best passer ν̂₄: tier-1 median/agg 3.51/7.57 vs
+  μ_std 3.36/6.09). Against the tighter 2026 Cassini bound (1.6 ± 1.8)×10⁻²⁷, μ_std is +8.7σ.
+  AeST does not escape: it reduces to AQUAL (`sz_aqual_reduction`), and QUMOND underestimates
+  AQUAL Q₂. μ_std stays the live function, but it is **not** solar-system-clean once the EFE is
+  included. The only open door is higher-derivative screening [O]. See
   `02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md`.
 - If you see μ(x)=x/(1+x) — or F_dual = x²/2 − x + ln(1+x) — anywhere in a source you're
   reading, that source predates 2026-09-12's correction and its physics content is void.
