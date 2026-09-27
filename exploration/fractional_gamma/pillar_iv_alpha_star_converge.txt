@@ -1,0 +1,13 @@
+alpha=0.65 N=  800 h=0.0250 sup=0.68164 x*=0.952 sup-theta=-0.02547
+alpha=0.65 N= 1600 h=0.0125 sup=0.68356 x*=1.357 sup-theta=-0.02355
+alpha=0.65 N= 3200 h=0.0063 sup=0.68538 x*=1.692 sup-theta=-0.02173
+alpha=0.65 N= 6400 h=0.0031 sup=0.68646 x*=1.684 sup-theta=-0.02064
+alpha=0.70 N=  800 h=0.0250 sup=0.70488 x*=1.095 sup-theta=-0.00223
+alpha=0.70 N= 1600 h=0.0125 sup=0.70929 x*=1.467 sup-theta=+0.00219
+alpha=0.70 N= 3200 h=0.0063 sup=0.71162 x*=1.459 sup-theta=+0.00451
+alpha=0.70 N= 6400 h=0.0031 sup=0.71254 x*=1.455 sup-theta=+0.00543
+alpha=0.75 N=  800 h=0.0250 sup=0.73130 x*=1.333 sup-theta=+0.02419
+alpha=0.75 N= 1600 h=0.0125 sup=0.73706 x*=2.103 sup-theta=+0.02995
+alpha=0.75 N= 3200 h=0.0063 sup=0.74391 x*=2.092 sup-theta=+0.03680
+alpha=0.75 N= 6400 h=0.0031 sup=0.74683 x*=2.085 sup-theta=+0.03972
+alpha=0.70 T=40 N=6400 sup=0.71297 x*=1.874
