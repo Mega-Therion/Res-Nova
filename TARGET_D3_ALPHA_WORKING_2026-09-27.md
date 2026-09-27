@@ -624,3 +624,35 @@ velocities of ~50–100 km/s sit near the 80–100 km/s threshold) and the dSph 
 **Scope.** This is a single-species toy with no baryons, not a Boltzmann solve. With baryons, the extra
 dust–baryon relative velocity is the standard streaming velocity, which decays ∝ 1/a (Tseliakhovich &
 Hirata 2010). It is not computed here.
+
+## 33. β on the dragged branch: the setup, and why it may be decisive `[D]` power counting / `[O]` coefficient
+
+**What drops out.** On the dragged branch S = 0 and δ𝒬 = 0 at first order (§13). The scalar (MOND) channel
+is unsourced, so the scalar's contribution to β (the "λ_s part" of `TARGET_D3` §8) is absent for moving
+sources at this order.
+
+**What survives.** The first-order aether response is a pure gradient. From δ𝒬 = 0 and S = 0,
+δu + h₀ᵢ = −∇φ̃/𝒬₀ ≡ ∇Λ, with |δu| ≈ U/v. That is exactly the zero-mode direction, so it carries no
+quadratic-order energy: F_ij = 0, 𝒴 = |S|² = 0, δ𝒬 = 0. The second-order metric can therefore be sourced
+only through couplings the static residual symmetry does not protect:
+1. the unit-norm correction A₀ ⊃ ½|δu|² ~ U²/(2v²), which feeds F₀ᵢ and 𝒬 at second order (enhanced by 1/v²);
+2. time-derivative terms, ∂_tδu ~ v·∇δu ~ U (not enhanced).
+
+**Expansion parameter.** It is ε = U/v², the same quantity as §22's linear-validity criterion.
+
+| location | ε, aether in the Milky Way frame (240 km/s) | ε, aether in the CMB frame (370 km/s) |
+|---|---|---|
+| solar surface | 3.3 (non-linear) | 1.4 (non-linear) |
+| Mercury | 0.040 | 0.017 |
+| Earth | 0.015 | 0.0065 |
+| Saturn | 0.0016 | 0.0007 |
+
+§32 favours the Milky Way frame.
+
+**Stakes.** Suppose the enhanced terms of item 1 survive with an O(K_B) coefficient. Then the 1PN metric
+picks up non-PPN corrections of relative size ~K_B·ε. That is about 4×10⁻³ at Mercury for K_B = 0.1, against
+the planetary-ephemeris bound |β − 1| ≲ 10⁻⁴. If instead they cancel (for example because the full nonlinear
+static sector retains the residual symmetry), β reduces to its GR value on the dragged branch. **This single
+coefficient decides whether AeST's dragged solar system passes perihelion and ranging tests.** It is the
+next D3 computation: second-order perturbation theory about the dragged first-order solution, keeping the
+unit-norm constraint to O(ε²).
