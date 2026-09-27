@@ -176,4 +176,4 @@ python3 shapiro_gw170817_mond.py
 - Greene et al. 2013; Rusu et al. 2017, MNRAS 467, 4220 (H0LiCOW III), arXiv:1607.01047.
 - Secrest et al. 2021, ApJL 908, L51; Bashir, Chingangbam & Appleby, arXiv:2511.00822.
 - Pace 2025, LVDB (CC0).
-- Nagel et al. 2015, Nat. Commun. 6, 8174, arXiv:1412.6954; Herrmann et al. 2009, PRD 80, 105011, arXiv:1002.1284.
+- Nagel et al. 2015, Nat. Commun., arXiv:1412.6954; Herrmann et al. 2009, PRD, arXiv:1002.1284.
