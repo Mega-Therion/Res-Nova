@@ -114,6 +114,19 @@ treatment. PASS means Q₂ ≤ 5.2×10⁻²⁷ (2σ, 2026 bound) at both g_e = 1
   the tier-1 aggregate, relative to μ_std** (ν̂₄: 3.51 / 7.57 vs 3.36 / 6.09).
 - Passing sits at the sharp end of every family (ν_n with n ≳ 5, ν̂_α with α ≳ 4).
 
+**Derived vs literature a0 under the passing shape (ν̂₄):**
+
+| shape | a0 | Q₂ max | σ (2026) | tier 0 median | tier 1 median / agg |
+|---|---|---|---|---|---|
+| ν̂₄ | **derived 1.042e-10** | 4.9 | **+1.8 (passes 2σ)** | 12.45 | 3.51 / 7.57 |
+| ν̂₄ | literature 1.2e-10 | 8.3 | **+3.7 (fails)** | 12.18 | 3.53 / 7.47 |
+| μ_std | derived | 17.2 | +8.7 | 11.08 | 3.36 / 6.09 |
+| μ_std | literature | 20.9 | +10.7 | 9.93 | 3.41 / 6.03 |
+
+Under the Cassini-passing shape, **the derived a0 passes Cassini and the literature a0 does not**.
+Their SPARC fits are tied (tier-1 median 3.51 vs 3.53). Q₂ grows with a0 (∝ a0^{3/2} q(η)), so the
+smaller horizon-derived value is the one the solar system admits.
+
 ## Sources
 - Cassini 2026, *Improved constraints on modified Newtonian gravity from Cassini radio tracking data* — https://arxiv.org/abs/2602.17884
 - Hees, Famaey, Angus, Gentile, *Combined Solar System and rotation curve constraints on MOND*, MNRAS 455, 449 (2016) — https://arxiv.org/abs/1510.01369
