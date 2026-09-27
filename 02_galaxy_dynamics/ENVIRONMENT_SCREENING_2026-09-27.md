@@ -54,6 +54,25 @@ strength to the critical acceleration."
   `[O]`. It is nonlocal in the same sense the standard EFE already is.
 - QUMOND quadrupole; the g_ext bracket 1.9–2.4×10⁻¹⁰ follows Hees 2016.
 
+## 3b. Per-galaxy test with shuffled controls — `environment_screening_pergalaxy.py`
+
+Per-galaxy η from Chae et al. 2020 Table 2 (`e_env`, set by large-scale structure and
+independent of the rotation curves; parsed to `CHAE2020_EXTERNAL_FIELDS.json`), rescaled to the
+derived a0. There are 144 matched galaxies, with η from 0.013 to 0.066 (median 0.038).
+
+| assignment | total χ² | tier-1 median | Δχ²/s vs unscreened |
+|---|---|---|---|
+| unscreened | 17241.9 | 3.132 | 0 |
+| **true η (per galaxy)** | 17152.7 | 3.075 | **−14.7** |
+| uniform η = median | 17141.3 | 3.079 | −16.5 |
+| η shuffled among galaxies (20×) | 17133.6 ± 27.8 | — | true − shuffled = +3.1 (sd 4.6) |
+
+**75% of shuffles do at least as well as the true assignment.** SPARC does **not** detect the
+environment-dependence. The fields span too narrow a range (S = 0.93–0.99) to give leverage, and the
+small gain is the weaker-boost effect. The standing result is limited to this: environmental
+screening passes Cassini **at no cost to galaxies**. Galaxies neither confirm nor refute the
+environment dependence.
+
 ## 4. Predictions (testable, not computed here)
 - **Wide binaries near the Sun** (η ≈ 2): the MOND boost is cut to ~10% of the unscreened value.
   That is consistent with the 2026 Gaia null results.
