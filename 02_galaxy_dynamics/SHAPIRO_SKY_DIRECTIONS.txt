@@ -1,0 +1,13 @@
+source at 40 Mpc; M_b = 6e10 Msun (Plummer 3 kpc), g_e = 0.02 a0, a0 = 1.042e-10
+direction                        constellation  baryons (d) phantom (d) total (d)
+toward Galactic Centre           Sagittarius             82         149       231
+Galactic anti-centre             Auriga                  58         137       195
+north Galactic pole              Coma Berenices          62         142       204
+ahead of our motion (CMB apex)   Crater                  62         142       204
+behind us (CMB anti-apex)        Pisces                  63         142       205
+Great Attractor                  Centaurus               68         146       214
+GW170817 / NGC 4993              Hydra                   67         145       212
+
+Aether-frame one-way light speed (Sun at 369.82 km/s vs CMB frame; round trip = c exactly):
+  light arriving from behind (catching up): c/(1+v/c) = 0.998768 c
+  light arriving from ahead  (head-on):     c/(1-v/c) = 1.001235 c
