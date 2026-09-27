@@ -503,6 +503,8 @@ and not §8.2 carries the binding constraint.
 
 ### 8.3 α₁, α₂: the Foster–Jacobson formulas are **not applicable** at AeST's couplings [D]+[C]
 
+> **UPDATE 2026-09-27 (`TARGET_D3_ALPHA_WORKING_2026-09-27.md` §9–11):** the explicit linear AeST spectrum (reproducing SZ PRD 106, 104041) keeps an ω = 0 static-residual-symmetry mode *and* adds a separate massive scalar mode. So "φ fills the spin-0 gap" is not borne out at linear order, and α₁/α₂ are **not defined** by standard slow-motion PPN in AeST (the limit is non-uniform). Branch selection is open.
+
 > **CONVENTION CORRECTION 2026-09-27** (`TARGET_D3_ALPHA_WORKING_2026-09-27.md` §1–2): in the convention where G_N = G/(1−c₁₄/2) holds, the map that reproduces AeST's own G_N = (1+1/λ_s)Ĝ is **c₁ = −c₃ = K_B** (not K_B/2), together with an effective longitudinal c₄ = (2−K_B)/(1+λ_s) from integrating out φ. The verdict below (FJ not applicable, α₂ divergent at c₁₂₃ = 0) is unchanged. The numerical readings (α₁ = −2K_B, K_B ≲ 5×10⁻⁵) shift by a factor 2 and remain heuristics.
 
 

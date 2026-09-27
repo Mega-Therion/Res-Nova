@@ -92,6 +92,8 @@ and 𝒬, √𝒴 are inverse lengths (SZ quote 𝒬₀ in Mpc⁻¹, 𝒦₂ dim
 - 𝒦₂φ̇² and (∇φ)² both in length⁻².
 
 ## 7. New `[D]`+`[O]`: at SZ's CMB parameters the scalar is slow, and the Sun may be supersonic
+
+> **CORRECTION (same day, see §9):** the table below uses the **FLRW** formula (2−K_B)(1+λ_s)/(2𝒦₂). The local **Minkowski** scalar speed, from SZ PRD 106, 104041 (2022) and reproduced by our pipeline, is c_s² = (2−K_B)(1+½K_Bλ_s)/(𝒦₂K_B). That gives **600–747 km/s and a solar Mach of 0.50–0.62**: subsonic, not supersonic. The PPN-validity concern is weakened to "(v/c_s)² ≈ 0.25–0.4, a poorly convergent expansion". The Cherenkov question stands (c_s ≈ 2×10⁻³ c).
 The quadratic φ action about the aether rest frame is +2𝒦₂φ̇² − (2−K_B)(1+λ_s)(∇φ)², using
 −ℱ ⊃ +2𝒦₂δ𝒬² since 𝒦 = −ℱ(0,𝒬)/2 = … + 𝒦₂δ𝒬². So
 
@@ -125,3 +127,49 @@ Consequences:
    field and the 𝒦₂ term. State that they apply only if c_s ≫ v☉.
 2. Treat the transonic case explicitly (moving-source Green's function with c_s ~ v).
 3. Estimate AeST's gravi-Cherenkov emission rate for cosmic rays and the Sun against EMS-type bounds.
+
+
+---
+
+# Working note 3 (same day): AeST pipeline, spectrum reproduced, static residual symmetry
+
+## 9. The AeST pipeline and three independent validations `[D]`
+`exploration/d3_alpha/aest_ppn_pipeline.py` adds the AeST scalar to the validated EA pipeline
+(c₁ = −c₃ = K_B from the Maxwell term). φ = 𝒬₀t + φ̃ and the aether normalization are built
+perturbatively to second order, so terms like 𝒬₀·J⁰₍₂₎ are captured.
+1. **Foster–Jacobson reproduced** (EA pipeline, generic c's): α₁, α₂ exact.
+2. **Static source reproduces SZ's G_N:** h₀₀ ∝ 16πG(1+λ_s)/[λ_s(2−K_B)k² − 2𝒦₂𝒬₀²(1+λ_s)], i.e.
+   G_N = (1+1/λ_s)G̃/(1−K_B/2) at 𝒬₀ → 0, with a Yukawa mass ∝ 𝒬₀.
+3. **Minkowski spectrum reproduced:** det of the linear system =
+   ω²(k²−ω²)⁷ × [massive luminal vector] × [2𝒦₂K_Bω² − (2−K_B)((2+K_Bλ_s)k² + 2𝒦₂𝒬₀²(1+λ_s))].
+   This matches SZ PRD 106, 104041, eq. (det U) factor for factor:
+   ω² = 0, and ω² = c_s²k² + ℳ² with **c_s² = (2−K_B)(1+½K_Bλ_s)/(𝒦₂K_B)**.
+
+## 10. The ω = 0 factor is a static residual symmetry (tested) `[D]`
+The linearized AeST equations are **exactly invariant** under a static longitudinal aether shift
+with compensating scalar shift, δu_i → δu_i + ∂_iΛ(x), φ̃ → φ̃ − 𝒬₀Λ(x), for ∂_tΛ = 0. All 10 field
+equations are unchanged (`aest_symmetry.py`). A time-dependent Λ breaks it, with changes ∝ ∂_tΛ.
+This is SZ's published "nonpropagating mode with linear time dependence" (their field Y, ω = 0),
+which they show may have an unbounded Hamiltonian for k < μ ≲ Mpc⁻¹. **It is known, not new.**
+
+## 11. Consequence for α₁, α₂ `[D]`, stated narrowly
+- For a source moving at any v ≠ 0, the linear solution excites the static-symmetry direction with
+  amplitude ∝ 1/ω: the aether is dragged (δu ∝ U/v), the scalar locks (δ𝒬 = 0), and the metric
+  reduces to GR's with G̃. For v = 0 exactly, the static branch (SZ's G_N) holds. **The slow-motion
+  limit is non-uniform.**
+- Therefore **α₁ and α₂ are not defined by the standard PPN slow-motion expansion in linearized AeST
+  about Minkowski + 𝒬₀.** This is a derived non-applicability result for D3's α item. It sharpens
+  §8.3, where the FJ formulas diverge at c₁₂₃ = 0, into a statement about AeST itself.
+- **What linear Minkowski theory does NOT decide:** whether real systems sit on the held (static)
+  branch or the dragged branch. The candidates that decide it are Hubble friction on FLRW (the zero
+  mode's growth rate is set on cosmological time), the non-linear 𝒥(𝒴) regime, and how the aether
+  frame is established. **This is NOT a claim that AeST loses MOND for moving sources.**
+- **§8.3's "φ fills the spin-0 gap" is not borne out at linear order:** the determinant keeps the
+  ω = 0 mode *and* adds a separate massive scalar mode. φ supplies a new mode; it does not lift
+  the zero mode.
+
+## 12. Next
+1. Repeat on FLRW (Hubble friction) to see whether the zero mode picks a branch on cosmological time.
+2. Gravi-Cherenkov estimate for the c_s ≈ 2×10⁻³ c massive scalar (EMS-type bound) `[O]`.
+3. Until then, D3's α₁/α₂ entry reads: "not defined by standard PPN in AeST (static residual
+   symmetry, SZ 2022); the branch selection is open."
