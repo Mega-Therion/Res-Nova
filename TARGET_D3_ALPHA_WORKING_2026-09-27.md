@@ -239,3 +239,74 @@ mode) makes the limit non-uniform. On the branch that linear theory selects for 
 metric is GR (α₁ = α₂ = 0) and the MOND channel is unsourced. Whether bound systems actually sit on that
 branch depends on the constrained lift (in progress), the velocity reference frame and the non-linear
 regime `[O]`.
+
+---
+
+# Working note 5 (same day): the constrained zero-mode lift reproduces SZ's k*, and splits the problem by scale
+
+## 18. Constrained dispersion with the 𝒬 sector off its minimum `[D]`
+`aest_dispersion_offset.py`: the full constrained linear system (metric, aether, scalar), with background
+φ = (𝒬₀ + q̄)t so that ℱ_𝒬 ≠ 0. Factors of the determinant:
+- (k ± ω)⁴: luminal;
+- (k² − ω² − 4𝒦₂q̄(𝒬₀+q̄)): the background is not an exact solution (a tadpole). This factor reflects the
+  graviton sector seeing the uncompensated condensate stress, or the condensate's gravitational
+  response. **Not interpreted.**
+- the massive vector factor;
+- one factor quartic in ω², containing the scalar mode and the former ω = 0 branch.
+
+**The former zero mode is lifted.** To leading order in q̄ (`offset_zero_branch.py`):
+
+    ω_L² = 𝒦₂𝒬₀q̄ (2−K_B) λ_s (k² − k*²) / [(2+K_Bλ_s)k² + (2−K_B)(1+λ_s)μ²],
+    μ² = 2𝒦₂𝒬₀²/(2−K_B),   k*² = (1+λ_s)μ²/λ_s .
+
+**This reproduces SZ's k* and their Y-mode sign flip** (PRD 106, 104041: H_Y ∝ λ_s(1 − k*²/k²)|P_Y|²),
+which is an independent consistency check on both calculations. The frozen-metric trial direction
+(note 4) had no k* and overstated the restoring force. The constrained/frozen ratio at k → ∞ is
+(2−K_B)λ_sK_B/[2(2+K_Bλ_s)] ≈ 0.15 at λ_s = 1.
+
+**Physical reading `[D]`.** 𝒦₂𝒬₀q̄ = 4πGρ_φ, where ρ_φ is the energy density the condensate carries off its
+minimum (T₀₀ = (1/16πG)·4𝒦₂𝒬₀q̄ at small q̄). So:
+- **k > k*:** a restoring force, with ω_L² → 4πGρ_φ·(2−K_B)λ_s/(2+K_Bλ_s);
+- **k < k*:** ω_L² < 0 for q̄ > 0. The zero mode grows at the condensate's Jeans rate √(4πGρ_φ)
+  (k ≪ k*), i.e. **gravitational clustering of AeST's dust-like condensate**, not a new pathology.
+In a potential well on Minkowski, q̄ = −𝒬₀Ψ.
+
+## 19. Branch criterion, constrained (`branch_criterion_constrained.py`; SZ Cosh values, λ_s ∈ {0.3, 1, 2.2})
+
+| system | scale vs 1/k* (4.8–8.3 kpc) | R = ω_L/(kv) | branch |
+|---|---|---|---|
+| Sun, EFE region (7000 AU) | ≪ | 1.4–4.9 ×10⁻⁶ (either velocity frame) | **dragged** |
+| wide binary (0.05 pc) | ≪ | 2.1–7.2 ×10⁻⁶ | **dragged** |
+| Fornax-like dSph (1 kpc) | < | 0.015–0.12 | **dragged** |
+| field SPARC dwarf (5 kpc) | ~ | 0.055–0.54 or Jeans regime | dragged / marginal |
+| Milky Way disk, L* spirals (10–15 kpc) | > | — | **k < k*: no restoring force (Jeans regime)** |
+
+- The small-system rows are robust to every O(1) factor in play: the velocity frame, λ_s, the
+  frozen-vs-constrained correction and |Ψ| inputs.
+- The galaxy rows are **not decided by this linear criterion**. At their scale, the zero mode's dynamics is
+  the condensate's gravitational (Jeans) growth. The branch is set by non-linear structure formation,
+  which is `TARGET_D5`'s open item.
+
+## 20. What is and is not claimed
+**Claimed `[D]` (linearized AeST about a locally static condensate):**
+- a uniformly moving source leaves the MOND channel unsourced (aether free fall, J = 0; S = 0; δ𝒬 = 0;
+  GR metric, α₁ = α₂ = 0);
+- the only thing that resists this is the constrained lift above;
+- for systems much smaller than 1/k* and moving at hundreds of km/s, that resistance is too weak by
+  10⁵–10⁶ (solar system, wide binaries), or by 10–60 (dSph-scale).
+
+**Conditional `[O]` — IF this linear branch structure survives AeST's non-linear MOND regime:**
+- (i) the Sun's scalar response is unsourced, so there is no Cassini EFE quadrupole, and wide binaries are
+  Newtonian, both consistent with observation and requiring no new operators;
+- (ii) dwarf spheroidals would be close to Newtonian, in tension with their observed velocity
+  dispersions — a candidate falsifier of AeST itself (the condensate does not cluster below its Jeans
+  scale);
+- (iii) spirals are governed by the condensate's clustering dynamics (D5).
+**None of (i)–(iii) is a result yet.**
+
+**Held, superseded or reframed:**
+- note 4's frozen-metric table is superseded by §19.
+- The Ψ > 0 "void instability" is reframed. The constrained lift is ∝ q̄(k²−k*²), so where the local
+  δ𝒬 = q̄ < 0 the k > k* zero mode would be gradient-unstable. Whether cosmological voids realize
+  δ𝒬 < 0 locally (δ𝒬 = δ𝒬̄_dust − 𝒬₀Ψ, with δ𝒬̄_dust ≈ 3H₀²Ω_c/(2𝒦₂𝒬₀) > 0) needs the FLRW treatment.
+  **Still held.**
