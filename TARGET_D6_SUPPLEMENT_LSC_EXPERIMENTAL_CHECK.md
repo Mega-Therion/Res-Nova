@@ -62,6 +62,24 @@ c. **EP implications.** Minimal coupling under environmental screening: the pred
    Eötvös-parameter contributions should be derived and compared to MICROSCOPE (η ≲ 10⁻¹⁵);
    expected suppressed, but it is a free consistency check.
 
+### 4c — CLOSED 2026-09-27 `[D]` (order of magnitude)
+
+**Tree level: η = 0 exactly.** AeST couples all matter minimally to one metric (`TARGET_D7` §0,
+"minimal matter coupling"), so free fall is composition-independent. The WEP holds identically
+at tree level. A composition dependence can enter only through the bodies' **gravitational
+self-energy**, which is Nordtvedt/SEP-type, multiplied by the scalar's residual coupling in the
+ambient field.
+
+- At the MICROSCOPE orbit (710 km): g = 7.95 m/s², so x = g/a0 = 7.6×10¹⁰ (derived a0). The μ_std
+  scalar residual is suppressed by 1/(2x²) = **8.6×10⁻²³**.
+- Test-mass self-energy fractions (3/5)Gm/(Rc²): Pt/Rh (≈0.40 kg, R ≈ 2 cm) 8.9×10⁻²⁷ and
+  Ti (≈0.30 kg, R ≈ 3 cm) 4.5×10⁻²⁷. The difference is ≈ 4.5×10⁻²⁷.
+- **η ≲ 4.5×10⁻²⁷ × 8.6×10⁻²³ ≈ 4×10⁻⁴⁹**, against MICROSCOPE's final
+  η(Ti,Pt) = (−1.5 ± 2.3 ± 1.5)×10⁻¹⁵ (Touboul et al. 2022, PRL 129, 121102).
+
+**Margin: ~34 orders of magnitude.** Item 4c is closed at the order-of-magnitude level. Items 4a
+(the covariant screening profile) and 4b (meV quantum effects) remain `[O]`.
+
 ## 5. Bottom line
 
 - The 2026-09-12 unit-error correction (7.25 orders) changed **why** the theory is safe, not

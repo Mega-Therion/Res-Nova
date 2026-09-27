@@ -181,6 +181,7 @@ Both `TARGET_D7` §5 conditions hold **identically** (sympy; spot-checked numeri
 | Hamilgrangian split | clean two-term split | **found in ψ, not x**: $\tfrac14\sinh2\psi$ (bulk) $-\psi/2$ (counter-term); reading [O] | **[D]** structure (RE-RUN) |
 | AeST transplant, $\mathcal{J}(\mathcal{Y})$ | tracking branch, constant residual $\ge a_0$ | $\mathcal J'=\lambda_s\mu_{\rm std}(\sqrt{\mathcal Y}/a_0)$; residual $\to0$ as $1/x^2$, exact solve confirms $a_0^2/(2\hat g)$ | **[D] survives** (RE-RUN) |
 | Solar-system bound | **violated by $5.7\times10^5$** | **cleared by $\sim1300\times$** at Mercury | **[D] $\mu_{\rm std}$ survives, $\mu_{\rm dual}$ does not** |
+| **↳ CORRECTION 2026-09-27** | — | the 1300× is the isolated-Sun **monopole** only; with the Milky Way external field, the Cassini EFE quadrupole excludes μ_std at the derived a0 (+8.7σ vs the 2026 bound) | see `02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md`; duality screening restores a pass (`DWARF_SCREENING_TEST_2026-09-27.md`) |
 | Ghost-free in AeST | [D] | [D] **identically**: $\mathcal J'>0$, $\mathcal J''>0$, $\mathcal J'+2\mathcal Y\mathcal J''>0$ ∀𝒴>0 — **closes the D6 pending re-check** | [D] both (RE-RUN) |
 
 ---

@@ -112,6 +112,10 @@ MuNDuality.lean                  # ADDED 2026-09-27. l^n family mu_n(x)=x/(1+x^n
                                  # mu_n(1)=2^(-1/n). Not a manuscript result: it records
                                  # that the x->1/x duality does not select n=2. See
                                  # 02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md.
+SZStdEmbedding.lean              # ADDED 2026-09-27. D9 on the live branch: F_std = (x sqrt(1+x^2) - arsinh x)/2,
+                                 # J_std(Y) = F_std(sqrt Y), and HasDerivAt proofs that F' = x mu_std and
+                                 # 2 J' = mu_std (derived, replacing the definitional sz_std_aqual_reduction).
+                                 # Sabotage (mu/3) fails. Adjacent: supports D9, not a Table 2 result.
 
 # --- Information-theoretic spectral bounds ---
 # Not anchored to physics: RamanujanGapDerivation derives the spectral gap of a
