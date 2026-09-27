@@ -503,6 +503,9 @@ and not §8.2 carries the binding constraint.
 
 ### 8.3 α₁, α₂: the Foster–Jacobson formulas are **not applicable** at AeST's couplings [D]+[C]
 
+> **CONVENTION CORRECTION 2026-09-27** (`TARGET_D3_ALPHA_WORKING_2026-09-27.md` §1–2): in the convention where G_N = G/(1−c₁₄/2) holds, the map that reproduces AeST's own G_N = (1+1/λ_s)Ĝ is **c₁ = −c₃ = K_B** (not K_B/2), together with an effective longitudinal c₄ = (2−K_B)/(1+λ_s) from integrating out φ. The verdict below (FJ not applicable, α₂ divergent at c₁₂₃ = 0) is unchanged. The numerical readings (α₁ = −2K_B, K_B ≲ 5×10⁻⁵) shift by a factor 2 and remain heuristics.
+
+
 AeST's vector sector is exactly the Maxwell combination (D7 §6 step 3):
 
 $$c_1=\tfrac{K_B}{2},\quad c_3=-\tfrac{K_B}{2},\quad c_2=c_4=0
