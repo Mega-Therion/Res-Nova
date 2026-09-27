@@ -129,14 +129,14 @@ linear MPS window. **Never substitute c_ad for a propagation speed.**
 
 | Target | Status | One-line state |
 |---|---|---|
-| D1 | [P] | Variational derivation — needs re-check against μ_std (in progress) |
-| D2 | [P/O] | μ_std structural uniqueness exists; not yet Lean-formalized clean |
+| D1 | [P] | μ_std rebuild **complete** (`TARGET_D1_SUPPLEMENT`, re-run 2026-09-12); its '1300× solar-system clear' is monopole-only — EFE quadrupole fails at derived a0, duality screening restores a pass (2026-09-27) |
+| D2 | [P/O] | μ_std uniqueness rests on Postulate R, which forces n=2 and is **Cassini-disfavored** (2026-09-27); the x↦1/x duality holds for every n (`MuNDuality.lean`) so symmetry cannot select μ; galaxies select n≈2 phenomenologically (Δχ²/s 700–1400). Derivation of μ remains [O] |
 | D3 | [P/D/O] | γ=1 derived [D]; **binding bound λ_s ≲ 2.2 [D]** from Saturn perihelion precession (Hees et al. 2014 PRD 89:102002, 0.43 mas/cy); the Q₂ᵉᶛ comparison (λ_s ≲ 2.7) is a **magnitude heuristic [C]**, demoted 2026-09-20; λ_s ≤ 0.97 **withdrawn** (needed a ceiling tighter than INPOP10a's own 1σ); β scoped; α₁/α₂ [O] with a named obstruction (c₁₂₃=0 Maxwell locus) |
 | D5 | [P/O] | Cosh cosmology time-sector formalized (`CoshCosmology.lean`, 6 theorems, 0 sorry, ARITH); non-linear structure formation unsimulated |
-| D6 | [P] | Ghost-free CLOSED 2026-09-12, twice-verified (`TARGET_D1_SUPPLEMENT` §5 + D6/D8/D9 revalidation rows 9–10); open: Λ_SC ≈ 1.8 meV vs fifth-force tests [O], J-normalization muddle [O], AeST superluminality [O] |
+| D6 | [P] | Ghost-free CLOSED 2026-09-12; Λ_SC vs fifth-force: not excluded (first pass, screened); **EP vs MICROSCOPE CLOSED 2026-09-27** (η ≲ 4×10⁻⁴⁹ vs 10⁻¹⁵, `TARGET_D6_SUPPLEMENT_LSC` §4c); open: covariant screening profile [O], meV quantum effects [O], J-normalization [O], superluminality [O] |
 | D7 | [P/O] | Action corrected to AeST; base solid, downstream re-checks ongoing |
 | D8 | [P] | c_T=c — upgraded to structural, strongest result in the corpus |
-| D9 | [P/O] | Ground-truth for D7 fix; factor-of-2 normalization bug found and fixed |
+| D9 | [P/O] | Factor-of-2 bug fixed; **μ_std embedding now derived by calculus** (`SZStdEmbedding.lean`, 2026-09-27: J_std(𝒴)=F_std(√𝒴) ⇒ 2J′=μ_std via HasDerivAt, replacing the definitional reduction); λ_s normalization still an input |
 
 **Full detail, always current:** `PEER_REVIEW_READINESS.md` — read its top banner before
 trusting anything dated earlier.

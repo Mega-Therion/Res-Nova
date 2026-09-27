@@ -88,6 +88,8 @@ lean_lib «ResNovaFormal» where
     -- ADDED 2026-09-27. l^n family mu_n = x/(1+x^n)^(1/n): duality mu_n(x)^n + mu_n(1/x)^n = 1
     -- for every n (MuStdDuality is n=2); mu_n(1)=2^(-1/n). Cassini EFE admits only n >= 4.36.
     `MuNDuality,
+    -- ADDED 2026-09-27. D9 on the live branch by calculus: J_std(Y)=F_std(sqrt Y) differentiates to mu_std/2.
+    `SZStdEmbedding,
     `GateHolonomySusceptibility,
     `MuStdSelection,
     `PPNLimitsStd,
