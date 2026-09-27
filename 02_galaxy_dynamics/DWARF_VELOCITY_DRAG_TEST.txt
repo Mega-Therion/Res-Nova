@@ -1,0 +1,62 @@
+MW velocity vs CMB: 560 km/s   (Sun vs GC 246 km/s)
+42 satellites with sigma, proper motions and v_los
+
+dwarf              D_gc   v_MW  v_CMB  log obs/N  log obs/MOND
+Hydrus I             26    371    892       0.66          0.48
+Segue 1              28    251    744       1.29          1.10
+Carina III           29    387    897       1.23          1.03
+Reticulum II         33    251    777       1.02          0.80
+Carina II            38    369    910       0.86          0.61
+Bootes II            40    357    758       0.76          0.50
+Ursa Major II        41    298    779       1.20          0.94
+Willman 1            43    143    549       1.12          0.85
+Coma Berenices       43    271    658       0.84          0.56
+Tucana IV            44    213    752       1.34          1.05
+Pictor II            46    288    812       1.07          0.78
+Bootes III           47    262    757       0.70          0.40
+Tucana V             52    233    672       0.85          0.53
+Tucana II            52    287    761       1.24          0.92
+Bootes I             64    193    679       0.81          0.45
+Ursa Minor           72    168    448       0.68          0.30
+Eridanus IV          76    208    458       1.26          0.86
+Horologium I         80    200    753       1.07          0.66
+Draco                82    184    493       0.65          0.33
+Sculptor             84    186    375       0.29          0.12
+Sextans              89    229    586       0.80          0.37
+Pegasus IV           89    107    602       0.79          0.36
+Ursa Major I        102    125    623       1.22          0.76
+Aquarius II         105    175    558       1.15          0.69
+Carina              107    189    712       0.44          0.11
+Leo VI              114    178    577       1.03          0.55
+Centaurus I         114    158    404       0.78          0.32
+Crater II           116    133    458       0.55          0.06
+Grus I              123    211    574       0.91          0.41
+Hercules            125    207    477       0.53          0.03
+Antlia II           125    119    633       0.83          0.32
+Fornax              145    133    690       0.13         -0.02
+Leo IV              152    134    533       0.84          0.29
+Canes Venatici I    161    109    501       0.86          0.44
+Leo V               170    227    560       0.74          0.32
+Pisces II           182    642   1000       0.90          0.38
+Columba I           187    240    663       1.24          0.65
+Canes Venatici I    211    121    511       0.70          0.24
+Leo II              211    103    527       0.37          0.16
+Pegasus III         213    445    871       0.87          0.26
+Leo I               262    187    672       0.09          0.02
+Eridanus II         372    159    570       0.85          0.36
+
+v_f (stars, M/L=2): 1.6-27.1 km/s. Linear-theory threshold C*v_f with C = 0.19-0.27 (D3 note 7).
+v_rel/(0.27 v_f): MW frame 18-716, CMB frame 94-1647  -> every satellite is above threshold
+log(obs/Newton)    vs speed vs MW frame  : Spearman rho=+0.35 (p=0.03);  D-controlled +0.21 (p=0.19);  D,L-controlled -0.11 (p=0.47)
+log(obs/MOND+EFE)  vs speed vs MW frame  : Spearman rho=+0.45 (p=0.00);  D-controlled +0.17 (p=0.29);  D,L-controlled -0.08 (p=0.61)
+log(obs/Newton)    vs speed vs CMB frame : Spearman rho=+0.35 (p=0.02);  D-controlled +0.17 (p=0.27);  D,L-controlled +0.05 (p=0.74)
+log(obs/MOND+EFE)  vs speed vs CMB frame : Spearman rho=+0.44 (p=0.00);  D-controlled +0.18 (p=0.25);  D,L-controlled +0.11 (p=0.48)
+log(obs/Newton)    vs v_MW / v_f         : Spearman rho=+0.65 (p=0.00);  D-controlled +0.62 (p=0.00);  D,L-controlled -0.11 (p=0.50)
+log(obs/MOND+EFE)  vs v_MW / v_f         : Spearman rho=+0.70 (p=0.00);  D-controlled +0.55 (p=0.00);  D,L-controlled -0.11 (p=0.50)
+log(obs/Newton)    vs v_CMB / v_f        : Spearman rho=+0.72 (p=0.00);  D-controlled +0.69 (p=0.00);  D,L-controlled +0.06 (p=0.68)
+log(obs/MOND+EFE)  vs v_CMB / v_f        : Spearman rho=+0.76 (p=0.00);  D-controlled +0.64 (p=0.00);  D,L-controlled +0.10 (p=0.52)
+
+Drag predicts NEGATIVE distance-controlled correlations (faster -> more Newtonian).
+v/v_f shares luminosity with the residual (log v_f = L/4 + const, log sigma_N = L/2 + ...), so its raw and D-controlled
+correlations are inflated by construction; the D,L-controlled column is the clean one.
+Caveat: proper-motion, distance and v_los errors are NOT propagated (0.1 mas/yr at 180 kpc = 85 km/s); Pisces II's speed is likely error-driven.
