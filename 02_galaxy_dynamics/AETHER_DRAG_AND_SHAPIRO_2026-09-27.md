@@ -108,6 +108,42 @@ that the phantom potential lives in the metric gravitational waves ride.
 - **Geometric distances from our own motion.** Our motion through the CMB covers a 78 AU/yr baseline. That
   gives nearby galaxies a secular parallax of 78 μas/yr at 1 Mpc (Paine et al. 2020).
 
+### 3b. Which side does light have a harder time coming from? `[D]` estimate + `[C]`
+Script: `shapiro_sky_directions.py`. Output: `SHAPIRO_SKY_DIRECTIONS.txt`.
+
+**Through mass (the tension along the path).** The table gives the Shapiro delay through the Milky Way's
+baryonic + μ_std phantom potential, for a source 40 Mpc away. Model: 6×10¹⁰ M☉ with Plummer softening
+a = 3 kpc, and g_e = 0.02 a0.
+
+| direction | constellation | delay (days) |
+|---|---|---|
+| toward the Galactic Centre | Sagittarius | 231 |
+| Great Attractor | Centaurus | 214 |
+| GW170817 / NGC 4993 | Hydra | 212 |
+| behind us (CMB anti-apex) | Pisces | 205 |
+| ahead of us (CMB apex) | Crater | 204 |
+| north Galactic pole | Coma Berenices | 204 |
+| Galactic anti-centre | Auriga | 195 |
+
+- Light from beyond the Galactic Centre spends about 36 days longer climbing out of our galaxy's well than
+  light from the opposite side.
+- The Great Attractor's own well, which is not modelled here, adds to its direction.
+
+**Through our motion (the one-way speed).** Only the round-trip speed of light is measurable. It is
+isotropic to about 10⁻¹⁸ (Nagel et al. 2015; Herrmann et al. 2009 at 10⁻¹⁷). The one-way speed depends on
+how distant clocks are synchronized.
+- Einstein's convention makes the one-way speed c in every direction.
+- In a theory with a physical aether (AeST), the aether's rest frame supplies a physically distinguished
+  synchronization. In it, light arriving from behind (catching up) moves at c/(1+v/c), and light arriving
+  head-on from ahead moves at c/(1−v/c). The round trip is still exactly c.
+- For v = 370 km/s (aether at rest in the CMB frame) that is **0.998768c from behind (Pisces side) and
+  1.001235c from ahead (Crater side)**. If the local aether moves with the Milky Way (v ≈ 240 km/s), the
+  asymmetry is about 0.08%.
+- No light experiment can distinguish this description from Einstein's. The measurable face of the same
+  asymmetry is the redshift: the CMB is 0.12% cooler behind us. Its gravitational face is α₁/α₂.
+- The GW170817 gap is untouched by either convention, because both signals were timed at one place by one
+  set of clocks.
+
 **Leads `[O]` (not results).**
 - **Line-of-sight convergence.** Time-delay H0 corrects for the line-of-sight convergence κ_ext, estimated
   from weighted galaxy counts along each sightline (Greene et al. 2013; Rusu et al. 2017). That estimate is
@@ -140,3 +176,4 @@ python3 shapiro_gw170817_mond.py
 - Greene et al. 2013; Rusu et al. 2017, MNRAS 467, 4220 (H0LiCOW III), arXiv:1607.01047.
 - Secrest et al. 2021, ApJL 908, L51; Bashir, Chingangbam & Appleby, arXiv:2511.00822.
 - Pace 2025, LVDB (CC0).
+- Nagel et al. 2015, Nat. Commun. 6, 8174, arXiv:1412.6954; Herrmann et al. 2009, PRD 80, 105011, arXiv:1002.1284.
