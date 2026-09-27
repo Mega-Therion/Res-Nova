@@ -67,7 +67,8 @@ one place, unambiguous, checked first, every time.
   (`02_galaxy_dynamics/SCREENING_WINDOW_2026-09-27.md`). No covariant AeST version exists [O].
   A size-based shield provably needs a new constant (dimensional no-go). The **parameter-free**
   environmental form S = 1 − μ_std(g_ext/a0) passes Cassini (+0.25σ / −0.10σ) and does not degrade
-  SPARC under a uniform-η test (`ENVIRONMENT_SCREENING_2026-09-27.md`; per-galaxy η pending). See
+  SPARC (uniform and per-galaxy η from Chae 2020; per-galaxy environment NOT detected by SPARC —
+  shuffled fields do as well; `ENVIRONMENT_SCREENING_2026-09-27.md`). See
   `02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md`.
 - If you see μ(x)=x/(1+x) — or F_dual = x²/2 − x + ln(1+x) — anywhere in a source you're
   reading, that source predates 2026-09-12's correction and its physics content is void.
