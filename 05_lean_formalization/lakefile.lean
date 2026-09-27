@@ -85,6 +85,9 @@ lean_lib «ResNovaFormal» where
     -- one postulate in two dresses, not two independent corroborations.
     `MuStdUniqueness,
     `MuStdDuality,
+    -- ADDED 2026-09-27. l^n family mu_n = x/(1+x^n)^(1/n): duality mu_n(x)^n + mu_n(1/x)^n = 1
+    -- for every n (MuStdDuality is n=2); mu_n(1)=2^(-1/n). Cassini EFE admits only n >= 4.36.
+    `MuNDuality,
     `GateHolonomySusceptibility,
     `MuStdSelection,
     `PPNLimitsStd,

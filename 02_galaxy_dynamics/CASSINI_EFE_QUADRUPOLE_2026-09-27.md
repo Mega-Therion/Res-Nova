@@ -127,6 +127,29 @@ Under the Cassini-passing shape, **the derived a0 passes Cassini and the literat
 Their SPARC fits are tied (tier-1 median 3.51 vs 3.53). Q₂ grows with a0 (∝ a0^{3/2} q(η)), so the
 smaller horizon-derived value is the one the solar system admits.
 
+## The ℓⁿ family and the θ–κ band — `mu_n_duality_band.py`, `05_lean_formalization/MuNDuality.lean`
+
+Hees's νₙ is the inverse of **μₙ(x) = x/(1 + xⁿ)^(1/n)** (checked numerically to 5e-16). μ₂ = μ_std;
+μ₁ = μ_dual.
+
+**Proved in Lean** (`MuNDuality.lean`; standard axioms only; the sabotaged RHS = 2 fails to elaborate):
+- `muN_dual`: **μₙ(x)ⁿ + μₙ(1/x)ⁿ = 1 for every n ≥ 1.** The canon's μ_std duality
+  (`MuStdDuality.lean`) is the n = 2 member, so the x ↦ 1/x duality does **not** select n = 2.
+- `muN_one_pow`: **μₙ(1) = 2^(−1/n).** `muN_two_one`: μ₂(1) = 1/√2 = θ.
+
+**The transition value reads off the band:**
+
+| reading | n | μₙ(1) | Q₂ max | σ (2026) | tier 0 median / agg | tier 1 median / agg |
+|---|---|---|---|---|---|---|
+| μ(1) = θ (μ_std) | 2 | 0.7071 | 17.2 | +8.7 | 11.08 / 93.6 | 3.36 / 6.09 |
+| Cassini 2σ edge | 4.36 | 0.8529 | 5.2 | +2.0 | 12.51 / 122.1 | 3.53 / 7.69 |
+| μ(1) = κ | 14.69 | 0.9539 | 0.82 | −0.4 | 12.78 / 131.3 | 3.89 / 9.00 |
+
+Cassini requires the transition value **μ(1) ≥ 0.853**, which lies inside the canon's θ–κ band, toward
+the κ end. The θ end of the band is excluded and the κ end admitted, at a galaxy-fit cost of +16% on
+the tier-1 median. That the transition value *should* equal a canonical constant is `[conj]`; nothing
+here derives it.
+
 ## Sources
 - Cassini 2026, *Improved constraints on modified Newtonian gravity from Cassini radio tracking data* — https://arxiv.org/abs/2602.17884
 - Hees, Famaey, Angus, Gentile, *Combined Solar System and rotation curve constraints on MOND*, MNRAS 455, 449 (2016) — https://arxiv.org/abs/1510.01369

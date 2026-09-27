@@ -107,6 +107,12 @@ MuStdDuality.lean                # ADDED 2026-09-24. The x -> 1/x involution
                                  # mu_dual is physically excluded; its theorem
                                  # is recorded for contrast only.
 
+MuNDuality.lean                  # ADDED 2026-09-27. l^n family mu_n(x)=x/(1+x^n)^(1/n):
+                                 # duality in mu^n for EVERY n (MuStdDuality is n=2),
+                                 # mu_n(1)=2^(-1/n). Not a manuscript result: it records
+                                 # that the x->1/x duality does not select n=2. See
+                                 # 02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md.
+
 # --- Information-theoretic spectral bounds ---
 # Not anchored to physics: RamanujanGapDerivation derives the spectral gap of a
 # Ramanujan graph from the Alon-Boppana bound, with the Petersen graph as a
