@@ -524,14 +524,42 @@ Details are in `02_galaxy_dynamics/AETHER_DRAG_AND_SHAPIRO_2026-09-27.md` §2.
 MOND lensing plus GW170817 require the phantom potential to live in the metric that gravitational waves
 ride. The covariant screening (paper outline §6) must be built at metric level.
 
-## 29. AeST + c₂(∇·A)² (zero-mode lift) — pending
-`aest_c2_ppn_pipeline.py` is running. It will test whether lifting the zero mode yields α₁ ~ −4c₁₄,eff,
-which would be O(1) and excluded by LLR (|α₁| ≲ 10⁻⁴). Recorded here when it finishes.
+## 29. AeST + c₂(∇·A)²: lifting the zero mode makes α₁ and α₂ defined, and excluded `[D]`
+Files: `aest_c2_numeric.py`, with output in `AEST_C2_NUMERIC.txt`.
+
+**Method.**
+- The linearized system is built exactly as in `aest_c2_ppn_pipeline.py`: metric in de Donder gauge, aether,
+  AeST scalar, point source moving at v.
+- The symbolic solve did not finish in 90 min, so the system is solved numerically at 50 digits. Velocities are
+  scaled by ε, and the Taylor coefficients in ε are recovered from 7 symmetric points.
+- PPN extraction follows `ea_ppn_pipeline.py`. The solar-system limit 𝒬₀ → 0 is taken directly.
+
+**Validation.** With the scalar sector off, at 3 generic c-sets, α₁ and α₂ equal the Foster–Jacobson values to
+every printed digit.
+
+**Results.** The scan covered (K_B, λ_s) ∈ {(0.5, 1), (0.25, 2), (1, 0.5)}, c₂ ∈ {1, 0.1, 0.01} and
+𝒦₂ ∈ {0, 10, 75}.
+- **α₁ = −4c₁₄,eff**, with c₁₄,eff = K_B + (2−K_B)/(1+λ_s). It does not depend on c₂ or 𝒦₂. The three
+  points give −5.000, −3.333 and −6.667.
+- **α₂ = FJ(c₁ = −c₃ = K_B, c₂, c₄,eff) + 𝒦₂·f(K_B, λ_s).**
+  - At 𝒦₂ = 0 it equals Foster–Jacobson with c₄ → c₄,eff to within 10⁻²³.
+  - 𝒦₂ adds a shift that does not depend on c₂ and grows linearly in 𝒦₂: f = 2/3, 4/21 and 8/3 at the three
+    points.
+
+**Bound.** c₁₄,eff = (K_Bλ_s + 2)/(1+λ_s) ≥ 2/(1+λ_s). With λ_s ≲ 2.2 (Saturn, `TARGET_D3`), that is
+≥ 0.625, so **|α₁| ≥ 2.5**.
+- LLR requires |α₁| ≲ 10⁻⁴, so the model is excluded by more than 4 orders.
+- α₂ is O(1) or larger, against the solar-spin bound |α₂| ≲ 10⁻⁷: more than 7 orders.
+
+**Consequence.** Every c₂ ≠ 0 is excluded. AeST passes the preferred-frame tests only with the zero mode intact
+(c₂ = 0), through the dragged branch of §§11–13: a moving source drags the aether and the metric is GR
+(α₁ = α₂ = 0). **The static residual symmetry is therefore required, not a defect to remove.** This closes the
+"lift the zero mode to get finite α's" route. What remains is branch selection (§§24–26, §31).
 
 ## 30. Next
 1. Second-order WKB or a direct solution for the ∇²ϕ lift. This decides the spiral row.
 2. A non-linear dwarf-in-flow solution. This decides the dSph row.
-3. The c₂ result (§29).
+3. ~~The c₂ result (§29)~~ done: every c₂ ≠ 0 is excluded (α₁ = −4c₁₄,eff).
 4. Covariant screening at metric level only (§28).
 
 ## 31. The spiral question is a loop, and it fixes a frame requirement `[D]`/`[O]`
