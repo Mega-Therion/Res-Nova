@@ -61,7 +61,10 @@ one place, unambiguous, checked first, every time.
   (the Cassini penalty on n = 2 is 70), so a sharper μ is **not** the fix. Keep μ_std-like
   behaviour in galaxies and find a solar-system suppression: higher-derivative screening
   (`TARGET_D7` §4.4 Branch B) or an environment-dependent mechanism [O]. Cassini also
-  disfavors Postulate R as the selector of μ (it forces n = 2). See
+  disfavors Postulate R as the selector of μ (it forces n = 2). **Screening window found
+  (phenomenological):** μ_std plus M^{1/4} screening (BDE 2011 scaling), with a solar screening
+  radius of 0.1–1 pc, passes Cassini and leaves SPARC unchanged
+  (`02_galaxy_dynamics/SCREENING_WINDOW_2026-09-27.md`). No covariant AeST version exists [O]. See
   `02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md`.
 - If you see μ(x)=x/(1+x) — or F_dual = x²/2 − x + ln(1+x) — anywhere in a source you're
   reading, that source predates 2026-09-12's correction and its physics content is void.
