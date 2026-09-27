@@ -271,42 +271,53 @@ minimum (T₀₀ = (1/16πG)·4𝒦₂𝒬₀q̄ at small q̄). So:
   (k ≪ k*), i.e. **gravitational clustering of AeST's dust-like condensate**, not a new pathology.
 In a potential well on Minkowski, q̄ = −𝒬₀Ψ.
 
-## 19. Branch criterion, constrained (`branch_criterion_constrained.py`; SZ Cosh values, λ_s ∈ {0.3, 1, 2.2})
+## 19. The small-offset formula is exact as a coefficient — but galactic potentials are not "small" `[D]`
+High-precision root tracking of the full quartic (`verify_lift_mp.py`, 80-digit mpmath), SZ Cosh values, λ_s = 1:
+- At q̄ = 10⁻¹⁴ the O(q̄) formula matches the continuously-connected root **exactly (ratio 1.0000) at every k**.
+- **The real expansion parameter is 𝒦₂|Ψ|** (= 𝒦₂q̄/𝒬₀), not |Ψ|. With SZ's 𝒦₂ = 7.5×10⁵, a Milky-Way-depth
+  potential (|Ψ| ≈ 1.7×10⁻⁶) has 𝒦₂|Ψ| ≈ 1.3.
+- Tracking the zero branch as the offset grows:
+  - **k > k*:** stable while 𝒦₂|Ψ| ≲ 0.5 (s = ω²/q̄ drifts from 4.43×10⁴ to 3.1×10⁴). It **turns unstable for
+    𝒦₂|Ψ| ≳ 0.75**, and ω² becomes increasingly negative: −0.027, −0.40, −3.2 Mpc⁻² at 𝒦₂|Ψ| = 2.25, 7.5, 22.5.
+  - **k < k*:** unstable at every depth, with ω² ≈ −0.8·𝒦₂𝒬₀q̄ (the Jeans-like branch).
+- **At SZ's parameters, realistic potential wells lie in the unstable regime at all scales.** The e-folding times
+  are ~45 Myr at Milky-Way depth (ω² ≈ −5.4×10⁻³ Mpc⁻² at k ≫ k*), ~5 Myr at |Ψ| ~ 10⁻⁵ (clusters, large-scale
+  structure) and ~29 Myr for the k ≪ k* Jeans branch in the Milky Way.
+- **The density reading makes the tension explicit:** 4πGρ_φ = 𝒦₂𝒬₀²|Ψ| ≈ 1.26×10⁻² Mpc⁻², against the
+  Milky Way's own 4πGρ = v_c²/r² ≈ 5.4×10⁻³ Mpc⁻² at 10 kpc. The condensate would carry about 2.3× the
+  Galaxy's own density there.
+- **Caveat — not a proven pathology.** The local background (a constant 𝒬 offset in flat space) is not an exact
+  solution (there is a tadpole), so the growth could be an expansion artefact. The same structure is SZ's own
+  flagged k < k* unbounded Hamiltonian, and it traces to 1/μ ≈ 10 kpc sitting at galactic scale, which
+  `TARGET_D5` already flags as a CMB-vs-galaxy tension. Settling it needs an exact static (or FLRW) background.
 
-| system | scale vs 1/k* (4.8–8.3 kpc) | R = ω_L/(kv) | branch |
-|---|---|---|---|
-| Sun, EFE region (7000 AU) | ≪ | 1.4–4.9 ×10⁻⁶ (either velocity frame) | **dragged** |
-| wide binary (0.05 pc) | ≪ | 2.1–7.2 ×10⁻⁶ | **dragged** |
-| Fornax-like dSph (1 kpc) | < | 0.015–0.12 | **dragged** |
-| field SPARC dwarf (5 kpc) | ~ | 0.055–0.54 or Jeans regime | dragged / marginal |
-| Milky Way disk, L* spirals (10–15 kpc) | > | — | **k < k*: no restoring force (Jeans regime)** |
+## 20. What survives, what does not
+**Survives `[D]`:**
+- A uniformly moving source leaves the MOND channel unsourced in linearized AeST (aether free fall, J = 0;
+  S = 0; δ𝒬 = 0; GR metric, α₁ = α₂ = 0).
+- For **small, fast systems** this holds regardless of the zero mode's stability, because its frequency |ω_L| is
+  negligible against the source frequency kv. For the Sun's external-field region, |ω_L|/k ≈ 1 m/s, so **the
+  static (MOND-sourced) branch would require the local aether to co-move with the Sun to within ~1 m/s.** Wide
+  binaries are similar.
 
-- The small-system rows are robust to every O(1) factor in play: the velocity frame, λ_s, the
-  frozen-vs-constrained correction and |Ψ| inputs.
-- The galaxy rows are **not decided by this linear criterion**. At their scale, the zero mode's dynamics is
-  the condensate's gravitational (Jeans) growth. The branch is set by non-linear structure formation,
-  which is `TARGET_D5`'s open item.
+**Does not survive:**
+- note 4's frozen-metric table, and note 5's small-offset table for galaxies and dwarfs. At SZ's 𝒦₂ those
+  systems are outside the small-offset regime.
 
-## 20. What is and is not claimed
-**Claimed `[D]` (linearized AeST about a locally static condensate):**
-- a uniformly moving source leaves the MOND channel unsourced (aether free fall, J = 0; S = 0; δ𝒬 = 0;
-  GR metric, α₁ = α₂ = 0);
-- the only thing that resists this is the constrained lift above;
-- for systems much smaller than 1/k* and moving at hundreds of km/s, that resistance is too weak by
-  10⁵–10⁶ (solar system, wide binaries), or by 10–60 (dSph-scale).
+**A μ-independent bound, valid only where 𝒦₂|Ψ| ≪ 1** (i.e. for parameter choices with much smaller 𝒦₂). Writing
+y = k²/μ², R² = (2−K_B)²λ_s|Ψ|(y − a)/[2v²(By + c)y] with a = (1+λ_s)/λ_s, B = 2 + K_Bλ_s, c = (2−K_B)(1+λ_s).
+Its maximum over k does not involve μ: **R_max = (0.091, 0.209, 0.304)·√|Ψ|c/v for λ_s = (0.3, 1, 2.2), at
+k ≈ 1.5k***. So the lift can keep a system on the static branch only if v_rel ≲ 0.1–0.3 × its potential-depth
+velocity, and only near one scale. For the Milky Way that is ~35–120 km/s: marginal at best.
 
-**Conditional `[O]` — IF this linear branch structure survives AeST's non-linear MOND regime:**
-- (i) the Sun's scalar response is unsourced, so there is no Cassini EFE quadrupole, and wide binaries are
-  Newtonian, both consistent with observation and requiring no new operators;
-- (ii) dwarf spheroidals would be close to Newtonian, in tension with their observed velocity
-  dispersions — a candidate falsifier of AeST itself (the condensate does not cluster below its Jeans
-  scale);
-- (iii) spirals are governed by the condensate's clustering dynamics (D5).
-**None of (i)–(iii) is a result yet.**
+**Conditional `[O]` (none of these is a result):**
+- If the linear structure survives the non-linear MOND regime, the Sun's scalar response and wide binaries are
+  Newtonian (no Cassini external-field quadrupole, no wide-binary signal, and no new operators needed).
+- Whether spirals and dwarfs keep MOND depends on whether the local aether moves with them. That is set by
+  non-linear structure formation and by how the zero-mode instability above saturates, both of which are
+  `TARGET_D5`-class open problems.
+- The dwarf-spheroidal row is not robust. Large-scale-structure potentials (|Ψ| ~ 10⁻⁵) move it by ×4–5, and
+  it lies in the unstable regime anyway.
 
-**Held, superseded or reframed:**
-- note 4's frozen-metric table is superseded by §19.
-- The Ψ > 0 "void instability" is reframed. The constrained lift is ∝ q̄(k²−k*²), so where the local
-  δ𝒬 = q̄ < 0 the k > k* zero mode would be gradient-unstable. Whether cosmological voids realize
-  δ𝒬 < 0 locally (δ𝒬 = δ𝒬̄_dust − 𝒬₀Ψ, with δ𝒬̄_dust ≈ 3H₀²Ω_c/(2𝒦₂𝒬₀) > 0) needs the FLRW treatment.
-  **Still held.**
+**Held:** the Ψ > 0 / void question. The unstable sign is now seen inside wells at 𝒦₂|Ψ| ≳ 0.75, which
+supersedes the earlier void-only framing. Its physical reality needs an exact background.
