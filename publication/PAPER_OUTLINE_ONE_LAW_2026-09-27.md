@@ -91,6 +91,8 @@ unlabelled. Parameter accounting follows the two-irreducible-parameters rule: th
   branch, because of a static residual symmetry. On the dragged branch the metric is GR, α₁ = α₂ = 0 `[D]`.
   Which branch real systems occupy is `[O]`: spirals are undetermined, and the held threshold is computed at
   leading order.
+- Adding c₂(∇·A)² to lift the zero mode gives α₁ = −4c₁₄,eff, with |α₁| ≥ 2.5, which LLR excludes `[D]`.
+  The zero mode, and with it the dragged branch, is required.
 - λ_s ≲ 2.2 from Saturn perihelion `[D]`.
 
 ## 9. Cosmology (brief, scoped)
