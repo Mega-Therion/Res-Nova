@@ -321,3 +321,108 @@ velocity, and only near one scale. For the Milky Way that is ~35–120 km/s: mar
 
 **Held:** the Ψ > 0 / void question. The unstable sign is now seen inside wells at 𝒦₂|Ψ| ≳ 0.75, which
 supersedes the earlier void-only framing. Its physical reality needs an exact background.
+
+---
+
+# Working note 6 (same day): which parameter point, when linear theory applies, and the MOND field holding the aether
+
+## 21. The instability is specific to SZ's CMB-run point `[D]` (`parameter_points.py`)
+`TARGET_D5` §2.5 already records a tension inside SZ's paper: the Cosh CMB run has μ⁻¹ = 10 kpc, while SZ
+state μ⁻¹ ≳ 1 Mpc is needed for galactic MOND. With 𝒬₀ = 0.1 Mpc⁻¹, K_B = 0.5, λ_s = 1:
+
+| point | 𝒦₂ | 1/k* | c_s | 𝒦₂\|Ψ_MW\| | zero-mode regime |
+|---|---|---|---|---|---|
+| SZ CMB run (1/μ = 10 kpc) | 7.5×10⁵ | 7.1 kpc | 670 km/s | 1.26 | unstable at all k (note 5) |
+| SZ quasistatic requirement (1/μ = 1 Mpc) | 75 | 707 kpc | 67,000 km/s | 1.3×10⁻⁴ | small-offset valid, stable at k > k* |
+
+The note-5 instability therefore belongs to the CMB-run point. At the point SZ's own galaxy analysis
+requires, the small-offset regime holds.
+
+## 22. When the linear dragged analysis applies `[D]`
+The dragged response of the aether to a source's own field has amplitude δu ≈ Ψ_source/v_rel. Linearity
+in the relative motion requires δu ≪ v_rel, i.e. **v_rel² ≫ |Ψ_source|**.
+- **Satisfied:** the Sun's own field (ratio 4.5×10⁵), wide binaries (4.4×10⁵), Crater II (3×10³),
+  Fornax (164).
+- **Violated:** Milky-Way-like and L* spirals (0.09–0.12).
+(§22 tests whether the *dragged* branch is linear. §23 below tests whether the *held* branch is stable.
+They are different questions.)
+
+**Definition of v_rel.** What matters is whether the source's *density pattern* is time-dependent in the
+aether frame, not how fast its stars move.
+- An axisymmetric rotating disk is a static source: its v_rel is its bulk velocity relative to the local aether.
+- A moving dwarf, the Sun, or a binary is not static: v_rel is its velocity through the ambient aether.
+- Non-axisymmetric patterns (bars, spiral arms) move at their pattern speed Ω_p·r. So even inside a held
+  galaxy, the non-axisymmetric part of the source is on the dragged branch.
+
+## 23. Laplacian lift terms, exact (frozen-metric trial direction) `[D]` (`lift_laplacian_terms.py`)
+Fitting all terms of the static O(ε²·background) Lagrangian (remainder 0):
+
+    E_lift = [ −2𝒦₂𝒬₀²Ψ + K_B ∇²Ψ + (2−K_B) ∇²ϕ ] |∇Λ|²
+
+With AeST's metric potential Ψ = Φ = Φ̂ + ϕ (SZ reduction, `TARGET_D7` §2; γ = 1, `TARGET_D3` §8.1) and
+∇²Φ̂ = 4πGρ, this becomes E_lift = [4πG K_B ρ + 2∇²ϕ + 2𝒦₂𝒬₀²|Ψ|]|∇Λ|². In vacuum K_B drops out.
+- **Tracking (Newtonian) regime:** ϕ is harmonic outside matter, so only the 𝒬-sector term survives
+  (notes 4–5).
+- **Deep-MOND regime:** outside matter ∇²ϕ = −∇ln𝒥′·∇ϕ ≠ 0. For a point mass ∇²ϕ = v_f²/r² > 0
+  (v_f = (GMa₀)^{1/4}), which is **restoring**. With the frozen kinetic term K_B|∇Λ̇|², the frozen estimate is
+  ω_L ≈ √(2/K_B)·v_f/r, so the held branch requires v_rel ≲ 2v_f.
+
+**The constraint correction is not O(1) in deep MOND `[heuristic]`.** The constrained/frozen ratio of note 5,
+√[(2−K_B)𝒥′K_B/(2(2+K_B𝒥′))], depends on the **local** scalar stiffness 𝒥′ = λ_sμ(x). That is small in deep
+MOND, exactly where the ∇²ϕ lift applies. (SZ's constrained Y-mode inertia ∝ 1/𝒥′, and k*² = (1+𝒥′)μ²/𝒥′
+grows as 𝒥′ → 0.) Assuming the same correction carries over to the ∇²ϕ term (λ_s = 1, K_B = 0.5):
+
+| location | 𝒥′ | constrained/frozen ω | held branch requires |
+|---|---|---|---|
+| inner disk (x ≈ 1) | 0.71 | 0.34 | v_rel ≲ 0.67 v_f |
+| outer spiral disk (x ≈ 0.3) | 0.29 | 0.22 | v_rel ≲ 0.45 v_f |
+| dSph (x ≈ 0.05) | 0.05 | 0.10 | v_rel ≲ 0.19 v_f |
+
+This moves the dSph and solar-system rows further toward dragged, and moves **spirals from "held" to
+undetermined**. Settling it needs the second-order-WKB or numerical constrained calculation.
+
+## 24. Consequences `[D]`/`[heuristic]`/`[O]`
+
+| system | assessment | branch |
+|---|---|---|
+| Solar system (7000 AU) | v_rel ≈ 240 km/s ≫ its v_f ≈ 0.7 km/s; the MW-field lift needs co-motion to ≲ m/s | **dragged → Newtonian** (robust) |
+| wide binaries | same | **dragged → Newtonian** (robust) |
+| MW satellite dSphs | v_rel ~ 150 km/s ≫ 0.19·v_f ~ 2–5 km/s; linear-validity satisfied | **dragged → Newtonian** (robust within linear theory) |
+| isolated spirals (axisymmetric part) | bulk v_rel to the local aether vs 0.45–0.67 v_f | **undetermined** |
+| spiral arms, bars (pattern) | pattern speed ≫ lift | dragged |
+| clusters | v_f ~ 1000 km/s vs v_rel ~ 300 km/s; constrained factor unknown | undetermined |
+
+**The dSph test, per object.** Stars-only Newtonian (M/L = 2, LVDB) against observed; the M/L that Newton
+would need; MOND+EFE for comparison:
+
+| dwarf | obs/Newton | M/L needed (Newton) | obs/MOND+EFE |
+|---|---|---|---|
+| Leo I | 1.23 | 3.0 | 1.05 |
+| Fornax | 1.35 | 3.6 | 0.95 |
+| Sculptor | 1.95 | 7.6 | 1.32 |
+| Leo II | 2.35 | 11 | 1.45 |
+| Carina | 2.73 | 15 | 1.29 |
+| **Crater II** | **3.55** | **25** | **1.16** |
+| Draco, Ursa Minor, Sextans, Boötes I, Antlia II | 4.5–6.7 | 41–89 | 2.0–2.8 |
+
+- Leo I and Fornax sit inside the M/L = 1–3 range (σ ∝ √(M/L), a factor of 1.7), so they do not
+  discriminate.
+- For Draco, UMi, Sextans, Boötes I and Antlia II, MOND+EFE also under-predicts by ~2×, so they do not
+  cleanly separate the two either.
+- **The clean discriminators are Crater II (Newton needs M/L ≈ 25; MOND+EFE is within 16%), Carina, Leo II
+  and Sculptor.** If AeST's satellites are on the dragged branch, these four require stellar M/L of 8–25.
+  That is a candidate observational falsifier of AeST's galactic MOND (it concerns AeST, not only this
+  corpus's additions), conditional on the non-linear dwarf-in-flow problem.
+
+**Preferred-frame remark (corrected).** Preferred-frame coefficients on the held branch are **not computable
+by slow-motion PPN** (the limit is non-uniform, §11). Any FJ-formula number there would repeat the error
+`TARGET_D3` §8.3 marks [X], so none is given. What can be said is that on the dragged branch the metric is
+GR (α₁ = α₂ = 0), which is where §24 places the solar system.
+
+## 25. Next
+1. The constrained coefficient of the ∇²ϕ lift, via second-order WKB or a direct numerical solution. This
+   decides the spiral row, which is the one AeST needs held.
+2. **Decisive for the dSph row:** a non-linear moving-source solution for a deep-MOND dwarf in an ambient
+   aether flow (axisymmetric, time-dependent).
+3. The AeST CMB/quasistatic parameter tension (D5 §2.5): at the galaxy-consistent point the CMB fit is
+   unverified.
