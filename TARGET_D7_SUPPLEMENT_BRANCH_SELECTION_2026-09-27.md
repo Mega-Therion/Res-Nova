@@ -50,7 +50,7 @@ held aether faster than C·v_f are dragged (Newtonian).
 | Wide binaries (same speed, ≫ threshold) | Newtonian | ✅ Banik+2024 (Newtonian strongly preferred); ✗ Chae 2023 (1.4× boost). Contested `[C]` |
 | Isolated / field galaxies (co-moving with the large-scale aether, D3 §32) | MOND | ✅ SPARC |
 | Fast cluster members (~1000 km/s ≫ C·v_f ~ 100 km/s) | outer rotation curves fall toward Keplerian | mixed: Whitmore+1988 yes, Dale+2001 no `[C]` |
-| **MW satellites (100–640 km/s, ≫ C·v_f ≈ 3–4 km/s)** | **Newtonian** | **✗: 37 of 42 dSphs would need stellar M/L > 10 even at σ − 1σ** |
+| **MW satellites (100–640 km/s, ≫ C·v_f ≈ 3–4 km/s)** | **Newtonian (Ĝ, weaker than G_N)** | **✗ on the discriminating set:** Crater II, Carina, Leo II and Sculptor, where MOND+EFE fits and Newton fails, would need M/L ≈ 19 / 10 / 10 / 6 at σ − 1σ. The "37/42 need M/L > 10" count includes ultra-faints where MOND+EFE also fails 5–10×, so those do not discriminate |
 
 The satellite numbers come from `02_galaxy_dynamics/branch_rule_satellites.py`, with output in
 `BRANCH_RULE_SATELLITES.txt`.
@@ -129,12 +129,24 @@ v/c ≈ 10⁻³. Corrections that small cannot undo a suppression of 25–140×.
 - A c₂ lift does not help either. It sets a scale-independent hold speed ~√(c₂/T_c): large c₂ would hold the
   Sun too and break LLR (α₁ = −4c₁₄,eff, independent of c₂), and small c₂ does not hold satellites.
 
-**Verdict.**
-- **AeST as formulated predicts Newtonian (Ĝ) internal dynamics for Milky Way satellites. The satellite
-  population contradicts that** (§3: 37 of 42 dSphs would need M/L > 10). This holds at a level robust
-  within linear theory, pending only a full non-linear simulation, which would have to overturn a
-  factor-of-25+ suppression.
-- **The corpus's phenomenological law is not affected.** μ_std with S(η) passes the dwarfs.
-- **The covariant completion must be something other than AeST as formulated**, and it must still put the
-  phantom potential in the metric gravitational waves ride. That is D7's open problem, now stated without
-  hedging.
+**Status: a Stage-1 INDICATION, not a verdict (relabelled the same evening after review).** Stage 1 is not
+decisive, for three reasons:
+1. **It solved a different problem.** It computed a small extra source moving through a static held MOND
+   background. The real problem has the dwarf itself as the source, sitting in the ambient Milky Way aether
+   wind.
+2. **Its v → 0 reference is not validated.** The proxy's static h₀₀ is weaker than GR (h₀₀ rises ~2.2× toward
+   large v), which is not what a MOND state looks like. The same artefact may be inside S_z.
+3. **A linear response around one branch cannot exclude a second, non-linear steady branch.** The static
+   stealth branch (D3 §34) is exactly such a branch, and linear theory could not see it. The v/c argument
+   covers only the aether's amplitude; the held-to-dragged switch changes S at O(1), inside J(𝒴).
+
+**The decisive check `[O]`.** Build the boosted-held configuration in the dwarf frame: the deep-MOND static
+field plus an ambient aether streaming at v, with φ = γ𝒬₀(t − v·x) + ϕ. Confirm the held ansatz has zero
+residuals at v = 0, then measure how every Euler–Lagrange residual scales with v.
+- Rough estimate: δ𝒬 ≈ −v·∇ϕ, so the condensate cost relative to the MOND term is ~𝒦₂v²/x. At 200 km/s and
+  x = 0.05 that is ≈ 7×10⁻⁴ at 𝒦₂ = 75, which would let held survive, and ≈ 7 at 𝒦₂ = 7.5×10⁵, which would
+  strip it.
+- **The outcome may therefore depend on the parameter point.** That links to D5's tension between the
+  CMB-fit and galaxy-consistent values of 𝒦₂.
+
+**The phenomenological law is unaffected either way.**
