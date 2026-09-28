@@ -75,8 +75,9 @@ more weakly. So no single threshold spares the dwarfs while dragging the Sun.
    falling into the Milky Way. The linear criterion says it cannot, but the held branch's non-linear
    stability against a wind has not been computed. **This is the decisive calculation:** an axisymmetric,
    time-dependent solution for a deep-MOND dwarf in an aether wind of 100–600 km/s.
-   *(Update, §7: the perturbative version is closed. At satellite speeds the wind forces an order-one change in the
-   dwarf's MOND field. Open: the end state, Newtonian or reshaped, and a genuinely non-linear held branch.)*
+   *(Update, §7: the perturbative version is closed. At satellite speeds the linear correction the wind forces cancels
+   the dwarf's MOND field to O(𝒥′) at K_B = 1/2, pointing toward Newtonian. That is not proved beyond linear order, and a
+   genuinely non-linear held branch is not excluded.)*
 2. **A completion whose MOND does not depend on the aether's rest frame.** This goes outside AeST. It must
    still put the phantom potential in the metric gravitational waves ride (GW170817 Shapiro, D3 note 7
    §28). No candidate is known.
@@ -162,7 +163,8 @@ Files, all in `exploration/d3_alpha/`:
 - `wind_correction_solve.py` solves for the correction;
 - `wind_correction_{decompose,ksens,qsens}.py` run the row decomposition and the sensitivity tests;
 - `boosted_held_structure.py` gives the forcing for a general local field;
-- `aest_wind_bg_angled.py` and `wind_correction_angle.py` run the angled-k test.
+- `aest_wind_bg_angled.py`, `wind_correction_angle.py`, `wind_correction_angle_probe.py` and `wind_correction_symbol.py` run the angled-k test and its probes;
+- `wind_sign_check.py` checks the relative sign between the operator and the residual script.
 
 All output is in `BOOSTED_HELD_WIND_CORRECTION.txt`.
 
@@ -184,12 +186,12 @@ Every Euler–Lagrange residual is evaluated at P and mapped into the operator's
 - At ω = 0 it is well conditioned, with condition number ≤ 6×10⁷ at 80 digits, and it has no null direction.
 - The along-wind aether residual reproduces the first pass term for term.
 
-**Result.** Both measures below are gauge invariant. The first is the fractional change of the MOND field strength, δ𝒴/2𝒴. The second is the rotation of its direction, (δS_⊥ − g·h_xz)/|S|.
+**Result (WKB, k along the wind).** Both measures below are gauge invariant. The first is the fractional change of the MOND field strength, δ𝒴/2𝒴. The second, (δS_⊥ − g·h_xz)/|S|, is the component across S. With k along the wind, the correction for a wind across the field shows up as a rotation. In real space it lies along S in both geometries (see the angled-k section below).
 
 | v [km/s] | 1 | 3 | 10 | 30 | 100 | 300 | 600 |
 |---|---|---|---|---|---|---|---|
 | wind ∥ field, δ\|S\|/\|S\|, 𝒦₂ = 75 | 0.10 | 0.30 | 0.74 | 0.99 | 1.04 | 1.05 | 1.05 |
-| wind ⊥ field, rotation [rad], 𝒦₂ = 75 | 0.09 | 0.26 | 0.65 | 0.90 | 0.95 | 0.95 | 0.95 |
+| wind ⊥ field, \|δS_⊥\|/\|S\| (WKB), 𝒦₂ = 75 | 0.09 | 0.26 | 0.65 | 0.90 | 0.95 | 0.95 | 0.95 |
 | wind ∥ field, 𝒦₂ = 7.5×10⁵ | 0.10 | 0.30 | 0.73 | 1.00 | 1.10 | 1.70 | 89 |
 | wind ⊥ field, 𝒦₂ = 7.5×10⁵ | 0.09 | 0.26 | 0.65 | 0.90 | 0.94 | 0.93 | 3.6 |
 
@@ -209,7 +211,7 @@ This reproduces both geometries exactly.
 - A plane wave along the wind cannot tell ∇²Φ from ∂_z g_z. The WKB solve therefore sees both as one term.
 
 **The plateau is structural.** At high v the forcing, ∝ v·H ~ v·g/r, can be balanced only by the scalar gradient that the wind carries.
-- The balancing coefficient is 2(2 + K_Bλ)·v·k, the same combination as §26's threshold. This is fitted at K_B = 1/2; its K_B-dependence was not computed.
+- The balancing coefficient is 2(2 + K_Bλ)·v·k_z (it runs along the wind; see the probes below), the same combination as §26's threshold. This is fitted at K_B = 1/2; its K_B-dependence was not computed.
 - Both sides scale with v, so the plateau is v-independent:
   - wind along the field: δ|S|/|S| = (4 + 6𝒥′)/(4 + λ_∥) = 1.0488;
   - wind across the field: (4 − 3𝒥′)/(4 + 𝒥′) = 0.9507.
@@ -227,24 +229,39 @@ Every satellite presents both geometries, so no value of K_B removes the forcing
 **Reading `[D]`: an indication, not a verdict.** Perturbation theory about the held state fails near v ~ 10 km/s. At satellite speeds, 100–600 km/s, the wind forces a correction as large as the dwarf's MOND field, in both geometries.
 - This survives the WKB normalization convention, the lift stand-in (0.1–10×), 𝒦₂, and the point-to-mode phase. The phase variants are identical in 3 of 4 runs and agree within 1% in the fourth.
 - It agrees with Stage 1 that the held state does not survive intact, now in the correct geometry with the dwarf's own field as the background. So §6 objection 1 is removed.
-- **It does not determine how much of the MOND field is lost.** Because the forcing carries the phantom density, the correction need not be a cancellation; the end state could be Newtonian or merely reshaped. The Crater II/Carina tension needs near-complete loss (M/L factors up to ~20).
+- **In real space the linear correction cancels the MOND field to O(𝒥′)** at K_B = 1/2 (angled-k section below). Its direction is toward S = 0, the dragged/Newtonian branch, which is itself an exact solution. Linear theory cannot fix the remainder once δS ≈ −S, so this points toward Newtonian satellites without proving it. The Crater II/Carina tension needs near-complete loss (M/L factors up to ~20).
 - It is still linear and local (WKB at kr ~ 1). §6 objection 3 stands: a non-perturbative steady held branch is not excluded.
 - There is no nearby steady held state at satellite speeds, so the perturbative form of §4 escape route 1 is closed.
 - The §6 estimate "held survives when 𝒦₂v²/x ≪ 1" was not the controlling term. The forcing that matters carries no 𝒦₂.
 
-**The angled-k test: the high-speed balance is elliptic, not streamline-local `[D]`.** The operator was rebuilt with fields depending on (t, x, z), and k was put at an angle α to the wind.
-- **Validation.** At k_x = 0 the new operator equals the validated one symbolically, and at the isotropic point det M depends only on |k| (exact arithmetic).
-- **Test.** Hold the point residual fixed, set |k| = 1/r, and vary α from 0° to 75°. The correction is carried by the scalar gradient, δS ≈ ik δP, so it points along k.
-  - A streamline-local balance (a v·k_z coupling) would make |δS| grow as 1/cos α: 2× at 60°, 3.9× at 75°.
-  - An elliptic balance, set by |k|, would keep |δS| fixed.
-- **Result.** At satellite speeds, |k δP|/g stays at 1.048–1.058 with the wind along the field and 0.950–0.931 across it. It is constant within 1–2% for α = 0–75°. The gauge-invariant projections agree: δ𝒴/2𝒴 = 1.049 cos α along the field and ≈ 0.95 sin α across it. Below the crossover (1–10 km/s) the size does follow cos α, as expected there.
-- **Reading.** The high-speed balance is set by |k|, so the scalar's elliptic spreading matters. The linear correction is a potential-like response to the forcing, dominated by the phantom-density term. It is not an integral along streamlines, so there is **no linear-order wake**, and the upstream-cancellation / side-rotation / wake picture does not apply. The end state is still undetermined.
+**The angled-k test, the probes, and the real-space correction `[D]`.** The operator was rebuilt with fields depending on (t, x, z) (`aest_wind_bg_angled.py`). At k_x = 0 it equals the validated operator symbolically, and at the isotropic point det M depends only on |k| (exact arithmetic).
+- **The physical forcing gives a flat response.** Hold the point residual fixed, set |k| = 1/r, and put k at an angle α to the wind. At satellite speeds the scalar-gradient correction |k δP|/g stays at 1.048–1.058 with the wind along the field and 0.950–0.931 across it, for α = 0–75°.
+- **The balance runs along the wind.** Forcing of fixed size along k gives a response growing as 1/cos α: 1.05, 1.21, 1.49, 2.12, 4.09, 11.9 for α = 0°, 30°, 45°, 60°, 75°, 85°. So the balancing coefficient is ∝ v·k_z. Forcing transverse to k barely drives the scalar (≤ 10⁻⁶).
+  - The physical forcing points along the wind, so its along-k part carries a factor cos α.
+  - That cancels the k_z of the balance, which is why the physical response is flat.
+- **No linear wake.** Toward α = 90° the physical response falls rather than grows (0.46 at 89.5°, 600 km/s). It returns to the lift regime once v·cos α drops below the crossover. A wake would show growth there.
+- **The response is a Poisson response.** At satellite speeds a unit along-wind aether forcing gives δP̃ = K·R̃ with K·v·|k|² = 0.244 along the field and 0.247 across it. That equals 1/(4+λ) to 3 digits. It is real, even in k, and nearly independent of α (0.244 → 0.237 at 85°). In real space, ∇²δφ = −R_z/[(4+λ)v].
+- **The real-space correction.** With the forcing above,
+
+      δφ = −[1/(4+λ)] ∇⁻² [ 8K_B ∇²(ϕ+Φ̂) + (4−8K_B) ∂_z²ϕ − 6K_B ∂_z²Φ̂ ]
+
+  At K_B = 1/2 this gives δφ ≈ −0.98(ϕ+Φ̂) + 0.73 ∂_z²∇⁻²Φ̂.
+  - The linear correction cancels the dwarf's MOND potential to O(𝒥′). The −0.98Φ̂ term makes it overshoot by about 5%, and there is an anisotropic Newtonian-sized piece.
+  - δS ∝ −∇(ϕ+Φ̂) lies along S in both geometries. It is a loss of strength, not a rotation; the "rotation across the field" above is an artefact of putting k along the wind.
+- **Sign check.** Everything above uses the same operator and residual, so their relative sign was checked independently (`wind_sign_check.py`).
+  - With the lift stand-in off, the operator's static uz–scalar coupling at O(k) equals the residual script's derivative at fixed metric, −2𝒬₀(2−K_B)(1 + 𝒥′ + 2𝒴𝒥″). The match holds identically in sign and size.
+  - Holding Φ̂ fixed instead of the metric, or keeping the stand-in's 4𝒦₂q̄ ≈ +0.49, gives a different number. Neither is a like-for-like comparison.
+- **Validity.**
+  - The plateau regime v·|cos α| ≫ v_× holds everywhere except a band a few degrees wide around k ⊥ wind.
+  - It holds throughout the deep-MOND region, since v_× ≈ v_f at every radius. It does not cover satellite outskirts dominated by the external field.
+  - It is computed at K_B = 1/2. The near-total cancellation uses 8K_B/(4+λ) ≈ 1 and 4 − 8K_B = 0, and κ's K_B-dependence is unmeasured.
+  - It is computed at 𝒦₂ = 75. At 7.5×10⁵ near c_s the scalar row contributes as much as the aether row, and this reading fails at 300–600 km/s.
 
 **Related prior art `[C]`.** Peloso & Sorbo 2004 (PLB 593, 25): in a ghost condensate, a moving source loses its static modification of gravity. The AeST-specific content here is which quantity is lost, the MOND gradient, and the mechanism: the wind's force on the aether from the field curvature. None of the AeST papers checked treats moving sources: the abstracts of Verwayen–Skordis–Bœhm, Mistele, Bataki–Skordis–Złośnik and Reyes–Sakstein. A full literature search has not been made.
 
 **Status.** D7 stays [P/O].
-- **Settled at linear order:** there is no nearby steady held state at satellite speeds; the wind forces an order-one change in the dwarf's MOND field.
-- **Open:** the end state (Newtonian, or reshaped with part of MOND kept); a genuinely non-linear steady held branch, for which nothing here gives evidence; and escape route 2, a completion outside AeST.
+- **Settled at linear order (K_B = 1/2, 𝒦₂ = 75):** there is no nearby steady held state at satellite speeds. The linear correction cancels the MOND field to O(𝒥′), so it points toward the dragged (Newtonian) branch.
+- **Open:** whether the non-linear end state is Newtonian (linear theory points there but cannot prove it); other K_B; satellite outskirts dominated by the external field; a genuinely non-linear steady held branch, for which nothing here gives evidence; and escape route 2, a completion outside AeST.
 - **Next:** a non-linear steady-state solve (or second order about the held state). The correction is order one, so linear theory cannot decide the end state.
 
 The phenomenological law is unaffected.

@@ -80,7 +80,8 @@ VALIDATION PASS
   R[uz] = v*(-6*H_hat*K_B + 4*H_vphi)
 
 === 3. Correction solves (Hessian-term phase 'real'; the +i/-i variants are identical in 3 of 4 runs and within 1% at par K2=7.5e5) ===
-|dS_par|/|S| = |dY|/(2Y0) (gauge-invariant change of MOND field strength); |rot| = (dS_perp - g h_xz)/|S| (gauge-invariant rotation)
+|dS_par|/|S| = |dY|/(2Y0) (gauge-invariant change of MOND field strength); |rot| = (dS_perp - g h_xz)/|S| (gauge-invariant
+component across S; with k along the wind it looks like a rotation, but the real-space correction lies along S: see section 9)
 -- par_75
 par, K2=75: k=3333/Mpc, g=3.577e-06/Mpc, qbar=1.648e-03/Mpc, stealth tilt g/Q0=3.58e-05
   Hessian-term phase real:
@@ -295,7 +296,7 @@ E_Az, O(eps v^1): 8*H_xx*K_B + 8*H_yy*K_B + 4*H_zz + 8*Hhat_xx*K_B + 8*Hhat_yy*K
    coefficient of Hhat_zz: 2*K_B
    coefficient of Hhat_xz: 0
 
-=== 8. Angled-k discriminating test (aest_wind_bg_angled.py + wind_correction_angle.py): the high-speed balance is set by |k| ===
+=== 8. Angled-k test (aest_wind_bg_angled.py + wind_correction_angle.py): flat response to the physical forcing (mechanism: section 9) ===
 [1] angled operator at k_x = 0 vs validated operator: 0 nonzero entries of 100
 [2] isotropic background, |k| = 5: det M at (kx,kz) = (3,4),(4,3),(0,5),(5,0) equal: True
 par, K2=75: |dY|/(2Y0)  (projection of dS on S); R(P) fixed, |k| = 1/r, k at angle alpha to the wind
@@ -328,3 +329,75 @@ perp, K2=75: |k dP|/g  (size of the scalar-gradient correction); R(P) fixed, |k|
       100 9.450e-01 9.438e-01 9.403e-01 9.338e-01 9.205e-01 8.668e-01   | 0.974
       300 9.500e-01 9.492e-01 9.469e-01 9.436e-01 9.395e-01 9.308e-01   | 0.989
       600 9.505e-01 9.497e-01 9.475e-01 9.445e-01 9.413e-01 9.375e-01   | 0.990
+
+=== 9. Probes, symbol and sign check: the balance runs along the wind; the physical response is Poisson; the sign is cancellation ===
+-- probes (wind_correction_angle_probe.py)
+par, K2=75: A. physical residual; |k dP|/g  [s_min(M) in brackets]
+ v [km/s]                 a=0                a=45                a=75                a=80                a=85                a=88              a=89.5
+        1 9.627e-02 [7.7e-01] 6.822e-02 [1.0e+00] 2.501e-02 [1.5e+00] 1.679e-02 [1.5e+00] 8.425e-03 [1.6e+00] 3.374e-03 [1.6e+00] 8.436e-04 [1.6e+00]
+      100 1.043e+00 [6.8e+01] 1.043e+00 [4.6e+01] 9.767e-01 [9.9e+00] 8.971e-01 [5.4e+00] 6.600e-01 [2.6e+00] 3.215e-01 [1.7e+00] 8.410e-02 [1.6e+00]
+      600 1.049e+00 [2.4e+03] 1.055e+00 [1.6e+03] 1.058e+00 [3.0e+02] 1.056e+00 [1.4e+02] 1.039e+00 [3.8e+01] 9.403e-01 [7.4e+00] 4.570e-01 [1.9e+00]
+par, K2=75: B. aether forcing along k; |k dP|/g  [s_min(M) in brackets]
+ v [km/s]                 a=0                a=30                a=45                a=60                a=75                a=85
+        1 9.627e-02 [7.7e-01] 9.637e-02 [8.9e-01] 9.647e-02 [1.0e+00] 9.657e-02 [1.3e+00] 9.665e-02 [1.5e+00] 9.667e-02 [1.6e+00]
+      100 1.043e+00 [6.8e+01] 1.205e+00 [5.9e+01] 1.475e+00 [4.6e+01] 2.068e+00 [2.8e+01] 3.774e+00 [9.9e+00] 7.572e+00 [2.6e+00]
+      600 1.049e+00 [2.4e+03] 1.215e+00 [2.1e+03] 1.492e+00 [1.6e+03] 2.115e+00 [9.6e+02] 4.088e+00 [3.0e+02] 1.192e+01 [3.8e+01]
+par, K2=75: C. aether forcing transverse to k; |k dP|/g  [s_min(M) in brackets]
+ v [km/s]                 a=0                a=30                a=45                a=60                a=75                a=85
+        1 0.000e+00 [7.7e-01] 1.556e-10 [8.9e-01] 2.201e-10 [1.0e+00] 2.695e-10 [1.3e+00] 3.006e-10 [1.5e+00] 3.100e-10 [1.6e+00]
+      100 0.000e+00 [6.8e+01] 5.877e-08 [5.9e+01] 8.354e-08 [4.6e+01] 1.032e-07 [2.8e+01] 1.171e-07 [9.9e+00] 1.050e-07 [2.6e+00]
+      600 0.000e+00 [2.4e+03] 2.107e-06 [2.1e+03] 2.989e-06 [1.6e+03] 3.672e-06 [9.6e+02] 4.107e-06 [3.0e+02] 4.257e-06 [3.8e+01]
+perp, K2=75: A. physical residual; |k dP|/g  [s_min(M) in brackets]
+ v [km/s]                 a=0                a=45                a=75                a=80                a=85                a=88              a=89.5
+        1 8.621e-02 [1.6e+00] 6.109e-02 [1.0e+00] 2.240e-02 [8.0e-01] 1.503e-02 [7.8e-01] 7.545e-03 [7.7e-01] 3.021e-03 [7.7e-01] 7.554e-04 [7.7e-01]
+      100 9.450e-01 [1.4e+02] 9.338e-01 [4.6e+01] 8.668e-01 [5.5e+00] 7.968e-01 [2.9e+00] 5.883e-01 [1.3e+00] 2.876e-01 [8.5e-01] 7.530e-02 [7.7e-01]
+      600 9.505e-01 [4.6e+03] 9.445e-01 [1.6e+03] 9.375e-01 [1.7e+02] 9.343e-01 [7.5e+01] 9.196e-01 [1.9e+01] 8.339e-01 [3.7e+00] 4.082e-01 [9.5e-01]
+perp, K2=75: B. aether forcing along k; |k dP|/g  [s_min(M) in brackets]
+ v [km/s]                 a=0                a=30                a=45                a=60                a=75                a=85
+        1 8.621e-02 [1.6e+00] 8.630e-02 [1.3e+00] 8.639e-02 [1.0e+00] 8.648e-02 [8.9e-01] 8.654e-02 [8.0e-01] 8.657e-02 [7.7e-01]
+      100 9.450e-01 [1.4e+02] 1.086e+00 [8.2e+01] 1.321e+00 [4.6e+01] 1.841e+00 [2.0e+01] 3.349e+00 [5.5e+00] 6.750e+00 [1.3e+00]
+      600 9.506e-01 [4.6e+03] 1.094e+00 [2.8e+03] 1.336e+00 [1.6e+03] 1.883e+00 [6.9e+02] 3.623e+00 [1.7e+02] 1.055e+01 [1.9e+01]
+perp, K2=75: C. aether forcing transverse to k; |k dP|/g  [s_min(M) in brackets]
+ v [km/s]                 a=0                a=30                a=45                a=60                a=75                a=85
+        1 2.775e-10 [1.6e+00] 2.410e-10 [1.3e+00] 1.970e-10 [1.0e+00] 1.394e-10 [8.9e-01] 7.218e-11 [8.0e-01] 2.430e-11 [7.7e-01]
+      100 3.042e-09 [1.4e+02] 5.276e-08 [8.2e+01] 7.442e-08 [4.6e+01] 9.100e-08 [2.0e+01] 1.013e-07 [5.5e+00] 8.745e-08 [1.3e+00]
+      600 3.060e-09 [4.6e+03] 1.898e-06 [2.8e+03] 2.677e-06 [1.6e+03] 3.268e-06 [6.9e+02] 3.639e-06 [1.7e+02] 3.765e-06 [1.9e+01]
+-- symbol (wind_correction_symbol.py): K v |k|^2 ~ 1/(4+lambda), real, even in k
+par, K2=75: K v |k|^2 = dP v |k|^2 / R_uz for a unit along-wind aether forcing (|k| = 1/r)
+ v [km/s]  alpha                      K v |k|^2 (k)                     K v |k|^2 (-k)
+        1      0      (0.0021358757 + 0.022287548j)      (0.0021358757 - 0.022287548j)
+        1     30      (0.0015925077 + 0.019345347j)      (0.0015925077 - 0.019345347j)
+        1     60     (0.00052465828 + 0.011218256j)     (0.00052465828 - 0.011218256j)
+        1     85     (1.5851674e-5 + 0.0019595218j)     (1.5851674e-5 - 0.0019595218j)
+      100      0        (0.24118768 + 0.025167503j)        (0.24118768 - 0.025167503j)
+      100     30        (0.24098278 + 0.029273859j)        (0.24098278 - 0.029273859j)
+      100     60        (0.23515128 + 0.050280061j)        (0.23515128 - 0.050280061j)
+      100     85        (0.096540392 + 0.11933891j)        (0.096540392 - 0.11933891j)
+      600      0       (0.24386394 + 0.0042407609j)       (0.24386394 - 0.0042407609j)
+      600     30       (0.24457449 + 0.0049513721j)       (0.24457449 - 0.0049513721j)
+      600     60       (0.24584706 + 0.0087609638j)       (0.24584706 - 0.0087609638j)
+      600     85        (0.23665694 + 0.048757248j)        (0.23665694 - 0.048757248j)
+perp, K2=75: K v |k|^2 = dP v |k|^2 / R_uz for a unit along-wind aether forcing (|k| = 1/r)
+ v [km/s]  alpha                      K v |k|^2 (k)                     K v |k|^2 (-k)
+        1      0      (0.0020689677 + 0.022296033j)      (0.0020689677 - 0.022296033j)
+        1     30      (0.0015672936 + 0.019348113j)      (0.0015672936 - 0.019348113j)
+        1     60     (0.00053314974 + 0.011217719j)     (0.00053314974 - 0.011217719j)
+        1     85     (1.6362662e-5 + 0.0019595161j)     (1.6362662e-5 - 0.0019595161j)
+      100      0        (0.24403012 + 0.026297616j)        (0.24403012 - 0.026297616j)
+      100     30         (0.24237839 + 0.02992137j)         (0.24237839 - 0.02992137j)
+      100     60        (0.23394821 + 0.049223812j)        (0.23394821 - 0.049223812j)
+      100     85         (0.09793852 + 0.11728759j)         (0.09793852 - 0.11728759j)
+      600      0       (0.24686017 + 0.0044334262j)       (0.24686017 - 0.0044334262j)
+      600     30       (0.24607175 + 0.0050625845j)       (0.24607175 - 0.0050625845j)
+      600     60       (0.24435589 + 0.0085687584j)       (0.24435589 - 0.0085687584j)
+      600     85        (0.23424069 + 0.046752981j)        (0.23424069 - 0.046752981j)
+-- sign check (wind_sign_check.py)
+M[uz,phi] at v=0, w=0: -3*I*k*(10*Jl*qbar + Jl + 10*Jp*qbar + Jp - 990*qbar + 1)/10
+O(k) coefficient / i: -3*Jl*qbar - 3*Jl/10 - 3*Jp*qbar - 3*Jp/10 + 297*qbar - 3/10
+operator:  O(k) coeff / i = (0.159147536 + 0.0j)
+residual:  dR_uz/dg_z     = -0.02992521035   (ratio (-5.318176 + 0.0j); Qbar/Q0 = 1.0164837)
+residual script, R_uz at v = 0: -(2*fY1*g_vphi - 3*g_hat)/10
+residual, dR_uz/dg_vphi at fixed metric: -3*(Jl_s + Jp_s + 1)/10
+operator at qbar = 0, O(k) coeff / i:    -3*(Jl + Jp + 1)/10
+LIKE-FOR-LIKE SIGN/MAGNITUDE CHECK: PASS (identical)
+(the naive comparison above differs by the metric tie, -2Q0(2-K_B) = -0.3, and the lift stand-in 4 K2 qbar ~ +0.49)
