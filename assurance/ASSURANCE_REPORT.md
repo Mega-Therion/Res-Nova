@@ -1,9 +1,9 @@
 # Res-Nova Assurance Report
 
-Generated at (UTC): `2026-09-27T23:51:20.284099+00:00`  
-Git commit: `a72e947cc3d296de44d96a2d131510e53b1389af`  
+Generated at (UTC): `2026-09-28T00:01:27.938337+00:00`  
+Git commit: `4d2b8cf37fd3a9c599733475a8c8a143032f3cf2`  
 Lean targets on disk excluding `lakefile.lean`: **63**  
-Registry records: **43**
+Registry records: **45**
 
 ## Checks
 
@@ -18,12 +18,12 @@ Registry records: **43**
 
 | State | Count |
 |---|---:|
-| `computed` | 6 |
+| `computed` | 5 |
 | `conditional` | 7 |
-| `derived` | 10 |
-| `formally-verified` | 8 |
+| `derived` | 11 |
+| `formally-verified` | 9 |
 | `proposed` | 2 |
-| `retracted` | 10 |
+| `retracted` | 11 |
 
 ## Lean gate
 

@@ -860,7 +860,7 @@
     {
       "id": "CLM-D6-03",
       "wording": "The strong-coupling scale is approximately 1e-10 eV, far below the energy scales of current experiments.",
-      "state": "computed",
+      "state": "retracted",
       "assurance_level": "numerical-computation",
       "claim_type": "empirical-measurement",
       "formal_artifacts": [],
@@ -875,16 +875,16 @@
         "TARGET_D6_RELATIVISTIC_STABILITY.md Sec.3"
       ],
       "independent_witness": "TARGET_D6_RELATIVISTIC_STABILITY.md",
-      "limitations": "An EFT power-counting estimate, not a measured or independently cross-checked bound.",
+      "limitations": "RETRACTED (unit error found 2026-09-12): a0^2/G is an energy density, so its bare fourth root is not an energy. The dimensionally correct scale is Lambda_SC = [(a0^2/G)(hbar c)^3]^(1/4) = 1.8 meV (range 110 um). That scale is lab-accessible, not 'far below current experiments'. It is not excluded, because the scalar is screened by ~1e-23 in Earth's field (TARGET_D6_SUPPLEMENT_LSC_EXPERIMENTAL_CHECK.md sec.3), and the EP is closed at eta <~ 4e-49 (sec.4c).",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D6-03 (TARGET_D6_RELATIVISTIC_STABILITY.md Sec.3)",
       "falsifiability": {
-        "test": null,
-        "scope": null,
-        "result": "not_run"
+        "test": "dimensional re-derivation of the strong-coupling scale with hbar and c restored",
+        "scope": "TARGET_D6 sec.3 corrected; TARGET_D6_SUPPLEMENT_LSC",
+        "result": "contradicted"
       },
-      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+      "last_verified_commit": "4d2b8cf37fd3a9c599733475a8c8a143032f3cf2"
     },
     {
       "id": "CLM-D7-01",
@@ -1227,6 +1227,64 @@
         "result": "not_run"
       },
       "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+    },
+    {
+      "id": "CLM-D9-02",
+      "wording": "The live interpolating function embeds into AeST by calculus: J_std(Y) = F_std(sqrt Y) gives 2 J'(Y) = mu_std(sqrt Y) and J'(Y) > 0 for Y > 0.",
+      "state": "formally-verified",
+      "assurance_level": "lean-verified",
+      "claim_type": "mathematical-theorem",
+      "formal_artifacts": [
+        "05_lean_formalization/SZStdEmbedding.lean"
+      ],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [
+        "a0 = 1 units; lambda_s enters only as the overall scale of the family J = 2 lambda_s a0t^2 F(sqrt(Y)/a0t) (TARGET_D7 sec.2.1-2.2)."
+      ],
+      "verification_commands": [
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
+      ],
+      "independent_witness": "05_lean_formalization/SZStdEmbedding.lean",
+      "limitations": "Mathematics only: this proves the AQUAL reduction of the embedding. It does not select mu_std (MuNDuality.lean: the duality holds for every n), and lambda_s is an AeST parameter (bounded <~ 2.2 by Saturn).",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md (status 2026-09-27); SZStdEmbedding.lean",
+      "falsifiability": {
+        "test": "substitutability: replace mu_std by an arbitrary function and require the proof to fail",
+        "scope": "SZStdEmbedding.lean",
+        "result": "not_run"
+      },
+      "last_verified_commit": "4d2b8cf37fd3a9c599733475a8c8a143032f3cf2"
+    },
+    {
+      "id": "CLM-D6-04",
+      "wording": "All AeST modes on Minkowski have front velocity <= c: spin-2 at c; spin-1 luminal front (c1 = -c3); the aether spin-0 is non-propagating; the scalar has c_s < c iff K2 >= (2-K_B)(1+K_B lambda_s/2)/K_B, met at both Skordis-Zlosnik parameter points.",
+      "state": "derived",
+      "assurance_level": "analytic-derivation",
+      "claim_type": "mathematical-derivation",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D6_RELATIVISTIC_STABILITY.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "Einstein-aether mode-speed formulas (Jacobson & Mattingly 2004) with AeST vector couplings c1 = -c3 = K_B, c2 = c4 = 0; scalar speed from Skordis-Zlosnik arXiv:2109.13287."
+      ],
+      "verification_commands": [
+        "TARGET_D6_RELATIVISTIC_STABILITY.md closure banner 2026-09-27 (c)"
+      ],
+      "independent_witness": "TARGET_D6_RELATIVISTIC_STABILITY.md",
+      "limitations": "Minkowski background. On MOND backgrounds the scalar gradient coefficient varies between (2-K_B) and (2-K_B)(1+lambda_s); the floor with lambda_s included covers that range. There is no general causal-structure theorem.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "TARGET_D6_RELATIVISTIC_STABILITY.md (closure 2026-09-27)",
+      "falsifiability": {
+        "test": "mode speeds at the adopted parameter point vs c",
+        "scope": "K_B = 1/2, lambda_s = 1, K2 = 75 and 7.5e5",
+        "result": "supported"
+      },
+      "last_verified_commit": "4d2b8cf37fd3a9c599733475a8c8a143032f3cf2"
     }
   ]
 }

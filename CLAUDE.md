@@ -53,7 +53,7 @@ python3 05_lean_formalization/check_target_inventory.py   # lakefile == gate == 
 python3 05_lean_formalization/check_manuscript_inventory.py  # manuscript == disk - adjacent
 ```
 
-`assurance/claims.json` now covers **all 43 claims**: the 14 in `CLAIM_EVIDENCE_LEDGER.md`,
+`assurance/claims.json` now covers **all 45 claims** (43 + CLM-D9-02, CLM-D6-04 added 2026-09-27): the 14 in `CLAIM_EVIDENCE_LEDGER.md`,
 CLM-15/CLM-16 (Pillar IV), and the 27 new/rescored claims from
 `CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md` (D2/D3/D5/D6/D7/D9, plus CLM-AX-02 and
 CLM-O1-01). Every record also carries `claim_type`, `quotation_type`, `source_locator`,

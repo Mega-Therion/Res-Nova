@@ -1,17 +1,17 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-09-27T23:51:20.284099+00:00",
-  "git_commit": "a72e947cc3d296de44d96a2d131510e53b1389af",
-  "git_branch": "o4-real-data",
+  "generated_at_utc": "2026-09-28T00:01:27.938337+00:00",
+  "git_commit": "4d2b8cf37fd3a9c599733475a8c8a143032f3cf2",
+  "git_branch": "close-d2-d6-d9",
   "lean_target_count": 63,
-  "claim_count": 43,
+  "claim_count": 45,
   "claim_states": {
-    "computed": 6,
+    "computed": 5,
     "conditional": 7,
-    "derived": 10,
-    "formally-verified": 8,
+    "derived": 11,
+    "formally-verified": 9,
     "proposed": 2,
-    "retracted": 10
+    "retracted": 11
   },
   "lean_gate": {
     "schema_version": "1.0",

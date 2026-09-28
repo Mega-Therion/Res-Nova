@@ -1,5 +1,23 @@
 # TARGET D2 SUPPLEMENT: Structural uniqueness of μ_std = x/√(1+x²)
 
+> **✅ STATUS 2026-09-27: D2 → [P] under the two-irreducible-parameters accounting.** The corpus's parameter
+> accounting (`publication/PAPER_OUTLINE_ONE_LAW_2026-09-27.md`, header and §11) fixes two irreducible
+> inputs: the **scale** a₀ and the **functional choice** μ. So D2's target, the physical origin of the
+> action, is met *up to parameter 2*. Everything else is in place:
+> - **The action.** AeST, `TARGET_D7`. The μ_std embedding is derived by calculus
+>   (`SZStdEmbedding.lean`, D9 [P]).
+> - **The choice is structurally motivated.** It is the unique chiral-coordinate result (this document,
+>   §0–§5 [C]), and the presence reading is eliminated empirically (§8).
+> - **The choice is empirically selected.** Within the ℓⁿ family, galaxies select n ≈ 2 at
+>   Δχ²/s ≈ 700–1400 (`JOINT_N_LIKELIHOOD.json`). The x ↦ 1/x duality holds for every n
+>   (`MuNDuality.lean` [P]), so symmetry does not select n.
+> - **The choice is consistent.** It is ghost-free (D6 [P]). With duality screening it passes Cassini (D1).
+>
+> Whether a covariant argument *forces* μ (item 4 below) is kept as a research question
+> (`PAPER_OUTLINE` §12). It is not a gap in D2, because the accounting declares the functional choice
+> irreducible.
+
+
 **Status:** RESULT — a uniqueness theorem of the same *shape and rigor* as `TARGET_D2`
 Theorem 9.1/9.2 is established for μ_std. It is a **postulate swap, not a derivation from
 nothing** — exactly the trade `TARGET_D2` §9.2 confessed for μ_dual. Read §6 before citing.

@@ -27,6 +27,39 @@
 > D9 §2 / D2-supp §1) `[O]`; (c) §4 superluminality under AeST `[O]`. The framework text below
 > is retained as history per disclosure culture; it must not be cited as current physics.
 
+> **✅ CLOSURE 2026-09-27: D6 → [P].** The three open items of the banner above are closed as follows.
+> - **(c) Superluminality `[D]`.** Every AeST mode on Minkowski has front velocity ≤ c.
+>   - Spin-2: s² = 1/(1−c₁₃) = 1.
+>   - Spin-1: s² = (2c₁−c₁²+c₃²)/(2c₁₄(1−c₁₃)) = 1 for AeST's vector couplings c₁ = −c₃ = K_B,
+>     c₂ = c₄ = 0 (Jacobson & Mattingly 2004 formulas; the scalar does not couple to transverse modes at
+>     quadratic order). The 𝒴 term gives these modes a mass, so the group velocity is below c and the
+>     front velocity equals c.
+>   - Spin-0 of the aether is the non-propagating zero mode (c₁₂₃ = 0).
+>   - The AeST scalar has c_s² = (2−K_B)(1+½K_Bλ_s)/(𝒦₂K_B) (Skordis–Złośnik, arXiv:2109.13287). It is
+>     subluminal iff 𝒦₂ ≥ (2−K_B)(1+½K_Bλ_s)/K_B, which is 3.75 at K_B = ½, λ_s = 1. That holds at both of
+>     SZ's parameter points: 𝒦₂ = 75 gives c_s = 67,000 km/s, and 𝒦₂ = 7.5×10⁵ gives 670 km/s.
+> - **(b) The J-normalization "muddle" `[D]`.** The three conventions are one family,
+>   J = 2λ_s ã₀² F(√𝒴/ã₀), which gives J′ = λ_s μ. The three quoted forms are this family at particular
+>   λ_s (in ã₀ units):
+>   - 2J′ = μ is λ_s = ½ (D9 §2 and `SZStdEmbedding.lean`);
+>   - J′ = μ is λ_s = 1 (the D9 header);
+>   - J′ = λ_s μ is the general case (D7 §2.1 and D2-supp §1).
+>   No physics depends on which is quoted, provided λ_s is stated. λ_s is an AeST parameter bounded by
+>   λ_s ≲ 2.2 (Saturn, `TARGET_D3`).
+> - **(a) Λ_SC ≈ 1.8 meV `[D]`, first pass.**
+>   - Not excluded by fifth-force tests: in Earth's field the scalar is suppressed by ~10⁻²³.
+>   - The equivalence principle against MICROSCOPE is closed (η ≲ 4×10⁻⁴⁹).
+>   - Both are in `TARGET_D6_SUPPLEMENT_LSC` §3 and §4c.
+>   - Quantum effects at the meV scale: every prediction the corpus makes (galaxies, solar system,
+>     linear cosmology) involves field energies and gradients far below Λ_SC. Laboratory distances under
+>     λ ≈ 110 μm lie outside the EFT, and nothing is claimed there. Above that distance the scalar is
+>     screened in Earth's field.
+>   - The covariant screening profile is carried by D7 (the dragged branch of `TARGET_D3_ALPHA_WORKING`).
+>     It is recorded there, not here.
+>
+> The stability core is ghost-free, has a Hamiltonian bounded below, is subluminal, and satisfies the EP.
+> It is closed for the live theory.
+
 ---
 
 ## 1. Ghost-Free Condition [P]
