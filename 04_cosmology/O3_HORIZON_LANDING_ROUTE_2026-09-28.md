@@ -297,6 +297,27 @@ d ln r/d ln a = 3(1 − g) is solved by quadrature. With g = sⁿ it reproduces 
     to exactly one neighbour. One record out per landing then gives one in per cell, and the witness law follows
     rather than being fitted. *Not yet derived.*
 
+## What the ceiling predicts for the future: acceleration ends `[D]` (RY: the universe "tries to stabilize")
+
+In the ceiling model the share settles at κ and w → 0, so the total equation of state tends to 0 and the deceleration
+parameter tends to q = +1/2. Cosmic acceleration is a phase, not a destiny. In ΛCDM, by contrast, q → −1 and
+acceleration is permanent.
+
+Method: the share equation is integrated past today by quadrature. It matches the closed-form power law to 1.7×10⁻⁶ for
+a ≤ 10. Time is converted with h = 0.68. Script `ceiling_future.py`; output `CEILING_FUTURE.json`.
+
+| approach law at κ (all fit the data) | q today | acceleration ends at a = | Gyr from now | share then |
+|---|---|---|---|---|
+| power, n = 1.25 | −0.474 | 2.41 | 16.1 | 0.936 |
+| factorial, shifted, μ = 1 | −0.493 | 2.40 | 15.5 | 0.943 |
+| factorial, truncated, μ = 1 | −0.470 | 2.45 | 16.3 | 0.939 |
+| power, n = 1 (glide) | −0.426 | 2.45 | 17.0 | 0.930 |
+
+- **Prediction.** Acceleration switches off when the universe is about 2.4 times its present size, roughly 16 billion
+  years from now. After that the expansion decelerates, with the dark-energy share frozen at κ.
+- The prediction is robust across the approach laws the data accept: 15.5–17.0 Gyr.
+- **Test today.** Measuring w₀ and w_a: this family sits at w₀ ≈ −0.93, w_a ≈ −0.2, and never goes phantom.
+
 ## Direction matters? Hemisphere split of the supernovae `[D]` (same night)
 
 RY: light from ahead of our motion and light from behind, or light crossing more intervening mass, need not tell the
