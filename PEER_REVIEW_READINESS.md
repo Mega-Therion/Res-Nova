@@ -32,7 +32,7 @@
 - **D7.** The covariant screening must be metric-level. Photon-only disformal lensing is excluded by
   GW170817's Shapiro delay, and conformal routes give no lensing.
 - **D9.** The μ_std embedding is now derived by calculus (`SZStdEmbedding.lean`).
-- **O4.** The table is withdrawn and MUSE-DARK III now answers the question [C] (row below).
+- **O4.** The table is withdrawn. The real high-z data (in-house RC100 plus MUSE-DARK III) are **inconclusive**: a₀ is ~2–2.6× the local value at z ~ 1–2, flat within high z, with a calibration-limited step (row below).
 - **D2, D6 and D9 closed to [P] (2026-09-27, later): see their rows.**
 - **D3 closed to [P] (§34: the dragged branch is exactly GR).**
 - **Score: 8/12 [P] (D1, D2, D3, D6, D8, D9, O5, O6), 3/12 [P/O] (D5, D7, O1), 1/12 [O]/[C] (O4).**
@@ -50,7 +50,7 @@
 | **D8** Tensor Speed | ✅ [P] | c_T = c — upgraded 2026-09-12 from asserted-via-citation to structural (no TT piece in δA under minimal AeST coupling) | ✓ |
 | **D9** Skordis-Złośnik Embedding | ✅ [P] | **Closed 2026-09-27.** The μ_std embedding is derived by calculus in `SZStdEmbedding.lean` (gate-verified): J_std = F_std(√𝒴) gives 2J′ = μ_std, with J′ > 0. λ_s is the overall scale of the same family, an AeST parameter (the Saturn bound ≲ 2.2 applies only on the held branch), not an embedding gap | ✓ |
 | **O1** Horizon Scale | ⚠️ [P/O] | 2π KMS cancellation proved [P]; a₀=cH identification open [O] (5.67× discrepancy, consistent with the literature's own cH₀/2π≈6× framing — see §2 below; O4's 5.9σ disfavouring is itself rescored [P/O] and now SUPERSEDED: the μ_std V2 re-run (PREREG_A0_OF_Z_V2.md, A0_OF_Z_REPORT_V2.json, 2026-09-12) is INCONCLUSIVE at 2.06σ) | ⚠️ |
-| **O4** Redshift Test | ⚠️ [O]/[C] | **2026-09-27: the 20-point table is WITHDRAWN.** It cannot be traced to its cited sources: Bouché+2021 A&A 654 A49 is a 9-galaxy pilot, and "Mercier+2022 A&A 667 A75" was not found. So the in-house 5.9σ and 2.06σ results are both void. **The real data answer the question [C]:** MUSE-DARK III (Ciocan+2026, arXiv:2604.22613; 79 galaxies, 0.33<z<1.44) finds a₀(z) = (1.00±0.04)+(1.59±0.10)z ×10⁻¹⁰. The extrapolated a₀(0) matches cH₀/2π = 1.042 at 1σ. At the median z, constant a₀ is off by 13.4σ and a₀ ∝ H(z) by 6.5σ (stat. only), so a₀ grows faster than H(z). An in-house μ_std re-fit needs their per-galaxy data. See `03_observer_jwst/O4_REAL_DATA_MUSE_DARK_III_2026-09-27.md` | ⚠️ |
+| **O4** Redshift Test | ⚠️ [O]/[C] | **2026-09-27: the 20-point table is WITHDRAWN** as untraceable, so the in-house 5.9σ and 2.06σ results are void. **Real data, combined [C]:** the in-house RC100 measurement (`A0_HIGHZ_MEASUREMENT_2026-09-16.md`; 100 galaxies, z 0.6–2.6) and MUSE-DARK III (Ciocan+2026) both put a₀ at z ~ 1–2 at ~2–2.6× the local value. Inside the high-z range the shape favours a constant over H(z) (Δχ² ≈ 9–21, shape-only, not established). The step from z = 0 is calibration-limited. **No reading is excluded** | ⚠️ |
 | **O5** SPARC Automation | ✅ [P] | clean-clone walk closed 2026-09-09: 175/175 checksums, 0 drift (VERIFICATION_RUN_009) | ✓ |
 | **O6** Clean Reproduction | ✅ [P] | 39/39 PASS at closure; 43/43 since #39 (SU(2) envelope rungs); CI `lean-gate` green at `d130413`; gate list ≡ lakefile roots | ✓ |
 

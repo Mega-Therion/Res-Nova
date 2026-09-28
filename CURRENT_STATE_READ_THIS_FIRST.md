@@ -146,7 +146,7 @@ linear MPS window. **Never substitute c_ad for a propagation speed.**
 | D8 | [P] | c_T=c — upgraded to structural, strongest result in the corpus |
 | D9 | [P] | **Closed 2026-09-27.** μ_std embedding derived by calculus (`SZStdEmbedding.lean`: J_std = F_std(√𝒴) gives 2J′ = μ_std, with J′ > 0). λ_s is the family's overall scale, an AeST parameter (the Saturn bound applies only on the held branch), not a gap |
 
-**O1/O4 (2026-09-27).** The O4 20-point table is **withdrawn**: it cannot be traced to its cited sources, so the old 5.9σ and 2.06σ figures are void. The real data come from MUSE-DARK III (Ciocan+2026, arXiv:2604.22613). They give a₀(z) = (1.00±0.04)+(1.59±0.10)z. The extrapolated a₀(0) matches cH₀/2π = 1.042 at 1σ, but a₀ grows faster than H(z), and a constant a₀ (AeST as used here) is disfavoured at 13σ (stat.). See `03_observer_jwst/O4_REAL_DATA_MUSE_DARK_III_2026-09-27.md`.
+**O1/O4 (2026-09-27, corrected the same evening).** The O4 20-point table is **withdrawn** as untraceable, so the old 5.9σ and 2.06σ figures are void. The real high-z data are **inconclusive**. The in-house RC100 measurement (`02_galaxy_dynamics/A0_HIGHZ_MEASUREMENT_2026-09-16.md`) and MUSE-DARK III agree that a₀ at z ~ 1–2 is ~2–2.6× local. Within z 0.6–2.6 the shape favours a constant over H(z) (not established), and the step from z = 0 is calibration-limited. No reading is excluded. Do not cite "constant a₀ excluded at 13σ" or "a₀(0) matches cH₀/2π from MUSE-DARK III"; both were withdrawn the same day.
 
 **Full detail, always current:** `PEER_REVIEW_READINESS.md` — read its top banner before
 trusting anything dated earlier.
