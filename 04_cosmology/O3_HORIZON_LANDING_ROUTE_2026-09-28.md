@@ -349,6 +349,32 @@ a ≤ 10. Time is converted with h = 0.68. Script `ceiling_future.py`; output `C
   - **Consequence.** In this model, one measurable number decides between a coast and a crunch. Whether a crunch
     rebounds (a bounce) is outside this classical model.
 
+## Curvature inside the ceiling model: coast or crunch? `[D]` (RY: the rebound)
+
+**Method.**
+- Ω_k is fitted jointly with the κ ceiling, using the factorial counting law at μ = 1 (no fitted shape), against Planck
+  priors + DESI DR2 + each SN sample.
+- The share today is held at ln 2, and transverse distances use sin/sinh.
+- Script `ceiling_curvature.py`; output `CEILING_CURVATURE.json`.
+
+**Checks.**
+- At Ω_k = 0 both models reproduce the committed flat fits to 10⁻⁶ in χ².
+- ΛCDM + Ω_k gives +0.0024 ± 0.0012 with DESI DR2, within 0.8σ of Planck 2018 + BAO (0.0007 ± 0.0019).
+
+| model + Ω_k | Pantheon+ | DES-Y5 | P(closed), Gaussian profile |
+|---|---|---|---|
+| ΛCDM | +0.0024 ± 0.0012 | +0.0024 ± 0.0012 | 2.5–2.7 % |
+| κ ceiling (μ = 1) | +0.0014 ± 0.0011 | +0.0014 ± 0.0011 | ≈ 10 % |
+
+**Reading.**
+- **Today's data lean slightly open (1.3σ).** In the ceiling model, the favoured future is the coast: the expansion
+  speed falls toward zero forever. A closed universe, and with it recollapse and a possible rebound, has about a
+  1-in-10 chance under these data.
+- The ceiling pulls Ω_k toward zero relative to ΛCDM (+0.0014 vs +0.0024).
+- In ΛCDM the sign would not decide the fate anyway, because Λ dominates forever.
+- **Limits.** The CMB priors are compressed, so curvature enters them only through D_M(z*). P(closed) assumes a
+  Gaussian profile.
+
 ## Direction matters? Hemisphere split of the supernovae `[D]` (same night)
 
 RY: light from ahead of our motion and light from behind, or light crossing more intervening mass, need not tell the
