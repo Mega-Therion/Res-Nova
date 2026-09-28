@@ -1,0 +1,403 @@
+D7 decisive check, linear stage: boosted-held residuals (all rows) + wind-operator correction solve
+Generated 2026-09-28T03:08Z. Scripts: boosted_held_residuals.py, aest_wind_bg.py, wind_bg_validate.py,
+wind_correction_solve.py, wind_correction_decompose.py, wind_correction_ksens.py, wind_correction_qsens.py
+Point: K_B=1/2, Q0=0.1/Mpc, K2 in {75, 7.5e5}; dSph background x=0.05 (Jp, Jl from mu_std), r=0.3 kpc, k=1/r, v_f=10 km/s
+
+=== 1. Operator validation (wind_bg_validate.py) ===
+-- par_75
+[1] reduction v_w=0 vs validated builder: max |dM|/max|M| over 5 random points = 3.1006e-23
+    symbolic difference at v_w = 0: 0 nonzero entries of 100
+[2] boost test, exact (v=3/10, g=qbar=Jl=0): det M(k,w;v)/det M(k',w';0) = [91/100, 91/100, 91/100]  (1 - v^2 = 91/100)
+[3] conditioning of M(k=1/r, w=0; v), dSph x=0.05, K2=75:
+    v=   0 km/s  s_min=0.7669  s_max=4.317e+7  cond=5.629e+7
+    v=   1 km/s  s_min=0.7737  s_max=4.317e+7  cond=5.58e+7
+    v=  10 km/s  s_min=1.444  s_max=4.317e+7  cond=2.989e+7
+    v= 100 km/s  s_min=68.5  s_max=4.317e+7  cond=6.302e+5
+    v= 600 km/s  s_min=2418.0  s_max=4.316e+7  cond=1.784e+4
+VALIDATION PASS
+-- perp_75
+[1] reduction v_w=0 vs validated builder: max |dM|/max|M| over 5 random points = 3.0867e-23
+    symbolic difference at v_w = 0: 0 nonzero entries of 100
+[2] boost test, exact (v=3/10, g=qbar=Jl=0): det M(k,w;v)/det M(k',w';0) = [91/100, 91/100, 91/100]  (1 - v^2 = 91/100)
+[3] conditioning of M(k=1/r, w=0; v), dSph x=0.05, K2=75:
+    v=   0 km/s  s_min=1.582  s_max=4.174e+7  cond=2.638e+7
+    v=   1 km/s  s_min=1.595  s_max=4.174e+7  cond=2.616e+7
+    v=  10 km/s  s_min=2.919  s_max=4.174e+7  cond=1.43e+7
+    v= 100 km/s  s_min=135.1  s_max=4.174e+7  cond=3.089e+5
+    v= 600 km/s  s_min=4629.0  s_max=4.173e+7  cond=9014.0
+VALIDATION PASS
+-- par_750000
+[2] boost test, exact (v=3/10, g=qbar=Jl=0): det M(k,w;v)/det M(k',w';0) = [91/100, 91/100, 91/100]  (1 - v^2 = 91/100)
+[3] conditioning of M(k=1/r, w=0; v), dSph x=0.05, K2=750000:
+    v=   0 km/s  s_min=0.7752  s_max=4.317e+7  cond=5.569e+7
+    v=   1 km/s  s_min=0.782  s_max=4.317e+7  cond=5.52e+7
+    v=  10 km/s  s_min=1.474  s_max=4.314e+7  cond=2.926e+7
+    v= 100 km/s  s_min=520.5  s_max=3.999e+7  cond=7.684e+4
+    v= 600 km/s  s_min=1.413  s_max=9.966e+7  cond=7.053e+7
+VALIDATION PASS
+-- perp_750000
+[2] boost test, exact (v=3/10, g=qbar=Jl=0): det M(k,w;v)/det M(k',w';0) = [91/100, 91/100, 91/100]  (1 - v^2 = 91/100)
+[3] conditioning of M(k=1/r, w=0; v), dSph x=0.05, K2=750000:
+    v=   0 km/s  s_min=1.613  s_max=4.174e+7  cond=2.588e+7
+    v=   1 km/s  s_min=1.627  s_max=4.174e+7  cond=2.566e+7
+    v=  10 km/s  s_min=3.043  s_max=4.17e+7  cond=1.37e+7
+    v= 100 km/s  s_min=105.4  s_max=3.859e+7  cond=3.663e+5
+    v= 600 km/s  s_min=0.6449  s_max=1.013e+8  cond=1.57e+8
+VALIDATION PASS
+
+=== 2. Residuals in the builder basis, K_B=1/2 (boosted_held_residuals.py; O(eps^0) parts all vanish, no eps warnings) ===
+-- par
+=== par: O(eps) residuals in the builder basis, K_B = 1/2, Q0 = 1/10, series to v^2 (polynomial-in-v forms saved as JSON) ===
+  R[h00] = H_vphi*v**2 + 2*H_vphi + v*(-K_2*g_vphi/5 + fY1*g_vphi/10 + 9*g_hat/20 + 3*g_vphi/5)
+  R[h0x] = 0
+  R[h0z] = 6*H_hat*v - fY1*g_vphi/5 + 3*g_hat/10 + v**2*(2*K_2*g_vphi/5 - 3*fY1*g_vphi/10 - 3*g_hat/20 - 3*g_vphi/5)
+  R[hxx] = 0
+  R[hyy] = 0
+  R[hzz] = v**2*(-6*H_hat - 2*H_vphi) + v*(fY1*g_vphi/5 - 3*g_hat/10)
+  R[hxz] = 0
+  R[ux] = 0
+  R[uz] = -fY1*g_vphi/5 + 3*g_hat/10 + v**2*(3*g_hat/5 + 3*g_vphi/5) + v*(6*H_hat + 4*H_vphi)
+  R[phi] = -4*F2*H_vphi*g_vphi**2 + 2*H_vphi*fY1 + v**2*(-8*F2*H_vphi*g_vphi**2 - 18*H_hat + 4*H_vphi*K_2 - 2*H_vphi*fY1 - 18*H_vphi) + v*(8*F2*g_hat*g_vphi**2/5 + 8*F2*g_vphi**3/5 - 2*K_2*g_hat/5 - 2*K_2*g_vphi/5 + 4*fY1*g_hat/5 + 4*fY1*g_vphi/5 + 6*g_hat/5 + 6*g_vphi/5)
+-- perp
+=== perp: O(eps) residuals in the builder basis, K_B = 1/2, Q0 = 1/10, series to v^2 (polynomial-in-v forms saved as JSON) ===
+  R[h00] = H_vphi*v**2 + 2*H_vphi
+  R[h0x] = -fY1*g_vphi/5 + 3*g_hat/10 + v**2*(-fY1*g_vphi/10 + 3*g_hat/4 + 3*g_vphi/5)
+  R[h0z] = -3*H_hat*v
+  R[hxx] = 0
+  R[hyy] = 0
+  R[hzz] = v**2*(3*H_hat - 2*H_vphi)
+  R[hxz] = v*(fY1*g_vphi/5 - 3*g_hat/10)
+  R[ux] = -fY1*g_vphi/5 + 3*g_hat/10 + v**2*(3*g_hat/5 + 3*g_vphi/5)
+  R[uz] = v*(-3*H_hat + 4*H_vphi)
+  R[phi] = -4*F2*H_vphi*g_vphi**2 + 2*H_vphi*fY1 + v**2*(9*H_hat - 4*H_vphi*K_2 + 2*H_vphi*fY1 + 6*H_vphi)
+
+=== 2b. Along-wind aether row and h0z row at general K_B (kbsym runs) ===
+-- par
+  R[h0z] = -K_B*g_hat/5 - fY1*g_vphi/5 + 2*g_hat/5 + v**2*(2*K_2*g_vphi/5 + K_B*g_hat/10 + 2*K_B*g_vphi/5 - 3*fY1*g_vphi/10 - g_hat/5 - 4*g_vphi/5) + v*(12*H_hat*K_B + 16*H_vphi*K_B - 8*H_vphi)
+  R[uz] = -K_B*g_hat/5 - fY1*g_vphi/5 + 2*g_hat/5 + v**2*(-2*K_B*g_hat/5 - 2*K_B*g_vphi/5 + 4*g_hat/5 + 4*g_vphi/5) + v*(12*H_hat*K_B + 16*H_vphi*K_B - 4*H_vphi)
+-- perp
+  R[h0z] = -6*H_hat*K_B*v
+  R[uz] = v*(-6*H_hat*K_B + 4*H_vphi)
+
+=== 3. Correction solves (Hessian-term phase 'real'; the +i/-i variants are identical in 3 of 4 runs and within 1% at par K2=7.5e5) ===
+|dS_par|/|S| = |dY|/(2Y0) (gauge-invariant change of MOND field strength); |rot| = (dS_perp - g h_xz)/|S| (gauge-invariant
+component across S; with k along the wind it looks like a rotation, but the real-space correction lies along S: see section 9)
+-- par_75
+par, K2=75: k=3333/Mpc, g=3.577e-06/Mpc, qbar=1.648e-03/Mpc, stealth tilt g/Q0=3.58e-05
+  Hessian-term phase real:
+   v [km/s]  |dS_par|/|S|      |rot|   |du^z|/(g/Q0)      |R|max    s_min(M)
+          1    1.0252e-01  0.000e+00      6.1791e-03   1.710e-07   7.737e-01
+          3    2.9651e-01  0.000e+00      1.7324e-02   5.130e-07   8.279e-01
+         10    7.3561e-01  0.000e+00      3.3098e-02   1.710e-06   1.444e+00
+         30    9.9351e-01  0.000e+00      2.0893e-02   5.130e-06   6.864e+00
+        100    1.0434e+00  0.000e+00      6.9761e-03   1.710e-05   6.850e+01
+        300    1.0482e+00  0.000e+00      2.3449e-03   5.130e-05   6.091e+02
+        600    1.0488e+00  0.000e+00      1.1670e-03   1.026e-04   2.418e+03
+-- perp_75
+perp, K2=75: k=3333/Mpc, g=3.577e-06/Mpc, qbar=1.648e-03/Mpc, stealth tilt g/Q0=3.58e-05
+  Hessian-term phase real:
+   v [km/s]  |dS_par|/|S|      |rot|   |du^z|/(g/Q0)      |R|max    s_min(M)
+          1    1.0419e-10  8.893e-02      2.6833e-03   1.531e-07   1.595e+00
+          3    3.0090e-10  2.579e-01      7.5441e-03   4.594e-07   1.702e+00
+         10    7.3882e-10  6.511e-01      1.4666e-02   1.531e-06   2.919e+00
+         30    9.8315e-10  8.960e-01      9.4339e-03   4.594e-06   1.361e+01
+        100    1.0281e-09  9.453e-01      3.1649e-03   1.531e-05   1.351e+02
+        300    1.0324e-09  9.501e-01      1.0661e-03   4.594e-05   1.192e+03
+        600    1.0328e-09  9.505e-01      5.3370e-04   9.188e-05   4.629e+03
+-- par_750000
+par, K2=750000: k=3333/Mpc, g=3.577e-06/Mpc, qbar=1.648e-07/Mpc, stealth tilt g/Q0=3.58e-05
+  Hessian-term phase real:
+   v [km/s]  |dS_par|/|S|      |rot|   |du^z|/(g/Q0)      |R|max    s_min(M)
+          1    1.0235e-01  0.000e+00      6.1128e-03   3.360e-06   7.820e-01
+          3    2.9607e-01  0.000e+00      1.7116e-02   7.693e-06   8.372e-01
+         10    7.3485e-01  0.000e+00      3.2095e-02   1.790e-05   1.474e+00
+         30    9.9596e-01  0.000e+00      1.6721e-02   2.454e-04   7.690e+00
+        100    1.0960e+00  0.000e+00      8.3445e-03   3.604e-03   5.205e+02
+        300    1.6996e+00  0.000e+00      5.6952e-02   3.469e-02   5.096e+01
+        600    8.8688e+01  0.000e+00      3.9364e+00   1.410e-01   1.413e+00
+-- perp_750000
+perp, K2=750000: k=3333/Mpc, g=3.577e-06/Mpc, qbar=1.648e-07/Mpc, stealth tilt g/Q0=3.58e-05
+  Hessian-term phase real:
+   v [km/s]  |dS_par|/|S|      |rot|   |du^z|/(g/Q0)      |R|max    s_min(M)
+          1    1.0361e-10  8.883e-02      2.6321e-03   3.980e-07   1.627e+00
+          3    2.9933e-10  2.577e-01      7.4013e-03   3.582e-06   1.739e+00
+         10    7.3654e-10  6.509e-01      1.4411e-02   3.980e-05   3.043e+00
+         30    9.8281e-10  8.962e-01      9.3815e-03   3.582e-04   1.739e+01
+        100    1.0288e-09  9.444e-01      3.5654e-03   3.980e-03   1.054e+02
+        300    1.0351e-09  9.345e-01      2.6328e-03   3.582e-02   4.753e+01
+        600    1.7443e-09  3.643e+00      2.0656e-01   1.433e-01   6.449e-01
+
+=== 4. Row decomposition (which residual drives the correction) ===
+-- par_75
+v = 1 km/s: total dY/2Y0 = (-0.10211 + 0.0091835j)   ik dP/g = (-0.09583 + 0.009183j)   Q0 du^z/g = (-0.006179 - 7.347e-10j)   Q0 h0z/g = (-2.998e-11 - 2.405e-17j)
+    row h00 : R =   -1.713e-10   dY/2Y0 =   6.243e-9   |rot| = 0.0
+    row h0z : R =     1.192e-8   dY/2Y0 =  4.669e-20   |rot| = 0.0
+    row hzz : R =   -3.051e-13   dY/2Y0 =  1.112e-11   |rot| = 0.0
+    row uz  : R =      1.71e-7   dY/2Y0 =     0.1025   |rot| = 0.0
+    row phi : R =   -3.221e-10   dY/2Y0 =  5.278e-10   |rot| = 0.0
+v = 10 km/s: total dY/2Y0 = (-0.54694 + 0.49191j)   ik dP/g = (-0.5133 + 0.4919j)   Q0 du^z/g = (-0.0331 - 3.441e-8j)   Q0 h0z/g = (-2.998e-10 + 1.485e-17j)
+    row h00 : R =    -1.701e-9   dY/2Y0 =   3.532e-8   |rot| = 0.0
+    row h0z : R =     1.192e-7   dY/2Y0 =  3.651e-19   |rot| = 0.0
+    row hzz : R =   -3.051e-11   dY/2Y0 =  6.334e-10   |rot| = 0.0
+    row uz  : R =      1.71e-6   dY/2Y0 =     0.7356   |rot| = 0.0
+    row phi : R =    1.304e-10   dY/2Y0 =   1.217e-9   |rot| = 0.0
+v = 100 km/s: total dY/2Y0 = (-0.1153 + 1.037j)   ik dP/g = (-0.1082 + 1.037j)   Q0 du^z/g = (-0.006976 - 7.15e-8j)   Q0 h0z/g = (-2.998e-9 + 2.581e-14j)
+    row h00 : R =    -1.582e-8   dY/2Y0 =    2.46e-8   |rot| = 0.0
+    row h0z : R =     1.192e-6   dY/2Y0 =  1.016e-18   |rot| = 0.0
+    row hzz : R =    -3.051e-9   dY/2Y0 =   4.743e-9   |rot| = 0.0
+    row uz  : R =      1.71e-5   dY/2Y0 =      1.043   |rot| = 0.0
+    row phi : R =     3.364e-7   dY/2Y0 =   2.352e-6   |rot| = 0.0
+v = 600 km/s: total dY/2Y0 = (-0.01942 + 1.0486j)   ik dP/g = (-0.01823 + 1.049j)   Q0 du^z/g = (-0.001167 - 7.219e-8j)   Q0 h0z/g = (-1.799e-8 + 1.012e-12j)
+    row h00 : R =    -5.512e-8   dY/2Y0 =   1.394e-8   |rot| = 0.0
+    row h0z : R =     7.151e-6   dY/2Y0 =  5.016e-18   |rot| = 0.0
+    row hzz : R =    -1.098e-7   dY/2Y0 =   2.778e-8   |rot| = 0.0
+    row uz  : R =    0.0001026   dY/2Y0 =      1.049   |rot| = 0.0
+    row phi : R =     1.319e-5   dY/2Y0 =   9.001e-5   |rot| = 0.0
+-- par_750000
+v = 1 km/s: total dY/2Y0 = (-0.10194 + 0.00918j)   ik dP/g = (-0.09583 + 0.009188j)   Q0 du^z/g = (-0.006113 - 7.583e-6j)   Q0 h0z/g = (-3.001e-11 - 2.536e-13j)
+    row h00 : R =     -1.79e-6   dY/2Y0 =   6.407e-5   |rot| = 0.0
+    row h0z : R =     1.193e-8   dY/2Y0 =  4.504e-20   |rot| = 0.0
+    row hzz : R =   -3.051e-13   dY/2Y0 =  1.092e-11   |rot| = 0.0
+    row uz  : R =      1.71e-7   dY/2Y0 =     0.1024   |rot| = 0.0
+    row phi : R =     -3.36e-6   dY/2Y0 =   5.455e-6   |rot| = 0.0
+v = 10 km/s: total dY/2Y0 = (-0.54551 + 0.49237j)   ik dP/g = (-0.5134 + 0.4927j)   Q0 du^z/g = (-0.03209 - 0.0003632j)   Q0 h0z/g = (-3.028e-10 + 1.674e-13j)
+    row h00 : R =     -1.79e-5   dY/2Y0 =   0.000366   |rot| = 0.0
+    row h0z : R =     1.204e-7   dY/2Y0 =  3.499e-19   |rot| = 0.0
+    row hzz : R =   -3.053e-11   dY/2Y0 =  6.242e-10   |rot| = 0.0
+    row uz  : R =      1.71e-6   dY/2Y0 =     0.7352   |rot| = 0.0
+    row phi : R =     2.217e-6   dY/2Y0 =   2.045e-5   |rot| = 0.0
+v = 100 km/s: total dY/2Y0 = (-0.099069 + 1.0915j)   ik dP/g = (-0.1074 + 1.092j)   Q0 du^z/g = (0.008311 - 0.0007498j)   Q0 h0z/g = (-3.299e-9 + 2.72e-10j)
+    row h00 : R =    -0.000179   dY/2Y0 =  0.0002818   |rot| = 0.0
+    row h0z : R =     1.311e-6   dY/2Y0 =  1.071e-18   |rot| = 0.0
+    row hzz : R =    -3.071e-9   dY/2Y0 =   4.834e-9   |rot| = 0.0
+    row uz  : R =      1.71e-5   dY/2Y0 =      1.072   |rot| = 0.0
+    row phi : R =     0.003604   dY/2Y0 =     0.0259   |rot| = 0.0
+v = 600 km/s: total dY/2Y0 = (3.9104 + 88.601j)   ik dP/g = (-0.02604 + 88.6j)   Q0 du^z/g = (3.936 - 0.001987j)   Q0 h0z/g = (-2.881e-8 + 1.064e-8j)
+    row h00 : R =    -0.001074   dY/2Y0 =    0.01093   |rot| = 0.0
+    row h0z : R =     1.145e-5   dY/2Y0 =  3.413e-16   |rot| = 0.0
+    row hzz : R =    -1.141e-7   dY/2Y0 =   1.162e-6   |rot| = 0.0
+    row uz  : R =    0.0001026   dY/2Y0 =      46.26   |rot| = 0.0
+    row phi : R =        0.141   dY/2Y0 =      42.42   |rot| = 0.0
+-- perp_75
+v = 1 km/s: total dY/2Y0 = (8.6549e-12 + 1.0383e-10j)   ik dP/g = (-0.08584 + 0.007966j)   Q0 du^z/g = (-0.002683 + 6.507e-10j)   Q0 h0z/g = (1.499e-11 - 2.963e-18j)
+    row h00 : R =    1.327e-13   dY/2Y0 =  1.222e-20   |rot| = 4.683e-12
+    row h0x : R =    2.507e-17   dY/2Y0 =  3.276e-35   |rot| = 4.159e-27
+    row h0z : R =    -5.958e-9   dY/2Y0 =  2.443e-30   |rot| = 9.36e-22
+    row hzz : R =   -2.455e-13   dY/2Y0 =  4.463e-20   |rot| = 8.665e-12
+    row hxz : R =   -8.363e-23   dY/2Y0 =  3.194e-39   |rot| = 2.726e-30
+    row ux  : R =    2.507e-17   dY/2Y0 =  6.412e-20   |rot| = 4.687e-20
+    row uz  : R =     1.531e-7   dY/2Y0 =  1.042e-10   |rot| = 0.08893
+    row phi : R =   -3.892e-11   dY/2Y0 =  2.155e-18   |rot| = 6.179e-11
+v = 10 km/s: total dY/2Y0 = (4.7307e-10 + 5.675e-10j)   ik dP/g = (-0.4692 + 0.4354j)   Q0 du^z/g = (-0.01467 + 3.557e-8j)   Q0 h0z/g = (1.499e-10 - 2.974e-16j)
+    row h00 : R =    1.327e-11   dY/2Y0 =  8.467e-19   |rot| = 2.723e-10
+    row h0x : R =    2.507e-15   dY/2Y0 =  3.446e-33   |rot| = 4.896e-25
+    row h0z : R =    -5.958e-8   dY/2Y0 =  1.692e-28   |rot| = 5.442e-20
+    row hzz : R =   -2.455e-11   dY/2Y0 =  3.248e-18   |rot| = 5.038e-10
+    row hxz : R =   -8.363e-20   dY/2Y0 =  2.265e-36   |rot| = 1.996e-27
+    row ux  : R =    2.507e-15   dY/2Y0 =  6.412e-18   |rot| = 3.432e-18
+    row uz  : R =     1.531e-6   dY/2Y0 =  7.388e-10   |rot| = 0.6511
+    row phi : R =    -3.892e-9   dY/2Y0 =  1.754e-16   |rot| = 3.592e-8
+v = 100 km/s: total dY/2Y0 = (1.0208e-9 + 1.2246e-10j)   ik dP/g = (-0.1013 + 0.9396j)   Q0 du^z/g = (-0.003165 + 7.675e-8j)   Q0 h0z/g = (1.499e-9 - 2.986e-14j)
+    row h00 : R =     1.327e-9   dY/2Y0 =  5.979e-17   |rot| = 2.087e-9
+    row h0x : R =    2.507e-13   dY/2Y0 =  3.639e-31   |rot| = 1.924e-22
+    row h0z : R =    -5.958e-7   dY/2Y0 =  1.195e-26   |rot| = 4.171e-19
+    row hzz : R =    -2.455e-9   dY/2Y0 =  1.183e-16   |rot| = 3.861e-9
+    row hxz : R =   -8.363e-17   dY/2Y0 =  3.152e-34   |rot| = 2.898e-25
+    row ux  : R =    2.507e-13   dY/2Y0 =  6.412e-16   |rot| = 4.983e-17
+    row uz  : R =     1.531e-5   dY/2Y0 =   1.028e-9   |rot| = 0.9454
+    row phi : R =    -3.892e-7   dY/2Y0 =   2.83e-15   |rot| = 2.754e-6
+v = 600 km/s: total dY/2Y0 = (1.0326e-9 + 2.0632e-11j)   ik dP/g = (-0.01707 + 0.9504j)   Q0 du^z/g = (-0.0005337 + 7.763e-8j)   Q0 h0z/g = (8.995e-9 - 1.075e-12j)
+    row h00 : R =     4.776e-8   dY/2Y0 =  2.149e-15   |rot| = 1.223e-8
+    row h0x : R =    9.026e-12   dY/2Y0 =  1.312e-29   |rot| = 4.019e-20
+    row h0z : R =    -3.575e-6   dY/2Y0 =  4.296e-25   |rot| = 2.444e-18
+    row hzz : R =    -8.836e-8   dY/2Y0 =  3.985e-15   |rot| = 2.263e-8
+    row hxz : R =   -1.806e-14   dY/2Y0 =   1.14e-32   |rot| = 1.049e-23
+    row ux  : R =    9.026e-12   dY/2Y0 =  2.308e-14   |rot| = 3.006e-16
+    row uz  : R =     9.188e-5   dY/2Y0 =   1.033e-9   |rot| = 0.9506
+    row phi : R =    -1.401e-5   dY/2Y0 =  1.711e-14   |rot| = 9.681e-5
+
+=== 5. Sensitivity: WKB wavenumber with R(P) held fixed (a convention; see 5b), and lift strength (qbar = q_s x sec.26 value) ===
+-- ksens_par_75
+par, K2=75: |dS_par|/|S| (par) or |rot| (perp) with R(P) fixed, operator at k = f/r
+ v [km/s]      f=1/3      f=1/2        f=1        f=2        f=3
+        1  1.030e-01  1.029e-01  1.025e-01  1.011e-01  9.884e-02
+        3  3.076e-01  3.058e-01  2.965e-01  2.664e-01  2.318e-01
+       10  9.793e-01  9.252e-01  7.356e-01  4.676e-01  3.312e-01
+       30  2.207e+00  1.737e+00  9.935e-01  5.170e-01  3.474e-01
+      100  3.010e+00  2.056e+00  1.043e+00  5.237e-01  3.494e-01
+      300  3.130e+00  2.093e+00  1.048e+00  5.243e-01  3.496e-01
+      600  3.143e+00  2.097e+00  1.049e+00  5.245e-01  3.496e-01
+-- ksens_perp_75
+perp, K2=75: |dS_par|/|S| (par) or |rot| (perp) with R(P) fixed, operator at k = f/r
+ v [km/s]      f=1/3      f=1/2        f=1        f=2        f=3
+        1  8.928e-02  8.922e-02  8.893e-02  8.779e-02  8.598e-02
+        3  2.668e-01  2.653e-01  2.579e-01  2.335e-01  2.047e-01
+       10  8.524e-01  8.085e-01  6.511e-01  4.197e-01  2.987e-01
+       30  1.953e+00  1.551e+00  8.960e-01  4.680e-01  3.147e-01
+      100  2.717e+00  1.860e+00  9.453e-01  4.747e-01  3.167e-01
+      300  2.836e+00  1.897e+00  9.501e-01  4.753e-01  3.169e-01
+      600  2.848e+00  1.900e+00  9.505e-01  4.753e-01  3.169e-01
+-- qsens_par_75
+par, K2=75: |dS_par|/|S| (par) or |rot| (perp) vs lift strength qbar = q_s x (sec.26 value 1.648e-03/Mpc)
+ v [km/s]    q_s=0.1    q_s=0.3      q_s=1      q_s=3     q_s=10
+        1  1.063e+00  3.783e-01  1.025e-01  3.291e-02  9.736e-03
+        3  1.062e+00  7.995e-01  2.965e-01  9.833e-02  2.920e-02
+       10  1.050e+00  1.017e+00  7.356e-01  3.141e-01  9.694e-02
+       30  1.049e+00  1.045e+00  9.935e-01  7.192e-01  2.814e-01
+      100  1.049e+00  1.048e+00  1.043e+00  9.994e-01  7.136e-01
+      300  1.049e+00  1.049e+00  1.048e+00  1.043e+00  9.871e-01
+      600  1.049e+00  1.049e+00  1.049e+00  1.047e+00  1.032e+00
+-- qsens_perp_75
+perp, K2=75: |dS_par|/|S| (par) or |rot| (perp) vs lift strength qbar = q_s x (sec.26 value 1.648e-03/Mpc)
+ v [km/s]    q_s=0.1    q_s=0.3      q_s=1      q_s=3     q_s=10
+        1  7.683e-01  3.044e-01  8.893e-02  2.915e-02  8.687e-03
+        3  9.263e-01  6.779e-01  2.579e-01  8.713e-02  2.605e-02
+       10  9.485e-01  9.121e-01  6.511e-01  2.788e-01  8.652e-02
+       30  9.504e-01  9.462e-01  8.960e-01  6.438e-01  2.514e-01
+      100  9.507e-01  9.503e-01  9.453e-01  9.039e-01  6.413e-01
+      300  9.507e-01  9.506e-01  9.501e-01  9.451e-01  8.931e-01
+      600  9.507e-01  9.507e-01  9.505e-01  9.493e-01  9.353e-01
+
+=== 6. Plateau closed form (K_B=1/2, plane-wave convention): par (4+6Jp)/(4+Jp+Jl); perp (4-3Jp)/(4+Jp); denominator = 2(2+K_B lambda) ===
+  Jp=0.0499376 Jl=0.0498131
+  par  predicted 1.04875   observed plateau 1.049 (q_s=0.1 column, 600 km/s)
+  perp predicted 0.950678   observed plateau 0.9507 (q_s=0.1 column, 600 km/s)
+
+=== 5b. WKB wavenumber, plane-wave convention (Hessian-type residual terms scaled by f with k = f/r): plateau flat ===
+par, K2=75, mode=scaledH: |dS_par|/|S| (par) or |rot| (perp); operator at k = f/r
+ v [km/s]      f=1/3      f=1/2        f=1        f=2        f=3
+        1  3.432e-02  5.144e-02  1.025e-01  2.022e-01  2.965e-01
+        3  1.025e-01  1.529e-01  2.965e-01  5.329e-01  6.953e-01
+       10  3.264e-01  4.626e-01  7.356e-01  9.353e-01  9.935e-01
+       30  7.356e-01  8.685e-01  9.935e-01  1.034e+00  1.042e+00
+      100  1.003e+00  1.028e+00  1.043e+00  1.047e+00  1.048e+00
+      300  1.043e+00  1.046e+00  1.048e+00  1.049e+00  1.049e+00
+      600  1.048e+00  1.048e+00  1.049e+00  1.049e+00  1.049e+00
+perp, K2=75, mode=scaledH: |dS_par|/|S| (par) or |rot| (perp); operator at k = f/r
+ v [km/s]      f=1/3      f=1/2        f=1        f=2        f=3
+        1  2.976e-02  4.461e-02  8.893e-02  1.756e-01  2.579e-01
+        3  8.893e-02  1.327e-01  2.579e-01  4.669e-01  6.140e-01
+       10  2.841e-01  4.043e-01  6.511e-01  8.394e-01  8.960e-01
+       30  6.511e-01  7.755e-01  8.960e-01  9.361e-01  9.441e-01
+      100  9.057e-01  9.299e-01  9.453e-01  9.493e-01  9.501e-01
+      300  9.453e-01  9.483e-01  9.501e-01  9.505e-01  9.506e-01
+      600  9.493e-01  9.501e-01  9.505e-01  9.506e-01  9.507e-01
+
+=== 7. Forcing for a general local field (boosted_held_structure.py): R_z/v = 8K_B lap(Phi) + (4-8K_B) d_z g_z - 6K_B d_z ghat_z ===
+O(eps^0) of E_Az: 0
+E_Az, O(eps v^0): -(K_B*ghat_z + fY1*g_z - 2*ghat_z)/5
+E_Az, O(eps v^1): 8*H_xx*K_B + 8*H_yy*K_B + 4*H_zz + 8*Hhat_xx*K_B + 8*Hhat_yy*K_B + 2*Hhat_zz*K_B
+   coefficient of H_xx: 8*K_B
+   coefficient of H_yy: 8*K_B
+   coefficient of H_zz: 4
+   coefficient of H_xz: 0
+   coefficient of Hhat_xx: 8*K_B
+   coefficient of Hhat_yy: 8*K_B
+   coefficient of Hhat_zz: 2*K_B
+   coefficient of Hhat_xz: 0
+
+=== 8. Angled-k test (aest_wind_bg_angled.py + wind_correction_angle.py): flat response to the physical forcing (mechanism: section 9) ===
+[1] angled operator at k_x = 0 vs validated operator: 0 nonzero entries of 100
+[2] isotropic background, |k| = 5: det M at (kx,kz) = (3,4),(4,3),(0,5),(5,0) equal: True
+par, K2=75: |dY|/(2Y0)  (projection of dS on S); R(P) fixed, |k| = 1/r, k at angle alpha to the wind
+ v [km/s]       a=0      a=15      a=30      a=45      a=60      a=75   | a=60/a=0
+        1 1.025e-01 9.548e-02 7.636e-02 5.056e-02 2.511e-02 6.694e-03   | 0.245
+       10 7.356e-01 6.973e-01 5.868e-01 4.194e-01 2.271e-01 6.506e-02   | 0.309
+      100 1.043e+00 1.008e+00 9.047e-01 7.382e-01 5.179e-01 2.541e-01   | 0.496
+      300 1.048e+00 1.013e+00 9.103e-01 7.452e-01 5.279e-01 2.720e-01   | 0.504
+      600 1.049e+00 1.014e+00 9.110e-01 7.460e-01 5.289e-01 2.739e-01   | 0.504
+par, K2=75: |k dP|/g  (size of the scalar-gradient correction); R(P) fixed, |k| = 1/r, k at angle alpha to the wind
+ v [km/s]       a=0      a=15      a=30      a=45      a=60      a=75   | a=60/a=0
+        1 9.627e-02 9.301e-02 8.346e-02 6.822e-02 4.829e-02 2.501e-02   | 0.502
+       10 7.110e-01 6.978e-01 6.552e-01 5.738e-01 4.397e-01 2.435e-01   | 0.618
+      100 1.043e+00 1.043e+00 1.044e+00 1.043e+00 1.034e+00 9.767e-01   | 0.992
+      300 1.048e+00 1.049e+00 1.051e+00 1.054e+00 1.056e+00 1.050e+00   | 1.007
+      600 1.049e+00 1.050e+00 1.052e+00 1.055e+00 1.058e+00 1.058e+00   | 1.009
+[1] angled operator at k_x = 0 vs validated operator: 0 nonzero entries of 100
+[2] isotropic background, |k| = 5: det M at (kx,kz) = (3,4),(4,3),(0,5),(5,0) equal: True
+perp, K2=75: |dY|/(2Y0)  (projection of dS on S); R(P) fixed, |k| = 1/r, k at angle alpha to the wind
+ v [km/s]       a=0      a=15      a=30      a=45      a=60      a=75   | a=60/a=0
+        1 1.042e-10 2.229e-02 3.885e-02 4.528e-02 3.957e-02 2.300e-02   | nan
+       10 7.388e-10 1.655e-01 3.012e-01 3.756e-01 3.565e-01 2.231e-01   | nan
+      100 1.028e-09 2.444e-01 4.704e-01 6.610e-01 7.991e-01 8.449e-01   | nan
+      300 1.032e-09 2.457e-01 4.735e-01 6.673e-01 8.139e-01 9.002e-01   | nan
+      600 1.033e-09 2.458e-01 4.738e-01 6.679e-01 8.152e-01 9.058e-01   | nan
+perp, K2=75: |k dP|/g  (size of the scalar-gradient correction); R(P) fixed, |k| = 1/r, k at angle alpha to the wind
+ v [km/s]       a=0      a=15      a=30      a=45      a=60      a=75   | a=60/a=0
+        1 8.621e-02 8.330e-02 7.474e-02 6.109e-02 4.324e-02 2.240e-02   | 0.502
+       10 6.401e-01 6.277e-01 5.880e-01 5.138e-01 3.933e-01 2.180e-01   | 0.614
+      100 9.450e-01 9.438e-01 9.403e-01 9.338e-01 9.205e-01 8.668e-01   | 0.974
+      300 9.500e-01 9.492e-01 9.469e-01 9.436e-01 9.395e-01 9.308e-01   | 0.989
+      600 9.505e-01 9.497e-01 9.475e-01 9.445e-01 9.413e-01 9.375e-01   | 0.990
+
+=== 9. Probes, symbol and sign check: the balance runs along the wind; the physical response is Poisson; the sign is cancellation ===
+-- probes (wind_correction_angle_probe.py)
+par, K2=75: A. physical residual; |k dP|/g  [s_min(M) in brackets]
+ v [km/s]                 a=0                a=45                a=75                a=80                a=85                a=88              a=89.5
+        1 9.627e-02 [7.7e-01] 6.822e-02 [1.0e+00] 2.501e-02 [1.5e+00] 1.679e-02 [1.5e+00] 8.425e-03 [1.6e+00] 3.374e-03 [1.6e+00] 8.436e-04 [1.6e+00]
+      100 1.043e+00 [6.8e+01] 1.043e+00 [4.6e+01] 9.767e-01 [9.9e+00] 8.971e-01 [5.4e+00] 6.600e-01 [2.6e+00] 3.215e-01 [1.7e+00] 8.410e-02 [1.6e+00]
+      600 1.049e+00 [2.4e+03] 1.055e+00 [1.6e+03] 1.058e+00 [3.0e+02] 1.056e+00 [1.4e+02] 1.039e+00 [3.8e+01] 9.403e-01 [7.4e+00] 4.570e-01 [1.9e+00]
+par, K2=75: B. aether forcing along k; |k dP|/g  [s_min(M) in brackets]
+ v [km/s]                 a=0                a=30                a=45                a=60                a=75                a=85
+        1 9.627e-02 [7.7e-01] 9.637e-02 [8.9e-01] 9.647e-02 [1.0e+00] 9.657e-02 [1.3e+00] 9.665e-02 [1.5e+00] 9.667e-02 [1.6e+00]
+      100 1.043e+00 [6.8e+01] 1.205e+00 [5.9e+01] 1.475e+00 [4.6e+01] 2.068e+00 [2.8e+01] 3.774e+00 [9.9e+00] 7.572e+00 [2.6e+00]
+      600 1.049e+00 [2.4e+03] 1.215e+00 [2.1e+03] 1.492e+00 [1.6e+03] 2.115e+00 [9.6e+02] 4.088e+00 [3.0e+02] 1.192e+01 [3.8e+01]
+par, K2=75: C. aether forcing transverse to k; |k dP|/g  [s_min(M) in brackets]
+ v [km/s]                 a=0                a=30                a=45                a=60                a=75                a=85
+        1 0.000e+00 [7.7e-01] 1.556e-10 [8.9e-01] 2.201e-10 [1.0e+00] 2.695e-10 [1.3e+00] 3.006e-10 [1.5e+00] 3.100e-10 [1.6e+00]
+      100 0.000e+00 [6.8e+01] 5.877e-08 [5.9e+01] 8.354e-08 [4.6e+01] 1.032e-07 [2.8e+01] 1.171e-07 [9.9e+00] 1.050e-07 [2.6e+00]
+      600 0.000e+00 [2.4e+03] 2.107e-06 [2.1e+03] 2.989e-06 [1.6e+03] 3.672e-06 [9.6e+02] 4.107e-06 [3.0e+02] 4.257e-06 [3.8e+01]
+perp, K2=75: A. physical residual; |k dP|/g  [s_min(M) in brackets]
+ v [km/s]                 a=0                a=45                a=75                a=80                a=85                a=88              a=89.5
+        1 8.621e-02 [1.6e+00] 6.109e-02 [1.0e+00] 2.240e-02 [8.0e-01] 1.503e-02 [7.8e-01] 7.545e-03 [7.7e-01] 3.021e-03 [7.7e-01] 7.554e-04 [7.7e-01]
+      100 9.450e-01 [1.4e+02] 9.338e-01 [4.6e+01] 8.668e-01 [5.5e+00] 7.968e-01 [2.9e+00] 5.883e-01 [1.3e+00] 2.876e-01 [8.5e-01] 7.530e-02 [7.7e-01]
+      600 9.505e-01 [4.6e+03] 9.445e-01 [1.6e+03] 9.375e-01 [1.7e+02] 9.343e-01 [7.5e+01] 9.196e-01 [1.9e+01] 8.339e-01 [3.7e+00] 4.082e-01 [9.5e-01]
+perp, K2=75: B. aether forcing along k; |k dP|/g  [s_min(M) in brackets]
+ v [km/s]                 a=0                a=30                a=45                a=60                a=75                a=85
+        1 8.621e-02 [1.6e+00] 8.630e-02 [1.3e+00] 8.639e-02 [1.0e+00] 8.648e-02 [8.9e-01] 8.654e-02 [8.0e-01] 8.657e-02 [7.7e-01]
+      100 9.450e-01 [1.4e+02] 1.086e+00 [8.2e+01] 1.321e+00 [4.6e+01] 1.841e+00 [2.0e+01] 3.349e+00 [5.5e+00] 6.750e+00 [1.3e+00]
+      600 9.506e-01 [4.6e+03] 1.094e+00 [2.8e+03] 1.336e+00 [1.6e+03] 1.883e+00 [6.9e+02] 3.623e+00 [1.7e+02] 1.055e+01 [1.9e+01]
+perp, K2=75: C. aether forcing transverse to k; |k dP|/g  [s_min(M) in brackets]
+ v [km/s]                 a=0                a=30                a=45                a=60                a=75                a=85
+        1 2.775e-10 [1.6e+00] 2.410e-10 [1.3e+00] 1.970e-10 [1.0e+00] 1.394e-10 [8.9e-01] 7.218e-11 [8.0e-01] 2.430e-11 [7.7e-01]
+      100 3.042e-09 [1.4e+02] 5.276e-08 [8.2e+01] 7.442e-08 [4.6e+01] 9.100e-08 [2.0e+01] 1.013e-07 [5.5e+00] 8.745e-08 [1.3e+00]
+      600 3.060e-09 [4.6e+03] 1.898e-06 [2.8e+03] 2.677e-06 [1.6e+03] 3.268e-06 [6.9e+02] 3.639e-06 [1.7e+02] 3.765e-06 [1.9e+01]
+-- symbol (wind_correction_symbol.py): K v |k|^2 ~ 1/(4+lambda), real, even in k
+par, K2=75: K v |k|^2 = dP v |k|^2 / R_uz for a unit along-wind aether forcing (|k| = 1/r)
+ v [km/s]  alpha                      K v |k|^2 (k)                     K v |k|^2 (-k)
+        1      0      (0.0021358757 + 0.022287548j)      (0.0021358757 - 0.022287548j)
+        1     30      (0.0015925077 + 0.019345347j)      (0.0015925077 - 0.019345347j)
+        1     60     (0.00052465828 + 0.011218256j)     (0.00052465828 - 0.011218256j)
+        1     85     (1.5851674e-5 + 0.0019595218j)     (1.5851674e-5 - 0.0019595218j)
+      100      0        (0.24118768 + 0.025167503j)        (0.24118768 - 0.025167503j)
+      100     30        (0.24098278 + 0.029273859j)        (0.24098278 - 0.029273859j)
+      100     60        (0.23515128 + 0.050280061j)        (0.23515128 - 0.050280061j)
+      100     85        (0.096540392 + 0.11933891j)        (0.096540392 - 0.11933891j)
+      600      0       (0.24386394 + 0.0042407609j)       (0.24386394 - 0.0042407609j)
+      600     30       (0.24457449 + 0.0049513721j)       (0.24457449 - 0.0049513721j)
+      600     60       (0.24584706 + 0.0087609638j)       (0.24584706 - 0.0087609638j)
+      600     85        (0.23665694 + 0.048757248j)        (0.23665694 - 0.048757248j)
+perp, K2=75: K v |k|^2 = dP v |k|^2 / R_uz for a unit along-wind aether forcing (|k| = 1/r)
+ v [km/s]  alpha                      K v |k|^2 (k)                     K v |k|^2 (-k)
+        1      0      (0.0020689677 + 0.022296033j)      (0.0020689677 - 0.022296033j)
+        1     30      (0.0015672936 + 0.019348113j)      (0.0015672936 - 0.019348113j)
+        1     60     (0.00053314974 + 0.011217719j)     (0.00053314974 - 0.011217719j)
+        1     85     (1.6362662e-5 + 0.0019595161j)     (1.6362662e-5 - 0.0019595161j)
+      100      0        (0.24403012 + 0.026297616j)        (0.24403012 - 0.026297616j)
+      100     30         (0.24237839 + 0.02992137j)         (0.24237839 - 0.02992137j)
+      100     60        (0.23394821 + 0.049223812j)        (0.23394821 - 0.049223812j)
+      100     85         (0.09793852 + 0.11728759j)         (0.09793852 - 0.11728759j)
+      600      0       (0.24686017 + 0.0044334262j)       (0.24686017 - 0.0044334262j)
+      600     30       (0.24607175 + 0.0050625845j)       (0.24607175 - 0.0050625845j)
+      600     60       (0.24435589 + 0.0085687584j)       (0.24435589 - 0.0085687584j)
+      600     85        (0.23424069 + 0.046752981j)        (0.23424069 - 0.046752981j)
+-- sign check (wind_sign_check.py)
+M[uz,phi] at v=0, w=0: -3*I*k*(10*Jl*qbar + Jl + 10*Jp*qbar + Jp - 990*qbar + 1)/10
+O(k) coefficient / i: -3*Jl*qbar - 3*Jl/10 - 3*Jp*qbar - 3*Jp/10 + 297*qbar - 3/10
+operator:  O(k) coeff / i = (0.159147536 + 0.0j)
+residual:  dR_uz/dg_z     = -0.02992521035   (ratio (-5.318176 + 0.0j); Qbar/Q0 = 1.0164837)
+residual script, R_uz at v = 0: -(2*fY1*g_vphi - 3*g_hat)/10
+residual, dR_uz/dg_vphi at fixed metric: -3*(Jl_s + Jp_s + 1)/10
+operator at qbar = 0, O(k) coeff / i:    -3*(Jl + Jp + 1)/10
+LIKE-FOR-LIKE SIGN/MAGNITUDE CHECK: PASS (identical)
+(the naive comparison above differs by the metric tie, -2Q0(2-K_B) = -0.3, and the lift stand-in 4 K2 qbar ~ +0.49)

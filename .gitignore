@@ -43,3 +43,7 @@ THE_ONE_PAGE_*_EXTRACTED.txt
 02_galaxy_dynamics/highz_data/_src/
 # regenerable sympy matrix pickles (aest_mond_bg_fast.py)
 exploration/d3_alpha/*.pkl
+exploration/d3_alpha/wind_bg_matrix_*.json
+exploration/d3_alpha/wind_bg_angled_*.json
+exploration/d3_alpha/mond_bg_matrix_*.json
+exploration/d3_alpha/boosted_residuals_*.json

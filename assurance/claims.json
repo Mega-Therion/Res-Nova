@@ -1346,6 +1346,53 @@
         "result": "supported"
       },
       "last_verified_commit": "c599f14c2ffe796e16aaa676609e0e049a96a5c6"
+    },
+    {
+      "id": "CLM-D7-09",
+      "wording": "In AeST at K_B = 1/2 and K2 = 75, a deep-MOND dwarf's held (MOND) configuration in an ambient aether wind has an O(v) residual in the along-wind aether equation, R_z/v = 8K_B lap(Phi) + (4-8K_B) d_z g_z - 6K_B d_z ghat_z. From v ~ 30 km/s up its linear correction is order one. The balance runs along the wind (~v k_z) and the forcing points along the wind, so the response is a Poisson response, lap(dphi) = -R_z/[(4+lambda) v], with no linear wake. At K_B = 1/2 this gives dphi ~ -0.98(phi + Phihat): the linear correction cancels the MOND field to O(J') and points toward the dragged (Newtonian) branch. WKB plateau with k along the wind: 1.049 (wind along the field), 0.951 (across). No nearby steady held state exists at satellite speeds.",
+      "state": "computed",
+      "assurance_level": "symbolic-residuals-plus-validated-linear-solve (local WKB)",
+      "claim_type": "computational-result",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "exploration/d3_alpha/boosted_held_residuals.py",
+        "exploration/d3_alpha/boosted_held_structure.py",
+        "exploration/d3_alpha/aest_wind_bg.py",
+        "exploration/d3_alpha/wind_bg_validate.py",
+        "exploration/d3_alpha/wind_correction_solve.py",
+        "exploration/d3_alpha/wind_correction_decompose.py",
+        "exploration/d3_alpha/wind_correction_ksens.py",
+        "exploration/d3_alpha/wind_correction_qsens.py",
+        "exploration/d3_alpha/BOOSTED_HELD_WIND_CORRECTION.txt",
+        "exploration/d3_alpha/aest_wind_bg_angled.py",
+        "exploration/d3_alpha/wind_correction_angle.py",
+        "exploration/d3_alpha/sym_json.py",
+        "exploration/d3_alpha/wind_cli.py",
+        "exploration/d3_alpha/wind_correction_angle_probe.py",
+        "exploration/d3_alpha/wind_correction_symbol.py",
+        "exploration/d3_alpha/wind_sign_check.py",
+        "TARGET_D7_SUPPLEMENT_BRANCH_SELECTION_2026-09-27.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "Weak field, linear in the correction; local plane-wave (WKB) response at k = 1/r to the point residual; deep-MOND point-mass Taylor expansion at r = 0.3 kpc (x = 0.05, J' and 2YJ'' from mu_std); zero-mode lift represented by the Q-offset stand-in qbar (varied 0.1-10x); galaxy-consistent point K_B = 1/2, Q0 = 0.1/Mpc."
+      ],
+      "verification_commands": [
+        "python3 exploration/d3_alpha/boosted_held_residuals.py par && python3 exploration/d3_alpha/boosted_held_residuals.py perp",
+        "python3 exploration/d3_alpha/aest_wind_bg.py par 75 && python3 exploration/d3_alpha/aest_wind_bg.py perp 75  (about 30 min each)",
+        "python3 exploration/d3_alpha/wind_bg_validate.py par 75 && python3 exploration/d3_alpha/wind_correction_solve.py par 75 && python3 exploration/d3_alpha/wind_correction_solve.py perp 75"
+      ],
+      "independent_witness": "exploration/d3_alpha/wind_bg_validate.py",
+      "limitations": "Linear and local (WKB); not proved beyond linear order, since linear theory cannot fix the remainder once dS ~ -S. Computed at K_B = 1/2 and K2 = 75: the near-total cancellation uses 8K_B/(4+lambda) ~ 1 and 4 - 8K_B = 0, and kappa's K_B-dependence is unmeasured. At K2 = 7.5e5 near the scalar sound speed (~670 km/s) the scalar row contributes as much as the aether row and the Poisson reading fails at 300-600 km/s. Satellite outskirts dominated by the external field are not covered. The plane-wave plateau is k-independent; holding the point residual fixed instead gives 0.35-3.1 (a convention). A genuinely non-linear steady held branch is not excluded. Related prior art: Peloso & Sorbo 2004 (moving sources in a ghost condensate). No moving-source treatment was found in four AeST abstracts checked; no full literature search was made.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "TARGET_D7_SUPPLEMENT_BRANCH_SELECTION_2026-09-27.md sec.7",
+      "falsifiability": {
+        "test": "operator checks: exact symbolic reduction to the validated sec.26 operator at v = 0 and at k_x = 0; exact boost covariance; rotation invariance at the isotropic point; independent operator-vs-residual sign check at fixed metric; all background-order residuals zero; plateau and symbol closed forms match the numerics",
+        "scope": "K_B = 1/2; K2 = 75 and 7.5e5; dSph background x = 0.05 at r = 0.3 kpc; v = 1-600 km/s; wind along and across the field",
+        "result": "supported"
+      },
+      "last_verified_commit": "dbaa0230163728cb869cd5f0f1b5a3d96650f76e"
     }
   ]
 }

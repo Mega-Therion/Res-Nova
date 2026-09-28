@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-09-28T01:26:44.469237+00:00",
-  "git_commit": "0c0c9c20641467e4a038779db51ec58ae11657d8",
-  "git_branch": "close-o1",
+  "generated_at_utc": "2026-09-28T05:54:13.572676+00:00",
+  "git_commit": "dbaa0230163728cb869cd5f0f1b5a3d96650f76e",
+  "git_branch": "d7-boosted-held-correction",
   "lean_target_count": 63,
-  "claim_count": 47,
+  "claim_count": 48,
   "claim_states": {
-    "computed": 5,
+    "computed": 6,
     "conditional": 7,
     "derived": 12,
     "empirically-supported": 1,
