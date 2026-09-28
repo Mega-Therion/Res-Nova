@@ -296,6 +296,31 @@ d ln r/d ln a = 3(1 − g) is solved by quadrature. With g = sⁿ it reproduces 
     partner cannot be entangled with any other. If a landing is one fully entangled bit (ln 2), it can pass its record
     to exactly one neighbour. One record out per landing then gives one in per cell, and the witness law follows
     rather than being fitted. *Not yet derived.*
+- **Monogamy, worked through** (`ceiling_monogamy_law.py`, `CEILING_MONOGAMY_LAW.json`).
+  - **Premises.**
+    - P1 `[premise]`: a landing is one ebit.
+    - P2 `[C]`: monogamy lets that ebit go to exactly one partner. The record must therefore be quantum; classical
+      copies proliferate freely, as in quantum Darwinism.
+    - P3 `[premise, consistent with ln 2 per cell]`: a cell is one qubit, so it holds at most one incoming record.
+    - P4 `[premise]`: the record goes to a random one of the p neighbours, and is lost if that cell is already
+      witnessed.
+  - **Derived.**
+    - The witnessed fraction is q = 1 − (1 − 1/p)ᵖ: 0.665 for the honeycomb (p = 6), 1 − 1/e = 0.632 as p → ∞.
+    - The frozen fraction is g(s) = s(1 − q + q s).
+    - Capacity one makes the mean number of records per cell q, not 1.
+
+| q (no fitted shape) | Pantheon+ Δχ² vs ΛCDM | DES-Y5 Δχ² vs ΛCDM |
+|---|---|---|
+| 0.665 (honeycomb) | −2.19 | −3.10 |
+| 0.632 (1 − 1/e) | −2.27 | −3.23 |
+| 1 (records retried until delivered: g = s², the n = 2 law) | −0.09 | −0.44 |
+
+  - **The lost-record version fits as well as every earlier law**, with one fewer parameter than ΛCDM (ΔBIC ≈ −9.6 and
+    −10.7). Every number in it comes from counting.
+  - The perfect-matching version reproduces the committed n = 2 results exactly, which validates the pipeline. It is
+    worse by Δχ² ≈ 2.1–2.8: the data prefer records that are lost on collision.
+  - **What remains premise.** P1, P3 and P4. P4 (lost vs retried) is now a data-preferred choice rather than a free
+    shape.
 
 ## What the ceiling predicts for the future: acceleration ends `[D]` (RY: the universe "tries to stabilize")
 

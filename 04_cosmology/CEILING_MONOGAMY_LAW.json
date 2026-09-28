@@ -1,0 +1,89 @@
+{
+  "data": {
+    "pantheon_dat": {
+      "file": "Pantheon+SH0ES.dat",
+      "sha256": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+      "source": "github.com/PantheonPlusSH0ES/DataRelease, Pantheon+_Data/4_DISTANCES_AND_COVAR"
+    },
+    "pantheon_cov": {
+      "file": "Pantheon+SH0ES_STAT+SYS.cov",
+      "sha256": "abf806d966485e64afdb359c87bffc0ecc00d05eff0a31ced66f247385df0fdc",
+      "source": "github.com/PantheonPlusSH0ES/DataRelease, Pantheon+_Data/4_DISTANCES_AND_COVAR"
+    },
+    "desy5_hd": {
+      "file": "DES-Dovekie_HD.csv",
+      "sha256": "2f57019d783eaa976df80a41b0054171a2d994ee9808d715ce850c2df5720aaf",
+      "source": "github.com/des-science/DES-SN5YR, 4_DISTANCES_COVMAT"
+    },
+    "desy5_inv": {
+      "file": "STAT+SYS.npz",
+      "sha256": "ffd3124b32148b1372bd95fda9299269f0352a9f8eee02d416c610e38495463b",
+      "source": "github.com/des-science/DES-SN5YR, 4_DISTANCES_COVMAT"
+    },
+    "desi_mean": {
+      "file": "desi_gaussian_bao_ALL_GCcomb_mean.txt",
+      "sha256": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+      "source": "github.com/CobayaSampler/bao_data, desi_bao_dr2"
+    },
+    "desi_cov": {
+      "file": "desi_gaussian_bao_ALL_GCcomb_cov.txt",
+      "sha256": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509",
+      "source": "github.com/CobayaSampler/bao_data, desi_bao_dr2"
+    }
+  },
+  "omega_f": 0.9539392014169457,
+  "law": "g(s) = s (1 - q + q s)",
+  "q_values": {
+    "honeycomb p=6": 0.6651020233196159,
+    "p -> infinity": 0.6321205588285577,
+    "perfect matching": 1.0
+  },
+  "pantheon_plus": {
+    "lcdm_chi2": 1419.7063303641953,
+    "honeycomb p=6": {
+      "q": 0.6651020233196159,
+      "chi2": 1417.5167110464051,
+      "minus_lcdm": -2.189619317790175,
+      "w0": -0.955544911432808,
+      "wa": -0.1501314376495793
+    },
+    "p -> infinity": {
+      "q": 0.6321205588285577,
+      "chi2": 1417.4368210162359,
+      "minus_lcdm": -2.269509347959456,
+      "w0": -0.952339144725284,
+      "wa": -0.15766505761334143
+    },
+    "perfect matching": {
+      "q": 1.0,
+      "chi2": 1419.6204554286521,
+      "minus_lcdm": -0.08587493554318826,
+      "w0": -0.98809667347934,
+      "wa": -0.07056982402771096
+    }
+  },
+  "des_dovekie": {
+    "lcdm_chi2": 1648.9337801051483,
+    "honeycomb p=6": {
+      "q": 0.6651020233196159,
+      "chi2": 1645.8360548023436,
+      "minus_lcdm": -3.097725302804747,
+      "w0": -0.955544911432808,
+      "wa": -0.1501314376495793
+    },
+    "p -> infinity": {
+      "q": 0.6321205588285577,
+      "chi2": 1645.703221803342,
+      "minus_lcdm": -3.2305583018062407,
+      "w0": -0.952339144725284,
+      "wa": -0.15766505761334143
+    },
+    "perfect matching": {
+      "q": 1.0,
+      "chi2": 1648.4919855574406,
+      "minus_lcdm": -0.4417945477077865,
+      "w0": -0.98809667347934,
+      "wa": -0.07056982402771096
+    }
+  }
+}
