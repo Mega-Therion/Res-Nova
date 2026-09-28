@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-09-28T00:22:51.529067+00:00",
-  "git_commit": "c599f14c2ffe796e16aaa676609e0e049a96a5c6",
-  "git_branch": "d3-dragged-exact-gr",
+  "generated_at_utc": "2026-09-28T00:25:15.444648+00:00",
+  "git_commit": "4796d28fbe5dde430b803dde95317739ecddebb6",
+  "git_branch": "o4-correction-inhouse",
   "lean_target_count": 63,
   "claim_count": 47,
   "claim_states": {

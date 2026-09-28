@@ -1,4 +1,23 @@
-# O4 redshift test: the 20-point table is withdrawn; the real data (MUSE-DARK III) say a₀ grows with z
+# O4 redshift test: the 20-point table is withdrawn; real high-z data are inconclusive on a₀(z)
+
+> **⚠️ CORRECTION (same day, 2026-09-27 evening): §3 below overstated MUSE-DARK III.** The corpus already had a
+> careful in-house measurement, `02_galaxy_dynamics/A0_HIGHZ_MEASUREMENT_2026-09-16.md`. Its likelihood input is
+> RC100 (Nestor Shachar+2023, 100 galaxies, z = 0.6–2.6, source-hash verified), and it lists MUSE-DARK III as an
+> external comparison row. Read together:
+> - **The level agrees.** a₀ at z ~ 1–2 is ~2–2.6× the local value in both samples: RC100 gives 2.60× at
+>   z = 0.87 and 2.29× at z = 1.96, relative to SPARC T3; MUSE-DARK III gives 2.05×.
+> - **The shape inside the high-z range favours a CONSTANT, not H(z).** RC100's Hubble shape is worse by
+>   Δχ² ≈ 9–21 (shape-only, stat-only). This is the only calibration-independent result. It is not
+>   established, for three reasons: the photometric prior trend, untested Vc/beam-smearing bias, and failed
+>   estimator self-tests.
+> - **The step from z = 0 is calibration-limited.** With a 0.5-in-ln cross-method nuisance, constant a₀ becomes
+>   the best fixed reading.
+> - **Verdict: no reading is excluded.** The 13.4σ and 6.5σ pulls in §3 are anchored and statistical only; the
+>   in-house audit shows such anchored σ values are uncalibrated. They are **withdrawn**.
+> - **The a₀(0) = 1.00 ± 0.04 "match" to cH₀/2π is also withdrawn as evidence.** It is the intercept of a linear
+>   model, and the flat high-z shape makes that intercept unreliable.
+> - §1 (the table withdrawal) stands.
+
 
 **Date:** 2026-09-27. **Tags:** `[C]` cited · `[D]` derived here · `[X]` withdrawn · `[O]` open.
 
