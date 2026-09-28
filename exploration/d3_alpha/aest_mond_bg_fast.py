@@ -4,8 +4,9 @@
 Numbers for the parameter point go in early. All perturbative quantities are polynomials in the bookkeeping e,
 so truncation is expand-and-collect (no series). Output: matrix pickle per direction."""
 import sys, pickle, sympy as sp
-direction = sys.argv[1]                       # 'par' or 'perp'
-KBv, K2v, Q0v = sp.Rational(1, 2), sp.Integer(int(sys.argv[2]) if len(sys.argv) > 2 else 75), sp.Rational(1, 10)
+from wind_cli import pick_dir, pick_k2
+direction = pick_dir()                        # 'par' or 'perp' (allowlisted)
+KBv, K2v, Q0v = sp.Rational(1, 2), sp.Integer(pick_k2()), sp.Rational(1, 10)
 t, x, y, z = sp.symbols('t x y z', real=True); X = [t, x, y, z]
 k, w = sp.symbols('k omega', positive=True)
 qb, Jp, Jl, g = sp.symbols('qbar Jp Jl g', real=True)
