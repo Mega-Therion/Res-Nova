@@ -55,7 +55,7 @@ This dataset contains the complete reproducibility, empirical verification packa
 - **Interactive Research Atlas**: [https://resnova-hub-f4ucvy3e.manus.space](https://resnova-hub-f4ucvy3e.manus.space)
 - **Zenodo Release Archive**: [https://doi.org/10.5281/zenodo.21969121](https://doi.org/10.5281/zenodo.21969121)
 - **Author**: R.W. Yett ([ORCID: 0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190))
-- **LinkedIn**: [R.W. Yett](https://www.linkedin.com/in/r-w-yett-152085293/)
+- **LinkedIn**: [R.W. Yett](https://www.linkedin.com/in/r-w-yett/)
 - **X (Twitter)**: [@_ChyRho_](https://x.com/_chyrho_)
 
 ---
