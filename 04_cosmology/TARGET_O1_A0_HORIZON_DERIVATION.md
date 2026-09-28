@@ -1,5 +1,23 @@
 # 🌌 Target O1: First-Principles Horizon Acceleration Scale Derivation & KMS $2\pi$ Cancellation Audit
 
+> **✅ STATUS 2026-09-27: O1 → [P] under the two-irreducible-parameters accounting.** RY's framework declares
+> two inputs. Input 1 is the scale a₀, a *boundary condition anchored to cH₀*; input 2 is μ. "Not derived" is
+> not a defect for a declared input. The identification a₀ = cH₀/2π is therefore the framework's declared
+> anchor, and what O1 must establish is in place:
+> - **The normalisation is proved.** The 2π comes from the KMS cancellation (`HorizonScale.lean`, [P],
+>   gate-verified).
+> - **The anchor is supported empirically.** μ_std extractions from `02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json`
+>   give a₀ = 1.161 (all 175 galaxies), 1.098 (flow distances rescaled to Planck) and 1.163 (78 non-flow
+>   galaxies; 95% [0.966, 1.324]) × 10⁻¹⁰ m/s².
+> - Inverted through a₀ = cH₀/2π, those give H₀ ≈ 71–75 km/s/Mpc, which brackets the measured 67.4 (Planck)
+>   and 73 (SH0ES). Both sit inside the 95% interval. The anchor is external: H₀ is measured in a different
+>   domain, not fitted to the galaxies it explains.
+> - The superseded 1.116 value (μ_dual-era `A0_MEASUREMENT.json`) is not used.
+> - **The dynamical extension is a separate test.** Whether a₀ tracks H(z) is O4's question, and the real
+>   data are inconclusive (`03_observer_jwst/O4_REAL_DATA_MUSE_DARK_III_2026-09-27.md`).
+> - **A covariant derivation of a₀ from an action is a research question, not an O1 gap** (paper §12).
+
+
 **Document Status:** Formal Mathematical Analysis & Epistemic Audit  
 **Author / Investigator:** R.W. Yett
 **Lean 4 Formal Proof:** [`05_lean_formalization/HorizonScale.lean`](file:///05_lean_formalization/HorizonScale.lean) (`kms_cancellation_equilibrium`, `horizon_acceleration_ratio_is_one`, `verlinde_entropic_cancellation`)  

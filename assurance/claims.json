@@ -1156,15 +1156,15 @@
         "03_observer_jwst/o4_muse_dark_iii_compare.py"
       ],
       "data_artifacts": [
-        "02_galaxy_dynamics/A0_MEASUREMENT.json"
+        "02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json"
       ],
       "assumptions": [
-        "SPARC-measured a0 = (1.116 +/- 0.128 stat +/- 0.097 syst) x 1e-10 m/s^2 is compared against the horizon formula cH0/(2 pi)."
+        "mu_std a0 extractions (A0_DISTANCE_CORRECTED_2026-09-16.json: T1 1.161, T2 1.098, T3 1.163 [95% 0.966-1.324] x 1e-10 m/s^2) are compared against cH0/(2 pi); a0 is the framework's declared, anchored input 1."
       ],
       "verification_commands": [
         "OPEN_PROBLEMS_AND_TESTS.md O1"
       ],
-      "independent_witness": "02_galaxy_dynamics/A0_MEASUREMENT.json",
+      "independent_witness": "02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json",
       "limitations": "Never say 'derived from the horizon' -- see O1 quarantine language in OPEN_PROBLEMS_AND_TESTS.md. The O4 20-point table was WITHDRAWN 2026-09-27 as untraceable; the 5.9-sigma and 2.06-sigma figures are void. The real high-z data: the in-house RC100 measurement (A0_HIGHZ_MEASUREMENT_2026-09-16.md) and MUSE-DARK III (arXiv:2604.22613) both put a0 at z ~ 1-2 at ~2-2.6x local. Within z 0.6-2.6 the shape favours a constant over H(z) (not established), and the step from z = 0 is calibration-limited, so no reading is excluded. A same-day claim that MUSE-DARK III's linear-fit intercept matches cH0/2pi was withdrawn.",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
@@ -1174,7 +1174,7 @@
         "scope": "in-house RC100 (100 galaxies, z 0.6-2.6) plus the MUSE-DARK III comparison row; the withdrawn 20-point table is not used",
         "result": "inconclusive"
       },
-      "last_verified_commit": "4796d28fbe5dde430b803dde95317739ecddebb6"
+      "last_verified_commit": "0c0c9c20641467e4a038779db51ec58ae11657d8"
     },
     {
       "id": "CLM-D2-00",
