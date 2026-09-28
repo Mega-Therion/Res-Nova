@@ -97,3 +97,44 @@ more weakly. So no single threshold spares the dwarfs while dragging the Sun.
 - Whitmore, Forbes & Rubin 1988, ApJ 333, 542.
 - Dale et al. 2001, AJ (arXiv:astro-ph/0012388).
 - Pace 2025, LVDB.
+
+## 6. Stage 1 of the dwarf-in-a-wind calculation: full linear response `[D]`
+
+Files: `exploration/d3_alpha/aest_mond_bg_source.py` (builder with a moving source) and `dwarf_wind_response.py`,
+with output in `DWARF_WIND_RESPONSE.txt`.
+
+**Setup.**
+- The full constrained linear AeST system (metric in de Donder gauge, aether, scalar) at the galaxy-consistent
+  point, on a local deep-MOND dSph background: x = 0.05, with J′ and 2𝒴J″ from μ_std.
+- The MOND-field lift of the zero mode is represented at its §26 strength, q̄ = ∇²ϕ/(𝒦₂𝒬₀), with
+  ∇²ϕ = v_f²/r², v_f = 10 km/s, r = 0.3 kpc and k = 1/r.
+- A source moves through it at speed v. The MOND-channel response is S_z = ik φ̃ + Q̄(u_z + h₀z), which is
+  nonzero when held and zero when dragged.
+
+| v [km/s] | 0.3 | 1 | 3 | 5 | 10 | 30 | 100 | 300 | 1000 |
+|---|---|---|---|---|---|---|---|---|---|
+| \|S_z\|/\|S_z(0)\|, k ∥ ∇ϕ | 0.999 | 0.992 | 0.932 | 0.833 | 0.565 | 0.166 | 0.042 | 0.014 | 0.004 |
+| \|S_z\|/\|S_z(0)\|, k ⊥ ∇ϕ | 0.999 | 0.992 | 0.935 | 0.839 | 0.577 | 0.172 | 0.044 | 0.014 | 0.004 |
+
+**Reading.**
+- The MOND channel begins to fail near C·v_f (2–3 km/s), halves near v_f, and falls as ≈ 4 km/s / v above
+  that.
+- **At satellite speeds of 100–600 km/s it keeps only 1–4% of its static value.** Satellites are dragged.
+- The h₀₀ response rises about 2× from the static value toward large v in this proxy. That is attributed to
+  the condensate response of the 𝒬-offset stand-in and is not interpreted.
+
+**Why hysteresis cannot rescue it `[D]`, argued.** The dwarf's own non-linear MOND background is already in
+the calculation through J′ and J″. What is left is non-linear in the aether amplitude, whose size is
+v/c ≈ 10⁻³. Corrections that small cannot undo a suppression of 25–140×.
+- A c₂ lift does not help either. It sets a scale-independent hold speed ~√(c₂/T_c): large c₂ would hold the
+  Sun too and break LLR (α₁ = −4c₁₄,eff, independent of c₂), and small c₂ does not hold satellites.
+
+**Verdict.**
+- **AeST as formulated predicts Newtonian (Ĝ) internal dynamics for Milky Way satellites. The satellite
+  population contradicts that** (§3: 37 of 42 dSphs would need M/L > 10). This holds at a level robust
+  within linear theory, pending only a full non-linear simulation, which would have to overturn a
+  factor-of-25+ suppression.
+- **The corpus's phenomenological law is not affected.** μ_std with S(η) passes the dwarfs.
+- **The covariant completion must be something other than AeST as formulated**, and it must still put the
+  phantom potential in the metric gravitational waves ride. That is D7's open problem, now stated without
+  hedging.
