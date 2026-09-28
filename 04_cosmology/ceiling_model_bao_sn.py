@@ -5,9 +5,10 @@ SN: absolute magnitude marginalized analytically (Pantheon+ likelihood of omega_
 So the ceiling model (share ln 2 today, logistic approach to Omega_f; ceiling_model_pantheonplus.py) has ZERO free
 cosmological shape parameters at Omega_f = kappa; flat LCDM has one (Omega_m).
 Data: DESI DR2 (arXiv:2503.14738) Gaussian BAO, CobayaSampler/bao_data desi_bao_dr2 ALL_GCcomb (not vendored).
-Usage: ceiling_model_bao_sn.py --bao-mean M --bao-cov C --dat Pantheon+SH0ES.dat --cov Pantheon+SH0ES_STAT+SYS.cov"""
-import argparse, json, math
+Usage: ceiling_model_bao_sn.py  (data: fetch_external_data.sh)"""
+import json, math
 import numpy as np
+import cosmo_data as cd
 from omega_ln2_pantheonplus import load_data, official_mask, load_cov, chi2_marginalized
 from ceiling_model_pantheonplus import E_lcdm, E_ceiling, mu_model, LN2, KAPPA
 
@@ -29,13 +30,10 @@ def chi2_bao(z, d, q, cinv, Efun):
     return float(r @ cinv @ r), a
 
 def main():
-    ap = argparse.ArgumentParser()
-    for k in ("--bao-mean", "--bao-cov", "--dat", "--cov"): ap.add_argument(k, required=True)
-    ap.add_argument("--out", default="CEILING_MODEL_BAO_SN.json"); args = ap.parse_args()
-    z, d, q, C = load_bao(args.bao_mean, args.bao_cov); Cinv = np.linalg.inv(C)
-    zhel_all, zhd_all, mb_all = load_data(args.dat); ww = official_mask(zhd_all)
+    z, d, q, C = load_bao(cd.path("desi_mean"), cd.path("desi_cov")); Cinv = np.linalg.inv(C)
+    zhel_all, zhd_all, mb_all = load_data(cd.path("pantheon_dat")); ww = official_mask(zhd_all)
     zhel, zhd, mb = zhel_all[ww], zhd_all[ww], mb_all[ww]
-    sinv = np.linalg.inv(load_cov(args.cov)[np.ix_(ww, ww)])
+    sinv = np.linalg.inv(load_cov(cd.path("pantheon_cov"))[np.ix_(ww, ww)])
     csn = lambda Ef: chi2_marginalized(mb, mu_model(zhd, zhel, Ef), sinv)
     cb = lambda Ef: chi2_bao(z, d, q, Cinv, Ef)[0]
     grid = np.round(np.arange(0.20, 0.45001, 0.001), 4)
@@ -57,7 +55,7 @@ def main():
                                          "delta_chi2_at_kappa": out["bao_plus_sn"]["ceiling_kappa_chi2"] - float(tot_c[j])}
     for blk in ("bao_only", "bao_plus_sn"):
         b = out[blk]; b["delta_ceiling_vs_lcdm"] = b["ceiling_kappa_chi2"] - b["lcdm_chi2"]; b["delta_ln2_vs_lcdm"] = b["ln2_lcdm_chi2"] - b["lcdm_chi2"]
-    json.dump(out, open(args.out, "w"), indent=2); print(json.dumps(out, indent=2))
+    json.dump(out, open(cd.out("CEILING_MODEL_BAO_SN.json"), "w"), indent=2); print(json.dumps(out, indent=2))
 
 if __name__ == "__main__":
     main()

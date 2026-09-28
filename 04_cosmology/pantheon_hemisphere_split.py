@@ -8,9 +8,10 @@ hemispheres around an axis and fit each side separately:
 Per side: flat LCDM Omega_m best fit (grid) and the dark-energy ceiling model's free ceiling (share ln 2 today, n = 1).
 NOTE: zHD already removes our kinematic dipole and peculiar velocities (standard corrections); any residual
 hemispherical difference is beyond standard kinematics. Prior art: Colin et al. 2019 (A&A 631, L13) vs Rubin & Heitlauf
-2020 (ApJ 894, 68). Usage: pantheon_hemisphere_split.py --dat D --cov V"""
-import argparse, json, math
+2020 (ApJ 894, 68). Usage: pantheon_hemisphere_split.py  (data: fetch_external_data.sh)"""
+import json, math
 import numpy as np
+import cosmo_data as cd
 from omega_ln2_pantheonplus import load_cov, chi2_marginalized, official_mask
 from ceiling_model_pantheonplus import E_lcdm, E_ceiling, mu_model, LN2, KAPPA
 
@@ -42,9 +43,7 @@ def fit(zhel, zhd, mb, cinv):
             "chi2_ceiling_kappa_minus_lcdm": float(ck - c[i])}
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--dat", required=True); ap.add_argument("--cov", required=True)
-    ap.add_argument("--out", default="PANTHEON_HEMISPHERE_SPLIT.json"); args = ap.parse_args()
-    A = load(args.dat); cov = load_cov(args.cov); ww = official_mask(A[:, 1])
+    A = load(cd.path("pantheon_dat")); cov = load_cov(cd.path("pantheon_cov")); ww = official_mask(A[:, 1])
     n_hat = unit(A[:, 3], A[:, 4]); out = {}
     for name, (ra, dec) in AXES.items():
         cosang = n_hat @ unit(ra, dec); out[name] = {}
@@ -55,7 +54,7 @@ def main():
         t, a_ = out[name]["toward"], out[name]["away"]
         s1 = (t["omega_m_1sigma"][1] - t["omega_m_1sigma"][0]) / 2; s2 = (a_["omega_m_1sigma"][1] - a_["omega_m_1sigma"][0]) / 2
         out[name]["omega_m_difference_sigma"] = abs(t["omega_m_best"] - a_["omega_m_best"]) / math.hypot(s1, s2)
-    json.dump(out, open(args.out, "w"), indent=2); print(json.dumps({k: v.get("omega_m_difference_sigma") for k, v in out.items()}))
+    json.dump(out, open(cd.out("PANTHEON_HEMISPHERE_SPLIT.json"), "w"), indent=2); print(json.dumps({k: v.get("omega_m_difference_sigma") for k, v in out.items()}))
 
 if __name__ == "__main__":
     main()

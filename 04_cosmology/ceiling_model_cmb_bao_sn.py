@@ -7,10 +7,11 @@ CMB: Chen, Huang & Wang 2019 (arXiv:1808.05724) Planck TT,TE,EE+lowE distance pr
 BAO: DESI DR2 with r_d from Aubourg et al. 2015 eq.16 (Sum m_nu = 0.06 eV). SN: Pantheon+, M marginalized.
 Parameters: LCDM (Omega_m, h, omega_b); ceiling (h, omega_b) with Omega_DE0 = ln 2 fixed.
 Validation printed first: Planck best-fit LCDM must reproduce the priors.
-Usage: ceiling_model_cmb_bao_sn.py --bao-mean M --bao-cov C --dat D --cov V"""
-import argparse, json, math
+Usage: ceiling_model_cmb_bao_sn.py  (data: fetch_external_data.sh)"""
+import json, math
 import numpy as np
 from scipy.optimize import minimize
+import cosmo_data as cd
 from omega_ln2_pantheonplus import load_data, official_mask, load_cov, chi2_marginalized
 from ceiling_model_bao_sn import load_bao
 
@@ -63,12 +64,9 @@ def cmb_chi2(E, h, om0, ob):
     return float(d @ PINV @ d), R, lA, zs_
 
 def main():
-    ap = argparse.ArgumentParser()
-    for k in ("--bao-mean", "--bao-cov", "--dat", "--cov"): ap.add_argument(k, required=True)
-    ap.add_argument("--out", default="CEILING_MODEL_CMB_BAO_SN.json"); args = ap.parse_args()
-    zb, db, qb, Cb = load_bao(args.bao_mean, args.bao_cov); Cbi = np.linalg.inv(Cb)
-    zhel_all, zhd_all, mb_all = load_data(args.dat); ww = official_mask(zhd_all)
-    zhel, zhd, mb = zhel_all[ww], zhd_all[ww], mb_all[ww]; sinv = np.linalg.inv(load_cov(args.cov)[np.ix_(ww, ww)])
+    zb, db, qb, Cb = load_bao(cd.path("desi_mean"), cd.path("desi_cov")); Cbi = np.linalg.inv(Cb)
+    zhel_all, zhd_all, mb_all = load_data(cd.path("pantheon_dat")); ww = official_mask(zhd_all)
+    zhel, zhd, mb = zhel_all[ww], zhd_all[ww], mb_all[ww]; sinv = np.linalg.inv(load_cov(cd.path("pantheon_cov"))[np.ix_(ww, ww)])
     zsn = np.linspace(0, float(zhd.max()) * 1.0000001, 200001)
     def chi_sn(E):
         ez = E(zsn); dc = np.concatenate(([0.0], np.cumsum((1 / ez)[1:] + (1 / ez)[:-1]) * 0.5 * np.diff(zsn)))
@@ -112,7 +110,7 @@ def main():
     fo = minimize(lambda p: total(p[:2], "ceil", p[2], 1.0) if 0.72 < p[2] < 0.999 else 1e9, [0.68, 0.02237, 0.95], method="Nelder-Mead", options={"xatol": 1e-6, "fatol": 1e-4, "maxiter": 6000})
     out["ceiling_free_n1"] = {"h": fo.x[0], "omega_b": fo.x[1], "omega_f": fo.x[2], "chi2": fo.fun, "delta_vs_lcdm": fo.fun - fl.fun}
     print("free ceiling:", out["ceiling_free_n1"], flush=True)
-    json.dump(out, open(args.out, "w"), indent=2, default=float)
+    json.dump(out, open(cd.out("CEILING_MODEL_CMB_BAO_SN.json"), "w"), indent=2, default=float)
 
 if __name__ == "__main__":
     main()

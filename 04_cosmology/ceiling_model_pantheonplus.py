@@ -6,9 +6,10 @@ Model: the dark-energy share starts at Omega_Lambda0 = ln 2 today and approaches
 so w -> -1 early (Lambda-like) and w -> 0 late (the share freezes at Omega_f).  E^2(a) = a^-3 (1 + r(a)) / (1 + r0).
 Same likelihood as omega_ln2_pantheonplus.py: Pantheon+SH0ES, STAT+SYS covariance, zHD > 0.01, M marginalized analytically.
 The logistic form is ONE minimal realization of the ceiling; other approach laws give other (w0, wa).
-Usage: ceiling_model_pantheonplus.py --dat Pantheon+SH0ES.dat --cov Pantheon+SH0ES_STAT+SYS.cov"""
-import argparse, json, math
+Usage: ceiling_model_pantheonplus.py  (data: fetch_external_data.sh)"""
+import json, math
 import numpy as np
+import cosmo_data as cd
 from omega_ln2_pantheonplus import load_data, official_mask, load_cov, chi2_marginalized, C_KMS
 
 LN2 = math.log(2.0)
@@ -33,11 +34,9 @@ def w0_wa(ol0, of):
     return -(1 - x), -3 * x * (1 - x)          # w0, wa  (w = w0 + wa (1 - a) near a = 1)
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--dat", required=True); ap.add_argument("--cov", required=True)
-    ap.add_argument("--out", default="CEILING_MODEL_PANTHEONPLUS.json"); args = ap.parse_args()
-    zhel_all, zhd_all, mb_all = load_data(args.dat); ww = official_mask(zhd_all)
+    zhel_all, zhd_all, mb_all = load_data(cd.path("pantheon_dat")); ww = official_mask(zhd_all)
     zhel, zhd, mb = zhel_all[ww], zhd_all[ww], mb_all[ww]
-    cov = load_cov(args.cov)[np.ix_(ww, ww)]; cinv = np.linalg.inv(cov)
+    cov = load_cov(cd.path("pantheon_cov"))[np.ix_(ww, ww)]; cinv = np.linalg.inv(cov)
     chi = lambda Efun: chi2_marginalized(mb, mu_model(zhd, zhel, Efun), cinv)
     grid = np.round(np.arange(0.10, 0.60001, 0.002), 4)
     c_l = np.array([chi(lambda z, om=om: E_lcdm(z, om)) for om in grid])
@@ -57,7 +56,7 @@ def main():
            "ceiling_scan": {"omega_f_best": float(ofs[j]), "chi2_best": float(c_of[j]),
                             "delta_chi2_at_kappa": chi_ceil - float(c_of[j]),
                             "omega_f_within_1sigma": [float(ofs[k]) for k in (np.where(c_of - c_of[j] <= 1.0)[0][[0, -1]])]}}
-    json.dump(res, open(args.out, "w"), indent=2)
+    json.dump(res, open(cd.out("CEILING_MODEL_PANTHEONPLUS.json"), "w"), indent=2)
     print(json.dumps(res, indent=2))
 
 if __name__ == "__main__":

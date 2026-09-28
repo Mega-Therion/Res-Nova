@@ -1,21 +1,19 @@
 #!/usr/bin/env python3
 """Profile chi2(Omega_f) for the dark-energy ceiling model under Planck distance priors + DESI DR2 BAO + Pantheon+,
 re-minimizing (h, omega_b) at each ceiling, for approach exponents n = 1 and n = 2 (see ceiling_model_cmb_bao_sn.py).
-Usage: ceiling_scan_cmb_bao_sn.py --bao-mean M --bao-cov C --dat D --cov V"""
-import argparse, json, sys
+Usage: ceiling_scan_cmb_bao_sn.py  (data: fetch_external_data.sh)"""
+import json, sys
 import numpy as np
 from scipy.optimize import minimize
 import ceiling_model_cmb_bao_sn as m
 from ceiling_model_bao_sn import load_bao
+import cosmo_data as cd
 from omega_ln2_pantheonplus import load_data, official_mask, load_cov, chi2_marginalized
 
 def main():
-    ap = argparse.ArgumentParser()
-    for k in ("--bao-mean", "--bao-cov", "--dat", "--cov"): ap.add_argument(k, required=True)
-    ap.add_argument("--out", default="CEILING_SCAN_CMB_BAO_SN.json"); args = ap.parse_args()
-    zb, db, qb, Cb = load_bao(args.bao_mean, args.bao_cov); Cbi = np.linalg.inv(Cb)
-    zhel_all, zhd_all, mb_all = load_data(args.dat); ww = official_mask(zhd_all)
-    zhel, zhd, mb = zhel_all[ww], zhd_all[ww], mb_all[ww]; sinv = np.linalg.inv(load_cov(args.cov)[np.ix_(ww, ww)])
+    zb, db, qb, Cb = load_bao(cd.path("desi_mean"), cd.path("desi_cov")); Cbi = np.linalg.inv(Cb)
+    zhel_all, zhd_all, mb_all = load_data(cd.path("pantheon_dat")); ww = official_mask(zhd_all)
+    zhel, zhd, mb = zhel_all[ww], zhd_all[ww], mb_all[ww]; sinv = np.linalg.inv(load_cov(cd.path("pantheon_cov"))[np.ix_(ww, ww)])
     zsn = np.linspace(0, float(zhd.max()) * 1.0000001, 200001)
     def chi_sn(E):
         ez = E(zsn); dc = np.concatenate(([0.0], np.cumsum((1 / ez)[1:] + (1 / ez)[:-1]) * 0.5 * np.diff(zsn)))
@@ -42,7 +40,7 @@ def main():
         k = [x for x in rows if abs(x[0] - 0.9539392) < 1e-6][0]
         out[f"n={n}"] = {"grid": rows, "omega_f_best": rows[j][0], "chi2_best": rows[j][1], "omega_f_1sigma": [min(sel), max(sel)],
                          "chi2_at_kappa": k[1], "delta_chi2_kappa_vs_best": k[1] - rows[j][1]}
-    json.dump(out, open(args.out, "w"), indent=2)
+    json.dump(out, open(cd.out("CEILING_SCAN_CMB_BAO_SN.json"), "w"), indent=2)
     print(json.dumps({kk: {x: v for x, v in vv.items() if x != "grid"} for kk, vv in out.items()}, indent=2))
 
 if __name__ == "__main__":
