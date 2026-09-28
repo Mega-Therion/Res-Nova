@@ -1,0 +1,4 @@
+perp, v = 0 km/s: 0 entries differ by > 1e-6 (weighted, row-relative)
+perp, v = 10 km/s: 0 entries differ by > 1e-6 (weighted, row-relative)
+perp, v = 150 km/s: 0 entries differ by > 1e-6 (weighted, row-relative)
+GATE A2 v2 PASS (perp): worst weighted row-relative difference 2.47e-7
