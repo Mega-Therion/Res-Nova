@@ -71,6 +71,30 @@ def future(law, p, h=H_FIT, of=m.KAPPA):
     )
 
 
+def turnaround(ok, n=1.25, h=H_FIT, of=m.KAPPA):
+    """Closed space (Omega_k = ok < 0, share today ln 2 kept): once acceleration ends, curvature grows as ~a relative to
+    the frozen fluid, so the expansion turns around at a_max ~ om0 (1 + r_f) / |ok| (RY: gravity pulls it back).
+    Returns (a_max, years to turnaround); the integrable 1/sqrt tail at turnaround is added analytically.
+    """
+    orad = m.OR / h**2
+    om0 = 1 - m.LN2 - orad - ok
+    r0 = m.LN2 / om0
+    rf = of / (1 - of)
+    a = np.geomspace(1, 1.2 * om0 * (1 + rf) / abs(ok), 2000001)
+    x = 1 / (1 + ((rf / r0) ** n - 1) * a ** (-3 * n))
+    r = rf * x ** (1 / n)
+    E2 = orad * a**-4 + om0 * a**-3 * (1 + r) + ok * a**-2
+    j = int(np.argmax(E2 <= 0))
+    aa, f = a[:j], 1 / (a[:j] * np.sqrt(E2[:j]))
+    amax = float(a[j - 1])
+    c = (E2[j - 2] - E2[j - 1]) / (a[j - 1] - a[j - 2])
+    t = float(
+        np.sum(0.5 * (f[1:] + f[:-1]) * np.diff(aa))
+        + 2 * np.sqrt(max(amax - aa[-1], 0) / c) / amax
+    )
+    return amax, t * GYR_PER_UNIT / (100 * h) * 1e9
+
+
 def main():
     _, a, Eq = future("power", 1.25)
     Ec, _ = m.make_E("ceil", H_FIT, None, m.KAPPA, 1.25)
@@ -94,6 +118,15 @@ def main():
         res, _, _ = future(law, p)
         out["laws"][f"{law} p={p}"] = res
         print(law, p, res)
+    # flat or open space: no turnaround (the expansion speed coasts toward zero); closed space: recollapse
+    out["closed_space_turnaround_power_n1.25"] = {}
+    for ok in (-0.0005, -0.001, -0.002):
+        amax, yrs = turnaround(ok)
+        out["closed_space_turnaround_power_n1.25"][f"Omega_k={ok}"] = {
+            "a_max": amax,
+            "years_to_turnaround": yrs,
+        }
+        print(f"Omega_k={ok}: turnaround at a={amax:.0f} after {yrs:.2e} years")
     json.dump(out, open(cd.out("CEILING_FUTURE.json"), "w"), indent=2)
 
 

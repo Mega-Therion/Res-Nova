@@ -327,6 +327,27 @@ a ≤ 10. Time is converted with h = 0.68. Script `ceiling_future.py`; output `C
   - **What would be needed for the share to fall back through the band.** Dark energy would have to thin faster than
     matter (w > 0). The landing count's natural end state is a fixed share instead: the Hubble-cutoff scaling that
     fails as a present-day model is exactly the frozen endpoint here.
+- **Recollapse becomes possible again** (RY: gravity bends the dissolved universe back together, a rebound bang).
+  - **ΛCDM can never recollapse:** Λ wins forever and curvature fades.
+  - **The ceiling model differs.** After acceleration ends, the frozen fluid dilutes like matter, so the curvature term
+    grows as ~a relative to it. The fate therefore hinges on the sign of spatial curvature:
+    - flat or open space coasts toward zero speed forever;
+    - closed space turns around and falls back.
+  - Recollapse times for the power law n = 1.25, with the share today held at ln 2 (`closed_space_turnaround_power_n1.25`
+    in the JSON):
+
+| Ω_k (closed) | turnaround at a = | years to turnaround |
+|---|---|---|
+| −0.0005 | 13,342 | 1.4×10¹⁶ |
+| −0.001 | 6,682 | 4.8×10¹⁵ |
+| −0.002 | 3,352 | 1.7×10¹⁵ |
+
+  - Turnaround at a_max ≈ Ω_m(1 + r_f)/|Ω_k| agrees with the grid. All three come long after the last stars burn out
+    (~10¹⁴ years): gravity would gather a dark universe.
+  - **What current data say about the sign.** They do not fix it. Planck 2018 + BAO give Ω_k = 0.0007 ± 0.0019, which
+    was derived assuming ΛCDM. The fits above assume flat space.
+  - **Consequence.** In this model, one measurable number decides between a coast and a crunch. Whether a crunch
+    rebounds (a bounce) is outside this classical model.
 
 ## Direction matters? Hemisphere split of the supernovae `[D]` (same night)
 
