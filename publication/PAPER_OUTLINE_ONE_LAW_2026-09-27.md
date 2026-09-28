@@ -119,7 +119,7 @@ unlabelled. Parameter accounting follows the two-irreducible-parameters rule: th
   parameters, stated. No new constant added by the screening.
 
 ## 12. Open problems (ranked)
-1. **The drag dilemma** (`TARGET_D7_SUPPLEMENT_BRANCH_SELECTION`). AeST's zero mode screens the solar system but strips moving satellites of MOND (37/42 dSphs would need M/L > 10). The linear boosted-held check (D7 §7) finds no nearby steady held state at satellite speeds: the wind forces a correction as large as the MOND field. What remains is a genuinely non-linear held branch. Keep the phenomenological law, which passes dwarfs, separate from AeST, the completion under tension. (Formerly item 1: covariant screening, now supplied by the stealth sector, D3 §34.) 2. α₁/α₂ (1.5PN) and the 2PN β. 3. The a0 = cH0/2π identification
+1. **The drag dilemma** (`TARGET_D7_SUPPLEMENT_BRANCH_SELECTION`). AeST's zero mode screens the solar system but strips moving satellites of MOND (37/42 dSphs would need M/L > 10). The linear boosted-held check (D7 §7) finds no nearby steady held state at satellite speeds: the wind forces an order-one change in a dwarf's MOND field. Whether dwarfs end up Newtonian or merely reshaped is not established, and a genuinely non-linear held branch is not excluded. Keep the phenomenological law, which passes dwarfs, separate from AeST, the completion under tension. (Formerly item 1: covariant screening, now supplied by the stealth sector, D3 §34.) 2. α₁/α₂ (1.5PN) and the 2PN β. 3. The a0 = cH0/2π identification
 from an action. 4. Non-linear structure formation. 5. Clusters (`TARGET_D10`).
 
 ## Figures

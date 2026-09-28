@@ -142,7 +142,7 @@ def residual_vector(vv, variant):
             sfY1: (2 - KBn) * Jpv,
             sF2: (2 - KBn) * Jlv / (2 * yp),
         }
-        ph_h = {"real": 1, "+i": 1j, "-i": -1j}[variant]
+        ph_h = {"real": 1, "+i": 1j, "-i": -1j}[variant] if isinstance(variant, str) else variant   # numeric: scale factor
         fg = sp.lambdify((sv,) + tuple(vals.keys()), grad, "mpmath")
         fh = sp.lambdify((sv,) + tuple(vals.keys()), hess, "mpmath")
         R_v = fg(vv, *vals.values()) + ph_h * fh(vv, *vals.values())

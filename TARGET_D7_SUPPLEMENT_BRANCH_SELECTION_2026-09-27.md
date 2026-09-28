@@ -75,8 +75,8 @@ more weakly. So no single threshold spares the dwarfs while dragging the Sun.
    falling into the Milky Way. The linear criterion says it cannot, but the held branch's non-linear
    stability against a wind has not been computed. **This is the decisive calculation:** an axisymmetric,
    time-dependent solution for a deep-MOND dwarf in an aether wind of 100–600 km/s.
-   *(Update, §7: the perturbative version is closed. At satellite speeds the wind forces a correction as large as
-   the dwarf's MOND field. Only a genuinely non-linear held branch remains.)*
+   *(Update, §7: the perturbative version is closed. At satellite speeds the wind forces an order-one change in the
+   dwarf's MOND field. Open: the end state, Newtonian or reshaped, and a genuinely non-linear held branch.)*
 2. **A completion whose MOND does not depend on the aether's rest frame.** This goes outside AeST. It must
    still put the phantom potential in the metric gravitational waves ride (GW170817 Shapiro, D3 note 7
    §28). No candidate is known.
@@ -160,7 +160,8 @@ Files, all in `exploration/d3_alpha/`:
 - `boosted_held_residuals.py` computes the residuals;
 - `aest_wind_bg.py` builds the linear operator with a background aether wind, and `wind_bg_validate.py` validates it;
 - `wind_correction_solve.py` solves for the correction;
-- `wind_correction_{decompose,ksens,qsens}.py` run the row decomposition and the sensitivity tests.
+- `wind_correction_{decompose,ksens,qsens}.py` run the row decomposition and the sensitivity tests;
+- `boosted_held_structure.py` gives the forcing for a general local field.
 
 All output is in `BOOSTED_HELD_WIND_CORRECTION.txt`.
 
@@ -195,31 +196,52 @@ Every Euler–Lagrange residual is evaluated at P and mapped into the operator's
 - **One residual drives it: the along-wind aether equation.** It reads v(12K_BĤ + (16K_B−4)H) with the wind along the field and v(−6K_BĤ + 4H) across it. This is the wind acting on the curvature of the dwarf's field.
   - The other rows contribute < 10⁻⁵ at 𝒦₂ = 75.
   - At 7.5×10⁵ the scalar row's 𝒦₂-advection term is 10⁴× larger as a residual, but it adds only 0.03 at 100 km/s.
-- **The change is in the scalar, not the aether.** The aether tilt stays at 0.1–3% of the stealth tilt g/𝒬₀. What cannot persist is the MOND gradient; the aether is not dragged.
+- **The linear correction is carried by the scalar gradient.** The aether tilt stays small, at 0.1–3% of the stealth tilt g/𝒬₀.
+
+**The forcing, for a general local field (`boosted_held_structure.py`):**
+
+    R_z / v = 8K_B ∇²Φ + (4 − 8K_B) ∂_z g_z − 6K_B ∂_z ĝ_z
+
+This reproduces both geometries exactly.
+- It is not a pure along-wind derivative. It carries the phantom density ∇²Φ with weight 8K_B.
+- At K_B = 1/2 the ∂_z g_z term cancels, so the phantom density dominates and only −3∂_z ĝ_z remains beside it.
+- A plane wave along the wind cannot tell ∇²Φ from ∂_z g_z. The WKB solve therefore sees both as one term.
 
 **The plateau is structural.** At high v the forcing, ∝ v·H ~ v·g/r, can be balanced only by the scalar gradient that the wind carries.
 - The balancing coefficient is 2(2 + K_Bλ)·v·k, the same combination as §26's threshold. This is fitted at K_B = 1/2; its K_B-dependence was not computed.
 - Both sides scale with v, so the plateau is v-independent:
-  - wind along the field: δ|S|/|S| = (4 + 6𝒥′)/[(4 + λ_∥)kr] = 1.0488;
-  - wind across the field: (4 − 3𝒥′)/[(4 + 𝒥′)kr] = 0.9507.
+  - wind along the field: δ|S|/|S| = (4 + 6𝒥′)/(4 + λ_∥) = 1.0488;
+  - wind across the field: (4 − 3𝒥′)/(4 + 𝒥′) = 0.9507.
   Both match the numerics to 4 digits.
 - It does not depend on the lift stand-in. Scaling q̄ by 0.1–10 moves only the crossover speed, ≈ 10 km/s × √(q̄/q̄₂₆).
 - Below the scalar sound speed it does not depend on 𝒦₂. At 𝒦₂ = 7.5×10⁵, c_s ≈ 670 km/s, and the approach to that resonance amplifies the correction at 300–600 km/s.
-- Its WKB normalization scales as 1/(kr): 0.35–3.1 for kr from 3 down to 1/3. It is never small.
+- It does not depend on k in the plane-wave convention, where a Hessian is ik × a gradient. It stays at 1.049 and 0.951 for kr from 1/3 to 3; only the crossover speed moves. Holding the point residual R(P) fixed instead gives 0.35–3.1. That range is a convention, not physics.
 
-**Escape by parameter choice: rejected `[X]`.** With the wind along the field, the deep-MOND forcing is ∝ (4K_B − 1), which vanishes at K_B = 1/4. With the wind across the field it is 4H·v, independent of K_B. Every satellite presents both geometries, so no value of K_B removes the forcing.
+**Escape by parameter choice: rejected `[X]`.** From the structure above:
+- With the wind along the field, ∂_z g_z = −H and ∇²ϕ = H, so the deep-MOND forcing is (16K_B − 4)H·v, which vanishes at K_B = 1/4.
+- With the wind across the field, ∂_z g_z = ∇²ϕ = H at the side point, so it is (4 − 8K_B + 8K_B)H·v = 4H·v for every K_B.
+
+Every satellite presents both geometries, so no value of K_B removes the forcing. The solves themselves were run at K_B = 1/2 only.
 
 **Reading `[D]`: an indication, not a verdict.** Perturbation theory about the held state fails near v ~ 10 km/s. At satellite speeds, 100–600 km/s, the wind forces a correction as large as the dwarf's MOND field, in both geometries.
-- This survives the WKB normalization (a factor of 3 either way), the lift stand-in (0.1–10×), 𝒦₂, and the point-to-mode phase. The phase variants are identical in 3 of 4 runs and agree within 1% in the fourth.
-- It corroborates Stage 1 in the correct geometry, with the dwarf's own field as the background, so §6 objection 1 is removed.
+- This survives the WKB normalization convention, the lift stand-in (0.1–10×), 𝒦₂, and the point-to-mode phase. The phase variants are identical in 3 of 4 runs and agree within 1% in the fourth.
+- It agrees with Stage 1 that the held state does not survive intact, now in the correct geometry with the dwarf's own field as the background. So §6 objection 1 is removed.
+- **It does not determine how much of the MOND field is lost.** Because the forcing carries the phantom density, the correction need not be a cancellation; the end state could be Newtonian or merely reshaped. The Crater II/Carina tension needs near-complete loss (M/L factors up to ~20).
 - It is still linear and local (WKB at kr ~ 1). §6 objection 3 stands: a non-perturbative steady held branch is not excluded.
 - There is no nearby steady held state at satellite speeds, so the perturbative form of §4 escape route 1 is closed.
 - The §6 estimate "held survives when 𝒦₂v²/x ≪ 1" was not the controlling term. The forcing that matters carries no 𝒦₂.
 
+**Next discriminating test `[O]`.** Build the operator with fields depending on (t, x, z), and put k at an angle α to the wind.
+- If the plateau scales as 1/cos α, the high-speed balance is local along streamlines. Then a real-space picture follows at linear order: the correction integrates the upstream phantom-density column.
+- If it scales with |k|, the scalar's elliptic spreading matters.
+
+Either way the downstream integral through the dwarf's centre marks where linear theory ends.
+
 **Related prior art `[C]`.** Peloso & Sorbo 2004 (PLB 593, 25): in a ghost condensate, a moving source loses its static modification of gravity. The AeST-specific content here is which quantity is lost, the MOND gradient, and the mechanism: the wind's force on the aether from the field curvature. None of the AeST papers checked treats moving sources: the abstracts of Verwayen–Skordis–Bœhm, Mistele, Bataki–Skordis–Złośnik and Reyes–Sakstein. A full literature search has not been made.
 
-**Status.** D7 stays [P/O]. Two escapes from the drag dilemma remain:
-- inside AeST, a genuinely non-linear steady held branch, for which nothing here gives evidence;
-- escape route 2, a completion outside AeST.
+**Status.** D7 stays [P/O].
+- **Settled at linear order:** there is no nearby steady held state at satellite speeds; the wind forces an order-one change in the dwarf's MOND field.
+- **Open:** the end state (Newtonian, or reshaped with part of MOND kept); a genuinely non-linear steady held branch, for which nothing here gives evidence; and escape route 2, a completion outside AeST.
+- **Next:** the angled-k test above.
 
 The phenomenological law is unaffected.

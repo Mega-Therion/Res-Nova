@@ -215,7 +215,7 @@ v = 600 km/s: total dY/2Y0 = (1.0326e-9 + 2.0632e-11j)   ik dP/g = (-0.01707 + 0
     row uz  : R =     9.188e-5   dY/2Y0 =   1.033e-9   |rot| = 0.9506
     row phi : R =    -1.401e-5   dY/2Y0 =  1.711e-14   |rot| = 9.681e-5
 
-=== 5. Sensitivity: WKB wavenumber (R(P) fixed, operator at k=f/r) and lift strength (qbar = q_s x sec.26 value) ===
+=== 5. Sensitivity: WKB wavenumber with R(P) held fixed (a convention; see 5b), and lift strength (qbar = q_s x sec.26 value) ===
 -- ksens_par_75
 par, K2=75: |dS_par|/|S| (par) or |rot| (perp) with R(P) fixed, operator at k = f/r
  v [km/s]      f=1/3      f=1/2        f=1        f=2        f=3
@@ -257,7 +257,40 @@ perp, K2=75: |dS_par|/|S| (par) or |rot| (perp) vs lift strength qbar = q_s x (s
       300  9.507e-01  9.506e-01  9.501e-01  9.451e-01  8.931e-01
       600  9.507e-01  9.507e-01  9.505e-01  9.493e-01  9.353e-01
 
-=== 6. Plateau closed form (K_B=1/2): par (4+6Jp)/((4+Jp+Jl) kr); perp (4-3Jp)/((4+Jp) kr); denominator = 2(2+K_B lambda) ===
+=== 6. Plateau closed form (K_B=1/2, plane-wave convention): par (4+6Jp)/(4+Jp+Jl); perp (4-3Jp)/(4+Jp); denominator = 2(2+K_B lambda) ===
   Jp=0.0499376 Jl=0.0498131
   par  predicted 1.04875   observed plateau 1.049 (q_s=0.1 column, 600 km/s)
   perp predicted 0.950678   observed plateau 0.9507 (q_s=0.1 column, 600 km/s)
+
+=== 5b. WKB wavenumber, plane-wave convention (Hessian-type residual terms scaled by f with k = f/r): plateau flat ===
+par, K2=75, mode=scaledH: |dS_par|/|S| (par) or |rot| (perp); operator at k = f/r
+ v [km/s]      f=1/3      f=1/2        f=1        f=2        f=3
+        1  3.432e-02  5.144e-02  1.025e-01  2.022e-01  2.965e-01
+        3  1.025e-01  1.529e-01  2.965e-01  5.329e-01  6.953e-01
+       10  3.264e-01  4.626e-01  7.356e-01  9.353e-01  9.935e-01
+       30  7.356e-01  8.685e-01  9.935e-01  1.034e+00  1.042e+00
+      100  1.003e+00  1.028e+00  1.043e+00  1.047e+00  1.048e+00
+      300  1.043e+00  1.046e+00  1.048e+00  1.049e+00  1.049e+00
+      600  1.048e+00  1.048e+00  1.049e+00  1.049e+00  1.049e+00
+perp, K2=75, mode=scaledH: |dS_par|/|S| (par) or |rot| (perp); operator at k = f/r
+ v [km/s]      f=1/3      f=1/2        f=1        f=2        f=3
+        1  2.976e-02  4.461e-02  8.893e-02  1.756e-01  2.579e-01
+        3  8.893e-02  1.327e-01  2.579e-01  4.669e-01  6.140e-01
+       10  2.841e-01  4.043e-01  6.511e-01  8.394e-01  8.960e-01
+       30  6.511e-01  7.755e-01  8.960e-01  9.361e-01  9.441e-01
+      100  9.057e-01  9.299e-01  9.453e-01  9.493e-01  9.501e-01
+      300  9.453e-01  9.483e-01  9.501e-01  9.505e-01  9.506e-01
+      600  9.493e-01  9.501e-01  9.505e-01  9.506e-01  9.507e-01
+
+=== 7. Forcing for a general local field (boosted_held_structure.py): R_z/v = 8K_B lap(Phi) + (4-8K_B) d_z g_z - 6K_B d_z ghat_z ===
+O(eps^0) of E_Az: 0
+E_Az, O(eps v^0): -(K_B*ghat_z + fY1*g_z - 2*ghat_z)/5
+E_Az, O(eps v^1): 8*H_xx*K_B + 8*H_yy*K_B + 4*H_zz + 8*Hhat_xx*K_B + 8*Hhat_yy*K_B + 2*Hhat_zz*K_B
+   coefficient of H_xx: 8*K_B
+   coefficient of H_yy: 8*K_B
+   coefficient of H_zz: 4
+   coefficient of H_xz: 0
+   coefficient of Hhat_xx: 8*K_B
+   coefficient of Hhat_yy: 8*K_B
+   coefficient of Hhat_zz: 2*K_B
+   coefficient of Hhat_xz: 0
