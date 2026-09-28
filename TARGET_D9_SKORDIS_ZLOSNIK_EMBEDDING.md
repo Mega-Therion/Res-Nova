@@ -6,7 +6,7 @@
 > - `Jstd_deriv_pos`: J′ > 0.
 >
 > λ_s enters only as the overall scale of the same family, J = 2λ_s ã₀²F_std(√𝒴/ã₀) (J′ = λ_s μ;
-> `TARGET_D7` §2.1–2.2, `TARGET_D6` closure (b)). It is an AeST parameter, bounded λ_s ≲ 2.2 by Saturn
+> `TARGET_D7` §2.1–2.2, `TARGET_D6` closure (b)). It is an AeST parameter; the Saturn bound λ_s ≲ 2.2 applies only on the held branch
 > (`TARGET_D3`), not a gap in the embedding. The stale `SkordisZlosnikEmbedding.lean` μ_dual
 > parametrization is superseded by `SZStdEmbedding.lean`.
 

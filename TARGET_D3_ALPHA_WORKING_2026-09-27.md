@@ -546,8 +546,8 @@ every printed digit.
   - 𝒦₂ adds a shift that does not depend on c₂ and grows linearly in 𝒦₂: f = 2/3, 4/21 and 8/3 at the three
     points.
 
-**Bound.** c₁₄,eff = (K_Bλ_s + 2)/(1+λ_s) ≥ 2/(1+λ_s). With λ_s ≲ 2.2 (Saturn, `TARGET_D3`), that is
-≥ 0.625, so **|α₁| ≥ 2.5**.
+**Bound.** c₁₄,eff = (K_Bλ_s + 2)/(1+λ_s) ≥ K_B for every λ_s (→ K_B as λ_s → ∞), so **|α₁| ≥ 4K_B**. This
+superseded wording drops the Saturn bound, which applies only on the held branch (§34). With λ_s ≲ 2.2 it would be ≥ 2.5.
 - LLR requires |α₁| ≲ 10⁻⁴, so the model is excluded by more than 4 orders.
 - α₂ is O(1) or larger, against the solar-spin bound |α₂| ≲ 10⁻⁷: more than 7 orders.
 
@@ -656,3 +656,106 @@ static sector retains the residual symmetry), β reduces to its GR value on the 
 coefficient decides whether AeST's dragged solar system passes perihelion and ranging tests.** It is the
 next D3 computation: second-order perturbation theory about the dragged first-order solution, keeping the
 unit-norm constraint to O(ε²).
+
+## 34. The dragged branch is AeST's ghost-condensate (stealth) sector, and it is GR `[D]`, verified symbolically
+
+This resolves §33.
+
+**The configuration.** At first order the dragged solution has A_μ = −∂_μφ/𝒬₀ exactly (§13: δ𝒬 = 0 and
+S = 0 give A₀ = −1 + U = −∂₀φ/𝒬₀ and A_i = −∂_iφ̃/𝒬₀). Its all-orders completion is
+
+    A_μ = −∂_μφ / N,   N ≡ √(−g^{μν}∂_μφ∂_νφ) = 𝒬₀
+
+- The aether is the normalized gradient of a clock field of fixed norm.
+- By Hamilton–Jacobi, φ = 𝒬₀ × (proper time along a geodesic congruence). The aether is the 4-velocity of
+  freely falling observers. **This is the "river of space"** (Gullstrand–Painlevé; Hamilton & Lisle 2008).
+  Around a moving source the river has asymptotic velocity v, and near the source it is deflected by
+  |δu| ≈ U/v, the impulse approximation, matching §22.
+
+**Three identities**, true for any metric and any N:
+1. J^μ∂_μφ = −N A_μA^ν∇_νA^μ = −½N A^ν∇_ν(A²) = 0.
+2. 𝒴 = (∂φ)² + (A·∂φ)² = −N² + N² = 0.
+3. 𝒬 = A·∂φ = N.
+
+F_μν = (∂_μN ∂_νφ − ∂_νN ∂_μφ)/N² vanishes when N is constant. On this family the A-equation reduces to
+E^μ ∝ A^μ, which the Lagrange multiplier λ absorbs, so δS/δA = 0 on it. By the chain rule the metric
+equations there are those of the **reduced action**
+
+    S_red = ∫√−g [ R − (K_B/2) F²[N] − ℱ(0, N) ] + S_m
+
+- The F² piece is quadratic in D ln N, so it contributes no stress at N = const.
+- ℱ(0, N) is a ghost condensate. At its minimum, ℱ_𝒬(𝒬₀) = 0, it is a cosmological constant (tuned away).
+  Slightly off it, it is dust of cosmological density.
+
+**Symbolic verification (`dragged_branch_exact_check.py`).**
+- **Test case.** Schwarzschild in Painlevé–Gullstrand form with φ = 𝒬₀·T_PG, so A_μ = (−1,0,0,0) is the
+  radial free-fall 4-velocity. Its expansion θ = −(3/2)√(2M/r³) is nonzero, which makes this a sharp test.
+- **Method.** A spherically symmetric ansatz with free metric, aether, scalar and λ functions. The
+  Euler–Lagrange equations of √−g L_AeST, with ℱ = c_Y𝒴 − 2𝒦₂(𝒬−𝒬₁)², are evaluated on the configuration.
+- **Result.** **At 𝒬₁ = 𝒬₀ (condensate at its minimum), all eight residuals vanish identically.** That
+  covers g_tt, g_tr, g_rr, the areal equation, both aether components, φ and the constraint, for arbitrary
+  K_B, c_Y, 𝒦₂ and M. λ carries the θ-dependent pieces, and they cancel in the metric equations exactly as
+  the reduced-action argument requires.
+- **Off the minimum.** With 𝒬₁ = 1.1𝒬₀ the residuals are ∝ 𝒦₂𝒬₀² (the condensate's energy density,
+  cosmological scale), and the φ-residual is ∝ ℱ_𝒬θ, as stated above.
+
+**Prior art `[C]`.** Exact-GR ("stealth") solutions of AeST are already known: Skordis & Vokrouhlický 2024
+(arXiv:2412.15395, JCAP 03 (2025) 035) find two classes of stealth black holes with secondary hair, one of
+which joins continuously to AeST's cosmological solution. The new content here is narrower:
+- the linear *dragged* branch of moving sources (§13) completes to this sector, so every PPN parameter of a
+  dragged solar system takes its GR value;
+- the focusing-wake geometry below;
+- the D7 reading, i.e. what this sector means for covariant screening.
+
+**Consequence: static masses have a GR branch too `[D]`.** The verified case is itself a *static* mass,
+with the aether falling in from rest at infinity (|δu| ~ √U). That response is not analytic in U, so linear
+theory cannot see it. "Static ⇒ held ⇒ MOND" is therefore **not guaranteed**, for galaxies either.
+**Which branch a system occupies is open for static and moving sources alike. That is now the program's
+central open problem, alongside the Crater II tension of §24.**
+- Hypothesis `[O]`: a single-valued aether cannot follow shell-crossed, virialized matter, so virialized
+  systems may be forced off the free-fall branch onto the held one. It needs testing.
+
+**Result.** Where the free-fall clock field is single-valued, AeST's field equations on the dragged branch
+are Einstein's, up to corrections from the external field (the Milky Way's background MOND field breaks
+𝒴 ≡ 0) and from cosmological density. **γ = β = 1 and α₁ = α₂ = ξ = ζ = 0 at every post-Newtonian order, up to those corrections.** The U²/v² worry
+of §33 does not arise, because the enhanced aether deflection lies along directions that carry no action.
+The φ-equation reduces to ℱ_𝒬 ∇·A = 0, which holds at ℱ_𝒬 = 0.
+
+**Where it fails: the aether's focusing wake. The geometry below is an ESTIMATE; the physics is `[O]`.**
+- **Strong deflection near the Sun.** At v = 240 km/s the solar surface escape speed (618 km/s) exceeds v,
+  so streamlines near the Sun deflect strongly. The small-angle formulas below apply only far from the Sun.
+- **A sheet, not a filled cone.** The Hamilton–Jacobi (viscosity) solution for φ picks one characteristic
+  and has a kink where the two streams meet. So the wake is a thin sheet where the aether direction jumps.
+- **Correct geometry.** The prior art for it is the interstellar-helium focusing-cone literature (Danby &
+  Camm 1957, direct and indirect trajectories). The river is single-valued only
+until gravitational focusing makes streamlines cross.
+- A streamline with impact parameter b crosses the downstream axis at z = b²v²/(2GM).
+- At downstream distance z, the multi-stream region has radius ~√(2GMz)/v.
+- Inside the wake, the constant-norm gradient configuration cannot hold, so AeST's full dynamics take over
+  (possibly a local MOND-like response).
+- A planet at radius r stays clear of the wake if v > √(2GM/r)·√(cos β_w)/sin β_w, where β_w is the angle
+  between the wake axis and the ecliptic.
+
+| aether frame | Sun's speed | β_w | clear-of-wake threshold, Mercury / Earth / Saturn | planets clear? |
+|---|---|---|---|---|
+| Milky Way at rest | 240 km/s | ≈ 60° | 55 / 34 / 11 km/s | **yes** |
+| CMB frame | 370 km/s | ≈ 12° | 322 / 200 / 65 km/s | yes (Mercury marginal) |
+| co-moving with the local disk (LSR) | ≈ 18 km/s | ≈ 53° | 66 / 41 / 13 km/s | **no**: inner planets sit in the wake |
+
+**Verdict for D3.** Wherever the free-fall clock field is single-valued, AeST reproduces GR in the planetary
+region. The estimate is that this holds for the planets if the Sun moves through the local aether faster than
+≈ 60 km/s. All PPN parameters then take GR values, so D3 closes for the solar system.
+Which frame the local aether takes inside the Milky Way is the non-linear question of §31/§32. It is carried
+by D7, together with a genuinely new target: **an aether focusing wake downstream of the Sun along the aether
+wind.** It is the aether analogue of the interstellar-helium focusing cone.
+
+**λ_s correction (same day).** The Saturn bound λ_s ≲ 2.2 came from the *held*-branch residual ã₀. For a
+dragged Sun the solar system does not constrain λ_s. The bound applies only on the held branch.
+- The c₂ exclusion of §29 survives without it: c₁₄,eff = K_B + (2−K_B)/(1+λ_s) ≥ K_B, so |α₁| ≥ 4K_B. That
+  excludes c₂ for any K_B ≫ 2.5×10⁻⁵, including SZ's K_B = 0.1–0.5.
+
+**For D7 and the paper.** AeST's stealth sector, completing the dragged branch, is a covariant, metric-level
+screening that uses only AeST's own fields, with no new operators. In the dragged solar system there is no Cassini external-field quadrupole
+at all, because the MOND channel is off. The duality screening S(η) of paper §6 is therefore not required
+for Cassini. It becomes an alternative that predicts differently for MW satellites: dragged gives Newtonian,
+S(η) gives near-MOND.

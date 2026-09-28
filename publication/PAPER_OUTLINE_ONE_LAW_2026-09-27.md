@@ -62,6 +62,12 @@ unlabelled. Parameter accounting follows the two-irreducible-parameters rule: th
   escape `[D]`.
 - Source: `CASSINI_EFE_QUADRUPOLE_2026-09-27.md`.
 
+> **2026-09-27 update.** AeST's stealth sector (Skordis & Vokrouhlický 2024), which completes the dragged branch (D3 §34,
+> verified symbolically), makes a dragged solar system GR, so no Cassini
+> external-field quadrupole arises and §5's exclusion does not apply to a dragged Sun. The duality screening below is then
+> an alternative mechanism, not a necessity. The two predict differently for Milky Way satellites: dragged gives
+> Newtonian, S(η) gives near-MOND.
+
 ## 6. Duality screening
 - Why size-based screening needs a new constant (dimensional no-go) `[D]`.
 - Why Galileon/Vainshtein is closed by c_T = c (`TARGET_D7` §11) `[D]`+`[C]`.
@@ -91,9 +97,9 @@ unlabelled. Parameter accounting follows the two-irreducible-parameters rule: th
   branch, because of a static residual symmetry. On the dragged branch the metric is GR, α₁ = α₂ = 0 `[D]`.
   Which branch real systems occupy is `[O]`: spirals are undetermined, and the held threshold is computed at
   leading order.
-- Adding c₂(∇·A)² to lift the zero mode gives α₁ = −4c₁₄,eff, with |α₁| ≥ 2.5, which LLR excludes `[D]`.
+- Adding c₂(∇·A)² to lift the zero mode gives α₁ = −4c₁₄,eff, with |α₁| ≥ 4K_B for any λ_s, which LLR excludes `[D]`.
   The zero mode, and with it the dragged branch, is required.
-- λ_s ≲ 2.2 from Saturn perihelion `[D]`.
+- λ_s ≲ 2.2 from Saturn perihelion `[D]`, but only on the held branch. A dragged Sun (D3 §34) does not constrain λ_s.
 
 ## 9. Cosmology (brief, scoped)
 - Cosh-sector background `[P]` (`CoshCosmology.lean`); ξ = 1 at linear order `[D]`.

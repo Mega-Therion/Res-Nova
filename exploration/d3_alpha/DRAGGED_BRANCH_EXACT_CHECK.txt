@@ -1,0 +1,21 @@
+lambda from the A_t equation: [Q_0*(3*sqrt(2)*K_B*sqrt(M)*sqrt(1/r) - 6*sqrt(2)*sqrt(M)*sqrt(1/r) + 2*r*(-2*K_2*Q_0 + 2*K_2*Q_1 - K_B*Q_0 + Q_0*c_Y + 2*Q_0))/(2*r)]
+
+--- F_Q(Q0) = 0 (condensate at its minimum) ---
+  E_f (g_tt)             residual = 0
+  E_h (g_tr)             residual = 0
+  E_k (g_rr)             residual = 0
+  E_s (areal)            residual = 0
+  E_At                   residual = 0
+  E_Ar                   residual = 0
+  E_phi                  residual = 0
+  E_lam (constraint)     residual = 0
+
+--- F_Q(Q0) != 0 (Q1 = 1.1 Q0) ---
+  E_f (g_tt)             residual = 21*K_2*Q_0**2*r**2/100
+  E_h (g_tr)             residual = 21*sqrt(2)*K_2*sqrt(M)*Q_0**2*r**2*sqrt(1/r)/50
+  E_k (g_rr)             residual = K_2*Q_0**2*r*(-42*M + r)/100
+  E_s (areal)            residual = K_2*Q_0**2/50
+  E_At                   residual = 0
+  E_Ar                   residual = 0
+  E_phi                  residual = -3*sqrt(2)*K_2*sqrt(M)*Q_0*r*sqrt(1/r)/5
+  E_lam (constraint)     residual = 0
