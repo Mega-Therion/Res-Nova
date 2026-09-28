@@ -86,6 +86,57 @@ SHA-256 in the JSON, not vendored.
   - Part of the preference reflects Pantheon+ wanting a lower share than ln 2 (Ω_Λ = 0.668 in ΛCDM).
   - **CMB and BAO are not yet tested.** Those are the next checks: Planck distance priors and DESI BAO.
 
+## The ceiling against CMB + BAO + supernovae `[D]` (same night)
+
+**Data.**
+- Planck 2018 TT,TE,EE+lowE distance priors (R, l_A, ω_b), using the inverse covariance of Chen, Huang & Wang 2019
+  (arXiv:1808.05724), read from the paper's source.
+- DESI DR2 BAO, 13 measurements with covariance (CobayaSampler/bao_data).
+- Pantheon+.
+
+Scripts `ceiling_model_bao_sn.py`, `ceiling_model_cmb_bao_sn.py` and `ceiling_scan_cmb_bao_sn.py`; outputs in
+`CEILING_MODEL_BAO_SN.json`, `CEILING_MODEL_CMB_BAO_SN.json` and `CEILING_SCAN_CMB_BAO_SN.json`. Data are not vendored;
+hashes are in the JSON.
+
+**Validation.**
+- BAO-only ΛCDM gives Ω_m = 0.297, against DESI DR2's published 0.2975.
+- r_d = 147.05 Mpc, against Planck's 147.09.
+- CMB-priors-only ΛCDM gives Ω_m = 0.3163, h = 0.6754, ω_b = 0.02236, all within 0.3σ of Planck.
+- Two bugs were found and fixed on the way: a trapezoid sum on a non-uniform grid, and the massive neutrino counted as
+  matter near recombination.
+- The residual l_A offset at Planck's parameters (302.0 vs 301.47) is the priors' own convention: their central values
+  used the chains' z*, while their likelihood uses the Hu–Sugiyama formula. It is absorbed by a 0.3σ parameter shift
+  and is common to all models compared.
+
+**BAO + SN (no CMB).** The zero-shape-parameter ceiling at κ beats best-fit ΛCDM by **Δχ² = −4.58**. The free ceiling
+is best at **0.950 (1σ 0.93–0.97)**, with κ at Δχ² = 0.04 from the best.
+
+**CMB + BAO + SN.** ΛCDM has 3 parameters (Ω_m, h, ω_b); the ceiling at κ has 2 (h, ω_b). Approach law:
+w = −(1 − (r/r_f)ⁿ).
+
+| model | χ² | Δχ² vs ΛCDM | CMB / BAO / SN χ² | w₀, w_a |
+|---|---|---|---|---|
+| ΛCDM (Ω_m 0.303, h 0.685) | 1419.71 | 0 | 2.47 / 11.84 / 1405.40 | −1, 0 |
+| ceiling κ, n = 1 | 1420.78 | +1.07 | 8.70 / 9.51 / 1402.57 | −0.891, −0.292 |
+| ceiling κ, n = 2 | 1419.62 | −0.09 | 1.63 / 13.54 / 1404.45 | −0.988, −0.071 |
+| ceiling κ, n = 0.5 | 1618.36 | +198.7 | — | −0.670, −0.332 (**excluded**) |
+| ceiling free, n = 1 (3 params) | 1417.37 | −2.34 | — | best Ω_f = 0.976 |
+
+**Profile χ²(Ω_f), re-fitting (h, ω_b).**
+- n = 1: best **0.975**, 1σ **0.965–0.985**; κ is Δχ² = 3.40 from the best.
+- n = 2: best **≤ 0.90** (the grid edge); κ is Δχ² = 2.35 from the best.
+
+**Reading.**
+- Supernovae alone and BAO + SN put the freeze at the top of the band, at κ.
+- Adding the CMB, **the preferred ceiling depends on the approach law**: 0.975 for n = 1 and ≤ 0.90 for n = 2. κ sits
+  between them, about 1.5–1.8σ from either best, so it is viable but not singled out.
+- A fast approach (n = 0.5) is excluded.
+- κ-ceiling models tie ΛCDM with one fewer parameter, and a free ceiling is mildly preferred (Δχ² = −2.3 at equal
+  parameter count).
+- **The approach law is the control rod.** Deriving n from the landing dynamics would turn this into a sharp prediction.
+- Limits: compressed CMB priors derived under ΛCDM (standard for late-time dark-energy tests, but approximate); r_d from
+  the Aubourg fitting formula; Pantheon+ only (DES-Y5 or Union3 would shift toward stronger evolution).
+
 ## Status and next
 
 `[O]`. This is a derivation *given* premises 2–4. It is not yet the closure O3 asks for, a covariant action whose
