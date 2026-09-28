@@ -26,9 +26,50 @@ from ceiling_model_bao_sn import load_bao
 from ceiling_n_at_kappa import sn_likelihoods
 
 cf.LAWS["capacity_one"] = lambda s, q: s * (1 - q + q * s)
+
+
+def six_neighbour_graph(L):
+    """Cells of a honeycomb tiling (each hexagon has 6 neighbours: the triangular-lattice graph), periodic L x L."""
+    idx = np.arange(L * L).reshape(L, L)
+    shifts = ((1, 0), (-1, 0), (0, 1), (0, -1), (1, -1), (-1, 1))
+    return np.stack(
+        [np.roll(np.roll(idx, -dx, 0), -dy, 1).ravel() for dx, dy in shifts], 1
+    )
+
+
+def simulate_q(version, L=300, runs=5, seed=20260928):
+    """Witnessed fraction by direct simulation. 'separate': each cell sends one record into a one-slot receiver of a
+    random neighbour (first arrival kept). 'shared': one spare slot per cell used for both, so a record pairs two
+    cells; cells act once, in random order, and a record aimed at a used slot is lost.
+    """
+    rng = np.random.default_rng(seed)
+    nb = six_neighbour_graph(L)
+    N = L * L
+    out = []
+    for _ in range(runs):
+        if version == "separate":
+            recv = np.zeros(N, bool)
+            recv[nb[np.arange(N), rng.integers(6, size=N)]] = True
+            out.append(recv.mean())
+        else:
+            free = np.ones(N, bool)
+            picks = rng.integers(6, size=N)
+            for i in rng.permutation(N):
+                if free[i]:
+                    j = nb[i, picks[i]]
+                    if free[j]:
+                        free[i] = free[j] = False
+            out.append(1 - free.mean())
+    return float(np.mean(out)), float(np.std(out))
+
+
+Q_SEP, Q_SEP_SD = simulate_q("separate")
+Q_SHARED, Q_SHARED_SD = simulate_q("shared")
 POINTS = {
-    "honeycomb p=6": 1 - (5 / 6) ** 6,
+    "honeycomb p=6": 1
+    - (5 / 6) ** 6,  # separate send/receive slots: closed form (simulation: Q_SEP)
     "p -> infinity": 1 - math.exp(-1),
+    "shared slot, pairing, p=6 (simulated)": Q_SHARED,
     "perfect matching": 1.0,
 }
 
@@ -64,6 +105,10 @@ def main():
         "omega_f": m.KAPPA,
         "law": "g(s) = s (1 - q + q s)",
         "q_values": POINTS,
+        "q_simulation_mean_sd": {
+            "separate send/receive slots": [Q_SEP, Q_SEP_SD],
+            "shared slot (pairing)": [Q_SHARED, Q_SHARED_SD],
+        },
     }
     for name, chi_sn in sn_likelihoods().items():
 
