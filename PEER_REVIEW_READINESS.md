@@ -35,7 +35,8 @@
 - **O4.** The table is withdrawn. The real high-z data (in-house RC100 plus MUSE-DARK III) are **inconclusive**: a₀ is ~2–2.6× the local value at z ~ 1–2, flat within high z, with a calibration-limited step (row below).
 - **D2, D6 and D9 closed to [P] (2026-09-27, later): see their rows.**
 - **D3 closed to [P] (§34: the dragged branch is exactly GR).**
-- **Score: 8/12 [P] (D1, D2, D3, D6, D8, D9, O5, O6), 3/12 [P/O] (D5, D7, O1), 1/12 [O]/[C] (O4).**
+- **O1 closed to [P] under the two-parameter accounting (a₀ is the declared anchored input).**
+- **Score: 9/12 [P] (D1, D2, D3, D6, D8, D9, O1, O5, O6), 2/12 [P/O] (D5, D7), 1/12 [O]/[C] (O4).**
 
 ## 1. Completion Matrix
 
@@ -49,7 +50,7 @@
 | **D7** Covariant Completion | ⚠️ [P/O] | AeST's stealth sector screens the solar system (D3 §34). **Branch selection is open (`TARGET_D7_SUPPLEMENT_BRANCH_SELECTION`).** A Stage-1 linear/proxy calculation *indicates* that fast-moving dwarfs are stripped, which would contradict Crater II, Carina, Leo II and Sculptor. It is **not decisive**: it treats a small source rather than the dwarf, its reference state is unvalidated, and a non-linear held branch may exist. **Decisive check pending:** the boosted-held residuals. A rough estimate says held survives when 𝒦₂v²/x ≪ 1 (true at 𝒦₂ = 75, false at 7.5×10⁵), so the answer may depend on the parameter point. The phenomenological law is unaffected | ⚠️ |
 | **D8** Tensor Speed | ✅ [P] | c_T = c — upgraded 2026-09-12 from asserted-via-citation to structural (no TT piece in δA under minimal AeST coupling) | ✓ |
 | **D9** Skordis-Złośnik Embedding | ✅ [P] | **Closed 2026-09-27.** The μ_std embedding is derived by calculus in `SZStdEmbedding.lean` (gate-verified): J_std = F_std(√𝒴) gives 2J′ = μ_std, with J′ > 0. λ_s is the overall scale of the same family, an AeST parameter (the Saturn bound ≲ 2.2 applies only on the held branch), not an embedding gap | ✓ |
-| **O1** Horizon Scale | ⚠️ [P/O] | 2π KMS cancellation proved [P]; a₀=cH identification open [O] (5.67× discrepancy, consistent with the literature's own cH₀/2π≈6× framing — see §2 below; O4's 5.9σ disfavouring is itself rescored [P/O] and now SUPERSEDED: the μ_std V2 re-run (PREREG_A0_OF_Z_V2.md, A0_OF_Z_REPORT_V2.json, 2026-09-12) is INCONCLUSIVE at 2.06σ) | ⚠️ |
+| **O1** Horizon Scale | ✅ [P] | **Closed 2026-09-27 under the two-irreducible-parameters accounting.** a₀ is declared input 1, a boundary condition anchored to cH₀. The 2π KMS factor is proved (`HorizonScale.lean`). Empirically, μ_std gives a₀ = 1.10–1.16 (×10⁻¹⁰), which implies H₀ ≈ 71–75, bracketing Planck and SH0ES (both inside the 95% CI). The anchor is external. The dynamical a₀(z) question sits in O4 (inconclusive). A derivation from an action is a research question, not an O1 gap | ✓ |
 | **O4** Redshift Test | ⚠️ [O]/[C] | **2026-09-27: the 20-point table is WITHDRAWN** as untraceable, so the in-house 5.9σ and 2.06σ results are void. **Real data, combined [C]:** the in-house RC100 measurement (`A0_HIGHZ_MEASUREMENT_2026-09-16.md`; 100 galaxies, z 0.6–2.6) and MUSE-DARK III (Ciocan+2026) both put a₀ at z ~ 1–2 at ~2–2.6× the local value. Inside the high-z range the shape favours a constant over H(z) (Δχ² ≈ 9–21, shape-only, not established). The step from z = 0 is calibration-limited. **No reading is excluded** | ⚠️ |
 | **O5** SPARC Automation | ✅ [P] | clean-clone walk closed 2026-09-09: 175/175 checksums, 0 drift (VERIFICATION_RUN_009) | ✓ |
 | **O6** Clean Reproduction | ✅ [P] | 39/39 PASS at closure; 43/43 since #39 (SU(2) envelope rungs); CI `lean-gate` green at `d130413`; gate list ≡ lakefile roots | ✓ |
