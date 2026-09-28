@@ -135,7 +135,87 @@ w = −(1 − (r/r_f)ⁿ).
   parameter count).
 - **The approach law is the control rod.** Deriving n from the landing dynamics would turn this into a sharp prediction.
 - Limits: compressed CMB priors derived under ΛCDM (standard for late-time dark-energy tests, but approximate); r_d from
-  the Aubourg fitting formula; Pantheon+ only (DES-Y5 or Union3 would shift toward stronger evolution).
+  the Aubourg fitting formula; Pantheon+ here, DES-Y5 in the next section.
+
+## DES-Y5 in place of Pantheon+ `[D]` (same night)
+
+DES-Dovekie is the recalibrated DES 5-year sample (Popovic et al. 2026, arXiv:2511.07517): 1,820 SNe, 1,623 from DES
+and 197 low-z. It is the supernova sample behind DESI's strongest evolving-dark-energy evidence. It shares its low-z SNe
+with Pantheon+, so the two are never combined. Script `desy5_ceiling.py`; output `DESY5_CEILING.json`. All data come
+from `fetch_external_data.sh`, which checks each file's SHA-256 against `cosmo_data.py`.
+
+**Validation.**
+- SN-only flat ΛCDM gives Ω_m = 0.330 (1σ 0.316–0.345), against the published 0.330 ± 0.015.
+- The released inverse covariance inverts to diagonal errors that match MUERR ⊕ MUERR_SYS to 1 part in 10⁸.
+- w₀w_aCDM with these Planck priors, DESI DR2 and DES-Dovekie gives w₀ = −0.825, w_a = −0.637 (Δχ² = −10.1 vs ΛCDM
+  for 2 extra parameters). The published values, with the full Planck+ACT+SPT CMB, are w₀ = −0.803 ± 0.054 and
+  w_a = −0.72 ± 0.21.
+
+**Supernovae only.**
+
+| model | free cosmological params | Δχ² vs best ΛCDM |
+|---|---|---|
+| flat ΛCDM (Ω_m 0.330) | 1 | 0 (χ² = 1631.42) |
+| ΛCDM with Ω_Λ = ln 2 | 0 | +2.44 |
+| **ceiling κ, n = 1** | **0** | **−1.53** |
+| ceiling κ, n = 2 | 0 | +1.90 |
+
+- Free ceiling, n = 1: best **0.948, 1σ 0.928–0.972**. κ is 0.05 in χ² from the best; Pantheon+ gave 0.958
+  (0.936–0.984).
+- Free ceiling, n = 2: best 0.842 (0.818–0.876). κ is Δχ² = 4.1 from the best.
+
+**CMB + BAO + DES-Y5.**
+
+| model | params | χ² | Δχ² vs ΛCDM | CMB / BAO / SN χ² | w₀, w_a |
+|---|---|---|---|---|---|
+| ΛCDM (Ω_m 0.304, h 0.685) | 3 | 1648.93 | 0 | 2.30 / 12.10 / 1634.53 | −1, 0 |
+| **ceiling κ, n = 1** | **2** | 1648.11 | **−0.83** | 8.70 / 9.51 / 1629.90 | −0.891, −0.292 |
+| ceiling κ, n = 2 | 2 | 1648.49 | −0.44 | 1.63 / 13.54 / 1633.32 | −0.988, −0.071 |
+| ceiling κ, n = 0.5 | 2 | 1849.03 | +200.1 (**excluded**) | 104.0 / 84.7 / 1660.3 | −0.670, −0.332 |
+| ceiling free, n = 1 | 3 | 1645.45 | −3.49 | — | best Ω_f = 0.973 |
+| ceiling free, n = 2 | 3 | 1644.77 | −4.16 | — | best Ω_f = 0.879 |
+| w₀w_aCDM | 5 | 1638.86 | −10.08 | — | −0.825, −0.637 |
+
+- **Profile χ²(Ω_f), re-fitting (h, ω_b).** For n = 1 the best is 0.97 (1σ 0.97–0.985), with κ at Δχ² = 2.59. For
+  n = 2 the best is 0.88 (0.86–0.90), with κ at 3.72.
+- **Why the κ fits reuse the Pantheon+ (h, ω_b).** For the κ ceilings, (h, ω_b) come out identical to the Pantheon+
+  run. With the share fixed at ln 2, the SN shape barely depends on them, so CMB + BAO set them and the SN term adds a
+  near-constant. The Δχ² differences between the two samples are therefore pure supernova preference.
+
+**Reading.**
+- **DES-Y5 moves the κ ceilings from tying ΛCDM to beating it**, each with one fewer parameter:
+  - n = 1: from +1.07 (Pantheon+) to −0.83;
+  - n = 2: from −0.09 to −0.44.
+- The trade-off between ceiling and approach law persists: (Ω_f, n) ≈ (0.97, 1) and (0.88, 2) both fit. The data
+  constrain a curve in the (Ω_f, n) plane, and κ lies on it at an intermediate n. The next section measures that n.
+- **What the ceiling cannot capture is a phantom past.**
+  - w₀w_aCDM does better still (Δχ² = −10.1), about 6 below the best ceiling for 2 more parameters.
+  - Its best fit crosses into w < −1 before z ≈ 0.38 (w₀ + w_a = −1.46).
+  - A ceiling is non-phantom by construction (w = −1 + sⁿ ≥ −1), so the remaining gap measures how much this data
+    combination leans on w < −1 in the past.
+
+## The control rod, measured: n at a κ ceiling `[D]` (same night)
+
+RY: the threshold κ says where the share stops, and the approach law n says how it gets there, a rule rather than a
+number. Here Ω_f = κ is fixed and the data choose n, with (h, ω_b) re-fit at each n. Script `ceiling_n_at_kappa.py`;
+output `CEILING_N_AT_KAPPA.json`.
+
+| SN sample (with CMB + BAO) | best n | 1σ | Δχ² vs ΛCDM (one param fewer) | w₀, w_a at best n |
+|---|---|---|---|---|
+| Pantheon+ | 1.27 | 1.10–1.57 | −2.45 | −0.940, −0.214 |
+| DES-Y5 | 1.23 | 1.08–1.47 | −3.69 | −0.934, −0.226 |
+
+- **Both samples agree on n ≈ 1.25.**
+  - n = 1 sits Δχ² = 3.5 (Pantheon+) and 2.9 (DES-Y5) above the best.
+  - n = 2 sits 2.4 and 3.2 above.
+- **Prediction target.** If the ceiling is κ, the landing dynamics must produce n ≈ 1.1–1.5.
+  - First-order kinetics of independent landings gives n = 1, disfavoured here at about 1.7–1.9σ.
+  - Deriving n from the landing process is now a sharp, falsifiable target: a derived n outside 1.1–1.5 counts against
+    a κ ceiling.
+- Limits:
+  - The generalized-logistic form of the approach law is still a choice.
+  - The CMB priors are compressed.
+  - n enters only through the share's history.
 
 ## Direction matters? Hemisphere split of the supernovae `[D]` (same night)
 
@@ -159,8 +239,53 @@ marginalized, and compare. Script `pantheon_hemisphere_split.py`; output `PANTHE
   backward hemisphere prefers a ceiling near 0.93.** The 1σ ranges do not overlap, roughly a 1.5σ hint.
 - Prior art: Colin et al. 2019 (A&A 631, L13) claimed a dipole in cosmic acceleration aligned with the CMB dipole;
   Rubin & Heitlauf 2020 (ApJ 894, 68) disputed it. Pantheon+ shows at most a weak, non-significant version.
-- Next: the same split on DES-Y5 and Union3, and the one-way-light-speed prediction (c/(1±β), β ~ 10⁻³) turned into
-  a Hubble-diagram dipole amplitude to compare with the split.
+- DES-Y5 cannot repeat the split. Its deep fields give four sky directions instead (below). The one-way-light-speed
+  prediction comes out as zero beyond kinematics (below).
+
+**DES-Y5: four sky directions, one telescope `[D]`.**
+- **Why no split is possible.**
+  - Every DES supernova lies in the hemisphere facing away from the CMB-dipole axis (cos θ from −0.68 to −0.27).
+  - Along the Galactic-centre axis only the E fields face it.
+  - The 197 low-z SNe carry no positions in this release.
+  - So no hemisphere split with a cosmology fit on each side is possible.
+- **What the deep fields give instead.** Four sky directions, observed with the same telescope and pipeline.
+- **Method.** Separate low-z and DES offsets, with Ω_m profiled (`desy5_ceiling.py`, `direction` block of the JSON):
+
+| field group | N | RA, Dec (mean of hosts) | offset vs DES mean (mag) | cos θ to CMB dipole | cos θ to Galactic centre |
+|---|---|---|---|---|---|
+| C (CDF-S) | 580 | 53.6, −28.2 | −0.008 ± 0.007 | −0.30 | −0.42 |
+| E (ELAIS-S1) | 283 | 8.7, −43.6 | +0.006 ± 0.008 | −0.59 | +0.20 |
+| S (Stripe 82) | 240 | 41.9, −0.7 | +0.008 ± 0.009 | −0.58 | −0.62 |
+| X (XMM-LSS) | 520 | 35.7, −5.1 | −0.006 ± 0.007 | −0.65 | −0.51 |
+
+- **One common offset vs four:** Δχ² = 2.76 for 3 dof (p = 0.43). The four directions agree to better than 0.01 mag.
+- **cos θ dipole across the DES fields:**
+  - Along the CMB dipole, A = −0.018 ± 0.026 mag (δd_L/d_L = −0.8 ± 1.2 %).
+  - Along the Galactic centre, A = +0.010 ± 0.015 mag (+0.5 ± 0.7 %).
+  - Both are consistent with zero.
+
+**What the aether wind predicts for light `[D]`, given AeST's matter coupling.**
+1. In AeST all matter, light included, couples to one metric, g̃ = e^{−2φ}g − 2 sinh(2φ) A⊗A (Skordis & Złośnik 2021).
+   *Premise.*
+2. At any event, local coordinates make g̃ Minkowskian. The matter action then contains neither A nor φ, so every
+   non-gravitational experiment (clocks, rods, light) is locally Lorentz invariant. Two-way light speed is isotropic for
+   every observer, whatever their motion through the aether. *Derived.*
+3. The one-way speed needs a synchronization convention (Reichenbach; Anderson, Vetharaniam & Stedman 1998, Phys. Rep.
+   295, 93). With only g̃ in the matter sector, no experiment there can tell conventions apart. *Cited and derived.*
+4. So light from ahead of our motion and light from behind differ only by standard kinematics: Doppler, aberration,
+   and the CMB-frame redshift correction already in zHD. **The predicted Hubble-diagram dipole beyond kinematics is
+   zero.** This matches the Pantheon+ split (0.7σ in Ω_m) and the DES fields above.
+5. **Where the wind can show.** Only in gravity's own sector:
+   - preferred-frame PPN α₁, α₂ (D3);
+   - the dwarf-satellite response (D7).
+
+   At cosmological scale, a tilt between the aether frame and the matter frame would be a new ingredient. It would show
+   in number-count dipoles, not in light speed. The CatWISE quasar dipole (Secrest et al. 2021, arXiv:2009.14826)
+   points along the CMB dipole with over twice the kinematic amplitude (4.9σ); it is the observation such a tilt would
+   have to face. *Not yet derived.*
+
+In terms of RY's blast question (one event, several waves at different speeds): light is the flash, which the wind does
+not touch, and the aether's own modes are the sound.
 
 ## Status and next
 
@@ -170,3 +295,5 @@ Friedmann constraint yields ln 2 on-shell. The next steps turn the premises into
    ∝ boundary area.
 2. Show that one balanced landing per cell is the action's stationary point.
 3. Pick between the once-landed Λ and the event-horizon version by the acceleration history (w₀, w_a).
+4. Derive the approach law n from the landing kinetics. At a κ ceiling, both supernova samples ask for n ≈ 1.25
+   (1σ about 1.1–1.5).

@@ -48,7 +48,7 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 **Quarantine:** “conjectured horizon boundary condition, not a derived density.”
 
-**Route (2026-09-28), `04_cosmology/O3_HORIZON_LANDING_ROUTE_2026-09-28.md`:** horizon thermodynamics (T_H S_H = E_c, exact) + one balanced landing per horizon cell at Landauer cost ⇒ Ω_Λ = ln 2 and Ω_m = 1 − ln 2 given the listed premises; the horizon's ~2×10¹²² cells are the vacuum-energy mismatch. Open: the covariant action, and the all-epoch obstruction (w = 0 for a Hubble cutoff).
+**Route (2026-09-28), `04_cosmology/O3_HORIZON_LANDING_ROUTE_2026-09-28.md`:** horizon thermodynamics (T_H S_H = E_c, exact) + one balanced landing per horizon cell at Landauer cost ⇒ Ω_Λ = ln 2 and Ω_m = 1 − ln 2 given the listed premises; the horizon's ~2×10¹²² cells are the vacuum-energy mismatch. Open: the covariant action, and the all-epoch obstruction (w = 0 for a Hubble cutoff). Dark-energy ceiling at κ, tested against Planck distance priors + DESI DR2 BAO + Pantheon+ or DES-Y5: it ties or beats ΛCDM with one fewer parameter. At a κ ceiling the data ask for an approach exponent n ≈ 1.25 (1σ ≈ 1.1–1.5), now the derivation target.
 
 ---
 
