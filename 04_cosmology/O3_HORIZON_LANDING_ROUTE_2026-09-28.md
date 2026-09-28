@@ -54,6 +54,38 @@ matches it: the Gibbons–Hawking boundary term of the gravitational action is w
 - Gibbons & Hawking 1977 (PRD 15, 2752): horizon entropy from the action's boundary term.
 - Landauer 1961.
 
+## The ceiling, tested against supernovae `[D]` (same night)
+
+RY: if the dark-energy share freezes at all, it freezes near κ = √(θ(2−θ)) = 0.954, the top of the chiral band, not at 1.
+Today's share is ln 2 = 0.693, just below the band's floor, 0.707.
+
+**Minimal realization (a premise; one form of several).** The ratio r = ρ_DE/ρ_m grows logistically in ln a:
+d ln r/d ln a = 3(1 − r/r_f), i.e. w(a) = −(1 − r/r_f), with r₀ = ln2/(1−ln2) and r_f = Ω_f/(1−Ω_f). So w → −1 early
+and w → 0 as the share freezes. At Ω_f = κ this gives **w₀ = −0.891, w_a = −0.292** with **zero free cosmological
+parameters**.
+
+**Pantheon+** (1590 SNe, STAT+SYS covariance, zHD > 0.01, M marginalized; the likelihood of
+`omega_ln2_pantheonplus.py`). Script `ceiling_model_pantheonplus.py`; output `CEILING_MODEL_PANTHEONPLUS.json`; data
+SHA-256 in the JSON, not vendored.
+
+| model | free cosmological params | χ² | Δχ² vs best ΛCDM |
+|---|---|---|---|
+| flat ΛCDM, Ω_m free (best 0.332) | 1 | 1402.920 | 0 |
+| ΛCDM with Ω_Λ = ln 2 | 0 | 1404.831 | +1.91 |
+| **ceiling: ln 2 today → κ** | **0** | **1402.570** | **−0.35** |
+
+- With the ceiling left free (share fixed at ln 2 today), the supernovae choose **Ω_f = 0.958, 1σ range 0.936–0.984**.
+  κ = 0.954 lies inside, 0.04 in χ² from the best point.
+- Among ln 2-anchored models, a ceiling near 0.96 is preferred over none (no ceiling is ln 2-ΛCDM) by Δχ² = 2.3.
+- **Reading.** A zero-parameter model fits the supernovae as well as the one-parameter best fit (ΔBIC ≈ −7.7 by
+  parameter count), and the supernovae put the freeze at the top of the band. The direction, w₀ > −1 and w_a < 0,
+  matches DESI's evolving-dark-energy hint; the model's |w_a| is smaller than DESI's central values.
+- **Limits.**
+  - This is supernovae only: small Δχ² values, not significant on their own.
+  - The logistic approach law is my choice.
+  - Part of the preference reflects Pantheon+ wanting a lower share than ln 2 (Ω_Λ = 0.668 in ΛCDM).
+  - **CMB and BAO are not yet tested.** Those are the next checks: Planck distance priors and DESI BAO.
+
 ## Status and next
 
 `[O]`. This is a derivation *given* premises 2–4. It is not yet the closure O3 asks for, a covariant action whose
