@@ -271,6 +271,27 @@ d ln r/d ln a = 3(1 − g) is solved by quadrature. With g = sⁿ it reproduces 
   - **Reading.** The data want about one witness per cell. α remains compatible as a per-chance probability: one
     witness per cell at odds 1/137 per chance needs about 137 chances per cell. Why that many is the same open
     question as why α = 1/137. *Not yet derived.*
+- **Honeycomb version (RY: the number 6, the bee's hexagon).**
+  - **The rule.** Each landing hands exactly one record to a randomly chosen one of its p neighbours. Each cell then
+    receives k ~ Binomial(p, 1/p) records.
+  - **Two properties.** The mean is exactly one for any p, because records out equal records in. The odds tend to
+    1/(e·k!) as p → ∞.
+  - No shape parameter is fitted. Script `ceiling_honeycomb_law.py`; output `CEILING_HONEYCOMB_LAW.json`.
+
+| p (neighbours) | Pantheon+ Δχ² vs ΛCDM, shifted / truncated | DES-Y5 Δχ² vs ΛCDM, shifted / truncated |
+|---|---|---|
+| 3 | −1.98 / −2.05 | −2.78 / −3.41 |
+| 4 | −2.05 / −2.11 | −2.89 / −3.44 |
+| **6 (honeycomb)** | **−2.12 / −2.15** | **−2.98 / −3.47** |
+| 12 | −2.17 / −2.19 | −3.06 / −3.48 |
+| ∞ (Poisson, μ = 1) | −2.21 / −2.22 | −3.13 / −3.50 |
+
+  - **The neighbour count barely matters.** p = 3 to ∞ spans 0.2–0.4 in χ². What the data see is the mean of one
+    record per cell.
+  - **Parameter count.** At p = 6 the κ ceiling has two parameters, one fewer than ΛCDM, so ΔBIC ≈ −9.5 (Pantheon+)
+    and −10.5 to −11.0 (DES-Y5).
+  - **What this changes.** "Why μ = 1" becomes "why exactly one record per landing": a conservation statement rather
+    than a tuned rate. *Not yet derived.*
 
 ## Direction matters? Hemisphere split of the supernovae `[D]` (same night)
 
