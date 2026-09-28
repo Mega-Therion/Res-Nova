@@ -22,7 +22,8 @@ This file is binding on every coding or research agent that edits this repositor
 - Do not restore “zero free parameters” or “zero-parameter geometric alternative” as a current model claim.
 - Do not quote `a0 = (9.433 ± 0.050) × 10^{-11}` as the working measurement. That headline is superseded. You may cite it only as a retracted method.
 - Do not treat 3,391 radial points as independent when quoting precision on `a0`.
-- Do not invent a first-principles derivation of `a0` or of `Ω_Λ = ln 2`.
+- Derivations of `a0` and of `Ω_Λ = ln 2` are wanted (RY, 2026-09-28). Present each with its premises listed and each step
+  marked derived, premise, or cited; that is what makes it a derivation rather than a relabelling.
 - Do not change SPARC numeric JSON or Lean proofs unless the user asked for a new computation or a new theorem, and the new artifact is ledgered in the same commit.
 - Do not cite `PAPER_01` as current theory. See `01_foundational_action/PAPER_01_NOTICE.md`.
 

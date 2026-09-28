@@ -1,0 +1,5 @@
+1. T*S / E_c = 1
+2. E_landing / E_c = log(2)   (Omega_Lambda);  remainder = 1 - log(2)   (Omega_m)
+3. horizon cells A/(4 l_P^2) = 2.1e+122   (H0 = 70)
+   vacuum mismatch (E_Planck/E_Lambda)^4 = 7.94e+122   (E_Lambda = rho_Lambda^(1/4) ~ 2.3 meV)
+   ln 2 = 0.693147,  1 - ln 2 = 0.306853
