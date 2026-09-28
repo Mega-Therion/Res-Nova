@@ -1,0 +1,7 @@
+v = 0: Lrest Cartesian -2.012854730357e-09  reduced -2.012854730357e-09  rel diff 5.03e-17
+v = 0: Y Cartesian 1.066392184926e-11  reduced 1.066392184926e-11  rel diff 8.29e-17
+v = 0.0005: Lrest Cartesian -2.012727143897e-09  reduced -2.012727143897e-09  rel diff 5.03e-17
+v = 0.0005: Y Cartesian 1.066392419849e-11  reduced 1.066392419849e-11  rel diff 8.29e-17
+v = 0.3: Lrest Cartesian -1.896842434746e-09  reduced -1.896842434746e-09  rel diff 4.75e-17
+v = 0.3: Y Cartesian 1.025395367340e-11  reduced 1.025395367340e-11  rel diff 8.62e-17
+GATE A' PASS: worst relative difference 8.62e-17

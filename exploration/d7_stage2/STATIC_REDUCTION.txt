@@ -1,0 +1,4 @@
+static Lrest at u = 0: 3*(4*F_R*Psi*Psi_R + 2*F_R*Psi_R + 4*F_z*Psi*Psi_z + 2*F_z*Psi_z - Psi_R**2 - Psi_z**2)/2
+static Y at u = 0:    (F_R**2 + F_z**2)*(2*Psi + 1)
+U_R: dLrest/dU_R = -3*(100*F_R*Psi + 4*Psi*Psi_R - Psi_R)/10;  dY/dU_R = -F_R*(Psi - 1)/5;  dLrest/dU_R_R = 0;  dLrest/dU_R_z = 0
+U_z: dLrest/dU_z = -3*(100*F_z*Psi + 4*Psi*Psi_z - Psi_z)/10;  dY/dU_z = -F_z*(Psi - 1)/5;  dLrest/dU_z_R = 0;  dLrest/dU_z_z = 0
