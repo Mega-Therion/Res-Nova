@@ -1,0 +1,29 @@
+{
+  "n_bao": 13,
+  "n_sne": 1590,
+  "bao_only": {
+    "lcdm_best_omega_m": 0.297,
+    "lcdm_chi2": 10.273919166262159,
+    "ln2_lcdm_chi2": 11.418101367917796,
+    "ceiling_kappa_chi2": 8.987844559734246,
+    "delta_ceiling_vs_lcdm": -1.2860746065279134,
+    "delta_ln2_vs_lcdm": 1.1441822016556369
+  },
+  "bao_plus_sn": {
+    "lcdm_best_omega_m": 0.304,
+    "lcdm_chi2": 1416.1399017174788,
+    "ln2_lcdm_chi2": 1416.2487354068132,
+    "ceiling_kappa_chi2": 1411.5579242402664,
+    "ceiling_scan": {
+      "omega_f_best": 0.95,
+      "chi2_best": 1411.5169516499948,
+      "omega_f_1sigma": [
+        0.93,
+        0.97
+      ],
+      "delta_chi2_at_kappa": 0.04097259027162181
+    },
+    "delta_ceiling_vs_lcdm": -4.5819774772123765,
+    "delta_ln2_vs_lcdm": 0.10883368933446036
+  }
+}
