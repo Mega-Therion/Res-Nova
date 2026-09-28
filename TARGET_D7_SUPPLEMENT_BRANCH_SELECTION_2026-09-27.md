@@ -161,7 +161,8 @@ Files, all in `exploration/d3_alpha/`:
 - `aest_wind_bg.py` builds the linear operator with a background aether wind, and `wind_bg_validate.py` validates it;
 - `wind_correction_solve.py` solves for the correction;
 - `wind_correction_{decompose,ksens,qsens}.py` run the row decomposition and the sensitivity tests;
-- `boosted_held_structure.py` gives the forcing for a general local field.
+- `boosted_held_structure.py` gives the forcing for a general local field;
+- `aest_wind_bg_angled.py` and `wind_correction_angle.py` run the angled-k test.
 
 All output is in `BOOSTED_HELD_WIND_CORRECTION.txt`.
 
@@ -231,17 +232,19 @@ Every satellite presents both geometries, so no value of K_B removes the forcing
 - There is no nearby steady held state at satellite speeds, so the perturbative form of §4 escape route 1 is closed.
 - The §6 estimate "held survives when 𝒦₂v²/x ≪ 1" was not the controlling term. The forcing that matters carries no 𝒦₂.
 
-**Next discriminating test `[O]`.** Build the operator with fields depending on (t, x, z), and put k at an angle α to the wind.
-- If the plateau scales as 1/cos α, the high-speed balance is local along streamlines. Then a real-space picture follows at linear order: the correction integrates the upstream phantom-density column.
-- If it scales with |k|, the scalar's elliptic spreading matters.
-
-Either way the downstream integral through the dwarf's centre marks where linear theory ends.
+**The angled-k test: the high-speed balance is elliptic, not streamline-local `[D]`.** The operator was rebuilt with fields depending on (t, x, z), and k was put at an angle α to the wind.
+- **Validation.** At k_x = 0 the new operator equals the validated one symbolically, and at the isotropic point det M depends only on |k| (exact arithmetic).
+- **Test.** Hold the point residual fixed, set |k| = 1/r, and vary α from 0° to 75°. The correction is carried by the scalar gradient, δS ≈ ik δP, so it points along k.
+  - A streamline-local balance (a v·k_z coupling) would make |δS| grow as 1/cos α: 2× at 60°, 3.9× at 75°.
+  - An elliptic balance, set by |k|, would keep |δS| fixed.
+- **Result.** At satellite speeds, |k δP|/g stays at 1.048–1.058 with the wind along the field and 0.950–0.931 across it. It is constant within 1–2% for α = 0–75°. The gauge-invariant projections agree: δ𝒴/2𝒴 = 1.049 cos α along the field and ≈ 0.95 sin α across it. Below the crossover (1–10 km/s) the size does follow cos α, as expected there.
+- **Reading.** The high-speed balance is set by |k|, so the scalar's elliptic spreading matters. The linear correction is a potential-like response to the forcing, dominated by the phantom-density term. It is not an integral along streamlines, so there is **no linear-order wake**, and the upstream-cancellation / side-rotation / wake picture does not apply. The end state is still undetermined.
 
 **Related prior art `[C]`.** Peloso & Sorbo 2004 (PLB 593, 25): in a ghost condensate, a moving source loses its static modification of gravity. The AeST-specific content here is which quantity is lost, the MOND gradient, and the mechanism: the wind's force on the aether from the field curvature. None of the AeST papers checked treats moving sources: the abstracts of Verwayen–Skordis–Bœhm, Mistele, Bataki–Skordis–Złośnik and Reyes–Sakstein. A full literature search has not been made.
 
 **Status.** D7 stays [P/O].
 - **Settled at linear order:** there is no nearby steady held state at satellite speeds; the wind forces an order-one change in the dwarf's MOND field.
 - **Open:** the end state (Newtonian, or reshaped with part of MOND kept); a genuinely non-linear steady held branch, for which nothing here gives evidence; and escape route 2, a completion outside AeST.
-- **Next:** the angled-k test above.
+- **Next:** a non-linear steady-state solve (or second order about the held state). The correction is order one, so linear theory cannot decide the end state.
 
 The phenomenological law is unaffected.
