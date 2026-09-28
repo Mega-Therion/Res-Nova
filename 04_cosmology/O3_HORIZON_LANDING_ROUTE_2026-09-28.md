@@ -297,30 +297,42 @@ d ln r/d ln a = 3(1 − g) is solved by quadrature. With g = sⁿ it reproduces 
     to exactly one neighbour. One record out per landing then gives one in per cell, and the witness law follows
     rather than being fitted. *Not yet derived.*
 - **Monogamy, worked through** (`ceiling_monogamy_law.py`, `CEILING_MONOGAMY_LAW.json`).
-  - **Premises.**
-    - P1 `[premise]`: a landing is one ebit.
-    - P2 `[C]`: monogamy lets that ebit go to exactly one partner. The record must therefore be quantum; classical
-      copies proliferate freely, as in quantum Darwinism.
-    - P3 `[premise, consistent with ln 2 per cell]`: a cell is one qubit, so it holds at most one incoming record.
-    - P4 `[premise]`: the record goes to a random one of the p neighbours, and is lost if that cell is already
-      witnessed.
-  - **Derived.**
-    - The witnessed fraction is q = 1 − (1 − 1/p)ᵖ: 0.665 for the honeycomb (p = 6), 1 − 1/e = 0.632 as p → ∞.
-    - The frozen fraction is g(s) = s(1 − q + q s).
-    - Capacity one makes the mean number of records per cell q, not 1.
+  - **Premises, corrected** (first version in #124).
+    - P1 `[premise]`: a landing is one ebit. The cell's landing qubit is entangled across the horizon.
+    - P2 `[C]`: monogamy. That landing qubit is then fully used, so it can neither send nor receive a record. The
+      #124 statement "a cell is one qubit, capacity one" contradicted P1 and is withdrawn. Records must also be quantum,
+      since classical copies proliferate freely (quantum Darwinism).
+    - P3 `[premise]`: records therefore need spare capacity. There are two consistent versions:
+      - (A) separate one-slot send and receive channels per cell;
+      - (B) one spare slot used for both, so a record pairs two cells.
+    - P4 `[premise]`: each cell sends one record to a random one of its p neighbours; a record aimed at a used slot is
+      lost. In (B), cells act once, in random order.
+    - Moving the horizon ebit itself (a swap) conserves occupancy and yields no witness fraction, so it cannot produce
+      this law.
+  - **What freezes.** A cell's landing energy freezes when its own landing is present (probability s) and, if it was
+    witnessed, when the sender's landing is present too (probability s). So g(s) = s(1 − q + q s). The record refers to
+    the sender's landing, so nothing is counted twice.
+  - **Derived witnessed fraction.**
+    - (A): q = 1 − (1 − 1/p)ᵖ, which is 0.665 for p = 6 (simulated: 0.6647 ± 0.0002) and 1 − 1/e as p → ∞.
+    - (B): q = 0.760 ± 0.002 for p = 6 (simulated, 90,000 cells).
+    - The mean number of records per cell is q, not 1.
 
 | q (no fitted shape) | Pantheon+ Δχ² vs ΛCDM | DES-Y5 Δχ² vs ΛCDM |
 |---|---|---|
-| 0.665 (honeycomb) | −2.19 | −3.10 |
-| 0.632 (1 − 1/e) | −2.27 | −3.23 |
+| 0.665 (A, p = 6) | −2.19 | −3.10 |
+| 0.632 (A, 1 − 1/e) | −2.27 | −3.23 |
+| 0.760 (B, pairing, p = 6) | −1.83 | −2.59 |
 | 1 (records retried until delivered: g = s², the n = 2 law) | −0.09 | −0.44 |
 
-  - **The lost-record version fits as well as every earlier law**, with one fewer parameter than ΛCDM (ΔBIC ≈ −9.6 and
-    −10.7). Every number in it comes from counting.
+  - **Both consistent versions beat ΛCDM with one fewer parameter.** (A) fits as well as every earlier law; (B) is
+    about 0.4–0.5 behind.
   - The perfect-matching version reproduces the committed n = 2 results exactly, which validates the pipeline. It is
-    worse by Δχ² ≈ 2.1–2.8: the data prefer records that are lost on collision.
-  - **What remains premise.** P1, P3 and P4. P4 (lost vs retried) is now a data-preferred choice rather than a free
-    shape.
+    worse by Δχ² ≈ 2.1–2.8.
+  - **What remains premise.** P1, P3 (which spare-capacity version) and P4 (lost vs retried).
+- **Trials caveat.** After the data pointed at n ≈ 1.25, about a dozen zero-shape variants were tried: shifted and
+  truncated Poisson, binomial at p = 3/4/6/12, and capacity-one at four q values. They are indistinguishable (0.1–0.5
+  in χ²). Only μ = 1 was named before any fit, and "lost rather than retried" was chosen because it fits. A ΔBIC of
+  about −10 applies to that one pre-stated law (μ = 1), not to each variant.
 
 ## What the ceiling predicts for the future: acceleration ends `[D]` (RY: the universe "tries to stabilize")
 
