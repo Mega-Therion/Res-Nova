@@ -63,4 +63,6 @@ alg = [sp.expand(sp.powsimp(sp.expand(e_.lhs.subs(sub).doit() / ph))) for e_ in 
 unk = list(amp.values())
 Msym = sp.Matrix([[sp.diff(a, u) for u in unk] for a in alg])
 pickle.dump((Msym, (qb, Jp, Jl, g, k, w), (KBv, K2v, Q0v)), open(f"mond_bg_matrix_{direction}_K2{K2v}.pkl", "wb"))
+from sym_json import dump_matrix   # safe JSON copy for wind_bg_validate.py
+dump_matrix(f"mond_bg_matrix_{direction}_K2{K2v}.json", Msym, [], (qb, Jp, Jl, g, k, w), (KBv, K2v, Q0v))
 print("built", direction, Msym.shape, "free symbols:", sorted(map(str, Msym.free_symbols)))

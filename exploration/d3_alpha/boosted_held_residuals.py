@@ -11,11 +11,12 @@ Differences from boosted_held_check.py (which froze the metric and dropped fY'' 
 Configuration (dwarf frame, stationary): metric diag(-(1+2Phi),(1-2Phi)I), Phi = Phihat + vphi,
   vphi = g n.x + (H/2) x.(I-2nn).x (deep-MOND point mass), Phihat = ghat n.x + (Hhat/2) x.(I-3nn).x (Newtonian),
   phi = Q0 gam (t + v z) + vphi, A^mu = N(1,0,0,-v) normalized, lambda at P solved from E_A0 = 0.
-Output: series in eps (O(eps)) and v (to v^2) for each builder row; pickle for the solver.
+Output: series in eps (O(eps)) and v (to v^2) for each builder row; safe JSON (sym_json.py) for the solver.
 """
 
-import sys, pickle, time, sympy as sp
+import sys, time, sympy as sp
 from wind_cli import pick_dir
+from sym_json import dump_residuals
 
 case = pick_dir()   # allowlisted: par | perp
 t, x, y, z = sp.symbols("t x y z", real=True)
@@ -185,10 +186,10 @@ builder = {nm: trunc_v(res[nm][1] + chain[nm]) for nm in mnames.values()}
 builder['ux'] = res["Ax"][1]; builder['uz'] = res["Az"][1]; builder['phi'] = res["phi"][1]
 print(f"\n=== {case}: O(eps^0) parts (aether/scalar must vanish; metric rows = uniform condensate stress, dropped) ===")
 for nm in res: print(f"  {nm}: {res[nm][0]}")
-print(f"\n=== {case}: O(eps) residuals in the builder basis, K_B = 1/2, Q0 = 1/10, series to v^2 (exact-in-v forms pickled) ===")
+print(f"\n=== {case}: O(eps) residuals in the builder basis, K_B = 1/2, Q0 = 1/10, series to v^2 (polynomial-in-v forms saved as JSON) ===")
 for nm, ex in builder.items():
     sr = trunc_v(ex, 2)
     print(f"  R[{nm}] = {sp.collect(sr, v) if sr != 0 else 0}", flush=True)
-pickle.dump({'case': case, 'builder': builder, 'raw': res, 'lamP': (L0, L1), 'num': NUM,
-             'symbols': (KB, K2, Q0, v, gv, Hs, ghs, Hhs, fY1, F2)}, open(f"boosted_residuals_{case}{'_kbsym' if KBSYM else ''}.pkl", "wb"))
+dump_residuals(f"boosted_residuals_{case}{'_kbsym' if KBSYM else ''}.json", case, builder,
+               (KB, K2, Q0, v, gv, Hs, ghs, Hhs, fY1, F2))
 print(f"done {time.time()-t0:.0f}s")

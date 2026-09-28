@@ -6,22 +6,19 @@
   3. Conditioning at w = 0 on the dSph background (x = 0.05): singular values vs v.
 Usage: wind_bg_validate.py [par|perp] [K2]"""
 
-import sys, pickle, random, sympy as sp, mpmath as mp
+import sys, random, sympy as sp, mpmath as mp
 from wind_cli import pick_dir, pick_k2
+from sym_json import load_matrix
 
 mp.mp.dps = int(sys.argv[3]) if len(sys.argv) > 3 else 60
 DIR = pick_dir()
 K2v = pick_k2()
-Mw, names, (qb, Jp, Jl, g, k, w, vw), (KB, K2, Q0) = pickle.load(
-    open(f"wind_bg_matrix_{DIR}_K2{K2v}.pkl", "rb")
-)
+Mw, names, (qb, Jp, Jl, g, k, w, vw), (KB, K2, Q0) = load_matrix(f"wind_bg_matrix_{DIR}_K2{K2v}.json")
 fW = sp.lambdify((qb, Jp, Jl, g, k, w, vw), Mw, "mpmath")
 ok = True
 # ---- 1. reduction ----
 if K2v == 75:
-    Mf, (qb2, Jp2, Jl2, g2, k2, w2), _ = pickle.load(
-        open(f"mond_bg_matrix_{DIR}_K275.pkl", "rb")
-    )
+    Mf, _n, (qb2, Jp2, Jl2, g2, k2, w2), _ = load_matrix(f"mond_bg_matrix_{DIR}_K275.json")
     fF = sp.lambdify((qb2, Jp2, Jl2, g2, k2, w2), Mf, "mpmath")
     random.seed(1)
     worst = mp.mpf(0)

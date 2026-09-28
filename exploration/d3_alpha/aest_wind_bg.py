@@ -2,9 +2,10 @@
 """Fast builder: constrained AeST linear system with (i) Q-offset qbar, (ii) uniform background scalar gradient g
 (local MOND field) along z (par: k || grad phi) or x (perp), (iii) local stiffness J'=Jp and 2Y J''=Jl.
 Numbers for the parameter point go in early. All perturbative quantities are polynomials in the bookkeeping e,
-so truncation is expand-and-collect (no series). Output: matrix pickle per direction."""
-import sys, pickle, sympy as sp
+so truncation is expand-and-collect (no series). Output: matrix per direction, saved as safe JSON (sym_json.py)."""
+import sys, sympy as sp
 from wind_cli import pick_dir, pick_k2
+from sym_json import dump_matrix
 direction = pick_dir()                        # 'par' or 'perp' (allowlisted)
 KBv, K2v, Q0v = sp.Rational(1, 2), sp.Integer(pick_k2()), sp.Rational(1, 10)
 t, x, y, z = sp.symbols('t x y z', real=True); X = [t, x, y, z]
@@ -65,5 +66,5 @@ sub = {f: amp[f] * ph for f in fields}
 alg = [sp.expand(sp.powsimp(sp.expand(e_.lhs.subs(sub).doit() / ph))) for e_ in eqs]
 unk = list(amp.values())
 Msym = sp.Matrix([[sp.diff(a, u) for u in unk] for a in alg])
-pickle.dump((Msym, [str(f.func) for f in fields], (qb, Jp, Jl, g, k, w, vw), (KBv, K2v, Q0v)), open(f"wind_bg_matrix_{direction}_K2{K2v}.pkl", "wb"))
+dump_matrix(f"wind_bg_matrix_{direction}_K2{K2v}.json", Msym, [str(f.func) for f in fields], (qb, Jp, Jl, g, k, w, vw), (KBv, K2v, Q0v))
 print("built", direction, Msym.shape, "free symbols:", sorted(map(str, Msym.free_symbols)))

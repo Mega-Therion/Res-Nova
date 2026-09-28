@@ -47,7 +47,7 @@ VALIDATION PASS
 
 === 2. Residuals in the builder basis, K_B=1/2 (boosted_held_residuals.py; O(eps^0) parts all vanish, no eps warnings) ===
 -- par
-=== par: O(eps) residuals in the builder basis, K_B = 1/2, Q0 = 1/10, series to v^2 (exact-in-v forms pickled) ===
+=== par: O(eps) residuals in the builder basis, K_B = 1/2, Q0 = 1/10, series to v^2 (polynomial-in-v forms saved as JSON) ===
   R[h00] = H_vphi*v**2 + 2*H_vphi + v*(-K_2*g_vphi/5 + fY1*g_vphi/10 + 9*g_hat/20 + 3*g_vphi/5)
   R[h0x] = 0
   R[h0z] = 6*H_hat*v - fY1*g_vphi/5 + 3*g_hat/10 + v**2*(2*K_2*g_vphi/5 - 3*fY1*g_vphi/10 - 3*g_hat/20 - 3*g_vphi/5)
@@ -59,7 +59,7 @@ VALIDATION PASS
   R[uz] = -fY1*g_vphi/5 + 3*g_hat/10 + v**2*(3*g_hat/5 + 3*g_vphi/5) + v*(6*H_hat + 4*H_vphi)
   R[phi] = -4*F2*H_vphi*g_vphi**2 + 2*H_vphi*fY1 + v**2*(-8*F2*H_vphi*g_vphi**2 - 18*H_hat + 4*H_vphi*K_2 - 2*H_vphi*fY1 - 18*H_vphi) + v*(8*F2*g_hat*g_vphi**2/5 + 8*F2*g_vphi**3/5 - 2*K_2*g_hat/5 - 2*K_2*g_vphi/5 + 4*fY1*g_hat/5 + 4*fY1*g_vphi/5 + 6*g_hat/5 + 6*g_vphi/5)
 -- perp
-=== perp: O(eps) residuals in the builder basis, K_B = 1/2, Q0 = 1/10, series to v^2 (exact-in-v forms pickled) ===
+=== perp: O(eps) residuals in the builder basis, K_B = 1/2, Q0 = 1/10, series to v^2 (polynomial-in-v forms saved as JSON) ===
   R[h00] = H_vphi*v**2 + 2*H_vphi
   R[h0x] = -fY1*g_vphi/5 + 3*g_hat/10 + v**2*(-fY1*g_vphi/10 + 3*g_hat/4 + 3*g_vphi/5)
   R[h0z] = -3*H_hat*v

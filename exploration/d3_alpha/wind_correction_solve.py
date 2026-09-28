@@ -12,10 +12,10 @@ Diagnostics (gauge invariant): |dY|/(2Y0) = fractional change of the MOND field 
 Usage: wind_correction_solve.py [par|perp] [75|750000].  Importable: setup(DIR, K2v) returns everything the
 decomposition and sensitivity scripts need."""
 
-import pickle
 from types import SimpleNamespace
 import sympy as sp, mpmath as mp
 from wind_cli import pick_dir, pick_k2
+from sym_json import load_matrix, load_residuals
 
 mp.mp.dps = 80
 
@@ -23,11 +23,9 @@ mp.mp.dps = 80
 def setup(DIR, K2v):
     DIR = pick_dir([None, DIR])
     K2v = pick_k2([None, None, str(K2v)])
-    M, names, (qb, Jp, Jl, g, k, w, vw), (KB, K2, Q0) = pickle.load(
-        open(f"wind_bg_matrix_{DIR}_K2{K2v}.pkl", "rb")
-    )
+    M, names, (qb, Jp, Jl, g, k, w, vw), (KB, K2, Q0) = load_matrix(f"wind_bg_matrix_{DIR}_K2{K2v}.json")
     fM = sp.lambdify((qb, Jp, Jl, g, k, w, vw), M, "mpmath")
-    RR = pickle.load(open(f"boosted_residuals_{DIR}.pkl", "rb"))
+    RR = load_residuals(f"boosted_residuals_{DIR}.json")
     sKB, sK2, sQ0, sv, sgv, sHs, sghs, sHhs, sfY1, sF2 = RR["symbols"]
 
     # ---- first-order Y and Q of the builder (same conventions as aest_wind_bg.py) for the diagnostics ----
