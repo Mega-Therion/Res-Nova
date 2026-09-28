@@ -1,5 +1,16 @@
 # 🌌 Target D9: Skordis–Złośnik (RMOND) Parent Membership Verification
 
+> **✅ STATUS 2026-09-27: D9 → [P].** The embedding of the live μ_std into AeST is **derived by calculus,
+> not by definition** in `05_lean_formalization/SZStdEmbedding.lean`, which is gate-verified.
+> - `hasDerivAt_Jstd`: J_std(𝒴) = F_std(√𝒴) implies 2J′ = μ_std(√𝒴).
+> - `Jstd_deriv_pos`: J′ > 0.
+>
+> λ_s enters only as the overall scale of the same family, J = 2λ_s ã₀²F_std(√𝒴/ã₀) (J′ = λ_s μ;
+> `TARGET_D7` §2.1–2.2, `TARGET_D6` closure (b)). It is an AeST parameter, bounded λ_s ≲ 2.2 by Saturn
+> (`TARGET_D3`), not a gap in the embedding. The stale `SkordisZlosnikEmbedding.lean` μ_dual
+> parametrization is superseded by `SZStdEmbedding.lean`.
+
+
 > **BRANCH NOTICE (2026-09-20).** The results below concern
 > $\mathcal{F}_{\text{dual}}(x) = \tfrac12 x^2 - x + \ln(1+x)$ and its constitutive
 > ratio $\mu(x) = x/(1+x)$. **That branch was falsified on 2026-09-12** — it leaves
