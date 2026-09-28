@@ -75,6 +75,8 @@ more weakly. So no single threshold spares the dwarfs while dragging the Sun.
    falling into the Milky Way. The linear criterion says it cannot, but the held branch's non-linear
    stability against a wind has not been computed. **This is the decisive calculation:** an axisymmetric,
    time-dependent solution for a deep-MOND dwarf in an aether wind of 100–600 km/s.
+   *(Update, §7: the perturbative version is closed. At satellite speeds the wind forces a correction as large as
+   the dwarf's MOND field. Only a genuinely non-linear held branch remains.)*
 2. **A completion whose MOND does not depend on the aether's rest frame.** This goes outside AeST. It must
    still put the phantom potential in the metric gravitational waves ride (GW170817 Shapiro, D3 note 7
    §28). No candidate is known.
@@ -148,5 +150,76 @@ residuals at v = 0, then measure how every Euler–Lagrange residual scales with
   strip it.
 - **The outcome may therefore depend on the parameter point.** That links to D5's tension between the
   CMB-fit and galaxy-consistent values of 𝒦₂.
+  *(Update, §7: it does not, below the scalar sound speed. The controlling residual carries no 𝒦₂.)*
 
 **The phenomenological law is unaffected either way.**
+
+## 7. The decisive check, linear stage: the correction the wind forces on the dwarf's own field `[D]`
+
+Files, all in `exploration/d3_alpha/`:
+- `boosted_held_residuals.py` computes the residuals;
+- `aest_wind_bg.py` builds the linear operator with a background aether wind, and `wind_bg_validate.py` validates it;
+- `wind_correction_solve.py` solves for the correction;
+- `wind_correction_{decompose,ksens,qsens}.py` run the row decomposition and the sensitivity tests.
+
+All output is in `BOOSTED_HELD_WIND_CORRECTION.txt`.
+
+**Setup.** Work in the dwarf frame.
+- The configuration is the dwarf's own static deep-MOND field, with the ambient aether streaming through it at v.
+- The clock is φ = γ𝒬₀(t + vz) + ϕ.
+- The evaluation point P sits at r = 0.3 kpc, where x = 0.05.
+
+Every Euler–Lagrange residual is evaluated at P and mapped into the operator's field basis: the aether rows, the scalar row, and, new here, the metric rows. The correction solves M(k, 0; v)·δX = −R at k = 1/r, where R is the residual minus its v = 0 value.
+
+**Two defects of the first pass (`boosted_held_check.py`) are fixed.**
+1. **It froze the metric, so it had no gravity rows.** The aether residual also feeds the h₀z row, since δA_z = δu^z + γh₀z − vγh_zz. The aether's λ-stress also carries a momentum density ~ vK_B∇²Φ.
+2. **It dropped the fY″ terms.** Because 𝒴 ~ ε², fY″ ~ ε⁻², so those terms are not higher order. Its "static truncation artefact" in the scalar residual was exactly this missing term. With it restored, the static residual is ∝ fY′ − 2𝒴fY″ = (2−K_B)(𝒥′ − 2𝒴𝒥″), which vanishes in deep MOND. At x = 0.05 it is 0.25% of fY′.
+
+**Checks.**
+- All background-order residuals vanish, including the gravity rows: the condensate at its minimum carries zero stress.
+- At v = 0 the operator reduces symbolically to the validated §26 operator.
+- It is boost covariant: det M(k,ω;v)/det M(k′,ω′;0) = 1 − v² at every tested point, in exact rational arithmetic.
+- At ω = 0 it is well conditioned, with condition number ≤ 6×10⁷ at 80 digits, and it has no null direction.
+- The along-wind aether residual reproduces the first pass term for term.
+
+**Result.** Both measures below are gauge invariant. The first is the fractional change of the MOND field strength, δ𝒴/2𝒴. The second is the rotation of its direction, (δS_⊥ − g·h_xz)/|S|.
+
+| v [km/s] | 1 | 3 | 10 | 30 | 100 | 300 | 600 |
+|---|---|---|---|---|---|---|---|
+| wind ∥ field, δ\|S\|/\|S\|, 𝒦₂ = 75 | 0.10 | 0.30 | 0.74 | 0.99 | 1.04 | 1.05 | 1.05 |
+| wind ⊥ field, rotation [rad], 𝒦₂ = 75 | 0.09 | 0.26 | 0.65 | 0.90 | 0.95 | 0.95 | 0.95 |
+| wind ∥ field, 𝒦₂ = 7.5×10⁵ | 0.10 | 0.30 | 0.73 | 1.00 | 1.10 | 1.70 | 89 |
+| wind ⊥ field, 𝒦₂ = 7.5×10⁵ | 0.09 | 0.26 | 0.65 | 0.90 | 0.94 | 0.93 | 3.6 |
+
+- **From ~30 km/s up, the correction is as large as the MOND field itself, in both geometries.**
+- **One residual drives it: the along-wind aether equation.** It reads v(12K_BĤ + (16K_B−4)H) with the wind along the field and v(−6K_BĤ + 4H) across it. This is the wind acting on the curvature of the dwarf's field.
+  - The other rows contribute < 10⁻⁵ at 𝒦₂ = 75.
+  - At 7.5×10⁵ the scalar row's 𝒦₂-advection term is 10⁴× larger as a residual, but it adds only 0.03 at 100 km/s.
+- **The change is in the scalar, not the aether.** The aether tilt stays at 0.1–3% of the stealth tilt g/𝒬₀. What cannot persist is the MOND gradient; the aether is not dragged.
+
+**The plateau is structural.** At high v the forcing, ∝ v·H ~ v·g/r, can be balanced only by the scalar gradient that the wind carries.
+- The balancing coefficient is 2(2 + K_Bλ)·v·k, the same combination as §26's threshold. This is fitted at K_B = 1/2; its K_B-dependence was not computed.
+- Both sides scale with v, so the plateau is v-independent:
+  - wind along the field: δ|S|/|S| = (4 + 6𝒥′)/[(4 + λ_∥)kr] = 1.0488;
+  - wind across the field: (4 − 3𝒥′)/[(4 + 𝒥′)kr] = 0.9507.
+  Both match the numerics to 4 digits.
+- It does not depend on the lift stand-in. Scaling q̄ by 0.1–10 moves only the crossover speed, ≈ 10 km/s × √(q̄/q̄₂₆).
+- Below the scalar sound speed it does not depend on 𝒦₂. At 𝒦₂ = 7.5×10⁵, c_s ≈ 670 km/s, and the approach to that resonance amplifies the correction at 300–600 km/s.
+- Its WKB normalization scales as 1/(kr): 0.35–3.1 for kr from 3 down to 1/3. It is never small.
+
+**Escape by parameter choice: rejected `[X]`.** With the wind along the field, the deep-MOND forcing is ∝ (4K_B − 1), which vanishes at K_B = 1/4. With the wind across the field it is 4H·v, independent of K_B. Every satellite presents both geometries, so no value of K_B removes the forcing.
+
+**Reading `[D]`: an indication, not a verdict.** Perturbation theory about the held state fails near v ~ 10 km/s. At satellite speeds, 100–600 km/s, the wind forces a correction as large as the dwarf's MOND field, in both geometries.
+- This survives the WKB normalization (a factor of 3 either way), the lift stand-in (0.1–10×), 𝒦₂, and the point-to-mode phase. The phase variants are identical in 3 of 4 runs and agree within 1% in the fourth.
+- It corroborates Stage 1 in the correct geometry, with the dwarf's own field as the background, so §6 objection 1 is removed.
+- It is still linear and local (WKB at kr ~ 1). §6 objection 3 stands: a non-perturbative steady held branch is not excluded.
+- There is no nearby steady held state at satellite speeds, so the perturbative form of §4 escape route 1 is closed.
+- The §6 estimate "held survives when 𝒦₂v²/x ≪ 1" was not the controlling term. The forcing that matters carries no 𝒦₂.
+
+**Related prior art `[C]`.** Peloso & Sorbo 2004 (PLB 593, 25): in a ghost condensate, a moving source loses its static modification of gravity. The AeST-specific content here is which quantity is lost, the MOND gradient, and the mechanism: the wind's force on the aether from the field curvature. None of the AeST papers checked treats moving sources: the abstracts of Verwayen–Skordis–Bœhm, Mistele, Bataki–Skordis–Złośnik and Reyes–Sakstein. A full literature search has not been made.
+
+**Status.** D7 stays [P/O]. Two escapes from the drag dilemma remain:
+- inside AeST, a genuinely non-linear steady held branch, for which nothing here gives evidence;
+- escape route 2, a completion outside AeST.
+
+The phenomenological law is unaffected.

@@ -1,0 +1,263 @@
+D7 decisive check, linear stage: boosted-held residuals (all rows) + wind-operator correction solve
+Generated 2026-09-28T03:08Z. Scripts: boosted_held_residuals.py, aest_wind_bg.py, wind_bg_validate.py,
+wind_correction_solve.py, wind_correction_decompose.py, wind_correction_ksens.py, wind_correction_qsens.py
+Point: K_B=1/2, Q0=0.1/Mpc, K2 in {75, 7.5e5}; dSph background x=0.05 (Jp, Jl from mu_std), r=0.3 kpc, k=1/r, v_f=10 km/s
+
+=== 1. Operator validation (wind_bg_validate.py) ===
+-- par_75
+[1] reduction v_w=0 vs validated builder: max |dM|/max|M| over 5 random points = 3.1006e-23
+    symbolic difference at v_w = 0: 0 nonzero entries of 100
+[2] boost test, exact (v=3/10, g=qbar=Jl=0): det M(k,w;v)/det M(k',w';0) = [91/100, 91/100, 91/100]  (1 - v^2 = 91/100)
+[3] conditioning of M(k=1/r, w=0; v), dSph x=0.05, K2=75:
+    v=   0 km/s  s_min=0.7669  s_max=4.317e+7  cond=5.629e+7
+    v=   1 km/s  s_min=0.7737  s_max=4.317e+7  cond=5.58e+7
+    v=  10 km/s  s_min=1.444  s_max=4.317e+7  cond=2.989e+7
+    v= 100 km/s  s_min=68.5  s_max=4.317e+7  cond=6.302e+5
+    v= 600 km/s  s_min=2418.0  s_max=4.316e+7  cond=1.784e+4
+VALIDATION PASS
+-- perp_75
+[1] reduction v_w=0 vs validated builder: max |dM|/max|M| over 5 random points = 3.0867e-23
+    symbolic difference at v_w = 0: 0 nonzero entries of 100
+[2] boost test, exact (v=3/10, g=qbar=Jl=0): det M(k,w;v)/det M(k',w';0) = [91/100, 91/100, 91/100]  (1 - v^2 = 91/100)
+[3] conditioning of M(k=1/r, w=0; v), dSph x=0.05, K2=75:
+    v=   0 km/s  s_min=1.582  s_max=4.174e+7  cond=2.638e+7
+    v=   1 km/s  s_min=1.595  s_max=4.174e+7  cond=2.616e+7
+    v=  10 km/s  s_min=2.919  s_max=4.174e+7  cond=1.43e+7
+    v= 100 km/s  s_min=135.1  s_max=4.174e+7  cond=3.089e+5
+    v= 600 km/s  s_min=4629.0  s_max=4.173e+7  cond=9014.0
+VALIDATION PASS
+-- par_750000
+[2] boost test, exact (v=3/10, g=qbar=Jl=0): det M(k,w;v)/det M(k',w';0) = [91/100, 91/100, 91/100]  (1 - v^2 = 91/100)
+[3] conditioning of M(k=1/r, w=0; v), dSph x=0.05, K2=750000:
+    v=   0 km/s  s_min=0.7752  s_max=4.317e+7  cond=5.569e+7
+    v=   1 km/s  s_min=0.782  s_max=4.317e+7  cond=5.52e+7
+    v=  10 km/s  s_min=1.474  s_max=4.314e+7  cond=2.926e+7
+    v= 100 km/s  s_min=520.5  s_max=3.999e+7  cond=7.684e+4
+    v= 600 km/s  s_min=1.413  s_max=9.966e+7  cond=7.053e+7
+VALIDATION PASS
+-- perp_750000
+[2] boost test, exact (v=3/10, g=qbar=Jl=0): det M(k,w;v)/det M(k',w';0) = [91/100, 91/100, 91/100]  (1 - v^2 = 91/100)
+[3] conditioning of M(k=1/r, w=0; v), dSph x=0.05, K2=750000:
+    v=   0 km/s  s_min=1.613  s_max=4.174e+7  cond=2.588e+7
+    v=   1 km/s  s_min=1.627  s_max=4.174e+7  cond=2.566e+7
+    v=  10 km/s  s_min=3.043  s_max=4.17e+7  cond=1.37e+7
+    v= 100 km/s  s_min=105.4  s_max=3.859e+7  cond=3.663e+5
+    v= 600 km/s  s_min=0.6449  s_max=1.013e+8  cond=1.57e+8
+VALIDATION PASS
+
+=== 2. Residuals in the builder basis, K_B=1/2 (boosted_held_residuals.py; O(eps^0) parts all vanish, no eps warnings) ===
+-- par
+=== par: O(eps) residuals in the builder basis, K_B = 1/2, Q0 = 1/10, series to v^2 (exact-in-v forms pickled) ===
+  R[h00] = H_vphi*v**2 + 2*H_vphi + v*(-K_2*g_vphi/5 + fY1*g_vphi/10 + 9*g_hat/20 + 3*g_vphi/5)
+  R[h0x] = 0
+  R[h0z] = 6*H_hat*v - fY1*g_vphi/5 + 3*g_hat/10 + v**2*(2*K_2*g_vphi/5 - 3*fY1*g_vphi/10 - 3*g_hat/20 - 3*g_vphi/5)
+  R[hxx] = 0
+  R[hyy] = 0
+  R[hzz] = v**2*(-6*H_hat - 2*H_vphi) + v*(fY1*g_vphi/5 - 3*g_hat/10)
+  R[hxz] = 0
+  R[ux] = 0
+  R[uz] = -fY1*g_vphi/5 + 3*g_hat/10 + v**2*(3*g_hat/5 + 3*g_vphi/5) + v*(6*H_hat + 4*H_vphi)
+  R[phi] = -4*F2*H_vphi*g_vphi**2 + 2*H_vphi*fY1 + v**2*(-8*F2*H_vphi*g_vphi**2 - 18*H_hat + 4*H_vphi*K_2 - 2*H_vphi*fY1 - 18*H_vphi) + v*(8*F2*g_hat*g_vphi**2/5 + 8*F2*g_vphi**3/5 - 2*K_2*g_hat/5 - 2*K_2*g_vphi/5 + 4*fY1*g_hat/5 + 4*fY1*g_vphi/5 + 6*g_hat/5 + 6*g_vphi/5)
+-- perp
+=== perp: O(eps) residuals in the builder basis, K_B = 1/2, Q0 = 1/10, series to v^2 (exact-in-v forms pickled) ===
+  R[h00] = H_vphi*v**2 + 2*H_vphi
+  R[h0x] = -fY1*g_vphi/5 + 3*g_hat/10 + v**2*(-fY1*g_vphi/10 + 3*g_hat/4 + 3*g_vphi/5)
+  R[h0z] = -3*H_hat*v
+  R[hxx] = 0
+  R[hyy] = 0
+  R[hzz] = v**2*(3*H_hat - 2*H_vphi)
+  R[hxz] = v*(fY1*g_vphi/5 - 3*g_hat/10)
+  R[ux] = -fY1*g_vphi/5 + 3*g_hat/10 + v**2*(3*g_hat/5 + 3*g_vphi/5)
+  R[uz] = v*(-3*H_hat + 4*H_vphi)
+  R[phi] = -4*F2*H_vphi*g_vphi**2 + 2*H_vphi*fY1 + v**2*(9*H_hat - 4*H_vphi*K_2 + 2*H_vphi*fY1 + 6*H_vphi)
+
+=== 2b. Along-wind aether row and h0z row at general K_B (kbsym runs) ===
+-- par
+  R[h0z] = -K_B*g_hat/5 - fY1*g_vphi/5 + 2*g_hat/5 + v**2*(2*K_2*g_vphi/5 + K_B*g_hat/10 + 2*K_B*g_vphi/5 - 3*fY1*g_vphi/10 - g_hat/5 - 4*g_vphi/5) + v*(12*H_hat*K_B + 16*H_vphi*K_B - 8*H_vphi)
+  R[uz] = -K_B*g_hat/5 - fY1*g_vphi/5 + 2*g_hat/5 + v**2*(-2*K_B*g_hat/5 - 2*K_B*g_vphi/5 + 4*g_hat/5 + 4*g_vphi/5) + v*(12*H_hat*K_B + 16*H_vphi*K_B - 4*H_vphi)
+-- perp
+  R[h0z] = -6*H_hat*K_B*v
+  R[uz] = v*(-6*H_hat*K_B + 4*H_vphi)
+
+=== 3. Correction solves (Hessian-term phase 'real'; the +i/-i variants are identical in 3 of 4 runs and within 1% at par K2=7.5e5) ===
+|dS_par|/|S| = |dY|/(2Y0) (gauge-invariant change of MOND field strength); |rot| = (dS_perp - g h_xz)/|S| (gauge-invariant rotation)
+-- par_75
+par, K2=75: k=3333/Mpc, g=3.577e-06/Mpc, qbar=1.648e-03/Mpc, stealth tilt g/Q0=3.58e-05
+  Hessian-term phase real:
+   v [km/s]  |dS_par|/|S|      |rot|   |du^z|/(g/Q0)      |R|max    s_min(M)
+          1    1.0252e-01  0.000e+00      6.1791e-03   1.710e-07   7.737e-01
+          3    2.9651e-01  0.000e+00      1.7324e-02   5.130e-07   8.279e-01
+         10    7.3561e-01  0.000e+00      3.3098e-02   1.710e-06   1.444e+00
+         30    9.9351e-01  0.000e+00      2.0893e-02   5.130e-06   6.864e+00
+        100    1.0434e+00  0.000e+00      6.9761e-03   1.710e-05   6.850e+01
+        300    1.0482e+00  0.000e+00      2.3449e-03   5.130e-05   6.091e+02
+        600    1.0488e+00  0.000e+00      1.1670e-03   1.026e-04   2.418e+03
+-- perp_75
+perp, K2=75: k=3333/Mpc, g=3.577e-06/Mpc, qbar=1.648e-03/Mpc, stealth tilt g/Q0=3.58e-05
+  Hessian-term phase real:
+   v [km/s]  |dS_par|/|S|      |rot|   |du^z|/(g/Q0)      |R|max    s_min(M)
+          1    1.0419e-10  8.893e-02      2.6833e-03   1.531e-07   1.595e+00
+          3    3.0090e-10  2.579e-01      7.5441e-03   4.594e-07   1.702e+00
+         10    7.3882e-10  6.511e-01      1.4666e-02   1.531e-06   2.919e+00
+         30    9.8315e-10  8.960e-01      9.4339e-03   4.594e-06   1.361e+01
+        100    1.0281e-09  9.453e-01      3.1649e-03   1.531e-05   1.351e+02
+        300    1.0324e-09  9.501e-01      1.0661e-03   4.594e-05   1.192e+03
+        600    1.0328e-09  9.505e-01      5.3370e-04   9.188e-05   4.629e+03
+-- par_750000
+par, K2=750000: k=3333/Mpc, g=3.577e-06/Mpc, qbar=1.648e-07/Mpc, stealth tilt g/Q0=3.58e-05
+  Hessian-term phase real:
+   v [km/s]  |dS_par|/|S|      |rot|   |du^z|/(g/Q0)      |R|max    s_min(M)
+          1    1.0235e-01  0.000e+00      6.1128e-03   3.360e-06   7.820e-01
+          3    2.9607e-01  0.000e+00      1.7116e-02   7.693e-06   8.372e-01
+         10    7.3485e-01  0.000e+00      3.2095e-02   1.790e-05   1.474e+00
+         30    9.9596e-01  0.000e+00      1.6721e-02   2.454e-04   7.690e+00
+        100    1.0960e+00  0.000e+00      8.3445e-03   3.604e-03   5.205e+02
+        300    1.6996e+00  0.000e+00      5.6952e-02   3.469e-02   5.096e+01
+        600    8.8688e+01  0.000e+00      3.9364e+00   1.410e-01   1.413e+00
+-- perp_750000
+perp, K2=750000: k=3333/Mpc, g=3.577e-06/Mpc, qbar=1.648e-07/Mpc, stealth tilt g/Q0=3.58e-05
+  Hessian-term phase real:
+   v [km/s]  |dS_par|/|S|      |rot|   |du^z|/(g/Q0)      |R|max    s_min(M)
+          1    1.0361e-10  8.883e-02      2.6321e-03   3.980e-07   1.627e+00
+          3    2.9933e-10  2.577e-01      7.4013e-03   3.582e-06   1.739e+00
+         10    7.3654e-10  6.509e-01      1.4411e-02   3.980e-05   3.043e+00
+         30    9.8281e-10  8.962e-01      9.3815e-03   3.582e-04   1.739e+01
+        100    1.0288e-09  9.444e-01      3.5654e-03   3.980e-03   1.054e+02
+        300    1.0351e-09  9.345e-01      2.6328e-03   3.582e-02   4.753e+01
+        600    1.7443e-09  3.643e+00      2.0656e-01   1.433e-01   6.449e-01
+
+=== 4. Row decomposition (which residual drives the correction) ===
+-- par_75
+v = 1 km/s: total dY/2Y0 = (-0.10211 + 0.0091835j)   ik dP/g = (-0.09583 + 0.009183j)   Q0 du^z/g = (-0.006179 - 7.347e-10j)   Q0 h0z/g = (-2.998e-11 - 2.405e-17j)
+    row h00 : R =   -1.713e-10   dY/2Y0 =   6.243e-9   |rot| = 0.0
+    row h0z : R =     1.192e-8   dY/2Y0 =  4.669e-20   |rot| = 0.0
+    row hzz : R =   -3.051e-13   dY/2Y0 =  1.112e-11   |rot| = 0.0
+    row uz  : R =      1.71e-7   dY/2Y0 =     0.1025   |rot| = 0.0
+    row phi : R =   -3.221e-10   dY/2Y0 =  5.278e-10   |rot| = 0.0
+v = 10 km/s: total dY/2Y0 = (-0.54694 + 0.49191j)   ik dP/g = (-0.5133 + 0.4919j)   Q0 du^z/g = (-0.0331 - 3.441e-8j)   Q0 h0z/g = (-2.998e-10 + 1.485e-17j)
+    row h00 : R =    -1.701e-9   dY/2Y0 =   3.532e-8   |rot| = 0.0
+    row h0z : R =     1.192e-7   dY/2Y0 =  3.651e-19   |rot| = 0.0
+    row hzz : R =   -3.051e-11   dY/2Y0 =  6.334e-10   |rot| = 0.0
+    row uz  : R =      1.71e-6   dY/2Y0 =     0.7356   |rot| = 0.0
+    row phi : R =    1.304e-10   dY/2Y0 =   1.217e-9   |rot| = 0.0
+v = 100 km/s: total dY/2Y0 = (-0.1153 + 1.037j)   ik dP/g = (-0.1082 + 1.037j)   Q0 du^z/g = (-0.006976 - 7.15e-8j)   Q0 h0z/g = (-2.998e-9 + 2.581e-14j)
+    row h00 : R =    -1.582e-8   dY/2Y0 =    2.46e-8   |rot| = 0.0
+    row h0z : R =     1.192e-6   dY/2Y0 =  1.016e-18   |rot| = 0.0
+    row hzz : R =    -3.051e-9   dY/2Y0 =   4.743e-9   |rot| = 0.0
+    row uz  : R =      1.71e-5   dY/2Y0 =      1.043   |rot| = 0.0
+    row phi : R =     3.364e-7   dY/2Y0 =   2.352e-6   |rot| = 0.0
+v = 600 km/s: total dY/2Y0 = (-0.01942 + 1.0486j)   ik dP/g = (-0.01823 + 1.049j)   Q0 du^z/g = (-0.001167 - 7.219e-8j)   Q0 h0z/g = (-1.799e-8 + 1.012e-12j)
+    row h00 : R =    -5.512e-8   dY/2Y0 =   1.394e-8   |rot| = 0.0
+    row h0z : R =     7.151e-6   dY/2Y0 =  5.016e-18   |rot| = 0.0
+    row hzz : R =    -1.098e-7   dY/2Y0 =   2.778e-8   |rot| = 0.0
+    row uz  : R =    0.0001026   dY/2Y0 =      1.049   |rot| = 0.0
+    row phi : R =     1.319e-5   dY/2Y0 =   9.001e-5   |rot| = 0.0
+-- par_750000
+v = 1 km/s: total dY/2Y0 = (-0.10194 + 0.00918j)   ik dP/g = (-0.09583 + 0.009188j)   Q0 du^z/g = (-0.006113 - 7.583e-6j)   Q0 h0z/g = (-3.001e-11 - 2.536e-13j)
+    row h00 : R =     -1.79e-6   dY/2Y0 =   6.407e-5   |rot| = 0.0
+    row h0z : R =     1.193e-8   dY/2Y0 =  4.504e-20   |rot| = 0.0
+    row hzz : R =   -3.051e-13   dY/2Y0 =  1.092e-11   |rot| = 0.0
+    row uz  : R =      1.71e-7   dY/2Y0 =     0.1024   |rot| = 0.0
+    row phi : R =     -3.36e-6   dY/2Y0 =   5.455e-6   |rot| = 0.0
+v = 10 km/s: total dY/2Y0 = (-0.54551 + 0.49237j)   ik dP/g = (-0.5134 + 0.4927j)   Q0 du^z/g = (-0.03209 - 0.0003632j)   Q0 h0z/g = (-3.028e-10 + 1.674e-13j)
+    row h00 : R =     -1.79e-5   dY/2Y0 =   0.000366   |rot| = 0.0
+    row h0z : R =     1.204e-7   dY/2Y0 =  3.499e-19   |rot| = 0.0
+    row hzz : R =   -3.053e-11   dY/2Y0 =  6.242e-10   |rot| = 0.0
+    row uz  : R =      1.71e-6   dY/2Y0 =     0.7352   |rot| = 0.0
+    row phi : R =     2.217e-6   dY/2Y0 =   2.045e-5   |rot| = 0.0
+v = 100 km/s: total dY/2Y0 = (-0.099069 + 1.0915j)   ik dP/g = (-0.1074 + 1.092j)   Q0 du^z/g = (0.008311 - 0.0007498j)   Q0 h0z/g = (-3.299e-9 + 2.72e-10j)
+    row h00 : R =    -0.000179   dY/2Y0 =  0.0002818   |rot| = 0.0
+    row h0z : R =     1.311e-6   dY/2Y0 =  1.071e-18   |rot| = 0.0
+    row hzz : R =    -3.071e-9   dY/2Y0 =   4.834e-9   |rot| = 0.0
+    row uz  : R =      1.71e-5   dY/2Y0 =      1.072   |rot| = 0.0
+    row phi : R =     0.003604   dY/2Y0 =     0.0259   |rot| = 0.0
+v = 600 km/s: total dY/2Y0 = (3.9104 + 88.601j)   ik dP/g = (-0.02604 + 88.6j)   Q0 du^z/g = (3.936 - 0.001987j)   Q0 h0z/g = (-2.881e-8 + 1.064e-8j)
+    row h00 : R =    -0.001074   dY/2Y0 =    0.01093   |rot| = 0.0
+    row h0z : R =     1.145e-5   dY/2Y0 =  3.413e-16   |rot| = 0.0
+    row hzz : R =    -1.141e-7   dY/2Y0 =   1.162e-6   |rot| = 0.0
+    row uz  : R =    0.0001026   dY/2Y0 =      46.26   |rot| = 0.0
+    row phi : R =        0.141   dY/2Y0 =      42.42   |rot| = 0.0
+-- perp_75
+v = 1 km/s: total dY/2Y0 = (8.6549e-12 + 1.0383e-10j)   ik dP/g = (-0.08584 + 0.007966j)   Q0 du^z/g = (-0.002683 + 6.507e-10j)   Q0 h0z/g = (1.499e-11 - 2.963e-18j)
+    row h00 : R =    1.327e-13   dY/2Y0 =  1.222e-20   |rot| = 4.683e-12
+    row h0x : R =    2.507e-17   dY/2Y0 =  3.276e-35   |rot| = 4.159e-27
+    row h0z : R =    -5.958e-9   dY/2Y0 =  2.443e-30   |rot| = 9.36e-22
+    row hzz : R =   -2.455e-13   dY/2Y0 =  4.463e-20   |rot| = 8.665e-12
+    row hxz : R =   -8.363e-23   dY/2Y0 =  3.194e-39   |rot| = 2.726e-30
+    row ux  : R =    2.507e-17   dY/2Y0 =  6.412e-20   |rot| = 4.687e-20
+    row uz  : R =     1.531e-7   dY/2Y0 =  1.042e-10   |rot| = 0.08893
+    row phi : R =   -3.892e-11   dY/2Y0 =  2.155e-18   |rot| = 6.179e-11
+v = 10 km/s: total dY/2Y0 = (4.7307e-10 + 5.675e-10j)   ik dP/g = (-0.4692 + 0.4354j)   Q0 du^z/g = (-0.01467 + 3.557e-8j)   Q0 h0z/g = (1.499e-10 - 2.974e-16j)
+    row h00 : R =    1.327e-11   dY/2Y0 =  8.467e-19   |rot| = 2.723e-10
+    row h0x : R =    2.507e-15   dY/2Y0 =  3.446e-33   |rot| = 4.896e-25
+    row h0z : R =    -5.958e-8   dY/2Y0 =  1.692e-28   |rot| = 5.442e-20
+    row hzz : R =   -2.455e-11   dY/2Y0 =  3.248e-18   |rot| = 5.038e-10
+    row hxz : R =   -8.363e-20   dY/2Y0 =  2.265e-36   |rot| = 1.996e-27
+    row ux  : R =    2.507e-15   dY/2Y0 =  6.412e-18   |rot| = 3.432e-18
+    row uz  : R =     1.531e-6   dY/2Y0 =  7.388e-10   |rot| = 0.6511
+    row phi : R =    -3.892e-9   dY/2Y0 =  1.754e-16   |rot| = 3.592e-8
+v = 100 km/s: total dY/2Y0 = (1.0208e-9 + 1.2246e-10j)   ik dP/g = (-0.1013 + 0.9396j)   Q0 du^z/g = (-0.003165 + 7.675e-8j)   Q0 h0z/g = (1.499e-9 - 2.986e-14j)
+    row h00 : R =     1.327e-9   dY/2Y0 =  5.979e-17   |rot| = 2.087e-9
+    row h0x : R =    2.507e-13   dY/2Y0 =  3.639e-31   |rot| = 1.924e-22
+    row h0z : R =    -5.958e-7   dY/2Y0 =  1.195e-26   |rot| = 4.171e-19
+    row hzz : R =    -2.455e-9   dY/2Y0 =  1.183e-16   |rot| = 3.861e-9
+    row hxz : R =   -8.363e-17   dY/2Y0 =  3.152e-34   |rot| = 2.898e-25
+    row ux  : R =    2.507e-13   dY/2Y0 =  6.412e-16   |rot| = 4.983e-17
+    row uz  : R =     1.531e-5   dY/2Y0 =   1.028e-9   |rot| = 0.9454
+    row phi : R =    -3.892e-7   dY/2Y0 =   2.83e-15   |rot| = 2.754e-6
+v = 600 km/s: total dY/2Y0 = (1.0326e-9 + 2.0632e-11j)   ik dP/g = (-0.01707 + 0.9504j)   Q0 du^z/g = (-0.0005337 + 7.763e-8j)   Q0 h0z/g = (8.995e-9 - 1.075e-12j)
+    row h00 : R =     4.776e-8   dY/2Y0 =  2.149e-15   |rot| = 1.223e-8
+    row h0x : R =    9.026e-12   dY/2Y0 =  1.312e-29   |rot| = 4.019e-20
+    row h0z : R =    -3.575e-6   dY/2Y0 =  4.296e-25   |rot| = 2.444e-18
+    row hzz : R =    -8.836e-8   dY/2Y0 =  3.985e-15   |rot| = 2.263e-8
+    row hxz : R =   -1.806e-14   dY/2Y0 =   1.14e-32   |rot| = 1.049e-23
+    row ux  : R =    9.026e-12   dY/2Y0 =  2.308e-14   |rot| = 3.006e-16
+    row uz  : R =     9.188e-5   dY/2Y0 =   1.033e-9   |rot| = 0.9506
+    row phi : R =    -1.401e-5   dY/2Y0 =  1.711e-14   |rot| = 9.681e-5
+
+=== 5. Sensitivity: WKB wavenumber (R(P) fixed, operator at k=f/r) and lift strength (qbar = q_s x sec.26 value) ===
+-- ksens_par_75
+par, K2=75: |dS_par|/|S| (par) or |rot| (perp) with R(P) fixed, operator at k = f/r
+ v [km/s]      f=1/3      f=1/2        f=1        f=2        f=3
+        1  1.030e-01  1.029e-01  1.025e-01  1.011e-01  9.884e-02
+        3  3.076e-01  3.058e-01  2.965e-01  2.664e-01  2.318e-01
+       10  9.793e-01  9.252e-01  7.356e-01  4.676e-01  3.312e-01
+       30  2.207e+00  1.737e+00  9.935e-01  5.170e-01  3.474e-01
+      100  3.010e+00  2.056e+00  1.043e+00  5.237e-01  3.494e-01
+      300  3.130e+00  2.093e+00  1.048e+00  5.243e-01  3.496e-01
+      600  3.143e+00  2.097e+00  1.049e+00  5.245e-01  3.496e-01
+-- ksens_perp_75
+perp, K2=75: |dS_par|/|S| (par) or |rot| (perp) with R(P) fixed, operator at k = f/r
+ v [km/s]      f=1/3      f=1/2        f=1        f=2        f=3
+        1  8.928e-02  8.922e-02  8.893e-02  8.779e-02  8.598e-02
+        3  2.668e-01  2.653e-01  2.579e-01  2.335e-01  2.047e-01
+       10  8.524e-01  8.085e-01  6.511e-01  4.197e-01  2.987e-01
+       30  1.953e+00  1.551e+00  8.960e-01  4.680e-01  3.147e-01
+      100  2.717e+00  1.860e+00  9.453e-01  4.747e-01  3.167e-01
+      300  2.836e+00  1.897e+00  9.501e-01  4.753e-01  3.169e-01
+      600  2.848e+00  1.900e+00  9.505e-01  4.753e-01  3.169e-01
+-- qsens_par_75
+par, K2=75: |dS_par|/|S| (par) or |rot| (perp) vs lift strength qbar = q_s x (sec.26 value 1.648e-03/Mpc)
+ v [km/s]    q_s=0.1    q_s=0.3      q_s=1      q_s=3     q_s=10
+        1  1.063e+00  3.783e-01  1.025e-01  3.291e-02  9.736e-03
+        3  1.062e+00  7.995e-01  2.965e-01  9.833e-02  2.920e-02
+       10  1.050e+00  1.017e+00  7.356e-01  3.141e-01  9.694e-02
+       30  1.049e+00  1.045e+00  9.935e-01  7.192e-01  2.814e-01
+      100  1.049e+00  1.048e+00  1.043e+00  9.994e-01  7.136e-01
+      300  1.049e+00  1.049e+00  1.048e+00  1.043e+00  9.871e-01
+      600  1.049e+00  1.049e+00  1.049e+00  1.047e+00  1.032e+00
+-- qsens_perp_75
+perp, K2=75: |dS_par|/|S| (par) or |rot| (perp) vs lift strength qbar = q_s x (sec.26 value 1.648e-03/Mpc)
+ v [km/s]    q_s=0.1    q_s=0.3      q_s=1      q_s=3     q_s=10
+        1  7.683e-01  3.044e-01  8.893e-02  2.915e-02  8.687e-03
+        3  9.263e-01  6.779e-01  2.579e-01  8.713e-02  2.605e-02
+       10  9.485e-01  9.121e-01  6.511e-01  2.788e-01  8.652e-02
+       30  9.504e-01  9.462e-01  8.960e-01  6.438e-01  2.514e-01
+      100  9.507e-01  9.503e-01  9.453e-01  9.039e-01  6.413e-01
+      300  9.507e-01  9.506e-01  9.501e-01  9.451e-01  8.931e-01
+      600  9.507e-01  9.507e-01  9.505e-01  9.493e-01  9.353e-01
+
+=== 6. Plateau closed form (K_B=1/2): par (4+6Jp)/((4+Jp+Jl) kr); perp (4-3Jp)/((4+Jp) kr); denominator = 2(2+K_B lambda) ===
+  Jp=0.0499376 Jl=0.0498131
+  par  predicted 1.04875   observed plateau 1.049 (q_s=0.1 column, 600 km/s)
+  perp predicted 0.950678   observed plateau 0.9507 (q_s=0.1 column, 600 km/s)
