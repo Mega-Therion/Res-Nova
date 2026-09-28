@@ -317,6 +317,16 @@ a ≤ 10. Time is converted with h = 0.68. Script `ceiling_future.py`; output `C
   years from now. After that the expansion decelerates, with the dark-energy share frozen at κ.
 - The prediction is robust across the approach laws the data accept: 15.5–17.0 Gyr.
 - **Test today.** Measuring w₀ and w_a: this family sits at w₀ ≈ −0.93, w_a ≈ −0.2, and never goes phantom.
+- **The chiral band as the Goldilocks zone** (RY: order lives inside the band, disorder on either side).
+  - The share enters the band (0.707) about **0.34 Gyr from now** and reaches 0.9 in 8–10 Gyr.
+  - It then parks at κ, the band's top: at a = 50 it is 0.95393. The ceiling is the band's upper edge, so in this model
+    the share never leaves the band from above.
+  - **The expansion speed is what falls** (RY's "foot off the gas").
+    - It rises to 1.3–1.5× today's by the end of acceleration.
+    - It then falls: 0.81× at a = 10 and 0.36× at a = 50, coasting toward zero without reversing.
+  - **What would be needed for the share to fall back through the band.** Dark energy would have to thin faster than
+    matter (w > 0). The landing count's natural end state is a fixed share instead: the Hubble-cutoff scaling that
+    fails as a present-day model is exactly the frozen endpoint here.
 
 ## Direction matters? Hemisphere split of the supernovae `[D]` (same night)
 

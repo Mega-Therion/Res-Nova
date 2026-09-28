@@ -46,6 +46,11 @@ def future(law, p, h=H_FIT, of=m.KAPPA):
         / (100 * h)
     )
     i = int(np.argmax(q > 0))
+    share = om0 * a**-3 * r / E**2
+    adot = a * E  # expansion speed, units of H0 (a = 1 today)
+    cross = lambda lvl: (
+        float(t[int(np.argmax(share >= lvl))]) if share[-1] >= lvl else None
+    )
     return (
         {
             "q_today": float(q[0]),
@@ -53,6 +58,13 @@ def future(law, p, h=H_FIT, of=m.KAPPA):
             "gyr_from_now": float(t[i]),
             "share_at_end": float(r[i] / (1 + r[i])),
             "q_at_a50": float(q[-1]),
+            # RY: the chiral band [0.707, kappa] as the Goldilocks zone; the ceiling is its top
+            "gyr_share_enters_band_0707": cross(0.7071),
+            "gyr_share_reaches_0.9": cross(0.9),
+            "share_at_a50": float(share[-1]),
+            "expansion_speed_vs_today_at_a2.4_a10_a50": [
+                float(np.interp(x, a, adot) / adot[0]) for x in (2.4, 10, 50)
+            ],
         },
         a,
         E,
@@ -62,13 +74,15 @@ def future(law, p, h=H_FIT, of=m.KAPPA):
 def main():
     _, a, Eq = future("power", 1.25)
     Ec, _ = m.make_E("ceil", H_FIT, None, m.KAPPA, 1.25)
-    dev = np.abs(Eq / Ec(1 / a - 1) - 1); val = float(dev[a <= 10].max())   # grid resolution near s -> 1 limits a > 10
+    dev = np.abs(Eq / Ec(1 / a - 1) - 1)
+    val = float(dev[a <= 10].max())  # grid resolution near s -> 1 limits a > 10
     print("power-law quadrature vs closed form for 1 <= a <= 10, max |dE/E|:", val)
     assert val < 1e-5
     out = {
         "h_for_time": H_FIT,
         "omega_f": m.KAPPA,
-        "validation_max_rel_dE_future_a_le_10": val, "rel_dE_at_a50": float(dev[-1]),
+        "validation_max_rel_dE_future_a_le_10": val,
+        "rel_dE_at_a50": float(dev[-1]),
         "laws": {},
     }
     for law, p in (
