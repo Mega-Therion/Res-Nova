@@ -15,8 +15,9 @@ Output: series in eps (O(eps)) and v (to v^2) for each builder row; pickle for t
 """
 
 import sys, pickle, time, sympy as sp
+from wind_cli import pick_dir
 
-case = sys.argv[1] if len(sys.argv) > 1 else "par"
+case = pick_dir()   # allowlisted: par | perp
 t, x, y, z = sp.symbols("t x y z", real=True)
 X = [t, x, y, z]
 KB, K2, Q0, v, eps, lam = sp.symbols("K_B K_2 Q_0 v epsilon lam", real=True)

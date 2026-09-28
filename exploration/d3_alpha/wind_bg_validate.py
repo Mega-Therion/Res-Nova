@@ -7,10 +7,11 @@
 Usage: wind_bg_validate.py [par|perp] [K2]"""
 
 import sys, pickle, random, sympy as sp, mpmath as mp
+from wind_cli import pick_dir, pick_k2
 
 mp.mp.dps = int(sys.argv[3]) if len(sys.argv) > 3 else 60
-DIR = sys.argv[1] if len(sys.argv) > 1 else "par"
-K2v = int(sys.argv[2]) if len(sys.argv) > 2 else 75
+DIR = pick_dir()
+K2v = pick_k2()
 Mw, names, (qb, Jp, Jl, g, k, w, vw), (KB, K2, Q0) = pickle.load(
     open(f"wind_bg_matrix_{DIR}_K2{K2v}.pkl", "rb")
 )
