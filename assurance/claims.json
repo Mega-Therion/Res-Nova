@@ -1349,7 +1349,7 @@
     },
     {
       "id": "CLM-D7-09",
-      "wording": "In AeST at K_B = 1/2 (K2 = 75 and 7.5e5), a deep-MOND dwarf's held (MOND) configuration in an ambient aether wind has an O(v) residual in the along-wind aether equation, R_z/v = 8K_B lap(Phi) + (4-8K_B) d_z g_z - 6K_B d_z ghat_z (the wind's force on the aether from the dwarf's phantom density and field curvature). Its linear correction to the MOND field is order one from v ~ 30 km/s up, in both geometries: with the wind along the field the strength changes by (4+6J')/(4+lambda_par) = 1.049; with it across the field the direction rotates by (4-3J')/(4+J') = 0.951 rad (plane-wave convention). Below the scalar sound speed this plateau is independent of v, the zero-mode lift and K2, and no K_B removes the forcing. No nearby steady held state therefore exists at satellite speeds.",
+      "wording": "In AeST at K_B = 1/2 and K2 = 75, a deep-MOND dwarf's held (MOND) configuration in an ambient aether wind has an O(v) residual in the along-wind aether equation, R_z/v = 8K_B lap(Phi) + (4-8K_B) d_z g_z - 6K_B d_z ghat_z. From v ~ 30 km/s up its linear correction is order one. The balance runs along the wind (~v k_z) and the forcing points along the wind, so the response is a Poisson response, lap(dphi) = -R_z/[(4+lambda) v], with no linear wake. At K_B = 1/2 this gives dphi ~ -0.98(phi + Phihat): the linear correction cancels the MOND field to O(J') and points toward the dragged (Newtonian) branch. WKB plateau with k along the wind: 1.049 (wind along the field), 0.951 (across). No nearby steady held state exists at satellite speeds.",
       "state": "computed",
       "assurance_level": "symbolic-residuals-plus-validated-linear-solve (local WKB)",
       "claim_type": "computational-result",
@@ -1368,6 +1368,9 @@
         "exploration/d3_alpha/wind_correction_angle.py",
         "exploration/d3_alpha/sym_json.py",
         "exploration/d3_alpha/wind_cli.py",
+        "exploration/d3_alpha/wind_correction_angle_probe.py",
+        "exploration/d3_alpha/wind_correction_symbol.py",
+        "exploration/d3_alpha/wind_sign_check.py",
         "TARGET_D7_SUPPLEMENT_BRANCH_SELECTION_2026-09-27.md"
       ],
       "data_artifacts": [],
@@ -1380,16 +1383,16 @@
         "python3 exploration/d3_alpha/wind_bg_validate.py par 75 && python3 exploration/d3_alpha/wind_correction_solve.py par 75 && python3 exploration/d3_alpha/wind_correction_solve.py perp 75"
       ],
       "independent_witness": "exploration/d3_alpha/wind_bg_validate.py",
-      "limitations": "Linear and local (WKB). In the plane-wave convention the plateau is k-independent; holding the point residual fixed instead gives 0.35-3.1, which is a convention. The end state is undetermined, Newtonian or merely reshaped: the forcing carries the phantom-density term, so the correction need not be a cancellation, and a genuinely non-linear steady held branch is not excluded. This closes only the perturbative (hysteresis) escape. The solves are at K_B = 1/2 only; the plateau denominator 2(2 + K_B lambda) is fitted there. At K2 = 7.5e5 the correction is amplified near the scalar sound speed (c_s ~ 670 km/s). The angled-k test shows the high-speed balance is set by |k| (elliptic), not along streamlines: the correction size is constant within 1-2% for k at 0-75 degrees to the wind, so there is no linear-order wake. Related prior art: Peloso & Sorbo 2004 (moving sources in a ghost condensate). No moving-source treatment was found in four AeST abstracts checked; no full literature search was made.",
+      "limitations": "Linear and local (WKB); not proved beyond linear order, since linear theory cannot fix the remainder once dS ~ -S. Computed at K_B = 1/2 and K2 = 75: the near-total cancellation uses 8K_B/(4+lambda) ~ 1 and 4 - 8K_B = 0, and kappa's K_B-dependence is unmeasured. At K2 = 7.5e5 near the scalar sound speed (~670 km/s) the scalar row contributes as much as the aether row and the Poisson reading fails at 300-600 km/s. Satellite outskirts dominated by the external field are not covered. The plane-wave plateau is k-independent; holding the point residual fixed instead gives 0.35-3.1 (a convention). A genuinely non-linear steady held branch is not excluded. Related prior art: Peloso & Sorbo 2004 (moving sources in a ghost condensate). No moving-source treatment was found in four AeST abstracts checked; no full literature search was made.",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "TARGET_D7_SUPPLEMENT_BRANCH_SELECTION_2026-09-27.md sec.7",
       "falsifiability": {
-        "test": "operator checks: exact symbolic reduction to the validated sec.26 operator at v = 0; exact boost covariance of det M; all background-order residuals zero; plateau closed forms match the numerics to 4 digits; the general-field forcing reproduces both geometries exactly",
+        "test": "operator checks: exact symbolic reduction to the validated sec.26 operator at v = 0 and at k_x = 0; exact boost covariance; rotation invariance at the isotropic point; independent operator-vs-residual sign check at fixed metric; all background-order residuals zero; plateau and symbol closed forms match the numerics",
         "scope": "K_B = 1/2; K2 = 75 and 7.5e5; dSph background x = 0.05 at r = 0.3 kpc; v = 1-600 km/s; wind along and across the field",
         "result": "supported"
       },
-      "last_verified_commit": "19527e83163c2ccda744dbb8a2fd24ec61a1d9bd"
+      "last_verified_commit": "dbaa0230163728cb869cd5f0f1b5a3d96650f76e"
     }
   ]
 }
