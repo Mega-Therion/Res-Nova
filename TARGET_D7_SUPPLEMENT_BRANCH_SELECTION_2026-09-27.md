@@ -265,3 +265,43 @@ Every satellite presents both geometries, so no value of K_B removes the forcing
 - **Next:** a non-linear steady-state solve (or second order about the held state). The correction is order one, so linear theory cannot decide the end state.
 
 The phenomenological law is unaffected.
+
+## 8. Stage 2 groundwork: a gated QUMOND background solver `[D]` (2026-09-28)
+
+The non-linear dwarf-in-a-wind solve needs a background first: the dwarf's own deep-MOND field, sitting in a host's
+field. `02_galaxy_dynamics/qumond_pm.py` provides it:
+- QUMOND on a 3D grid, with isolated (zero-padded Hockney–Eastwood) Poisson solves;
+- a uniform external field along −z, the same axis the wind will use;
+- the mu_std ν pair.
+
+It is written to serve D5's non-linear structure work too. Output: `02_galaxy_dynamics/QUMOND_PM_GATES.json`.
+Units: G = a₀ = M = 1, Plummer b = 1, box L = 80.
+
+| gate | test | 96³ | 128³ |
+|---|---|---|---|
+| 1a isolated | g_grid / exact spherical QUMOND at r = 3, 5, 8, 12, 16 | 0.921, 0.965, 0.988, 0.993, 0.994 | 0.959, 0.990, 0.994, 0.999, 0.998 |
+| 1b external field g_eN = 0.1 a₀ | far-field monopole Φ_M/Φ_N at r = 12–24, against ν_e(1 + L_e/3) = 2.72890 | 2.72817–2.72834 | 2.72847–2.72861 |
+
+- **1a.** The grid converges toward the exact profile. It is within 1% from r = 5 at 128³; the r = 3 point is
+  resolution-limited (8% → 4% off between the two grids).
+- **1b.** The monopole matches the analytic linearized value to 0.02% at both resolutions.
+- **1c.** The two resolutions agree within the convergence trend.
+
+**What Stage 2 must decide, and why linear theory already leans hard one way.**
+- **The margin.** The held branch needs v_rel ≲ C·v_f with C = √[(2−K_B)λ/(2+K_Bλ)] (TARGET_D3 §26). That is 0.19–0.27
+  for a dSph, i.e. v_rel ≲ 2–5 km/s. Satellites move at ~150 km/s, a margin of ~50×.
+- **What the non-linear solve can find.** It can only change the verdict if non-linearity raises the effective lift
+  by that much. The plausible candidates are the constrained-inertia correction at small 𝒥′ (§23), which already moves
+  toward dragged, and a steady held pocket in the dwarf's core, where x is largest. Nothing found so far points to
+  either.
+- **The stakes.** If satellites are dragged, Crater II, Carina, Leo II and Sculptor need stellar M/L of 8–25 (TARGET_D3
+  §24): a candidate observational falsifier of AeST's galactic MOND at this parameter point.
+
+**Next, in order.**
+1. The quasi-linear wind response on this background: the §7 Poisson response with the field-dependent (4+λ(x)).
+   Gates: small forcing reproduces §7's δφ ≈ −0.98(ϕ+Φ̂), and v → 0 returns the background.
+2. The observable: internal acceleration at the half-light radius against the MOND and Newtonian predictions, at
+   v = 50, 150 and 300 km/s.
+3. A full time-dependent axisymmetric solve, only if step 1 is ambiguous or fails a gate.
+
+D7 stays [P/O]. This section adds infrastructure, not a verdict.
