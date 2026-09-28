@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-09-28T03:27:46.179294+00:00",
-  "git_commit": "99f9b809454ade0bc8173dd79f1a09296fe0bf1b",
+  "generated_at_utc": "2026-09-28T03:56:09.221542+00:00",
+  "git_commit": "568f8e2c1405f22be9dddd5be56a0818be14ea44",
   "git_branch": "d7-boosted-held-correction",
   "lean_target_count": 63,
   "claim_count": 48,

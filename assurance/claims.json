@@ -1385,7 +1385,7 @@
         "scope": "K_B = 1/2; K2 = 75 and 7.5e5; dSph background x = 0.05 at r = 0.3 kpc; v = 1-600 km/s; wind along and across the field",
         "result": "supported"
       },
-      "last_verified_commit": "99f9b809454ade0bc8173dd79f1a09296fe0bf1b"
+      "last_verified_commit": "568f8e2c1405f22be9dddd5be56a0818be14ea44"
     }
   ]
 }
