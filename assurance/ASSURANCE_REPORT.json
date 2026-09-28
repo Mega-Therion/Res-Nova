@@ -1,14 +1,15 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-09-28T00:01:27.938337+00:00",
-  "git_commit": "4d2b8cf37fd3a9c599733475a8c8a143032f3cf2",
-  "git_branch": "close-d2-d6-d9",
+  "generated_at_utc": "2026-09-28T00:22:51.529067+00:00",
+  "git_commit": "c599f14c2ffe796e16aaa676609e0e049a96a5c6",
+  "git_branch": "d3-dragged-exact-gr",
   "lean_target_count": 63,
-  "claim_count": 45,
+  "claim_count": 47,
   "claim_states": {
     "computed": 5,
     "conditional": 7,
-    "derived": 11,
+    "derived": 12,
+    "empirically-supported": 1,
     "formally-verified": 9,
     "proposed": 2,
     "retracted": 11

@@ -45,7 +45,7 @@
 >   - J′ = μ is λ_s = 1 (the D9 header);
 >   - J′ = λ_s μ is the general case (D7 §2.1 and D2-supp §1).
 >   No physics depends on which is quoted, provided λ_s is stated. λ_s is an AeST parameter bounded by
->   λ_s ≲ 2.2 (Saturn, `TARGET_D3`).
+>   λ_s ≲ 2.2 on the held branch only (Saturn; a dragged Sun does not constrain λ_s, `TARGET_D3_ALPHA_WORKING` §34).
 > - **(a) Λ_SC ≈ 1.8 meV `[D]`, first pass.**
 >   - Not excluded by fifth-force tests: in Earth's field the scalar is suppressed by ~10⁻²³.
 >   - The equivalence principle against MICROSCOPE is closed (η ≲ 4×10⁻⁴⁹).

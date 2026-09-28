@@ -1246,7 +1246,7 @@
         "cd 05_lean_formalization && bash verify_all_proofs.sh"
       ],
       "independent_witness": "05_lean_formalization/SZStdEmbedding.lean",
-      "limitations": "Mathematics only: this proves the AQUAL reduction of the embedding. It does not select mu_std (MuNDuality.lean: the duality holds for every n), and lambda_s is an AeST parameter (bounded <~ 2.2 by Saturn).",
+      "limitations": "Mathematics only: this proves the AQUAL reduction of the embedding. It does not select mu_std (MuNDuality.lean: the duality holds for every n), and lambda_s is an AeST parameter (the Saturn bound <~ 2.2 holds only on the held branch).",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md (status 2026-09-27); SZStdEmbedding.lean",
@@ -1285,6 +1285,67 @@
         "result": "supported"
       },
       "last_verified_commit": "4d2b8cf37fd3a9c599733475a8c8a143032f3cf2"
+    },
+    {
+      "id": "CLM-D3-10",
+      "wording": "On AeST's dragged branch the aether is the normalized gradient of a constant-norm clock field (the free-fall congruence). J.grad(phi), Y and F vanish, and the field equations reduce to GR plus a ghost condensate at its minimum, so all PPN parameters take GR values.",
+      "state": "derived",
+      "assurance_level": "symbolic-verification",
+      "claim_type": "mathematical-derivation",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "exploration/d3_alpha/dragged_branch_exact_check.py",
+        "TARGET_D3_ALPHA_WORKING_2026-09-27.md"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "F_Q(0,Q0) = 0 (condensate at its minimum); single-valued free-fall congruence; the external (Milky Way) MOND field and cosmological density neglected."
+      ],
+      "verification_commands": [
+        "python3 exploration/d3_alpha/dragged_branch_exact_check.py"
+      ],
+      "independent_witness": "exploration/d3_alpha/dragged_branch_exact_check.py",
+      "limitations": "Exact-GR (stealth) AeST solutions are prior art (Skordis & Vokrouhlicky 2024, arXiv:2412.15395). New here: the link to the linear dragged branch and the PPN consequence. Branch selection (held vs dragged) is open for static and moving sources, and the geometry of the aether focusing wake is an estimate.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "TARGET_D3_ALPHA_WORKING_2026-09-27.md sec.34",
+      "falsifiability": {
+        "test": "all Euler-Lagrange residuals of sqrt(-g) L_AeST on Painleve-Gullstrand Schwarzschild with phi = Q0 T",
+        "scope": "arbitrary K_B, c_Y, K2, M; F_Q(Q0)=0",
+        "result": "supported"
+      },
+      "last_verified_commit": "c599f14c2ffe796e16aaa676609e0e049a96a5c6"
+    },
+    {
+      "id": "CLM-D2-06",
+      "wording": "mu_std is the corpus's functional choice (irreducible parameter 2): structurally motivated by Postulate R (chiral coordinate), selected by galaxies within the l^n family (n ~ 2), and ghost-free. D2 is closed under the two-irreducible-parameters accounting, not by a derivation of mu from the action.",
+      "state": "empirically-supported",
+      "assurance_level": "literature-plus-computation",
+      "claim_type": "phenomenological-posit",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md"
+      ],
+      "data_artifacts": [
+        "02_galaxy_dynamics/JOINT_N_LIKELIHOOD.json"
+      ],
+      "assumptions": [
+        "Two-irreducible-parameters accounting: the scale a0 and the functional choice mu are inputs."
+      ],
+      "verification_commands": [
+        "python3 02_galaxy_dynamics/joint_n_likelihood.py"
+      ],
+      "independent_witness": "02_galaxy_dynamics/JOINT_N_LIKELIHOOD.json",
+      "limitations": "A re-scope, not a derivation: no covariant argument forces mu (MuNDuality.lean: the duality holds for every n). mu_std at the derived a0 fails the Cassini EFE quadrupole unless screened, or unless the Sun is dragged (D3 sec.34). CLM-D2-01..05 and CLM-D2-00 concern the retired mu_dual.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md (status 2026-09-27)",
+      "falsifiability": {
+        "test": "galaxy likelihood over the l^n family",
+        "scope": "SPARC (JOINT_N_LIKELIHOOD.json)",
+        "result": "supported"
+      },
+      "last_verified_commit": "c599f14c2ffe796e16aaa676609e0e049a96a5c6"
     }
   ]
 }
