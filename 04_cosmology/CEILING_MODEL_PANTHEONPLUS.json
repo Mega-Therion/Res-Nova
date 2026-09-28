@@ -1,0 +1,33 @@
+{
+  "data": {
+    "file_dat_sha256": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+    "file_cov_sha256": "abf806d966485e64afdb359c87bffc0ecc00d05eff0a31ced66f247385df0fdc",
+    "n_sne": 1590
+  },
+  "lcdm_free": {
+    "omega_m": 0.332,
+    "chi2_min": 1402.9196716099977
+  },
+  "lcdm_ln2": {
+    "chi2": 1404.8306340388954,
+    "delta_chi2_vs_best": 1.9109624288976192
+  },
+  "ceiling_kappa": {
+    "omega_lambda0": 0.6931471805599453,
+    "omega_f": 0.9539392014169457,
+    "w0": -0.8909297998347602,
+    "wa": -0.29152167480346314,
+    "chi2": 1402.5700796805322,
+    "delta_chi2_vs_best": -0.3495919294655323,
+    "delta_chi2_vs_ln2_lambda": -2.2605543583631516
+  },
+  "ceiling_scan": {
+    "omega_f_best": 0.958,
+    "chi2_best": 1402.5337867476046,
+    "delta_chi2_at_kappa": 0.03629293292760849,
+    "omega_f_within_1sigma": [
+      0.936,
+      0.984
+    ]
+  }
+}
