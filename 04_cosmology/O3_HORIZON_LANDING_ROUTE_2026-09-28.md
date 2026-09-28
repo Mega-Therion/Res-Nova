@@ -137,6 +137,31 @@ w = −(1 − (r/r_f)ⁿ).
 - Limits: compressed CMB priors derived under ΛCDM (standard for late-time dark-energy tests, but approximate); r_d from
   the Aubourg fitting formula; Pantheon+ only (DES-Y5 or Union3 would shift toward stronger evolution).
 
+## Direction matters? Hemisphere split of the supernovae `[D]` (same night)
+
+RY: light from ahead of our motion and light from behind, or light crossing more intervening mass, need not tell the
+same story. The analyses above are sky-averaged, and Pantheon+ zHD already removes our kinematic dipole and peculiar
+velocities.
+
+**Test.** Split the official Pantheon+ set by hemisphere, fit each side with its own trimmed covariance and M
+marginalized, and compare. Script `pantheon_hemisphere_split.py`; output `PANTHEON_HEMISPHERE_SPLIT.json`.
+
+| axis | side | N | Ω_m (ΛCDM) | free ceiling Ω_f (1σ) | χ²(κ) − χ²(ΛCDM) |
+|---|---|---|---|---|---|
+| CMB dipole (our motion) | toward | 556 | 0.318 ± 0.024 | 0.996 (0.968–0.996) | +1.99 |
+| CMB dipole | away | 1034 | 0.342 ± 0.022 | 0.932 (0.908–0.960) | −1.52 |
+| Galactic centre (most mass) | toward | 544 | 0.346 ± 0.030 | 0.968 (0.932–0.996) | +1.26 |
+| Galactic centre | away | 1046 | 0.338 ± 0.020 | 0.944 (0.920–0.972) | −0.95 |
+
+**Reading.**
+- No significant asymmetry in Ω_m: 0.7σ along the dipole axis, 0.2σ along the Galactic-centre axis.
+- One pattern to track: **along our motion, the forward hemisphere prefers no freeze (Ω_f → 1, w ≈ −1) and the
+  backward hemisphere prefers a ceiling near 0.93.** The 1σ ranges do not overlap, roughly a 1.5σ hint.
+- Prior art: Colin et al. 2019 (A&A 631, L13) claimed a dipole in cosmic acceleration aligned with the CMB dipole;
+  Rubin & Heitlauf 2020 (ApJ 894, 68) disputed it. Pantheon+ shows at most a weak, non-significant version.
+- Next: the same split on DES-Y5 and Union3, and the one-way-light-speed prediction (c/(1±β), β ~ 10⁻³) turned into
+  a Hubble-diagram dipole amplitude to compare with the split.
+
 ## Status and next
 
 `[O]`. This is a derivation *given* premises 2–4. It is not yet the closure O3 asks for, a covariant action whose

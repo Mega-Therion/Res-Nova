@@ -1,0 +1,68 @@
+{
+  "cmb_dipole": {
+    "toward": {
+      "n": 556,
+      "omega_m_best": 0.318,
+      "omega_m_1sigma": [
+        0.294,
+        0.342
+      ],
+      "chi2_lcdm": 461.1471056509763,
+      "omega_f_best": 0.996,
+      "omega_f_1sigma": [
+        0.968,
+        0.996
+      ],
+      "chi2_ceiling_kappa_minus_lcdm": 1.9922008560970426
+    },
+    "away": {
+      "n": 1034,
+      "omega_m_best": 0.342,
+      "omega_m_1sigma": [
+        0.32,
+        0.364
+      ],
+      "chi2_lcdm": 925.8974976930767,
+      "omega_f_best": 0.932,
+      "omega_f_1sigma": [
+        0.908,
+        0.96
+      ],
+      "chi2_ceiling_kappa_minus_lcdm": -1.524994682520628
+    },
+    "omega_m_difference_sigma": 0.7371541402007419
+  },
+  "galactic_centre": {
+    "toward": {
+      "n": 544,
+      "omega_m_best": 0.346,
+      "omega_m_1sigma": [
+        0.316,
+        0.376
+      ],
+      "chi2_lcdm": 538.9362379927188,
+      "omega_f_best": 0.968,
+      "omega_f_1sigma": [
+        0.932,
+        0.996
+      ],
+      "chi2_ceiling_kappa_minus_lcdm": 1.2592569533735514
+    },
+    "away": {
+      "n": 1046,
+      "omega_m_best": 0.338,
+      "omega_m_1sigma": [
+        0.318,
+        0.358
+      ],
+      "chi2_lcdm": 854.1014565825462,
+      "omega_f_best": 0.944,
+      "omega_f_1sigma": [
+        0.92,
+        0.972
+      ],
+      "chi2_ceiling_kappa_minus_lcdm": -0.9510769248008728
+    },
+    "omega_m_difference_sigma": 0.22188007849009037
+  }
+}
