@@ -62,6 +62,11 @@ unlabelled. Parameter accounting follows the two-irreducible-parameters rule: th
   escape `[D]`.
 - Source: `CASSINI_EFE_QUADRUPOLE_2026-09-27.md`.
 
+> **2026-09-27 update.** AeST's own dragged branch (D3 §34) makes the solar system exactly GR, so no Cassini
+> external-field quadrupole arises and §5's exclusion does not apply to a dragged Sun. The duality screening below is then
+> an alternative mechanism, not a necessity. The two predict differently for Milky Way satellites: dragged gives
+> Newtonian, S(η) gives near-MOND.
+
 ## 6. Duality screening
 - Why size-based screening needs a new constant (dimensional no-go) `[D]`.
 - Why Galileon/Vainshtein is closed by c_T = c (`TARGET_D7` §11) `[D]`+`[C]`.

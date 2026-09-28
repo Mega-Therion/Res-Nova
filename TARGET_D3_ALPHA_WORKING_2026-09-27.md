@@ -656,3 +656,65 @@ static sector retains the residual symmetry), β reduces to its GR value on the 
 coefficient decides whether AeST's dragged solar system passes perihelion and ranging tests.** It is the
 next D3 computation: second-order perturbation theory about the dragged first-order solution, keeping the
 unit-norm constraint to O(ε²).
+
+## 34. The dragged branch is AeST's ghost-condensate sector, and it is exactly GR `[D]`
+
+This resolves §33.
+
+**The configuration.** At first order the dragged solution has A_μ = −∂_μφ/𝒬₀ exactly (§13: δ𝒬 = 0 and
+S = 0 give A₀ = −1 + U = −∂₀φ/𝒬₀ and A_i = −∂_iφ̃/𝒬₀). Its all-orders completion is
+
+    A_μ = −∂_μφ / N,   N ≡ √(−g^{μν}∂_μφ∂_νφ) = 𝒬₀
+
+- The aether is the normalized gradient of a clock field of fixed norm.
+- By Hamilton–Jacobi, φ = 𝒬₀ × (proper time along a geodesic congruence). The aether is the 4-velocity of
+  freely falling observers. **This is the "river of space"** (Gullstrand–Painlevé; Hamilton & Lisle 2008).
+  Around a moving source the river has asymptotic velocity v, and near the source it is deflected by
+  |δu| ≈ U/v, the impulse approximation, matching §22.
+
+**Three identities**, true for any metric and any N:
+1. J^μ∂_μφ = −N A_μA^ν∇_νA^μ = −½N A^ν∇_ν(A²) = 0.
+2. 𝒴 = (∂φ)² + (A·∂φ)² = −N² + N² = 0.
+3. 𝒬 = A·∂φ = N.
+
+F_μν = (∂_μN ∂_νφ − ∂_νN ∂_μφ)/N² vanishes when N is constant. On this family the A-equation reduces to
+E^μ ∝ A^μ, which the Lagrange multiplier λ absorbs, so δS/δA = 0 on it. By the chain rule the metric
+equations there are those of the **reduced action**
+
+    S_red = ∫√−g [ R − (K_B/2) F²[N] − ℱ(0, N) ] + S_m
+
+- The F² piece is quadratic in D ln N, so it contributes no stress at N = const.
+- ℱ(0, N) is a ghost condensate. At its minimum, ℱ_𝒬(𝒬₀) = 0, it is a cosmological constant (tuned away).
+  Slightly off it, it is dust of cosmological density.
+
+**Result.** On the dragged branch, AeST's field equations are exactly Einstein's, up to terms of relative
+size ρ_cosmic/ρ_local. **γ = β = 1 and α₁ = α₂ = ξ = ζ = 0 at every post-Newtonian order.** The U²/v² worry
+of §33 does not arise, because the enhanced aether deflection lies along directions that carry no action.
+The φ-equation reduces to ℱ_𝒬 ∇·A = 0, which holds at ℱ_𝒬 = 0.
+
+**Where it fails: the aether's focusing wake `[D]` geometry, `[O]` physics.** The river is single-valued only
+until gravitational focusing makes streamlines cross.
+- A streamline with impact parameter b crosses the downstream axis at z = b²v²/(2GM).
+- At downstream distance z, the multi-stream region has radius ~√(2GMz)/v.
+- Inside the wake, the constant-norm gradient configuration cannot hold, so AeST's full dynamics take over
+  (possibly a local MOND-like response).
+- A planet at radius r stays clear of the wake if v > √(2GM/r)·√(cos β_w)/sin β_w, where β_w is the angle
+  between the wake axis and the ecliptic.
+
+| aether frame | Sun's speed | β_w | clear-of-wake threshold, Mercury / Earth / Saturn | planets clear? |
+|---|---|---|---|---|
+| Milky Way at rest | 240 km/s | ≈ 60° | 55 / 34 / 11 km/s | **yes** |
+| CMB frame | 370 km/s | ≈ 12° | 322 / 200 / 65 km/s | yes (Mercury marginal) |
+| co-moving with the local disk (LSR) | ≈ 18 km/s | ≈ 53° | 66 / 41 / 13 km/s | **no**: inner planets sit in the wake |
+
+**Verdict for D3.** If the Sun moves through the local aether faster than ≈ 60 km/s, AeST reproduces GR
+exactly in the planetary region. All PPN parameters then take GR values, so D3 closes for the solar system.
+Which frame the local aether takes inside the Milky Way is the non-linear question of §31/§32. It is carried
+by D7, together with a genuinely new target: **an aether focusing wake downstream of the Sun along the aether
+wind.** It is the aether analogue of the interstellar-helium focusing cone.
+
+**For D7 and the paper.** The dragged branch is itself a covariant, metric-level screening built from AeST's
+own fields, with no new operators. In the dragged solar system there is no Cassini external-field quadrupole
+at all, because the MOND channel is off. The duality screening S(η) of paper §6 is therefore not required
+for Cassini. It becomes an alternative that predicts differently for MW satellites: dragged gives Newtonian,
+S(η) gives near-MOND.
