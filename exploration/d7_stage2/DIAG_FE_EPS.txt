@@ -1,0 +1,9 @@
+iteration 8, EPS_Y=(1e-3 a0)^2: residual 8.446e-06 (F part 8.446e-06); worst F node R=5.16e-03 z=-7.18e-03; min Y/EPS_Y = 57.3 at R=7.00e-06 z=-2.72e-04
+iteration 30: residual 7.118e-06 (F part 7.118e-06); worst F node R=7.18e-03 z=-5.16e-03; min Y/EPS_Y = 57.3 at R=7.00e-06 z=-2.72e-04
+shell-averaged d_r Psi at r_h: it 8 1.7008951462e-06, it 30 1.7008951461e-06, rel change 4.52e-11
+EPS_Y = (0.1 a0)^2: converged False, residual 3.242e-07
+EPS_Y = (0.03 a0)^2: converged False, residual 1.055e-05
+EPS_Y = (0.01 a0)^2: converged False, residual 6.144e-06
+EPS_Y = (0.003 a0)^2: converged False, residual 1.016e-05
+EPS_Y = (0.001 a0)^2: converged False, residual 9.585e-06
+after EPS continuation: residual 9.585e-06 (F part 9.585e-06); worst F node R=7.18e-03 z=-1.91e-03; min Y/EPS_Y = 57.3 at R=7.00e-06 z=-2.72e-04

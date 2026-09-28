@@ -1,0 +1,16 @@
+    newton 0: equilibrated |grad|/|src| = 2.686e+02
+    newton 1: equilibrated |grad|/|src| = 4.673e+01
+    newton 2: equilibrated |grad|/|src| = 1.047e+00
+    newton 3: equilibrated |grad|/|src| = 2.566e-03
+    newton 4: equilibrated |grad|/|src| = 4.173e-05
+    newton 5: equilibrated |grad|/|src| = 1.336e-08
+    newton 6: equilibrated |grad|/|src| = 1.899e-12
+(16, 32): converged True, residual 1.90e-12, 5s
+    newton 0: equilibrated |grad|/|src| = 5.020e+02
+    newton 1: equilibrated |grad|/|src| = 1.483e+02
+    newton 2: equilibrated |grad|/|src| = 7.278e+00
+    newton 3: equilibrated |grad|/|src| = 5.890e-02
+    newton 4: equilibrated |grad|/|src| = 1.162e-04
+    newton 5: equilibrated |grad|/|src| = 1.479e-07
+    newton 6: equilibrated |grad|/|src| = 3.286e-12
+(24, 48): converged True, residual 3.29e-12, 19s

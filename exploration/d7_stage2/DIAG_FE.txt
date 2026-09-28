@@ -1,0 +1,26 @@
+after 9 its: residual 1.252e-05; min Y/EPS_Y 0.0401, #Y<=0: 0
+  trial 0 eps 1e-03: |Hd - fd|/|Hd| = 2.961e-04
+  trial 0 eps 1e-04: |Hd - fd|/|Hd| = 3.320e-06
+  trial 0 eps 1e-05: |Hd - fd|/|Hd| = 5.313e-07
+  trial 0 eps 1e-06: |Hd - fd|/|Hd| = 4.469e-06
+  trial 1 eps 1e-03: |Hd - fd|/|Hd| = 2.778e-04
+  trial 1 eps 1e-04: |Hd - fd|/|Hd| = 3.223e-06
+  trial 1 eps 1e-05: |Hd - fd|/|Hd| = 4.630e-07
+  trial 1 eps 1e-06: |Hd - fd|/|Hd| = 4.928e-06
+residual (current-H equilibration) 1.254e-05
+  field S   : |res| = 3.081e-12  worst node (i=11, j=17) R=1.91e-03 z=3.37e-05
+  field W_R : |res| = 1.485e-09  worst node (i=15, j=31) R=7.18e-03 z=7.18e-03
+  field W_z : |res| = 1.692e-09  worst node (i=15, j=31) R=7.18e-03 z=7.18e-03
+  field A   : |res| = 3.430e-12  worst node (i=13, j=17) R=3.70e-03 z=3.37e-05
+  field B   : |res| = 1.613e-12  worst node (i=13, j=17) R=3.70e-03 z=3.37e-05
+  field C   : |res| = 1.228e-15  worst node (i=15, j=31) R=7.18e-03 z=7.18e-03
+  field D   : |res| = 1.615e-12  worst node (i=13, j=17) R=3.70e-03 z=3.37e-05
+  field U_R : |res| = 1.457e-09  worst node (i=15, j=31) R=7.18e-03 z=7.18e-03
+  field U_z : |res| = 1.687e-09  worst node (i=15, j=31) R=7.18e-03 z=7.18e-03
+  field F   : |res| = 1.254e-05  worst node (i=15, j=1) R=7.18e-03 z=-7.18e-03
+gradient change under a 1e-13 relative rescale: 1.112e-11
+  lambda 1e+00: residual 1.561e-05
+  lambda 5e-01: residual 1.142e-05
+  lambda 1e-01: residual 1.172e-05
+  lambda 1e-02: residual 1.321e-05
+  lambda 1e-03: residual 1.252e-05

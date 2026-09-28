@@ -1,0 +1,31 @@
+GATE_B1_STATIC_FE_ge0.003_box300.json, smooth estimator (introduced after the sharp estimator's failure; see diag_b1_flux.py)
+32x64: converged True (residual 1.8e-11), u/tilt 5.0e-09
+   r = 0.1 kpc: Newton channel 1.0116, MOND channel 1.0182
+   r = 0.2 kpc: Newton channel 1.0013, MOND channel 1.0055
+   r = 0.3 kpc: Newton channel 0.9976, MOND channel 1.0000
+   r = 0.6 kpc: Newton channel 0.9970, MOND channel 0.9960
+   r = 1.2 kpc: Newton channel 0.9982, MOND channel 0.9937
+48x96: converged True (residual 4.0e-11), u/tilt 5.0e-09
+   r = 0.1 kpc: Newton channel 1.0039, MOND channel 1.0060
+   r = 0.2 kpc: Newton channel 1.0003, MOND channel 1.0017
+   r = 0.3 kpc: Newton channel 0.9989, MOND channel 0.9995
+   r = 0.6 kpc: Newton channel 0.9986, MOND channel 0.9976
+   r = 1.2 kpc: Newton channel 0.9992, MOND channel 0.9954
+GATE B1 PASS
+
+GATE_B1_STATIC_FE_ge0.003_box300.json, sharp estimator
+32x64: converged True (residual 1.8e-11), u/tilt 5.0e-09
+   r = 0.1 kpc: Newton channel 1.0229, MOND channel 1.0337
+   r = 0.2 kpc: Newton channel 1.0016, MOND channel 1.0071
+   r = 0.3 kpc: Newton channel 0.9965, MOND channel 0.9994
+   r = 0.6 kpc: Newton channel 0.9994, MOND channel 0.9954
+   r = 1.2 kpc: Newton channel 0.9955, MOND channel 0.9927
+48x96: converged True (residual 4.0e-11), u/tilt 5.0e-09
+   r = 0.1 kpc: Newton channel 1.0005, MOND channel 1.0008
+   r = 0.2 kpc: Newton channel 1.0018, MOND channel 1.0047
+   r = 0.3 kpc: Newton channel 0.9985, MOND channel 0.9993
+   r = 0.6 kpc: Newton channel 0.9979, MOND channel 0.9959
+   r = 1.2 kpc: Newton channel 0.9975, MOND channel 0.9951
+GATE B1 FAIL:
+  32x64 r=0.1 kpc newton_channel_ratio = 1.0229
+  32x64 r=0.1 kpc mond_channel_ratio = 1.0337

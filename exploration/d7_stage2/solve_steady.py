@@ -257,3 +257,64 @@ def interpolate(f_coarse, gc, gf):
         interp = RegularGridInterpolator((xi_p, eta_p), vp, bounds_error=False, fill_value=0.0)
         out[fi * gf.ncell:(fi + 1) * gf.ncell] = interp(pts)
     return out
+
+
+def grad_ops(g, par):
+    """Central-difference d_R and d_z on cell values (axis parity par, zero beyond the outer boundary)."""
+    n = g.ncell; rR, cR, vR, rZ, cZ, vZ = [], [], [], [], [], []
+    for i in range(g.nR):
+        for j in range(g.nz):
+            c = i * g.nz + j
+            s_ = 0.5 / (g.dxi * g.hR[i])
+            for di, w in ((1, s_), (-1, -s_)):
+                ii = i + di
+                if ii < 0: rR.append(c); cR.append(0 * g.nz + j); vR.append(w * par)
+                elif ii < g.nR: rR.append(c); cR.append(ii * g.nz + j); vR.append(w)
+            s_ = 0.5 / (g.deta * g.hz[j])
+            for dj, w in ((1, s_), (-1, -s_)):
+                jj = j + dj
+                if 0 <= jj < g.nz: rZ.append(c); cZ.append(i * g.nz + jj); vZ.append(w)
+    return sps.csr_matrix((vR, (rR, cR)), shape=(n, n)), sps.csr_matrix((vZ, (rZ, cZ)), shape=(n, n))
+
+
+class ProblemH(Problem):
+    """Same action, solved for the Helmholtz parts of the aether and a shifted scalar:
+        u = grad Lambda + curl(psi theta_hat):  U_R = d_R Lambda - d_z psi,  U_z = d_z Lambda + d_R psi + psi / R,
+        phi = F' - Q0 gamma Lambda,
+    so that the soft direction (aether tilt with compensating scalar shift, which leaves the MOND field
+    grad phi + Q0 u unchanged) is Lambda alone and the stiff curl modes live in psi. Field order is unchanged, with
+    Lambda in the U_R slot, psi in the U_z slot and F' in the F slot. Solve in f'; f = T f'."""
+    def __init__(self, g, v, rho, g_e=0.0, Q0=0.1):
+        super().__init__(g, v, rho, g_e)
+        n = g.ncell
+        DRe, DZe = grad_ops(g, 1.0)      # Lambda (even)
+        DRo, DZo = grad_ops(g, -1.0)     # psi (odd)
+        gam = 1 / math.sqrt(1 - v * v)
+        I = sps.identity(n, format="csr"); Z = sps.csr_matrix((n, n))
+        blocks = [[None] * NF for _ in range(NF)]
+        for k in range(NF):
+            blocks[k][k] = I
+        iUR, iUz, iF = FIX["U_R"], FIX["U_z"], FIX["F"]
+        blocks[iUR][iUR] = DRe; blocks[iUR][iUz] = -DZo
+        blocks[iUz][iUR] = DZe; blocks[iUz][iUz] = DRo + sps.diags(1.0 / g.Rc)
+        blocks[iF][iUR] = -0.1 * gam * I
+        for a_ in range(NF):
+            for b_ in range(NF):
+                if blocks[a_][b_] is None: blocks[a_][b_] = Z
+        self.T = sps.bmat(blocks, format="csr")
+
+    def grad_hess(self, fp, want_hess=True):
+        grad, H, Y = super().grad_hess(self.T @ fp, want_hess)
+        gp = self.T.T @ grad
+        return gp, (None if H is None else (self.T.T @ H @ self.T).tocsc()), Y
+
+    def full(self, fp):
+        return self.T @ fp
+
+    def newton(self, f0p, **kw):
+        # the source enters through grad; Problem.newton uses self.src only for the norm, transform it too
+        src_save = self.src; self.src = self.T.T @ src_save
+        try:
+            return super().newton(f0p, **kw)
+        finally:
+            self.src = src_save

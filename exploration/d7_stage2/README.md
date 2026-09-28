@@ -54,38 +54,85 @@ This is AeST's SZ reduction, with Newtonian channel Φ̂ = Ψ − ϕ and MOND ch
 - The aether equation at u = 0 has source (3/10)(∂Φ̂ − 𝒥′∂ϕ). It vanishes exactly when ∇Φ̂ = 𝒥′∇ϕ, AeST's
   alignment condition, which holds for a spherical dwarf.
 
-## Step B: discrete-action Newton solver (in progress)
+## Step B: discrete-action Newton solver
 
-**Pieces.**
-- `compile_local.py` generates `local_derivs.py`: per-cell gradient and Hessian of Lrest and Y (356 upper-triangle
-  Hessian entries).
-- `solve_steady.py` holds:
-  - a stretched (R, z) grid with axis parity and zero outer data;
-  - S = Σ w L(D f + q_bg);
-  - Newton with the exact sparse Hessian, row-norm equilibration and a line search;
-  - an external-field background;
-  - grid interpolation.
+`compile_local.py` generates `local_derivs.py`: per-point gradient and Hessian of Lrest and Y (356 upper-triangle
+Hessian entries). The action is S = Σ w L(D f + q_bg), with q_bg the external field along z, solved by Newton with the
+exact sparse Hessian, row-norm equilibration and a backtracking line search.
 
-**What works.**
-- The Hessian matches a finite difference of the gradient to 10⁻¹⁰–10⁻⁹.
-- With no external field, the spherical SZ solution plus u = 0 solves the static problem on a 16×32 grid: the
-  residual reaches 10⁻⁵ and the tilt stays at 3×10⁻⁹ against the stealth tilt 3.7×10⁻⁵. This is the held branch.
+**First attempt: cell-centred central differences (`solve_steady.py`), kept as the record.** Newton stalls on fine grids:
+- 32×64 residual 0.35, then 0.018 with a 10⁻³ a₀ floor inside 𝒥′;
+- grid continuation made the finest grid worse;
+- the Helmholtz split u = ∇Λ + curl ψ (`ProblemH`, `run_helmholtz_test.py`) stalls at 0.024 (24×48) and 0.093 (32×64),
+  `HELMHOLTZ_TEST.txt`.
 
-**Open.** Newton stalls on finer grids.
-- **Cause.** The aether's curl modes stiffen as K_B/Δ², while its gradient mode is held only by the lift. The ratio
-  grows as 1/Δ² and reaches ~10¹⁶ on a 32×64 grid, the limit of double precision. Newton then wanders along the soft
-  direction.
-- **Mitigation 1.** A 10⁻³ a₀ floor inside 𝒥′ (deep MOND is a degenerate p-Laplacian at zero field) cut the 32×64
-  residual from 0.35 to 0.018.
-- **Mitigation 2.** Grid continuation from an unconverged coarse solution made the finest grid worse.
-- **Next.** Solve for the Helmholtz parts u = ∇Λ + curl ψ, so that the soft and stiff directions are scaled
-  separately.
+The diagnosis (`diag_stall.py`): the linear solves are accurate (2×10⁻¹²), but the softest Hessian modes flip sign between
+neighbouring cells (fraction up to 1.00). These are checkerboard modes that central differences cannot see, so the
+linear operator leaves them almost free and the non-linear terms excite them.
 
-## Remaining steps
+**The solver: bilinear finite elements with 2×2 Gauss quadrature (`solve_fe.py`).** Full quadrature has no hourglass
+modes. Newton converges quadratically from 10² to about 10⁻⁵ in 7 iterations on 16×32 to 32×64, then stalls at 10⁻⁵
+(`FE_TEST.txt`).
 
-- **Step B, gates:**
-  - v = 0 must reproduce the static AeST MOND dwarf (`gate_static.py`: flux laws for Φ̂ and 𝒥′∂ϕ, held tilt);
-  - small v must reproduce the linear §7 response;
-  - two resolutions must agree.
-- **Step C:** continuation in v at 50, 150 and 300 km/s, reading off the internal acceleration at the half-light radius
-  against MOND and Newton.
+**The 10⁻⁵ floor was floating-point cancellation, not physics.** The trail (`diag_fe*.py`, `DIAG_FE*.txt`):
+- the Hessian matches finite differences to 5×10⁻⁷;
+- the floor sits in the scalar rows, and Y never comes within 57× of the 𝒥′ floor;
+- the Newton step is dominated by two soft h₀₀ modes near the outer boundary;
+- the Taylor remainder along the step does not depend on the step length (6.5×10⁻⁶ at λ = 10⁻³ and 10⁻²), so it is noise;
+- splitting the step by field puts the jump in the metric part;
+- Y itself jumps by 3.9×10⁻⁷ (relative) for a change whose linear effect is 8.5×10⁻²⁰.
+
+Cause: `val_Y` builds Y from three O(Q₀²) ≈ 10⁻² pieces that cancel down to Y ~ 10⁻¹². In float64, Y at the solution is
+off by 1.9×10⁻⁷ against a 50-digit evaluation of the same formula, and by up to 3.4×10⁻² at small-Y test points.
+
+Fix: `y_accurate` rearranges the cancelling pieces exactly (1 + v²γ² − γ² = 0 and x₁₄ − γ = (x₁₃ − γ²)/(x₁₄ + γ)).
+- **Gate Y** (`gate_y_accurate.py`, `GATE_Y_ACCURATE.txt`): **PASS**, with worst error 1.2×10⁻¹³ against 50 digits at
+  600 random jets, v = 0, 10⁻⁴ and 10⁻³.
+- With it, Newton reaches 2–4×10⁻¹² in 6 iterations (`TEST_FE_LD_*.txt`). Long double (`extended=True`, the default)
+  adds nothing at v = 0; it is kept for the milder O(v) cancellations in dY at finite wind.
+- At v = 100 and 300 km/s from the static solution (g_e = 0.03 a₀) it also reaches ~2×10⁻¹² (`TEST_FE_WIND_FLOOR.txt`).
+
+**Maintenance.** `y_accurate` is a hand-rearranged copy of generated code. Rerun `gate_y_accurate.py` whenever
+`compile_local.py` regenerates `local_derivs.py`.
+
+**Gate B1: the static dwarf** (`gate_static_fe.py`, `gate_b1_verdict.py`). Plummer, v_f = 10 km/s, b = 0.3 kpc, all ten
+fields. It checks:
+- the Φ̂ flux law (∇²Φ̂ = ρ/3);
+- the MOND flux law for the total field (∇·(𝒥′∇ϕ) = ρ/3);
+- the aether tilt against the stealth tilt.
+
+Criterion, fixed before the numbers: both channels within 0.02 of 1 at every shell on both grids; no drift away from 1
+under refinement; tilt < 10⁻³.
+
+| run | estimator | 0.1 kpc (Φ̂, MOND) | other shells | tilt/stealth | verdict |
+|---|---|---|---|---|---|
+| g_e = 0.03 a₀, box asinh(100), 32×64 → 48×96 | sharp shell (pre-registered) | 1.0006, 1.0002 → 1.0080, 1.0102 | within 0.5% | 2.7×10⁻¹⁰ | **FAIL** (drift at 0.1 kpc), `GATE_B1_VERDICT.txt` |
+| same solutions + 64×128 | smooth weight (after the failure) | 1.0069 → 1.0027 → 1.0015 (Φ̂) | converge at 2nd order | — | diagnosis, `DIAG_B1_FLUX.txt` |
+| g_e = 0.003 a₀, box asinh(300), 32×64 → 48×96 | smooth weight | 1.0116, 1.0182 → 1.0039, 1.0060 | within 0.6% | 5.0×10⁻⁹ | **PASS**, `GATE_B1_VERDICT_ge0.003_box300.txt` |
+
+- **Why the pre-registered estimator failed.** Bilinear-element derivatives at the 2×2 Gauss points carry an O(h) error
+  that cancels between each ± pair. A sharp |r − r₀| < 0.12 r₀ selection splits pairs, so the shell average carries
+  O(h/r) noise that does not shrink monotonically (sharp at 0.1 kpc: 1.0006 → 1.0080 → 1.0032).
+- A smooth radial weight keeps pairs together and converges at second order in both channels at every radius. The
+  sphere-surface flux integral converges too, but noisily.
+- The smooth estimator was introduced after the failure, and the table says so. The sharp one still fails at 32×64 in
+  the larger box (1.023, 1.034 at 0.1 kpc), where the core elements are coarser.
+- **Setup note.** At g_e = 0.03 a₀ this dwarf's own field is only ~0.03 a₀ from 0.1 to 0.6 kpc (the Plummer core keeps
+  it small), so the configuration is external-field dominated everywhere. That is why the MOND channel must use the
+  total field, and why the primary runs below use g_e = 0.003 a₀ (internal ≈ 10× external) in a 30 kpc box.
+
+**Gate B2** (`gate_wind_linear_fe.py`): the first Newton step from the static solution at 100 and 300 km/s must reproduce
+§7's real-space correction δφ = −[1/(4+λ)](4Ψ − 3∇⁻²∂_z²Φ̂) at r = 0.1–0.3 kpc, with the criterion in the script's
+docstring. Pending.
+
+## Step C: continuation in the wind speed (`stage_c_continuation.py`), pending
+
+Newton from a secant predictor, 0.5 → 300 km/s, with step bisection on failure. Per speed it records:
+- g/g_static at r_h (the observable);
+- Y/Y_static and u/stealth tilt (the branch indicators: held keeps Y and has u ≈ 0; dragged drives Y → 0 and u → 1);
+- the eigenvalues of the equilibrated Hessian nearest zero (a fold needs one crossing zero; Newton failing is not
+  enough);
+- the final residual at every speed.
+
+The dragged branch's own acceleration is not yet established. M(<r)/(12πr²) is the Φ̂-channel flux, and nothing yet
+shows that the dragged branch's acceleration equals it.
