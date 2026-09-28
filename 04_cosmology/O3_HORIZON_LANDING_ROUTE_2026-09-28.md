@@ -228,6 +228,40 @@ output `CEILING_N_AT_KAPPA.json`.
   - The CMB priors are compressed.
   - n enters only through the share's history.
 
+## Counting landings: the factorial law `[D]` (RY: "how about n factorial", same night)
+
+Factorials enter the landing picture through counting. If landings arrive at random, the chance of k extra landings is
+μᵏe^(−μ)/k!. Suppose a unit of dark energy freezes (w → 0) only once its required landings are all present, each with
+probability s = r/r_f. Then the frozen fraction g(s), which replaces sⁿ in w = −1 + g(s), is a mix of landing orders
+weighted by 1/k!:
+- **shifted Poisson** (1 + k landings): g(s) = s·e^(−μ(1−s));
+- **zero-truncated Poisson** (k ≥ 1 landings): g(s) = (e^(μs) − 1)/(e^μ − 1).
+
+μ = 0 is the glide (n = 1) in both. **μ = 1 weights the k-landing channels exactly by 1/k!.** That value was named
+before the fit.
+
+Method: Ω_f = κ, with (h, ω_b) re-fit, against Planck priors + DESI DR2 BAO + each SN sample. The share equation
+d ln r/d ln a = 3(1 − g) is solved by quadrature. With g = sⁿ it reproduces the closed-form E(z) to 7×10⁻⁹. Script
+`ceiling_factorial_law.py`; output `CEILING_FACTORIAL_LAW.json`.
+
+| law at κ | Pantheon+: best, Δχ² vs ΛCDM | DES-Y5: best, Δχ² vs ΛCDM | μ = 1 fixed, no fitted shape: Pantheon+ / DES-Y5 |
+|---|---|---|---|
+| power sⁿ | n = 1.25, −2.47 | n = 1.2, −3.69 | — |
+| shifted Poisson | μ = 0.75 (Δχ² ≤ 1: 0.5–1.5), −2.36 | μ = 0.5 (0.25–1.25), −3.46 | −2.21 / −3.13 |
+| truncated Poisson | μ = 1.25 (0.75–2.5), −2.35 | μ = 1.0 (0.5–2.0), −3.50 | −2.22 / −3.50 |
+
+**Reading.**
+- The counting laws fit as well as the best power law, within 0.1–0.3 in χ². The data measure "a bit steeper than a
+  glide", not the functional form.
+- **μ = 1 lies inside Δχ² ≤ 1 of every best fit**: both variants, both samples.
+- **The parameter count at μ = 1.** Fixing μ = 1 leaves the approach law with no fitted shape. The κ ceiling then has
+  two parameters (h, ω_b), one fewer than ΛCDM. Its Δχ² is −2.2 (Pantheon+) and −3.1 to −3.5 (DES-Y5), so
+  **ΔBIC ≈ −10 to −11**.
+- At μ = 1 the truncated law is g(s) = (eˢ − 1)/(e − 1), giving (w₀, w_a) = (−0.933, −0.198) today. That is close to
+  the best power law (n = 1.25: −0.937, −0.220), which is why the two fit alike.
+- **Open: why μ = 1**, i.e. why the mean number of extra landings per cell would be one. One candidate is one expected
+  extra landing per cell per Hubble time. Deriving it from the raster would make this a prediction. *Not yet derived.*
+
 ## Direction matters? Hemisphere split of the supernovae `[D]` (same night)
 
 RY: light from ahead of our motion and light from behind, or light crossing more intervening mass, need not tell the
@@ -309,4 +343,5 @@ Friedmann constraint yields ln 2 on-shell. The next steps turn the premises into
 2. Show that one balanced landing per cell is the action's stationary point.
 3. Pick between the once-landed Λ and the event-horizon version by the acceleration history (w₀, w_a).
 4. Derive the approach law n from the landing kinetics. At a κ ceiling, both supernova samples prefer n ≈ 1.25
-   (1σ about 1.1–1.5; n ≳ 1 at 2σ; the upper side is weakly bounded).
+   (1σ about 1.1–1.5; n ≳ 1 at 2σ; the upper side is weakly bounded). The factorial counting law with μ = 1 fits as
+   well with no fitted shape. What remains is to derive μ = 1.
