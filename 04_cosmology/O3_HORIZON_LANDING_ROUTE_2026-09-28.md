@@ -261,6 +261,16 @@ d ln r/d ln a = 3(1 − g) is solved by quadrature. With g = sⁿ it reproduces 
   the best power law (n = 1.25: −0.937, −0.220), which is why the two fit alike.
 - **Open: why μ = 1**, i.e. why the mean number of extra landings per cell would be one. One candidate is one expected
   extra landing per cell per Hubble time. Deriving it from the raster would make this a prediction. *Not yet derived.*
+- **RY: "maybe it's 1/137 cells per witness."** Both readings are tested as named points (the `named` block of the
+  JSON, both Poisson laws):
+  - μ = α, one witness per 137 cells: witnessing is so rare that the law becomes the glide. Δχ² above the best is
+    +3.3 (Pantheon+) and +2.6 (DES-Y5).
+  - μ = 1/α, 137 witnesses per cell: cells lock in only at the very end, so the share stays Λ-like (ln 2-ΛCDM). Δχ²
+    above the best is +3.2 and +4.1.
+  - Both are disfavoured at about 1.6–2σ, not excluded. μ = 1 sits within 0.3 of the best.
+  - **Reading.** The data want about one witness per cell. α remains compatible as a per-chance probability: one
+    witness per cell at odds 1/137 per chance needs about 137 chances per cell. Why that many is the same open
+    question as why α = 1/137. *Not yet derived.*
 
 ## Direction matters? Hemisphere split of the supernovae `[D]` (same night)
 

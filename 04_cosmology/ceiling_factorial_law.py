@@ -9,10 +9,13 @@ mu = 0 is the glide (n = 1) in both; mu = 1 gives weights exactly proportional t
 The share obeys d ln r / d ln a = 3 (1 - g(s)), solved by quadrature in u = ln s: tau(u) = int du / (3 (1 - g)).
 Validation: the quadrature with g = s^n must reproduce the closed-form ceiling E(z).
 Fits: Omega_f = kappa, (h, omega_b) re-fit, Planck distance priors + DESI DR2 BAO + Pantheon+ or DES-Y5.
+RY, same night, 'maybe its 1/137 cells per witness': mu = alpha (one witness per 137 cells) and mu = 1/alpha
+(137 witnesses per cell) are evaluated as named points for both Poisson laws.
 Usage: ceiling_factorial_law.py  (data: fetch_external_data.sh)   Output: CEILING_FACTORIAL_LAW.json
 """
 
 import json, math
+from scipy.constants import fine_structure
 import numpy as np
 from scipy.optimize import minimize
 import ceiling_model_cmb_bao_sn as m
@@ -21,6 +24,7 @@ from ceiling_model_bao_sn import load_bao
 from ceiling_n_at_kappa import sn_likelihoods
 
 NM = {"xatol": 1e-6, "fatol": 1e-4, "maxiter": 4000}
+NAMED = {"alpha": fine_structure, "inverse_alpha": 1 / fine_structure}
 LAWS = {
     "power": lambda s, p: s**p,
     "shifted_poisson": lambda s, p: s * np.exp(-p * (1 - s)),
@@ -188,6 +192,14 @@ def main():
                 "best_minus_lcdm": rows[j]["minus_lcdm"],
                 "p_within_1sigma_grid": [min(ok), max(ok)],
             }
+            if law != "power":
+                out[name][law]["named"] = {}
+                for key, mu in NAMED.items():
+                    r = minimize(lambda p: tot(p, law, mu), [0.68, 0.0225], method="Nelder-Mead", options=NM)
+                    w0, wa, _ = w0_wa(law, mu)
+                    out[name][law]["named"][key] = {"p": mu, "chi2": float(r.fun), "minus_lcdm": float(r.fun - fl.fun),
+                                                    "minus_best_grid": float(r.fun - c[j]), "w0": w0, "wa": wa}
+                    print(name, law, key, out[name][law]["named"][key], flush=True)
     json.dump(out, open(cd.out("CEILING_FACTORIAL_LAW.json"), "w"), indent=2)
 
 
