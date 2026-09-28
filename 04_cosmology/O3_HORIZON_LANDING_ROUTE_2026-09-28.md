@@ -146,7 +146,7 @@ from `fetch_external_data.sh`, which checks each file's SHA-256 against `cosmo_d
 
 **Validation.**
 - SN-only flat ΛCDM gives Ω_m = 0.330 (1σ 0.316–0.345), against the published 0.330 ± 0.015.
-- The released inverse covariance inverts to diagonal errors that match MUERR ⊕ MUERR_SYS to 1 part in 10⁸.
+- The released inverse covariance inverts to diagonal errors whose median ratio to MUERR ⊕ MUERR_SYS is 1.00000001.
 - w₀w_aCDM with these Planck priors, DESI DR2 and DES-Dovekie gives w₀ = −0.825, w_a = −0.637 (Δχ² = −10.1 vs ΛCDM
   for 2 extra parameters). The published values, with the full Planck+ACT+SPT CMB, are w₀ = −0.803 ± 0.054 and
   w_a = −0.72 ± 0.21.
@@ -183,9 +183,10 @@ from `fetch_external_data.sh`, which checks each file's SHA-256 against `cosmo_d
   near-constant. The Δχ² differences between the two samples are therefore pure supernova preference.
 
 **Reading.**
-- **DES-Y5 moves the κ ceilings from tying ΛCDM to beating it**, each with one fewer parameter:
-  - n = 1: from +1.07 (Pantheon+) to −0.83;
-  - n = 2: from −0.09 to −0.44.
+- **With DES-Y5 the κ ceilings tie ΛCDM on χ², with one fewer parameter, so ΔBIC ≈ −8.**
+  - n = 1: Δχ² = −0.83 (Pantheon+ gave +1.07), ΔBIC = −8.4.
+  - n = 2: Δχ² = −0.44 (Pantheon+ gave −0.09), ΔBIC = −8.0.
+  - ln N = 7.52 for 1,836 data points.
 - The trade-off between ceiling and approach law persists: (Ω_f, n) ≈ (0.97, 1) and (0.88, 2) both fit. The data
   constrain a curve in the (Ω_f, n) plane, and κ lies on it at an intermediate n. The next section measures that n.
 - **What the ceiling cannot capture is a phantom past.**
@@ -200,18 +201,28 @@ RY: the threshold κ says where the share stops, and the approach law n says how
 number. Here Ω_f = κ is fixed and the data choose n, with (h, ω_b) re-fit at each n. Script `ceiling_n_at_kappa.py`;
 output `CEILING_N_AT_KAPPA.json`.
 
-| SN sample (with CMB + BAO) | best n | 1σ | Δχ² vs ΛCDM (one param fewer) | w₀, w_a at best n |
-|---|---|---|---|---|
-| Pantheon+ | 1.27 | 1.10–1.57 | −2.45 | −0.940, −0.214 |
-| DES-Y5 | 1.23 | 1.08–1.47 | −3.69 | −0.934, −0.226 |
+| SN sample (with CMB + BAO) | best n | 1σ | 2σ | Δχ² vs ΛCDM (equal count: h, ω_b, n) | w₀, w_a at best n |
+|---|---|---|---|---|---|
+| Pantheon+ | 1.27 | 1.10–1.57 | 0.99 – unbounded | −2.45 | −0.940, −0.214 |
+| DES-Y5 | 1.23 | 1.08–1.47 | 0.98–2.52 | −3.69 | −0.934, −0.226 |
 
 - **Both samples agree on n ≈ 1.25.**
   - n = 1 sits Δχ² = 3.5 (Pantheon+) and 2.9 (DES-Y5) above the best.
   - n = 2 sits 2.4 and 3.2 above.
-- **Prediction target.** If the ceiling is κ, the landing dynamics must produce n ≈ 1.1–1.5.
-  - First-order kinetics of independent landings gives n = 1, disfavoured here at about 1.7–1.9σ.
-  - Deriving n from the landing process is now a sharp, falsifiable target: a derived n outside 1.1–1.5 counts against
-    a κ ceiling.
+  - Both are inside 2σ.
+- **Parameter count.** With n fitted, the κ ceiling has three parameters, the same as ΛCDM, so these Δχ² are equal-count
+  comparisons. Only the fixed-n rows in the tables above carry one fewer parameter.
+- **The two sides are bounded differently.**
+  - Below: n < 0.98 is excluded at 2σ by both samples. n = 0.9 costs Δχ² = 8.5–9.4.
+  - Above: the bound is weak. As n → ∞ the share stays Λ-like until it meets the ceiling, which today is ΛCDM with
+    Ω_Λ = ln 2. That limit sits only Δχ² ≈ 3.3 (Pantheon+) and 4.3 (DES-Y5) above the best. So Pantheon+ leaves the
+    upper side open at 2σ, and DES-Y5 closes it at 2.5.
+  - The scan runs n = 0.8–4.0 in steps of 0.1.
+- **Prediction target.** If the ceiling is κ, the data prefer n ≈ 1.25 and require n ≳ 1.
+  - First-order kinetics of independent landings gives n = 1, about 1.7–1.9σ from the best.
+  - n = 2 is about 1.5–1.8σ from the best.
+  - Neither is excluded. A derivation of n from the landing process would be tested at about this strength by current
+    data.
 - Limits:
   - The generalized-logistic form of the approach law is still a choice.
   - The CMB priors are compressed.
@@ -273,8 +284,10 @@ marginalized, and compare. Script `pantheon_hemisphere_split.py`; output `PANTHE
 3. The one-way speed needs a synchronization convention (Reichenbach; Anderson, Vetharaniam & Stedman 1998, Phys. Rep.
    295, 93). With only g̃ in the matter sector, no experiment there can tell conventions apart. *Cited and derived.*
 4. So light from ahead of our motion and light from behind differ only by standard kinematics: Doppler, aberration,
-   and the CMB-frame redshift correction already in zHD. **The predicted Hubble-diagram dipole beyond kinematics is
-   zero.** This matches the Pantheon+ split (0.7σ in Ω_m) and the DES fields above.
+   and the CMB-frame redshift correction already in zHD. **At background order, the predicted Hubble-diagram dipole
+   beyond kinematics is zero.** This matches the Pantheon+ split (0.7σ in Ω_m) and the DES fields above.
+   Inhomogeneities in A and φ do enter light paths, through g̃, as lensing-type effects along each line of sight. They
+   are not a direction-dependent light speed.
 5. **Where the wind can show.** Only in gravity's own sector:
    - preferred-frame PPN α₁, α₂ (D3);
    - the dwarf-satellite response (D7).
@@ -295,5 +308,5 @@ Friedmann constraint yields ln 2 on-shell. The next steps turn the premises into
    ∝ boundary area.
 2. Show that one balanced landing per cell is the action's stationary point.
 3. Pick between the once-landed Λ and the event-horizon version by the acceleration history (w₀, w_a).
-4. Derive the approach law n from the landing kinetics. At a κ ceiling, both supernova samples ask for n ≈ 1.25
-   (1σ about 1.1–1.5).
+4. Derive the approach law n from the landing kinetics. At a κ ceiling, both supernova samples prefer n ≈ 1.25
+   (1σ about 1.1–1.5; n ≳ 1 at 2σ; the upper side is weakly bounded).

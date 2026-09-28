@@ -83,7 +83,7 @@ def main():
         ),
         "omega_f": m.KAPPA,
     }
-    ns = np.round(np.arange(0.8, 2.61, 0.1), 2)
+    ns = np.round(np.arange(0.8, 4.01, 0.1), 2)
     for name, chi_sn in sn_likelihoods().items():
 
         def tot(p, model, n=1.0):
@@ -119,9 +119,10 @@ def main():
             )
         c = np.array([x[1] for x in rows])
         j = int(np.argmin(c))
-        fine = np.linspace(ns[0], ns[-1], 1801)
+        fine = np.linspace(ns[0], ns[-1], 3201)
         cf = np.interp(fine, ns, c)
         sel = fine[cf - cf.min() <= 1.0]
+        sel2 = fine[cf - cf.min() <= 4.0]
         if (
             0 < j < len(ns) - 1
         ):  # parabola through the three grid points around the minimum
@@ -135,6 +136,9 @@ def main():
             "n_best": n_best,
             "chi2_best_grid": float(c[j]),
             "n_1sigma_interp": [float(sel.min()), float(sel.max())],
+            "n_2sigma_interp": [float(sel2.min()), float(sel2.max())],
+            "upper_2sigma_edge_inside_grid": bool(sel2.max() < ns[-1]),
+            "delta_chi2_at_n1_n2": [float(c[list(ns).index(1.0)] - c[j]), float(c[list(ns).index(2.0)] - c[j])],
             "best_minus_lcdm": float(c[j] - fl.fun),
         }
         print(
