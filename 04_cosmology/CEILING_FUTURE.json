@@ -64,5 +64,19 @@
         0.3649306731531719
       ]
     }
+  },
+  "closed_space_turnaround_power_n1.25": {
+    "Omega_k=-0.0005": {
+      "a_max": 13341.598424378113,
+      "years_to_turnaround": 1.356152527221432e+16
+    },
+    "Omega_k=-0.001": {
+      "a_max": 6681.639176320733,
+      "years_to_turnaround": 4763874951241018.0
+    },
+    "Omega_k=-0.002": {
+      "a_max": 3351.6734172783117,
+      "years_to_turnaround": 1689413513978689.0
+    }
   }
 }
