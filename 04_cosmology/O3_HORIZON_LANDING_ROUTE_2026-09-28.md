@@ -292,6 +292,10 @@ d ln r/d ln a = 3(1 − g) is solved by quadrature. With g = sⁿ it reproduces 
     and −10.5 to −11.0 (DES-Y5).
   - **What this changes.** "Why μ = 1" becomes "why exactly one record per landing": a conservation statement rather
     than a tuned rate. *Not yet derived.*
+  - **Candidate route: monogamy of entanglement** (Coffman, Kundu & Wootters 2000). A bit fully entangled with one
+    partner cannot be entangled with any other. If a landing is one fully entangled bit (ln 2), it can pass its record
+    to exactly one neighbour. One record out per landing then gives one in per cell, and the witness law follows
+    rather than being fitted. *Not yet derived.*
 
 ## Direction matters? Hemisphere split of the supernovae `[D]` (same night)
 
