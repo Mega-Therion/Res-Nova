@@ -1,0 +1,49 @@
+satellites needing stellar M/L >  3 if Newtonian (even at sigma - 1 sigma): 41/44
+satellites needing stellar M/L >  5 if Newtonian (even at sigma - 1 sigma): 40/44
+satellites needing stellar M/L > 10 if Newtonian (even at sigma - 1 sigma): 37/44
+
+dwarf              sig_obs  sig_N sig_MOND M/L needed  (at -1s)  v_esc
+LMC                  20.20  40.50    37.55        0.5       0.5   99.2
+SMC                  27.60  34.28    27.92        1.3       1.2   84.0
+Leo I                 9.29   7.56     8.89        3.0       2.9   18.5
+Fornax               12.10   8.96    12.77        3.6       3.5   21.9
+Sculptor              9.20   4.72     6.98        7.6       5.9   11.6
+Leo II                7.53   3.21     5.19       11.0      10.0    7.9
+Carina                6.60   2.42     5.13       14.9      10.0    5.9
+Hercules              2.25   0.66     2.09       23.4      12.4    1.6
+Crater II             2.34   0.66     2.02       25.2      19.1    1.6
+Draco                 9.55   2.11     4.50       40.8      38.7    5.2
+Hydrus I              2.70   0.60     0.90       41.0      29.0    1.5
+Ursa Minor            8.86   1.85     4.49       45.8      43.4    4.5
+Canes Venatici I      7.66   1.53     4.36       50.4      45.1    3.7
+Bootes III            1.69   0.34     0.67       50.9      12.6    0.8
+Leo V                 3.37   0.62     1.61       59.8      28.6    1.5
+Bootes II             1.92   0.33     0.61       66.7      31.5    0.8
+Centaurus I           4.20   0.69     2.01       74.0      57.4    1.7
+Pegasus IV            3.33   0.54     1.46       75.5      41.6    1.3
+Sextans               7.90   1.24     3.35       80.5      56.2    3.0
+Bootes I              4.00   0.62     1.43       82.1      70.3    1.5
+Antlia II             5.98   0.89     2.84       89.4      78.9    2.2
+Leo IV                3.29   0.48     1.68       94.2      60.2    1.2
+Coma Berenices        3.33   0.48     0.92       95.7      71.1    1.2
+Eridanus II           6.90   0.98     3.01       98.7      74.7    2.4
+Tucana V              1.20   0.17     0.35      100.2      25.0    0.4
+Canes Venatici II     5.28   0.72     1.92      106.5      71.3    1.8
+Carina II             3.40   0.46     0.84      107.2      62.7    1.1
+Pegasus III           2.76   0.37     1.53      110.5      49.6    0.9
+Pisces II             3.72   0.47     1.57      123.9      51.1    1.2
+Grus I                2.50   0.31     0.98      130.1      60.2    0.8
+Reticulum II          3.60   0.34     0.57      222.9     144.7    0.8
+Leo VI                2.85   0.27     0.81      228.2      66.6    0.7
+Horologium I          4.90   0.42     1.06      276.7     184.4    1.0
+Pictor II             3.50   0.30     0.58      280.9     155.0    0.7
+Willman 1             4.70   0.35     0.67      354.2     185.3    0.9
+Aquarius II           4.70   0.33     0.96      405.1     224.7    0.8
+Ursa Major II         6.30   0.39     0.73      509.9     367.7    1.0
+Ursa Major I          7.16   0.43     1.24      553.3     404.3    1.1
+Carina III            5.60   0.33     0.53      570.4     222.8    0.8
+Columba I             5.96   0.35     1.35      592.4     287.2    0.8
+Tucana II             3.80   0.22     0.45      613.3     408.2    0.5
+Eridanus IV           6.10   0.34     0.84      653.1     474.6    0.8
+Segue 1               3.97   0.20     0.32      766.5     470.4    0.5
+Tucana IV             4.30   0.20     0.38      944.6     556.4    0.5
