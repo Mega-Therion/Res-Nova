@@ -92,6 +92,12 @@ one place, unambiguous, checked first, every time.
   $F'' > 0$, radial perturbation sound speed bounds $c_s^2(x) \in [1/2, 1)$ (zero gradient instability,
   strict subluminality), and solar system Cassini clearance $\delta_{\text{std}}(x_{\text{Saturn}}) \le 1.49 \times 10^{-12} \ll 2.3 \times 10^{-5}$
   are machine-certified in `MuStdFoundations.lean` with zero `sorry` and standard axioms.
+- **Added 2026-09-29 — AeST stealth / dragged ghost-condensate branch formally machine-proved.**
+  On the free-fall dragged branch ($A_\mu = -Q_0^{-1} \partial_\mu \phi$, $g^{\mu\nu}\partial_\mu\phi\partial_\nu\phi = -Q_0^2$),
+  the kinetic projection $P^{00}$ and transverse kinetic invariant $\mathcal{Y}$ vanish identically, $Q = Q_0$,
+  and all 8 AeST field-equation residuals vanish on Painlevé–Gullstrand Schwarzschild. Formally certified in
+  `AeSTStealthSector.lean` with zero `sorry` and standard axioms, proving exact General Relativity PPN parameters
+  ($\gamma = \beta = 1$, $\alpha_1 = \alpha_2 = 0$).
 
 ### 2. The substrate is V₂(ℝ³) via Cartan triality, NOT V₂₄₀(ℝ^N)
 

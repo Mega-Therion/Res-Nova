@@ -224,6 +224,15 @@ modules:
     observable: "Solar System planetary ephemerides and Cassini radar tracking (|gamma - 1| <= 2.3e-5)"
     falsifier: "observed planetary perihelion precession exceeding INPOP10a bounds or superluminal scalar mode propagation (c_s >= 1)"
 
+  - module: AeSTStealthSector
+    tier: STRUCT
+    theorems: 8
+    structures: 2
+    plain_real_defs: 5
+    denotes: "AeST stealth / dragged ghost-condensate sector where transverse kinetic Y vanishes, scalar projection Q matches Q0, and metric identically solves vacuum Einstein equations"
+    observable: "Solar System PPN bounds (gamma=beta=1, alpha1=alpha2=0) in the moving solar aether wake"
+    falsifier: "detection of nonzero preferred-frame PPN alpha1, alpha2 > 1e-4 or scalar-field gravitational radiation"
+
   - module: NavierStokesCorticalBound
     tier: ARITH
     theorems: 7

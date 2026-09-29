@@ -21,14 +21,14 @@ Last measured: 2026-09-29.
 
 | Count | Scope | Command |
 |---|---|---|
-| **29** | **Manuscript scope.** Modules cited by the manuscript = gate scope minus `05_lean_formalization/ADJACENT_MODULES.txt`. This is the number quoted in `reproducibility_appendix.tex`. | `python3 05_lean_formalization/check_manuscript_inventory.py` |
-| **62** | **Gate scope.** Every module built and checked: lakefile roots ≡ `verify_all_proofs.sh` TARGETS ≡ on-disk. | `python3 05_lean_formalization/check_target_inventory.py` |
+| **30** | **Manuscript scope.** Modules cited by the manuscript = gate scope minus `05_lean_formalization/ADJACENT_MODULES.txt`. This is the number quoted in `reproducibility_appendix.tex`. | `python3 05_lean_formalization/check_manuscript_inventory.py` |
+| **65** | **Gate scope.** Every module built and checked: lakefile roots ≡ `verify_all_proofs.sh` TARGETS ≡ on-disk. | `python3 05_lean_formalization/check_target_inventory.py` |
 
 A module in `ADJACENT_MODULES.txt` is scoped **out of the manuscript, never out of the
-gate** (`CLAUDE.md`). So 29 < 62 is the correct, invariant-enforced relationship.
+gate** (`CLAUDE.md`). So 30 < 65 is the correct, invariant-enforced relationship.
 
 `check_manuscript_inventory.py` fails closed if `reproducibility_appendix.tex` deviates
-from the disk inventory (currently 29 modules).
+from the disk inventory (currently 30 modules).
 
 ## SPARC sample — three scopes
 

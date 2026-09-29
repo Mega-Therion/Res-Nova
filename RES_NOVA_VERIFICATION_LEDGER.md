@@ -40,6 +40,7 @@
 | **F8** | Empirical Provenance & Out-of-Sample Validation | `[D]` Cross-Validation / Bootstrap | `02_galaxy_dynamics/A0_MEASUREMENT.json` | 171 galaxies (3,375 points), bootstrap + honest CV |
 | **F9** | Kerr Rapidity Equipartition & Sovereign Spin Ceiling | `[P]` (algebra) / `[O]` (dynamical action) | `06_unification_and_spin/rapidity_uniqueness_proof.py`, `two_channel_ceiling_proof.py` | Exact $\operatorname{arsinh}(1) = \ln(1+\sqrt{2}) = \operatorname{artanh}(1/\sqrt{2})$ and $\chi_s = \sqrt{\sqrt{2}-1/2} \approx 0.956145$ verified `[P]` at 100 dps |
 | **F10** | Canonical $\mu_{\text{std}}$ Foundations, Sound Speed & Cassini Clearance | `[P]` Kernel Verified / `[D]` Ephemerides | `05_lean_formalization/MuStdFoundations.lean`, `scripts/verify_mu_std_cassini_and_limits.py` | Derivative identity $F_{\text{std}}'=x\mu_{\text{std}}$, ghost-free strict convexity $F_{\text{std}}''>0$, scalar perturbation sound speed $c_s^2 \in [1/2, 1)$ gradient stability \& subluminality, and Cassini clearance ($|\gamma-1| \le 1.49 \times 10^{-12} \ll 2.3 \times 10^{-5}$) verified `[P]` |
+| **F11** | AeST Stealth / Dragged Branch Exact GR Sector & Vanishing Residuals | `[P]` Kernel Verified / `[D]` Symbolic CAS | `05_lean_formalization/AeSTStealthSector.lean`, `exploration/d3_alpha/dragged_branch_exact_check.py` | Exact vacuum Einstein solution on Painlevé–Gullstrand Schwarzschild ($A_\mu = -Q_0^{-1}\partial_\mu\phi$, $Y \equiv 0$, $Q=Q_0$); all 8 field equation residuals vanish, certifying $\gamma=\beta=1, \alpha_1=\alpha_2=0$ `[P]` |
 
 ---
 
@@ -217,5 +218,24 @@ not $a_0 = \frac{cH_0}{2\pi}$. The additional $1/(2\pi)$ divisor is an open boun
   - Evaluated at Mercury ($x = 3.55 \times 10^8$), Earth ($x = 5.31 \times 10^7$), Saturn ($x = 5.79 \times 10^5$), and Voyager 1 ($x = 5.31 \times 10^3$).
   - Saturn anomalous deviation: $\delta_{\text{std}} = 1.493 \times 10^{-12} \ll 2.3 \times 10^{-5}$ (Cassini safety margin $1.54 \times 10^7\times$).
   - Mercury residual force: $\Delta g(\mu_{\text{std}}) = 1.57 \times 10^{-19}\,\text{m/s}^2$ vs unshielded $\Delta g(\mu_{\text{dual}}) = 1.116 \times 10^{-10}\,\text{m/s}^2$ ($7.09 \times 10^8\times$ smaller).
+
+---
+
+### F11. AeST Stealth / Dragged Branch Exact GR Sector & Field Equation Residuals (Target D3 §34)
+* **Epistemic Classification:** `[P]` Proved (Lean 4 Kernel Certified) / `[D]` Symbolic CAS Verification
+* **File Paths:**
+  - [`05_lean_formalization/AeSTStealthSector.lean`](05_lean_formalization/AeSTStealthSector.lean)
+  - [`exploration/d3_alpha/dragged_branch_exact_check.py`](exploration/d3_alpha/dragged_branch_exact_check.py)
+  - [`PEER_REVIEW_READINESS.md`](PEER_REVIEW_READINESS.md) §1 Target D3
+* **Verified Formal Theorems (`AeSTStealthSector.lean`):**
+  - **Projection Null Identity:** $P^{00} = g^{00} + A^0 A^0 = -1 + (1)(1) = 0$ (`P00_vanishes`).
+  - **Transverse Kinetic Null:** $\mathcal{Y} \equiv 0$ identically for co-moving free-fall river frame gradients (`Y_stealth_is_zero`).
+  - **Condensate Anchoring:** $Q = A^\mu \partial_\mu \phi = Q_0$ (`Q_stealth_eq_Q0`), ensuring zero condensate offset $\Delta Q = 0$ (`condensate_offset_zero`).
+  - **Kinetic Potential Vanishing:** $\mathcal{F}_{\text{kinetic}}(c_Y, K_2, \mathcal{Y}, Q, Q_0) = c_Y \mathcal{Y} - 2 K_2 (Q - Q_0)^2 = 0$ identically (`F_kinetic_stealth_vanishes`).
+  - **Exact GR Recovery:** $\gamma = 1$, $\beta = 1$, $\alpha_1 = 0$, $\alpha_2 = 0$ (`stealth_ppn_gamma_unity`, `stealth_ppn_beta_unity`, `stealth_ppn_alpha1_zero`, `stealth_ppn_alpha2_zero`).
+* **Symbolic CAS Verification (`dragged_branch_exact_check.py`):**
+  - Evaluated on Painlevé–Gullstrand Schwarzschild geometry with radial inflow $v = \sqrt{2M/r}$, non-zero expansion $\theta = -(3/2)\sqrt{2M/r^3}$, and $\phi = Q_0 T$.
+  - All 8 Euler–Lagrange field equation residuals ($E_f, E_h, E_k, E_s, E_{A_t}, E_{A_r}, E_\phi, E_\lambda$) vanish identically to 0 at the condensate minimum ($F_Q(Q_0)=0$).
+
 
 

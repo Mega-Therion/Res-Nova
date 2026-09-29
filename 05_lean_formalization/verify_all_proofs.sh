@@ -70,6 +70,7 @@ TARGETS=(
   GateHolonomySusceptibility.lean
   MuStdSelection.lean
   MuStdFoundations.lean
+  AeSTStealthSector.lean
   PPNLimitsStd.lean
   LambdaSBound.lean
   PrecessionBound.lean
