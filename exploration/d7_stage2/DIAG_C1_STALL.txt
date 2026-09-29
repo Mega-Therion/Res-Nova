@@ -1,0 +1,51 @@
+    newton 0: equilibrated |grad|/|src| = 7.031e+01
+    newton 1: equilibrated |grad|/|src| = 1.883e+01  (last linear solve rel. residual 1.2e-12)
+    newton 2: equilibrated |grad|/|src| = 5.591e+00  (last linear solve rel. residual 2.1e-12)
+      line search: lambda = 0.25
+    newton 3: equilibrated |grad|/|src| = 4.652e+00  (last linear solve rel. residual 1.4e-12)
+      line search: lambda = 0.125
+    newton 4: equilibrated |grad|/|src| = 4.393e+00  (last linear solve rel. residual 1.3e-12)
+      line search: lambda = 0.125
+    newton 5: equilibrated |grad|/|src| = 4.278e+00  (last linear solve rel. residual 1.2e-12)
+      line search: lambda = 0.0625
+    newton 6: equilibrated |grad|/|src| = 4.045e+00  (last linear solve rel. residual 1.0e-12)
+      line search: lambda = 0.25
+    newton 7: equilibrated |grad|/|src| = 3.356e+00  (last linear solve rel. residual 1.1e-12)
+      line search: lambda = 0.25
+    newton 8: equilibrated |grad|/|src| = 3.034e+00  (last linear solve rel. residual 9.1e-13)
+      line search: lambda = 0.00391
+    newton 9: equilibrated |grad|/|src| = 3.027e+00  (last linear solve rel. residual 7.8e-13)
+      line search: lambda = 0.5
+    newton 10: equilibrated |grad|/|src| = 2.337e+00  (last linear solve rel. residual 7.5e-13)
+      line search: lambda = 0.00781
+    newton 11: equilibrated |grad|/|src| = 2.325e+00  (last linear solve rel. residual 5.0e-13)
+      line search: lambda = 0.125
+ndof 20164; converged False (2.18e+00); peak RSS 1076 MB; 183s
+  residual in S     : 1.026e-01
+  residual in W_R   : 3.879e-05
+  residual in W_z   : 8.014e-05
+  residual in A     : 3.317e-07
+  residual in B     : 2.247e-07
+  residual in C     : 1.573e-07
+  residual in D     : 3.420e-07
+  residual in Lambda: 1.035e+00
+  residual in psi   : 1.814e-04
+  residual in s     : 8.841e-01
+  step part metric lam 1e-03: Taylor remainder 5.033e-12, |lam H s| 1.971e-01
+  step part metric lam 1e-01: Taylor remainder 4.393e-09, |lam H s| 1.971e+01
+  step part metric lam 1e+00: Taylor remainder 4.393e-07, |lam H s| 1.971e+02
+  step part Lambda lam 1e-03: Taylor remainder 4.867e-06, |lam H s| 1.624e-03
+  step part Lambda lam 1e-01: Taylor remainder 4.931e-02, |lam H s| 1.624e-01
+  step part Lambda lam 1e+00: Taylor remainder 1.332e+01, |lam H s| 1.624e+00
+  step part psi    lam 1e-03: Taylor remainder 1.309e-10, |lam H s| 3.672e-07
+  step part psi    lam 1e-01: Taylor remainder 1.517e-10, |lam H s| 3.672e-05
+  step part psi    lam 1e+00: Taylor remainder 1.187e-10, |lam H s| 3.672e-04
+  step part s      lam 1e-03: Taylor remainder 2.610e-08, |lam H s| 1.977e-01
+  step part s      lam 1e-01: Taylor remainder 2.537e-04, |lam H s| 1.977e+01
+  step part s      lam 1e+00: Taylor remainder 2.330e-02, |lam H s| 1.977e+02
+  eig +6.409e-13: W_R (1.00); step share 3.08e-04
+  eig +1.050e-12: W_z (1.00); step share 1.96e-04
+  eig +1.050e-12: W_z (1.00); step share 1.85e-05
+  eig +1.083e-12: W_R (1.00); step share 1.52e-04
+  eig +1.654e-12: W_R (1.00); step share 3.77e-05
+  eig +2.471e-12: W_z (1.00); step share 6.34e-06

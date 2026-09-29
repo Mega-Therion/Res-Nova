@@ -1,0 +1,15 @@
+residual by field: S 1.82e-06, W_R 2.37e-10, W_z 3.21e-12, A 4.10e-12, B 1.93e-12, C 3.95e-16, D 1.93e-12, Lambda 3.66e-06, psi 2.77e-12, s 8.47e-06
+  eig +1.284e-09: W_R (1.00), s (0.00); residual overlap 4.87e-11
+  eig +1.921e-09: W_z (0.67), psi (0.33); residual overlap 5.08e-07
+  eig -3.841e-09: psi (0.67), W_z (0.33); residual overlap 1.11e-06
+  eig +7.905e-09: W_z (0.67), psi (0.33); residual overlap 2.39e-07
+  eig +9.031e-09: W_R (1.00), s (0.00); residual overlap 3.39e-10
+  eig +1.243e-08: W_z (0.67), psi (0.33); residual overlap 6.02e-06
+  eig -1.581e-08: psi (0.67), W_z (0.33); residual overlap 6.71e-07
+  eig +1.639e-08: Lambda (1.00), S (0.00); residual overlap 2.72e-02
+  eig +2.328e-08: W_R (1.00), s (0.00); residual overlap 1.03e-09
+  eig +2.415e-08: W_z (0.67), psi (0.33); residual overlap 4.32e-07
+  eig -2.485e-08: psi (0.67), W_z (0.33); residual overlap 1.25e-06
+  eig +2.673e-08: W_z (0.67), psi (0.33); residual overlap 7.15e-08
+random relative perturbation 1e-14: |d residual - linear| in Lambda rows 1.15e-13, all rows 3.28e-12
+random relative perturbation 1e-12: |d residual - linear| in Lambda rows 1.39e-13, all rows 3.80e-12
