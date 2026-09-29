@@ -1,0 +1,150 @@
+[
+ {
+  "nR": 32,
+  "nz": 64,
+  "g_e_over_a0": 0.003,
+  "box": 300.0,
+  "static_residual": 1.834208616412207e-11,
+  "speeds": [
+   {
+    "v_kms": 100.0,
+    "shells": [
+     {
+      "r_kpc": 0.1,
+      "dF_r_over_pred_r": 0.00019449972506662216,
+      "dF_r_over_static_phi_r": -0.00019584245699257667,
+      "pred_r_over_static_phi_r": -1.0069035158044288
+     },
+     {
+      "r_kpc": 0.15,
+      "dF_r_over_pred_r": -0.01092959597414583,
+      "dF_r_over_static_phi_r": 0.011013411051532092,
+      "pred_r_over_static_phi_r": -1.0076686345574464
+     },
+     {
+      "r_kpc": 0.2,
+      "dF_r_over_pred_r": -0.03222595319142977,
+      "dF_r_over_static_phi_r": 0.032479898802498096,
+      "pred_r_over_static_phi_r": -1.007880158255051
+     },
+     {
+      "r_kpc": 0.3,
+      "dF_r_over_pred_r": -0.08035175173817911,
+      "dF_r_over_static_phi_r": 0.08095802038492311,
+      "pred_r_over_static_phi_r": -1.007545182695201
+     }
+    ],
+    "grad_rel_L2_diff_inner": 1.5688886567058267,
+    "max_du_over_stealth_tilt": 0.0018337699563369938
+   },
+   {
+    "v_kms": 300.0,
+    "shells": [
+     {
+      "r_kpc": 0.1,
+      "dF_r_over_pred_r": -0.16947913245524324,
+      "dF_r_over_static_phi_r": 0.1706491343246689,
+      "pred_r_over_static_phi_r": -1.0069035158044288
+     },
+     {
+      "r_kpc": 0.15,
+      "dF_r_over_pred_r": -0.14265966146345785,
+      "dF_r_over_static_phi_r": 0.14375366627331013,
+      "pred_r_over_static_phi_r": -1.0076686345574464
+     },
+     {
+      "r_kpc": 0.2,
+      "dF_r_over_pred_r": -0.1000825482165058,
+      "dF_r_over_static_phi_r": 0.10087121453502064,
+      "pred_r_over_static_phi_r": -1.007880158255051
+     },
+     {
+      "r_kpc": 0.3,
+      "dF_r_over_pred_r": -0.07211699827210492,
+      "dF_r_over_static_phi_r": 0.07266113419949746,
+      "pred_r_over_static_phi_r": -1.007545182695201
+     }
+    ],
+    "grad_rel_L2_diff_inner": 1.1437010942601529,
+    "max_du_over_stealth_tilt": 0.0006476610333586873
+   }
+  ],
+  "plateau_grad_rel_diff_inner": 0.8557441600763998,
+  "verdict": "FAIL: v=100 r=0.1 kpc ratio 0.000; v=100 r=0.15 kpc ratio -0.011; v=100 r=0.2 kpc ratio -0.032; v=100 r=0.3 kpc ratio -0.080; v=300 r=0.1 kpc ratio -0.169; v=300 r=0.15 kpc ratio -0.143; v=300 r=0.2 kpc ratio -0.100; v=300 r=0.3 kpc ratio -0.072; plateau difference 0.856",
+  "seconds": 29.5
+ },
+ {
+  "nR": 48,
+  "nz": 96,
+  "g_e_over_a0": 0.003,
+  "box": 300.0,
+  "static_residual": 4.0318953831587165e-11,
+  "speeds": [
+   {
+    "v_kms": 100.0,
+    "shells": [
+     {
+      "r_kpc": 0.1,
+      "dF_r_over_pred_r": 0.2813371365428535,
+      "dF_r_over_static_phi_r": -0.28329547664561255,
+      "pred_r_over_static_phi_r": -1.006960830435767
+     },
+     {
+      "r_kpc": 0.15,
+      "dF_r_over_pred_r": 0.12357676649487331,
+      "dF_r_over_static_phi_r": -0.12452823384416943,
+      "pred_r_over_static_phi_r": -1.007699403183005
+     },
+     {
+      "r_kpc": 0.2,
+      "dF_r_over_pred_r": -0.029370072952295306,
+      "dF_r_over_static_phi_r": 0.02960282192612827,
+      "pred_r_over_static_phi_r": -1.0079246985259793
+     },
+     {
+      "r_kpc": 0.3,
+      "dF_r_over_pred_r": -0.050712551052619306,
+      "dF_r_over_static_phi_r": 0.0510968469602812,
+      "pred_r_over_static_phi_r": -1.007577924984747
+     }
+    ],
+    "grad_rel_L2_diff_inner": 1.2715559335255693,
+    "max_du_over_stealth_tilt": 0.0006450319105153553
+   },
+   {
+    "v_kms": 300.0,
+    "shells": [
+     {
+      "r_kpc": 0.1,
+      "dF_r_over_pred_r": 1.999712771188025,
+      "dF_r_over_static_phi_r": -2.0136324327085022,
+      "pred_r_over_static_phi_r": -1.006960830435767
+     },
+     {
+      "r_kpc": 0.15,
+      "dF_r_over_pred_r": 1.263470469318903,
+      "dF_r_over_static_phi_r": -1.27319843787201,
+      "pred_r_over_static_phi_r": -1.007699403183005
+     },
+     {
+      "r_kpc": 0.2,
+      "dF_r_over_pred_r": 0.930278185498969,
+      "dF_r_over_static_phi_r": -0.9376503596643434,
+      "pred_r_over_static_phi_r": -1.0079246985259793
+     },
+     {
+      "r_kpc": 0.3,
+      "dF_r_over_pred_r": 0.4594922175693431,
+      "dF_r_over_static_phi_r": -0.46297421512515863,
+      "pred_r_over_static_phi_r": -1.007577924984747
+     }
+    ],
+    "grad_rel_L2_diff_inner": 3.219186915231193,
+    "max_du_over_stealth_tilt": 0.004178836374034351
+   }
+  ],
+  "plateau_grad_rel_diff_inner": 3.953094316104218,
+  "verdict": "FAIL: v=100 r=0.1 kpc ratio 0.281; v=100 r=0.15 kpc ratio 0.124; v=100 r=0.2 kpc ratio -0.029; v=100 r=0.3 kpc ratio -0.051; v=300 r=0.1 kpc ratio 2.000; v=300 r=0.15 kpc ratio 1.263; v=300 r=0.3 kpc ratio 0.459; plateau difference 3.953",
+  "seconds": 98.6
+ }
+]

@@ -121,6 +121,18 @@ under refinement; tilt < 10⁻³.
   it small), so the configuration is external-field dominated everywhere. That is why the MOND channel must use the
   total field, and why the primary runs below use g_e = 0.003 a₀ (internal ≈ 10× external) in a 30 kpc box.
 
+**Locking: the Q1 aether cannot represent the tilt zero mode (2026-09-28). All `solve_fe.py` results at v > 0 are
+discretization artefacts.** `diag_aether_block.py`: the continuum Lagrangian's only aether-gradient stiffness is the
+curl² term (local Hessian block ±1.000 in (U_R,z − U_z,R); no divergence term). `diag_lift.py` (`DIAG_LIFT.txt`): along
+the zero mode δϕ = χ, δu = −∇χ/Q₀ the solver's quadratic form is ~10⁸ × §23's lift. All of it is the discrete curl² of
+the interpolated gradient field: that field's rms discrete curl is 13–17% of |∇u|, and the match holds to every printed
+digit. The curl coefficient exceeds the lift by ~5×10⁸ for dwarf-scale modes, so nodal elements lock the zero mode. That
+suppresses the wind response and biases the solver toward held. Affected: gate B2's first run
+(`GATE_B2_WIND_LINEAR_FE_ge0.003_box300.json`, `GATE_B2_Q1_LOCKED_RUN.txt`: FAIL, erratic and grid-dependent) and
+stage C to 4 km/s (`STAGE_C_Q1_LOCKED_32x64.txt`: g/g_static − 1 ≤ 2×10⁻⁴ where §7 has 0.3 at 3 km/s). Both are
+results on the locked discretization, not physics. Gate B1 (v = 0, u = 0 exactly) is unaffected. The fix is
+u = ∇Λ + curl(ψθ̂) with every field in C¹ bicubic Hermite elements (`solve_c1.py`).
+
 **Gate B2** (`gate_wind_linear_fe.py`): the first Newton step from the static solution at 100 and 300 km/s must reproduce
 §7's real-space correction δφ = −[1/(4+λ)](4Ψ − 3∇⁻²∂_z²Φ̂) at r = 0.1–0.3 kpc, with the criterion in the script's
 docstring. Pending.

@@ -1,0 +1,6 @@
+v = 0.5 km/s: residual 1.9e-11, g/g_static(r_h) 1.0000, Y/Y_static 1.0000, u/tilt 4.23e-06, eig nearest 0 -3.0552348004504786e-08 (S)
+v = 1 km/s: residual 1.8e-11, g/g_static(r_h) 1.0000, Y/Y_static 1.0000, u/tilt 8.48e-06, eig nearest 0 -3.0551554713128756e-08 (S)
+v = 2 km/s: residual 1.8e-11, g/g_static(r_h) 1.0000, Y/Y_static 1.0001, u/tilt 1.71e-05, eig nearest 0 -3.054843090262474e-08 (S)
+v = 3 km/s: residual 1.8e-11, g/g_static(r_h) 1.0001, Y/Y_static 1.0002, u/tilt 2.60e-05, eig nearest 0 -3.054304578263675e-08 (S)
+v = 5 km/s: Newton failed (residual 2.3e-04); bisecting
+v = 4 km/s: residual 2.6e-11, g/g_static(r_h) 1.0002, Y/Y_static 1.0004, u/tilt 3.54e-05, eig nearest 0 -3.053486785856712e-08 (S)
