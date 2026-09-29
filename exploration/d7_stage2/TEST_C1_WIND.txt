@@ -1,0 +1,7 @@
+stage-1 static: residual 5.9e-12; |Lambda rows| of grad = 5.331e-19 (absolute); 59s
+  v = 1 km/s: |Lambda rows| of grad at the static state = 6.099e-14; wind part 6.099e-14
+  v = 10 km/s: |Lambda rows| of grad at the static state = 6.099e-13; wind part 6.099e-13
+  v = 100 km/s: |Lambda rows| of grad at the static state = 6.099e-12; wind part 6.099e-12
+v = 1 km/s: converged False (7.9e+00); g/g_static 1.0062, Y/Y_static 1.0118, u/tilt 2.841e-02; last solve residual 3.8e-12; 336s
+v = 10 km/s: converged False (5.5e+00); g/g_static 0.0877, Y/Y_static 0.0278, u/tilt 4.111e-02; last solve residual 2.6e-13; 267s
+v = 100 km/s: converged True (5.2e-12); g/g_static 0.0982, Y/Y_static 0.0189, u/tilt 3.299e-03; last solve residual 8.0e-13; 71s

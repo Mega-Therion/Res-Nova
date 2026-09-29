@@ -133,6 +133,28 @@ stage C to 4 km/s (`STAGE_C_Q1_LOCKED_32x64.txt`: g/g_static − 1 ≤ 2×10⁻�
 results on the locked discretization, not physics. Gate B1 (v = 0, u = 0 exactly) is unaffected. The fix is
 u = ∇Λ + curl(ψθ̂) with every field in C¹ bicubic Hermite elements (`solve_c1.py`).
 
+**The C¹ solver (`solve_c1.py`), gate L: PASS.** All ten fields are in Bogner–Fox–Schmit bicubic Hermite elements with 4×4
+Gauss points.
+- The aether and h₀ᵢ come from potentials, u = ∇Λ + curl(ψθ̂) and h₀ᵢ = ∇Ω + curl(ωθ̂). The scalar is carried as
+  s = ϕ + Q₀γΛ, so the tilt zero mode is exactly the pure Λ direction.
+- h₀ᵢ needs potentials too. At K_B = 1/2 the aether's F² cancels the curl part of the Einstein–Hilbert h₀ᵢ Laplacian
+  (local W block = div² only, `diag_w_block.py`). W's curl part is then a multiplier paired with u's curl part. Two free
+  W fields against the single potential ψ left spurious null modes (10⁻¹²); the potential form removes them (10⁻⁹).
+- The Hessian matches finite differences to 6×10⁻¹⁶.
+- **Gate L** (`gate_lift_c1.py`, criterion committed before the run): along the zero mode, with the metric frozen, the
+  quadratic form equals −2∫E_lift of §23. R = +1.0000 at r₀ = 0.15, 0.3, 0.6 and 1.2 kpc on both 16×32 and 24×48
+  (`GATE_L_LIFT_C1.json`, `GATE_L_LIFT_C1.txt`). The Q1 solver was ~10⁸ off.
+- **Static baseline.** Stage 1, with Λ frozen at 0 (the held answer, since the aether's static source is
+  divergence-free), converges to ~10⁻¹¹. Freeing Λ stalls at ~10⁻⁵ when g_e ≠ 0. The stall comes from a
+  discretization-level forcing of 5×10⁻¹⁹ on the Λ rows acting on a mode the external field leaves almost unlifted
+  beyond its radius (∇²ϕ → 0).
+- **Exploratory wind runs** (`test_c1_wind.py`, `TEST_C1_WIND.txt`; 16×32, g_e = 0.003 a₀; not gated):
+  - The wind forcing on the Λ rows is 6×10⁻¹⁴ × (v / 1 km/s), i.e. 10⁵× the static residual already at 1 km/s.
+  - At 1 and 10 km/s, Newton straight from the static state does not converge.
+  - At 100 km/s it converges (5×10⁻¹²), with g/g_static = 0.098 and Y/Y_static = 0.019 at r_h, and u/tilt = 3×10⁻³.
+    The MOND channel is essentially gone. g is ≈ 1.1 × the Φ̂-channel flux; D3 §34's GR reference is 0.75.
+  - Branch, resolution and continuity are open. This is not a stage C result.
+
 **Gate B2** (`gate_wind_linear_fe.py`): the first Newton step from the static solution at 100 and 300 km/s must reproduce
 §7's real-space correction δφ = −[1/(4+λ)](4Ψ − 3∇⁻²∂_z²Φ̂) at r = 0.1–0.3 kpc, with the criterion in the script's
 docstring. Pending.
