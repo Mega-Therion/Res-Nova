@@ -1,0 +1,22 @@
+services:
+  web:
+    image: node:22
+    working_dir: /app/visualizer
+    volumes:
+      - ./visualizer:/app/visualizer
+      - visualizer_node_modules:/app/visualizer/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS: ${__VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS}
+      CHOKIDAR_USEPOLLING: "true"
+    command: ["sh", "-ec", "npm ci && exec npm run dev -- --port 3000"]
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:3000/', r => { r.resume(); process.exit(r.statusCode === 200 ? 0 : 1) }).on('error', () => process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+volumes:
+  visualizer_node_modules:
