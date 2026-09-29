@@ -1,0 +1,100 @@
+{
+ "grid": [
+  16,
+  32
+ ],
+ "v_kms": 100.0,
+ "g_e_over_a0": 0.0,
+ "rows": [
+  {
+   "box_B": 100.0,
+   "edge_kpc": 10.0,
+   "static": [
+    true,
+    9.051941349703748e-12,
+    true,
+    8.52803131449985e-12
+   ],
+   "converged": true,
+   "residual": 9.615559430414204e-12,
+   "seconds": 249.7,
+   "g_ratio_static": 0.1732031734129717,
+   "g_ratio_phihat_flux": 5.832739362918064,
+   "Y_ratio": 0.03720584543762056,
+   "static_g_over_flux": 33.67570725168499,
+   "u_over_tilt": 0.003049190149465013
+  },
+  {
+   "box_B": 300.0,
+   "edge_kpc": 30.0,
+   "static": [
+    false,
+    1.1784152458115722e-11,
+    true,
+    1.4911154748041653e-11
+   ],
+   "converged": true,
+   "residual": 1.3408584216104199e-11,
+   "seconds": 456.5,
+   "g_ratio_static": 0.11031112281628008,
+   "g_ratio_phihat_flux": 3.715013212355992,
+   "Y_ratio": 0.012722878694045123,
+   "static_g_over_flux": 33.677594040478006,
+   "u_over_tilt": 0.0033095674125050616
+  },
+  {
+   "box_B": 1000.0,
+   "edge_kpc": 100.0,
+   "static": [
+    false,
+    1.2652362631735886e-11,
+    false,
+    0.000623176626894205
+   ],
+   "converged": true,
+   "residual": 1.5315600830014813e-11,
+   "seconds": 662.6,
+   "g_ratio_static": 0.06822045848443303,
+   "g_ratio_phihat_flux": 2.296762717986192,
+   "Y_ratio": 0.0034804535429226948,
+   "static_g_over_flux": 33.66677341387675,
+   "u_over_tilt": 0.0034294594083663188
+  },
+  {
+   "box_B": 3000.0,
+   "edge_kpc": 300.0,
+   "static": [
+    false,
+    1.2241252560603698e-11,
+    false,
+    0.0016255295622453786
+   ],
+   "converged": true,
+   "residual": 1.1547827589296407e-11,
+   "seconds": 663.0,
+   "g_ratio_static": 0.04481526819907611,
+   "g_ratio_phihat_flux": 1.5086959185363151,
+   "Y_ratio": 0.0008351754052256165,
+   "static_g_over_flux": 33.66477495648275,
+   "u_over_tilt": 0.0034750402524530467
+  },
+  {
+   "box_B": 10000.0,
+   "edge_kpc": 1000.0,
+   "static": [
+    false,
+    1.110235486286709e-11,
+    false,
+    0.0016705447833474476
+   ],
+   "converged": true,
+   "residual": 4.7176467747693876e-11,
+   "seconds": 605.6,
+   "g_ratio_static": 0.02918487038737912,
+   "g_ratio_phihat_flux": 0.9823385913747057,
+   "Y_ratio": 8.220360449150039e-05,
+   "static_g_over_flux": 33.659172658156265,
+   "u_over_tilt": 0.0034965070356220585
+  }
+ ]
+}
