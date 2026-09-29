@@ -1,0 +1,11 @@
+v = 100: residual 5.2e-12; g/g_static 0.0982, g/phihat-flux 3.298, Y/Y_static 0.0189, u/tilt 3.30e-03; eig nearest 0 1.2838243991140873e-09 (Omega); 88s
+v = 75: residual 5.5e-12; g/g_static 0.0978, g/phihat-flux 3.284, Y/Y_static 0.0188, u/tilt 4.40e-03; eig nearest 0 1.283824455355589e-09 (Omega); 48s
+v = 50: residual 6.1e-12; g/g_static 0.0965, g/phihat-flux 3.241, Y/Y_static 0.0185, u/tilt 6.60e-03; eig nearest 0 1.2838243951996937e-09 (Omega); 48s
+v = 40: residual 6.1e-12; g/g_static 0.0952, g/phihat-flux 3.198, Y/Y_static 0.0182, u/tilt 8.25e-03; eig nearest 0 1.283824406690172e-09 (Omega); 40s
+v = 30: residual 8.4e-12; g/g_static 0.0923, g/phihat-flux 3.101, Y/Y_static 0.0175, u/tilt 1.10e-02; eig nearest 0 1.2838243742817603e-09 (Omega); 48s
+v = 25: residual 1.1e-11; g/g_static 0.0893, g/phihat-flux 2.999, Y/Y_static 0.0168, u/tilt 1.32e-02; eig nearest 0 1.2838244463770248e-09 (Omega); 46s
+v = 20: residual 3.0e-11; g/g_static 0.0824, g/phihat-flux 2.768, Y/Y_static 0.0154, u/tilt 1.67e-02; eig nearest 0 1.2838244260167774e-09 (Omega); 208s
+v = 15: Newton failed (1.9e-02) from 20; bisecting
+v = 17.5: Newton failed (1.3e-01) from 20; bisecting
+v = 18.75: Newton failed (7.4e-02) from 20; bisecting
+v = 19.375: Newton failed (4.0e-02) from 20; bisecting

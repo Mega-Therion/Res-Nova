@@ -320,9 +320,11 @@ class ProblemC1:
             lam = 1.0
             while True:
                 gt, _, _ = self.grad_hess(x + lam * step, want_hess=False)
-                if res(gt) < gn * (1 - 1e-4 * lam) or lam < 1e-4:
+                if res(gt) < gn * (1 - 1e-4 * lam):
                     break
                 lam *= 0.5
+                if lam < 1e-4:  # no descent along the Newton direction: stop here rather than step uphill
+                    return x, False, gn
             if verbose and lam < 1:
                 print(f"      line search: lambda = {lam:.3g}", flush=True)
             x = x + lam * step

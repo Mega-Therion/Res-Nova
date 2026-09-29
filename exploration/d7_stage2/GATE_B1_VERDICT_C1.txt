@@ -1,0 +1,9 @@
+Gate B1 on the C1 solver (criterion as gate_b1_verdict.py, smooth estimator; Newton 'converged' = final residual of
+the solution used < 1e-10, the implementation tolerance adopted for gate L).
+GATE_B1_STATIC_C1_ge0_box100.json: PASS
+   16x32: used Lambda free, residual 8.5e-12, worst |ratio-1| 0.0033, u/tilt 9.3e-07
+   24x48: used Lambda free, residual 2.1e-11, worst |ratio-1| 0.0033, u/tilt 9.3e-07
+GATE_B1_STATIC_C1_ge0.003_box300.json: PASS
+   16x32: used stage 1, residual 5.9e-12, worst |ratio-1| 0.0033, u/tilt 6.2e-11
+   24x48: used stage 1, residual 1.1e-11, worst |ratio-1| 0.0033, u/tilt 6.2e-11
+GATE B1 (C1) PASS
