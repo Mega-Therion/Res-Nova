@@ -1175,8 +1175,13 @@
       if (tabId === 'variational' && variationalChart) {
         variationalChart.resize();
       }
-      if (tabId === 'spacetime' && spacetimeRenderer) {
-        onSpacetimeResize();
+      if (tabId === 'spacetime') {
+        if (!spacetimeInitialized) {
+          spacetimeInitialized = true;
+          try { initSpacetime3D(); } catch(e) { console.error('Spacetime3D init failed:', e); }
+        } else if (spacetimeRenderer) {
+          onSpacetimeResize();
+        }
       }
       if (tabId === 'galaxy3d' && galaxyRenderer) {
         onGalaxyResize();
@@ -1408,9 +1413,9 @@
         lastFrameTime = now;
       }
 
-      galaxyControls.update();
+      if (galaxyControls) galaxyControls.update();
 
-      if (!isSimPaused && starPositions) {
+      if (!isSimPaused && starPositions && galaxyRenderer) {
         const count = starRadii.length;
         const selKey = document.getElementById('simGalaxySelect').value;
         const g = galaxyArchetypes[selKey] || galaxyArchetypes['NGC6503'];
@@ -1443,7 +1448,7 @@
         starGeo.attributes.position.needsUpdate = true;
       }
 
-      galaxyRenderer.render(galaxyScene, galaxyCamera);
+      if (galaxyRenderer && galaxyScene && galaxyCamera) galaxyRenderer.render(galaxyScene, galaxyCamera);
     }
 
     function setPhysicsModel(model) {
@@ -1801,8 +1806,8 @@
 
     function initSpacetime3D() {
       const container = document.getElementById('spacetimeViewport');
-      const width = container.clientWidth;
-      const height = container.clientHeight;
+      const width = container.clientWidth || 600;
+      const height = container.clientHeight || 520;
 
       spacetimeScene = new THREE.Scene();
       spacetimeCamera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
@@ -1861,7 +1866,7 @@
     let stTime = 0;
     function renderSpacetimeLoop() {
       requestAnimationFrame(renderSpacetimeLoop);
-      spacetimeControls.update();
+      if (spacetimeControls) spacetimeControls.update();
 
       stTime += 0.03;
       const amp = parseFloat(document.getElementById('stAmpSlider').value);
@@ -1894,7 +1899,7 @@
         if (gwPulseRadius > 35) isGWPulsing = false;
       }
 
-      spacetimeRenderer.render(spacetimeScene, spacetimeCamera);
+      if (spacetimeRenderer && spacetimeScene && spacetimeCamera) spacetimeRenderer.render(spacetimeScene, spacetimeCamera);
     }
 
     // --- 5. VARIATIONAL ACTION & LAGRANGIAN SANDBOX ---
@@ -2083,9 +2088,12 @@
       }
     };
 
-    function showLeanModule(modKey) {
-      document.querySelectorAll('#tab-lean .btn-secondary').forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
+    function showLeanModule(modKey, evt) {
+      const leanButtons = document.querySelectorAll('#tab-lean .btn-secondary');
+      leanButtons.forEach(b => b.classList.remove('active'));
+      const btnIdx = ['skordis','dual','mu','speed','stability'].indexOf(modKey);
+      if (btnIdx !== -1 && leanButtons[btnIdx]) leanButtons[btnIdx].classList.add('active');
+      else if (evt && evt.target) evt.target.classList.add('active');
 
       const data = leanProofDatabase[modKey] || leanProofDatabase['skordis'];
       document.getElementById('terminalCommand').textContent = data.cmd;
@@ -2254,14 +2262,15 @@
     }
 
     // --- APPLICATION BOOTSTRAP ---
+    let spacetimeInitialized = false;
     window.addEventListener('DOMContentLoaded', () => {
-      initAmbientStarfield();
-      initGalaxy3D();
-      initSparcEngine();
-      initSpacetime3D();
-      initVariationalEngine();
-      showLeanModule('skordis');
-      populateLedger(ledgerEntries);
+      try { initAmbientStarfield(); } catch(e) { console.error('Starfield init failed:', e); }
+      try { initGalaxy3D(); } catch(e) { console.error('Galaxy3D init failed:', e); }
+      try { initSparcEngine(); } catch(e) { console.error('SPARC init failed:', e); }
+      // Defer spacetime 3D init until its tab is shown (container has 0x0 dims when hidden)
+      try { initVariationalEngine(); } catch(e) { console.error('Variational init failed:', e); }
+      try { showLeanModule('skordis'); } catch(e) { console.error('Lean module init failed:', e); }
+      try { populateLedger(ledgerEntries); } catch(e) { console.error('Ledger init failed:', e); }
     });
   </script>
 
