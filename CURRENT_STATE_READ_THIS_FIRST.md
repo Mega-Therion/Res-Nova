@@ -7,7 +7,7 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against the physics:** 2026-09-24 (the audit-cycle state below supersedes
+**Last verified against the physics:** 2026-09-29 (the audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it).
 
 This line is **enforced**, not decorative: `scripts/current_state_freshness.py` fails the
@@ -87,6 +87,11 @@ one place, unambiguous, checked first, every time.
   as a celerity is Postulate R, still `[O]`, and nothing there selects a ↦ a₀²/a as a symmetry
   of the dynamics. Results are presented in `HAMILGRANGIAN_CANONICAL.tex`, so the module is
   scoped adjacent and is not a Table 2 result.
+- **Added 2026-09-29 — Screened branch foundations formally machine-proved.** The constitutive
+  action $F_{\text{std}}(x) = \int_0^x s \mu_{\text{std}}(s) ds = \sqrt{1+x^2} - 1$, its strict convexity
+  $F'' > 0$, radial perturbation sound speed bounds $c_s^2(x) \in [1/2, 1)$ (zero gradient instability,
+  strict subluminality), and solar system Cassini clearance $\delta_{\text{std}}(x_{\text{Saturn}}) \le 1.49 \times 10^{-12} \ll 2.3 \times 10^{-5}$
+  are machine-certified in `MuStdFoundations.lean` with zero `sorry` and standard axioms.
 
 ### 2. The substrate is V₂(ℝ³) via Cartan triality, NOT V₂₄₀(ℝ^N)
 

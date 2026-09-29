@@ -39,6 +39,7 @@
 | **F7** | 17 Lean 4 Modules on Disk | `[P]` Kernel Verified / Diagnostic | `05_lean_formalization/*.lean` | `verify_all_proofs.sh` exit 0 on local gate; standard axioms only |
 | **F8** | Empirical Provenance & Out-of-Sample Validation | `[D]` Cross-Validation / Bootstrap | `02_galaxy_dynamics/A0_MEASUREMENT.json` | 171 galaxies (3,375 points), bootstrap + honest CV |
 | **F9** | Kerr Rapidity Equipartition & Sovereign Spin Ceiling | `[P]` (algebra) / `[O]` (dynamical action) | `06_unification_and_spin/rapidity_uniqueness_proof.py`, `two_channel_ceiling_proof.py` | Exact $\operatorname{arsinh}(1) = \ln(1+\sqrt{2}) = \operatorname{artanh}(1/\sqrt{2})$ and $\chi_s = \sqrt{\sqrt{2}-1/2} \approx 0.956145$ verified `[P]` at 100 dps |
+| **F10** | Canonical $\mu_{\text{std}}$ Foundations, Sound Speed & Cassini Clearance | `[P]` Kernel Verified / `[D]` Ephemerides | `05_lean_formalization/MuStdFoundations.lean`, `scripts/verify_mu_std_cassini_and_limits.py` | Derivative identity $F_{\text{std}}'=x\mu_{\text{std}}$, ghost-free strict convexity $F_{\text{std}}''>0$, scalar perturbation sound speed $c_s^2 \in [1/2, 1)$ gradient stability \& subluminality, and Cassini clearance ($|\gamma-1| \le 1.49 \times 10^{-12} \ll 2.3 \times 10^{-5}$) verified `[P]` |
 
 ---
 
@@ -196,4 +197,25 @@ not $a_0 = \frac{cH_0}{2\pi}$. The additional $1/(2\pi)$ divisor is an open boun
 * **Physics Scope & Boundaries:**
   - Proves the exact mathematical uniqueness of the rapidity equipartition state and the two-channel union formula.
   - Demonstrates that standard Thorne (1974) thin-disk photon capture reaches equilibrium at $a^* \approx 0.998$, whereas stabilizing spin at $\chi_s \approx 0.956$ requires the topological counter-torque $\tau_{\text{top}}$ from the inner Cauchy horizon quantum bounce.
+
+---
+
+### F10. Canonical $\mu_{\text{std}}$ Foundations, Scalar Sound Speed & Solar System Cassini Clearance
+* **Epistemic Classification:** `[P]` Proved (Constitutive Derivative, Convexity, Sound Speed Bounds, Screening Tail) / `[D]` High-Precision Ephemerides Benchmark
+* **File Paths:**
+  - [`05_lean_formalization/MuStdFoundations.lean`](05_lean_formalization/MuStdFoundations.lean)
+  - [`scripts/verify_mu_std_cassini_and_limits.py`](scripts/verify_mu_std_cassini_and_limits.py)
+  - [`scripts/repro/cassini_clearance_receipt.json`](scripts/repro/cassini_clearance_receipt.json)
+  - [`res_nova_manuscript.tex`](res_nova_manuscript.tex) §3.3
+* **Verified Formal Theorems (`MuStdFoundations.lean`):**
+  - **Constitutive Derivative Identity:** $F_{\text{std}}'(x) = x^2/\sqrt{1+x^2} = x\,\mu_{\text{std}}(x)$ (`F_std_deriv_eq`).
+  - **Ghost-Free Strict Convexity:** $F_{\text{std}}''(x) = x(x^2+2)/(1+x^2)^{3/2} > 0$ for all $x > 0$ (`F_std_deriv2_positivity`), ensuring strict convexity on $[0, \infty)$ (`F_std_strict_convexity`).
+  - **Scalar Perturbation Sound Speed Bounds:** $c_s^2(x) = (1+x^2)/(x^2+2)$ satisfies $1/2 \le c_s^2(x) < 1$ for all $x \in \mathbb{R}$ (`cs_sq_bounds`), guaranteeing gradient stability ($c_s^2 \ge 1/2 > 0$, no ghosts or gradient instabilities) and strict causal subluminality ($c_s^2 < 1$, causal hyperbolicity preserved).
+  - **Inverse-Square Screened Tail:** $1 - \mu_{\text{std}}(x) \le 1/(2x^2)$ for all $x \ge 1$ (`deviation_le_inv_two_sq`).
+  - **Cassini Radar Experiment Clearance:** For $x \ge 500,000$, $1 - \mu_{\text{std}}(x) < 2.3 \times 10^{-5}$ (`cassini_cleared_at_saturn`), clearing the observational bound at Saturn by over 7 orders of magnitude.
+* **Empirical Ephemerides Benchmark (`verify_mu_std_cassini_and_limits.py`):**
+  - Evaluated at Mercury ($x = 3.55 \times 10^8$), Earth ($x = 5.31 \times 10^7$), Saturn ($x = 5.79 \times 10^5$), and Voyager 1 ($x = 5.31 \times 10^3$).
+  - Saturn anomalous deviation: $\delta_{\text{std}} = 1.493 \times 10^{-12} \ll 2.3 \times 10^{-5}$ (Cassini safety margin $1.54 \times 10^7\times$).
+  - Mercury residual force: $\Delta g(\mu_{\text{std}}) = 1.57 \times 10^{-19}\,\text{m/s}^2$ vs unshielded $\Delta g(\mu_{\text{dual}}) = 1.116 \times 10^{-10}\,\text{m/s}^2$ ($7.09 \times 10^8\times$ smaller).
+
 

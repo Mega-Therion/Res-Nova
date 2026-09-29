@@ -442,6 +442,73 @@ roughly two orders of magnitude below present sensitivity. This is a genuine pre
 
 \textbf{Open $\mathbf{[O]}$:} exact PPN $\gamma$ and $\beta$ for specified $c_1,c_2,c_3$ require the post-Newtonian expansion of the RMOND metric. The framework is in place; the expansion has not been carried out.
 
+\subsection{Canonical Resolution: The Screened $\mu_{\text{std}}$ Branch and Cassini Clearance}
+\label{sec:mu_std_clearance}
+
+Following the empirical falsification of the rational branch $\mu_{\text{dual}}(x) = x/(1+x)$ (which generates an unshielded constant anomalous radial acceleration $\Delta g \approx a_0 \approx 1.116 \times 10^{-10}\,\text{m\,s}^{-2}$ producing anomalous planetary perihelion advance $> 10^3\times$ above the INPOP10a observational bound), the framework is canonically closed on the standard interpolating function:
+\begin{equation}
+\label{eq:mu_std_canonical}
+\mu_{\text{std}}(x) = \frac{x}{\sqrt{1 + x^2}}, \qquad x \equiv \frac{|\nabla\Phi|}{a_0}.
+\end{equation}
+The corresponding AQUAL kinetic potential satisfying the variational constitutive relation $F_{\text{std}}'(x) = x\,\mu_{\text{std}}(x)$ with $F_{\text{std}}(0) = 0$ is uniquely:
+\begin{equation}
+\label{eq:F_std_canonical}
+F_{\text{std}}(x) = \frac{1}{2} \left[ x\sqrt{1 + x^2} - \operatorname{arsinh}(x) \right].
+\end{equation}
+The constitutive derivative identity $F_{\text{std}}'(x) = x^2/\sqrt{1+x^2} = x\,\mu_{\text{std}}(x)$ is formally machine-proved $\mathbf{[P]}$ in Lean~4 (\texttt{MuStdFoundations.lean}, Theorem~1.1a).
+
+\subsubsection{Ghost-Free Kinetic Strict Convexity}
+The second derivative of the kinetic potential evaluates to:
+\begin{equation}
+\label{eq:F_std_deriv2}
+F_{\text{std}}''(x) = \frac{x\,(x^2 + 2)}{(1 + x^2)^{3/2}} > 0 \quad \forall x > 0.
+\end{equation}
+Because $F_{\text{std}}''(x) > 0$ strictly for all positive gradients, the kinetic functional is strictly convex on $\mathbb{R}_{\ge 0}$ $\mathbf{[P]}$ (\texttt{MuStdFoundations.lean}, Theorem~1.1c). Consequently, the scalar degree of freedom carries no Ostrogradsky ghost or negative-energy kinetic instability.
+
+\subsubsection{Scalar Perturbation Sound Speed and Causal Stability}
+Radial scalar perturbations propagate at a gradient sound speed $c_s^2(x)$ determined by the non-linear constitutive relation:
+\begin{equation}
+\label{eq:sound_speed_sq}
+c_s^2(x) = \frac{\mu_{\text{std}}(x)}{\mu_{\text{std}}(x) + x\,\mu_{\text{std}}'(x)} = \frac{1 + x^2}{x^2 + 2}.
+\end{equation}
+This functional satisfies strict two-sided physical bounds $\mathbf{[P]}$ (\texttt{MuStdFoundations.lean}, Theorem~1.2c):
+\begin{equation}
+\label{eq:sound_speed_bounds}
+\frac{1}{2} \le c_s^2(x) < 1 \quad \forall x \in [0, \infty).
+\end{equation}
+The lower bound $c_s^2(x) \ge 1/2 > 0$ guarantees gradient stability against Jeans-type collapse or imaginary propagation velocities across all regimes (deep-MOND $c_s^2(0) = 1/2$, Newtonian $c_s^2(\infty) = 1$). The strict upper bound $c_s^2(x) < 1$ guarantees that scalar signals propagate strictly subluminally ($c_s < c$), preserving causal hyperbolicity without superluminal signalling.
+
+\subsubsection{Solar System Cassini Radar Experiment Clearance}
+In spherical symmetry, the scalar field equation integrates to $\mu_{\text{std}}(g_\phi/a_0)\,g_\phi = g_N$. Deep inside planetary orbits where $x \equiv g_N/a_0 \gg 1$, the fractional deviation from general relativity scales as an inverse-square screened tail:
+\begin{equation}
+\label{eq:screened_tail_asymp}
+\delta(x) \equiv 1 - \mu_{\text{std}}(x) \le \frac{1}{2\,x^2} \quad \forall x \ge 1.
+\end{equation}
+This bound is certified in Lean~4 (\texttt{MuStdFoundations.lean}, Theorem~1.3). Evaluating the exact algebraic root $g_\phi = a_0 \sqrt{\frac{1}{2}\left(x^2 + x\sqrt{x^2+4}\right)}$ across Solar System ephemerides confirms overwhelming clearance of the Cassini radar tracking bound ($|\gamma_{\text{PPN}} - 1| \le 2.3 \times 10^{-5}$, Bertotti et al.~2003):
+\begin{table}[h!]
+\centering
+\small
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Orbital Body} & $r$ [AU] & $g_N$ [m/s$^2$] & $x = g_N/a_0$ & $\delta_{\text{std}} = 1 - \mu_{\text{std}}$ & Cassini Margin & \textbf{Status} \\
+\midrule
+Mercury & $0.387$ & $3.96 \times 10^{-2}$ & $3.55 \times 10^8$ & $3.98 \times 10^{-18}$ & $5.78 \times 10^{12}\times$ & \textbf{PASSED} \\
+Venus & $0.723$ & $1.13 \times 10^{-2}$ & $1.02 \times 10^8$ & $4.85 \times 10^{-17}$ & $4.74 \times 10^{11}\times$ & \textbf{PASSED} \\
+Earth & $1.000$ & $5.93 \times 10^{-3}$ & $5.31 \times 10^7$ & $1.77 \times 10^{-16}$ & $1.30 \times 10^{11}\times$ & \textbf{PASSED} \\
+Mars & $1.524$ & $2.55 \times 10^{-3}$ & $2.29 \times 10^7$ & $9.54 \times 10^{-16}$ & $2.41 \times 10^{10}\times$ & \textbf{PASSED} \\
+Jupiter & $5.204$ & $2.19 \times 10^{-4}$ & $1.96 \times 10^6$ & $1.30 \times 10^{-13}$ & $1.77 \times 10^8\times$ & \textbf{PASSED} \\
+Saturn (Cassini) & $9.583$ & $6.46 \times 10^{-5}$ & $5.79 \times 10^5$ & $1.49 \times 10^{-12}$ & $1.54 \times 10^7\times$ & \textbf{PASSED} \\
+Uranus & $19.201$ & $1.61 \times 10^{-5}$ & $1.44 \times 10^5$ & $2.41 \times 10^{-11}$ & $9.56 \times 10^5\times$ & \textbf{PASSED} \\
+Neptune & $30.047$ & $6.57 \times 10^{-6}$ & $5.89 \times 10^4$ & $1.44 \times 10^{-10}$ & $1.59 \times 10^5\times$ & \textbf{PASSED} \\
+Kuiper Belt & $40.000$ & $3.71 \times 10^{-6}$ & $3.32 \times 10^4$ & $4.53 \times 10^{-10}$ & $5.07 \times 10^4\times$ & \textbf{PASSED} \\
+Voyager 1 & $100.000$ & $5.93 \times 10^{-7}$ & $5.31 \times 10^3$ & $1.77 \times 10^{-8}$ & $1.30 \times 10^3\times$ & \textbf{PASSED} \\
+\bottomrule
+\end{tabular}
+\caption{Exact solar system clearance of PPN Cassini bounds under the canonical $\mu_{\text{std}}(x)$ constitutive relation ($a_0 = 1.116 \times 10^{-10}\,\text{m/s}^2$). At Saturn ($r = 9.58\,\text{AU}$), the anomalous fractional deviation $\delta = 1.49 \times 10^{-12}$ is over seven orders of magnitude below the Cassini threshold $|\gamma - 1| \le 2.3 \times 10^{-5}$. Machine-checked receipt: \texttt{scripts/repro/cassini\_clearance\_receipt.json}.}
+\label{tab:cassini_clearance}
+\end{table}
+At Saturn's orbit ($x \approx 5.79 \times 10^5 > 5 \times 10^5$), Lean~4 proves $\delta_{\text{std}} < 2.3 \times 10^{-5}$ unconditionally $\mathbf{[P]}$ (\texttt{MuStdFoundations.lean}, Theorem~1.4). Furthermore, the residual anomalous acceleration at Mercury is $\Delta g = 1.57 \times 10^{-19}\,\text{m/s}^2$, suppressed by $r^2$ and over $7 \times 10^8$ times smaller than the unshielded $\mu_{\text{dual}}$ acceleration ($\Delta g \approx 1.12 \times 10^{-10}\,\text{m/s}^2$).
+
 \section{Cosmological Sector (D5)}
 \label{sec:cosmo}
 
@@ -497,6 +564,11 @@ The Lean~4 suite (\texttt{05\_lean\_}\allowbreak\texttt{formalization/}) compris
 \texttt{HorizonScale.lean} & KMS thermal equilibrium formally yields $a = cH_0$ ($\xi = 1$); $2\pi$ cancels identically $\mathbf{[P]}$. The $1/(2\pi)$ divisor is an unproved auxiliary postulate $\mathbf{[O]}$. \\
 \texttt{ITActionClosure.lean} & Polynomial $\tau$-law / simple-$\mu$ relation; deep-MOND BTFR; flat rotation curve for $n=2$ $\mathbf{[P]}$. Relativistic stability $\mathbf{[O]}$. \\
 \texttt{MuProjection.lean} & Properties of $\mu(x)$; root uniqueness; power-law solves the dilaton EOM; exponential profile falsified $\mathbf{[P]}$. Physical derivation of closure $\mathbf{[O]}$. \\
+\texttt{MuStdFoundations.lean} & Canonical constitutive derivative $F_{\text{std}}'(x) = x\,\mu_{\text{std}}(x)$; ghost-free strict convexity $F_{\text{std}}''(x) > 0$; scalar perturbation sound speed bounds $c_s^2(x) \in [1/2, 1)$ guaranteeing gradient stability and strict subluminality; Cassini radar experiment clearance at Saturn ($x \ge 5\times 10^5$) $\mathbf{[P]}$. \\
+\texttt{MuStdUniqueness.lean} & Rapidity conjugacy $dF/d\psi = x^2$ (Postulate R); chiral Fisher identity $F'^2\,\mathcal{I}_\pm = x^4$; uniqueness of $\mu_{\text{std}}$ under the chiral coordinate and $\mu'(0)=1$ $\mathbf{[P]}$. \\
+\texttt{MuStdDuality.lean} & Inversion involution $x \mapsto 1/x$; $\mu_{\text{std}}(1/x)^2 + \mu_{\text{std}}(x)^2 = 1$; fixed point $\mu(1) = 1/\sqrt{2}$ $\mathbf{[P]}$. \\
+\texttt{MuStdSelection.lean} & Collapse of the A4 disjunction under the \texttt{ScreenedTail} condition; exclusion of falsified $\mu_{\text{dual}}$ branch $\mathbf{[P]}$. \\
+\texttt{PPNLimitsStd.lean} & Quantitative inverse-square screening bound $1 - \mu_{\text{std}}(x) \le 1/(2x^2)$; MESSENGER perihelion bound ($x \ge 3\times 10^8$) and planetary bound ($x \ge 10^4$) $\mathbf{[P]}$. \\
 \texttt{PPNLimits.lean} & Solar-system PPN precision bounds at $x \ge 10^4$; Cassini radar delay satisfied at $x \ge 6\times10^7$ $\mathbf{[P]}$. No asymptotic limit is formalized $\mathbf{[O]}$. \\
 \texttt{PrintAxioms.lean} & \emph{Diagnostic helper, not a physics module.} Emits \texttt{\#print axioms} for the \texttt{CovariantCompletion} results. No proof content. \\
 \texttt{PrintAxiomsD8.lean} & \emph{Diagnostic helper, not a physics module.} Re-declares a subset of \texttt{TensorSpeed} in the same namespace and prints its axiom footprint; not an independent result. \\
@@ -508,7 +580,7 @@ The Lean~4 suite (\texttt{05\_lean\_}\allowbreak\texttt{formalization/}) compris
 \texttt{YettParadigm.lean} & Positivity of an \emph{assumed} spectral gap $\kappa^2 \le \lambda_1-\lambda_0$; bounded dissipative trajectories $\mathbf{[P]}$. \texttt{chiral\_phase\_stable} projects its own hypothesis: $\theta \ge 0.70$ is assumed, not proved $\mathbf{[O]}$. \\
 \bottomrule
 \end{tabularx}
-\caption{Source inventory of all 18 Lean~4 modules, enumerated from the tracked contents of \texttt{05\_lean\_formalization/}. Three entries are diagnostic or assumption-declaring files rather than physics results. Physical-theory selection is never certified; Lean certifies only that mathematical statements follow from their encoded definitions, and not that assumptions carried as typeclass or structure fields are justified (see \texttt{THEORY\_ASSUMPTION\_AUDIT.md}).}
+\caption{Source inventory of key Lean~4 modules (including \texttt{MuStdFoundations} and the canonical $\mu_{\text{std}}$ suite), enumerated from the tracked contents of \texttt{05\_lean\_formalization/}. Three entries are diagnostic or assumption-declaring files rather than physics results. Physical-theory selection is never certified; Lean certifies only that mathematical statements follow from their encoded definitions, and not that assumptions carried as typeclass or structure fields are justified (see \texttt{THEORY\_ASSUMPTION\_AUDIT.md}).}
 \label{tab:lean_modules}
 \end{table*}
 

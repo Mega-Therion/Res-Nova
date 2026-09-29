@@ -69,6 +69,7 @@ TARGETS=(
   SZStdEmbedding.lean
   GateHolonomySusceptibility.lean
   MuStdSelection.lean
+  MuStdFoundations.lean
   PPNLimitsStd.lean
   LambdaSBound.lean
   PrecessionBound.lean

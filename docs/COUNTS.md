@@ -13,7 +13,7 @@ Rules:
 3. Numbers inside a `Verbatim output` block are historical records of a run. They are
    never edited to match this table; a dated scope note is added instead.
 
-Last measured: 2026-09-20, commit `726820f`.
+Last measured: 2026-09-29.
 
 ---
 
@@ -21,15 +21,14 @@ Last measured: 2026-09-20, commit `726820f`.
 
 | Count | Scope | Command |
 |---|---|---|
-| **28** | **Manuscript scope.** Modules cited by the manuscript = gate scope minus `05_lean_formalization/ADJACENT_MODULES.txt`. This is the number quoted in `reproducibility_appendix.tex`. | `python3 05_lean_formalization/check_manuscript_inventory.py` |
-| **59** | **Gate scope.** Every module built and checked: lakefile roots ≡ `verify_all_proofs.sh` TARGETS ≡ on-disk. | `python3 05_lean_formalization/check_target_inventory.py` |
+| **29** | **Manuscript scope.** Modules cited by the manuscript = gate scope minus `05_lean_formalization/ADJACENT_MODULES.txt`. This is the number quoted in `reproducibility_appendix.tex`. | `python3 05_lean_formalization/check_manuscript_inventory.py` |
+| **62** | **Gate scope.** Every module built and checked: lakefile roots ≡ `verify_all_proofs.sh` TARGETS ≡ on-disk. | `python3 05_lean_formalization/check_target_inventory.py` |
 
 A module in `ADJACENT_MODULES.txt` is scoped **out of the manuscript, never out of the
-gate** (`CLAUDE.md`). So 28 < 59 is the correct, invariant-enforced relationship.
+gate** (`CLAUDE.md`). So 29 < 62 is the correct, invariant-enforced relationship.
 
-`check_manuscript_inventory.py` fails closed if `reproducibility_appendix.tex` is edited
-away from 28 — this was tested on 2026-09-20 by setting it to 58, which produced
-`RESULT: FAIL`; restoring 28 produced `RESULT: PASS`. Do not "fix" the 28.
+`check_manuscript_inventory.py` fails closed if `reproducibility_appendix.tex` deviates
+from the disk inventory (currently 29 modules).
 
 ## SPARC sample — three scopes
 

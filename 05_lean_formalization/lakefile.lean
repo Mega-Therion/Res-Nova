@@ -92,6 +92,7 @@ lean_lib «ResNovaFormal» where
     `SZStdEmbedding,
     `GateHolonomySusceptibility,
     `MuStdSelection,
+    `MuStdFoundations,
     `PPNLimitsStd,
     `LambdaSBound,
     `PrecessionBound,

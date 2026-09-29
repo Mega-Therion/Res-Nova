@@ -206,6 +206,24 @@ modules:
     observable: "Planck CMB acoustic peak structure, which requires c_ad^2 <~ 0.02 at recombination (a = 1e-4)"
     falsifier: "a measured c_ad^2(a=1e-4) > 0.02, or CMB peak positions inconsistent with a shielded early-time sound speed"
 
+  - module: MuStdDuality
+    tier: ARITH
+    theorems: 11
+    structures: 0
+    plain_real_defs: 3
+    denotes: "the reciprocal x -> 1/x duality involution of the standard interpolating function mu_std and its relation to proper celerity and rapidity"
+    observable: "galactic rotation curves and transition regime inflection points"
+    falsifier: "breakdown of the mu_std(1/x)^2 + mu_std(x)^2 = 1 duality invariant or incompatibility with AeST vector field embedding"
+
+  - module: MuStdFoundations
+    tier: STRUCT
+    theorems: 8
+    structures: 1
+    plain_real_defs: 2
+    denotes: "canonical constitutive derivative F_std'=x*mu_std, ghost-free strict convexity, scalar perturbation sound speed c_s^2 in [1/2, 1), and inverse-square screened tail"
+    observable: "Solar System planetary ephemerides and Cassini radar tracking (|gamma - 1| <= 2.3e-5)"
+    falsifier: "observed planetary perihelion precession exceeding INPOP10a bounds or superluminal scalar mode propagation (c_s >= 1)"
+
   - module: NavierStokesCorticalBound
     tier: ARITH
     theorems: 7
