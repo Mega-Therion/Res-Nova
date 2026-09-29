@@ -31,6 +31,9 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 
+  <!-- Papers Carousel Styles -->
+  <link rel="stylesheet" href="papers-carousel.css" />
+
   <style>
     :root {
       --bg-dark: #05070b;
@@ -746,6 +749,7 @@
       <button class="nav-btn" onclick="switchTab('variational')">⚡ Variational Action</button>
       <button class="nav-btn" onclick="switchTab('lean')">📜 Lean 4 Verification</button>
       <button class="nav-btn" onclick="switchTab('ledger')">🏛️ Sovereign Ledger</button>
+      <button class="nav-btn" onclick="switchTab('papers')">📚 Research Papers</button>
     </nav>
 
     <!-- Header Actions -->
@@ -1177,7 +1181,39 @@
       </div>
     </div>
 
+    <!-- ========================================== -->
+    <!-- TAB 7: RESEARCH PAPERS CAROUSEL            -->
+    <!-- ========================================== -->
+    <div id="tab-papers" class="tab-pane">
+      <div class="papers-header">
+        <h2>📚 Published Research Papers</h2>
+        <p>An interactive carousel of peer-reviewed and formally verified publications. Click any paper to explore its key concepts, equations, and chat with the Nova AI explainer.</p>
+      </div>
+
+      <div class="carousel-stage">
+        <div class="carousel-track" id="carouselTrack"></div>
+      </div>
+
+      <div class="carousel-nav">
+        <button class="carousel-btn" onclick="carouselPrev()" title="Previous paper">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-btn" onclick="carouselNext()" title="Next paper">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
   </main>
+
+  <!-- Paper Detail + Chat Overlay -->
+  <div class="paper-detail-overlay" id="paperDetailOverlay">
+    <div class="paper-detail">
+      <div class="detail-content" id="paperDetailContent"></div>
+      <div class="chat-panel" id="paperChatPanel"></div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>
@@ -1201,7 +1237,7 @@
       const target = document.getElementById('tab-' + tabId);
       if (target) target.classList.add('active');
 
-      const tabIds = ['galaxy3d', 'sparc', 'spacetime', 'variational', 'lean', 'ledger'];
+      const tabIds = ['galaxy3d', 'sparc', 'spacetime', 'variational', 'lean', 'ledger', 'papers'];
       const idx = tabIds.indexOf(tabId);
       if (idx !== -1) {
         document.querySelectorAll('.nav-tabs .nav-btn')[idx].classList.add('active');
@@ -1226,6 +1262,12 @@
       if (tabId === 'galaxy3d' && galaxyRenderer) {
         onGalaxyResize();
       }
+      if (tabId === 'papers') {
+        if (!window._papersCarouselInit) {
+          window._papersCarouselInit = true;
+          try { initPapersCarousel(); } catch(e) { console.error('Papers carousel init failed:', e); }
+        }
+      }
     }
 
     // Keyboard Shortcuts
@@ -1237,6 +1279,7 @@
       if (e.key === '4') switchTab('variational');
       if (e.key === '5') switchTab('lean');
       if (e.key === '6') switchTab('ledger');
+      if (e.key === '7') switchTab('papers');
       if (e.key === ' ' || e.code === 'Space') { e.preventDefault(); toggleSimPause(); }
       if (e.key === 'r' || e.key === 'R') resetSimCamera();
       if (e.key === 'o' || e.key === 'O') runLiveMAPOptimizer();
@@ -2613,6 +2656,9 @@
       try { populateLedger(ledgerEntries); } catch(e) { console.error('Ledger init failed:', e); }
     });
   </script>
+
+  <!-- Research Papers Carousel -->
+  <script src="papers-carousel.js"></script>
 
   <!-- Vercel Analytics & Speed Insights -->
   <script>
