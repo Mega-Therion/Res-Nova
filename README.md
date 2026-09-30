@@ -1,6 +1,8 @@
 # Res-Nova
 
 <p align="left">
+  <a href="https://github.com/Mega-Therion/Res-Nova/actions/workflows/verify.yml"><img src="https://github.com/Mega-Therion/Res-Nova/actions/workflows/verify.yml/badge.svg" alt="Verify CI"></a>
+  <a href="https://github.com/Mega-Therion/Res-Nova/actions/workflows/verify.yml"><img src="https://img.shields.io/badge/Lean%204-verified-6f42c1?style=flat-square&logo=lean&logoColor=white" alt="Lean 4 Verified"></a>
   <a href="https://doi.org/10.5281/zenodo.21539453"><img src="https://img.shields.io/badge/Zenodo-10.5281%2Fzenodo.21539453-024dad?style=flat-square&logo=doi&logoColor=white" alt="Zenodo concept DOI"></a>
   <a href="https://resnova-hub-f4ucvy3e.manus.space"><img src="https://img.shields.io/badge/Research%20Atlas-resnova--hub-0070f3?style=flat-square&logo=safari&logoColor=white" alt="Res Nova Atlas"></a>
   <a href="https://huggingface.co/datasets/ChyRho/res-nova"><img src="https://img.shields.io/badge/Hugging%20Face-ChyRho%2Fres--nova-FFD21E?style=flat-square&logo=huggingface&logoColor=black" alt="Hugging Face Dataset"></a>
@@ -10,6 +12,16 @@
 </p>
 
 Technical manuscript, formal verification, and reproducibility package.
+
+## AI Safety & Scalable Oversight Utility
+
+Res-Nova is a live demonstration of *falsifiable, machine-checkable scientific claims*. Every quantitative result in the manuscript is registered in a structured claim registry (`scripts/validate_claim_registry.py`) and gated by a Lean 4 proof target inventory (`05_lean_formalization/`). The CI pipeline runs daily and on every push, executing:
+
+- **Claim consistency checks** — automated detection of internal contradictions across the claim registry
+- **Lean 4 formal gate** — `lake build` verifies every proof target; `sorry`-free or the gate is red
+- **MVPC-X conformance judgment** — an independent claim-consumer replays the rendered claim bundle against a formal judge, catching evaluator-gaming and vacuous proofs
+
+This architecture is directly applicable to **scalable oversight** and **interpretability auditing**: the same claim-registry and formal-gate pattern can bound the behavior of AI systems whose outputs make mathematical or logical assertions. The reproducibility package (Zenodo DOI `10.5281/zenodo.21539453`) provides a self-contained, citable artifact for replication.
 
 ## Citation
 
