@@ -39,7 +39,7 @@
 - **D2, D6 and D9 closed to [P] (2026-09-27, later): see their rows.**
 - **D3 closed to [P] (§34: the dragged branch is exactly GR).**
 - **O1 closed to [P] under the two-parameter accounting (a₀ is the declared anchored input).**
-- **Score: 9/12 [P] (D1, D2, D3, D6, D8, D9, O1, O5, O6), 2/12 [P/O] (D5, D7), 1/12 [O]/[C] (O4).**
+- **Score: 8/12 [P] (D1, D2, D6, D8, D9, O1, O5, O6), 3/12 [P/O] (D3, D5, D7), 1/12 [O]/[C] (O4).** (D3 downgraded to [P/O] 2026-09-30: conditional on D7 branch selection.)
 
 ## 1. Completion Matrix
 
