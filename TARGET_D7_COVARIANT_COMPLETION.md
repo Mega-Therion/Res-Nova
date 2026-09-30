@@ -451,8 +451,8 @@ Searched arXiv (`abs:"Aether-Scalar-Tensor"`, `all:"relativistic MOND" AND all:"
 `au:Skordis_C AND abs:screening`), 2026-09-12. Findings:
 
 - **No AeST paper builds SZ's escape hatch.** The AeST quasistatic literature
-  (Verwayen–Skordis–Złośnik arXiv:2304.05134; Mistele arXiv:2305.07742; Kuzmichev et al.
-  arXiv:2312.00889) studies the *two-derivative* sector — Newtonian / MOND / ghost-condensate
+  (Verwayen–Skordis–Złośnik arXiv:2304.05134; Mistele arXiv:2305.07742; Duraković–Skordis
+  arXiv:2312.00889 [author attribution corrected 2026-09-30; previously "Kuzmichev et al."]) studies the *two-derivative* sector — Newtonian / MOND / ghost-condensate
   oscillatory regimes — and nowhere adds a screening operator. The hatch is still only a remark
   in the PRL. **[C]** (absence here is a statement about this search, not about the literature.)
 - **The construction exists, in pre-AeST form:** Babichev, Deffayet & Esposito-Farèse,

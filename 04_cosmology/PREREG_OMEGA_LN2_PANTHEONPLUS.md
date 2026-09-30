@@ -17,6 +17,7 @@ O3 states: "A number that is only compared by eye is not a test." The conjecture
 ## 2. Frozen framework
 
 - **Data:** Pantheon+ SH0ES sample (Scolnic et al. 2022, arXiv:2202.04077), all 1701 SNe Ia, machine-readable files `Pantheon+SH0ES.dat` and `Pantheon+SH0ES_STAT+SYS.cov` from the official data release (github.com/PantheonPlusSH0ES/DataRelease, `Pantheon+_Data/4_DISTANCES_AND_COVAR`).
+  - *Citation erratum (2026-09-30, frozen text above left unchanged):* arXiv:2202.04077 is Brout et al. 2022, "The Pantheon+ Analysis: Cosmological Constraints". The data release by Scolnic et al. 2022 is arXiv:2112.03863. Both papers belong to the same release, so the data used is unchanged; only the attribution was wrong.
 - **Likelihood:** Gaussian in distance modulus using the FULL statistical+systematic covariance matrix (N = 1701), exactly as the release README mandates. Diagonal-only errors are forbidden by the release and are not used.
 - **Model:** flat ΛCDM. `E(z) = sqrt(Ω_m(1+z)³ + Ω_Λ)`, `Ω_Λ = 1 − Ω_m`. Luminosity distance integrated from `z_HEL` per the release convention, `c = 299792.458 km/s`; `H_0` is absorbed into the marginalized absolute magnitude.
 - **Nuisance:** the absolute magnitude `M` is marginalized analytically over the full covariance (the standard cosmology-only Pantheon+ likelihood). No other parameters are fitted.
