@@ -32,7 +32,8 @@ fi
 
 echo "[session-start] lean toolchain"
 if ! command -v elan >/dev/null 2>&1 && [ ! -x "$HOME/.elan/bin/elan" ]; then
-  curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \
+  # Pinned to a release tag, not master: this script is piped to sh.
+  curl -sSfL https://raw.githubusercontent.com/leanprover/elan/v4.2.4/elan-init.sh \
     | sh -s -- -y --default-toolchain none >/dev/null
 fi
 export PATH="$HOME/.elan/bin:$PATH"
