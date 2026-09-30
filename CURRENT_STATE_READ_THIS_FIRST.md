@@ -87,17 +87,24 @@ one place, unambiguous, checked first, every time.
   as a celerity is Postulate R, still `[O]`, and nothing there selects a ↦ a₀²/a as a symmetry
   of the dynamics. Results are presented in `HAMILGRANGIAN_CANONICAL.tex`, so the module is
   scoped adjacent and is not a Table 2 result.
-- **Added 2026-09-29 — Screened branch foundations formally machine-proved.** The constitutive
-  action $F_{\text{std}}(x) = \int_0^x s \mu_{\text{std}}(s) ds = \sqrt{1+x^2} - 1$, its strict convexity
-  $F'' > 0$, radial perturbation sound speed bounds $c_s^2(x) \in [1/2, 1)$ (zero gradient instability,
-  strict subluminality), and solar system Cassini clearance $\delta_{\text{std}}(x_{\text{Saturn}}) \le 1.49 \times 10^{-12} \ll 2.3 \times 10^{-5}$
-  are machine-certified in `MuStdFoundations.lean` with zero `sorry` and standard axioms.
-- **Added 2026-09-29 — AeST stealth / dragged ghost-condensate branch formally machine-proved.**
-  On the free-fall dragged branch ($A_\mu = -Q_0^{-1} \partial_\mu \phi$, $g^{\mu\nu}\partial_\mu\phi\partial_\nu\phi = -Q_0^2$),
-  the kinetic projection $P^{00}$ and transverse kinetic invariant $\mathcal{Y}$ vanish identically, $Q = Q_0$,
-  and all 8 AeST field-equation residuals vanish on Painlevé–Gullstrand Schwarzschild. Formally certified in
-  `AeSTStealthSector.lean` with zero `sorry` and standard axioms, proving exact General Relativity PPN parameters
-  ($\gamma = \beta = 1$, $\alpha_1 = \alpha_2 = 0$).
+- **Corrected 2026-09-30 — the 2026-09-29 `MuStdFoundations.lean` entry overclaimed in three ways.**
+  What stands `[P]`: the constitutive action $F_{\text{std}}(x) = \int_0^x s\,\mu_{\text{std}}(s)\,ds
+  = \tfrac12[x\sqrt{1+x^2} - \operatorname{arsinh} x]$ (the entry had printed $\sqrt{1+x^2}-1$,
+  which is $\int\mu$, not $\int s\mu$), with $F' = x\mu_{\text{std}}$ and strict convexity $F'' > 0$.
+  **Retracted:** "sound speed $c_s^2 \in [1/2, 1)$, strictly subluminal". That expression,
+  $\mu/(x\mu)'$, is a ratio of spatial stiffnesses and is the *reciprocal* of the actual characteristic
+  speed. In the relativistic P(X) completion the speed along the gradient is
+  $c_\parallel^2 = xF''/F' = (x^2+2)/(x^2+1) \in (1, 2]$ — **superluminal** (RAQUAL acausality). The
+  module now proves this from `deriv F_std` (`c_long_sq_superluminal`). AeST's own scalar speed is D6's
+  separate result and is unaffected. **Relabelled:** "Cassini clearance". $1-\mu_{\text{std}} \le 2\times10^{-12}$
+  at Saturn (1.62×10⁻¹² at the live a₀ = 1.1607×10⁻¹⁰, not the superseded 1.116) is the isolated-Sun
+  **monopole** only. It was compared with the Cassini bound on $\gamma-1$, a different observable. The
+  binding Cassini test is the EFE quadrupole, which bare μ_std **fails** (see the 09-27 bullet above).
+- **Corrected 2026-09-30 — `AeSTStealthSector.lean` does not contain field equations.** It proves, by
+  `ring`, that $P^{00}(-1,1)=0$, $\mathcal{Y}=0$ and $Q=Q_0$ in the free-fall frame. Its PPN theorems are
+  `rfl` on values it *defines* as γ = β = 1, α₁ = α₂ = 0. The "all 8 AeST field-equation residuals vanish
+  on PG Schwarzschild" statement rests on the D3 note 7 §34 symbolic check `[D]` and on Skordis &
+  Vokrouhlický 2024 `[C]`, not on this module, and applies only if the dragged branch is selected (D7, open).
 
 ### 2. The substrate is V₂(ℝ³) via Cartan triality, NOT V₂₄₀(ℝ^N)
 
@@ -150,14 +157,14 @@ linear MPS window. **Never substitute c_ad for a propagation speed.**
 |---|---|---|
 | D1 | [P] | μ_std rebuild **complete** (`TARGET_D1_SUPPLEMENT`, re-run 2026-09-12); its '1300× solar-system clear' is monopole-only — EFE quadrupole fails at derived a0, duality screening restores a pass (2026-09-27) |
 | D2 | [P] | **Closed 2026-09-27 under the two-irreducible-parameters accounting.** μ is parameter 2 (the functional choice): structurally motivated (Postulate R / chiral coordinate), empirically selected (n≈2, Δχ²/s 700–1400), ghost-free, Cassini-consistent with screening. Duality holds for all n (`MuNDuality.lean`). A covariant argument forcing μ is a research question, not a gap |
-| D3 | [P] | **Closed 2026-09-27 (note 7 §34), verified symbolically.** The dragged branch completes to AeST's stealth sector (Skordis & Vokrouhlický 2024): the aether is a constant-norm clock-field gradient, i.e. the free-fall river. All field-equation residuals are 0 on PG Schwarzschild, so every PPN parameter is GR, up to external-field and cosmological-density corrections, wherever the clock field is single-valued (the planets, if v_rel ≳ 60 km/s, an estimate). c₂ lift excluded (|α₁| ≥ 4K_B). λ_s is not constrained by a dragged Sun |
+| D3 | [P/O] | **Conditional on D7 branch selection (downgraded 2026-09-30 from "Closed").** Verified symbolically (note 7 §34), and exact only on the dragged branch, whose selection D7 lists as open. The dragged branch completes to AeST's stealth sector (Skordis & Vokrouhlický 2024): the aether is a constant-norm clock-field gradient, i.e. the free-fall river. All field-equation residuals are 0 on PG Schwarzschild, so every PPN parameter is GR, up to external-field and cosmological-density corrections, wherever the clock field is single-valued (the planets, if v_rel ≳ 60 km/s, an estimate). c₂ lift excluded (|α₁| ≥ 4K_B). λ_s is not constrained by a dragged Sun |
 | D5 | [P/O] | Cosh cosmology time-sector formalized (`CoshCosmology.lean`, 6 theorems, 0 sorry, ARITH); non-linear structure formation unsimulated |
 | D6 | [P] | **Closed 2026-09-27.** Ghost-free; subluminal (spin-2 at c, spin-1 luminal front, scalar c_s < c above 𝒦₂ ≥ 3.75, met at both SZ points); J-normalization = one family J = 2λ_sã₀²F; Λ_SC not excluded (screened); EP closed (η ≲ 4×10⁻⁴⁹). The covariant screening profile is carried by D7 (`TARGET_D6` closure banner) |
 | D7 | [P/O] | AeST action; the stealth sector screens the Sun (D3 §34). **Branch selection is open.** The linear boosted-held check (`TARGET_D7_SUPPLEMENT` §7) uses all rows, gravity included, and validated operators. The wind's force on a dwarf's aether, R_z/v = 8K_B∇²Φ + (4−8K_B)∂_z g_z − 6K_B∂_z ĝ_z, gives a Poisson response, ∇²δφ = −R_z/[(4+λ)v], with no linear wake. At K_B = 1/2 and 𝒦₂ = 75, δφ ≈ −0.98(ϕ+Φ̂): linear theory cancels the MOND field to O(𝒥′), pointing toward Newtonian satellites. **Not proved beyond linear order.** Open: other K_B, external-field-dominated outskirts, a non-linear held branch. Next: a non-linear steady state. The phenomenological law is unaffected. Do NOT cite "AeST disfavoured by satellites" as proved |
 | D8 | [P] | c_T=c — upgraded to structural, strongest result in the corpus |
 | D9 | [P] | **Closed 2026-09-27.** μ_std embedding derived by calculus (`SZStdEmbedding.lean`: J_std = F_std(√𝒴) gives 2J′ = μ_std, with J′ > 0). λ_s is the family's overall scale, an AeST parameter (the Saturn bound applies only on the held branch), not a gap |
 
-**O1 closed to [P] (2026-09-27) under the two-parameter accounting.** a₀ is the declared input anchored to cH₀/2π. The 2π is proved (KMS). μ_std a₀ = 1.10–1.16 implies H₀ ≈ 71–75, bracketing Planck and SH0ES. See the `TARGET_O1` header. **O1/O4 (2026-09-27, corrected the same evening).** The O4 20-point table is **withdrawn** as untraceable, so the old 5.9σ and 2.06σ figures are void. The real high-z data are **inconclusive**. The in-house RC100 measurement (`02_galaxy_dynamics/A0_HIGHZ_MEASUREMENT_2026-09-16.md`) and MUSE-DARK III agree that a₀ at z ~ 1–2 is ~2–2.6× local. Within z 0.6–2.6 the shape favours a constant over H(z) (not established), and the step from z = 0 is calibration-limited. No reading is excluded. Do not cite "constant a₀ excluded at 13σ" or "a₀(0) matches cH₀/2π from MUSE-DARK III"; both were withdrawn the same day.
+**O1 (2026-09-27; 2π wording corrected 2026-09-30).** a₀ is the declared input anchored to cH₀/2π. **The 2π is declared, not proved.** `HorizonScale.lean` proves the opposite normalisation: equating Unruh and Gibbons–Hawking temperatures gives a = cH, with the 2π *cancelling* (ξ = 1), a factor 2π ≈ 6.3 away from the anchor. The anchor a₀ = cH₀/2π is `[O]` (heuristic divisor), as the O1 file's own table says. μ_std a₀ = 1.10–1.16 implies H₀ ≈ 71–75, bracketing Planck and SH0ES. See the `TARGET_O1` header. **O1/O4 (2026-09-27, corrected the same evening).** The O4 20-point table is **withdrawn** as untraceable, so the old 5.9σ and 2.06σ figures are void. The real high-z data are **inconclusive**. The in-house RC100 measurement (`02_galaxy_dynamics/A0_HIGHZ_MEASUREMENT_2026-09-16.md`) and MUSE-DARK III agree that a₀ at z ~ 1–2 is ~2–2.6× local. Within z 0.6–2.6 the shape favours a constant over H(z) (not established), and the step from z = 0 is calibration-limited. No reading is excluded. Do not cite "constant a₀ excluded at 13σ" or "a₀(0) matches cH₀/2π from MUSE-DARK III"; both were withdrawn the same day.
 
 **Full detail, always current:** `PEER_REVIEW_READINESS.md` — read its top banner before
 trusting anything dated earlier.
