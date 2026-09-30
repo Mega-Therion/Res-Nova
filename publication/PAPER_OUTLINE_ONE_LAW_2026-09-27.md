@@ -32,8 +32,8 @@ unlabelled. Parameter accounting follows the two-irreducible-parameters rule: th
 - Contribution list, labels attached.
 
 ## 2. The scale: a0 = cH0/2π
-- Horizon argument; 2π KMS factor proved (`HorizonScale.lean`) `[P]`. The physical identification is
-  `[O]`, stated as such (O1).
+- Horizon argument. `HorizonScale.lean` proves the KMS matching gives a = cH with the 2π cancelling
+  (ξ = 1) `[P]`; the 2π divisor in cH0/2π is declared, not derived `[O]` (corrected 2026-09-30).
 - Relation to the literature's cH0/2π ≈ 6 framing `[C]`.
 - Source: `04_cosmology/TARGET_O1_A0_HORIZON_DERIVATION.md`, `PEER_REVIEW_READINESS.md` §2.
 

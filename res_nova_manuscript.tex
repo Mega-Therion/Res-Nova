@@ -442,10 +442,10 @@ roughly two orders of magnitude below present sensitivity. This is a genuine pre
 
 \textbf{Open $\mathbf{[O]}$:} exact PPN $\gamma$ and $\beta$ for specified $c_1,c_2,c_3$ require the post-Newtonian expansion of the RMOND metric. The framework is in place; the expansion has not been carried out.
 
-\subsection{Canonical Resolution: The Screened $\mu_{\text{std}}$ Branch and Cassini Clearance}
+\subsection{Canonical Resolution: The $\mu_{\text{std}}$ Branch, Its Characteristic Speed, and the Solar-System Monopole}
 \label{sec:mu_std_clearance}
 
-Following the empirical falsification of the rational branch $\mu_{\text{dual}}(x) = x/(1+x)$ (which generates an unshielded constant anomalous radial acceleration $\Delta g \approx a_0 \approx 1.116 \times 10^{-10}\,\text{m\,s}^{-2}$ producing anomalous planetary perihelion advance $> 10^3\times$ above the INPOP10a observational bound), the framework is canonically closed on the standard interpolating function:
+Following the empirical falsification of the rational branch $\mu_{\text{dual}}(x) = x/(1+x)$ (which generates an unshielded constant anomalous radial acceleration $\Delta g \approx a_0 \approx 1.16 \times 10^{-10}\,\text{m\,s}^{-2}$ producing anomalous planetary perihelion advance $> 10^3\times$ above the INPOP10a observational bound), the framework is canonically closed on the standard interpolating function:
 \begin{equation}
 \label{eq:mu_std_canonical}
 \mu_{\text{std}}(x) = \frac{x}{\sqrt{1 + x^2}}, \qquad x \equiv \frac{|\nabla\Phi|}{a_0}.
@@ -457,57 +457,52 @@ F_{\text{std}}(x) = \frac{1}{2} \left[ x\sqrt{1 + x^2} - \operatorname{arsinh}(x
 \end{equation}
 The constitutive derivative identity $F_{\text{std}}'(x) = x^2/\sqrt{1+x^2} = x\,\mu_{\text{std}}(x)$ is formally machine-proved $\mathbf{[P]}$ in Lean~4 (\texttt{MuStdFoundations.lean}, Theorem~1.1a).
 
-\subsubsection{Ghost-Free Kinetic Strict Convexity}
+\subsubsection{Strict Convexity}
 The second derivative of the kinetic potential evaluates to:
 \begin{equation}
 \label{eq:F_std_deriv2}
 F_{\text{std}}''(x) = \frac{x\,(x^2 + 2)}{(1 + x^2)^{3/2}} > 0 \quad \forall x > 0.
 \end{equation}
-Because $F_{\text{std}}''(x) > 0$ strictly for all positive gradients, the kinetic functional is strictly convex on $\mathbb{R}_{\ge 0}$ $\mathbf{[P]}$ (\texttt{MuStdFoundations.lean}, Theorem~1.1c). Consequently, the scalar degree of freedom carries no Ostrogradsky ghost or negative-energy kinetic instability.
+Because $F_{\text{std}}''(x) > 0$ strictly for all positive gradients, the kinetic functional is strictly convex on $\mathbb{R}_{\ge 0}$ $\mathbf{[P]}$ (\texttt{MuStdFoundations.lean}, Theorem~1.1c), so the static field equation is elliptic and its gradient energy is positive definite. (Convexity says nothing about Ostrogradsky ghosts, which arise from higher time derivatives and are absent here by construction.)
 
-\subsubsection{Scalar Perturbation Sound Speed and Causal Stability}
-Radial scalar perturbations propagate at a gradient sound speed $c_s^2(x)$ determined by the non-linear constitutive relation:
+\subsubsection{Characteristic Speed Along the Gradient (corrected 2026-09-30)}
+AQUAL itself is static and elliptic and has no propagation speed. In its relativistic P(X) completion, $\mathcal{L} = f(X)$ with $X = g^{\mu\nu}\partial_\mu\phi\,\partial_\nu\phi$ and a spacelike background gradient, the quadratic action for $\delta\phi$ is $f'(-\omega^2 + k_\perp^2) + (f' + 2Xf'')\,k_\parallel^2$, giving $c_\perp^2 = 1$ and
 \begin{equation}
-\label{eq:sound_speed_sq}
-c_s^2(x) = \frac{\mu_{\text{std}}(x)}{\mu_{\text{std}}(x) + x\,\mu_{\text{std}}'(x)} = \frac{1 + x^2}{x^2 + 2}.
+\label{eq:c_par_sq}
+c_\parallel^2(x) = \frac{x\,F_{\text{std}}''(x)}{F_{\text{std}}'(x)} = 1 + \frac{d\ln\mu_{\text{std}}}{d\ln x} = \frac{x^2 + 2}{x^2 + 1}, \qquad 1 < c_\parallel^2 \le 2 .
 \end{equation}
-This functional satisfies strict two-sided physical bounds $\mathbf{[P]}$ (\texttt{MuStdFoundations.lean}, Theorem~1.2c):
-\begin{equation}
-\label{eq:sound_speed_bounds}
-\frac{1}{2} \le c_s^2(x) < 1 \quad \forall x \in [0, \infty).
-\end{equation}
-The lower bound $c_s^2(x) \ge 1/2 > 0$ guarantees gradient stability against Jeans-type collapse or imaginary propagation velocities across all regimes (deep-MOND $c_s^2(0) = 1/2$, Newtonian $c_s^2(\infty) = 1$). The strict upper bound $c_s^2(x) < 1$ guarantees that scalar signals propagate strictly subluminally ($c_s < c$), preserving causal hyperbolicity without superluminal signalling.
+This is machine-proved from the derivatives of $F_{\text{std}}$ $\mathbf{[P]}$ (\texttt{MuStdFoundations.lean}, Theorems~1.2a--c). The P(X) completion is therefore \emph{superluminal} along the gradient, reaching $c_\parallel^2 = 2$ in the deep-MOND limit: the known acausality of RAQUAL-type theories. An earlier version of this subsection stated $c_s^2 = (1+x^2)/(x^2+2) \in [1/2, 1)$, ``strictly subluminal''. That expression is $1/c_\parallel^2$, a ratio of spatial stiffnesses, and the claim is retracted. The scalar sector of the AeST completion used in this work has its own speed, which is subluminal for $\mathcal{K}_2 \ge 3.75$ (Target D6); the present result does not bear on it.
 
-\subsubsection{Solar System Cassini Radar Experiment Clearance}
-In spherical symmetry, the scalar field equation integrates to $\mu_{\text{std}}(g_\phi/a_0)\,g_\phi = g_N$. Deep inside planetary orbits where $x \equiv g_N/a_0 \gg 1$, the fractional deviation from general relativity scales as an inverse-square screened tail:
+\subsubsection{Solar-System Monopole Tail (scope corrected 2026-09-30)}
+In spherical symmetry, the scalar field equation integrates to $\mu_{\text{std}}(g_\phi/a_0)\,g_\phi = g_N$. Deep inside planetary orbits where $x \equiv g_N/a_0 \gg 1$, the fractional deviation of the isolated-Sun (monopole) field scales as an inverse-square tail:
 \begin{equation}
 \label{eq:screened_tail_asymp}
 \delta(x) \equiv 1 - \mu_{\text{std}}(x) \le \frac{1}{2\,x^2} \quad \forall x \ge 1.
 \end{equation}
-This bound is certified in Lean~4 (\texttt{MuStdFoundations.lean}, Theorem~1.3). Evaluating the exact algebraic root $g_\phi = a_0 \sqrt{\frac{1}{2}\left(x^2 + x\sqrt{x^2+4}\right)}$ across Solar System ephemerides confirms overwhelming clearance of the Cassini radar tracking bound ($|\gamma_{\text{PPN}} - 1| \le 2.3 \times 10^{-5}$, Bertotti et al.~2003):
+This bound is certified in Lean~4 (\texttt{MuStdFoundations.lean}, Theorem~1.3). Evaluating the exact algebraic root $g_\phi = a_0 \sqrt{\frac{1}{2}\left(x^2 + x\sqrt{x^2+4}\right)}$ at the live $a_0 = 1.1607\times10^{-10}\,\text{m/s}^2$ gives Table~\ref{tab:cassini_clearance}.
 \begin{table}[h!]
 \centering
 \small
-\begin{tabular}{lcccccc}
+\begin{tabular}{lccccc}
 \toprule
-\textbf{Orbital Body} & $r$ [AU] & $g_N$ [m/s$^2$] & $x = g_N/a_0$ & $\delta_{\text{std}} = 1 - \mu_{\text{std}}$ & Cassini Margin & \textbf{Status} \\
+\textbf{Orbital Body} & $r$ [AU] & $g_N$ [m/s$^2$] & $x = g_N/a_0$ & $\delta_{\text{std}} = 1 - \mu_{\text{std}}$ & $\Delta g$ [m/s$^2$] \\
 \midrule
-Mercury & $0.387$ & $3.96 \times 10^{-2}$ & $3.55 \times 10^8$ & $3.98 \times 10^{-18}$ & $5.78 \times 10^{12}\times$ & \textbf{PASSED} \\
-Venus & $0.723$ & $1.13 \times 10^{-2}$ & $1.02 \times 10^8$ & $4.85 \times 10^{-17}$ & $4.74 \times 10^{11}\times$ & \textbf{PASSED} \\
-Earth & $1.000$ & $5.93 \times 10^{-3}$ & $5.31 \times 10^7$ & $1.77 \times 10^{-16}$ & $1.30 \times 10^{11}\times$ & \textbf{PASSED} \\
-Mars & $1.524$ & $2.55 \times 10^{-3}$ & $2.29 \times 10^7$ & $9.54 \times 10^{-16}$ & $2.41 \times 10^{10}\times$ & \textbf{PASSED} \\
-Jupiter & $5.204$ & $2.19 \times 10^{-4}$ & $1.96 \times 10^6$ & $1.30 \times 10^{-13}$ & $1.77 \times 10^8\times$ & \textbf{PASSED} \\
-Saturn (Cassini) & $9.583$ & $6.46 \times 10^{-5}$ & $5.79 \times 10^5$ & $1.49 \times 10^{-12}$ & $1.54 \times 10^7\times$ & \textbf{PASSED} \\
-Uranus & $19.201$ & $1.61 \times 10^{-5}$ & $1.44 \times 10^5$ & $2.41 \times 10^{-11}$ & $9.56 \times 10^5\times$ & \textbf{PASSED} \\
-Neptune & $30.047$ & $6.57 \times 10^{-6}$ & $5.89 \times 10^4$ & $1.44 \times 10^{-10}$ & $1.59 \times 10^5\times$ & \textbf{PASSED} \\
-Kuiper Belt & $40.000$ & $3.71 \times 10^{-6}$ & $3.32 \times 10^4$ & $4.53 \times 10^{-10}$ & $5.07 \times 10^4\times$ & \textbf{PASSED} \\
-Voyager 1 & $100.000$ & $5.93 \times 10^{-7}$ & $5.31 \times 10^3$ & $1.77 \times 10^{-8}$ & $1.30 \times 10^3\times$ & \textbf{PASSED} \\
+Mercury & $0.387$ & $3.96 \times 10^{-2}$ & $3.41 \times 10^{8}$ & $4.30 \times 10^{-18}$ & $1.70 \times 10^{-19}$ \\
+Venus & $0.723$ & $1.13 \times 10^{-2}$ & $9.76 \times 10^{7}$ & $5.24 \times 10^{-17}$ & $5.94 \times 10^{-19}$ \\
+Earth & $1.000$ & $5.93 \times 10^{-3}$ & $5.11 \times 10^{7}$ & $1.92 \times 10^{-16}$ & $1.14 \times 10^{-18}$ \\
+Mars & $1.524$ & $2.55 \times 10^{-3}$ & $2.20 \times 10^{7}$ & $1.03 \times 10^{-15}$ & $2.64 \times 10^{-18}$ \\
+Jupiter & $5.204$ & $2.19 \times 10^{-4}$ & $1.89 \times 10^{6}$ & $1.41 \times 10^{-13}$ & $3.08 \times 10^{-17}$ \\
+Saturn & $9.583$ & $6.46 \times 10^{-5}$ & $5.56 \times 10^{5}$ & $1.62 \times 10^{-12}$ & $1.04 \times 10^{-16}$ \\
+Uranus & $19.201$ & $1.61 \times 10^{-5}$ & $1.39 \times 10^{5}$ & $2.60 \times 10^{-11}$ & $4.19 \times 10^{-16}$ \\
+Neptune & $30.047$ & $6.57 \times 10^{-6}$ & $5.66 \times 10^{4}$ & $1.56 \times 10^{-10}$ & $1.03 \times 10^{-15}$ \\
+Kuiper Belt & $40.000$ & $3.71 \times 10^{-6}$ & $3.19 \times 10^{4}$ & $4.90 \times 10^{-10}$ & $1.82 \times 10^{-15}$ \\
+Voyager 1 & $100.000$ & $5.93 \times 10^{-7}$ & $5.11 \times 10^{3}$ & $1.92 \times 10^{-8}$ & $1.14 \times 10^{-14}$ \\
 \bottomrule
 \end{tabular}
-\caption{Exact solar system clearance of PPN Cassini bounds under the canonical $\mu_{\text{std}}(x)$ constitutive relation ($a_0 = 1.116 \times 10^{-10}\,\text{m/s}^2$). At Saturn ($r = 9.58\,\text{AU}$), the anomalous fractional deviation $\delta = 1.49 \times 10^{-12}$ is over seven orders of magnitude below the Cassini threshold $|\gamma - 1| \le 2.3 \times 10^{-5}$. Machine-checked receipt: \texttt{scripts/repro/cassini\_clearance\_receipt.json}.}
+\caption{Isolated-Sun monopole deviation under $\mu_{\text{std}}$ ($a_0 = 1.1607 \times 10^{-10}\,\text{m/s}^2$). This is \emph{not} a Cassini clearance: $\delta$ is a fractional acceleration shift and is not comparable to the Cassini bound on $\gamma-1$. The binding Cassini test for MOND is the external-field quadrupole $Q_2$, which bare $\mu_{\text{std}}$ fails at $\approx 4.6\sigma$ (\texttt{02\_galaxy\_dynamics/CASSINI\_EFE\_QUADRUPOLE\_2026-09-27.md}); passing it requires the phenomenological screening of \texttt{DWARF\_SCREENING\_TEST\_2026-09-27.md}, which has no covariant realization $\mathbf{[O]}$. Receipt: \texttt{scripts/repro/cassini\_clearance\_receipt.json}.}
 \label{tab:cassini_clearance}
 \end{table}
-At Saturn's orbit ($x \approx 5.79 \times 10^5 > 5 \times 10^5$), Lean~4 proves $\delta_{\text{std}} < 2.3 \times 10^{-5}$ unconditionally $\mathbf{[P]}$ (\texttt{MuStdFoundations.lean}, Theorem~1.4). Furthermore, the residual anomalous acceleration at Mercury is $\Delta g = 1.57 \times 10^{-19}\,\text{m/s}^2$, suppressed by $r^2$ and over $7 \times 10^8$ times smaller than the unshielded $\mu_{\text{dual}}$ acceleration ($\Delta g \approx 1.12 \times 10^{-10}\,\text{m/s}^2$).
+At Saturn's orbit ($x \approx 5.56 \times 10^5 > 5 \times 10^5$), Lean~4 proves $\delta_{\text{std}} \le 2 \times 10^{-12}$ $\mathbf{[P]}$ (\texttt{MuStdFoundations.lean}, Theorem~1.4). The residual monopole acceleration at Mercury is $\Delta g = 1.70 \times 10^{-19}\,\text{m/s}^2$, against the unshielded $\Delta g \approx a_0$ of the retired $\mu_{\text{dual}}$.
 
 \section{Cosmological Sector (D5)}
 \label{sec:cosmo}
@@ -564,8 +559,8 @@ The Lean~4 suite (\texttt{05\_lean\_}\allowbreak\texttt{formalization/}) compris
 \texttt{HorizonScale.lean} & KMS thermal equilibrium formally yields $a = cH_0$ ($\xi = 1$); $2\pi$ cancels identically $\mathbf{[P]}$. The $1/(2\pi)$ divisor is an unproved auxiliary postulate $\mathbf{[O]}$. \\
 \texttt{ITActionClosure.lean} & Polynomial $\tau$-law / simple-$\mu$ relation; deep-MOND BTFR; flat rotation curve for $n=2$ $\mathbf{[P]}$. Relativistic stability $\mathbf{[O]}$. \\
 \texttt{MuProjection.lean} & Properties of $\mu(x)$; root uniqueness; power-law solves the dilaton EOM; exponential profile falsified $\mathbf{[P]}$. Physical derivation of closure $\mathbf{[O]}$. \\
-\texttt{MuStdFoundations.lean} & Canonical constitutive derivative $F_{\text{std}}'(x) = x\,\mu_{\text{std}}(x)$; ghost-free strict convexity $F_{\text{std}}''(x) > 0$; scalar perturbation sound speed bounds $c_s^2(x) \in [1/2, 1)$ guaranteeing gradient stability and strict subluminality; Cassini radar experiment clearance at Saturn ($x \ge 5\times 10^5$) $\mathbf{[P]}$. \\
-\texttt{AeSTStealthSector.lean} & AeST stealth / dragged ghost-condensate branch ($A_\mu = -Q_0^{-1}\partial_\mu\phi$): transverse kinetic $Y \equiv 0$ identically, scalar projection $Q = Q_0$, kinetic potential $F(Y,Q) = 0$, and exact vacuum Einstein recovery ($\gamma = \beta = 1$, $\alpha_1 = \alpha_2 = 0$) $\mathbf{[P]}$. \\
+\texttt{MuStdFoundations.lean} & Constitutive derivative $F_{\text{std}}'(x) = x\,\mu_{\text{std}}(x)$; strict convexity $F_{\text{std}}''(x) > 0$; P(X)-completion speed along the gradient $c_\parallel^2 = xF''/F' = (x^2+2)/(x^2+1) \in (1,2]$ (superluminal); monopole tail $1-\mu_{\text{std}} \le 2\times10^{-12}$ at Saturn $\mathbf{[P]}$. Not a Cassini clearance (EFE quadrupole fails). \\
+\texttt{AeSTStealthSector.lean} & Kinematic identities of the AeST stealth / dragged branch ($A_\mu = -Q_0^{-1}\partial_\mu\phi$) in the free-fall frame: $P^{00} = 0$, $Y = 0$, $Q = Q_0$, $F(Y,Q) = 0$ $\mathbf{[P]}$. The vacuum field equations are checked symbolically, not here $\mathbf{[D]}$; PPN values are definitional. Applies only on the dragged branch (selection $\mathbf{[O]}$). \\
 \texttt{MuStdUniqueness.lean} & Rapidity conjugacy $dF/d\psi = x^2$ (Postulate R); chiral Fisher identity $F'^2\,\mathcal{I}_\pm = x^4$; uniqueness of $\mu_{\text{std}}$ under the chiral coordinate and $\mu'(0)=1$ $\mathbf{[P]}$. \\
 \texttt{MuStdDuality.lean} & Inversion involution $x \mapsto 1/x$; $\mu_{\text{std}}(1/x)^2 + \mu_{\text{std}}(x)^2 = 1$; fixed point $\mu(1) = 1/\sqrt{2}$ $\mathbf{[P]}$. \\
 \texttt{MuStdSelection.lean} & Collapse of the A4 disjunction under the \texttt{ScreenedTail} condition; exclusion of falsified $\mu_{\text{dual}}$ branch $\mathbf{[P]}$. \\

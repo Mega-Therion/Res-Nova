@@ -39,8 +39,8 @@
 | **F7** | 17 Lean 4 Modules on Disk | `[P]` Kernel Verified / Diagnostic | `05_lean_formalization/*.lean` | `verify_all_proofs.sh` exit 0 on local gate; standard axioms only |
 | **F8** | Empirical Provenance & Out-of-Sample Validation | `[D]` Cross-Validation / Bootstrap | `02_galaxy_dynamics/A0_MEASUREMENT.json` | 171 galaxies (3,375 points), bootstrap + honest CV |
 | **F9** | Kerr Rapidity Equipartition & Sovereign Spin Ceiling | `[P]` (algebra) / `[O]` (dynamical action) | `06_unification_and_spin/rapidity_uniqueness_proof.py`, `two_channel_ceiling_proof.py` | Exact $\operatorname{arsinh}(1) = \ln(1+\sqrt{2}) = \operatorname{artanh}(1/\sqrt{2})$ and $\chi_s = \sqrt{\sqrt{2}-1/2} \approx 0.956145$ verified `[P]` at 100 dps |
-| **F10** | Canonical $\mu_{\text{std}}$ Foundations, Sound Speed & Cassini Clearance | `[P]` Kernel Verified / `[D]` Ephemerides | `05_lean_formalization/MuStdFoundations.lean`, `scripts/verify_mu_std_cassini_and_limits.py` | Derivative identity $F_{\text{std}}'=x\mu_{\text{std}}$, ghost-free strict convexity $F_{\text{std}}''>0$, scalar perturbation sound speed $c_s^2 \in [1/2, 1)$ gradient stability \& subluminality, and Cassini clearance ($|\gamma-1| \le 1.49 \times 10^{-12} \ll 2.3 \times 10^{-5}$) verified `[P]` |
-| **F11** | AeST Stealth / Dragged Branch Exact GR Sector & Vanishing Residuals | `[P]` Kernel Verified / `[D]` Symbolic CAS | `05_lean_formalization/AeSTStealthSector.lean`, `exploration/d3_alpha/dragged_branch_exact_check.py` | Exact vacuum Einstein solution on Painlevé–Gullstrand Schwarzschild ($A_\mu = -Q_0^{-1}\partial_\mu\phi$, $Y \equiv 0$, $Q=Q_0$); all 8 field equation residuals vanish, certifying $\gamma=\beta=1, \alpha_1=\alpha_2=0$ `[P]` |
+| **F10** | Canonical $\mu_{\text{std}}$ Foundations, Gradient Characteristic Speed & Monopole Tail (corrected 2026-09-30) | `[P]` Kernel Verified / `[D]` Ephemerides | `05_lean_formalization/MuStdFoundations.lean`, `scripts/verify_mu_std_cassini_and_limits.py` | Derivative identity $F_{\text{std}}'=x\mu_{\text{std}}$, strict convexity $F_{\text{std}}''>0$, P(X)-completion speed along the gradient $c_\parallel^2 = xF''/F' = (x^2+2)/(x^2+1) \in (1,2]$ (**superluminal**), and Saturn monopole tail $1-\mu_{\text{std}} \le 2\times10^{-12}$ `[P]`. **Retracted:** "$c_s^2\in[1/2,1)$, subluminal" (was $1/c_\parallel^2$) and "Cassini clearance" (monopole ≠ $\gamma-1$; EFE quadrupole fails) |
+| **F11** | AeST Stealth / Dragged Branch Exact GR Sector & Vanishing Residuals (scope corrected 2026-09-30) | `[D]` Symbolic CAS (residuals) / `[P]` Kernel (kinematic identities only) / `[C]` Skordis & Vokrouhlický 2024 | `exploration/d3_alpha/dragged_branch_exact_check.py`, `05_lean_formalization/AeSTStealthSector.lean` | All 8 field-equation residuals vanish on PG Schwarzschild at $F_Q(Q_0)=0$ and not at $Q_1 = 1.1Q_0$ (negative control) `[D]`. The Lean module proves only $P^{00}=0$, $\mathcal{Y}=0$, $Q=Q_0$; its PPN theorems are `rfl` on defined values. Applies only on the dragged branch (D7 branch selection `[O]`) |
 
 ---
 
@@ -201,41 +201,55 @@ not $a_0 = \frac{cH_0}{2\pi}$. The additional $1/(2\pi)$ divisor is an open boun
 
 ---
 
-### F10. Canonical $\mu_{\text{std}}$ Foundations, Scalar Sound Speed & Solar System Cassini Clearance
-* **Epistemic Classification:** `[P]` Proved (Constitutive Derivative, Convexity, Sound Speed Bounds, Screening Tail) / `[D]` High-Precision Ephemerides Benchmark
+### F10. Canonical $\mu_{\text{std}}$ Foundations, Gradient Characteristic Speed & Monopole Tail
+> **Corrected 2026-09-30.** The 2026-09-29 version of this entry certified "scalar perturbation
+> sound speed $c_s^2 = (1+x^2)/(x^2+2) \in [1/2,1)$, strictly subluminal" and "Cassini clearance".
+> Both are retracted. The first expression is $\mu/(x\mu)'$, a ratio of spatial stiffnesses with no
+> time-derivative coefficient in it; it is the reciprocal of the actual characteristic speed, which is
+> superluminal. It was typed in by hand, so its proofs closed for any $\mu$ (not substitutable).
+> The second compared the monopole $1-\mu$ with the Cassini bound on $\gamma-1$, a different observable,
+> while the binding Cassini test (EFE quadrupole) is one bare $\mu_{\text{std}}$ fails
+> (`02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md`).
+
+* **Epistemic Classification:** `[P]` Proved (constitutive derivative, convexity, characteristic speed, monopole tail) / `[D]` Ephemerides benchmark
 * **File Paths:**
   - [`05_lean_formalization/MuStdFoundations.lean`](05_lean_formalization/MuStdFoundations.lean)
   - [`scripts/verify_mu_std_cassini_and_limits.py`](scripts/verify_mu_std_cassini_and_limits.py)
-  - [`scripts/repro/cassini_clearance_receipt.json`](scripts/repro/cassini_clearance_receipt.json)
+  - [`scripts/repro/cassini_clearance_receipt.json`](scripts/repro/cassini_clearance_receipt.json) (filename kept for link stability; contents are monopole-only)
   - [`res_nova_manuscript.tex`](res_nova_manuscript.tex) §3.3
 * **Verified Formal Theorems (`MuStdFoundations.lean`):**
   - **Constitutive Derivative Identity:** $F_{\text{std}}'(x) = x^2/\sqrt{1+x^2} = x\,\mu_{\text{std}}(x)$ (`F_std_deriv_eq`).
-  - **Ghost-Free Strict Convexity:** $F_{\text{std}}''(x) = x(x^2+2)/(1+x^2)^{3/2} > 0$ for all $x > 0$ (`F_std_deriv2_positivity`), ensuring strict convexity on $[0, \infty)$ (`F_std_strict_convexity`).
-  - **Scalar Perturbation Sound Speed Bounds:** $c_s^2(x) = (1+x^2)/(x^2+2)$ satisfies $1/2 \le c_s^2(x) < 1$ for all $x \in \mathbb{R}$ (`cs_sq_bounds`), guaranteeing gradient stability ($c_s^2 \ge 1/2 > 0$, no ghosts or gradient instabilities) and strict causal subluminality ($c_s^2 < 1$, causal hyperbolicity preserved).
+  - **Strict Convexity:** $F_{\text{std}}''(x) = x(x^2+2)/(1+x^2)^{3/2} > 0$ for all $x > 0$ (`F_std_deriv2_positivity`), hence strict convexity on $[0, \infty)$ (`F_std_strict_convexity`).
+  - **Characteristic Speed Along the Gradient:** `c_long_sq x := x · deriv (deriv F_std) x / deriv F_std x` equals $(x^2+2)/(x^2+1)$ for $x>0$ (`c_long_sq_eq`), with $1 < c_\parallel^2 \le 2$ (`c_long_sq_superluminal`, `c_long_sq_le_two`). In the relativistic P(X) completion this is the speed along the background gradient ($c_\perp^2 = 1$): **superluminal**, the known RAQUAL acausality. AeST's scalar speed is D6's separate result. Sabotage-tested 2026-09-30: replacing `F_std` by $x^3/3$ in the definition breaks `c_long_sq_eq`.
   - **Inverse-Square Screened Tail:** $1 - \mu_{\text{std}}(x) \le 1/(2x^2)$ for all $x \ge 1$ (`deviation_le_inv_two_sq`).
-  - **Cassini Radar Experiment Clearance:** For $x \ge 500,000$, $1 - \mu_{\text{std}}(x) < 2.3 \times 10^{-5}$ (`cassini_cleared_at_saturn`), clearing the observational bound at Saturn by over 7 orders of magnitude.
-* **Empirical Ephemerides Benchmark (`verify_mu_std_cassini_and_limits.py`):**
-  - Evaluated at Mercury ($x = 3.55 \times 10^8$), Earth ($x = 5.31 \times 10^7$), Saturn ($x = 5.79 \times 10^5$), and Voyager 1 ($x = 5.31 \times 10^3$).
-  - Saturn anomalous deviation: $\delta_{\text{std}} = 1.493 \times 10^{-12} \ll 2.3 \times 10^{-5}$ (Cassini safety margin $1.54 \times 10^7\times$).
-  - Mercury residual force: $\Delta g(\mu_{\text{std}}) = 1.57 \times 10^{-19}\,\text{m/s}^2$ vs unshielded $\Delta g(\mu_{\text{dual}}) = 1.116 \times 10^{-10}\,\text{m/s}^2$ ($7.09 \times 10^8\times$ smaller).
+  - **Saturn Monopole Deviation:** for $x \ge 5\times10^5$, $1 - \mu_{\text{std}}(x) \le 2\times10^{-12}$ (`saturn_monopole_deviation_le`). Monopole only; not a Cassini clearance.
+* **Ephemerides Benchmark (`verify_mu_std_cassini_and_limits.py`, live $a_0 = 1.1607\times10^{-10}$):**
+  - Saturn: $x = 5.564\times10^5$, $1-\mu_{\text{std}} = 1.615\times10^{-12}$, $\Delta g = 1.04\times10^{-16}\,\text{m/s}^2$.
+  - Mercury residual force: $\Delta g(\mu_{\text{std}}) = 1.70\times10^{-19}\,\text{m/s}^2$ vs unshielded $\Delta g(\mu_{\text{dual}}) \approx a_0$.
+  - The 2026-09-29 run used the superseded μ_dual-era $a_0 = 1.116\times10^{-10}$.
 
 ---
 
 ### F11. AeST Stealth / Dragged Branch Exact GR Sector & Field Equation Residuals (Target D3 §34)
-* **Epistemic Classification:** `[P]` Proved (Lean 4 Kernel Certified) / `[D]` Symbolic CAS Verification
+> **Scope corrected 2026-09-30.** The field-equation content is carried by the symbolic CAS check
+> below `[D]` and by the published stealth solution (Skordis & Vokrouhlický 2024, arXiv:2412.15395)
+> `[C]`. The Lean module contains no field equation: it proves one-line kinematic identities by
+> `ring`, and its PPN theorems are `rfl` on values it defines. The result holds only on the dragged
+> branch; branch selection is open (D7).
+
+* **Epistemic Classification:** `[D]` Symbolic CAS Verification (residuals) / `[P]` Lean (kinematic identities only)
 * **File Paths:**
-  - [`05_lean_formalization/AeSTStealthSector.lean`](05_lean_formalization/AeSTStealthSector.lean)
   - [`exploration/d3_alpha/dragged_branch_exact_check.py`](exploration/d3_alpha/dragged_branch_exact_check.py)
+  - [`05_lean_formalization/AeSTStealthSector.lean`](05_lean_formalization/AeSTStealthSector.lean)
   - [`PEER_REVIEW_READINESS.md`](PEER_REVIEW_READINESS.md) §1 Target D3
-* **Verified Formal Theorems (`AeSTStealthSector.lean`):**
-  - **Projection Null Identity:** $P^{00} = g^{00} + A^0 A^0 = -1 + (1)(1) = 0$ (`P00_vanishes`).
-  - **Transverse Kinetic Null:** $\mathcal{Y} \equiv 0$ identically for co-moving free-fall river frame gradients (`Y_stealth_is_zero`).
-  - **Condensate Anchoring:** $Q = A^\mu \partial_\mu \phi = Q_0$ (`Q_stealth_eq_Q0`), ensuring zero condensate offset $\Delta Q = 0$ (`condensate_offset_zero`).
-  - **Kinetic Potential Vanishing:** $\mathcal{F}_{\text{kinetic}}(c_Y, K_2, \mathcal{Y}, Q, Q_0) = c_Y \mathcal{Y} - 2 K_2 (Q - Q_0)^2 = 0$ identically (`F_kinetic_stealth_vanishes`).
-  - **Exact GR Recovery:** $\gamma = 1$, $\beta = 1$, $\alpha_1 = 0$, $\alpha_2 = 0$ (`stealth_ppn_gamma_unity`, `stealth_ppn_beta_unity`, `stealth_ppn_alpha1_zero`, `stealth_ppn_alpha2_zero`).
+* **Lean identities (`AeSTStealthSector.lean`):**
+  - $P^{00} = -1 + (1)(1) = 0$ (`P00_vanishes`); hence $\mathcal{Y} = 0$ in the free-fall frame (`Y_stealth_is_zero`).
+  - $Q = Q_0$ (`Q_stealth_eq_Q0`, `condensate_offset_zero`); the ansatz $c_Y\mathcal{Y} - 2K_2(Q-Q_0)^2$ vanishes there (`F_kinetic_stealth_vanishes`).
+  - `stealth_ppn_*`: definitional (`rfl`) restatements of the imported GR values; not a derivation.
 * **Symbolic CAS Verification (`dragged_branch_exact_check.py`):**
   - Evaluated on Painlevé–Gullstrand Schwarzschild geometry with radial inflow $v = \sqrt{2M/r}$, non-zero expansion $\theta = -(3/2)\sqrt{2M/r^3}$, and $\phi = Q_0 T$.
   - All 8 Euler–Lagrange field equation residuals ($E_f, E_h, E_k, E_s, E_{A_t}, E_{A_r}, E_\phi, E_\lambda$) vanish identically to 0 at the condensate minimum ($F_Q(Q_0)=0$).
+  - Negative control (re-run 2026-09-30, exit 0): with $Q_1 = 1.1\,Q_0$ five residuals are nonzero, so the check is not vacuous.
 
 
 
