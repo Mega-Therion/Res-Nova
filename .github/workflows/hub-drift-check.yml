@@ -8,6 +8,9 @@ on:
       - "CLAIM_EVIDENCE_LEDGER.md"
       - "RELEASE_CHECKLIST.md"
 
+permissions:
+  contents: read
+
 jobs:
   check-drift:
     runs-on: ubuntu-latest

@@ -1,2 +1,9 @@
-numpy>=1.26
-scipy>=1.11
+# Pinned so CI and local runs execute the same arithmetic. The physics witnesses
+# (scripts/verify_*.py) regenerate committed receipts byte-for-byte and the gate
+# diffs them; an unpinned sympy/mpmath upgrade could change a printed digit and
+# turn that check into noise. Bump deliberately and re-run scripts/local_gate.sh.
+numpy==2.4.6
+scipy==1.17.1
+sympy==1.14.0
+mpmath==1.3.0
+PyYAML==6.0.3

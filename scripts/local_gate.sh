@@ -58,6 +58,18 @@ step "current-state self-test" python3 scripts/current_state_freshness.py --self
 # YAML frontmatter validity check.
 step "frontmatter validity" python3 scripts/check_frontmatter.py --check
 step "frontmatter self-test" python3 scripts/check_frontmatter.py --self-test
+# Public Hugging Face card: pushed to the Hub on every push to main. It claimed
+# a Cassini pass the corpus itself refutes until 2026-09-30.
+step "hf dataset card" python3 scripts/test_hf_card.py
+step "hf dataset card self-test" python3 scripts/test_hf_card.py --self-test
+# Physics witnesses must reproduce their committed receipts byte-for-byte. A
+# receipt that no longer matches its script is a claim nobody re-ran.
+receipt_check() {
+  python3 "$1" >/dev/null || return 1
+  git diff --exit-code -- "$2"
+}
+step "witness: mu_std calculus receipt" receipt_check scripts/verify_mu_std_cassini_and_limits.py scripts/repro/cassini_clearance_receipt.json
+step "witness: dwarf wind receipt" receipt_check scripts/verify_dwarf_screening_receipt.py scripts/repro/dwarf_wind_receipt.json
 
 echo
 if [ "$fails" -eq 0 ]; then
