@@ -32,9 +32,9 @@
 | CLM-D2-05 | Padé necessity can be derived from first principles | [O] | TARGET_D2 §9 Q1-Q4 |
 | CLM-D3-01 | MOND correction at Earth is ~2×10⁻⁸ (1-μ, non-relativistic force law); the "1137× below Cassini" comparison is retracted 2026-09-12 as a category error (1-μ vs. γ-1 are not comparable quantities — TARGET_D3 Theorem 3.1) | [O] | TARGET_D3 §2; computed |
 | CLM-D3-02 | PPN parameters depend on D7 covariant completion, not on μ | [P] | TARGET_D3 §3 Theorem 3.1 |
-| CLM-D3-03 | Vainshtein screening resolves Q₂ tension (119× below Cassini; corrected 2026-09-12 from a misstated 70× that used the retracted F''/F'=0.004) | [P] | TARGET_D7_SUPPLEMENT §3 |
+| CLM-D3-03 | ~~Vainshtein screening resolves Q₂ tension (119× below Cassini)~~ **Retracted 2026-09-30:** computed on the retired F_dual action, and the c_T = c-safe Vainshtein sector caps at p < 2 against a required p ≥ 2.34 (TARGET_D7 §11.3). Bare μ_std fails Q₂ at ~4.6σ | [X] | TARGET_D7 §11.3; `assurance/claims.json` |
 | CLM-D5-01 | Non-relativistic 2× MOND enhancement → 76× excess growth | [P] | TARGET_D5 §4.3; numerically integrated |
-| CLM-D5-02 | RMOND linear screening reduces enhancement to ~0.23% | [P] | TARGET_D7 §4.1; F''/F' = 1/(2x₀²(1+x₀)) ≈ 0.00233 (corrected 2026-09-08 from ~0.4% / 0.004) |
+| CLM-D5-02 | RMOND linear screening reduces enhancement to ~0.23% **(conditional since 2026-09-30: computed for the retired F_dual; not recomputed for μ_std)** | [conj] | TARGET_D7 §4.1; F''/F' = 1/(2x₀²(1+x₀)) ≈ 0.00233 (corrected 2026-09-08 from ~0.4% / 0.004) |
 | CLM-D5-03 | Non-linear structure formation in RMOND is consistent | [O] | Requires N-body (Thomas et al. 2023 framework) |
 | CLM-D6-01 | F_dual is ghost-free (F''>0 ∀K>0) | [P] | TARGET_D6 §1.2; symbolically verified |
 | CLM-D6-02 | Hamiltonian is bounded below | [P] | TARGET_D6 §2 |

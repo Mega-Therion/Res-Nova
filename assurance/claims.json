@@ -20,7 +20,7 @@
         "cd 05_lean_formalization && bash verify_all_proofs.sh"
       ],
       "independent_witness": "assurance/evidence/res_nova_verify_final.log",
-      "limitations": "This does not establish physical uniqueness or empirical adequacy.",
+      "limitations": "This does not establish physical uniqueness or empirical adequacy. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
       "status_owner": "Res-Nova formalization maintainers",
       "claim_type": "algebraic-identity",
       "quotation_type": "paraphrase",
@@ -361,7 +361,7 @@
         "cd 05_lean_formalization && bash verify_all_proofs.sh"
       ],
       "independent_witness": "assurance/evidence/res_nova_verify_final.log",
-      "limitations": "Does not establish that MOND emerges independently of MOND assumptions; the boundary conditions that fix the form are the definition of MOND.",
+      "limitations": "Does not establish that MOND emerges independently of MOND assumptions; the boundary conditions that fix the form are the definition of MOND. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
       "status_owner": "Res-Nova formalization maintainers",
       "claim_type": "algebraic-identity",
       "quotation_type": "paraphrase",
@@ -390,7 +390,7 @@
         "cd 05_lean_formalization && bash verify_all_proofs.sh"
       ],
       "independent_witness": "assurance/evidence/res_nova_verify_final.log",
-      "limitations": "An algebraic identity over the reals. It does NOT derive galactic gravity from a statistical estimation process or from a minimum-Fisher-information variational principle.",
+      "limitations": "An algebraic identity over the reals. It does NOT derive galactic gravity from a statistical estimation process or from a minimum-Fisher-information variational principle. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
       "status_owner": "Res-Nova formalization maintainers",
       "claim_type": "algebraic-identity",
       "quotation_type": "paraphrase",
@@ -419,7 +419,7 @@
         "cd 05_lean_formalization && bash verify_all_proofs.sh"
       ],
       "independent_witness": "assurance/evidence/res_nova_verify_final.log",
-      "limitations": "Establishes the transform and its convexity. No physical interpretation of the conjugate momentum is established here.",
+      "limitations": "Establishes the transform and its convexity. No physical interpretation of the conjugate momentum is established here. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
       "status_owner": "Res-Nova formalization maintainers",
       "claim_type": "algebraic-identity",
       "quotation_type": "paraphrase",
@@ -508,7 +508,7 @@
         "SymPy verification embedded in TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Theorem 9.1"
       ],
       "independent_witness": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md",
-      "limitations": "Uniqueness is conditional on the four adopted constraints, not a first-principles selection of F_dual.",
+      "limitations": "Uniqueness is conditional on the four adopted constraints, not a first-principles selection of F_dual. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-01 (TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.9 Theorem 9.1)",
@@ -537,7 +537,7 @@
         "SymPy verification embedded in TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Theorem 5.1"
       ],
       "independent_witness": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md",
-      "limitations": "Uniqueness holds only within the adopted Pade[1/1] class; the class itself is not derived.",
+      "limitations": "Uniqueness holds only within the adopted Pade[1/1] class; the class itself is not derived. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-02 (TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.5 Theorem 5.1)",
@@ -688,7 +688,7 @@
     {
       "id": "CLM-D3-03",
       "wording": "Vainshtein screening resolves the Q2 tension: the screened Q2 sits 119x below the Cassini bound (corrected 2026-09-12 from a misstated 70x that used the retracted F''/F'=0.004 figure).",
-      "state": "derived",
+      "state": "retracted",
       "assurance_level": "numerical-derivation",
       "claim_type": "algebraic-identity",
       "formal_artifacts": [],
@@ -703,14 +703,14 @@
         "TARGET_D7_SUPPLEMENT_COUPLING_OPTIMIZATION.md Sec.3"
       ],
       "independent_witness": "TARGET_D7_SUPPLEMENT_COUPLING_OPTIMIZATION.md",
-      "limitations": "Depends on the corrected F''/F' value; the earlier 70x figure is superseded, not merely re-derived.",
+      "limitations": "RETRACTED 2026-09-30. The 119x figure was computed with F''/F' of the retired F_dual action, and TARGET_D7 sec.11.3 shows the c_T = c-safe Vainshtein sector caps at exponent p < 2 against a required p >= 2.34, so no GW170817-safe Vainshtein screening is available. The live Q2 status: bare mu_std is excluded at ~4.6 sigma (02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md); the working screening is phenomenological. Previous limitation: Depends on the corrected F''/F' value; the earlier 70x figure is superseded, not merely re-derived.",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D3-03 (TARGET_D7_SUPPLEMENT_COUPLING_OPTIMIZATION.md Sec.3)",
       "falsifiability": {
-        "test": null,
-        "scope": null,
-        "result": "not_run"
+        "test": "Is a GW170817-safe (c_T = c) Vainshtein operator strong enough to screen the solar system? TARGET_D7_COVARIANT_COMPLETION.md sec.11.3.",
+        "scope": "Horndeski G2 + G3 Box(phi), the c_T = c-safe sector; the p = 3 construction (Babichev-Deffayet-Esposito-Farese, arXiv:1106.2538) needs the GW170817-excluded G4(X)/G5 sector.",
+        "result": "contradicted"
       },
       "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
@@ -746,7 +746,7 @@
     {
       "id": "CLM-D5-02",
       "wording": "RMOND linear screening reduces the structure-growth enhancement to approximately 0.23% (F''/F' = 1/(2 x0^2 (1+x0)) ~= 0.00233; corrected 2026-09-08 from an earlier ~0.4%).",
-      "state": "derived",
+      "state": "conditional",
       "assurance_level": "numerical-derivation",
       "claim_type": "algebraic-identity",
       "formal_artifacts": [],
@@ -755,13 +755,14 @@
       ],
       "data_artifacts": [],
       "assumptions": [
-        "Linear-regime screening approximation; does not account for non-linear structure formation (see CLM-D5-03)."
+        "Linear-regime screening approximation; does not account for non-linear structure formation (see CLM-D5-03).",
+        "The screening ratio F''/F' = 1/(2 x0^2 (1+x0)) is that of the retired F_dual; it has not been recomputed for mu_std."
       ],
       "verification_commands": [
         "TARGET_D7_COVARIANT_COMPLETION.md Sec.4.1"
       ],
       "independent_witness": "TARGET_D7_COVARIANT_COMPLETION.md",
-      "limitations": "Linear-regime only. Non-linear consistency is CLM-D5-03, resolved INCONCLUSIVE (see falsifiability below), not this claim.",
+      "limitations": "CONDITIONAL since 2026-09-30: computed for the retired F_dual (falsified 2026-09-12); the mu_std value of the linear screening ratio has not been computed, so this number carries no support for the live theory. Linear-regime only. Non-linear consistency is CLM-D5-03, resolved INCONCLUSIVE (see falsifiability below), not this claim.",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D5-02 (TARGET_D7_COVARIANT_COMPLETION.md Sec.4.1)",
@@ -819,7 +820,7 @@
         "TARGET_D6_RELATIVISTIC_STABILITY.md Sec.1.2, symbolically verified"
       ],
       "independent_witness": "TARGET_D6_RELATIVISTIC_STABILITY.md",
-      "limitations": "Ghost-freedom within the stated action; not a full relativistic stability proof beyond this kinetic term.",
+      "limitations": "Ghost-freedom within the stated action; not a full relativistic stability proof beyond this kinetic term. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D6-01 (TARGET_D6_RELATIVISTIC_STABILITY.md Sec.1.2)",

@@ -1,18 +1,18 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-09-28T05:54:13.572676+00:00",
-  "git_commit": "dbaa0230163728cb869cd5f0f1b5a3d96650f76e",
-  "git_branch": "d7-boosted-held-correction",
-  "lean_target_count": 63,
+  "generated_at_utc": "2026-09-30T19:57:23.131211+00:00",
+  "git_commit": "31453101db5acaf64bcb7bd0d5f08f7699a2e0d4",
+  "git_branch": "hardening/2026-09-30",
+  "lean_target_count": 65,
   "claim_count": 48,
   "claim_states": {
     "computed": 6,
-    "conditional": 7,
-    "derived": 12,
+    "conditional": 8,
+    "derived": 10,
     "empirically-supported": 1,
     "formally-verified": 9,
     "proposed": 2,
-    "retracted": 11
+    "retracted": 12
   },
   "lean_gate": {
     "schema_version": "1.0",
@@ -30,7 +30,7 @@
     "certifies": "elaboration, absence of sorry, and a standard axiom footprint {propext, Classical.choice, Quot.sound}",
     "does_not_certify": "that assumptions carried as typeclass or structure fields are physically justified (THEORY_ASSUMPTION_AUDIT.md), nor cold-clone reproducibility (O6)",
     "lean_tree_at_run": "f0c6004384451c428a87668ebc327a8939f329b7980c4265e96468abbac37bfd",
-    "lean_tree": "1db3a4cbb60e3db8abf6b80211ef5d12e80e04f503fbea8ed82594dd9d14763b",
+    "lean_tree": "27756e02fcc9f6fc37fbf92077f2b89ec691848cfc5d3eb8d890e59b78c116fe",
     "stale": true
   },
   "checks": {
