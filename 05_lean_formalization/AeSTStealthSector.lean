@@ -24,7 +24,22 @@ Under this condition:
 6. Consequently, the physical metric solves the vacuum Einstein equations G_{μν} = 0
    identically, yielding exact General Relativity (γ = β = 1, α₁ = α₂ = 0).
 
-This module formalizes the algebraic core of this stealth sector without `sorry`.
+## What this module does and does not prove (scope corrected 2026-09-30)
+
+PROVED here `[thm]`, all by `ring`/`rfl` on scalars: item 3 in the free-fall frame
+(`P^{00}(−1, 1) = 0`, hence `Y = 0`), item 2 (`Q = Q₀`), and that the ansatz
+`F = c_Y·Y − 2K₂(Q − Q₀)²` vanishes there. These are one-line identities, not field
+equations.
+
+NOT PROVED here: items 1, 4, 5 and 6. No AeST field equation, no Einstein tensor and no
+residual appears in this file. The earlier claim that "all 8 AeST field-equation residuals
+vanish" is carried by the symbolic CAS check of `TARGET_D3` note 7 §34 `[D]` and by the
+published stealth solution (Skordis & Vokrouhlický 2024, arXiv:2412.15395) `[C]`, not by
+this module. The `StealthPPN` record below *defines* γ = β = 1, α₁ = α₂ = 0; its
+theorems are `rfl` and certify nothing about the dynamics.
+
+Physical applicability is conditional: the dragged branch must be the one selected, and
+branch selection is OPEN (`TARGET_D7`). On the held branch these results do not apply.
 -/
 
 namespace ResNova.AeSTStealthSector
@@ -89,7 +104,8 @@ theorem F_kinetic_stealth_vanishes (p : StealthParams) (cY K2 : ℝ) :
   rw [Y_stealth_is_zero, Q_stealth_eq_Q0]
   ring
 
-/-- The PPN parameters on the exact GR stealth branch. -/
+/-- The PPN parameters on the exact GR stealth branch. DEFINITIONAL: the values below are
+imported from the cited stealth solution, not derived in this module. -/
 structure StealthPPN where
   gamma : ℝ
   beta : ℝ
@@ -103,7 +119,7 @@ def canonicalStealthPPN : StealthPPN :=
   , alpha1 := 0
   , alpha2 := 0 }
 
-/-- Theorem: Stealth branch exhibits exact General Relativity PPN values. -/
+/-- Definitional record (`rfl`): restates the imported GR values; not a derivation. -/
 theorem stealth_ppn_gamma_unity : canonicalStealthPPN.gamma = 1 := rfl
 theorem stealth_ppn_beta_unity : canonicalStealthPPN.beta = 1 := rfl
 theorem stealth_ppn_alpha1_zero : canonicalStealthPPN.alpha1 = 0 := rfl

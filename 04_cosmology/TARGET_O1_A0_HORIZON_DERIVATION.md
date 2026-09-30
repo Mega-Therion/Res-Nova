@@ -4,8 +4,11 @@
 > two inputs. Input 1 is the scale a₀, a *boundary condition anchored to cH₀*; input 2 is μ. "Not derived" is
 > not a defect for a declared input. The identification a₀ = cH₀/2π is therefore the framework's declared
 > anchor, and what O1 must establish is in place:
-> - **The normalisation is proved.** The 2π comes from the KMS cancellation (`HorizonScale.lean`, [P],
->   gate-verified).
+> - **The normalisation is declared, not proved (corrected 2026-09-30).** This bullet previously read
+>   "the 2π comes from the KMS cancellation". It does not: `HorizonScale.lean` proves that equating the
+>   Unruh and Gibbons–Hawking temperatures gives a = cH, with the 2π *cancelling* (ξ = 1, [P]). The
+>   anchor a₀ = cH₀/2π is a factor 2π away from that result; the divisor is the heuristic `[O]` row of
+>   the table in §2.B below. The H₀ inversion that follows holds only given the declared 2π.
 > - **The anchor is supported empirically.** μ_std extractions from `02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json`
 >   give a₀ = 1.161 (all 175 galaxies), 1.098 (flow distances rescaled to Planck) and 1.163 (78 non-flow
 >   galaxies; 95% [0.966, 1.324]) × 10⁻¹⁰ m/s².

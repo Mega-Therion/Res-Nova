@@ -21,22 +21,29 @@ Comprehensive Symbolic & High-Precision Numerical Certification:
      lim_{x->oo} mu_std(x) = 1
      Asymptotic expansion: F_std(x) ~ x^2/2 - 1/2*ln(2x) + 1/4 + O(1/x^2)
      Fractional deviation: delta(x) = 1 - mu_std(x) ~ 1/(2*x^2) - 3/(8*x^4) + O(x^-6)
-3. Scalar Perturbation Sound Speed:
-   - Radial / gradient sound speed: c_s^2(x) = (1 + x^2) / (x^2 + 2)
-   - Stability bounds: c_s^2(x) in [1/2, 1) for all x in [0, oo)
-   - Gradient stability: c_s^2(x) >= 1/2 > 0 (strictly positive, eliminating ghost/gradient instabilities)
-   - Strict subluminality: c_s^2(x) < 1 (no superluminal signaling, causal hyperbolicity preserved)
-4. Solar System Ephemerides & Cassini Radar Experiment Clearance:
-   - Cassini bound: |gamma_PPN - 1| <= 2.3e-5 (Bertotti, Iess, Tortora, Nature 425, 374 (2003))
-   - High-precision planetary ephemeris evaluation (mpmath 50 digits) at:
-     Mercury, Venus, Earth, Mars, Jupiter, Saturn (Cassini site), Uranus, Neptune, Kuiper Belt, Voyager 1
+3. Characteristic Speed Along the Gradient (corrected 2026-09-30):
+   - Derived from the quadratic action of the relativistic P(X) completion
+     L = f(X), X = g^{mn} d_m phi d_n phi, spacelike background gradient:
+       f'(-w^2 + k_perp^2) + (f' + 2 X f'') k_par^2  ==>  c_par^2 = x F''(x) / F'(x)
+   - For mu_std: c_par^2 = (x^2 + 2)/(x^2 + 1) in (1, 2]  -- SUPERLUMINAL (RAQUAL acausality)
+   - The earlier "c_s^2 = (1+x^2)/(x^2+2) in [1/2, 1), strictly subluminal" was the
+     reciprocal: a ratio of spatial stiffnesses with no time-derivative coefficient in it.
+     It is asserted below to equal 1/c_par^2 so the inversion cannot silently return.
+4. Solar-System MONOPOLE Deviation (scope corrected 2026-09-30):
+   - Live a0 = 1.1607e-10 m/s^2 (mu_std SPARC extraction; 1.116e-10 is the superseded
+     mu_dual-era value).
+   - Evaluated (mpmath 50 digits) at Mercury ... Voyager 1:
    - Exact algebraic solve of spherical field equation: mu(g_phi/a0) * g_phi = g_N
      Exact root: y = sqrt((x^2 + x*sqrt(x^2 + 4)) / 2), g_phi = a0 * y
-     Residual anomalous acceleration: Delta g = g_phi - g_N ~ a0^2 / (2 * g_N) = a0^2 * r^2 / (2 * G * M_sun)
+     Residual anomalous acceleration: Delta g = g_phi - g_N ~ a0^2 / (2 * g_N)
      Fractional deviation: Delta g / g_N ~ 1 / (2 * x^2)
+   - NOT a Cassini clearance. 1 - mu is a fractional acceleration shift; the Cassini bound
+     |gamma - 1| <= 2.3e-5 (Bertotti et al. 2003) constrains a light-propagation parameter
+     and is not comparable. The binding Cassini test is the external-field quadrupole Q2,
+     which bare mu_std FAILS at ~4.6 sigma
+     (02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md).
    - Contrast against falsified dual branch mu_dual(x) = x / (1 + x):
-     Produces unshielded constant Delta g ~ a0 = 1.116e-10 m/s^2 across all orbits,
-     violating Mercury / Saturn ephemerides by > 10^3x (falsification confirmed).
+     Produces unshielded Delta g ~ a0 across all orbits (falsification confirmed).
    - Generates machine-readable receipt at scripts/repro/cassini_clearance_receipt.json
 """
 
@@ -171,66 +178,67 @@ def run_boundary_limits():
 
 def run_sound_speed_analysis():
     print("\n" + "=" * 80)
-    print(" [3/4] SCALAR PERTURBATION SOUND SPEED & STABILITY CERTIFICATION")
+    print(" [3/4] CHARACTERISTIC SPEED ALONG THE GRADIENT (P(X) COMPLETION)")
     print("=" * 80)
 
     x = sp.symbols("x", positive=True, real=True)
+    X, w, kpar, kperp = sp.symbols("X omega k_par k_perp", positive=True)
+    F_std = sp.Rational(1, 2) * (x * sp.sqrt(1 + x**2) - sp.asinh(x))
     mu_std = x / sp.sqrt(1 + x**2)
-    dmu_dx = sp.diff(mu_std, x)
 
-    # In AQUAL / k-essence non-linear scalar field theory:
-    # Sound speed squared along the radial gradient direction:
-    # c_s^2(x) = mu(x) / [ mu(x) + x * mu'(x) ]
-    cs2_sym = sp.simplify(mu_std / (mu_std + x * dmu_dx))
-    expected_cs2 = (1 + x**2) / (x**2 + 2)
-    res_cs2 = sp.simplify(cs2_sym - expected_cs2)
-    print(f"[+] Sound speed formula c_s^2(x) = {cs2_sym}")
-    print(f"[+] Match with (1 + x^2)/(x^2 + 2) residual: {res_cs2}")
-    assert res_cs2 == 0, f"Sound speed formula mismatch: {res_cs2}"
+    # P(X) completion: f(X) = F_std(sqrt(X)), X = x^2 (units a0 = 1).
+    f = F_std.subs(x, sp.sqrt(X))
+    fp, fpp = sp.diff(f, X), sp.diff(f, X, 2)
+    # Quadratic action f'(-w^2 + kperp^2) + (f' + 2 X f'') kpar^2 = 0 on shell.
+    disp = -fp * w**2 + fp * kperp**2 + (fp + 2 * X * fpp) * kpar**2
+    w2_par = sp.solve(disp.subs(kperp, 0), w**2)[0] / kpar**2
+    w2_perp = sp.solve(disp.subs(kpar, 0), w**2)[0] / kperp**2
+    c_par2 = sp.simplify(w2_par.subs(X, x**2))
+    c_perp2 = sp.simplify(w2_perp.subs(X, x**2))
 
-    # Extreme evaluations:
-    # At x = 0 (Deep-MOND): c_s^2(0) = 1/2
-    cs2_at_0 = expected_cs2.subs(x, 0)
-    print(f"[+] Deep-MOND sound speed c_s^2(0) = {cs2_at_0} (c_s = {float(sp.sqrt(cs2_at_0)):.4f} c)")
-    assert cs2_at_0 == sp.Rational(1, 2), f"c_s^2(0) != 1/2: {cs2_at_0}"
+    # The same speed from F alone: c_par^2 = x F'' / F' (what MuStdFoundations.lean proves).
+    c_par2_F = sp.simplify(x * sp.diff(F_std, x, 2) / sp.diff(F_std, x))
+    expected = (x**2 + 2) / (x**2 + 1)
+    assert sp.simplify(c_par2 - expected) == 0, c_par2
+    assert sp.simplify(c_par2_F - expected) == 0, c_par2_F
+    assert sp.simplify(c_perp2 - 1) == 0, c_perp2
+    print(f"[+] c_par^2 (from dispersion relation) = {sp.factor(c_par2)}")
+    print(f"[+] c_par^2 (x F''/F')                 = {sp.factor(c_par2_F)}")
+    print(f"[+] c_perp^2                           = {c_perp2}")
 
-    # At x -> oo (Newtonian): c_s^2(oo) = 1
-    cs2_at_oo = sp.limit(expected_cs2, x, sp.oo)
-    print(f"[+] Newtonian sound speed lim_{{x->oo}} c_s^2(x) = {cs2_at_oo} (c_s = 1.0 c)")
-    assert cs2_at_oo == 1, f"c_s^2(oo) != 1: {cs2_at_oo}"
+    # Guard against the 2026-09-29 inversion: the old "c_s^2" was 1/c_par^2.
+    old_cs2 = mu_std / (mu_std + x * sp.diff(mu_std, x))
+    assert sp.simplify(old_cs2 * c_par2 - 1) == 0
+    print("[+] Retired c_s^2 = mu/(mu + x mu') equals 1/c_par^2 (a stiffness ratio, not a speed)")
 
-    # Derivative d(c_s^2)/dx = 2*x / (x^2 + 2)^2 > 0 for all x > 0:
-    dcs2_dx = sp.simplify(sp.diff(expected_cs2, x))
-    print(f"[+] d(c_s^2)/dx = {dcs2_dx} > 0 for all x > 0 (strictly monotonic increase)")
-
-    # Strict bounds: 1/2 <= c_s^2(x) < 1 for all x in [0, oo)
-    # Proof: 1 - c_s^2(x) = 1/(x^2 + 2) > 0 ==> c_s^2(x) < 1 (subluminal)
-    # c_s^2(x) - 1/2 = x^2 / [2*(x^2 + 2)] >= 0 ==> c_s^2(x) >= 1/2 (gradient stable)
-    print("[+] Formal stability verification:")
-    print("    1. Gradient stability: c_s^2(x) - 1/2 = x^2 / [2*(x^2+2)] >= 0  ==> c_s^2 >= 1/2 > 0 (NO GHOSTS / NO GRADIENT INSTABILITY)")
-    print("    2. Strict subluminality: 1 - c_s^2(x) = 1 / (x^2+2) > 0          ==> c_s^2 < 1 (NO CAUSALITY VIOLATIONS / STRICTLY SUBLUMINAL)")
-
-    print("    -> PASS: Scalar perturbation sound speed and causal stability certified.")
+    lim0 = sp.limit(expected, x, 0)
+    limoo = sp.limit(expected, x, sp.oo)
+    assert lim0 == 2 and limoo == 1
+    # 1 < c_par^2 <= 2: c_par^2 - 1 = 1/(x^2+1) > 0; 2 - c_par^2 = x^2/(x^2+1) >= 0
+    assert sp.simplify(expected - 1 - 1 / (x**2 + 1)) == 0
+    assert sp.simplify(2 - expected - x**2 / (x**2 + 1)) == 0
+    print(f"[+] Deep-MOND c_par^2(0) = {lim0}; Newtonian c_par^2(oo) = {limoo}")
+    print("    -> RESULT: 1 < c_par^2 <= 2 for x > 0. The P(X) completion is SUPERLUMINAL along")
+    print("       the gradient (RAQUAL acausality). AeST's scalar speed is a separate result (D6).")
     return {
-        "sound_speed_formula": "c_s^2(x) = (1 + x^2) / (x^2 + 2)",
-        "deep_mond_sound_speed": "1/2 (c_s ≈ 0.7071 c)",
-        "newtonian_sound_speed": "1 (c_s = 1.0 c)",
-        "gradient_stability": "c_s^2 >= 1/2 > 0 strictly verified",
-        "causal_subluminality": "c_s^2 < 1 strictly verified"
+        "c_par_sq_formula": "c_par^2(x) = x F''/F' = (x^2 + 2)/(x^2 + 1)",
+        "c_perp_sq": "1",
+        "deep_mond_c_par_sq": "2",
+        "newtonian_c_par_sq": "1",
+        "verdict": "SUPERLUMINAL along the gradient in the P(X) completion (1 < c_par^2 <= 2)",
+        "retired_claim": "c_s^2 = (1+x^2)/(x^2+2) in [1/2,1), 'strictly subluminal' -- was 1/c_par^2; retracted 2026-09-30",
     }
 
 def run_cassini_and_solar_system():
     print("\n" + "=" * 80)
-    print(" [4/4] SOLAR SYSTEM EPHEMERIDES & CASSINI RADAR BOUND CLEARANCE")
+    print(" [4/4] SOLAR SYSTEM MONOPOLE DEVIATION (NOT A CASSINI CLEARANCE)")
     print("=" * 80)
 
     # Fundamental physical constants (SI units):
     # CODATA / IAU standard parameters
     G_M_sun = mp.mpf("1.32712440018e20")  # m^3 / s^2 (solar gravitational parameter GM_sun)
     AU_in_m = mp.mpf("1.495978707e11")    # m (1 Astronomical Unit)
-    a0_sparc = mp.mpf("1.116e-10")         # m / s^2 (Res Nova SPARC acceleration scale)
-    a0_milgrom = mp.mpf("1.20e-10")       # m / s^2 (Standard Milgrom benchmark)
-    cassini_bound = mp.mpf("2.3e-5")       # Bertotti et al. (2003) |gamma - 1| <= 2.3e-5
+    a0_sparc = mp.mpf("1.1607e-10")        # m / s^2 (live mu_std SPARC extraction)
 
     # Solar System Bodies / Orbital distances (semi-major axis in AU)
     orbit_data = [
@@ -250,9 +258,8 @@ def run_cassini_and_solar_system():
     print(f"  GM_sun:        {G_M_sun} m^3/s^2")
     print(f"  1 AU:          {AU_in_m} m")
     print(f"  a0 (SPARC):    {a0_sparc} m/s^2")
-    print(f"  Cassini bound: {cassini_bound} (|gamma - 1|)")
     print("-" * 105)
-    print(f"{'Body':<23} | {'r (AU)':<7} | {'g_N (m/s^2)':<11} | {'x = g_N/a0':<11} | {'delta_std (1-mu)':<16} | {'Cassini Margin':<14} | {'Status'}")
+    print(f"{'Body':<23} | {'r (AU)':<7} | {'g_N (m/s^2)':<11} | {'x = g_N/a0':<11} | {'delta_std (1-mu)':<16} | {'Delta g (m/s^2)'}")
     print("-" * 105)
 
     results_table = []
@@ -282,12 +289,7 @@ def run_cassini_and_solar_system():
         g_phi_dual = a0_sparc * y_dual
         delta_g_dual = g_phi_dual - g_N
 
-        # Margin of safety relative to Cassini bound
-        safety_margin_std = cassini_bound / delta_std
-
-        status = "PASSED" if delta_std < cassini_bound else "FAILED"
-
-        print(f"{name:<23} | {float(r_au):<7.3f} | {float(g_N):<11.4e} | {float(x_val):<11.4e} | {float(delta_std):<16.6e} | {float(safety_margin_std):<14.2e}x | {status}")
+        print(f"{name:<23} | {float(r_au):<7.3f} | {float(g_N):<11.4e} | {float(x_val):<11.4e} | {float(delta_std):<16.6e} | {float(delta_g_exact):.4e}")
 
         results_table.append({
             "target": name,
@@ -298,46 +300,40 @@ def run_cassini_and_solar_system():
             "mu_std": float(mu_std_val),
             "delta_std": float(delta_std),
             "delta_g_exact_mps2": float(delta_g_exact),
-            "safety_margin_std": float(safety_margin_std),
             "mu_dual": float(mu_dual_val),
             "delta_dual": float(delta_dual),
             "delta_g_dual_mps2": float(delta_g_dual),
-            "cassini_cleared": bool(delta_std < cassini_bound)
         })
 
     print("-" * 105)
 
-    # Specific Cassini site check (Saturn at 9.58 AU):
+    # Saturn monopole check, matching MuStdFoundations.saturn_monopole_deviation_le:
     saturn_entry = next(e for e in results_table if "Saturn" in e["target"])
-    print(f"\n[+] Detailed Cassini Experiment Clearance at Saturn (r = {saturn_entry['radius_au']} AU):")
+    print(f"\n[+] Monopole deviation at Saturn (r = {saturn_entry['radius_au']} AU):")
     print(f"    Newtonian acceleration g_N:       {saturn_entry['g_N_mps2']:.6e} m/s^2")
     print(f"    Gradient parameter x:             {saturn_entry['x_ratio']:.6e}")
     print(f"    Standard mu deviation (1 - mu):   {saturn_entry['delta_std']:.6e}")
-    print(f"    Cassini observational limit:      {float(cassini_bound):.6e}")
-    print(f"    Cassini Clearance Factor:         {saturn_entry['safety_margin_std']:.2e}x (OVER 7 ORDERS OF MAGNITUDE MARGIN)")
-    assert saturn_entry["delta_std"] < float(cassini_bound), "Saturn failed Cassini bound!"
-
-    # Specific Voyager / Kuiper check:
-    voyager_entry = next(e for e in results_table if "Voyager" in e["target"])
-    print(f"\n[+] Deep Solar System Clearance at Voyager 1 (r = {voyager_entry['radius_au']} AU):")
-    print(f"    Standard mu deviation (1 - mu):   {voyager_entry['delta_std']:.6e}")
-    print(f"    Cassini Clearance Factor:         {voyager_entry['safety_margin_std']:.2e}x (3 ORDERS OF MAGNITUDE MARGIN EVEN AT 100 AU)")
+    assert saturn_entry["x_ratio"] >= 5e5, "Saturn x below the Lean theorem's hypothesis"
+    assert saturn_entry["delta_std"] <= 2e-12, "Saturn monopole deviation exceeds the Lean bound"
+    print("    SCOPE: isolated-Sun monopole only. Not comparable to the Cassini |gamma-1| bound.")
+    print("    The binding Cassini test is the EFE quadrupole Q2, which bare mu_std FAILS (~4.6 sigma);")
+    print("    see 02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md.")
 
     # Falsification contrast:
     print("\n[+] Contrast Against Falsified Dual Branch mu_dual(x) = x / (1 + x):")
     mercury_entry = next(e for e in results_table if "Mercury" in e["target"])
     print(f"    Mercury: Delta g (mu_std)  = {mercury_entry['delta_g_exact_mps2']:.6e} m/s^2 (Suppressed by 1/r^2 ~ 10^-19 m/s^2)")
-    print(f"    Mercury: Delta g (mu_dual) = {mercury_entry['delta_g_dual_mps2']:.6e} m/s^2 (Unshielded constant a0 ~ 1.116e-10 m/s^2)")
+    print(f"    Mercury: Delta g (mu_dual) = {mercury_entry['delta_g_dual_mps2']:.6e} m/s^2 (Unshielded, ~a0)")
     print(f"    Ratio [mu_dual / mu_std] residual at Mercury: {mercury_entry['delta_g_dual_mps2'] / mercury_entry['delta_g_exact_mps2']:.2e}x")
     print(f"    Conclusion: mu_dual produces unshielded ~10^-10 m/s^2 constant force, violating planetary perihelion shifts by > 10^3x.")
-    print(f"    mu_std screening is fully validated: Delta g ~ a0^2/(2*g_N) vanishes near gravitating bodies.")
+    print(f"    mu_std monopole: Delta g ~ a0^2/(2*g_N) is suppressed near the Sun (EFE quadrupole not covered).")
 
     return results_table
 
 def main():
     print("=" * 80)
     print(" RES NOVA CANONICAL PHYSICS & THEOREM PROVING SUITE")
-    print(" Verification of mu_std Constitutive Calculus, Sound Speed & Cassini Clearance")
+    print(" Verification of mu_std Constitutive Calculus, Gradient Characteristic Speed & Monopole Tail")
     print(" Author: R.W. Yett | ORCID: 0009-0001-1303-7190")
     print("=" * 80)
 
@@ -347,21 +343,21 @@ def main():
     res_4 = run_cassini_and_solar_system()
 
     receipt = {
-        "title": "Res Nova Monograph - mu_std Constitutive & Solar System Clearance Receipt",
+        "title": "Res Nova Monograph - mu_std Constitutive, Characteristic Speed & Monopole Receipt",
         "author": "R.W. Yett (ORCID: 0009-0001-1303-7190)",
-        "timestamp_iso": "2026-09-29T00:00:00Z",
+        "timestamp_iso": "2026-09-30T00:00:00Z",
         "symbolic_calculus": res_1,
         "boundary_limits": res_2,
-        "scalar_sound_speed": res_3,
-        "cassini_clearance_saturn": {
+        "gradient_characteristic_speed": res_3,
+        "saturn_monopole": {
             "r_au": 9.5826,
+            "a0_mps2": 1.1607e-10,
             "delta_std": next(e["delta_std"] for e in res_4 if "Saturn" in e["target"]),
-            "cassini_bound": 2.3e-5,
-            "safety_margin": next(e["safety_margin_std"] for e in res_4 if "Saturn" in e["target"]),
-            "verdict": "CLEARED (> 7 orders of magnitude)"
+            "lean_bound": "1 - mu_std(x) <= 2e-12 for x >= 5e5 (saturn_monopole_deviation_le)",
+            "scope": "Isolated-Sun monopole only. Not a Cassini clearance: the EFE quadrupole Q2 is the binding test and bare mu_std fails it at ~4.6 sigma (CASSINI_EFE_QUADRUPOLE_2026-09-27.md)."
         },
-        "planetary_clearance_table": res_4,
-        "overall_status": "ALL_CONSTRAINTS_PASSED_CLEAN"
+        "planetary_monopole_table": res_4,
+        "overall_status": "CALCULUS_VERIFIED; P(X)_COMPLETION_SUPERLUMINAL; MONOPOLE_ONLY_NOT_CASSINI"
     }
 
     receipt_path = Path(__file__).resolve().parent / "repro" / "cassini_clearance_receipt.json"
@@ -369,7 +365,7 @@ def main():
     receipt_path.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
     print(f"\n[✓] Machine-readable receipt written to: {receipt_path}")
     print("=" * 80)
-    print(" STATUS: STEP 1 NUMERICAL & SYMBOLIC PIPELINE FULLY COMPLETE AND VERIFIED")
+    print(" STATUS: ALL ASSERTIONS PASSED (see scope notes above)")
     print("=" * 80)
     return 0
 
