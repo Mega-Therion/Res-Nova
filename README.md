@@ -18,7 +18,7 @@ Technical manuscript, formal verification, and reproducibility package.
 Res-Nova is a live demonstration of *falsifiable, machine-checkable scientific claims*. Every quantitative result in the manuscript is registered in a structured claim registry (`scripts/validate_claim_registry.py`) and gated by a Lean 4 proof target inventory (`05_lean_formalization/`). The CI pipeline runs daily and on every push, executing:
 
 - **Claim consistency checks** — automated detection of internal contradictions across the claim registry
-- **Lean 4 formal gate** — `lake build` verifies every proof target; `sorry`-free or the gate is red
+- **Lean 4 formal gate** — `05_lean_formalization/verify_all_proofs.sh` builds every target and fails on any compiler-reported `sorry` or non-standard axiom; `lake build` alone is not the gate
 - **MVPC-X conformance judgment** — an independent claim-consumer replays the rendered claim bundle against a formal judge, catching evaluator-gaming and vacuous proofs
 
 This architecture is directly applicable to **scalable oversight** and **interpretability auditing**: the same claim-registry and formal-gate pattern can bound the behavior of AI systems whose outputs make mathematical or logical assertions. The reproducibility package (Zenodo DOI `10.5281/zenodo.21539453`) provides a self-contained, citable artifact for replication.
