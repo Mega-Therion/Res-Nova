@@ -2106,3 +2106,100 @@ works:
     is_latest: false
     has_versions: ["10.5281/zenodo.21969121"]
     is_new_version_of: []
+
+  - work_id: quasistatic_aether_scalar_tensor_gravity
+    title: "Quasistatic Aether-Scalar-Tensor Gravity: Galaxies, the Solar System, and Non-Linear Steady States of Dwarf Galaxies in an Aether Wind"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Preprint"
+    canonical_doi: "10.5281/zenodo.23101840"
+    lineage: manuscript
+    role: version
+    version: "1.0.0"
+    status: live
+    publication_date: "2026-10-02"
+    repository: "Mega-Therion/Chyren"
+    concept_doi: "10.5281/zenodo.23101839"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+  - work_id: quasistatic_aether_scalar_tensor_gravity_2
+    title: "Quasistatic Aether-Scalar-Tensor Gravity: Galaxies, the Solar System, and Non-Linear Steady States of Dwarf Galaxies in an Aether Wind"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Preprint"
+    canonical_doi: "10.5281/zenodo.23101839"
+    lineage: manuscript
+    role: concept
+    version: "1.0.0"
+    status: live
+    publication_date: "2026-10-02"
+    repository: "Mega-Therion/Chyren"
+    concept_doi: "10.5281/zenodo.23101839"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.23101840"]
+    is_new_version_of: []
+  - work_id: spectral_theory_five_class_consonantal
+    title: "Spectral Theory of the Five-Class Consonantal Subshift and a Composite [[7,1,3]]_22 Qudit Code"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Preprint"
+    canonical_doi: "10.5281/zenodo.23101853"
+    lineage: manuscript
+    role: version
+    version: "1.0.0"
+    status: live
+    publication_date: "2026-10-02"
+    repository: "Mega-Therion/Chyren"
+    concept_doi: "10.5281/zenodo.23101852"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+  - work_id: spectral_theory_five_class_consonantal_2
+    title: "Spectral Theory of the Five-Class Consonantal Subshift and a Composite [[7,1,3]]_22 Qudit Code"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Preprint"
+    canonical_doi: "10.5281/zenodo.23101852"
+    lineage: manuscript
+    role: concept
+    version: "1.0.0"
+    status: live
+    publication_date: "2026-10-02"
+    repository: "Mega-Therion/Chyren"
+    concept_doi: "10.5281/zenodo.23101852"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.23101853"]
+    is_new_version_of: []
+  - work_id: holographic_duality_prospectus_optical
+    title: "Holographic Duality Prospectus: The Optical Trinity, Non-Unital Renormalization Channels, and a Tree-of-Life 2-Complex"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Preprint"
+    canonical_doi: "10.5281/zenodo.23101857"
+    lineage: manuscript
+    role: version
+    version: "1.0.0"
+    status: live
+    publication_date: "2026-10-02"
+    repository: "Mega-Therion/Chyren"
+    concept_doi: "10.5281/zenodo.23101856"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+  - work_id: holographic_duality_prospectus_optical_2
+    title: "Holographic Duality Prospectus: The Optical Trinity, Non-Unital Renormalization Channels, and a Tree-of-Life 2-Complex"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Preprint"
+    canonical_doi: "10.5281/zenodo.23101856"
+    lineage: manuscript
+    role: concept
+    version: "1.0.0"
+    status: live
+    publication_date: "2026-10-02"
+    repository: "Mega-Therion/Chyren"
+    concept_doi: "10.5281/zenodo.23101856"
+    is_latest: false
+    has_versions: ["10.5281/zenodo.23101857"]
+    is_new_version_of: []

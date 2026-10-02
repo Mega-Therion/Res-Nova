@@ -41,6 +41,7 @@ TARGETS=(
   SU2MatrixEnvelope.lean \
   SU2CarrierRungs.lean \
   SU2FiniteFaithfulness.lean \
+  PillarII_SecularRootQEC.lean \
   AXIOMS_V2.lean
   CartanTrialityGenerations.lean
   ChiralCellularDuality.lean
@@ -133,9 +134,12 @@ fi
 # Drift between this list, the lakefile roots, and the files on disk is itself a
 # gate failure: it is how five phantom modules survived in the manuscript.
 declare -i drift=0
+# Match against a precomputed list with a here-string. `printf | grep -q` under `set -o pipefail` raced: grep -q
+# exits on the first match, printf can then take SIGPIPE, and pipefail reported a declared target as drift.
+_target_list=$(printf '%s\n' "${TARGETS[@]}")
 for f in *.lean; do
   case "$f" in lakefile.lean) continue;; esac
-  printf '%s\n' "${TARGETS[@]}" | grep -qx "$f" || { echo "DRIFT $f on disk but not a declared target"; drift=1; }
+  grep -qxF -- "$f" <<<"$_target_list" || { echo "DRIFT $f on disk but not a declared target"; drift=1; }
 done
 for t in "${TARGETS[@]}"; do
   [ -f "$t" ] || { echo "DRIFT $t declared as target but absent from disk"; drift=1; }

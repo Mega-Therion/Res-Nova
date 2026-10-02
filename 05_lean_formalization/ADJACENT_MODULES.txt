@@ -430,3 +430,9 @@ SU2CarrierRungs.lean             # The named algebraic SU(2) carrier (unitary,
                                  # det one) with identity and closure.
 SU2FiniteFaithfulness.lean       # Faithfulness of the finite representation at
                                  # coordinate, matrix, and carrier level.
+
+# --- Trifurcation Paper II (discrete mathematics) ---
+PillarII_SecularRootQEC.lean     # secular root of the 5-class consonantal subshift (lambda^2 - 13 lambda - 80)
+                                 # and the CRT idempotents of Z/22. The paper's own receipt is
+                                 # ConsonantalSubshift.lean (doi:10.5281/zenodo.23101853). Not a result of
+                                 # this manuscript.

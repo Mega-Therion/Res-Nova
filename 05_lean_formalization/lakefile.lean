@@ -36,6 +36,7 @@ lean_lib «ResNovaFormal» where
     `SU2MatrixEnvelope,
     `SU2CarrierRungs,
     `SU2FiniteFaithfulness,
+    `PillarII_SecularRootQEC,
     `CartanTrialityGenerations,
     `ChiralCellularDuality,
     `ChiralCrackSketch,
