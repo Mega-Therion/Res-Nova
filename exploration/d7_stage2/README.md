@@ -155,18 +155,75 @@ Gauss points.
     The MOND channel is essentially gone. g is ≈ 1.1 × the Φ̂-channel flux; D3 §34's GR reference is 0.75.
   - Branch, resolution and continuity are open. This is not a stage C result.
 
-**Gate B2** (`gate_wind_linear_fe.py`): the first Newton step from the static solution at 100 and 300 km/s must reproduce
-§7's real-space correction δφ = −[1/(4+λ)](4Ψ − 3∇⁻²∂_z²Φ̂) at r = 0.1–0.3 kpc, with the criterion in the script's
-docstring. Pending.
+**Gate B2** (`gate_wind_linear_fe.py`, ported unchanged to the C¹ solver; criterion committed before the first C¹ run):
+the first Newton step from the static solution at 100 and 300 km/s must reproduce §7's real-space correction
+δφ = −[1/(4+λ)](4Ψ − 3∇⁻²∂_z²Φ̂) at r = 0.1–0.3 kpc within the script's 10% band. **FAIL on both grids,
+resolution-converged** (`GATE_B2_VERDICT_C1.txt`):
+- g_e = 0.003 a₀, 100 km/s: dF_r/pred_r = 0.895, 0.877, 0.862, 0.841 at r = 0.1, 0.15, 0.2, 0.3 kpc on 16×32, and
+  0.896, 0.878, 0.864, 0.843 on 24×48;
+- isolated dwarf, 16×32: 0.852, 0.826, 0.805, 0.775.
 
-## Step C: continuation in the wind speed (`stage_c_continuation.py`), pending
+The full solver's linear response has §7's structure (a v-independent plateau carried by the scalar, tilt ≪ stealth) but
+77–90% of its amplitude, falling with radius. §7's local-WKB formula overstates the linear cancellation of the MOND field
+by 10–23% in these configurations.
 
-Newton from a secant predictor, 0.5 → 300 km/s, with step bisection on failure. Per speed it records:
-- g/g_static at r_h (the observable);
-- Y/Y_static and u/stealth tilt (the branch indicators: held keeps Y and has u ≈ 0; dragged drives Y → 0 and u → 1);
-- the eigenvalues of the equilibrated Hessian nearest zero (a fold needs one crossing zero; Newton failing is not
-  enough);
-- the final residual at every speed.
+**The stripped state at satellite speeds (exploratory; `analyse_stripped_c1.py`,
+`ANALYSIS_highv_ge0_box300_16x32_v100.txt`).** Isolated dwarf, 30 kpc box, 100 km/s:
+- the Newton channel ∂_rΦ̂ is 0.752–0.769 of its static value at r = 0.1–2.4 kpc. That is D3 §34's GR normalization
+  1 − K_B/2 = 0.75 (the dragged branch is GR with G̃; the held branch has G̃/(1 − K_B/2));
+- the MOND channel ∂_rϕ is 7–24% of its static value over the same radii;
+- the state is fore–aft symmetric.
 
-The dragged branch's own acceleration is not yet established. M(<r)/(12πr²) is the Φ̂-channel flux, and nothing yet
-shows that the dragged branch's acceleration equals it.
+**Box sweep at fixed resolution near the dwarf (exploratory; `box_sweep_c1.py 16 32 fixed`,
+`BOX_SWEEP_C1_16x32_fixed.json`, `BOX_SWEEP_C1_fixed.txt`).** 100 km/s, g_e = 0, element size near the dwarf held at
+asinh(100)/16 (the first sweep, `BOX_SWEEP_C1_16x32.json`, confounded box size with resolution):
+
+| box edge | grid | residual | g/g_static at r_h | g / Φ̂-flux | 𝒴/𝒴_static | u / stealth tilt |
+|---|---|---|---|---|---|---|
+| 10 kpc | 16×32 | 9.6e-12 | 0.1732 | 5.833 | 0.0372 | 3.0e-3 |
+| 30 kpc | 20×40 | 2.0e-11 | 0.1096 | 3.691 | 0.0126 | 3.3e-3 |
+| 100 kpc | 23×46 | 2.7e-11 | 0.0678 | 2.283 | 0.0034 | 3.4e-3 |
+| 300 kpc | 27×54 | 7.5e-11 | 0.0444 | 1.494 | 0.0008 | 3.5e-3 |
+| 1 Mpc | 30×60 | 5.5e-11 | 0.0290 | 0.978 | 0.0001 | 3.5e-3 |
+
+- The static dwarf has g/Φ̂-flux = 33.68. A purely GR-Newtonian (dragged-normalization) dwarf would have
+  g/g_static = 0.75/33.68 = 0.0223. The remnant above that falls with the box and is **not converged in box size**.
+- 𝒴 falls by four orders of magnitude while the aether tilt stays at ~3×10⁻³ of the stealth tilt: the state loses its
+  MOND field without being dragged.
+- Static reference: at edges ≥ 100 kpc it is the Λ-frozen (held) stage-1 state at 2.9–4.1×10⁻¹¹ (its 10⁻¹¹ tolerance
+  is not met), because freeing Λ stalls at 1.1–1.8×10⁻³.
+
+**Gate C** (`gate_c_c1.py`, criterion committed in the previous commit before its first run; `GATE_C_C1.json`,
+`GATE_C_C1.txt`): **FAIL on criterion (a) only.**
+
+| run | v [km/s] | converged (residual) | Newton channel / static, r = 0.1–0.6 kpc | scalar remnant at r_h | g/g_static at r_h |
+|---|---|---|---|---|---|
+| 100 kpc, 23×46 | 100 | yes (2.7e-11) | 0.7505–0.7514 | 0.0469 | 0.0678 |
+| 100 kpc, 23×46 | 300 | yes (5.2e-11) | 0.7506–0.7515 | 0.0479 | 0.0688 |
+| 100 kpc, 30×60 | 100 | yes (4.5e-11) | 0.7505–0.7514 | 0.0466 | 0.0675 |
+| 100 kpc, 30×60 | 300 | yes (9.7e-11) | 0.7506–0.7515 | 0.0477 | 0.0685 |
+| 1 Mpc, 30×60 | 100 | yes (5.5e-11) | 0.7500–0.7501 | 0.0070 | 0.0290 |
+| 1 Mpc, 30×60 | 300 | **no** (5.7e-10 against tol 1e-10) | — | — | — |
+
+- (a) Newton converges in every run: **FAIL**, one of six solves.
+- (b) Newton channel within 0.02 of 1 − K_B/2: satisfied by all five converged solves.
+- (c) scalar remnant at r_h smaller in the 1 Mpc box: 0.0070 against 0.0466, satisfied.
+- (d) plateau, 100 against 300 km/s within 2%: 1.5% in both 100 kpc runs; not evaluable at 1 Mpc.
+
+**Low speeds.** Newton at 7–15 km/s, from the static state or from a stripped state, does not converge
+(`LOWV_FROM_STATIC_C1_partial.txt`). No continuation path from the held state to the stripped state is established.
+
+## Status (2026-10-02)
+
+Exploratory. Gates A2, A′, Y, L and B1 pass; B2 and C fail as pre-registered. Every converged satellite-speed solve is
+stripped: its Newton channel carries GR's normalization 1 − K_B/2 to 0.2%, and its MOND remnant falls with box size.
+This holds at K_B = 1/2, 𝒦₂ = 75, Q₀ = 0.1/Mpc only.
+
+Not shown:
+- that the stripped state is the unique steady state (a non-linear held branch is not excluded);
+- box convergence of the remnant;
+- other K_B;
+- external-field-dominated outskirts;
+- time-dependent capture of a held dwarf.
+
+Do not cite this directory as "AeST is disfavoured by satellites".
