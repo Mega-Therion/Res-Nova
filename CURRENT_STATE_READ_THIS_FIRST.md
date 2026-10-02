@@ -7,7 +7,7 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against the physics:** 2026-09-30 (the audit-cycle state below supersedes
+**Last verified against the physics:** 2026-10-02 (the audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it).
 
 This line is **enforced**, not decorative: `scripts/current_state_freshness.py` fails the

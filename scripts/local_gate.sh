@@ -70,6 +70,11 @@ receipt_check() {
 }
 step "witness: mu_std calculus receipt" receipt_check scripts/verify_mu_std_cassini_and_limits.py scripts/repro/cassini_clearance_receipt.json
 step "witness: dwarf wind receipt" receipt_check scripts/verify_dwarf_screening_receipt.py scripts/repro/dwarf_wind_receipt.json
+# Public visualizer (Vercel). Its ledger and Lean panel are generated from the
+# registry and the real module sources, and its physics engine is the live
+# mu_std inversion -- until 2026-09-30 it ran the falsified mu_dual unchecked.
+step "visualizer ledger in sync" python3 scripts/export_visualizer_ledger.py --check
+step "visualizer physics" node scripts/test_visualizer_physics.mjs
 
 echo
 if [ "$fails" -eq 0 ]; then
