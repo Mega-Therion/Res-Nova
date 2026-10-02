@@ -37,7 +37,7 @@
 - **D9.** The μ_std embedding is now derived by calculus (`SZStdEmbedding.lean`).
 - **O4.** The table is withdrawn. The real high-z data (in-house RC100 plus MUSE-DARK III) are **inconclusive**: a₀ is ~2–2.6× the local value at z ~ 1–2, flat within high z, with a calibration-limited step (row below).
 - **D2, D6 and D9 closed to [P] (2026-09-27, later): see their rows.**
-- **D3 closed to [P] (§34: the dragged branch is exactly GR).**
+- **D3 closed to [P] (§34: the dragged branch is exactly GR).** *(Superseded 2026-09-30: D3 is [P/O], conditional on D7 branch selection; see the Score line above.)*
 - **O1 closed to [P] under the two-parameter accounting (a₀ is the declared anchored input).**
 - **Score: 8/12 [P] (D1, D2, D6, D8, D9, O1, O5, O6), 3/12 [P/O] (D3, D5, D7), 1/12 [O]/[C] (O4).** (D3 downgraded to [P/O] 2026-09-30: conditional on D7 branch selection.)
 

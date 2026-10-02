@@ -103,6 +103,22 @@ theorem horizon_acceleration_ratio_is_one (hbar a c H kB : ℝ)
   have h_cH_ne : c * H ≠ 0 := by positivity
   exact div_self h_cH_ne
 
+/-- The `1/(2π)` divisor is not produced by the thermal argument. Under `T_Unruh = T_GH`,
+    `a = c * H`, which differs from `c * H / (2 * π)` whenever `c * H > 0`. Taking
+    `a₀ = c * H / (2 * π)` therefore needs the divisor as a separate postulate `[O]`. -/
+theorem two_pi_divisor_not_derived (hbar a c H kB : ℝ)
+    (h_hbar : hbar > 0) (h_kB : kB > 0) (h_c : c > 0) (h_H : H > 0) (h_pi : Real.pi > 0)
+    (h_therm : unruh_temp hbar a c kB = gibbons_hawking_temp hbar H kB) :
+    a ≠ c * H / (2 * Real.pi) := by
+  have h_a_eq : a = c * H :=
+    (kms_cancellation_equilibrium hbar a c H kB h_hbar h_kB h_c h_pi).mp h_therm
+  have hcH : 0 < c * H := mul_pos h_c h_H
+  have h2pi : 0 < 2 * Real.pi := by positivity
+  intro h
+  rw [h_a_eq, eq_div_iff (ne_of_gt h2pi)] at h
+  nlinarith [Real.two_le_pi,
+    mul_pos hcH (show (0 : ℝ) < 2 * Real.pi - 1 by linarith [Real.two_le_pi])]
+
 /-- Verlinde entropic force equipartition comparison:
     F * Δx = 2 * π * k_B * T * (m * c / ħ) * Δx
     yields a = 2 * π * k_B * T * c / ħ.

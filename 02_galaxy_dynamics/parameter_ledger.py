@@ -12,9 +12,11 @@ produced the 2.88 headline. Comparing a 0-parameter version of one model to a
 
 Frameworks, at two matched parameter budgets:
 
-  TIER 0 - no per-galaxy freedom (M/L fixed at 0.5, distance fixed, a0 fixed)
-    GOD   mu(x) = x/(1+x),  a0 = cH0/2pi        DERIVED       0 params
-    MOND  mu(x) = x/(1+x),  a0 = 1.2e-10        FITTED (lit)  0 params here
+  TIER 0 - no per-galaxy freedom (M/L fixed at 0.5/0.7, distance fixed, a0 fixed)
+    GOD   mu_std(x) = x/sqrt(1+x^2),  a0 = cH0/2pi   DECLARED anchor [O]   no per-galaxy parameters
+    MOND  mu_std(x) = x/sqrt(1+x^2),  a0 = 1.2e-10   FITTED (lit)          no per-galaxy parameters here
+    (Both rows use the same function; corrected 2026-09-12 from the falsified x/(1+x). The anchor's 2pi is a
+     heuristic divisor; HorizonScale.lean proves the thermal argument gives a = cH.)
     (NFW cannot run at tier 0 - a halo without parameters is not a halo. That
      absence is itself a ledger entry.)
 
@@ -237,7 +239,7 @@ def main() -> None:
         )
 
     res["provenance"] = {
-        "GOD_a0": "DERIVED, cH0/2pi (horizon argument), epistemic tag [O]",
+        "GOD_a0": "DECLARED anchor cH0/2pi, epistemic tag [O] (the 2pi is a heuristic divisor; HorizonScale.lean: the thermal argument gives a = cH)",
         "MOND_a0": "FITTED to rotation curves in the literature (1.2e-10)",
         "interpolation_function": "mu_std(x) = x/sqrt(1+x^2), corrected 2026-09-12 from the falsified mu_dual(x)=x/(1+x). GOD and MOND use the SAME function here - there is no second, hand-chosen MOND variant in this code. This is the standard MOND interpolating function; under it, GOD's mu is literally MOND's mu, and the comparison reduces to a0 provenance alone (derived vs fitted).",
         "NFW_halo": "2 FITTED shape params per galaxy (c, V200)",

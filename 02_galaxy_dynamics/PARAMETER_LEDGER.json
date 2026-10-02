@@ -45,7 +45,7 @@
     "aggregate_chi2_per_dof": 4.581508478469676
   },
   "provenance": {
-    "GOD_a0": "DERIVED, cH0/2pi (horizon argument), epistemic tag [O]",
+    "GOD_a0": "DECLARED anchor cH0/2pi, epistemic tag [O] (the 2pi is a heuristic divisor; HorizonScale.lean: the thermal argument gives a = cH)",
     "MOND_a0": "FITTED to rotation curves in the literature (1.2e-10)",
     "interpolation_function": "mu_std(x) = x/sqrt(1+x^2), corrected 2026-09-12 from the falsified mu_dual(x)=x/(1+x). GOD and MOND use the SAME function here - there is no second, hand-chosen MOND variant in this code. This is the standard MOND interpolating function; under it, GOD's mu is literally MOND's mu, and the comparison reduces to a0 provenance alone (derived vs fitted).",
     "NFW_halo": "2 FITTED shape params per galaxy (c, V200)",
