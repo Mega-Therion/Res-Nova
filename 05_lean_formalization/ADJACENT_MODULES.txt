@@ -325,7 +325,45 @@ TetrahedralEvenness.lean          # Speculative companion, tag [O]/[C]: THE A₄
                                  # Imports TetrahedralAction. Verified
                                  # compiling on the pinned toolchain, no
                                  # Mathlib, no sorry.
-ChiralPartner.lean               # Speculative companion, tag [O]: §7 of the
+FiniteSU2Envelope.lean             # Rung 7, tag [P] for the finite algebraic
+                                 # realization and [O] for the continuous
+                                 # envelope. Defines an exact quaternion
+                                 # multiplication on R⁴, embeds the existing
+                                 # Q8 cover as unit quaternions, defines
+                                 # qT = (-1-i-j+k)/2 with qT³ = 1, proves
+                                 # conjugation realizes the existing phi,
+                                 # proves the semidirect-product homomorphism
+                                 # BT = Q8 ⋊ C3 → unit quaternions, and proves
+                                 # every image has norm one. This is an
+                                 # explicit finite subgroup realization in the
+                                 # unit-quaternion model of SU(2), not a proof
+                                 # of topology, continuity, connectedness, Lie
+                                 # structure, a matrix SU(2) representation,
+                                 # or a physical gauge group. Imports
+                                 # BinaryTetrahedral. Verified compiling on
+                                 # pinned toolchain, no sorry.
+SU2MatrixEnvelope.lean             # Rung 8, tag [P] for the explicit matrix
+                                 # bridge. Defines qMatrix : H → Mat₂(ℂ),
+                                 # proves matrix multiplication preserves
+                                 # quaternion multiplication, determinant(qMatrix
+                                 # p) = qnorm p, and unit quaternions map to
+                                 # unitary determinant-one matrices. The finite
+                                 # BT image is therefore certified inside the
+                                 # standard 2×2 complex SU(2) model. [O]: no
+                                 # topology, continuity, connectedness, Lie
+                                 # structure, or physical gauge field is
+                                 # derived. Imports FiniteSU2Envelope. Verified
+                                    # pinned toolchain, no sorry.
+SU2FiniteFaithfulness.lean        # Rung 10, tag [P] for finite faithfulness.
+                                 # Proves btCoord, the exact Q8 × C3 to quaternion
+                                 # coordinate map, is injective by exhaustive
+                                 # exact finite cases; together with
+                                 # qMatrix_injective this proves the finite
+                                 # matrix and named-carrier representations are
+                                 # faithful. No topology or continuity is
+                                 # claimed. Verified in the 43-target gate and
+                                 # full Lake build, no sorry.
+  ChiralPartner.lean               # Speculative companion, tag [O]: §7 of the
                                  # section draft "The Chiral Crack" — the
                                  # CHIRAL PARTNER model, first pass. The
                                  # doubled cover Q8 × Q8 (two copies of
