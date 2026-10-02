@@ -1,0 +1,390 @@
+{
+ "source": "assurance/claims.json",
+ "generator": "scripts/export_visualizer_ledger.py",
+ "claims": [
+  {
+   "id": "CLM-01",
+   "wording": "The dual-channel action F_dual(x) = x^2/2 - x + ln(1+x) has derivative x/(1+x).",
+   "state": "formally-verified",
+   "claim_type": "algebraic-identity",
+   "limitations": "This does not establish physical uniqueness or empirical adequacy. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-01"
+  },
+  {
+   "id": "CLM-02",
+   "wording": "The geometry selects the quadratic boundary condition, hence mu_simple(x) = x/sqrt(1+x^2); equivalently mu_simple = cos of the projection angle between total and Newtonian legs.",
+   "state": "formally-verified",
+   "claim_type": "formal-proof",
+   "limitations": "Selection is by ELIMINATION within the two candidate ansaetze considered: powerLaw_solves_dilaton_eom shows sigma(r)=k/r with k^2=2c^4/a0^2 satisfies the EOM, while exp_profile_fails_cubic shows the linear-BC exponential cannot. This does not establish that no third ansatz exists. laws_differ separately proves x/(x+1) and x/sqrt(1+x^2) are distinct functions, so the earlier corpus contradiction between them was real. CAS companion mu_residual_witness.py (11/11) lives in the Chyren repo at Research_and_Data/02_Documents/, outside this repository.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-02"
+  },
+  {
+   "id": "CLM-03",
+   "wording": "The identification of a0 = cH0/(2*pi) from horizon-temperature matching remains an open normalization question.",
+   "state": "conditional",
+   "claim_type": "phenomenological-posit",
+   "limitations": "The route is proven CLOSED, not merely unattempted. HorizonScale.lean's kms_cancellation_equilibrium shows the KMS factor 2*pi appears in both the Unruh and Gibbons-Hawking temperatures and cancels identically, so thermal horizon matching yields a = c*H with coefficient xi = 1. two_pi_divisor_not_derived records that obtaining a0 = c*H/(2*pi) therefore requires dividing by 2*pi as a separate postulate. Any derivation of the 2*pi must come from somewhere other than KMS/horizon-temperature matching.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-03"
+  },
+  {
+   "id": "CLM-04",
+   "wording": "The strict SPARC GOD run reports a median reduced chi-squared of approximately 29.12 across 175 galaxies.",
+   "state": "computed",
+   "claim_type": "empirical-measurement",
+   "limitations": "The strict result is a poor absolute fit and does not by itself establish physical validity or causality.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-04"
+  },
+  {
+   "id": "CLM-05",
+   "wording": "The superseded historical 382-parameter SPARC fit must not be presented as the current canonical fit; the current matched Tier 1 comparison uses 374 GOD nuisance parameters.",
+   "state": "retracted",
+   "claim_type": "structural-correction",
+   "limitations": "This record governs wording and comparison scope; it is not itself a new fit.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-05"
+  },
+  {
+   "id": "CLM-06",
+   "wording": "Baryons-only unit M/L control on SPARC: median chi2_data/N_g = 51.58, aggregate sum chi2_data/dof = 204.65.",
+   "state": "computed",
+   "claim_type": "empirical-measurement",
+   "limitations": "This is a deliberately poor-fitting control, not a result. It exists to bound the baryons-only baseline.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-06"
+  },
+  {
+   "id": "CLM-07",
+   "wording": "Baryons-only standard SPARC control: median chi2_data/N_g = 85.23, aggregate sum chi2_data/dof = 406.49.",
+   "state": "computed",
+   "claim_type": "empirical-measurement",
+   "limitations": "Control baseline only; a poor absolute fit is the expected and intended outcome.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-07"
+  },
+  {
+   "id": "CLM-08",
+   "wording": "The current Res-Nova Lean gate elaborates the declared target set with no detected sorry and only the declared standard Lean axiom footprint.",
+   "state": "formally-verified",
+   "claim_type": "formal-proof",
+   "limitations": "The current gate declares 29 targets; lakefile.lean is configuration and is not a target. Formal elaboration is not empirical confirmation.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-08"
+  },
+  {
+   "id": "CLM-09",
+   "wording": "Optical metric, redshift Jacobian and luminosity modulation couplings.",
+   "state": "proposed",
+   "claim_type": "phenomenological-posit",
+   "limitations": "Covariant Maxwell / null-geodesic derivations and cosmological perturbation tests remain open.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-09"
+  },
+  {
+   "id": "CLM-10",
+   "wording": "Kerr spin rapidity psi = artanh(a*) with equipartition sinh(psi)=1 selects psi_0 = arsinh(1) = ln(1+sqrt2), gamma = sqrt2 and theta = tanh(psi_0) = 1/sqrt2.",
+   "state": "conditional",
+   "claim_type": "algebraic-identity",
+   "limitations": "Algebra is exact to 100 decimal places below the premise. The premise itself is not derived, so the selection is conditional.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-10"
+  },
+  {
+   "id": "CLM-11",
+   "wording": "Two-channel chiral equipartition union P(>=1) = 1-(1-theta)^2 = sqrt2 - 1/2 yields the spin ceiling chi_s = sqrt(sqrt2 - 1/2) = 0.956145...",
+   "state": "formally-verified",
+   "claim_type": "algebraic-identity",
+   "limitations": "The algebra is proved (2*theta - theta^2 = sqrt2 - 1/2 for theta = 1/sqrt2). Physically, this represents the steady-state magnetic jet braking accretion equilibrium ceiling (a*_eq ~ 0.90 - 0.93, consistent with Gammie et al. 2004 GRMHD simulations and LIGO/Virgo BBH remnant spin clustering at 0.68 - 0.72). It is not an unconditioned kinematic barrier.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-11"
+  },
+  {
+   "id": "CLM-12",
+   "wording": "F_dual(x) = x^2/2 - (x - ln(1+x)) is the unique Pade[1/1] AQUAL potential and decomposes into H = x^2/2 and L_corr = x - ln(1+x).",
+   "state": "formally-verified",
+   "claim_type": "algebraic-identity",
+   "limitations": "Does not establish that MOND emerges independently of MOND assumptions; the boundary conditions that fix the form are the definition of MOND. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-12"
+  },
+  {
+   "id": "CLM-13",
+   "wording": "Fisher identity: F'_dual(x)^2 * I(mu(x)) = x^3, with odds-ratio inverse mu(odds(p)) = p.",
+   "state": "formally-verified",
+   "claim_type": "algebraic-identity",
+   "limitations": "An algebraic identity over the reals. It does NOT derive galactic gravity from a statistical estimation process or from a minimum-Fisher-information variational principle. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-13"
+  },
+  {
+   "id": "CLM-14",
+   "wording": "Legendre dual: p = x^2/(1+x), x(p) = (p + sqrt(p^2+4p))/2, H_dual(p) = p x(p) - F(x(p)) strictly convex with H'' = 1/F''.",
+   "state": "formally-verified",
+   "claim_type": "algebraic-identity",
+   "limitations": "Establishes the transform and its convexity. No physical interpretation of the conjugate momentum is established here. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-14"
+  },
+  {
+   "id": "CLM-15",
+   "wording": "RETRACTED: the anti-drift gate 'u >= gamma <=> chi >= theta' is false. The GKSL steady-state coherence C(x) = 4x/(1+8x^2) is non-monotonic, peaking at theta = 1/sqrt(2) at u/gamma = theta/2 and decaying thereafter, whereas mu(x) = x/sqrt(1+x^2) rises monotonically. theta is a ceiling on coherence, not a threshold gate. The identification of the steady-state coherence with mu(u/gamma) does not hold.",
+   "state": "retracted",
+   "claim_type": "structural-correction",
+   "limitations": "The ceiling C_max = theta is a standard optical-Bloch result. What remains a framework claim, and is not established here, is the identification of that maximum with the sovereign band constant theta. The Uhlmann fidelity statement 'F >= 1/2 <=> chi >= 1/sqrt(2)' is still open and is not formalized.",
+   "source_locator": "FIG_TREE_MONOGRAPH.md (Pillar IV retraction, 2026-09-03)"
+  },
+  {
+   "id": "CLM-16",
+   "wording": "Pillar IV: the GKSL generator on Matrix (Fin 2) (Fin 2) C has the stated analytical steady state with unit trace; mu(1) = 1/sqrt2; and the two-channel union is strictly monotone on [0,1], supporting a gate-type iff.",
+   "state": "formally-verified",
+   "claim_type": "formal-proof",
+   "limitations": "16 theorems close on [propext, Classical.choice, Quot.sound] only, and perturbing the constants (mu 1 -> mu 2, kappaBand 7/10 -> 8/10, 1/(2 sqrt2) -> 1/(3 sqrt2)) breaks the proofs, so the values are derived rather than assumed. The earlier anti-drift gate u >= gamma <=> chi >= theta is FALSE and retracted: the steady-state coherence is non-monotonic. Nothing here certifies that the modelled generator describes a physical system.",
+   "source_locator": "PillarIV_AntiDriftGate.lean (corrected theorem set)"
+  },
+  {
+   "id": "CLM-D2-01",
+   "wording": "F_dual is uniquely determined given 4 structural constraints (constitutive-relation, Pade[1/1], MOND boundary conditions, dual-channel).",
+   "state": "derived",
+   "claim_type": "algebraic-identity",
+   "limitations": "Uniqueness is conditional on the four adopted constraints, not a first-principles selection of F_dual. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-01 (TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.9 Theorem 9.1)"
+  },
+  {
+   "id": "CLM-D2-02",
+   "wording": "mu(x) = x/(1+x) is the unique Pade[1/1] rational function satisfying mu(0)=0, mu(infinity)=1, mu'(0)=1.",
+   "state": "derived",
+   "claim_type": "algebraic-identity",
+   "limitations": "Uniqueness holds only within the adopted Pade[1/1] class; the class itself is not derived. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-02 (TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.5 Theorem 5.1)"
+  },
+  {
+   "id": "CLM-D2-03",
+   "wording": "mu is the inverse of the odds-ratio function, i.e. mu has Bayesian-odds structure.",
+   "state": "derived",
+   "claim_type": "algebraic-identity",
+   "limitations": "An algebraic correspondence, not a derivation of a Bayesian-inference origin for mu.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-03 (TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.6 Theorem 6.1)"
+  },
+  {
+   "id": "CLM-D2-04",
+   "wording": "F'(x)^2 * I(mu(x)) = x^3 (Fisher-information identity linking the action derivative to Bernoulli Fisher information).",
+   "state": "derived",
+   "claim_type": "algebraic-identity",
+   "limitations": "Algebraic identity only; does not establish that a minimum-Fisher-information principle selects mu (open, see CLM-D2-05 note in the same source).",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-04 (TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.7 Theorem 7.1)"
+  },
+  {
+   "id": "CLM-D2-05",
+   "wording": "Pade[1/1] necessity (why the interpolation class must be Pade[1/1] rather than some other structural closure) can be derived from first principles.",
+   "state": "proposed",
+   "claim_type": "phenomenological-posit",
+   "limitations": "Open. No derivation exists in this corpus; Pade[1/1] is adopted, not derived.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-05 (TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.9 Q1-Q4)"
+  },
+  {
+   "id": "CLM-D3-01",
+   "wording": "MOND correction at Earth is approximately 2e-8 (1-mu, non-relativistic force law); the previously stated '1137x below Cassini' comparison is retracted as a category error (1-mu and gamma-1 are not comparable quantities).",
+   "state": "retracted",
+   "claim_type": "structural-correction",
+   "limitations": "The retracted '1137x below Cassini' framing must not be cited; only the corrected ~2e-8 (1-mu) figure and TARGET_D3 Theorem 3.1 are live.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D3-01 (TARGET_D3_PPN_AND_SOLAR_SYSTEM.md Sec.2)"
+  },
+  {
+   "id": "CLM-D3-02",
+   "wording": "PPN parameters depend on the D7 covariant completion, not on mu directly.",
+   "state": "derived",
+   "claim_type": "algebraic-identity",
+   "limitations": "Conditional on the specific covariant completion adopted; not a completion-independent result.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D3-02 (TARGET_D3_PPN_AND_SOLAR_SYSTEM.md Sec.3 Theorem 3.1)"
+  },
+  {
+   "id": "CLM-D3-03",
+   "wording": "Vainshtein screening resolves the Q2 tension: the screened Q2 sits 119x below the Cassini bound (corrected 2026-09-12 from a misstated 70x that used the retracted F''/F'=0.004 figure).",
+   "state": "retracted",
+   "claim_type": "algebraic-identity",
+   "limitations": "RETRACTED 2026-09-30. The 119x figure was computed with F''/F' of the retired F_dual action, and TARGET_D7 sec.11.3 shows the c_T = c-safe Vainshtein sector caps at exponent p < 2 against a required p >= 2.34, so no GW170817-safe Vainshtein screening is available. The live Q2 status: bare mu_std is excluded at ~4.6 sigma (02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md); the working screening is phenomenological. Previous limitation: Depends on the corrected F''/F' value; the earlier 70x figure is superseded, not merely re-derived.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D3-03 (TARGET_D7_SUPPLEMENT_COUPLING_OPTIMIZATION.md Sec.3)"
+  },
+  {
+   "id": "CLM-D5-01",
+   "wording": "Non-relativistic 2x MOND enhancement produces 76x excess structure-growth before screening is applied.",
+   "state": "computed",
+   "claim_type": "empirical-measurement",
+   "limitations": "Pre-screening figure only; the screened, physically relevant number is CLM-D5-02.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D5-01 (TARGET_D5_COSMOLOGICAL_SECTOR.md Sec.4.3)"
+  },
+  {
+   "id": "CLM-D5-02",
+   "wording": "RMOND linear screening reduces the structure-growth enhancement to approximately 0.23% (F''/F' = 1/(2 x0^2 (1+x0)) ~= 0.00233; corrected 2026-09-08 from an earlier ~0.4%).",
+   "state": "conditional",
+   "claim_type": "algebraic-identity",
+   "limitations": "CONDITIONAL since 2026-09-30: computed for the retired F_dual (falsified 2026-09-12); the mu_std value of the linear screening ratio has not been computed, so this number carries no support for the live theory. Linear-regime only. Non-linear consistency is CLM-D5-03, resolved INCONCLUSIVE (see falsifiability below), not this claim.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D5-02 (TARGET_D7_COVARIANT_COMPLETION.md Sec.4.1)"
+  },
+  {
+   "id": "CLM-D5-03",
+   "wording": "RMOND's non-linear structure formation is consistent with observations; the linear-regime 0.23% deviation from LCDM does not blow up in the non-linear regime.",
+   "state": "conditional",
+   "claim_type": "test-outcome",
+   "limitations": "Resolved INCONCLUSIVE at validation config (256^3/200 Mpc/h, seed 42): worst bin 3.03% at k=1.354 h/Mpc, z=1, between the 1% consistency bound and the 5% tension threshold. Status stays open pending k0-sensitivity analysis or a model-specific solver; this is NOT a validated, NOT a falsified result.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D5-03 (OPEN_PROBLEMS_AND_TESTS.md \"D5 -- Non-linear structure formation\", resolved 2026-09-11)"
+  },
+  {
+   "id": "CLM-D6-01",
+   "wording": "F_dual is ghost-free: F''(K) > 0 for all K > 0.",
+   "state": "derived",
+   "claim_type": "algebraic-identity",
+   "limitations": "Ghost-freedom within the stated action; not a full relativistic stability proof beyond this kinetic term. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D6-01 (TARGET_D6_RELATIVISTIC_STABILITY.md Sec.1.2)"
+  },
+  {
+   "id": "CLM-D6-02",
+   "wording": "The Hamiltonian is bounded below.",
+   "state": "derived",
+   "claim_type": "algebraic-identity",
+   "limitations": "Boundedness within the stated action only.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D6-02 (TARGET_D6_RELATIVISTIC_STABILITY.md Sec.2)"
+  },
+  {
+   "id": "CLM-D6-03",
+   "wording": "The strong-coupling scale is approximately 1e-10 eV, far below the energy scales of current experiments.",
+   "state": "retracted",
+   "claim_type": "empirical-measurement",
+   "limitations": "RETRACTED (unit error found 2026-09-12): a0^2/G is an energy density, so its bare fourth root is not an energy. The dimensionally correct scale is Lambda_SC = [(a0^2/G)(hbar c)^3]^(1/4) = 1.8 meV (range 110 um). That scale is lab-accessible, not 'far below current experiments'. It is not excluded, because the scalar is screened by ~1e-23 in Earth's field (TARGET_D6_SUPPLEMENT_LSC_EXPERIMENTAL_CHECK.md sec.3), and the EP is closed at eta <~ 4e-49 (sec.4c).",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D6-03 (TARGET_D6_RELATIVISTIC_STABILITY.md Sec.3)"
+  },
+  {
+   "id": "CLM-D7-01",
+   "wording": "RMOND action with F_dual is written and verified.",
+   "state": "retracted",
+   "claim_type": "structural-correction",
+   "limitations": "Superseded 2026-09-12: this was written against a vector-field (generalized Einstein-aether) K, not D9's actual scalar AeST field Y. See CLM-D7-07 for the corrected version.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D7-01"
+  },
+  {
+   "id": "CLM-D7-02",
+   "wording": "Background Friedmann equations are unmodified.",
+   "state": "retracted",
+   "claim_type": "structural-correction",
+   "limitations": "Void as of 2026-09-12: Y is identically zero on FLRW under the corrected AeST action, so the entire background-acceleration-ratio calculation this claim rested on (x0 ~= 5.67) does not apply.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D7-02"
+  },
+  {
+   "id": "CLM-D7-03",
+   "wording": "Linear screening factor F''/F' ~= 0.00233 at the background Newtonian level.",
+   "state": "retracted",
+   "claim_type": "structural-correction",
+   "limitations": "Void as of 2026-09-12, same root cause as CLM-D7-02: computed from a vector K field that is not the action's actual field content. The derived 429x and 250x suppression factors are void, not merely miscalculated.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D7-03"
+  },
+  {
+   "id": "CLM-D7-04",
+   "wording": "c_T = c (the tensor speed matches the speed of light, satisfying the GW170817 constraint).",
+   "state": "derived",
+   "claim_type": "algebraic-identity",
+   "limitations": "Upgraded 2026-09-12 from an asserted citation to a structural consequence of the corrected action; still conditional on that specific minimal-coupling embedding.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D7-04 (TARGET_D7_COVARIANT_COMPLETION.md Sec.8)"
+  },
+  {
+   "id": "CLM-D7-05",
+   "wording": "Natural O(1) coupling constants satisfy all constraints.",
+   "state": "retracted",
+   "claim_type": "structural-correction",
+   "limitations": "Void as of 2026-09-12: c1, c2, c3 do not exist in the corrected AeST action (K_B is the only aether coupling). TARGET_D7_SUPPLEMENT needs a full rewrite, not yet done.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D7-05"
+  },
+  {
+   "id": "CLM-D7-06",
+   "wording": "Exact PPN gamma, beta for specific coupling values.",
+   "state": "retracted",
+   "claim_type": "structural-correction",
+   "limitations": "Superseded: gamma=1 now follows from the Skordis-Zlosnik embedding's own Psi=Phi identity (see CLM-D3-05, itself void), not from computing couplings. The result is Psi=Phi exactly with no fifth-force slip, which independently invalidates the Foster-Jacobson-based margins previously reported.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D7-06"
+  },
+  {
+   "id": "CLM-D7-07",
+   "wording": "D7 action corrected to the genuine AeST form: scalar Y = q^{mu nu} grad_mu(phi) grad_nu(phi), minimal coupling, aether enters only via K_B F_{mu nu} F^{mu nu} (Skordis-Zlosnik arXiv:2007.00082 eq. 5).",
+   "state": "computed",
+   "claim_type": "structural-correction",
+   "limitations": "This is a correction record, not an independent physical derivation of the AeST action; it fixes CLM-D7-01/02/03/05's field-content error.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D7-07"
+  },
+  {
+   "id": "CLM-D7-08",
+   "wording": "On AeST's tracking branch (not the screening branch), the exact solar-system solution for F_dual gives g = G_N M/r^2 + a0tilde, an r-independent anomalous acceleration with a0tilde = (1+lambda_s) a0 -- an apparent falsification of mu = x/(1+x) within two-derivative AeST/AQUAL.",
+   "state": "conditional",
+   "claim_type": "falsification-result",
+   "limitations": "a0tilde/r at Cassini scale exceeds the Q2 bound by 5.7e5. Escape requires Skordis-Zlosnik's higher-derivative screening, which is not built anywhere in this corpus -- open. This result directly bears on CLM-AX-02's mu=x/(1+x) disjunct.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D7-08 (TARGET_D7_COVARIANT_COMPLETION.md Sec.4.2)"
+  },
+  {
+   "id": "CLM-D9-01",
+   "wording": "D9 embedding normalization: mu = J' vs 2J'; a0tilde vs a0.",
+   "state": "retracted",
+   "claim_type": "structural-correction",
+   "limitations": "Corrected 2026-09-12: TARGET_D9 Sec.1 and Sec.2 disagreed by a factor of 2 in the prefactor (1/8 pi G_hat); a0tilde=(1+lambda_s) a0 != a0 was previously conflated with a0. Fixed in the TARGET_D9 header, but not yet propagated to any dependent numeric claim beyond D3/D7.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D9-01 (TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md)"
+  },
+  {
+   "id": "CLM-AX-02",
+   "wording": "AXIOMS_V2.lean:64 disjunction: mu(x) = x/(1+x) OR mu(x) = x/sqrt(1+x^2).",
+   "state": "conditional",
+   "claim_type": "formal-proof",
+   "limitations": "One disjunct (mu(x)=x/(1+x)) is contradicted by CLM-D7-08's solar-system result within two-derivative AeST. The axiom's disjunction survives as written, but any downstream claim that silently assumes the first disjunct -- which is this repo's entire mu=x/(1+x) program outside the Vainshtein-screened D3/D7-07 track -- must either switch branches or invoke Skordis-Zlosnik's higher-derivative screening. Not yet resolved anywhere in the corpus. ADDED 2026-09-27: the second disjunct (mu_std) also fails the Cassini EFE quadrupole in QUMOND at the derived a0 (Q2 = 1.7e-26 vs (3+/-3)e-27, ~4.6 sigma); its '~1300x clear' was the isolated-Sun monopole test only. AeST not computed. See 02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-AX-02 (05_lean_formalization/AXIOMS_V2.lean:64)"
+  },
+  {
+   "id": "CLM-O1-01",
+   "wording": "a0 = cH0/2pi horizon identification (conditional; high-z a0 data are inconclusive on a0(z)).",
+   "state": "conditional",
+   "claim_type": "phenomenological-posit",
+   "limitations": "Never say 'derived from the horizon' -- see O1 quarantine language in OPEN_PROBLEMS_AND_TESTS.md. The O4 20-point table was WITHDRAWN 2026-09-27 as untraceable; the 5.9-sigma and 2.06-sigma figures are void. The real high-z data: the in-house RC100 measurement (A0_HIGHZ_MEASUREMENT_2026-09-16.md) and MUSE-DARK III (arXiv:2604.22613) both put a0 at z ~ 1-2 at ~2-2.6x local. Within z 0.6-2.6 the shape favours a constant over H(z) (not established), and the step from z = 0 is calibration-limited, so no reading is excluded. A same-day claim that MUSE-DARK III's linear-fit intercept matches cH0/2pi was withdrawn.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-O1-01 (OPEN_PROBLEMS_AND_TESTS.md O1, O4)"
+  },
+  {
+   "id": "CLM-D2-00",
+   "wording": "F_dual is uniquely determined from first principles (rescored from [P] to [P/O]: conditional on the adopted Pade choice; necessity of that choice is open).",
+   "state": "conditional",
+   "claim_type": "algebraic-identity",
+   "limitations": "Uniqueness given the constraints is proved (CLM-D2-01); necessity of the Pade[1/1] constraint itself remains open (CLM-D2-05). This record tracks the rescore of the umbrella claim, distinct from CLM-D2-01's narrower theorem.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-00 (Rescored Claims table)"
+  },
+  {
+   "id": "CLM-D3-05",
+   "wording": "gamma = beta = 1 exactly, Cassini margin 1.1e8, MESSENGER margin 1.6e5 (TARGET_D3 Sec.7).",
+   "state": "retracted",
+   "claim_type": "structural-correction",
+   "limitations": "Void: derived for a generalized Einstein-aether action (D7-as-originally-written), which was not D9's actual AeST action. Under the corrected AeST, Psi=Phi exactly (no fifth-force slip, cited via Skordis-Zlosnik) so the margin framing is moot -- but CLM-D7-08's anomalous acceleration a0tilde is a separate, much larger problem the margin calculation never tested for.",
+   "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D3-05 (Rescored Claims table)"
+  },
+  {
+   "id": "CLM-D9-02",
+   "wording": "The live interpolating function embeds into AeST by calculus: J_std(Y) = F_std(sqrt Y) gives 2 J'(Y) = mu_std(sqrt Y) and J'(Y) > 0 for Y > 0.",
+   "state": "formally-verified",
+   "claim_type": "mathematical-theorem",
+   "limitations": "Mathematics only: this proves the AQUAL reduction of the embedding. It does not select mu_std (MuNDuality.lean: the duality holds for every n), and lambda_s is an AeST parameter (the Saturn bound <~ 2.2 holds only on the held branch).",
+   "source_locator": "TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md (status 2026-09-27); SZStdEmbedding.lean"
+  },
+  {
+   "id": "CLM-D6-04",
+   "wording": "All AeST modes on Minkowski have front velocity <= c: spin-2 at c; spin-1 luminal front (c1 = -c3); the aether spin-0 is non-propagating; the scalar has c_s < c iff K2 >= (2-K_B)(1+K_B lambda_s/2)/K_B, met at both Skordis-Zlosnik parameter points.",
+   "state": "derived",
+   "claim_type": "mathematical-derivation",
+   "limitations": "Minkowski background. On MOND backgrounds the scalar gradient coefficient varies between (2-K_B) and (2-K_B)(1+lambda_s); the floor with lambda_s included covers that range. There is no general causal-structure theorem.",
+   "source_locator": "TARGET_D6_RELATIVISTIC_STABILITY.md (closure 2026-09-27)"
+  },
+  {
+   "id": "CLM-D3-10",
+   "wording": "On AeST's dragged branch the aether is the normalized gradient of a constant-norm clock field (the free-fall congruence). J.grad(phi), Y and F vanish, and the field equations reduce to GR plus a ghost condensate at its minimum, so all PPN parameters take GR values.",
+   "state": "derived",
+   "claim_type": "mathematical-derivation",
+   "limitations": "Exact-GR (stealth) AeST solutions are prior art (Skordis & Vokrouhlicky 2024, arXiv:2412.15395). New here: the link to the linear dragged branch and the PPN consequence. Branch selection (held vs dragged) is open for static and moving sources, and the geometry of the aether focusing wake is an estimate.",
+   "source_locator": "TARGET_D3_ALPHA_WORKING_2026-09-27.md sec.34"
+  },
+  {
+   "id": "CLM-D2-06",
+   "wording": "mu_std is the corpus's functional choice (irreducible parameter 2): structurally motivated by Postulate R (chiral coordinate), selected by galaxies within the l^n family (n ~ 2), and ghost-free. D2 is closed under the two-irreducible-parameters accounting, not by a derivation of mu from the action.",
+   "state": "empirically-supported",
+   "claim_type": "phenomenological-posit",
+   "limitations": "A re-scope, not a derivation: no covariant argument forces mu (MuNDuality.lean: the duality holds for every n). mu_std at the derived a0 fails the Cassini EFE quadrupole unless screened, or unless the Sun is dragged (D3 sec.34). CLM-D2-01..05 and CLM-D2-00 concern the retired mu_dual.",
+   "source_locator": "TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md (status 2026-09-27)"
+  },
+  {
+   "id": "CLM-D7-09",
+   "wording": "In AeST at K_B = 1/2 and K2 = 75, a deep-MOND dwarf's held (MOND) configuration in an ambient aether wind has an O(v) residual in the along-wind aether equation, R_z/v = 8K_B lap(Phi) + (4-8K_B) d_z g_z - 6K_B d_z ghat_z. From v ~ 30 km/s up its linear correction is order one. The balance runs along the wind (~v k_z) and the forcing points along the wind, so the response is a Poisson response, lap(dphi) = -R_z/[(4+lambda) v], with no linear wake. At K_B = 1/2 this gives dphi ~ -0.98(phi + Phihat): the linear correction cancels the MOND field to O(J') and points toward the dragged (Newtonian) branch. WKB plateau with k along the wind: 1.049 (wind along the field), 0.951 (across). No nearby steady held state exists at satellite speeds.",
+   "state": "computed",
+   "claim_type": "computational-result",
+   "limitations": "Linear and local (WKB); not proved beyond linear order, since linear theory cannot fix the remainder once dS ~ -S. Computed at K_B = 1/2 and K2 = 75: the near-total cancellation uses 8K_B/(4+lambda) ~ 1 and 4 - 8K_B = 0, and kappa's K_B-dependence is unmeasured. At K2 = 7.5e5 near the scalar sound speed (~670 km/s) the scalar row contributes as much as the aether row and the Poisson reading fails at 300-600 km/s. Satellite outskirts dominated by the external field are not covered. The plane-wave plateau is k-independent; holding the point residual fixed instead gives 0.35-3.1 (a convention). A genuinely non-linear steady held branch is not excluded. Related prior art: Peloso & Sorbo 2004 (moving sources in a ghost condensate). No moving-source treatment was found in four AeST abstracts checked; no full literature search was made.",
+   "source_locator": "TARGET_D7_SUPPLEMENT_BRANCH_SELECTION_2026-09-27.md sec.7"
+  }
+ ]
+}

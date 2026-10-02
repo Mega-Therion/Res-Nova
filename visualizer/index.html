@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Res-Nova Observatory | 4D Covariant RMOND & SPARC Astrophysical Simulation</title>
-  <meta name="description" content="State-of-the-art interactive astrophysical observatory for Res-Nova v1.4.0: 3D real-time galactic particle kinematics, dual-channel MOND variational engine, SPARC 175 galaxy optimizer, 4D Skordis-Zlosnik spacetime simulation, and Lean 4 formal verification terminal." />
+  <meta name="description" content="State-of-the-art interactive astrophysical observatory for Res-Nova v1.9.0: 3D real-time galactic particle kinematics, μ_std MOND engine (AeST completion), SPARC 175 galaxy optimizer, 4D Skordis-Zlosnik spacetime simulation, and Lean 4 formal verification terminal." />
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,7 +21,7 @@
   <!-- KaTeX for crisp LaTeX formatting -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}], ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'input']});"></script>
 
   <style>
     :root {
@@ -645,9 +645,13 @@
       white-space: nowrap;
     }
 
+    /* KaTeX inside upper-cased labels: keep math case (mu was rendering as M). */
+    .lbl .katex, .control-label .katex { text-transform: none; }
+
     .tier-p { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.35); }
     .tier-d { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); }
     .tier-c { background: rgba(192, 132, 252, 0.15); color: #c084fc; border: 1px solid rgba(192, 132, 252, 0.35); }
+    .tier-x { background: rgba(100, 116, 139, 0.18); color: #94a3b8; border: 1px solid rgba(100, 116, 139, 0.4); text-decoration: line-through; }
     .tier-o { background: rgba(244, 63, 94, 0.15); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.35); }
 
     /* Footer */
@@ -695,7 +699,7 @@
       <div class="brand-symbol">Ω</div>
       <div class="brand-title">
         <h1>RES-NOVA OBSERVATORY</h1>
-        <p>4D Covariant RMOND & SPARC Platform • v1.4.0</p>
+        <p>AeST Covariant MOND & SPARC Platform • v1.9.0</p>
       </div>
     </a>
 
@@ -737,11 +741,11 @@
           </div>
           
           <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.9rem;">
-            Real-time multi-particle orbit integrator evaluating the dual-channel MOND acceleration field:
+            Real-time multi-particle orbit integrator evaluating the MOND acceleration field of the live interpolating function $\mu_{\text{std}}(x) = x/\sqrt{1+x^2}$:
           </p>
 
           <div class="formula-card">
-            $$g = \frac{g_{\text{bar}}}{2}\left(1 + \sqrt{1 + \frac{4a_0}{g_{\text{bar}}}}\right)$$
+            $$g = a_0\sqrt{\tfrac{1}{2}\left(y^2 + y\sqrt{y^2+4}\right)}, \qquad y = \frac{g_{\text{bar}}}{a_0}$$
             $$v_{\text{MOND}}(r) = \sqrt{r \cdot g(r)} \xrightarrow{r \to \infty} (G M_{\text{tot}} a_0)^{1/4}$$
           </div>
 
@@ -774,9 +778,9 @@
           <div class="control-group">
             <div class="control-label">
               <span>Acceleration Scale $a_0$</span>
-              <span class="control-value" id="simA0Val">9.433 × 10⁻¹¹ m/s²</span>
+              <span class="control-value" id="simA0Val">11.607 × 10⁻¹¹ m/s²</span>
             </div>
-            <input type="range" id="simA0Slider" min="5.0" max="15.0" step="0.1" value="9.433" oninput="updateSimPhysics()" />
+            <input type="range" id="simA0Slider" min="5.0" max="15.0" step="0.1" value="11.6" oninput="updateSimPhysics()" />
           </div>
 
           <!-- Stellar Particle Count Slider -->
@@ -816,7 +820,7 @@
               <div><strong style="color: #fff;" id="hudGalaxyName">NGC 6503</strong></div>
               <div>Simulated Stars: <span id="hudParticleCount">3,500</span></div>
               <div>Frame Rate: <span id="hudFPS" style="color: var(--accent-emerald);">60 FPS</span></div>
-              <div>Physics: <span id="hudPhysics" style="color: var(--accent-cyan);">Res-Nova Dual-Channel</span></div>
+              <div>Physics: <span id="hudPhysics" style="color: var(--accent-cyan);">Res-Nova μ_std</span></div>
             </div>
 
             <!-- Bottom Floating Control Bar -->
@@ -886,9 +890,9 @@
           <div class="control-group">
             <div class="control-label">
               <span>Acceleration Scale $a_0$</span>
-              <span class="control-value" id="sparcA0Label">9.433 × 10⁻¹¹ m/s²</span>
+              <span class="control-value" id="sparcA0Label">11.607 × 10⁻¹¹ m/s²</span>
             </div>
-            <input type="range" id="sparcA0Input" min="6.0" max="14.0" step="0.05" value="9.433" oninput="recomputeSparcFit()" />
+            <input type="range" id="sparcA0Input" min="6.0" max="14.0" step="0.05" value="11.6" oninput="recomputeSparcFit()" />
           </div>
 
           <!-- Instant MAP Optimizer Button -->
@@ -906,13 +910,13 @@
               <div class="lbl">Galaxy $\chi^2_{\text{data}}/N_g$</div>
             </div>
             <div class="metric-box">
-              <div class="val" id="sparcGlobalMedian" style="color: var(--accent-cyan);">2.92</div>
-              <div class="lbl">175-Galaxy Median $\chi^2$</div>
+              <div class="val" id="sparcGlobalMedian" style="color: var(--accent-cyan);">3.36</div>
+              <div class="lbl">Tier-1 median $\chi^2/N$ ($\mu_{\text{std}}$)</div>
             </div>
           </div>
 
           <div style="margin-top: 1rem; font-size: 0.74rem; color: var(--text-muted); line-height: 1.45;">
-            <strong>5-Fold Cross-Validation [D]:</strong> Out-of-sample test median $\chi^2_{\text{test}}/N_g = 14.33$, nominal aggregate $\chi^2/\text{dof} = 56.11$ across all 3,391 kinematic points.
+            <strong>Corpus fit under $\mu_{\text{std}}$ [D]:</strong> tier 1 (374 nuisance parameters) median $\chi^2/N = 3.36$, aggregate $\chi^2/\text{dof} = 6.09$; tier 0 (no free parameters) median $11.08$, aggregate $93.6$; 3,375 points (\texttt{02\_galaxy\_dynamics/PARAMETER\_LEDGER.json}). The single-galaxy fit above is interactive and illustrative; the earlier $\chi^2 = 2.92$ and cross-validation figures were computed under the falsified $\mu(x) = x/(1+x)$ and are retired.
           </div>
         </div>
 
@@ -944,17 +948,17 @@
         <!-- Theory Controls -->
         <div class="glass-card">
           <div class="card-header">
-            <div class="card-title">Skordis–Złośnik RMOND</div>
-            <div class="card-badge">[P] EMBEDDED-VIABLE</div>
+            <div class="card-title">Skordis–Złośnik AeST</div>
+            <div class="card-badge">[P] SZStdEmbedding.lean</div>
           </div>
 
           <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.85rem;">
-            4D covariant metric completion coupling the dual-channel closure to a unit timelike vector field $A^\mu$ ($A_\mu A^\mu = -1$) and scalar $\phi$:
+            Aether–Scalar–Tensor covariant completion (Skordis &amp; Złośnik, PRL 127, 161302) with the live $\mu_{\text{std}}$ embedded in its free function; unit timelike vector $A^\mu$ ($A_\mu A^\mu = -1$) and scalar $\phi$:
           </p>
 
           <div class="formula-card">
-            $$\mathcal{J}(\mathcal{Y}) = \frac{1}{2}\mathcal{Y} - \sqrt{\mathcal{Y}} + \ln(1 + \sqrt{\mathcal{Y}})$$
-            $$2\mathcal{J}'(\mathcal{Y}) = \frac{\sqrt{\mathcal{Y}}}{1 + \sqrt{\mathcal{Y}}} \equiv \mu(\sqrt{\mathcal{Y}})$$
+            $$\mathcal{J}_{\text{std}}(\mathcal{Y}) = F_{\text{std}}(\sqrt{\mathcal{Y}}) = \tfrac{1}{2}\left[\sqrt{\mathcal{Y}(1+\mathcal{Y})} - \operatorname{arsinh}\sqrt{\mathcal{Y}}\right]$$
+            $$2\mathcal{J}_{\text{std}}'(\mathcal{Y}) = \frac{\sqrt{\mathcal{Y}}}{\sqrt{1 + \mathcal{Y}}} = \mu_{\text{std}}(\sqrt{\mathcal{Y}})$$
             $$c_T = c_\gamma = c \quad (|c_T/c_\gamma - 1| = 0 \le 10^{-15})$$
           </div>
 
@@ -982,7 +986,7 @@
             </div>
             <div class="metric-box">
               <div class="val" style="color: var(--accent-cyan);">1.00000</div>
-              <div class="lbl">Cassini $\gamma_{\text{PPN}}$ Lensing</div>
+              <div class="lbl">PPN $\gamma$ (AeST, [D]; Cassini EFE $Q_2$ excludes bare $\mu_{\text{std}}$)</div>
             </div>
           </div>
         </div>
@@ -1013,13 +1017,13 @@
           </div>
 
           <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.85rem;">
-            First-principles variational dual-channel action derived from bulk kinetic flux and horizon relative entropy dissipation.
+            Live AQUAL kinetic potential of the $\mu_{\text{std}}$ branch. The dual-channel closure $\mu = x/(1+x)$ was falsified on 2026-09-12 (solar system) and is shown in the chart only as the retired contrast.
           </p>
 
           <div class="formula-card">
-            $$\mathcal{F}_{\text{dual}}(x) = \frac{1}{2}x^2 - x + \ln(1+x)$$
-            $$\mu(x) = \frac{\mathcal{F}'(x)}{x} = \frac{x}{1+x}$$
-            $$\mathcal{F}''(x) = \frac{x(x+2)}{(1+x)^2} > 0 \quad (\text{Strict Convexity})$$
+            $$F_{\text{std}}(x) = \tfrac{1}{2}\left[x\sqrt{1+x^2} - \operatorname{arsinh} x\right]$$
+            $$\mu_{\text{std}}(x) = \frac{F'(x)}{x} = \frac{x}{\sqrt{1+x^2}}$$
+            $$F''(x) = \frac{x(x^2+2)}{(1+x^2)^{3/2}} > 0 \quad (\text{Strict Convexity})$$
           </div>
 
           <div class="control-group">
@@ -1045,7 +1049,7 @@
             </div>
             <div class="metric-box">
               <div class="val" id="varSpeedVal" style="color: var(--accent-purple);">1.500</div>
-              <div class="lbl">Speed $c_\parallel^2 = 1 + \frac{1}{1+x}$</div>
+              <div class="lbl">P(X) speed $c_\parallel^2 = \frac{x^2+2}{x^2+1} > 1$</div>
             </div>
           </div>
         </div>
@@ -1070,15 +1074,15 @@
       <div class="glass-card">
         <div class="card-header">
           <div class="card-title">Lean 4 Mechanical Proof Terminal (Lake Build Environment)</div>
-          <div class="card-badge" style="color: var(--accent-emerald);">8 MODULES • 0 ERRORS • 0 SORRY • 0 CUSTOM AXIOMS</div>
+          <div class="card-badge" style="color: var(--accent-emerald);">PROOF GATE verify_all_proofs.sh • 0 SORRY • STANDARD AXIOMS ONLY</div>
         </div>
 
         <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; overflow-x: auto;">
-          <button class="btn-secondary active" onclick="showLeanModule('skordis')">SkordisZlosnikEmbedding.lean</button>
-          <button class="btn-secondary" onclick="showLeanModule('dual')">DualChannelDerivation.lean</button>
-          <button class="btn-secondary" onclick="showLeanModule('mu')">MuProjection.lean</button>
-          <button class="btn-secondary" onclick="showLeanModule('speed')">TensorSpeed.lean</button>
-          <button class="btn-secondary" onclick="showLeanModule('stability')">RelativisticStability.lean</button>
+          <button class="btn-secondary active" data-mod="sz" onclick="showLeanModule('sz', this)">SZStdEmbedding.lean</button>
+          <button class="btn-secondary" data-mod="mustd" onclick="showLeanModule('mustd', this)">MuStdFoundations.lean</button>
+          <button class="btn-secondary" data-mod="speed" onclick="showLeanModule('speed', this)">TensorSpeed.lean</button>
+          <button class="btn-secondary" data-mod="stability" onclick="showLeanModule('stability', this)">RelativisticStability.lean</button>
+          <button class="btn-secondary" data-mod="dual" onclick="showLeanModule('dual', this)">DualChannelDerivation.lean (retired branch)</button>
         </div>
 
         <div class="terminal-container">
@@ -1088,8 +1092,8 @@
               <span class="t-dot t-dot-yellow"></span>
               <span class="t-dot t-dot-green"></span>
             </div>
-            <span style="font-size: 0.72rem; color: var(--text-muted);" id="terminalCommand">lake env lean SkordisZlosnikEmbedding.lean</span>
-            <span class="status-badge" style="padding: 0.1rem 0.5rem; font-size: 0.65rem;">EXIT CODE 0</span>
+            <span style="font-size: 0.72rem; color: var(--text-muted);" id="terminalCommand">05_lean_formalization/SZStdEmbedding.lean</span>
+            <span class="status-badge" style="padding: 0.1rem 0.5rem; font-size: 0.65rem;">verbatim source · built by the CI lean-gate</span>
           </div>
           <div class="terminal-body" id="leanTerminalContent">
             <!-- Dynamic Module Content -->
@@ -1104,16 +1108,18 @@
     <div id="tab-ledger" class="tab-pane">
       <div class="glass-card">
         <div class="card-header">
-          <div class="card-title">Sovereign Epistemic Ledger (v1.4.0 Sealed Release)</div>
+          <div class="card-title">Claim Registry (generated from assurance/claims.json)</div>
           <div class="card-badge">Epistemic Standard [P]/[D]/[C]/[O]</div>
         </div>
 
         <div style="display: flex; gap: 0.75rem; margin-bottom: 1.1rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
           <div style="display: flex; gap: 0.4rem;">
-            <button class="toggle-pill active" onclick="filterLedger('ALL')">All Claims (8)</button>
-            <button class="toggle-pill" onclick="filterLedger('P')">[P] Proved (5)</button>
-            <button class="toggle-pill" onclick="filterLedger('D')">[D] Direct (2)</button>
-            <button class="toggle-pill" onclick="filterLedger('O')">[O] Open (1)</button>
+            <button class="toggle-pill active" data-tier="ALL" data-label="All" onclick="filterLedger('ALL', this)">All</button>
+            <button class="toggle-pill" data-tier="P" data-label="[P] Verified" onclick="filterLedger('P', this)">[P] Verified</button>
+            <button class="toggle-pill" data-tier="D" data-label="[D]/[E] Derived" onclick="filterLedger('D', this)">[D]/[E] Derived</button>
+            <button class="toggle-pill" data-tier="C" data-label="Conditional" onclick="filterLedger('C', this)">Conditional</button>
+            <button class="toggle-pill" data-tier="O" data-label="[O] Proposed" onclick="filterLedger('O', this)">[O] Proposed</button>
+            <button class="toggle-pill" data-tier="X" data-label="[X] Retracted" onclick="filterLedger('X', this)">[X] Retracted</button>
           </div>
           <input type="text" id="ledgerSearch" placeholder="Search claims, equations, or targets..." oninput="searchLedger()" style="background: rgba(15,23,42,0.9); border: 1px solid var(--border-dim); color: #fff; padding: 0.45rem 0.8rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.78rem; width: 280px;" />
         </div>
@@ -1142,7 +1148,7 @@
   <!-- Footer -->
   <footer>
     <div>
-      <strong>Res-Nova v1.4.0</strong> • Author: R.W. Yett (<a href="https://orcid.org/0009-0001-1303-7190" target="_blank">ORCID: 0009-0001-1303-7190</a>)
+      <strong>Res-Nova v1.9.0</strong> • Author: R.W. Yett (<a href="https://orcid.org/0009-0001-1303-7190" target="_blank">ORCID: 0009-0001-1303-7190</a>)
     </div>
     <div>
       Repository: <a href="https://github.com/Mega-Therion/Res-Nova" target="_blank">Mega-Therion/Res-Nova</a> • Cloud Mirror: <code>viewsbyryan:GMono</code>
@@ -1425,8 +1431,8 @@
 
           let omega = 0;
           if (currentPhysicsModel === 'mond') {
-            // Res-Nova Dual-Channel interpolation: g = g_bar/2 * (1 + sqrt(1 + 4*a0/g_bar))
-            const g_eff = 0.5 * g_bar * (1 + Math.sqrt(1 + (4 * a0_scale * 0.45) / (g_bar + 1e-5)));
+            // Live branch mu_std(x) = x/sqrt(1+x^2): exact inversion of mu_std(g/a0) g = g_bar.
+            const g_eff = muStdInvert(g_bar, a0_scale * 0.45);
             const v_circ = Math.sqrt(Math.max(0.1, r * g_eff));
             omega = (v_circ / (r + 1e-3)) * 0.0075;
           } else {
@@ -1450,7 +1456,7 @@
       currentPhysicsModel = model;
       document.getElementById('btnModelMond').classList.toggle('active', model === 'mond');
       document.getElementById('btnModelNewt').classList.toggle('active', model === 'newton');
-      document.getElementById('hudPhysics').textContent = model === 'mond' ? 'Res-Nova Dual-Channel' : 'Newtonian (No Dark Matter)';
+      document.getElementById('hudPhysics').textContent = model === 'mond' ? 'Res-Nova μ_std' : 'Newtonian (No Dark Matter)';
     }
 
     function toggleSimPause() {
@@ -1640,9 +1646,21 @@
       recomputeSparcFit();
     }
 
+    // 1e-11 m/s^2 expressed in (km/s)^2 / kpc  (parsec = 3.0856775814913673e16 m)
+    const A0_UNIT = 308.56775814913673;
+
+    // Exact inversion of the live field equation mu_std(g/a0) * g = g_bar,
+    // mu_std(x) = x / sqrt(1 + x^2):  g = a0 * sqrt((y^2 + y*sqrt(y^2 + 4)) / 2), y = g_bar/a0.
+    // Checked against an mpmath solve to 1e-35 relative (see scripts/test_visualizer_physics.mjs).
+    function muStdInvert(gBar, a0) {
+      if (!(gBar > 0) || !(a0 > 0)) return Math.max(gBar, 0);
+      const y = gBar / a0;
+      return a0 * Math.sqrt(0.5 * (y * y + y * Math.sqrt(y * y + 4)));
+    }
+
     function computeChi2ForParams(upsDisk, upsBulge, a0_val, g) {
       let chi2Sum = 0;
-      const a0_scaled = (a0_val / 9.433) * 3800; // calibrated for kpc / (km/s)^2
+      const a0_kms = a0_val * A0_UNIT; // (km/s)^2 / kpc
 
       for (let i = 0; i < g.radii.length; i++) {
         const r = g.radii[i];
@@ -1651,8 +1669,7 @@
         const vBulge_sq = upsBulge * Math.pow(g.vBulge[i], 2);
         const vBar_sq = vGas_sq + vDisk_sq + vBulge_sq;
 
-        const mondTerm = Math.sqrt(1 + (4 * a0_scaled * r) / (vBar_sq + 1e-5));
-        const vPred = Math.sqrt(vBar_sq * 0.5 * (1 + mondTerm));
+        const vPred = Math.sqrt(r * muStdInvert(Math.max(vBar_sq, 0) / r, a0_kms));
 
         const diff = g.vObs[i] - vPred;
         chi2Sum += Math.pow(diff / g.vErr[i], 2);
@@ -1717,7 +1734,7 @@
       const zScores = [];
       let chi2Sum = 0;
 
-      const a0_scaled = (a0_val / 9.433) * 3800;
+      const a0_kms = a0_val * A0_UNIT;
 
       for (let i = 0; i < g.radii.length; i++) {
         const r = g.radii[i];
@@ -1728,8 +1745,7 @@
 
         vBar.push(Math.sqrt(Math.max(0, vBar_sq)));
 
-        const mondTerm = Math.sqrt(1 + (4 * a0_scaled * r) / (vBar_sq + 1e-5));
-        const vP = Math.sqrt(vBar_sq * 0.5 * (1 + mondTerm));
+        const vP = Math.sqrt(r * muStdInvert(Math.max(vBar_sq, 0) / r, a0_kms));
         vPred.push(vP);
 
         const diff = g.vObs[i] - vP;
@@ -1903,16 +1919,16 @@
     function initVariationalEngine() {
       const ctx = document.getElementById('variationalChart').getContext('2d');
       const xs = [];
-      const muDual = [];
-      const muSimple = [];
-      const fDual = [];
+      const muStd = [];
+      const fStd = [];
+      const muDualRetired = [];
       const fSingle = [];
 
       for (let x = 0.05; x <= 6.0; x += 0.1) {
         xs.push(x.toFixed(1));
-        muDual.push(x / (1 + x));
-        muSimple.push(x / Math.sqrt(1 + x * x));
-        fDual.push(0.5 * x * x - x + Math.log(1 + x));
+        muStd.push(x / Math.sqrt(1 + x * x));
+        fStd.push(0.5 * (x * Math.sqrt(1 + x * x) - Math.asinh(x)));
+        muDualRetired.push(x / (1 + x)); // falsified 2026-09-12, plotted as retired contrast only
         fSingle.push(Math.asinh(x));
       }
 
@@ -1922,22 +1938,22 @@
           labels: xs,
           datasets: [
             {
-              label: 'Res-Nova Dual-Channel μ(x) = x / (1+x)',
-              data: muDual,
+              label: 'Live: μ_std(x) = x/√(1+x²)',
+              data: muStd,
               borderColor: '#38bdf8',
               borderWidth: 3,
               fill: false,
               tension: 0.2
             },
             {
-              label: 'Kinetic Potential F_dual(x) = ½x² − x + ln(1+x)',
-              data: fDual,
+              label: 'Kinetic Potential F_std(x) = ½[x√(1+x²) − arsinh x]',
+              data: fStd,
               borderColor: '#10b981',
               borderWidth: 2,
               fill: false
             },
             {
-              label: 'Single-Channel Action: arcsinh(x) [Falsified [P]]',
+              label: 'Single-channel F′ = arcsinh(x): correspondence-false [P] (≠ F_std)',
               data: fSingle,
               borderColor: '#f43f5e',
               borderWidth: 1.8,
@@ -1945,8 +1961,8 @@
               fill: false
             },
             {
-              label: 'Standard MOND Simple-μ: x/√(1+x²)',
-              data: muSimple,
+              label: 'Retired: μ_dual = x/(1+x) [X] falsified 2026-09-12',
+              data: muDualRetired,
               borderColor: '#c084fc',
               borderWidth: 1.5,
               borderDash: [2, 4],
@@ -1983,10 +1999,11 @@
       const x = parseFloat(document.getElementById('varXSlider').value);
       document.getElementById('varXLabel').textContent = x.toFixed(2);
 
-      const mu = x / (1 + x);
-      const fPrime = (x * x) / (1 + x);
-      const convexity = (x * (x + 2)) / Math.pow(1 + x, 2);
-      const cParSq = 1 + 1 / (1 + x);
+      const s = Math.sqrt(1 + x * x);
+      const mu = x / s;                                // mu_std
+      const fPrime = (x * x) / s;                      // F_std' = x mu_std
+      const convexity = (x * (x * x + 2)) / (s * s * s); // F_std''
+      const cParSq = (x * x + 2) / (x * x + 1);        // MuStdFoundations.c_long_sq
 
       document.getElementById('varMuVal').textContent = mu.toFixed(3);
       document.getElementById('varFPrimeVal').textContent = fPrime.toFixed(3);
@@ -1995,170 +2012,75 @@
     }
 
     // --- 6. LEAN 4 FORMAL PROOF EXPLORER ---
-    const leanProofDatabase = {
-      skordis: {
-        cmd: 'lake env lean 05_lean_formalization/SkordisZlosnikEmbedding.lean',
-        content: `
-<span class="t-comment">-- Target D9: Skordis-Złośnik (RMOND) Parent Membership Verification</span>
-<span class="t-comment">-- Axioms: [propext, Classical.choice, Quot.sound]</span>
+    // Real module sources, exported verbatim by scripts/export_visualizer_ledger.py
+    // and drift-checked by scripts/local_gate.sh. This panel previously showed
+    // hand-written pseudo-Lean (including a `sorry`) captioned "Kernel Proof Verified".
+    let leanModules = null;
 
-<span class="t-keyword">import</span> Mathlib.Analysis.SpecialFunctions.Log.Basic
-<span class="t-keyword">import</span> Mathlib.Tactic.Ring
+    async function loadLeanModules() {
+      if (leanModules) return leanModules;
+      const res = await fetch('lean_modules.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      leanModules = (await res.json()).modules;
+      return leanModules;
+    }
 
-<span class="t-keyword">namespace</span> ResNova.SkordisZlosnik
-
-<span class="t-keyword">def</span> <span class="t-symbol">J</span> (Y : ℝ) : ℝ := (1 / 2) * Y - Real.sqrt Y + Real.log (1 + Real.sqrt Y)
-
-<span class="t-keyword">theorem</span> <span class="t-prop">sz_dual_channel_exact_reduction</span> (u : ℝ) (hu : 0 &lt; u) :
-  2 * (deriv J (u^2)) = u / (1 + u) := <span class="t-keyword">by</span>
-  ring_nf
-  field_simp
-  ring
-
-<span class="t-keyword">theorem</span> <span class="t-prop">sz_tensor_speed_luminal</span> :
-  c_T = c_gamma ∧ |c_T / c_gamma - 1| = 0 := <span class="t-keyword">by</span>
-  simp [c_T, c_gamma]
-  norm_num
-
-<span class="t-keyword">theorem</span> <span class="t-prop">sz_weak_field_lensing</span> :
-  gamma_PPN = 1 ∧ Phi = Psi := <span class="t-keyword">by</span>
-  simp [gamma_PPN, Phi, Psi]
-
-<span class="t-success">[Kernel Proof Verified]: Complete formal match to Skordis-Złośnik action sealed with 0 custom axioms.</span>`
-      },
-      dual: {
-        cmd: 'lake env lean 05_lean_formalization/DualChannelDerivation.lean',
-        content: `
-<span class="t-comment">-- Target D1: First-Principles Dual-Channel Kinetic Action Derivation</span>
-<span class="t-keyword">import</span> Mathlib.Analysis.Calculus.Deriv.Basic
-
-<span class="t-keyword">namespace</span> ResNova.Action
-
-<span class="t-keyword">def</span> <span class="t-symbol">F_dual</span> (x : ℝ) : ℝ := (1 / 2) * x^2 - x + Real.log (1 + x)
-
-<span class="t-keyword">theorem</span> <span class="t-prop">dual_channel_derivative</span> (x : ℝ) (hx : 0 &lt; x) :
-  deriv F_dual x = x^2 / (1 + x) := <span class="t-keyword">by</span>
-  simp [F_dual]
-  ring
-
-<span class="t-keyword">theorem</span> <span class="t-prop">dual_channel_mu_limit_deep_mond</span> :
-  Filter.Tendsto (fun x => (deriv F_dual x) / x) (nhdsWithin 0 (Set.Ioi 0)) (nhds 0) := <span class="t-keyword">by</span>
-  <span class="t-comment">-- Evaluates to mu(x) -> x as x -> 0</span>
-  sorry <span class="t-comment">-- proved in full module via linarith</span>
-
-<span class="t-success">[Kernel Proof Verified]: Dual-channel variational derivative uniquely recovers mu(x) = x/(1+x).</span>`
-      },
-      mu: {
-        cmd: 'lake env lean 05_lean_formalization/MuProjection.lean',
-        content: `
-<span class="t-comment">-- Target D2: Weak-Field Radial Projection & Asymptotic Verification</span>
-<span class="t-keyword">theorem</span> <span class="t-prop">mu_newtonian_asymptotic</span> :
-  Filter.Tendsto (fun x => x / (1 + x)) Filter.atTop (nhds 1) := <span class="t-keyword">by</span>
-  <span class="t-comment">-- Lim x->inf x/(1+x) = 1.0 (Exact Newtonian Limit)</span>
-  exact tendsto_self_div_add_atTop
-
-<span class="t-success">[Kernel Proof Verified]: Asymptotic correspondence verified against Newton-Einstein gravity.</span>`
-      },
-      speed: {
-        cmd: 'lake env lean 05_lean_formalization/TensorSpeed.lean',
-        content: `
-<span class="t-comment">-- Target D8: GW170817 Tensor Speed & Disformal Cone Split Falsification</span>
-<span class="t-keyword">theorem</span> <span class="t-prop">disformal_cone_split_falsified</span> (phi : ℝ) (hphi : phi ≠ 0) :
-  |Real.exp (-2 * phi) - 1| &gt; 1e-15 := <span class="t-keyword">by</span>
-  <span class="t-comment">-- GW170817 rules out disformal couplings B(phi) ≠ 0</span>
-  exact disformal_bound hphi
-
-<span class="t-success">[Kernel Proof Verified]: Disformal metric mappings ruled out at 10⁻¹⁵ precision.</span>`
-      },
-      stability: {
-        cmd: 'lake env lean 05_lean_formalization/RelativisticStability.lean',
-        content: `
-<span class="t-comment">-- Target D6: Hyperbolicity and Ghost-Freedom of RMOND Completion</span>
-<span class="t-keyword">theorem</span> <span class="t-prop">rmond_hyperbolicity_sound</span> (Y : ℝ) (hY : 0 &lt; Y) :
-  0 &lt; deriv (fun y => deriv J y) Y := <span class="t-keyword">by</span>
-  <span class="t-comment">-- Ensures J''(Y) > 0 (Strict kinetic convexity across all regimes)</span>
-  positivity
-
-<span class="t-success">[Kernel Proof Verified]: Characteristic speeds strictly real and positive (No tachyonic ghosts).</span>`
-      }
-    };
-
-    function showLeanModule(modKey) {
+    async function showLeanModule(modKey, btn) {
       document.querySelectorAll('#tab-lean .btn-secondary').forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
-
-      const data = leanProofDatabase[modKey] || leanProofDatabase['skordis'];
-      document.getElementById('terminalCommand').textContent = data.cmd;
-      document.getElementById('leanTerminalContent').innerHTML = data.content;
+      const target = btn || document.querySelector(`#tab-lean .btn-secondary[data-mod="${modKey}"]`);
+      if (target) target.classList.add('active');
+      const out = document.getElementById('leanTerminalContent');
+      try {
+        const mods = await loadLeanModules();
+        const m = mods[modKey] || mods['sz'];
+        document.getElementById('terminalCommand').textContent = m.file + '  —  ' + m.status;
+        out.innerHTML = '<pre style="white-space: pre-wrap; margin: 0;">' + escapeHtml(m.source) + '</pre>';
+      } catch (err) {
+        out.textContent = 'Module source unavailable (' + err.message + '). See 05_lean_formalization/ in the repository.';
+      }
     }
 
     // --- 7. SOVEREIGN EPISTEMIC LEDGER ---
-    const ledgerEntries = [
-      {
-        id: 'D1.1',
-        title: 'Single-Channel Kinetic No-Go Theorem',
-        tier: 'P',
-        tierLabel: '[P] PROVED',
-        evidence: 'Variational proof shows F\'(x)=arcsinh(x) yields inverted limits (μ→0 as x→∞).',
-        scope: 'Single-channel scalar action branches are mathematically falsified on correspondence grounds.'
-      },
-      {
-        id: 'D1.2',
-        title: 'Dual-Channel Action Closure',
-        tier: 'P',
-        tierLabel: '[P] PROVED',
-        evidence: 'Lean 4 (DualChannelDerivation.lean) verifies F_dual(x) = ½x² − x + ln(1+x) gives μ(x) = x/(1+x).',
-        scope: 'Unique constitutive closure balancing bulk kinetic flux and horizon relative entropy.'
-      },
-      {
-        id: 'D4.1',
-        title: 'SPARC 175-Galaxy In-Sample Benchmark',
-        tier: 'D',
-        tierLabel: '[D] DIRECT',
-        evidence: '175 SPARC galaxies (3,391 pts, SHA-256 data) fitted with median χ²_data/N_g = 2.92.',
-        scope: 'Parameter budget: 175 Υ_disk + 1 global a₀ = 9.433 × 10⁻¹¹ m/s².'
-      },
-      {
-        id: 'D4.2',
-        title: 'SPARC 5-Fold Cross-Validation Baseline',
-        tier: 'D',
-        tierLabel: '[D] DIRECT',
-        evidence: '5-fold out-of-sample CV test median χ² = 14.33, aggregate χ²/dof = 56.11.',
-        scope: 'Establishes rigorous predictive generalization bounds against overfitting.'
-      },
-      {
-        id: 'D7.1',
-        title: 'Pure RAQUAL Superluminality No-Go',
-        tier: 'P',
-        tierLabel: '[P] PROVED',
-        evidence: 'Lean 4 (CovariantCompletion.lean) verifies c_∥² = 1 + 1/(1+x) > 1 in all halos.',
-        scope: 'Rules out all pure k-essence RAQUAL theories as physically unviable.'
-      },
-      {
-        id: 'D8.2',
-        title: 'Disformal GW170817 Falsification',
-        tier: 'P',
-        tierLabel: '[P] PROVED',
-        evidence: 'Lean 4 (TensorSpeed.lean) proves |c_T/c_γ − 1| = |e^(−2ϕ) − 1| ≫ 10⁻¹⁵ when B(ϕ) ≠ 0.',
-        scope: 'Falsifies disformal metric lightcone cone-splitting couplings against LIGO/Virgo.'
-      },
-      {
-        id: 'D9.0',
-        title: 'Skordis–Złośnik RMOND Parent Embedding',
-        tier: 'P',
-        tierLabel: '[P] PROVED',
-        evidence: 'Lean 4 (SkordisZlosnikEmbedding.lean) proves J(𝒴) matching to dual-channel closure with zero residual.',
-        scope: 'Unique 4D covariant scalar-vector-tensor parent theory preserving c_T = c_γ and Φ = Ψ.'
-      },
-      {
-        id: 'D5.0',
-        title: 'Cosmological Horizon Boundary Condition',
-        tier: 'O',
-        tierLabel: '[O] OPEN',
-        evidence: 'FLRW background decoupling (∇̂_μ ϕ = 0); horizon entropy density Ω_Λ = ln 2 ≈ 0.693.',
-        scope: 'Quarantined as asymptotic cosmological boundary condition; dynamical dark energy fluid is falsified.'
+    // Claim registry: generated from assurance/claims.json by
+    // scripts/export_visualizer_ledger.py and drift-checked by scripts/local_gate.sh.
+    // Never hand-edit; a hand-typed copy of the registry is how this page came to
+    // present the falsified dual-channel closure as [P] long after it was retracted.
+    const STATE_TIER = {
+      'formally-verified': { tier: 'P', label: '[P] formally verified' },
+      'derived':           { tier: 'D', label: '[D] derived' },
+      'computed':          { tier: 'D', label: '[D] computed' },
+      'empirically-supported': { tier: 'D', label: '[E] empirically supported' },
+      'conditional':       { tier: 'C', label: 'conditional' },
+      'proposed':          { tier: 'O', label: '[O] proposed' },
+      'retracted':         { tier: 'X', label: '[X] retracted' }
+    };
+    let ledgerEntries = [];
+
+    function escapeHtml(t) {
+      return String(t).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    async function loadLedger() {
+      const tbody = document.getElementById('ledgerTableBody');
+      try {
+        const res = await fetch('claims.json', { cache: 'no-cache' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const reg = await res.json();
+        ledgerEntries = reg.claims.map(c => {
+          const t = STATE_TIER[c.state] || { tier: 'O', label: c.state };
+          return { id: c.id, title: c.wording, tier: t.tier, tierLabel: t.label,
+                   evidence: c.source_locator, scope: c.limitations };
+        });
+        const n = k => ledgerEntries.filter(e => e.tier === k).length;
+        const pills = document.querySelectorAll('#tab-ledger .toggle-pill');
+        const counts = { ALL: ledgerEntries.length, P: n('P'), D: n('D'), C: n('C'), O: n('O'), X: n('X') };
+        pills.forEach(pl => { const k = pl.dataset.tier; if (k) pl.textContent = pl.dataset.label + ' (' + counts[k] + ')'; });
+        populateLedger(ledgerEntries);
+      } catch (err) {
+        tbody.innerHTML = '<tr><td colspan="5">Claim registry unavailable (' + escapeHtml(err.message) +
+          '). The authoritative registry is assurance/claims.json in the GitHub repository.</td></tr>';
       }
-    ];
+    }
 
     function populateLedger(items) {
       const tbody = document.getElementById('ledgerTableBody');
@@ -2169,35 +2091,26 @@
         const badgeClass = `tier-${item.tier.toLowerCase()}`;
 
         tr.innerHTML = `
-          <td><strong>${item.id}</strong></td>
-          <td>${item.title}</td>
-          <td><span class="badge-tier ${badgeClass}">${item.tierLabel}</span></td>
-          <td style="font-size: 0.78rem;">${item.evidence}</td>
-          <td style="font-size: 0.76rem; color: var(--text-muted);">${item.scope}</td>
+          <td><strong>${escapeHtml(item.id)}</strong></td>
+          <td>${escapeHtml(item.title)}</td>
+          <td><span class="badge-tier ${badgeClass}">${escapeHtml(item.tierLabel)}</span></td>
+          <td style="font-size: 0.78rem;">${escapeHtml(item.evidence)}</td>
+          <td style="font-size: 0.76rem; color: var(--text-muted);">${escapeHtml(item.scope)}</td>
         `;
         tbody.appendChild(tr);
       });
     }
 
-    function filterLedger(tier) {
+    function filterLedger(tier, btn) {
       document.querySelectorAll('#tab-ledger .toggle-pill').forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
-
-      if (tier === 'ALL') {
-        populateLedger(ledgerEntries);
-      } else {
-        const filtered = ledgerEntries.filter(e => e.tier === tier);
-        populateLedger(filtered);
-      }
+      if (btn) btn.classList.add('active');
+      populateLedger(tier === 'ALL' ? ledgerEntries : ledgerEntries.filter(e => e.tier === tier));
     }
 
     function searchLedger() {
       const q = document.getElementById('ledgerSearch').value.toLowerCase();
-      const filtered = ledgerEntries.filter(e => 
-        e.id.toLowerCase().includes(q) ||
-        e.title.toLowerCase().includes(q) ||
-        e.evidence.toLowerCase().includes(q) ||
-        e.scope.toLowerCase().includes(q)
+      const filtered = ledgerEntries.filter(e =>
+        [e.id, e.title, e.tierLabel, e.evidence, e.scope].some(f => String(f).toLowerCase().includes(q))
       );
       populateLedger(filtered);
     }
@@ -2260,8 +2173,8 @@
       initSparcEngine();
       initSpacetime3D();
       initVariationalEngine();
-      showLeanModule('skordis');
-      populateLedger(ledgerEntries);
+      showLeanModule('sz');
+      loadLedger();
     });
   </script>
 

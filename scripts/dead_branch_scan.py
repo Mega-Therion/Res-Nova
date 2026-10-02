@@ -69,7 +69,10 @@ RETIRED = [
 # PARAMETER_LEDGER, claims.json) are deliberately NOT globbed: a data file that
 # records a0 under mu_dual as the falsified control must name it, and scanning
 # those would punish correct provenance.
-LIVE_GLOBS = ("*.tex", "*.md", "zenodo*.json")
+# visualizer/ added 2026-09-30: it is deployed publicly on Vercel, and it was
+# still computing rotation curves with the falsified mu_dual and presenting
+# F_dual as [P] -- invisible to this gate, which only read prose.
+LIVE_GLOBS = ("*.tex", "*.md", "zenodo*.json", "visualizer/*.html", "visualizer/*.js")
 EXEMPT = (
     "raw/Logs/", "80_Archive/", "obsidian_vault_legacy/", "archive/",
     "docs/recovered/", "archive_previous_iterations/", "Tier_2_Physics_Attempt/",
