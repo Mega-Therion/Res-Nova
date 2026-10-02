@@ -1,0 +1,9 @@
+g_e 0.003 box 300 (16x32) v = 100: converged True (5.2e-12, from static) g/g_static 0.0982, g/phihat-flux 3.298, Y/Y_static 0.0189, u/tilt 3.30e-03
+g_e 0.003 box 300 (16x32) v = 150: converged True (4.9e-12, from static) g/g_static 0.0985, g/phihat-flux 3.309, Y/Y_static 0.0190, u/tilt 2.20e-03
+g_e 0.003 box 300 (16x32) v = 300: converged True (5.2e-12, from static) g/g_static 0.0987, g/phihat-flux 3.315, Y/Y_static 0.0190, u/tilt 1.10e-03
+g_e 0 box 100 (16x32) v = 100: converged True (9.6e-12, from static) g/g_static 0.1732, g/phihat-flux 5.833, Y/Y_static 0.0372, u/tilt 3.05e-03
+g_e 0 box 100 (16x32) v = 150: converged True (1.0e-11, from static) g/g_static 0.1734, g/phihat-flux 5.840, Y/Y_static 0.0373, u/tilt 2.03e-03
+g_e 0 box 100 (16x32) v = 300: converged True (1.1e-11, from static) g/g_static 0.1735, g/phihat-flux 5.844, Y/Y_static 0.0374, u/tilt 1.02e-03
+g_e 0.03 box 100 (16x32) v = 100: converged True (5.9e-12, from static) g/g_static 0.0751, g/phihat-flux 1.879, Y/Y_static 0.6614, u/tilt 3.01e-03
+g_e 0.03 box 100 (16x32) v = 150: converged True (6.0e-12, from static) g/g_static 0.0752, g/phihat-flux 1.881, Y/Y_static 0.6614, u/tilt 2.00e-03
+g_e 0.03 box 100 (16x32) v = 300: converged True (5.0e-11, from static) g/g_static 0.0752, g/phihat-flux 1.881, Y/Y_static 0.6614, u/tilt 1.00e-03

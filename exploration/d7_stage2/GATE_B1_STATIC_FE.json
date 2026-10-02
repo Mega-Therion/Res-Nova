@@ -1,0 +1,84 @@
+[
+  {
+    "nR": 32,
+    "nz": 64,
+    "ndof": 19971,
+    "converged": true,
+    "final_residual": 6.6374622171466555e-12,
+    "seconds": 41.4,
+    "shells": [
+      {
+        "r_kpc": 0.1,
+        "n_gauss_points": 76,
+        "newton_channel_ratio": 1.0006043392933615,
+        "mond_channel_ratio": 1.0002394552878726
+      },
+      {
+        "r_kpc": 0.2,
+        "n_gauss_points": 172,
+        "newton_channel_ratio": 1.001114793731251,
+        "mond_channel_ratio": 1.0002190450551753
+      },
+      {
+        "r_kpc": 0.3,
+        "n_gauss_points": 228,
+        "newton_channel_ratio": 0.9998458011109623,
+        "mond_channel_ratio": 1.0025661566095878
+      },
+      {
+        "r_kpc": 0.6,
+        "n_gauss_points": 312,
+        "newton_channel_ratio": 0.9959347028628075,
+        "mond_channel_ratio": 1.0022516850652532
+      },
+      {
+        "r_kpc": 1.2,
+        "n_gauss_points": 442,
+        "newton_channel_ratio": 1.0002954151240362,
+        "mond_channel_ratio": 1.0019805826786463
+      }
+    ],
+    "max_u_over_stealth_tilt": 2.733500266156627e-10
+  },
+  {
+    "nR": 48,
+    "nz": 96,
+    "ndof": 45315,
+    "converged": true,
+    "final_residual": 9.151338197074009e-12,
+    "seconds": 168.4,
+    "shells": [
+      {
+        "r_kpc": 0.1,
+        "n_gauss_points": 168,
+        "newton_channel_ratio": 1.0080174580723946,
+        "mond_channel_ratio": 1.010207972037511
+      },
+      {
+        "r_kpc": 0.2,
+        "n_gauss_points": 384,
+        "newton_channel_ratio": 0.9999991245924166,
+        "mond_channel_ratio": 0.999895228761058
+      },
+      {
+        "r_kpc": 0.3,
+        "n_gauss_points": 524,
+        "newton_channel_ratio": 0.9993390082087915,
+        "mond_channel_ratio": 0.9982787752901463
+      },
+      {
+        "r_kpc": 0.6,
+        "n_gauss_points": 736,
+        "newton_channel_ratio": 0.9988281648569127,
+        "mond_channel_ratio": 0.9978435165691405
+      },
+      {
+        "r_kpc": 1.2,
+        "n_gauss_points": 1016,
+        "newton_channel_ratio": 0.9999369432191351,
+        "mond_channel_ratio": 0.9977663057210994
+      }
+    ],
+    "max_u_over_stealth_tilt": 2.7284399732318087e-10
+  }
+]

@@ -1,0 +1,2 @@
+worst relative error against 50 digits: y_accurate 1.21e-13, generated val_Y 3.37e-02
+GATE Y-ACCURATE PASS

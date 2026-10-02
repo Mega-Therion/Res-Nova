@@ -1,0 +1,134 @@
+[
+  {
+    "nR": 16,
+    "nz": 32,
+    "g_e_over_a0": 0.0,
+    "box": 100.0,
+    "stage1": [
+      true,
+      9.051941349703748e-12
+    ],
+    "free": [
+      true,
+      8.52803131449985e-12
+    ],
+    "used": "Lambda free",
+    "converged": true,
+    "final_residual": 8.52803131449985e-12,
+    "seconds": 117.6,
+    "shells": [
+      {
+        "r_kpc": 0.1,
+        "newton_channel_ratio": 1.0000365329494678,
+        "mond_channel_ratio": 0.999462775646379,
+        "psi_over_flux": 37.00414014699932,
+        "newton_channel_ratio_smooth": 0.9999820804828461,
+        "mond_channel_ratio_smooth": 0.9993825438042407,
+        "psi_over_flux_smooth": 36.922767685303114
+      },
+      {
+        "r_kpc": 0.2,
+        "newton_channel_ratio": 1.0002176187096161,
+        "mond_channel_ratio": 0.9996506709213804,
+        "psi_over_flux": 32.168008605678125,
+        "newton_channel_ratio_smooth": 1.0000727320747953,
+        "mond_channel_ratio_smooth": 0.9995646387496283,
+        "psi_over_flux_smooth": 32.21703962402207
+      },
+      {
+        "r_kpc": 0.3,
+        "newton_channel_ratio": 1.0000286817590391,
+        "mond_channel_ratio": 0.9995022609083863,
+        "psi_over_flux": 33.59159754459549,
+        "newton_channel_ratio_smooth": 1.0000248848485516,
+        "mond_channel_ratio_smooth": 0.999484149510372,
+        "psi_over_flux_smooth": 33.67570725168499
+      },
+      {
+        "r_kpc": 0.6,
+        "newton_channel_ratio": 1.0000245085951813,
+        "mond_channel_ratio": 0.998939584976382,
+        "psi_over_flux": 46.75394721410984,
+        "newton_channel_ratio_smooth": 1.0000333028048676,
+        "mond_channel_ratio_smooth": 0.9989468128012821,
+        "psi_over_flux_smooth": 46.87903395189474
+      },
+      {
+        "r_kpc": 1.2,
+        "newton_channel_ratio": 1.000178115104388,
+        "mond_channel_ratio": 0.9967523768524909,
+        "psi_over_flux": 81.56684022086411,
+        "newton_channel_ratio_smooth": 1.0001908142625175,
+        "mond_channel_ratio_smooth": 0.9967011928507262,
+        "psi_over_flux_smooth": 81.80838218934689
+      }
+    ],
+    "max_u_over_stealth_tilt": 9.311289638196303e-07
+  },
+  {
+    "nR": 24,
+    "nz": 48,
+    "g_e_over_a0": 0.0,
+    "box": 100.0,
+    "stage1": [
+      false,
+      1.661588379515673e-11
+    ],
+    "free": [
+      true,
+      2.1164227225350315e-11
+    ],
+    "used": "Lambda free",
+    "converged": false,
+    "final_residual": 2.1164227225350315e-11,
+    "seconds": 893.9,
+    "shells": [
+      {
+        "r_kpc": 0.1,
+        "newton_channel_ratio": 1.0000075547184861,
+        "mond_channel_ratio": 0.9993796514696346,
+        "psi_over_flux": 37.03645408969353,
+        "newton_channel_ratio_smooth": 1.0000029287460974,
+        "mond_channel_ratio_smooth": 0.9993584074163582,
+        "psi_over_flux_smooth": 36.92695637706503
+      },
+      {
+        "r_kpc": 0.2,
+        "newton_channel_ratio": 0.9999993204630401,
+        "mond_channel_ratio": 0.9995095000629025,
+        "psi_over_flux": 32.16864982740976,
+        "newton_channel_ratio_smooth": 1.0000031723438156,
+        "mond_channel_ratio_smooth": 0.9995121388405687,
+        "psi_over_flux_smooth": 32.21601211218726
+      },
+      {
+        "r_kpc": 0.3,
+        "newton_channel_ratio": 1.000002456367676,
+        "mond_channel_ratio": 0.9994716787218808,
+        "psi_over_flux": 33.56784488632324,
+        "newton_channel_ratio_smooth": 1.0000078530340573,
+        "mond_channel_ratio_smooth": 0.9994672083495583,
+        "psi_over_flux_smooth": 33.675060395635775
+      },
+      {
+        "r_kpc": 0.6,
+        "newton_channel_ratio": 1.0000317136506613,
+        "mond_channel_ratio": 0.9989455772883054,
+        "psi_over_flux": 46.779473914171284,
+        "newton_channel_ratio_smooth": 1.0000319444894736,
+        "mond_channel_ratio_smooth": 0.9989405630489723,
+        "psi_over_flux_smooth": 46.878147341339755
+      },
+      {
+        "r_kpc": 1.2,
+        "newton_channel_ratio": 1.0001865920902386,
+        "mond_channel_ratio": 0.9966967785605707,
+        "psi_over_flux": 81.58713703645124,
+        "newton_channel_ratio_smooth": 1.0001884197579958,
+        "mond_channel_ratio_smooth": 0.9966953933472731,
+        "psi_over_flux_smooth": 81.80679576655699
+      }
+    ],
+    "max_u_over_stealth_tilt": 9.323157220617812e-07
+  }
+]

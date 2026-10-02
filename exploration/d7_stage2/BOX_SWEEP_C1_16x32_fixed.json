@@ -1,0 +1,120 @@
+{
+ "grid": [
+  16,
+  32
+ ],
+ "v_kms": 100.0,
+ "g_e_over_a0": 0.0,
+ "rows": [
+  {
+   "box_B": 100.0,
+   "edge_kpc": 10.0,
+   "grid": [
+    16,
+    32
+   ],
+   "static": [
+    true,
+    9.051941349703748e-12,
+    true,
+    8.52803131449985e-12
+   ],
+   "converged": true,
+   "residual": 9.615559430414204e-12,
+   "seconds": 130.3,
+   "g_ratio_static": 0.1732031734129717,
+   "g_ratio_phihat_flux": 5.832739362918064,
+   "Y_ratio": 0.03720584543762056,
+   "static_g_over_flux": 33.67570725168499,
+   "u_over_tilt": 0.003049190149465013
+  },
+  {
+   "box_B": 300.0,
+   "edge_kpc": 30.0,
+   "grid": [
+    20,
+    40
+   ],
+   "static": [
+    false,
+    1.7001850429794582e-11,
+    true,
+    2.1681337084434157e-11
+   ],
+   "converged": true,
+   "residual": 2.0453285708245147e-11,
+   "seconds": 393.8,
+   "g_ratio_static": 0.10961088130012431,
+   "g_ratio_phihat_flux": 3.6911177129187633,
+   "Y_ratio": 0.012575210067861147,
+   "static_g_over_flux": 33.6747380290845,
+   "u_over_tilt": 0.003303992597503713
+  },
+  {
+   "box_B": 1000.0,
+   "edge_kpc": 100.0,
+   "grid": [
+    23,
+    46
+   ],
+   "static": [
+    false,
+    2.8891772560863848e-11,
+    false,
+    0.0010884413756956442
+   ],
+   "converged": true,
+   "residual": 2.7498339639752827e-11,
+   "seconds": 714.4,
+   "g_ratio_static": 0.06780232181991779,
+   "g_ratio_phihat_flux": 2.2832900223247927,
+   "Y_ratio": 0.003410240713561787,
+   "static_g_over_flux": 33.675690758631916,
+   "u_over_tilt": 0.0034241057413644618
+  },
+  {
+   "box_B": 3000.0,
+   "edge_kpc": 300.0,
+   "grid": [
+    27,
+    54
+   ],
+   "static": [
+    false,
+    3.97027460289664e-11,
+    false,
+    0.0015568190501844283
+   ],
+   "converged": true,
+   "residual": 7.510352981276612e-11,
+   "seconds": 1372.6,
+   "g_ratio_static": 0.044376406816320636,
+   "g_ratio_phihat_flux": 1.49437286517639,
+   "Y_ratio": 0.0007976998961413291,
+   "static_g_over_flux": 33.67494063595058,
+   "u_over_tilt": 0.003468613013149121
+  },
+  {
+   "box_B": 10000.0,
+   "edge_kpc": 1000.0,
+   "grid": [
+    30,
+    60
+   ],
+   "static": [
+    false,
+    4.050882661288274e-11,
+    false,
+    0.0017688728396097386
+   ],
+   "converged": true,
+   "residual": 5.5179070567022135e-11,
+   "seconds": 9979.7,
+   "g_ratio_static": 0.029036439110345473,
+   "g_ratio_phihat_flux": 0.9778217608849343,
+   "Y_ratio": 7.323625928307524e-05,
+   "static_g_over_flux": 33.67567755705084,
+   "u_over_tilt": 0.003487556432593124
+  }
+ ]
+}

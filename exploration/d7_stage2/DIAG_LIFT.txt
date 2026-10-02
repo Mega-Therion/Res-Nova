@@ -1,0 +1,13 @@
+r0 = 0.15 kpc: dx^T H dx = -2.0282e+07; -2 E_lift(sec 23) = -7.8382e-02; ratio +258756953.4759
+      pieces: FF -2.127e-02, UU -2.028e+07, 2FU +3.887e-02; Q-sector +3.724e-09, K_B lap Psi +1.004e-02, (2-K_B) lap phi +2.915e-02
+r0 = 0.30 kpc: dx^T H dx = -7.7935e+06; -2 E_lift(sec 23) = -6.3436e-02; ratio +122856836.0649
+      pieces: FF -4.395e-02, UU -7.794e+06, 2FU +8.202e-02; Q-sector +6.910e-09, K_B lap Psi +8.081e-03, (2-K_B) lap phi +2.364e-02
+r0 = 0.60 kpc: dx^T H dx = -3.6125e+06; -2 E_lift(sec 23) = -3.5462e-02; ratio +101869199.2227
+      pieces: FF -8.735e-02, UU -3.612e+06, 2FU +1.636e-01; Q-sector +1.146e-08, K_B lap Psi +4.473e-03, (2-K_B) lap phi +1.326e-02
+r0 = 1.20 kpc: dx^T H dx = -1.7633e+06; -2 E_lift(sec 23) = -1.7060e-02; ratio +103362031.6302
+      pieces: FF -1.719e-01, UU -1.763e+06, 2FU +3.228e-01; Q-sector +1.698e-08, K_B lap Psi +2.138e-03, (2-K_B) lap phi +6.392e-03
+locking check (same bumps):
+  r0 = 0.15 kpc: UU form -2.0282e+07, curl^2 part -4.0564e+07, rms discrete curl / rms |grad u| = 0.166
+  r0 = 0.30 kpc: UU form -7.7935e+06, curl^2 part -1.5587e+07, rms discrete curl / rms |grad u| = 0.140
+  r0 = 0.60 kpc: UU form -3.6125e+06, curl^2 part -7.2249e+06, rms discrete curl / rms |grad u| = 0.135
+  r0 = 1.20 kpc: UU form -1.7633e+06, curl^2 part -3.5267e+06, rms discrete curl / rms |grad u| = 0.132

@@ -1,0 +1,12 @@
+analyse_stripped_c1.py cache_branch/highv_ge0_box300_16x32_v100.npy 0 300 16 32 100   (isolated dwarf, 30 kpc box, 100 km/s)
+ r/kpc        g ratio    phi_r ratio phihat_r ratio      S_r ratio        Y ratio   u_r/tilt
+  0.10         0.0889         0.0705         0.7517         0.0705         0.0077  -8.40e-10
+  0.20         0.1014         0.0805         0.7522         0.0805         0.0099  -1.41e-09
+  0.30         0.1103         0.0907         0.7527         0.0907         0.0127  -1.57e-09
+  0.60         0.1343         0.1208         0.7548         0.1208         0.0239  -1.22e-09
+  1.20         0.1771         0.1699         0.7596         0.1699         0.0505  -5.14e-10
+  2.40         0.2438         0.2404         0.7694         0.2404         0.1062  -5.31e-12
+r_h upstream  : g_ratio 0.0886, phi_r_ratio 0.0704, S_r_ratio 0.0683, Y_ratio 0.0116
+r_h side      : g_ratio 0.1313, phi_r_ratio 0.1122, S_r_ratio 0.1122, Y_ratio 0.0138
+r_h downstream: g_ratio 0.0886, phi_r_ratio 0.0662, S_r_ratio 0.0683, Y_ratio 0.0116
+(ratios are moving/static; phihat_r = g - phi_r; the Newton channel at 0.752 = 1 - K_B/2 is D3 section 34's GR value)

@@ -1,0 +1,8 @@
+Gate B2 on the C1 solver (criterion unchanged from gate_wind_linear_fe.py, fixed before the first B2 run):
+g_e = 0.003 a0, box asinh(300): FAIL on both grids, resolution-converged:
+  16x32: dF_r/pred_r = 0.895, 0.877, 0.862, 0.841 at r = 0.1, 0.15, 0.2, 0.3 kpc (100 km/s); plateau 0.54%; tilt 0.5%
+  24x48: dF_r/pred_r = 0.896, 0.878, 0.864, 0.843 (100 km/s); plateau 0.54%; tilt 0.5%
+isolated dwarf, box asinh(300), 16x32: 0.852, 0.826, 0.805, 0.775; plateau 0.52%
+Reading: the full solver's linear response has section 7's structure (v-independent plateau, carried by the scalar,
+tilt << stealth) but 77-90% of its amplitude, falling with radius; section 7's local-WKB real-space formula overstates
+the linear cancellation of the MOND field by 10-23% in these configurations.

@@ -1,0 +1,108 @@
+[
+  {
+    "nR": 32,
+    "nz": 64,
+    "g_e_over_a0": 0.003,
+    "box": 300.0,
+    "ndof": 19971,
+    "converged": true,
+    "final_residual": 1.834208616412207e-11,
+    "seconds": 1.0,
+    "shells": [
+      {
+        "r_kpc": 0.1,
+        "n_gauss_points_sharp": 50,
+        "newton_channel_ratio": 1.0229437280069409,
+        "mond_channel_ratio": 1.0336877803602968,
+        "newton_channel_ratio_smooth": 1.0115859036416894,
+        "mond_channel_ratio_smooth": 1.0182310914944892
+      },
+      {
+        "r_kpc": 0.2,
+        "n_gauss_points_sharp": 110,
+        "newton_channel_ratio": 1.0015867744050377,
+        "mond_channel_ratio": 1.0071289438859576,
+        "newton_channel_ratio_smooth": 1.0012552087107764,
+        "mond_channel_ratio_smooth": 1.0054708862843627
+      },
+      {
+        "r_kpc": 0.3,
+        "n_gauss_points_sharp": 152,
+        "newton_channel_ratio": 0.9964766982449288,
+        "mond_channel_ratio": 0.9993660477043306,
+        "newton_channel_ratio_smooth": 0.9975584755126385,
+        "mond_channel_ratio_smooth": 0.9999945748864201
+      },
+      {
+        "r_kpc": 0.6,
+        "n_gauss_points_sharp": 230,
+        "newton_channel_ratio": 0.999367200565392,
+        "mond_channel_ratio": 0.9953584841970438,
+        "newton_channel_ratio_smooth": 0.9969569905354541,
+        "mond_channel_ratio_smooth": 0.9960002891398075
+      },
+      {
+        "r_kpc": 1.2,
+        "n_gauss_points_sharp": 292,
+        "newton_channel_ratio": 0.9954821343414106,
+        "mond_channel_ratio": 0.9926859948175213,
+        "newton_channel_ratio_smooth": 0.9981612393504479,
+        "mond_channel_ratio_smooth": 0.9936953375224284
+      }
+    ],
+    "max_u_over_stealth_tilt": 5.0038944432753566e-09
+  },
+  {
+    "nR": 48,
+    "nz": 96,
+    "g_e_over_a0": 0.003,
+    "box": 300.0,
+    "ndof": 45315,
+    "converged": true,
+    "final_residual": 4.0318953831587165e-11,
+    "seconds": 240.9,
+    "shells": [
+      {
+        "r_kpc": 0.1,
+        "n_gauss_points_sharp": 112,
+        "newton_channel_ratio": 1.000465289228515,
+        "mond_channel_ratio": 1.0008085475957647,
+        "newton_channel_ratio_smooth": 1.0038684349870526,
+        "mond_channel_ratio_smooth": 1.0060256274520238
+      },
+      {
+        "r_kpc": 0.2,
+        "n_gauss_points_sharp": 258,
+        "newton_channel_ratio": 1.0018324208449176,
+        "mond_channel_ratio": 1.004686048458183,
+        "newton_channel_ratio_smooth": 1.0003130795343005,
+        "mond_channel_ratio_smooth": 1.0017081202999711
+      },
+      {
+        "r_kpc": 0.3,
+        "n_gauss_points_sharp": 382,
+        "newton_channel_ratio": 0.9984834831258815,
+        "mond_channel_ratio": 0.9992689257804993,
+        "newton_channel_ratio_smooth": 0.9988915532407956,
+        "mond_channel_ratio_smooth": 0.9995364277550671
+      },
+      {
+        "r_kpc": 0.6,
+        "n_gauss_points_sharp": 550,
+        "newton_channel_ratio": 0.9979182792679545,
+        "mond_channel_ratio": 0.9959440557440626,
+        "newton_channel_ratio_smooth": 0.9985891277081161,
+        "mond_channel_ratio_smooth": 0.9976172540431556
+      },
+      {
+        "r_kpc": 1.2,
+        "n_gauss_points_sharp": 642,
+        "newton_channel_ratio": 0.9975129673377313,
+        "mond_channel_ratio": 0.9950571663806094,
+        "newton_channel_ratio_smooth": 0.9991955951637324,
+        "mond_channel_ratio_smooth": 0.9954111100464047
+      }
+    ],
+    "max_u_over_stealth_tilt": 5.0400890070448e-09
+  }
+]

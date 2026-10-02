@@ -1,0 +1,18 @@
+--- 32x64
+  r = 0.1 kpc: sharp 1.0006 1.0002 | smooth 1.0069 1.0083 | sphere 1.0253 1.0289   (Newton, MOND)
+  r = 0.2 kpc: sharp 1.0011 1.0002 | smooth 1.0004 1.0009 | sphere 0.9990 0.9984   (Newton, MOND)
+  r = 0.3 kpc: sharp 0.9998 1.0026 | smooth 0.9983 0.9980 | sphere 0.9891 0.9833   (Newton, MOND)
+  r = 0.6 kpc: sharp 0.9959 1.0023 | smooth 0.9978 0.9972 | sphere 0.9984 0.9974   (Newton, MOND)
+  r = 1.2 kpc: sharp 1.0003 1.0020 | smooth 0.9988 0.9984 | sphere 0.9911 0.9918   (Newton, MOND)
+--- 48x96
+  r = 0.1 kpc: sharp 1.0080 1.0102 | smooth 1.0027 1.0031 | sphere 0.9799 0.9779   (Newton, MOND)
+  r = 0.2 kpc: sharp 1.0000 0.9999 | smooth 1.0002 1.0003 | sphere 1.0007 1.0012   (Newton, MOND)
+  r = 0.3 kpc: sharp 0.9993 0.9983 | smooth 0.9992 0.9989 | sphere 1.0016 1.0026   (Newton, MOND)
+  r = 0.6 kpc: sharp 0.9988 0.9978 | smooth 0.9990 0.9986 | sphere 0.9986 0.9984   (Newton, MOND)
+  r = 1.2 kpc: sharp 0.9999 0.9978 | smooth 0.9994 0.9991 | sphere 1.0033 1.0025   (Newton, MOND)
+--- 64x128
+  r = 0.1 kpc: sharp 1.0032 1.0040 | smooth 1.0015 1.0017 | sphere 1.0017 1.0018   (Newton, MOND)
+  r = 0.2 kpc: sharp 1.0011 1.0017 | smooth 1.0001 1.0001 | sphere 1.0031 1.0039   (Newton, MOND)
+  r = 0.3 kpc: sharp 0.9994 0.9988 | smooth 0.9996 0.9993 | sphere 0.9966 0.9944   (Newton, MOND)
+  r = 0.6 kpc: sharp 0.9995 0.9985 | smooth 0.9995 0.9991 | sphere 0.9989 0.9985   (Newton, MOND)
+  r = 1.2 kpc: sharp 0.9992 1.0025 | smooth 0.9997 0.9994 | sphere 0.9972 0.9971   (Newton, MOND)

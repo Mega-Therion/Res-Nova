@@ -1,0 +1,323 @@
+{
+ "static_residual": 5.8899317761814905e-12,
+ "rows": [
+  {
+   "v_kms": 100.0,
+   "converged": true,
+   "residual": 5.234336363339253e-12,
+   "seconds": 73.51085567474365,
+   "g_ratio_static": 0.09822106030537482,
+   "g_ratio_phihat_flux": 3.2984814470127337,
+   "Y_ratio": 0.01891968127053089,
+   "u_over_tilt": 0.0032991716816300125,
+   "near_zero_modes": {
+    "modes": [
+     {
+      "eig": 1.283824399306471e-09,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 1.9207046479383876e-09,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": -3.8412285498779134e-09,
+      "field": "psi",
+      "weight": 0.667
+     },
+     {
+      "eig": 7.905472266834642e-09,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": 9.031266383393147e-09,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 1.242544732572553e-08,
+      "field": "omega",
+      "weight": 0.667
+     }
+    ]
+   }
+  },
+  {
+   "v_kms": 150.0,
+   "converged": true,
+   "residual": 4.997206383788132e-12,
+   "seconds": 41.806514739990234,
+   "g_ratio_static": 0.09853350329901356,
+   "g_ratio_phihat_flux": 3.308973976970793,
+   "Y_ratio": 0.018998039740611553,
+   "u_over_tilt": 0.0021993903014985764,
+   "near_zero_modes": {
+    "modes": [
+     {
+      "eig": 1.2838243978620795e-09,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 1.9208010290756965e-09,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": -3.841195281912295e-09,
+      "field": "psi",
+      "weight": 0.667
+     },
+     {
+      "eig": 7.905723916579568e-09,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": 9.031266394734746e-09,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 1.2425679536243352e-08,
+      "field": "omega",
+      "weight": 0.667
+     }
+    ]
+   }
+  },
+  {
+   "v_kms": 200.0,
+   "converged": true,
+   "residual": 5.034943122513339e-12,
+   "seconds": 50.03670692443848,
+   "g_ratio_static": 0.09864398243747399,
+   "g_ratio_phihat_flux": 3.3126841119190487,
+   "Y_ratio": 0.01902581094358436,
+   "u_over_tilt": 0.0016494744746305657,
+   "near_zero_modes": {
+    "modes": [
+     {
+      "eig": 1.2838243255246076e-09,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 1.9209358450971703e-09,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": -3.841148362717285e-09,
+      "field": "psi",
+      "weight": 0.667
+     },
+     {
+      "eig": 7.906074645599596e-09,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": 9.0312663407531e-09,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 1.2425996877951048e-08,
+      "field": "omega",
+      "weight": 0.667
+     }
+    ]
+   }
+  },
+  {
+   "v_kms": 300.0,
+   "converged": true,
+   "residual": 6.085676921270454e-12,
+   "seconds": 49.96861171722412,
+   "g_ratio_static": 0.09872594404573087,
+   "g_ratio_phihat_flux": 3.3154365648386372,
+   "Y_ratio": 0.01904644026504374,
+   "u_over_tilt": 0.0010995445028898687,
+   "near_zero_modes": {
+    "modes": [
+     {
+      "eig": 1.2838243833520387e-09,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 1.9213209840317767e-09,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": -3.841013166980501e-09,
+      "field": "psi",
+      "weight": 0.667
+     },
+     {
+      "eig": 7.907070525234412e-09,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": 9.031266339383737e-09,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 1.2426873856262582e-08,
+      "field": "omega",
+      "weight": 0.667
+     }
+    ]
+   }
+  },
+  {
+   "v_kms": 75.0,
+   "converged": true,
+   "residual": 5.4716746384775725e-12,
+   "seconds": 49.314510107040405,
+   "g_ratio_static": 0.09778341656138227,
+   "g_ratio_phihat_flux": 3.2837843976684025,
+   "Y_ratio": 0.018810431075721352,
+   "u_over_tilt": 0.004398869036931079,
+   "near_zero_modes": {
+    "modes": [
+     {
+      "eig": 1.2838244551416972e-09,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 1.920670943343776e-09,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": -3.841240189296199e-09,
+      "field": "psi",
+      "weight": 0.667
+     },
+     {
+      "eig": 7.905383924451937e-09,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": 9.031266419997049e-09,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 1.2425364443313823e-08,
+      "field": "omega",
+      "weight": 0.667
+     }
+    ]
+   }
+  },
+  {
+   "v_kms": 50.0,
+   "converged": true,
+   "residual": 6.348508957183263e-12,
+   "seconds": 50.73511719703674,
+   "g_ratio_static": 0.09652130659054894,
+   "g_ratio_phihat_flux": 3.241399940506768,
+   "Y_ratio": 0.018498843288846156,
+   "u_over_tilt": 0.006597946825262711,
+   "near_zero_modes": {
+    "modes": [
+     {
+      "eig": 1.2838244082898692e-09,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 1.9206467995485883e-09,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": -3.841248438360082e-09,
+      "field": "psi",
+      "weight": 0.667
+     },
+     {
+      "eig": 7.905320580481972e-09,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": 9.031266388707078e-09,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 1.2425304381916167e-08,
+      "field": "omega",
+      "weight": 0.667
+     }
+    ]
+   }
+  },
+  {
+   "v_kms": 30.0,
+   "converged": true,
+   "residual": 7.112660771246948e-12,
+   "seconds": 55.45115780830383,
+   "g_ratio_static": 0.09233363827882404,
+   "g_ratio_phihat_flux": 3.100768733823369,
+   "Y_ratio": 0.017502524542493795,
+   "u_over_tilt": 0.010995119307992875,
+   "near_zero_modes": {
+    "modes": [
+     {
+      "eig": 1.2838243746924259e-09,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 1.920634435040541e-09,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": -3.841252648202893e-09,
+      "field": "psi",
+      "weight": 0.667
+     },
+     {
+      "eig": 7.905288100063239e-09,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": 9.031266343462563e-09,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 1.242527323793911e-08,
+      "field": "omega",
+      "weight": 0.667
+     }
+    ]
+   }
+  },
+  {
+   "v_kms": 20.0,
+   "converged": false,
+   "residual": 0.0725103940224301,
+   "seconds": 418.53867411613464,
+   "g_ratio_static": 0.08322923268416524,
+   "g_ratio_phihat_flux": 2.7950225644509983,
+   "Y_ratio": 0.015533430077671679,
+   "u_over_tilt": 0.01651546050583616
+  }
+ ]
+}

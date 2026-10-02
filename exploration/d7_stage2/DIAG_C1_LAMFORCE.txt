@@ -1,0 +1,4 @@
+(16, 32): stage 1 residual 5.9e-12; max|S - A|/max|S| (r < 1.2 kpc) 3.80e-09; B, D max/|S| 6.6e-11, 3.2e-09
+   Lambda rows: |aether part| 5.331e-19, |scalar part| 4.877e-25, |sum| 5.331e-19 (sum/part = 1.00e+00); check vs grad 4.4e-11
+(24, 48): stage 1 residual 1.1e-11; max|S - A|/max|S| (r < 1.2 kpc) 3.80e-09; B, D max/|S| 6.5e-11, 3.2e-09
+   Lambda rows: |aether part| 3.794e-19, |scalar part| 6.007e-25, |sum| 3.794e-19 (sum/part = 1.00e+00); check vs grad 8.1e-11

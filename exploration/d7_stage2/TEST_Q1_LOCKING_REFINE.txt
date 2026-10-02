@@ -1,0 +1,3 @@
+(32, 64): converged True (1.8e-11); at r_h: Y/Y_static - 1 = +2.239e-05, g/g_static - 1 = +1.147e-05; u/tilt 8.477e-06; 16s
+(48, 96): converged True (4.2e-11); at r_h: Y/Y_static - 1 = +5.085e-05, g/g_static - 1 = +2.591e-05; u/tilt 1.930e-05; 74s
+(64, 128): converged True (7.0e-11); at r_h: Y/Y_static - 1 = +9.129e-05, g/g_static - 1 = +4.644e-05; u/tilt 3.474e-05; 423s

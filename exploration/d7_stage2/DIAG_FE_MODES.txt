@@ -1,0 +1,16 @@
+residual 8.436e-06; asymmetry |A-A^T|/|A| = 1.32e-16
+|eig| range: 9.718e-07 .. 9.995e-01; #neg 3410 of 4867
+dense solve relative residual 4.63e-14
+  eig -9.718e-07: field U_R (0.95), peak R=1.75e-04 z=0.00e+00; rhs overlap 8.22e-09, step share 1.78e-05
+  eig -1.877e-06: field U_R (0.96), peak R=1.91e-03 z=0.00e+00; rhs overlap 1.73e-07, step share 1.93e-04
+  eig -2.444e-06: field S (0.47), peak R=5.16e-03 z=0.00e+00; rhs overlap 7.15e-04, step share 6.14e-01
+  eig -3.311e-06: field U_R (0.99), peak R=5.03e-04 z=0.00e+00; rhs overlap 3.12e-07, step share 1.97e-04
+  eig -3.940e-06: field U_z (0.85), peak R=2.52e-04 z=0.00e+00; rhs overlap 6.14e-08, step share 3.27e-05
+  eig -5.076e-06: field U_R (0.99), peak R=9.82e-04 z=0.00e+00; rhs overlap 1.92e-07, step share 7.94e-05
+  eig -5.551e-06: field S (0.47), peak R=7.18e-03 z=0.00e+00; rhs overlap 4.20e-04, step share 1.59e-01
+  eig -7.113e-06: field U_R (1.00), peak R=3.37e-05 z=0.00e+00; rhs overlap 5.30e-08, step share 1.56e-05
+  largest step entries: field S R=3.70e-03 z=-3.37e-05 |s|=9.524e-17 (x there 1.392e-10)
+  largest step entries: field S R=3.70e-03 z=-7.12e-05 |s|=9.212e-17 (x there 1.392e-10)
+  largest step entries: field S R=3.70e-03 z=0.00e+00 |s|=8.496e-17 (x there 1.393e-10)
+  largest step entries: field A R=3.70e-03 z=-3.37e-05 |s|=8.122e-17 (x there 1.392e-10)
+  largest step entries: field S R=7.18e-03 z=7.04e-04 |s|=8.115e-17 (x there 3.244e-11)

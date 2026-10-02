@@ -1,0 +1,7 @@
+edge 100 kpc 23x46 v = 100: converged True (2.7e-11); Newton channel [0.7505, 0.7506, 0.7508, 0.7514], scalar remnant 0.0469, g ratio 0.0678
+edge 100 kpc 23x46 v = 300: converged True (5.2e-11); Newton channel [0.7506, 0.7507, 0.7508, 0.7515], scalar remnant 0.0479, g ratio 0.0688
+edge 100 kpc 30x60 v = 100: converged True (4.5e-11); Newton channel [0.7505, 0.7506, 0.7508, 0.7514], scalar remnant 0.0466, g ratio 0.0675
+edge 100 kpc 30x60 v = 300: converged True (9.7e-11); Newton channel [0.7506, 0.7507, 0.7508, 0.7515], scalar remnant 0.0477, g ratio 0.0685
+edge 1000 kpc 30x60 v = 100: converged True (5.5e-11); Newton channel [0.75, 0.75, 0.7501, 0.7501], scalar remnant 0.0070, g ratio 0.0290
+edge 1000 kpc 30x60 v = 300: converged False (5.7e-10)
+GATE C FAIL: 1000 kpc 30x60 v=300: not converged

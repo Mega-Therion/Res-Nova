@@ -1,0 +1,15 @@
+32x64: converged True (residual 6.6e-12), u/tilt 2.7e-10
+   r = 0.1 kpc: Newton channel 1.0006, MOND channel 1.0002
+   r = 0.2 kpc: Newton channel 1.0011, MOND channel 1.0002
+   r = 0.3 kpc: Newton channel 0.9998, MOND channel 1.0026
+   r = 0.6 kpc: Newton channel 0.9959, MOND channel 1.0023
+   r = 1.2 kpc: Newton channel 1.0003, MOND channel 1.0020
+48x96: converged True (residual 9.2e-12), u/tilt 2.7e-10
+   r = 0.1 kpc: Newton channel 1.0080, MOND channel 1.0102
+   r = 0.2 kpc: Newton channel 1.0000, MOND channel 0.9999
+   r = 0.3 kpc: Newton channel 0.9993, MOND channel 0.9983
+   r = 0.6 kpc: Newton channel 0.9988, MOND channel 0.9978
+   r = 1.2 kpc: Newton channel 0.9999, MOND channel 0.9978
+GATE B1 FAIL:
+  r=0.1 kpc newton_channel_ratio drifts away from 1: 1.0006 -> 1.0080
+  r=0.1 kpc mond_channel_ratio drifts away from 1: 1.0002 -> 1.0102
