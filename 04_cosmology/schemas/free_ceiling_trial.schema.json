@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Mega-Therion/Res-Nova/blob/main/04_cosmology/schemas/free_ceiling_trial.schema.json",
+  "title": "Res-Nova free-ceiling trial receipt (E4-E7)",
+  "type": "object",
+  "required": [
+    "protocol_commit",
+    "experiment",
+    "model",
+    "data",
+    "analysis",
+    "provenance"
+  ],
+  "properties": {
+    "protocol_commit": {
+      "type": "string",
+      "minLength": 7
+    },
+    "experiment": {
+      "enum": [
+        "E4",
+        "E5",
+        "E6",
+        "E7"
+      ]
+    },
+    "model": {
+      "type": "object",
+      "required": [
+        "name",
+        "parameters",
+        "priors"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "priors": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "data": {
+      "type": "object",
+      "required": [
+        "planck_receipt_sha256",
+        "sparc_manifest_sha256"
+      ],
+      "properties": {
+        "planck_receipt_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "sparc_manifest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "held_out_block": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "analysis": {
+      "type": "object",
+      "required": [
+        "primary_endpoint",
+        "stopping_rule",
+        "multiplicity_correction"
+      ],
+      "properties": {
+        "primary_endpoint": {
+          "type": "string"
+        },
+        "stopping_rule": {
+          "type": "string"
+        },
+        "multiplicity_correction": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "provenance": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}
