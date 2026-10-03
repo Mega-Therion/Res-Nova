@@ -1,0 +1,61 @@
+name: Track Res-Nova drift
+
+on:
+  repository_dispatch:
+    types: [resnova-drift]
+
+permissions:
+  issues: write
+
+jobs:
+  track-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open or update the drift-tracking issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const p = context.payload.client_payload;
+            const title = "Hub content drift vs Res-Nova main";
+            const body = [
+              `The public atlas is pinned to \`${p.pinned_commit}\` and is now **${p.commits_behind} commits** behind Res-Nova main (\`${p.head_commit}\`).`,
+              "",
+              `Compare: ${p.compare_url}`,
+              "",
+              `**Live claim registry** (\`assurance/claims.json\`): ${p.registry_claim_count} claims.`,
+              "State counts: " + Object.entries(p.registry_state_counts).map(([k, v]) => `${k}=${v}`).join(", "),
+              "",
+              p.retracted_claim_ids.length
+                ? `**Retracted claims to check against hub narrative:** ${p.retracted_claim_ids.join(", ")}`
+                : "No retracted claims in the current registry.",
+              "",
+              `Hub currently shows ${p.hub_claim_count} narrative claim entries in \`client/src/data/research.ts\`.`,
+              "",
+              "This issue is opened automatically and is a signal for a human/curator to review and update `research.ts` -- nothing auto-rewrites the public narrative. Close this issue once the hub content is refreshed and re-pinned to the new commit.",
+            ].join("\n");
+
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              labels: ["hub-drift"],
+            });
+
+            if (existing.data.length > 0) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.data[0].number,
+                body,
+              });
+              console.log(`Updated issue #${existing.data[0].number}`);
+            } else {
+              const created = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ["hub-drift"],
+              });
+              console.log(`Created issue #${created.data.number}`);
+            }

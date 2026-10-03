@@ -23,6 +23,7 @@ Technical manuscript, formal verification, and reproducibility package.
 | [`FOR_REFEREES.md`](FOR_REFEREES.md) | Referee-facing notes. |
 | [`05_lean_formalization/verify_all_proofs.sh`](05_lean_formalization/verify_all_proofs.sh) | The Lean 4 gate. 66/66 targets passed locally on 2026-10-03: no `sorry`, standard axioms only. |
 | [`assurance/claims.json`](assurance/claims.json) | The machine-readable claim registry, gated in CI. |
+| [`research-hub/`](research-hub/) | Source for the Research Atlas web app, merged here 2026-10-03 from the former `res-nova-research-hub` repository. |
 
 ## What this repository is — and is not
 
