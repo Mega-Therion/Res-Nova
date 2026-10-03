@@ -27,7 +27,7 @@ Technical manuscript, formal verification, and reproducibility package.
 ## What this repository is — and is not
 
 Res-Nova is a research program in modified gravity built to be checked:
-- It tests a MOND-type interpolating law and its covariant completion (Skordis–Złośnik AeST) against real catalogs. These are SPARC (171 galaxies, 3375 points), the RC100 and MUSE-DARK III high-redshift samples, and Cassini's external-field bound.
+- It tests a MOND-type interpolating law and its covariant completion (Skordis–Złośnik AeST) against real catalogs. These are SPARC (171 galaxies, 3375 points), the RC100 and MUSE-DARK III high-redshift samples, and Cassini's external-field bound (which unscreened μ_std fails; see below).
 - It records what the data reject as well as what survives.
 - It machine-checks the mathematics in Lean 4.
 
@@ -43,6 +43,7 @@ Res-Nova is a research program in modified gravity built to be checked:
 - The 2π in the a₀ ≈ cH₀/2π anchor, which is declared, not proved.
 - a₀(z), where the real high-z data are inconclusive.
 - Non-linear structure formation.
+- Solar-system screening. At the derived a₀, unscreened μ_std fails Cassini's external-field quadrupole (about 4.6σ, and +8.7σ against the 2026 bound). Only the phenomenological duality screening S = 1/(1+η²) passes Cassini, SPARC and the Milky Way dwarfs together. It has no covariant realization yet.
 
 **What this is not.** It is not a claim to have overturned general relativity or ΛCDM. It is not parameter-free: it declares two irreducible inputs, the a₀ scale and the choice of interpolating function.
 
@@ -51,7 +52,7 @@ Res-Nova is a research program in modified gravity built to be checked:
 - a retired construction reappearing on a live surface;
 - a stale current-state file;
 - a Lean target with a `sorry` or a non-standard axiom;
-- a formal module with no stated physical meaning.
+- a formal module cited by a manuscript with no stated physical meaning, or two modules claiming the same one.
 
 Corrections are recorded with dates, never applied silently. Example: on 2026-10-03 a copy-paste defect was found in [`docs/grounding_ledger.yaml`](docs/grounding_ledger.yaml), where 59 modules shared one physical denotation. It was repaired from git history, and a check now fails the build if it recurs.
 
