@@ -1,0 +1,5 @@
+box edge 10 kpc: static True/True; 100 km/s converged True (9.6e-12): g/g_static 0.1732, g/phihat-flux 5.833, Y/Y_static 0.0372, static g/flux 33.68 [250s]
+box edge 30 kpc: static False/True; 100 km/s converged True (1.3e-11): g/g_static 0.1103, g/phihat-flux 3.715, Y/Y_static 0.0127, static g/flux 33.68 [456s]
+box edge 100 kpc: static False/False; 100 km/s converged True (1.5e-11): g/g_static 0.0682, g/phihat-flux 2.297, Y/Y_static 0.0035, static g/flux 33.67 [663s]
+box edge 300 kpc: static False/False; 100 km/s converged True (1.2e-11): g/g_static 0.0448, g/phihat-flux 1.509, Y/Y_static 0.0008, static g/flux 33.66 [663s]
+box edge 1000 kpc: static False/False; 100 km/s converged True (4.7e-11): g/g_static 0.0292, g/phihat-flux 0.982, Y/Y_static 0.0001, static g/flux 33.66 [606s]

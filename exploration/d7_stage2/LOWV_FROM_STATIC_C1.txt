@@ -1,0 +1,5 @@
+v = 15 from static: converged False (7.5e-01)  [478s]
+v = 15 from stripped@20: converged False (1.9e-02)  [588s]
+v = 10 from static: converged False (4.4e+00)  [651s]
+v = 10 from stripped@20: converged False (6.9e-01)  [128s]
+v = 7 from static: converged False (6.0e+00)  [688s]
