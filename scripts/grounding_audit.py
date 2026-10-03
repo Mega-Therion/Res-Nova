@@ -228,6 +228,21 @@ def main() -> int:
                     and is_none(e.get("observable")):
                 problems.append(f"{mod}: cited by {where} as physics, but it "
                                 f"quantifies only over ℝ and names no observable")
+        # Copy-paste guard (added 2026-10-03). On 2026-09-20 a run of edits wrote
+        # the newest module's denotes/observable/falsifier over every entry: 59 of
+        # 62 modules claimed to denote the FLRW K(Q) sector, and the check above
+        # passed because no field was empty. Two modules cannot denote the same
+        # physical thing word for word; a shared non-"none" denotation is a defect.
+        seen = {}
+        for mod, e in led.items():
+            d = (e or {}).get("denotes")
+            if d and not is_none(d):
+                seen.setdefault(d.strip(), []).append(mod)
+        for d, mods in sorted(seen.items(), key=lambda kv: -len(kv[1])):
+            if len(mods) > 1:
+                problems.append(f"{len(mods)} modules share one denotation "
+                                f"({', '.join(sorted(mods)[:4])}"
+                                f"{', ...' if len(mods) > 4 else ''}): \"{d[:60]}...\"")
         print()
         if problems:
             print(f"GROUNDING CHECK: FAIL ({len(problems)})")

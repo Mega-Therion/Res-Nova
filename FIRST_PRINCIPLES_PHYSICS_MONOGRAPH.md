@@ -1,8 +1,13 @@
 # 🌌 Geometrically Ordered Dynamics & Information Tension Theory
+
+> **STATUS NOTICE (2026-10-03):** historical snapshot, superseded in part. Kept for provenance; it is not the current physics. Current status of every claim: CURRENT_STATE_READ_THIS_FIRST.md and PEER_REVIEW_READINESS.md, tags per docs/EPISTEMIC_TIER_LEGEND.md. In this document:
+> - "Sorry-free certified" means only that the Lean gate (05_lean_formalization/verify_all_proofs.sh) certifies elaboration, no sorry, and a standard axiom footprint (66/66 targets on 2026-10-03). It certifies no physical claim.
+> - [O] "Complete unification of the dark sector": not established. See CURRENT_STATE_READ_THIS_FIRST.md for what is and is not closed.
+
 ## A Ground-Up First-Principles Monograph on Geometric Unification
 
 **Author**: R.W. Yett (`Mega-Therion`)
-**Formal Verification**: Lean 4 (Mathlib 4) Sorry-Free Certified  
+**Formal Verification**: Lean 4 (Mathlib 4), sorry-free gate (see the status notice)  
 **Date**: August 2026
 
 ---

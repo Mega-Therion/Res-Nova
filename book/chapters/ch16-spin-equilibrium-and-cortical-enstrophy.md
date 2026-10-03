@@ -1,5 +1,9 @@
 # Chapter 16: Spin Equilibria, Magnetic Jet Braking, and Cortical Manifold Enstrophy Scaling
 
+> **STATUS NOTICE (2026-10-03):** historical snapshot, superseded in part. Kept for provenance; it is not the current physics. Current status of every claim: CURRENT_STATE_READ_THIS_FIRST.md and PEER_REVIEW_READINESS.md, tags per docs/EPISTEMIC_TIER_LEGEND.md. In this document:
+> - [X] Lepton/quark mass "predictions": LeptonMassCollar.lean and QuarkMassLadder.lean take the measured masses as input constants and fit a modular expression to them (CODATA/PDG). They are arithmetic, not predictions (docs/grounding_ledger.yaml).
+
+
 > *"Geometry provides the boundary; dynamics provides the flow; the data decides the verdict."*
 
 ---

@@ -13,6 +13,48 @@
 
 Technical manuscript, formal verification, and reproducibility package.
 
+## For reviewers — start here
+
+| | |
+| :--- | :--- |
+| [`CURRENT_STATE_READ_THIS_FIRST.md`](CURRENT_STATE_READ_THIS_FIRST.md) | The current status of every physics claim. Its verification date is enforced by CI against the newest physics change. |
+| [`PEER_REVIEW_READINESS.md`](PEER_REVIEW_READINESS.md) | The twelve research targets, each scored and decomposed. |
+| [`docs/EPISTEMIC_TIER_LEGEND.md`](docs/EPISTEMIC_TIER_LEGEND.md) | The canonical claim tags. Where any other legend disagrees, this one wins. |
+| [`FOR_REFEREES.md`](FOR_REFEREES.md) | Referee-facing notes. |
+| [`05_lean_formalization/verify_all_proofs.sh`](05_lean_formalization/verify_all_proofs.sh) | The Lean 4 gate. 66/66 targets passed locally on 2026-10-03: no `sorry`, standard axioms only. |
+| [`assurance/claims.json`](assurance/claims.json) | The machine-readable claim registry, gated in CI. |
+
+## What this repository is — and is not
+
+Res-Nova is a research program in modified gravity built to be checked:
+- It tests a MOND-type interpolating law and its covariant completion (Skordis–Złośnik AeST) against real catalogs. These are SPARC (171 galaxies, 3375 points), the RC100 and MUSE-DARK III high-redshift samples, and Cassini's external-field bound.
+- It records what the data reject as well as what survives.
+- It machine-checks the mathematics in Lean 4.
+
+**What is proved.** `[P]` means a machine-checked theorem. It certifies mathematics, never physical ontology. Examples are c_T = c (D8) and the μ_std embedding in AeST (D9).
+
+**What was killed.** Each `[X]` is kept with its date:
+- μ = x/(1+x), which fails in the solar system (2026-09-12);
+- the 20-point high-z table, with its 5.9σ and 2.06σ results (2026-09-27);
+- lepton and quark mass "predictions". The Lean modules fit measured masses; they do not predict them. The ledger was corrected and status notices were added to the legacy manuscripts on 2026-10-03.
+
+**What is open.** Each `[O]`:
+- AeST branch selection (D7). A proposed no-go from an exploratory non-linear solver is **not adopted**.
+- The 2π in the a₀ ≈ cH₀/2π anchor, which is declared, not proved.
+- a₀(z), where the real high-z data are inconclusive.
+- Non-linear structure formation.
+
+**What this is not.** It is not a claim to have overturned general relativity or ΛCDM. It is not parameter-free: it declares two irreducible inputs, the a₀ scale and the choice of interpolating function.
+
+**How it polices itself.** CI fails on:
+- an inconsistent claim registry;
+- a retired construction reappearing on a live surface;
+- a stale current-state file;
+- a Lean target with a `sorry` or a non-standard axiom;
+- a formal module with no stated physical meaning.
+
+Corrections are recorded with dates, never applied silently. Example: on 2026-10-03 a copy-paste defect was found in [`docs/grounding_ledger.yaml`](docs/grounding_ledger.yaml), where 59 modules shared one physical denotation. It was repaired from git history, and a check now fails the build if it recurs.
+
 ## AI Safety & Scalable Oversight Utility
 
 Res-Nova is a live demonstration of *falsifiable, machine-checkable scientific claims*. Every quantitative result in the manuscript is registered in a structured claim registry (`scripts/validate_claim_registry.py`) and gated by a Lean 4 proof target inventory (`05_lean_formalization/`). The CI pipeline runs daily and on every push, executing:
@@ -109,7 +151,22 @@ single global `a0` into every test fold.
 
 ## Epistemic Standards
 
-Claims are strictly classified according to recorded evidence:
+Claim tags follow [`docs/EPISTEMIC_TIER_LEGEND.md`](docs/EPISTEMIC_TIER_LEGEND.md), the canonical legend:
+
+| tag | meaning |
+| :-- | :-- |
+| `[P]` | **Proved**: a Lean theorem, no `sorry`, standard axioms. Mathematics only. |
+| `[D]` | **Derived** here by an explicit, checkable argument (not machine-checked). |
+| `[E]` | **Empirical**: a measurement or comparison against a named dataset. |
+| `[C]` | **Cited** from the published literature (DOI given). |
+| `[conj]` | **Conjectured**: believed, not derived. |
+| `[A]` | **Axiom**: assumed, with the reason stated. |
+| `[O]` | **Open**: no result either way; what is missing is stated. |
+| `[X]` | **Killed**: falsified, retracted or superseded, with date and reason. |
+
+`[D*]`, `[P/O]` and `[arith]` are defined in the legend. A compound `[P/O]` must always say which part is which.
+
+The machine-readable claim registry (`assurance/claims.json`) records each claim's state:
 - **`derived`**: Supported by explicit mathematical derivation and checked assumptions.
 - **`empirically_supported`**: Correlated with identified observational datasets (e.g. SPARC, JWST) within defined scope.
 - **`conditional`**: Dependent on unresolved model choices or theoretical assumptions.
