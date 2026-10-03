@@ -52,3 +52,4 @@ exploration/d7_stage2/cache_branch/
 
 # 04_cosmology public datasets (fetched by 04_cosmology/fetch_external_data.sh; do not vendor)
 04_cosmology/external_data/
+04_cosmology/planck_data/

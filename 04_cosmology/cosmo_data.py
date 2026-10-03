@@ -7,6 +7,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 DATA_DIR = HERE / "external_data"
+PLANCK_DIR = HERE / "planck_data"
 
 # key: (file name, SHA-256, source)
 FILES = {
@@ -55,6 +56,11 @@ def path(key):
 def out(name):
     """Output JSON next to the scripts; name is always a literal from the calling script."""
     return HERE / name
+
+
+def planck_receipt():
+    """Return the receipt written by scripts/fetch_verified_external_data.py."""
+    return PLANCK_DIR / "PLANCK_BASELINE_RECEIPT.json"
 
 
 def provenance(*keys):
