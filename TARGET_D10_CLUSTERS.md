@@ -163,7 +163,7 @@ and crucially **not Yukawa**. The point-mass Green's function goes as `cos(μr)/
 (its equation collapses to `∇²φ = ∇²Φ`, and back-substitution gives the contentless
 `μ²Φ = 8πG̃ρ/(2−K_B)`). So this establishes the **operator structure only**. With `J(𝒴)`
 present, `∇²φ` is replaced by the nonlinear AQUAL/MOND operator. Script:
-`05_Scripts_and_Tools/clusters/quasistatic_field_equation.py`.
+`02_galaxy_dynamics/clusters/quasistatic_field_equation.py`.
 
 ### What §7 does to §2
 
@@ -210,7 +210,7 @@ scale it does not get to choose.
 ## Reproduction
 
 ```bash
-cd Research_and_Data/05_Scripts_and_Tools/clusters
+cd 02_galaxy_dynamics/clusters
 python3 cluster_mond_test.py
 ```
 
@@ -226,7 +226,7 @@ Related: `TARGET_D5_COSMOLOGICAL_SECTOR.md` §3.3 (dustlike perturbations),
 ## 8. The `μ²Φ` term: right sign, roughly right size `[D]`/`[O]` — added same day
 
 §7 said the MOND limit does not apply at `r₅₀₀`. This section asks what the `μ²` term
-actually *does*. Script: `05_Scripts_and_Tools/clusters/aest_mu2_correction.py`.
+actually *does*. Script: `02_galaxy_dynamics/clusters/aest_mu2_correction.py`.
 
 ### The system, from SZ's own diagonalisation
 
@@ -379,4 +379,4 @@ square-root near `g_N = 0`), a non-spherical or time-dependent treatment, or the
 that the quasi-static limit is inapplicable at `r ∼ 15 r₅₀₀`. Each is a real research step;
 none is a tuning knob.
 
-Script: `05_Scripts_and_Tools/clusters/aest_cluster_compensated.py`.
+Script: `02_galaxy_dynamics/clusters/aest_cluster_compensated.py`.
