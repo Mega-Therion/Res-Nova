@@ -27,6 +27,9 @@ from typing import Iterable
 SPARC_ARCHIVE_URL = "https://astroweb.cwru.edu/SPARC/Rotmod_LTG.zip"
 SPARC_MASTER_URL = "https://astroweb.cwru.edu/SPARC/SPARC_Lelli2016c.mrt"
 PLANCK_BASELINE_URL = "https://pla.esac.esa.int/pla-sl/data-action?COSMOLOGY.COSMOLOGY_OID=151902"
+# Measured 2026-10-03 from PLANCK_BASELINE_URL on two separate downloads (60,323,470 bytes each). Used as the
+# default pin so an upstream re-issue fails loudly instead of being accepted; override with --planck-sha256.
+PLANCK_BASELINE_SHA256_MEASURED = "0b73171e3acc671c28184466a45485a2d1c1d93676b832abdfe688c7b04024e6"
 PLANCK_REQUIRED_PATTERNS = {
     "high-l": "*/hi_l/plik/*TTTEEE*.clik",
     "low-l temperature": "*/low_l/commander/*.clik",
@@ -218,7 +221,7 @@ def main(argv: Iterable[str] | None = None) -> int:
     parser.add_argument("--sparc", action="store_true", help="download and verify SPARC")
     parser.add_argument("--planck", action="store_true", help="download and verify Planck baseline likelihoods")
     parser.add_argument("--all", action="store_true", help="download both datasets")
-    parser.add_argument("--planck-sha256", default=os.environ.get("PLANCK_BASELINE_SHA256"), help="optional pinned Planck archive SHA-256")
+    parser.add_argument("--planck-sha256", default=os.environ.get("PLANCK_BASELINE_SHA256", PLANCK_BASELINE_SHA256_MEASURED), help="pinned Planck archive SHA-256 (default: the hash measured 2026-10-03)")
     parser.add_argument("--planck-url", default=PLANCK_BASELINE_URL, help="official Planck archive URL or approved mirror")
     args = parser.parse_args(list(argv) if argv is not None else None)
     if not (args.sparc or args.planck or args.all):
