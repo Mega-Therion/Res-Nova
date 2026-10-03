@@ -1,0 +1,2 @@
+D0(a) scaled step vs explicit deflated Newton, 20 points: worst rel. diff 2.09e-09 -> PASS
+D0(b) two-root system: undeflated -> [1. 1.], deflated -> [-1. -1.] -> PASS
