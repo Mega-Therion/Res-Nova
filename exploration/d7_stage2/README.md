@@ -213,14 +213,28 @@ asinh(100)/16 (the first sweep, `BOX_SWEEP_C1_16x32.json`, confounded box size w
 **Low speeds.** Newton at 7–15 km/s, from the static state or from a stripped state, does not converge
 (`LOWV_FROM_STATIC_C1_partial.txt`). No continuation path from the held state to the stripped state is established.
 
-## Status (2026-10-02)
+**Deflation search for a second steady state** (`deflation_c1.py`; protocol `PREREG_DEFLATION_C1.md`, committed in
+`0c37766` before the first run; `DEFLATION_C1_10kpc_16x32.json`, `DEFLATION_C1_RUN.txt`). 10 kpc box, 16×32, 100 km/s,
+g_e = 0. The stripped root x* is deflated (Farrell, Birkisson & Funke 2015), and Newton restarts from six guesses.
+- Gate D0, the deflation formula: **PASS** (`DEFLATION_SELFTEST.txt`). The τ-scaled step matches explicit deflated
+  Newton to 2.1×10⁻⁹, and on a two-root test system the deflated run finds the second root.
+- Gate D1, reproduction: **PASS**. x* converges at 9.6×10⁻¹², with Y/Y_static = 0.0372 and g/g_static = 0.1732. It is
+  bit-identical to the cached box-sweep solution (|x* − cached| = 0).
+- **None of the six deflated runs converges.** Final residuals are 1.9–4.5 after 17–29 iterations, and each run ends
+  0.72–1.17 D0 from x* (D0 = |x_s − x*|), where the line search finds no further descent. Guesses: the static held
+  state, the Λ-frozen static state, and x* + a(x_s − x*) for a = 0.5, 0.75, 0.9, 1.25.
+- Outcome, worded as pre-registered: **no second steady state found from these six guesses by this deflation** `[O]`.
+  This does not exclude a held branch.
+
+## Status (2026-10-03)
 
 Exploratory. Gates A2, A′, Y, L and B1 pass; B2 and C fail as pre-registered. Every converged satellite-speed solve is
 stripped: its Newton channel carries GR's normalization 1 − K_B/2 to 0.2%, and its MOND remnant falls with box size.
 This holds at K_B = 1/2, 𝒦₂ = 75, Q₀ = 0.1/Mpc only.
 
 Not shown:
-- that the stripped state is the unique steady state (a non-linear held branch is not excluded);
+- that the stripped state is the unique steady state (a non-linear held branch is not excluded; a pre-registered
+  deflation search at one grid, box and speed found no second steady state from six guesses);
 - box convergence of the remnant;
 - other K_B;
 - external-field-dominated outskirts;

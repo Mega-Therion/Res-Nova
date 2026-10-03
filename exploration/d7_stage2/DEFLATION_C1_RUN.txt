@@ -1,0 +1,8 @@
+gate D1: stripped root converged True (9.6e-12); Y/Y_static 0.0372, g/g_static 0.1732; |x*-cached|/|cached| 0.0e+00 -> PASS
+G1 static held: converged False (1.9e+00, 17 it), |x-x*|/D0 0.987 [276s]
+G2 static, Lambda frozen: converged False (2.0e+00, 25 it), |x-x*|/D0 0.985 [322s]
+G3 x* + 0.5(xs - x*): converged False (2.6e+00, 29 it), |x-x*|/D0 1.035 [373s]
+G4 x* + 0.75(xs - x*): converged False (4.5e+00, 20 it), |x-x*|/D0 1.019 [274s]
+G5 x* + 0.9(xs - x*): converged False (2.2e+00, 23 it), |x-x*|/D0 1.174 [424s]
+G6 x* + 1.25(xs - x*): converged False (2.6e+00, 27 it), |x-x*|/D0 0.724 [408s]
+second steady states found: 0; held among them: False  [2268s]

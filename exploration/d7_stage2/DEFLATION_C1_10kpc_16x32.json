@@ -1,0 +1,83 @@
+{
+ "protocol": "PREREG_DEFLATION_C1.md",
+ "box_B": 100.0,
+ "edge_kpc": 10.0,
+ "grid": [
+  16,
+  32
+ ],
+ "v_kms": 100.0,
+ "g_e_over_a0": 0.0,
+ "p": 2.0,
+ "shift": 1.0,
+ "tol": 1e-10,
+ "maxit": 60,
+ "gate_D1": {
+  "static": [
+   true,
+   9.051941349703748e-12,
+   true,
+   8.52803131449985e-12
+  ],
+  "stripped_converged": true,
+  "stripped_residual": 9.615559430414204e-12,
+  "Y_ratio": 0.03720584543762056,
+  "g_ratio_static": 0.1732031734129717,
+  "rel_dist_to_cached": 0.0,
+  "pass": true
+ },
+ "D0_static_to_stripped": 1.3142495544407015e-07,
+ "runs": [
+  {
+   "guess": "G1 static held",
+   "converged": false,
+   "residual": 1.910633693496069,
+   "iterations": 17,
+   "dist_to_stripped_over_D0": 0.9874680457849125,
+   "seconds": 275.5
+  },
+  {
+   "guess": "G2 static, Lambda frozen",
+   "converged": false,
+   "residual": 2.0285521741852324,
+   "iterations": 25,
+   "dist_to_stripped_over_D0": 0.984648592498669,
+   "seconds": 322.2
+  },
+  {
+   "guess": "G3 x* + 0.5(xs - x*)",
+   "converged": false,
+   "residual": 2.618452425331354,
+   "iterations": 29,
+   "dist_to_stripped_over_D0": 1.0353358924676384,
+   "seconds": 373.0
+  },
+  {
+   "guess": "G4 x* + 0.75(xs - x*)",
+   "converged": false,
+   "residual": 4.502461992452217,
+   "iterations": 20,
+   "dist_to_stripped_over_D0": 1.0189252367813333,
+   "seconds": 274.4
+  },
+  {
+   "guess": "G5 x* + 0.9(xs - x*)",
+   "converged": false,
+   "residual": 2.2093184624649336,
+   "iterations": 23,
+   "dist_to_stripped_over_D0": 1.1741679590042036,
+   "seconds": 424.2
+  },
+  {
+   "guess": "G6 x* + 1.25(xs - x*)",
+   "converged": false,
+   "residual": 2.55951879009628,
+   "iterations": 27,
+   "dist_to_stripped_over_D0": 0.7244505109874257,
+   "seconds": 407.9
+  }
+ ],
+ "second_states_found": 0,
+ "held_found": false,
+ "seconds_total": 2268.5
+}
