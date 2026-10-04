@@ -27,6 +27,8 @@ Technical manuscript, formal verification, and reproducibility package.
 
 ## What this repository is — and is not
 
+Res-Nova is the only public home of claims about the physical world. Notes in Chyren stay in the workshop until they name a catalog, a measurement, or a physical model and are promoted here. Nova-Conscientia may borrow a formula as code. That borrowing is not a result of this repository. See [`docs/REPO_PROMOTION.md`](docs/REPO_PROMOTION.md).
+
 Res-Nova is a research program in modified gravity built to be checked:
 - It tests a MOND-type interpolating law and its covariant completion (Skordis–Złośnik AeST) against real catalogs. These are SPARC (171 galaxies, 3375 points), the RC100 and MUSE-DARK III high-redshift samples, and Cassini's external-field bound (which unscreened μ_std fails; see below).
 - It records what the data reject as well as what survives.
