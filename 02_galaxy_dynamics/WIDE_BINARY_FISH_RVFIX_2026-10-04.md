@@ -1,5 +1,7 @@
 # Wide-binary fish test on the corrected sample (2026-10-04)
 
+> **Superseded in part by `WIDE_BINARY_FINAL_2026-10-04.md`.** That run uses checked masses, a mass-stratified ratio and an injection-calibrated threshold (κ ≈ 1.5). With those, N, P, E and S are **not** excluded. Only F is.
+
 **Supersedes the sample in `WIDE_BINARY_FISH_2026-10-04.md`.** That run, and every follow-up up to d8cd8a1, used only pairs whose first star has a DR2 RV. The cause was the 1e20 RV sentinel (`WIDE_BINARY_RV_FIX_AND_POWER.md`, 5014df0). This run uses the pre-registered sample as it was meant to be: 14,777 strict and 20,268 loose pairs.
 
 Statistic, bins, models and threshold are unchanged from `PREREG_WIDE_BINARY_FISH.md` + Amendment A. The only additions:
