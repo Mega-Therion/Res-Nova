@@ -57,6 +57,10 @@ Res-Nova is a research program in modified gravity built to be checked:
 
 Corrections are recorded with dates, never applied silently. Example: on 2026-10-03 a copy-paste defect was found in [`docs/grounding_ledger.yaml`](docs/grounding_ledger.yaml), where 59 modules shared one physical denotation. It was repaired from git history, and a check now fails the build if it recurs.
 
+## How this was built
+
+R.W. Yett directs the research. Much of the code and prose was written with AI coding assistants; those commits carry `Co-Authored-By` trailers. No AI output is cited as evidence anywhere in this repository: numbers come from the scripts and data here, formal claims from the Lean kernel, and nothing is graded by a model.
+
 ## AI Safety & Scalable Oversight Utility
 
 Res-Nova is a live demonstration of *falsifiable, machine-checkable scientific claims*. Every quantitative result in the manuscript is registered in a structured claim registry (`scripts/validate_claim_registry.py`) and gated by a Lean 4 proof target inventory (`05_lean_formalization/`). The CI pipeline runs daily and on every push, executing:
