@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Res-Nova Observatory | 4D Covariant RMOND & SPARC Astrophysical Simulation</title>
-  <meta name="description" content="State-of-the-art interactive astrophysical observatory for Res-Nova v1.9.0: 3D real-time galactic particle kinematics, μ_std MOND engine (AeST completion), SPARC 175 galaxy optimizer, 4D Skordis-Zlosnik spacetime simulation, and Lean 4 formal verification terminal." />
+  <meta name="description" content="Res Nova observatory. Under μ_std, the horizon anchor's SPARC tier-0 median reduced χ² is 11.08 and the literature a₀ is 9.93. Unscreened μ_std fails Cassini. Lean checks the algebra." />
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -916,7 +916,7 @@
           </div>
 
           <div style="margin-top: 1rem; font-size: 0.74rem; color: var(--text-muted); line-height: 1.45;">
-            <strong>Corpus fit under $\mu_{\text{std}}$ [D]:</strong> tier 1 (374 nuisance parameters) median $\chi^2/N = 3.36$, aggregate $\chi^2/\text{dof} = 6.09$; tier 0 (no free parameters) median $11.08$, aggregate $93.6$; 3,375 points (\texttt{02\_galaxy\_dynamics/PARAMETER\_LEDGER.json}). The single-galaxy fit above is interactive and illustrative; the earlier $\chi^2 = 2.92$ and cross-validation figures were computed under the falsified $\mu(x) = x/(1+x)$ and are retired.
+            <strong>Corpus fit under $\mu_{\text{std}}$ [E]:</strong> both rows use the same interpolating function. Tier 0, with $a_0$ fixed rather than fitted, has median reduced $\chi^2$ $11.08$ for the horizon anchor and $9.93$ for the literature value $1.2\times 10^{-10}\,\mathrm{m\,s^{-2}}$. The horizon anchor fits worse. Tier 1 (374 nuisance parameters) medians are $3.36$ and $3.41$. 3,375 points (\texttt{02\_galaxy\_dynamics/PARAMETER\_LEDGER.json}). Unscreened $\mu_{\text{std}}$ fails Cassini's external-field quadrupole. The single-galaxy curve above is illustrative. The earlier $\chi^2 = 2.92$ figures used the interpolating function withdrawn on 2026-09-12 and are retired.
           </div>
         </div>
 

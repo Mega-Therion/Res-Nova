@@ -11,18 +11,24 @@ from pathlib import Path
 REPO_ID = "ChyRho/res-nova"
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
+
 def get_token():
     token = os.environ.get("HF_TOKEN") or os.environ.get("HUGGINGFACE_TOKEN")
     if not token:
         env_file = Path.home() / ".chyren" / "one-true.env"
         if env_file.exists():
             for line in env_file.read_text().splitlines():
-                if line.startswith("HF_TOKEN=") or line.startswith("HUGGINGFACE_TOKEN="):
+                if line.startswith("HF_TOKEN=") or line.startswith(
+                    "HUGGINGFACE_TOKEN="
+                ):
                     token = line.split("=", 1)[1].strip()
                     break
     if not token:
-        raise RuntimeError("HF_TOKEN not found in environment or ~/.chyren/one-true.env")
+        raise RuntimeError(
+            "HF_TOKEN not found in environment or ~/.chyren/one-true.env"
+        )
     return token
+
 
 # Directories mirrored to the dataset. The card's "Structure" section is generated
 # from this list so it can never advertise a directory that is not uploaded (the
@@ -43,7 +49,8 @@ IGNORE_PATTERNS = [".lake/**", "**/.lake/**", "**/__pycache__/**", "*.olean", "*
 
 def generate_hf_readme():
     structure = "\n".join(f"- `{d}/`: {desc}" for d, desc in DIRS_TO_UPLOAD.items())
-    return """---
+    return (
+        """---
 license: cc-by-4.0
 pretty_name: "Res Nova: Geometrically Ordered Dynamics & SPARC Benchmark"
 tags:
@@ -62,13 +69,13 @@ repository (the source of truth). Epistemic status is tracked claim-by-claim in
 `assurance/claims.json` and `CURRENT_STATE_READ_THIS_FIRST.md` on GitHub; read those
 before relying on any result here.
 
-- **SPARC benchmark**: rotation-curve fits and the a0 extraction under the live
-  interpolating function mu_std(x) = x/sqrt(1+x^2). The anchor a0 = cH0/(2*pi) is a
-  declared normalisation, not a derivation: horizon-temperature (KMS) matching gives
-  a = cH, with the 2*pi cancelling.
+- **SPARC benchmark**: under one mu_std, PARAMETER_LEDGER.json reports a tier-0
+  median reduced chi-squared of 11.08 for the horizon anchor and 9.93 for the
+  literature a0 of 1.2e-10 m/s^2, on 3,375 points. The horizon anchor fits worse.
+  The anchor a0 = cH0/(2*pi) is a declared normalisation, not a derivation.
 - **Solar system (status, not a pass)**: the isolated-Sun monopole deviation of mu_std is
   ~1e-12 at Saturn, but with the Milky Way external field the Cassini quadrupole Q2
-  **excludes bare mu_std at ~4.6 sigma** at the derived a0. A screening mechanism is
+  **excludes bare mu_std at ~4.6 sigma** at the working a0. A screening mechanism is
   required; the working one is phenomenological and has no covariant realization yet.
 - **Formal verification**: Lean 4 modules checked by `05_lean_formalization/verify_all_proofs.sh`
   with no `sorry` and only the standard axioms. That certifies the mathematics, not the
@@ -80,8 +87,8 @@ before relying on any result here.
 ### 🔗 Canonical Links & Provenance
 
 - **GitHub Source of Truth**: [https://github.com/Mega-Therion/Res-Nova](https://github.com/Mega-Therion/Res-Nova)
-- **Interactive Research Atlas**: [https://resnova-hub-f4ucvy3e.manus.space](https://resnova-hub-f4ucvy3e.manus.space)
-- **Zenodo Release Archive**: [https://doi.org/10.5281/zenodo.21969121](https://doi.org/10.5281/zenodo.21969121)
+- **Research Atlas**: [https://res-nova-atlas.vercel.app](https://res-nova-atlas.vercel.app)
+- **Zenodo concept DOI**: [https://doi.org/10.5281/zenodo.21539453](https://doi.org/10.5281/zenodo.21539453). As of 2026-10-03 this resolves to the correction 10.5281/zenodo.23130663. Earlier versions of the concept still carry the withdrawn interpolating function in their own abstracts.
 - **Author**: R.W. Yett ([ORCID: 0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190))
 - **LinkedIn**: [R.W. Yett](https://www.linkedin.com/in/r-w-yett/)
 - **X (Twitter)**: [@_ChyRho_](https://x.com/_chyrho_)
@@ -90,12 +97,18 @@ before relying on any result here.
 
 ### 📂 Structure
 
-""" + structure + """
+"""
+        + structure
+        + """
 - `VERSION`, `CHANGELOG.md`, `.zenodo.json`, `references.bib`: release metadata.
 """
+    )
+
 
 def main():
-    from huggingface_hub import HfApi  # deferred: the card test imports this module without it
+    from huggingface_hub import (
+        HfApi,
+    )  # deferred: the card test imports this module without it
 
     token = get_token()
     api = HfApi(token=token)
@@ -109,7 +122,7 @@ def main():
         path_in_repo="README.md",
         repo_id=REPO_ID,
         repo_type="dataset",
-        commit_message="docs: update dataset card from scripts/sync_huggingface.py"
+        commit_message="docs: update dataset card from scripts/sync_huggingface.py",
     )
 
     # 2. Upload directories
@@ -123,7 +136,7 @@ def main():
                 repo_id=REPO_ID,
                 repo_type="dataset",
                 ignore_patterns=IGNORE_PATTERNS,
-                commit_message=f"sync: upload {d} to Hugging Face dataset"
+                commit_message=f"sync: upload {d} to Hugging Face dataset",
             )
 
     # 3. Upload key root metadata files
@@ -136,10 +149,11 @@ def main():
                 path_in_repo=rf,
                 repo_id=REPO_ID,
                 repo_type="dataset",
-                commit_message=f"sync: upload {rf}"
+                commit_message=f"sync: upload {rf}",
             )
 
     print(f"Successfully synced Res-Nova to https://huggingface.co/datasets/{REPO_ID}")
+
 
 if __name__ == "__main__":
     main()
