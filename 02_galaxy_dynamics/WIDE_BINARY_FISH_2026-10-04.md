@@ -92,7 +92,12 @@ The measured R(s) does not depend on the model. Only the model curves were recom
   - γ(s) "Hwang+2022";
   - Q(q) "Milgrom deep-MOND two-body".
   
-  Mass errors that do not depend on s cancel in R. The γ(s) sensitivity is shown above.
+  Mass errors that do not depend on s cancel in R.
+- **Mass table checked 2026-10-04** against Mamajek's `EEM_dwarf_UBVIJHK_colors_Teff.txt` (M_G and Msun columns, pas.rochester.edu/~emamajek):
+  - The script's table runs 0–2% high for M_G ≤ 8 and 7–18% high for M dwarfs (M_G 9–12).
+  - Swapping in Mamajek's masses lowers the clean median M from 1.294 to 1.256 (500–1000 AU) and raises the close-bin median ṽ from 0.536 to 0.544.
+  - The shift is the same in the 2–5 kAU bin (0.545 → 0.554) and the 20–30 kAU bin (0.600 → 0.608), so R is unchanged.
+  - It explains about 1.5% of the ~8–10% close-bin gap between the Newton model and the data (`WIDE_BINARY_NEWTON_ERRORS.json`: model 0.579–0.590 vs data 0.536). The γ(s) sensitivity is shown above.
 
 ## Status against CURRENT_STATE / README (28bef58)
 - The README holds the theory's domain to the galaxy regime: ordinary gravity keeps the solar system, and no screen is in either action.
