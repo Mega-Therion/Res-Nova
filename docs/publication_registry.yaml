@@ -18,7 +18,6 @@ identity:
   name: "R.W. Yett"
   expanded_variant_do_not_use: "Ryan W. Yett"
   location: "Arkansas"
-  contact: "r11110001y@proton.me"
   orcid: "0009-0001-1303-7190"
   repository: "Mega-Therion/Res-Nova"
 
@@ -1508,7 +1507,7 @@ works:
     publication_date: "2026-07-21"
     repository: "Mega-Therion/Res-Nova"
     concept_doi: "10.5281/zenodo.20348354"
-    is_latest: true
+    is_latest: false
     has_versions: []
     is_new_version_of: []
 
@@ -1746,7 +1745,7 @@ works:
     publication_date: "2026-07-23"
     repository: "Mega-Therion/Res-Nova"
     concept_doi: "10.5281/zenodo.21146462"
-    is_latest: true
+    is_latest: false
     has_versions: []
     is_new_version_of: ["10.5281/zenodo.21479842"]
 
@@ -1797,7 +1796,7 @@ works:
     publication_date: "2026-07-15"
     repository: "Mega-Therion/Res-Nova"
     concept_doi: "10.5281/zenodo.21233977"
-    is_latest: true
+    is_latest: false
     has_versions: []
     is_new_version_of: []
 
@@ -1865,7 +1864,7 @@ works:
     publication_date: "2026-07-15"
     repository: "Mega-Therion/Res-Nova"
     concept_doi: "10.5281/zenodo.21302150"
-    is_latest: true
+    is_latest: false
     has_versions: []
     is_new_version_of: []
 
@@ -2069,7 +2068,7 @@ works:
     publication_date: "2026-08-24"
     repository: "Mega-Therion/Res-Nova"
     concept_doi: "10.5281/zenodo.21539453"
-    is_latest: true
+    is_latest: false
     has_versions: []
     is_new_version_of: []
 
@@ -2086,7 +2085,7 @@ works:
     publication_date: "2026-08-16"
     repository: "Mega-Therion/Res-Nova"
     concept_doi: "10.5281/zenodo.21969120"
-    is_latest: true
+    is_latest: false
     has_versions: []
     is_new_version_of: []
 
@@ -2203,3 +2202,277 @@ works:
     is_latest: false
     has_versions: ["10.5281/zenodo.23101857"]
     is_new_version_of: []
+
+  # Added 2026-10-04 from the Zenodo and DataCite APIs: the 2026-10-03 correction
+  # versions (ZENODO_CORRECTION_INDEX_2026-10-03.md) and five earlier records they replace.
+  - work_id: pre_registration_omega_lambda_ln_2
+    title: "Pre-Registration: Omega_Lambda = ln(2) — Dark Energy Fraction from Chiral Vacuum Entropy (Yett Paradigm)"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Preprint"
+    canonical_doi: "10.5281/zenodo.21131486"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-07-02"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21131485"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_law_of_g_o_d
+    title: "The Law of G.O.D.: A Pleroma of Geometrically Ordered Dynamics"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.21367567"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-07-15"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20117456"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: a_parameter_free_acceleration_scale_from
+    title: "A Parameter-Free Acceleration Scale from the Cosmic Horizon: Information Tension on SPARC"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.21367578"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-07-15"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21302319"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: parameter_free_acceleration_scale_a_geometric
+    title: "Parameter-Free Acceleration Scale: A Geometric Derivation of the MOND Scale from the Cosmic Horizon"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21450425"
+    lineage: manuscript
+    role: version
+    version: "1.0.0"
+    status: live
+    publication_date: "2026-07-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21450424"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: the_pleroman_the_unified_statement_of
+    title: "THE PLEROMAN: The Unified Statement of Geometrically Ordered Dynamics"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21461195"
+    lineage: manuscript
+    role: version
+    version: "1.0.0"
+    status: live
+    publication_date: "2026-07-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21461194"
+    is_latest: false
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: res_nova_correction_of_the_public
+    title: "Res Nova: correction of the public abstract (2026-10-03)"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.23130663"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-10-04"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21539453"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.22079177"]
+
+  - work_id: correction_the_interpolating_function_in_the
+    title: "Correction: the interpolating function in the dual-channel abstract was withdrawn"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.23130698"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-10-04"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21969120"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21969121"]
+
+  - work_id: correction_this_record_does_not_solve
+    title: "Correction: this record does not solve a Millennium problem or derive a parameter-free law"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.23130701"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-10-04"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20348354"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21479962"]
+
+  - work_id: correction_this_record_does_not_beat
+    title: "Correction: this record does not beat MOND and is not a Millennium solution"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.23130702"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-10-04"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21461194"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21461195"]
+
+  - work_id: correction_a0_ch0_2pi_is_not
+    title: "Correction: a0 ~ cH0/2pi is not a parameter-free derivation"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.23130705"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-10-04"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21450424"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21450425"]
+
+  - work_id: correction_ars_magna_is_not_a
+    title: "Correction: Ars Magna is not a parameter-free derivation of the acceleration scale"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.23130706"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-10-04"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21302150"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21384483"]
+
+  - work_id: correction_the_horizon_acceleration_scale_is
+    title: "Correction: the horizon acceleration scale is not parameter-free"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.23130709"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-10-04"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21302319"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21367578"]
+
+  - work_id: correction_the_law_of_g_o
+    title: "Correction: The Law of G.O.D. is not a Millennium solution"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.23130710"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-10-04"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.20117456"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21367567"]
+
+  - work_id: correction_the_sparc_comparison_is_not
+    title: "Correction: the SPARC comparison is not a zero-parameter win over the literature scale"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.23130711"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-10-04"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21233977"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21367564"]
+
+  - work_id: correction_the_horizon_scale_does_not
+    title: "Correction: the horizon scale does not replace the literature acceleration scale on SPARC"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.23130712"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-10-04"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21146462"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21504895"]
+
+  - work_id: boundary_note_omega_lambda_ln_2
+    title: "Boundary note: Omega_Lambda = ln 2 remains a pre-registration, not a confirmed result"
+    author: "Yett, Ryan W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Text"
+    canonical_doi: "10.5281/zenodo.23130713"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-10-04"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21131485"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21131486"]

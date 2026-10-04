@@ -122,10 +122,9 @@ def check_registry_shape(reg: dict) -> list[str]:  # noqa: C901
         errs.append(f"registry identity name is {ident.get('name')!r}, expected 'R.W. Yett'")
     if ident.get("location") is not None and ident.get("location") != "Arkansas":
         errs.append(f"registry location is {ident.get('location')!r}, expected 'Arkansas'")
-    if ident.get("contact") is not None and \
-            ident.get("contact") != "r11110001y@proton.me":
-        errs.append(f"registry contact is {ident.get('contact')!r}, "
-                    f"expected 'r11110001y@proton.me'")
+    if ident.get("contact") is not None:
+        errs.append("registry identity carries contact details; public files must "
+                    "not include an email address")
     seen_ids, seen_dois = set(), set()
     for w in reg["works"]:
         wid, doi = w.get("work_id"), w.get("canonical_doi")
@@ -222,8 +221,8 @@ ABBREV = re.compile(r"\bR\.\s*W\.\s*~?Yett\b")
 def check_bylines() -> list[str]:
     """The \author block is metadata. The canonical byline is "R.W. Yett" --
     the author's stated preference. The expanded "Ryan W. Yett" is a second
-    surface form and must not appear in an author block. Contact is
-    r11110001y@proton.me and the location is Arkansas, nothing longer."""
+    surface form and must not appear in an author block. The location is
+    Arkansas, nothing longer, and no email address appears."""
     errs = []
     for path in tracked_files():
         rel = str(path.relative_to(ROOT))
