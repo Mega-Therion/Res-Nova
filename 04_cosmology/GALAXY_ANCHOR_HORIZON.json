@@ -1,0 +1,42 @@
+{
+ "anchor": "galaxy measurement, SPARC T3 locally; high-z bins are the galaxies measured in that bin",
+ "moving_scale": "c*H(z) in flat Planck 2018; the 2*pi form is reported beside it and is not derived",
+ "H0_km_s_Mpc": 67.36,
+ "Omega_m": 0.3153,
+ "a0_T3_m_s2": 1.16306e-10,
+ "rows": [
+  {
+   "label": "local SPARC T3",
+   "z": 0.0,
+   "a_galaxy_m_s2": 1.16306e-10,
+   "cH_m_s2": 6.544436170267526e-10,
+   "cH_over_2pi_m_s2": 1.0415793662474697e-10,
+   "cH_over_galaxy": 5.626911913630876,
+   "declared_over_galaxy": 0.8955508453970299,
+   "fractional_gap_cH": 4.626911913630875,
+   "fractional_gap_declared": -0.10444915460297005
+  },
+  {
+   "label": "RC100 z<1.2",
+   "z": 0.867,
+   "a_galaxy_m_s2": 3.02046682e-10,
+   "cH_m_s2": 1.0826253011760279e-09,
+   "cH_over_2pi_m_s2": 1.7230516819851678e-10,
+   "cH_over_galaxy": 3.584297943640473,
+   "declared_over_galaxy": 0.5704587352444971,
+   "fractional_gap_cH": 2.584297943640473,
+   "fractional_gap_declared": -0.42954126475550297
+  },
+  {
+   "label": "RC100 z>=1.2",
+   "z": 1.96,
+   "a_galaxy_m_s2": 2.65875516e-10,
+   "cH_m_s2": 1.9481980928095197e-09,
+   "cH_over_2pi_m_s2": 3.1006535659283815e-10,
+   "cH_over_galaxy": 7.327482131936962,
+   "declared_over_galaxy": 1.1662050017153072,
+   "fractional_gap_cH": 6.327482131936962,
+   "fractional_gap_declared": 0.1662050017153071
+  }
+ ]
+}
