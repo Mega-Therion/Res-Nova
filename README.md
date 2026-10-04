@@ -155,7 +155,9 @@ that closeness is an observation, **not** a derivation, and must not be quoted a
 Under the same μ_std, the tier-0 median reduced χ² is 11.08 for that horizon anchor
 and 9.93 for the literature value 1.2×10⁻¹⁰ m s⁻²
 (`02_galaxy_dynamics/PARAMETER_LEDGER.json`, 3375 points). The horizon anchor fits
-worse. Lean checks the algebra of what was encoded. It does not decide this
+worse. At tier 1, with 374 shared nuisances free, the medians are 3.36 and 3.41
+(`02_galaxy_dynamics/SPARC_TIER1_ANCHOR_COMPARISON.md`). The anchor is not
+distinguished once those nuisances are free, and it is not ruled out. Lean checks the algebra of what was encoded. It does not decide this
 comparison. The cosmology tests so far are consistent, tied, or inconclusive.
 None is a confirmed new prediction.
 

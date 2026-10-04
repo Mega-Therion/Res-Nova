@@ -1,0 +1,28 @@
+{
+ "eot_wash_excluded_um": 39.0,
+ "citation": "arXiv:2406.13020 as quoted in TARGET_D6_SUPPLEMENT_LSC_EXPERIMENTAL_CHECK.md",
+ "screening_used": false,
+ "rows": [
+  {
+   "a0_m_s2": 1.2e-10,
+   "label": "literature",
+   "lambda_sc_meV": 1.793500269109354,
+   "range_um": 110.02339042658095,
+   "inside_eot_wash_window": true
+  },
+  {
+   "a0_m_s2": 1.116e-10,
+   "label": "sparc_fit",
+   "lambda_sc_meV": 1.7295890235037492,
+   "range_um": 114.08894116283035,
+   "inside_eot_wash_window": true
+  },
+  {
+   "a0_m_s2": 1.2211e-10,
+   "label": "horizon_anchor",
+   "lambda_sc_meV": 1.8091994155328117,
+   "range_um": 109.06867349406221,
+   "inside_eot_wash_window": true
+  }
+ ]
+}

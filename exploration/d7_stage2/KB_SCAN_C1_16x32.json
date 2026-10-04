@@ -1,0 +1,44 @@
+{
+ "preregistered": "Y/Y_static > 0.5 and converged counts as a held remnant. No no-go is adopted from one grid.",
+ "rows": [
+  {
+   "K_B": 0.25,
+   "converged": true,
+   "residual": 3.670205151912265e-12,
+   "static_ok": [
+    true,
+    false
+   ],
+   "seconds": 188.5,
+   "Y_ratio": 0.0018891586005986463,
+   "g_ratio_static": 0.14191740322903332,
+   "held_remnant": false
+  },
+  {
+   "K_B": 0.5,
+   "converged": true,
+   "residual": 9.615559430414204e-12,
+   "static_ok": [
+    true,
+    true
+   ],
+   "seconds": 130.7,
+   "Y_ratio": 0.03720584543762056,
+   "g_ratio_static": 0.1732031734129717,
+   "held_remnant": false
+  },
+  {
+   "K_B": 1.0,
+   "converged": true,
+   "residual": 3.1668548461450495e-12,
+   "static_ok": [
+    true,
+    false
+   ],
+   "seconds": 195.1,
+   "Y_ratio": 0.00301546426899476,
+   "g_ratio_static": -0.3254475932922741,
+   "held_remnant": false
+  }
+ ]
+}
