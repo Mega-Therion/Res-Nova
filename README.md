@@ -44,7 +44,7 @@ Res-Nova is a research program in modified gravity built to be checked:
 - The 2π in the a₀ ≈ cH₀/2π anchor, which is declared, not proved.
 - a₀(z), where the real high-z data are inconclusive.
 - Non-linear structure formation.
-- Solar-system screening. At the derived a₀, unscreened μ_std fails Cassini's external-field quadrupole (about 4.6σ, and +8.7σ against the 2026 bound). Only the phenomenological duality screening S = 1/(1+η²) passes Cassini, SPARC and the Milky Way dwarfs together. It has no covariant realization yet.
+- Solar-system screening. At the horizon-anchor a₀ (cH₀/2π), unscreened μ_std fails Cassini's external-field quadrupole (about 4.6σ, and +8.7σ against the 2026 bound). Only the phenomenological duality screening S = 1/(1+η²) passes Cassini, SPARC and the Milky Way dwarfs together. It has no covariant realization yet.
 
 **What this is not.** It is not a claim to have overturned general relativity or ΛCDM. It is not parameter-free: it declares two irreducible inputs, the a₀ scale and the choice of interpolating function.
 
