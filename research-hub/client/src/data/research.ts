@@ -12,7 +12,7 @@ export type StatusTone = "blue" | "amber" | "red" | "slate";
 export const releaseState = {
   version: "Public atlas v0.3",
   researchRelease: "Res Nova · correction cycle 2026-10-03",
-  commit: "main",
+  commit: "5b75e793d3962edb7484d052f3051beef1eb627e",
   note: "Aligned with main on 2026-10-03: 66 Lean targets, unscreened μ_std fails Cassini, D7 stays open, and the SPARC tier-0 comparison is horizon a₀ median reduced χ² 11.08 against literature a₀ 9.93 under the same μ_std.",
   links: {
     github: "https://github.com/Mega-Therion/Res-Nova",
