@@ -62,6 +62,43 @@ Once the 2–5 kAU offset is removed:
 
 This is a lean, not a verdict, because the anchoring was chosen after seeing the data.
 
+## Robustness to the interpolating function and a0 (`wide_binary_fish_functions.py`)
+The measured R(s) does not depend on the model. Only the model curves were recomputed (NMC = 40), using the same pre-registered χ² and threshold. Output: `WIDE_BINARY_FISH_FUNCTIONS.json`.
+
+| function | a0 | χ²(F) clean / loose | χ²(E) clean / loose | χ²(S) clean / loose | χ²(P) clean / loose |
+|---|---|---|---|---|---|
+| μ_std (ν₂) | 1.042e-10 | 155.5 / 713.0 | 18.4 / 71.8 | 14.7 / 79.5 | 27.2 / 86.0 |
+| μ_std (ν₂) | 1.2e-10 | 198.0 / 876.8 | 19.3 / 59.2 | 14.7 / 105.0 | 26.3 / 91.1 |
+| simple (ν₁) | 1.042e-10 | 274.7 / 981.3 | **5.9 / 9.5** | 11.9 / 72.1 | 13.6 / 46.8 |
+| simple (ν₁) | 1.2e-10 | 314.7 / 1098.2 | **8.5 / 8.2** | 20.8 / 88.9 | 13.5 / 55.8 |
+| RAR (ν̄₀.₅) | 1.042e-10 | 269.4 / 979.5 | **5.6 / 10.5** | 12.6 / 68.8 | 16.0 / 50.8 |
+| RAR (ν̄₀.₅) | 1.2e-10 | 317.4 / 1246.4 | **6.3 / 12.5** | 21.9 / 119.0 | 11.7 / 38.4 |
+| ν₆ | 1.042e-10 | 141.8 / 751.1 | 27.4 / 85.0 | 20.7 / 95.7 | 29.9 / 89.2 |
+| ν̂₄ | 1.042e-10 | 150.9 / 681.1 | 31.6 / 113.9 | 23.6 / 87.2 | 33.6 / 108.7 |
+
+- **F is excluded for every function and both a0 values: χ² from 141.8 to 1246.4.** The exclusion does not depend on the function. At 20–30 kAU, y ≈ 0.1 and every family is in deep MOND.
+- **Standard EFE with a slow-return function (simple or RAR) is the only model under 18.5 in BOTH cuts (5.6–12.5).**
+  - Those functions keep a 4–10% boost already at 2–5 kAU (E = 1.035–1.055), which matches the unexplained offset.
+  - Under μ_std, E ≈ N, because μ_std returns to Newton fast. That is why the pre-registered E (μ_std) looked Newtonian. It does **not** mean standard MOND is Newtonian here.
+  - This is post-hoc (the function was not pre-registered) and it cannot be separated from a triple/mass systematic.
+  - These same functions fail Cassini at 8–11σ (`CASSINI_EFE_QUADRUPOLE_2026-09-27.md`). Inside one universal law, a wide-binary fit by RAR-EFE and a Cassini pass are in tension.
+
+## Caveats
+- "Loose" is not a true Banik-style fit. Its only contaminant is flat in 2D (fitted c = 0.02–0.04). Banik et al. 2024 fit a hidden-triple population whose ṽ excess sits near 1–2. A flat term cannot absorb that, so it leaks into α.
+- A triple fraction that rises with s, or a mass bias that depends on s, would produce the 2–5 kAU offset. That is the leading non-gravitational explanation, and it is why every lean above is soft.
+- Bins share the control α, so they are correlated. The χ² treats them as independent. Model-curve MC noise is ±0.03–0.09 in the 20–30 kAU bin (F: 1.625 vs 1.715 for the same 62 binaries between passes).
+- Source attributions in the script are **approximate and not checked against source**:
+  - mass table "Pecaut & Mamajek 2013";
+  - γ(s) "Hwang+2022";
+  - Q(q) "Milgrom deep-MOND two-body".
+  
+  Mass errors that do not depend on s cancel in R. The γ(s) sensitivity is shown above.
+
+## Status against CURRENT_STATE / README (28bef58)
+- The README holds the theory's domain to the galaxy regime: ordinary gravity keeps the solar system, and no screen is in either action.
+- Wide binaries in the solar neighbourhood sit inside that "ordinary gravity" domain. P (nesting) and S (Form-2) are phenomenological `[O]` and in no action.
+- P's prediction (Newtonian passengers) has the same direction as D7's linear held-branch result. That result: linear theory cancels the MOND field for satellites, pointing toward Newtonian satellites. It is not proved beyond linear order.
+
 ## What this means for the fish idea `[O]`
 - The binary-as-its-own-system reading ("system = gravitationally bound", model F) is dead in Gaia.
 - The surviving readings are the ones where a wide binary feels Newtonian inside, with the boost suppressed to the percent level:
