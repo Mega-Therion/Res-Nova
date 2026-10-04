@@ -59,7 +59,7 @@ Corrections are recorded with dates, never applied silently. Example: on 2026-10
 
 ## How this was built
 
-R.W. Yett directs the research. Much of the code and prose was written with AI coding assistants; those commits carry `Co-Authored-By` trailers. No AI output is cited as evidence anywhere in this repository: numbers come from the scripts and data here, formal claims from the Lean kernel, and nothing is graded by a model.
+R.W. Yett directs the research. Much of the code and prose was written with AI coding assistants; those commits carry `Co-Authored-By` trailers. Claims rest on the scripts, data and Lean builds in this repository, not on model judgments. Some older documents are AI-generated self-assessments (a build "certificate", a manuscript verification report, a notation and peer-review report); they are kept as records of the process and are not evidence.
 
 ## AI Safety & Scalable Oversight Utility
 
