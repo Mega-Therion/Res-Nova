@@ -1,0 +1,18 @@
+{
+ "clean": {
+  "n": 1909,
+  "matched_median": 1.0481502593530314,
+  "matched_se": 0.02674638162556393,
+  "unmatched_random_pair_median": 1.023121681264069,
+  "null_near_near_median": 1.0004453334864722,
+  "null_se": 0.023239904560048836
+ },
+ "loose": {
+  "n": 2505,
+  "matched_median": 1.0329341268821408,
+  "matched_se": 0.024135981515423805,
+  "unmatched_random_pair_median": 1.0438188189065118,
+  "null_near_near_median": 1.0010128255607982,
+  "null_se": 0.020251255030687223
+ }
+}
