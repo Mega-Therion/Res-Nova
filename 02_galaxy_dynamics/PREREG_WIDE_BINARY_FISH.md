@@ -77,6 +77,22 @@ Injection recovery in the smoke test:
 
 E and N are **not** separable at this sample size: on the N-injection, χ²(E) = 15.6 < 18.5.
 
+## Amendment B (2026-10-04): contaminant model, written before any refit
+
+The fish rule is already excluded. This amendment does not refit Gaia. It locks the contaminant that the result note named and left unmodelled: hidden companions that grow with separation, and a mass error that grows with separation. The two are never free at the same time. Neither parameter is taken from the 2–5 kAU bin.
+
+**B1. Variant T, hidden tertiary.** 
+f_t(s) = clip( f_c * log10(s / 1000 AU) / log10(30), 0, 0.50 ).
+Zero at 1 kAU, equal to f_c at 30 kAU. A tagged draw keeps its Newtonian outer speed and adds 1.5 in quadrature. 1.5 is fixed. It is the middle of the ṽ excess Banik et al. 2024 place near 1–2 `[C]`. f_c ≤ 0.50 because direct counts of close companions in local wide binaries lie below 50% (Moe & Di Stefano 2017, as cited by Hernandez et al. 2024) `[C]`.
+
+**B2. Variant M, mass slope.** The mass used in ṽ is off by (s / 1000 AU)^β, so ṽ scales as (s / 1000 AU)^(−β/2). |β| ≤ 0.30.
+
+**B3. Where the parameter is fit.** f_c and β are each fit by maximum likelihood on the control bin only, 500–2000 AU, where every gravity model is Newtonian. They are then frozen. Test bins use the frozen curve. They are not adjusted to the test-bin α values.
+
+**B4. Decision rule for the next run.** A gravity model is excluded only if it stays over χ² = 18.5 under both cuts and under both frozen contaminants. If the frozen model does not remove the 2–5 kAU offset, that offset remains a sample systematic and no new gravity verdict is claimed.
+
+**B5. Smoke test, synthetic only, no Gaia.** Injected f_c = 0.40. Recovered from the control bin: 0.40. Outer-bin median ṽ ratio: 1.65 injected, 1.55 predicted from the control fit. Code: `wide_binary_contaminant.py`.
+
 ## Validation (before the real run)
 - Inject synthetic Newton and synthetic fish catalogs that carry the real sample's M, s and errors.
 - The pipeline must recover R ≈ 1 for the Newton injection and the fish curve for the fish injection.
