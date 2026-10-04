@@ -1,5 +1,8 @@
 name: Hub drift check
 
+# Warns when the research hub's pinned Res-Nova commit falls behind main.
+# The hub moved into research-hub/ on 2026-10-03; before that, this job sent a
+# repository_dispatch to the separate hub repository (now archived).
 on:
   push:
     branches: [main]
@@ -7,6 +10,9 @@ on:
       - "assurance/claims.json"
       - "CLAIM_EVIDENCE_LEDGER.md"
       - "RELEASE_CHECKLIST.md"
+      - "research-hub/client/src/data/research.ts"
+      - "scripts/check_hub_drift.py"
+      - ".github/workflows/hub-drift-check.yml"
 
 permissions:
   contents: read
@@ -16,16 +22,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Check hub drift and notify
+      - name: Check hub drift
         env:
-          HUB_DISPATCH_TOKEN: ${{ secrets.HUB_DISPATCH_TOKEN }}
           HEAD_SHA: ${{ github.sha }}
-        run: |
-          if [ -z "$HUB_DISPATCH_TOKEN" ]; then
-            echo "::warning::HUB_DISPATCH_TOKEN secret not set -- skipping drift notification. See scripts/check_hub_drift.py docstring."
-            exit 0
-          fi
-          python3 scripts/check_hub_drift.py
+        run: python3 scripts/check_hub_drift.py
