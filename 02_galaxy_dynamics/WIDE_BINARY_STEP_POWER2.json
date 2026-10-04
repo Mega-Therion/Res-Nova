@@ -1,0 +1,143 @@
+{
+ "d200_split100": {
+  "dmax_kpc": 0.2,
+  "split_pc": 100.0,
+  "n": 14777,
+  "n_near": 2163,
+  "n_far": 12614,
+  "n_light": 5904,
+  "n_heavy": 2300,
+  "P1": 1.892434168232871,
+  "P2": 1.4263936662537207,
+  "test1_A0.05": {
+   "truth_AU": {
+    "correct": 0.025,
+    "calls": {
+     "tracks_AU": 0.025,
+     "inconclusive": 0.975
+    }
+   },
+   "truth_alternative": {
+    "correct": 0.0,
+    "calls": {
+     "inconclusive": 1.0
+    }
+   }
+  },
+  "test2_A0.05": {
+   "truth_AU": {
+    "correct": 0.0,
+    "calls": {
+     "inconclusive": 1.0
+    }
+   },
+   "truth_alternative": {
+    "correct": 0.0,
+    "calls": {
+     "inconclusive": 1.0
+    }
+   }
+  },
+  "test1_A0.03": {
+   "truth_AU": {
+    "correct": 0.0,
+    "calls": {
+     "inconclusive": 1.0
+    }
+   },
+   "truth_alternative": {
+    "correct": 0.0,
+    "calls": {
+     "inconclusive": 1.0
+    }
+   }
+  },
+  "test2_A0.03": {
+   "truth_AU": {
+    "correct": 0.0,
+    "calls": {
+     "inconclusive": 1.0
+    }
+   },
+   "truth_alternative": {
+    "correct": 0.0,
+    "calls": {
+     "inconclusive": 1.0
+    }
+   }
+  }
+ },
+ "d500_split200": {
+  "dmax_kpc": 0.5,
+  "split_pc": 200.0,
+  "n": 38148,
+  "n_near": 14625,
+  "n_far": 23523,
+  "n_light": 7552,
+  "n_heavy": 13376,
+  "P1": 1.9929110628846745,
+  "P2": 1.4108840820256663,
+  "test1_A0.05": {
+   "truth_AU": {
+    "correct": 0.1,
+    "calls": {
+     "tracks_AU": 0.1,
+     "inconclusive": 0.9
+    }
+   },
+   "truth_alternative": {
+    "correct": 0.0,
+    "calls": {
+     "tracks_AU": 0.05,
+     "inconclusive": 0.95
+    }
+   }
+  },
+  "test2_A0.05": {
+   "truth_AU": {
+    "correct": 0.075,
+    "calls": {
+     "tracks_AU": 0.075,
+     "inconclusive": 0.85,
+     "tracks_acceleration": 0.075
+    }
+   },
+   "truth_alternative": {
+    "correct": 0.025,
+    "calls": {
+     "tracks_AU": 0.075,
+     "inconclusive": 0.9,
+     "tracks_acceleration": 0.025
+    }
+   }
+  },
+  "test1_A0.03": {
+   "truth_AU": {
+    "correct": 0.0,
+    "calls": {
+     "inconclusive": 1.0
+    }
+   },
+   "truth_alternative": {
+    "correct": 0.0,
+    "calls": {
+     "inconclusive": 1.0
+    }
+   }
+  },
+  "test2_A0.03": {
+   "truth_AU": {
+    "correct": 0.0,
+    "calls": {
+     "inconclusive": 1.0
+    }
+   },
+   "truth_alternative": {
+    "correct": 0.0,
+    "calls": {
+     "inconclusive": 1.0
+    }
+   }
+  }
+ }
+}

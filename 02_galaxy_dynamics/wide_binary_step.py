@@ -13,6 +13,14 @@ import numpy as np
 
 import wide_binary_fish as F
 
+DMAX = 0.2  # kpc; kept equal to F.DMAX by callers
+
+
+def _rv(x):
+    """Gaia stores a missing DR2 RV (and its error) as 1e20, not NaN."""
+    x = np.asarray(x, dtype=float)
+    return np.where(np.abs(x) < 1e10, x, np.nan)
+
 
 def select(c, cut):
     b = F.prepare(c, cut)
@@ -44,7 +52,7 @@ def surviving_mask(c, cut, b):
         & (p1 / e1 > 50)
         & (p2 / e2 > 50)
         & (np.abs(p1 - p2) < 3 * np.hypot(e1, e2))
-        & (d_kpc < 0.2)
+        & (d_kpc < DMAX)
         & (MG1 > 4)
         & (MG1 < 12)
         & (MG2 > 4)
@@ -74,8 +82,8 @@ def surviving_mask(c, cut, b):
     s_au = theta * 206264.806 * (d_kpc * 1000)
     v1 = F.K * d_kpc[:, None] * (c["pmra1"][:, None] * ea1 + c["pmdec1"][:, None] * ed1)
     v2 = F.K * d_kpc[:, None] * (c["pmra2"][:, None] * ea2 + c["pmdec2"][:, None] * ed2)
-    rv1, rv2 = c["dr2_radial_velocity1"], c["dr2_radial_velocity2"]
-    rve1, rve2 = c["dr2_radial_velocity_error1"], c["dr2_radial_velocity_error2"]
+    rv1, rv2 = _rv(c["dr2_radial_velocity1"]), _rv(c["dr2_radial_velocity2"])
+    rve1, rve2 = _rv(c["dr2_radial_velocity_error1"]), _rv(c["dr2_radial_velocity_error2"])
     have1, have2 = np.isfinite(rv1), np.isfinite(rv2)
     rv = np.where(have1, rv1, np.where(have2, rv2, 0.0))
     rv_sig = np.where(have1, rve1, np.where(have2, rve2, F.SIG_VR))
