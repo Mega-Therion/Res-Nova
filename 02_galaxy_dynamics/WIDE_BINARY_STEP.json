@@ -1,0 +1,12 @@
+{
+ "clean": {
+  "n_matched": 1909,
+  "median_far_over_near": 1.0481502593530314,
+  "mean_far_over_near": 1.6111846639276641
+ },
+ "loose": {
+  "n_matched": 2505,
+  "median_far_over_near": 1.0329341268821408,
+  "mean_far_over_near": 1.6799197038015063
+ }
+}
