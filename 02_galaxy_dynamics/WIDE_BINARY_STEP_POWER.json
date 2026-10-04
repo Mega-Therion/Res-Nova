@@ -1,0 +1,30 @@
+{
+ "test1": {
+  "P": 1.9265779208096576,
+  "n1": 1411,
+  "n2": 6025,
+  "amplitude": 0.05,
+  "onset": 2000.0,
+  "ntrial": 40,
+  "truth_AU": {
+   "inconclusive": 1.0
+  },
+  "truth_alternative": {
+   "inconclusive": 1.0
+  }
+ },
+ "test2": {
+  "P": 1.3454650791308227,
+  "n1": 693,
+  "n2": 2027,
+  "amplitude": 0.05,
+  "onset": 2000.0,
+  "ntrial": 40,
+  "truth_AU": {
+   "inconclusive": 1.0
+  },
+  "truth_alternative": {
+   "inconclusive": 1.0
+  }
+ }
+}

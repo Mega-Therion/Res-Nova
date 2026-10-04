@@ -84,3 +84,17 @@ Script to be run after this file is committed: `wide_binary_step_track.py`.
 - P₂ is reported from both the script table and the Mamajek table. The decision uses the script table, because it is the table every earlier result used.
 
 Runner: `wide_binary_step_track_amended.py`. The original runner `wide_binary_step_track.py` is run unchanged for the original rules.
+
+## Amendment B (2026-10-04): power check, committed before any Gaia split is computed
+
+`wide_binary_step_power.py` → `WIDE_BINARY_STEP_POWER.json`. It reads no Gaia velocities.
+- **Method:** Newtonian ṽ is drawn for each real binary, using that binary's s, M and σ. A 5% step is injected with onset at 2 kAU. The step either tracks AU or is shifted by P in the second slice. There are 40 trials per truth.
+
+| test | slices (strict) | P | truth = AU | truth = alternative |
+|---|---|---:|---|---|
+| 1 (angle) | < 100 pc: 1411; 100–200 pc: 6025 | 1.93 | inconclusive 40/40 | inconclusive 40/40 |
+| 2 (mass) | < 1 M☉: 693; ≥ 1.5 M☉: 2027 | 1.35 | inconclusive 40/40 | inconclusive 40/40 |
+
+- **Power:** zero. The amended rules cannot return a verdict at this sample size. In a small-slice ≥ 100-pair bin, a 5% step is under 2σ, so no slice registers a step.
+- The original rules (30 pairs, 3%, no significance) would return verdicts, but those verdicts would be set by noise. A 30-pair median has SE ≈ 13%.
+- **Rule:** both runners are still run, and their numbers are reported as **descriptive only**. Neither test can say what the 2 kAU step tracks with this catalog and these cuts. To answer it needs a larger sample, for example a deeper distance limit or a DR3-based catalog, re-checked for power before it is run.
