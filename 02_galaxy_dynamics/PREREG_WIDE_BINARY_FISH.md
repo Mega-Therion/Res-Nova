@@ -51,6 +51,32 @@ R(s) = α(s)/α(control). Mass and calibration errors that do not depend on s ca
 - The **shape test** is reported separately. F rises monotonically with s. E plateaus. N is flat.
 - Both cut sets are reported. A verdict counts only if it holds under both.
 
+## Amendment A (2026-10-04 ~03:00 CDT): committed before any real-data fit has run
+The catalog was still downloading when this amendment was written. No real ṽ had been computed.
+
+**A1. Fifth model: P, nesting / passenger `[O]`.** "The system" is the one whose field dominates. A binary whose own Newtonian pull at its 3D separation is below the host field (g_N < g_e = 1.9e-10) is a passenger. The host field is uniform across the orbit, so the passenger is Newtonian. Inside that radius it gets the fish boost.
+- For 1.5 M☉ the boundary is r = √(GM/g_e) ≈ 6.8 kAU.
+- The rival definition is "system = gravitationally bound". It gives the binary its own frame out to its ~300 kAU tidal radius, which is model F in every test bin.
+- P is effectively indistinguishable from N in this test. A P/N tie therefore favours nesting over F and S, but it does not separate nesting from plain Newton.
+
+**A2. Contaminant shape.** The shift catalog (518k pairs) has separations of 38–200 kAU (5–95%) and R_chance_align ≈ 1. Under the R ≤ 0.01 cut it has essentially no pairs in the test bins, so the empirical P_cont is unusable. The pre-registered fallback is used: P_cont ∝ ṽ on [0, 5], which is flat in the 2D velocity plane.
+
+**A3. Predicted R(s) from the synthetic smoke test** (3000 mock binaries, M 0.8–2 M☉, σ_ṽ = 0.05). Recorded so that the predictions are fixed before the data are seen:
+
+| bin (kAU) | F | S | E | P | N |
+|---|---|---|---|---|---|
+| 2–5 | 1.01 | 1.00 | 1.015 | 1.005 | 1.00 |
+| 5–10 | 1.12 | 1.02 | 1.025 | 1.00 | 0.99 |
+| 10–20 | 1.38 | 1.095 | 1.01 | 1.005 | 1.00 |
+| 20–30 | 1.72 | 1.205 | 1.03 | 1.00 | 0.995 |
+
+Injection recovery in the smoke test:
+- N-injection: χ²(N) = 8.8 and χ²(F) = 692.
+- F-injection: χ²(F) = 2.6 and χ²(N) = 563.
+- P-injection: χ²(P) = 6.3 and χ²(F) = 1375.
+
+E and N are **not** separable at this sample size: on the N-injection, χ²(E) = 15.6 < 18.5.
+
 ## Validation (before the real run)
 - Inject synthetic Newton and synthetic fish catalogs that carry the real sample's M, s and errors.
 - The pipeline must recover R ≈ 1 for the Newton injection and the fish curve for the fish injection.
