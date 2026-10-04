@@ -1,0 +1,33 @@
+{
+ "quote": "the modulation stood still because it had a fixed relationship to the tracked carrier",
+ "rows": [
+  {
+   "label": "local",
+   "z": 0.0,
+   "measured_over_local": 1.0,
+   "H_over_H0": 1.0,
+   "sideband_if_H_is_carrier": 1.0
+  },
+  {
+   "label": "z<1.2",
+   "z": 0.867,
+   "measured_over_local": 2.597,
+   "H_over_H0": 1.6542682562855096,
+   "sideband_if_H_is_carrier": 1.5698783979759718
+  },
+  {
+   "label": "z>=1.2",
+   "z": 1.96,
+   "measured_over_local": 2.286,
+   "H_over_H0": 2.976876910589351,
+   "sideband_if_H_is_carrier": 0.7679188856846038
+  }
+ ],
+ "high_z_galaxy_ratios": [
+  2.597,
+  2.286
+ ],
+ "high_z_spread_if_galaxy_is_carrier": 0.31099999999999994,
+ "high_z_spread_if_H_is_carrier": 0.8019595122913681,
+ "which_stands": "galaxy"
+}
