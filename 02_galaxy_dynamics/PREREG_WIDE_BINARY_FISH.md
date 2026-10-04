@@ -97,3 +97,28 @@ Zero at 1 kAU, equal to f_c at 30 kAU. A tagged draw keeps its Newtonian outer s
 - Inject synthetic Newton and synthetic fish catalogs that carry the real sample's M, s and errors.
 - The pipeline must recover R ≈ 1 for the Newton injection and the fish curve for the fish injection.
 - If either recovery fails, the real result is not reported as a verdict.
+
+## Amendment C (2026-10-04): calibration and baseline. Method fixed before these numbers are computed
+
+This is **post-hoc** with respect to the corrected-sample result (9c986c0). It fixes the two loose ends named there. Its outcome is reported next to the pre-registered result and does not replace it.
+
+**C1. Masses.**
+- Use Mamajek's checked M_G → mass table (`EEM_dwarf_UBVIJHK_colors_Teff.txt`, be768c0) in place of the approximate table.
+- Measured on the RV-fixed sample before this amendment, the close-bin Newton/data median is 0.994 (strict) and 0.987 (loose) with Mamajek masses. With the old table it was 1.034 and 1.015.
+
+**C2. Mass stratification.**
+- Inside the close bin the Newton/data ratio still depends on mass: 0.967 (< 1 M☉), 1.024 (1–1.5), 1.119 (≥ 1.5).
+- So α is fitted separately in three strata (M < 1, 1 ≤ M < 1.5, M ≥ 1.5), each with its own template and its own 500–2000 AU control.
+- R_k(s) = α_k(s)/α_k(control).
+- Per s-bin, R is the inverse-variance-weighted mean over strata with ≥ 30 pairs.
+- Model curves are combined with the same weights.
+
+**C3. Threshold calibration.**
+- For each model T in {N, F, E, S, P} and each cut, generate 40 injected catalogues: one draw per real binary under T, plus a 5% flat contaminant, as in the original injection.
+- Run each through C1–C2 and compute χ²(T) against T's own curve.
+- κ = median(null χ²)/3.357, where 3.357 is the χ²(4) median. The calibrated statistic is χ²/κ_T, with κ_T taken from that model's own null.
+- **Exclusion:** χ²/κ_T > 18.5 in **both** cuts, and the raw χ² above the largest of that model's 40 null values in both cuts.
+
+**C4. Precision.** Templates use 320 draws per binary. Model curves use 80.
+
+Runner: `wide_binary_final.py`.
