@@ -37,7 +37,7 @@ Res-Nova is a research program in modified gravity built to be checked:
 **What was killed.** Each `[X]` is kept with its date:
 - μ = x/(1+x), which fails in the solar system (2026-09-12);
 - the 20-point high-z table, with its 5.9σ and 2.06σ results (2026-09-27);
-- lepton and quark mass "predictions". The Lean modules fit measured masses; they do not predict them. The ledger was corrected and status notices were added to the legacy manuscripts on 2026-10-03.
+- lepton and quark mass "predictions". The Lean modules fit measured masses; they do not predict them. The ledger was corrected and status notices were added to the legacy manuscripts on 2026-10-03. `ARS_MAGNA_THE_LAW_OF_GOD` now lives in `archive/legacy_root/`. The Navier–Stokes notes live in the same directory. `05_lean_formalization/NavierStokesScope.lean` is an alignment-threshold lemma, not a regularity proof.
 
 **What is open.** Each `[O]`:
 - AeST branch selection (D7). A proposed no-go from an exploratory non-linear solver is **not adopted**.
@@ -149,6 +149,13 @@ inclination errors (`02_galaxy_dynamics/A0_MEASUREMENT.json`):
 
 `a0` is an **empirical acceleration scale**. It is numerically close to `cH0/2pi`;
 that closeness is an observation, **not** a derivation, and must not be quoted as one.
+
+Under the same μ_std, the tier-0 median reduced χ² is 11.08 for that horizon anchor
+and 9.93 for the literature value 1.2×10⁻¹⁰ m s⁻²
+(`02_galaxy_dynamics/PARAMETER_LEDGER.json`, 3375 points). The horizon anchor fits
+worse. Lean checks the algebra of what was encoded. It does not decide this
+comparison. The cosmology tests so far are consistent, tied, or inconclusive.
+None is a confirmed new prediction.
 
 **SUPERSEDED** (do not quote as current): the earlier 176-parameter in-sample
 headline `chi^2/N_g = 2.92` with `a0 = (9.433 \pm 0.050) \times 10^{-11}`. That error

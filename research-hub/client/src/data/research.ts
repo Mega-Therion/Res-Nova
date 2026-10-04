@@ -10,24 +10,38 @@ export type EvidenceStatus =
 export type StatusTone = "blue" | "amber" | "red" | "slate";
 
 export const releaseState = {
-  version: "Public atlas v0.2",
-  researchRelease: "Res Nova · correction cycle 2026-09-17",
-  commit: "6e3b9a6",
-  note: "The website follows the 6e3b9a6 live state: T1/T3 distance treatments, apparent-horizon sharpening, and the constrained high-z falsifier are kept distinct from resolved claims.",
+  version: "Public atlas v0.3",
+  researchRelease: "Res Nova · correction cycle 2026-10-03",
+  commit: "main",
+  note: "Aligned with main on 2026-10-03: 66 Lean targets, unscreened μ_std fails Cassini, D7 stays open, and the SPARC tier-0 comparison is horizon a₀ median reduced χ² 11.08 against literature a₀ 9.93 under the same μ_std.",
   links: {
     github: "https://github.com/Mega-Therion/Res-Nova",
     zenodo: "https://doi.org/10.5281/zenodo.21969121",
     orcid: "https://orcid.org/0009-0001-1303-7190",
-    claimRegistry: "https://github.com/Mega-Therion/Res-Nova/blob/6e3b9a6/CLAIM_EVIDENCE_LEDGER.md",
-    releaseManifest: "https://github.com/Mega-Therion/Res-Nova/blob/6e3b9a6/RELEASE_CHECKLIST.md",
+    claimRegistry:
+      "https://github.com/Mega-Therion/Res-Nova/blob/main/CLAIM_EVIDENCE_LEDGER.md",
+    releaseManifest:
+      "https://github.com/Mega-Therion/Res-Nova/blob/main/RELEASE_CHECKLIST.md",
   },
 };
 
 export const stats = [
-  { value: "175", label: "SPARC galaxies in the T1 baseline", detail: "3,391 kinematic points" },
-  { value: "48", label: "Lean targets in the current gate", detail: "formal modules tracked in the live tree" },
+  {
+    value: "175",
+    label: "SPARC galaxies in the T1 baseline",
+    detail: "3,391 kinematic points",
+  },
+  {
+    value: "66",
+    label: "Lean targets in the current gate",
+    detail: "counted in verify_all_proofs.sh on 2026-10-03",
+  },
   { value: "6", label: "evidence states", detail: "from derived to refuted" },
-  { value: "1", label: "research atlas", detail: "one place to read, inspect, and reproduce" },
+  {
+    value: "1",
+    label: "research atlas",
+    detail: "one place to read, inspect, and reproduce",
+  },
 ];
 
 export const pillars = [
@@ -75,8 +89,10 @@ export const claims = [
     title: "T1 measures a₀ across all 175 SPARC galaxies",
     summary:
       "[D] The distance-corrected T1 baseline reports a₀ = 1.1607 × 10⁻¹⁰ m s⁻² across all 175 SPARC galaxies and 3,391 kinematic points, with a 95% interval [9.72, 12.95] × 10⁻¹¹. The non-flow T3 treatment is 1.16306 × 10⁻¹⁰ m s⁻². This is an empirical comparison object, not a derivation from horizon thermodynamics.",
-    source: "02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json; A0_PREDICTION_AUDIT_2026-09-16.md",
-    limitation: "The a₀ → H₀ inversion is ladder-covariant, not an independent prediction; maser-anchored geometric distances are the named path to independence.",
+    source:
+      "02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json; A0_PREDICTION_AUDIT_2026-09-16.md",
+    limitation:
+      "The a₀ → H₀ inversion is ladder-covariant, not an independent prediction; maser-anchored geometric distances are the named path to independence.",
   },
   {
     id: "CLM-MU-01",
@@ -86,8 +102,10 @@ export const claims = [
     title: "The surviving interpolation branch is μstd(x) = x / √(1 + x²)",
     summary:
       "The current state treats μstd as the live branch after the previous μdual(x) = x/(1+x) closure was falsified by its solar-system behavior. The structural uniqueness argument remains conditional on its stated postulates.",
-    source: "TARGET_D1_SUPPLEMENT_MU_STD_REBUILD.md; TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md",
-    limitation: "A conditional uniqueness theorem does not explain why nature must choose the postulated structure.",
+    source:
+      "TARGET_D1_SUPPLEMENT_MU_STD_REBUILD.md; TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md",
+    limitation:
+      "A conditional uniqueness theorem does not explain why nature must choose the postulated structure.",
   },
   {
     id: "CLM-AEST-01",
@@ -98,7 +116,8 @@ export const claims = [
     summary:
       "The corrected program uses a scalar-sector AeST action with minimal matter coupling. Tensor-speed and selected weak-field claims are separated from unresolved post-Newtonian, screening, and nonlinear cosmology work.",
     source: "TARGET_D7_COVARIANT_COMPLETION.md; TARGET_D8_TENSOR_SPEED.md",
-    limitation: "Downstream calculations inherited from the retired vector/disformal action are not current evidence.",
+    limitation:
+      "Downstream calculations inherited from the retired vector/disformal action are not current evidence. A stage-2 search proposed a no-go. That no-go was not adopted. D7 stays open.",
   },
   {
     id: "CLM-LEAN-01",
@@ -109,7 +128,8 @@ export const claims = [
     summary:
       "The formalization suite is a machine-checkable boundary around selected definitions and theorems. The repository explicitly records where assumptions enter as structure fields or hypotheses.",
     source: "05_lean_formalization/; THEORY_ASSUMPTION_AUDIT.md",
-    limitation: "Elaboration and standard axiom footprints do not prove that the encoded definitions model nature.",
+    limitation:
+      "Elaboration and standard axiom footprints do not prove that the encoded definitions model nature.",
   },
   {
     id: "CLM-HORIZON-01",
@@ -120,7 +140,8 @@ export const claims = [
     summary:
       "[C] The candidate home is the FLRW apparent horizon R_A = c/H exactly, with T = ħH/2π reproducing a₀ = cH₀/2π. The 1.439× and 0.831× discrepancies are de Sitter-misidentification signatures. [O-sharp] The question is sharpened, not resolved: the local-to-global coupling remains a physical postulate. The falsifiable corollary is a₀(z) = a₀(0)·√(Ω_m(1+z)³ + Ω_Λ), +79% at z = 1.",
     source: "HORIZON_SELECTION_AUDIT_2026-09-16.md",
-    limitation: "A local galaxy-channel coupling to the global FLRW expansion remains open and must be tested by high-redshift data.",
+    limitation:
+      "A local galaxy-channel coupling to the global FLRW expansion remains open and must be tested by high-redshift data.",
   },
   {
     id: "CLM-A0Z-01",
@@ -130,8 +151,36 @@ export const claims = [
     title: "The horizon-tied a₀(z) corollary is constrained, not excluded",
     summary:
       "[O] RC100 (100 galaxies, anchored on non-flow T3) misses both 2-bin 95% corollary intervals in opposite directions: a flat shape where H(z) rises, with Δχ² = 8.9–19.8 stat-only against the Hubble form. Verdict: CONSTRAINED, NOT EXCLUDED. Every reading is calibration-limited by the 0.5-ln cross-method nuisance, fDM-prior redshift trend, and untested beam-smearing.",
-    source: "A0_HIGHZ_MEASUREMENT_2026-09-16.md; A0_HIGHZ_COROLLARY_COMPARISON_2026-09-17.md",
-    limitation: "The live two-sided falsifier needs geometric cross-method calibration, a tested beam-smearing model, and an fDM prior independent of redshift.",
+    source:
+      "A0_HIGHZ_MEASUREMENT_2026-09-16.md; A0_HIGHZ_COROLLARY_COMPARISON_2026-09-17.md",
+    limitation:
+      "The live two-sided falsifier needs geometric cross-method calibration, a tested beam-smearing model, and an fDM prior independent of redshift.",
+  },
+  {
+    id: "CLM-SPARC-TIER0",
+    status: "computed" as EvidenceStatus,
+    tone: "blue" as StatusTone,
+    domain: "galaxy dynamics",
+    title: "The horizon anchor fits SPARC worse than the literature a₀",
+    summary:
+      "[E] Under one μ_std, PARAMETER_LEDGER.json reports a tier-0 median reduced χ² of 11.08 for the horizon anchor and 9.93 for the literature a₀ = 1.2×10⁻¹⁰ m s⁻², on 3375 points. The comparison is the scale, not a second interpolating function.",
+    source:
+      "02_galaxy_dynamics/PARAMETER_LEDGER.json; 02_galaxy_dynamics/SPARC_MU_STD_RECOMPUTE_2026-09-12.md",
+    limitation:
+      "Tier 0 fixes distance and inclination. It is not the tier-1 nuisance fit, where the two medians are 3.36 and 3.41.",
+  },
+  {
+    id: "CLM-CASSINI-01",
+    status: "refuted" as EvidenceStatus,
+    tone: "red" as StatusTone,
+    domain: "solar system",
+    title: "Unscreened μ_std fails the Cassini external-field test",
+    summary:
+      "[E] At the working a₀, unscreened μ_std fails Cassini's external-field quadrupole by about 4.6σ, and by +8.7σ against the 2026 bound. A phenomenological screen S = 1/(1+η²) can pass. It has no covariant realization yet.",
+    source:
+      "02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md; CURRENT_STATE_READ_THIS_FIRST.md",
+    limitation:
+      "The failure is of the unscreened branch. It is not a measurement of a screened covariant theory, because that theory is not in hand.",
   },
   {
     id: "CLM-MU-RETIRED",
@@ -150,14 +199,15 @@ export const claimRegistryState = {
   source: "CLAIM_EVIDENCE_LEDGER.md",
   release: releaseState.researchRelease,
   commit: releaseState.commit,
-  snapshotDate: "2026-09-17",
+  snapshotDate: "2026-10-03",
   totalClaims: claims.length,
   statuses: {
-    derived: claims.filter((claim) => claim.status === "derived").length,
-    computed: claims.filter((claim) => claim.status === "computed").length,
-    conditional: claims.filter((claim) => claim.status === "conditional").length,
-    open: claims.filter((claim) => claim.status === "open").length,
-    superseded: claims.filter((claim) => claim.status === "superseded").length,
+    derived: claims.filter(claim => claim.status === "derived").length,
+    computed: claims.filter(claim => claim.status === "computed").length,
+    conditional: claims.filter(claim => claim.status === "conditional").length,
+    open: claims.filter(claim => claim.status === "open").length,
+    refuted: claims.filter(claim => claim.status === "refuted").length,
+    superseded: claims.filter(claim => claim.status === "superseded").length,
   },
 } as const;
 
@@ -165,7 +215,8 @@ export const workstreams = [
   {
     id: "foundations",
     label: "Foundations",
-    short: "Definitions, assumptions, and the boundary of what is being claimed.",
+    short:
+      "Definitions, assumptions, and the boundary of what is being claimed.",
     status: "conditional" as EvidenceStatus,
     progress: 72,
     color: "#79d7e8",
@@ -173,7 +224,8 @@ export const workstreams = [
   {
     id: "weak-field",
     label: "Weak-field dynamics",
-    short: "Interpolation functions, AQUAL behavior, and galaxy-scale observables.",
+    short:
+      "Interpolation functions, AQUAL behavior, and galaxy-scale observables.",
     status: "computed" as EvidenceStatus,
     progress: 68,
     color: "#82aaff",
@@ -181,7 +233,8 @@ export const workstreams = [
   {
     id: "covariant",
     label: "Covariant completion",
-    short: "AeST action, tensor speed, stability, and post-Newtonian constraints.",
+    short:
+      "AeST action, tensor speed, stability, and post-Newtonian constraints.",
     status: "conditional" as EvidenceStatus,
     progress: 46,
     color: "#f1b86a",
@@ -189,7 +242,8 @@ export const workstreams = [
   {
     id: "cosmology",
     label: "Cosmological sector",
-    short: "Background and linear behavior, with nonlinear structure formation open.",
+    short:
+      "Background and linear behavior, with nonlinear structure formation open.",
     status: "open" as EvidenceStatus,
     progress: 34,
     color: "#c49af7",
@@ -197,7 +251,8 @@ export const workstreams = [
   {
     id: "verification",
     label: "Formal verification",
-    short: "Machine-checkable statements, target inventories, and assumption audits.",
+    short:
+      "Machine-checkable statements, target inventories, and assumption audits.",
     status: "derived" as EvidenceStatus,
     progress: 78,
     color: "#75d6a0",
@@ -208,8 +263,10 @@ export const publications = [
   {
     type: "Canonical manuscript",
     year: "2026",
-    title: "Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark",
-    summary: "The current manuscript lineage, undergoing correction and scope alignment around the live μstd/AeST state.",
+    title:
+      "Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark",
+    summary:
+      "The current manuscript lineage, undergoing correction and scope alignment around the live μstd/AeST state.",
     href: "https://github.com/Mega-Therion/Res-Nova",
     tag: "In correction",
   },
@@ -217,7 +274,8 @@ export const publications = [
     type: "Formalization",
     year: "2026",
     title: "Lean 4 verification suite and assumption audit",
-    summary: "A machine-checkable layer for selected definitions and theorems, paired with explicit documentation of hypotheses.",
+    summary:
+      "A machine-checkable layer for selected definitions and theorems, paired with explicit documentation of hypotheses.",
     href: "https://github.com/Mega-Therion/Res-Nova/tree/main/05_lean_formalization",
     tag: "Open source",
   },
@@ -225,7 +283,8 @@ export const publications = [
     type: "Research release",
     year: "2026",
     title: "Res Nova evidence and reproducibility corpus",
-    summary: "Claims, datasets, verification runs, empirical scripts, correction records, and release metadata.",
+    summary:
+      "Claims, datasets, verification runs, empirical scripts, correction records, and release metadata.",
     href: "https://doi.org/10.5281/zenodo.21969121",
     tag: "Archive",
   },
@@ -235,48 +294,109 @@ export const datasets = [
   {
     name: "SPARC galaxy dynamics",
     scope: "175 galaxies · 3,391 kinematic points",
-    artifact: "A0_DISTANCE_CORRECTED_2026-09-16.json · A0_PREDICTION_AUDIT_2026-09-16.md",
-    provenance: "T1 baseline over all 175 SPARC galaxies; T3 non-flow comparison is 1.16306 × 10⁻¹⁰ m s⁻².",
+    artifact:
+      "A0_DISTANCE_CORRECTED_2026-09-16.json · A0_PREDICTION_AUDIT_2026-09-16.md",
+    provenance:
+      "T1 baseline over all 175 SPARC galaxies; T3 non-flow comparison is 1.16306 × 10⁻¹⁰ m s⁻².",
     color: "#79d7e8",
   },
   {
     name: "Intermediate-redshift test",
     scope: "RC100 · 100 galaxies · two redshift bins",
-    artifact: "A0_HIGHZ_MEASUREMENT_2026-09-16.md · A0_HIGHZ_COROLLARY_COMPARISON_2026-09-17.md",
-    provenance: "Horizon corollary is constrained, not excluded; calibration and beam-smearing limits remain explicit.",
+    artifact:
+      "A0_HIGHZ_MEASUREMENT_2026-09-16.md · A0_HIGHZ_COROLLARY_COMPARISON_2026-09-17.md",
+    provenance:
+      "Horizon corollary is constrained, not excluded; calibration and beam-smearing limits remain explicit.",
     color: "#f1b86a",
   },
   {
     name: "Lean formalization",
-    scope: "48 current gate targets",
+    scope: "66 current gate targets",
     artifact: "05_lean_formalization/verify_all_proofs.sh",
-    provenance: "Pinned modules, target inventory, verification runs, and assumption audit.",
+    provenance:
+      "Pinned modules, target inventory, verification runs, and assumption audit.",
     color: "#82aaff",
   },
 ];
 
 export const timeline = [
-  { date: "2026 · 08", title: "The corpus becomes an auditable research package", body: "Claim ledgers, verification runs, release checklists, and formal inventories become first-class artifacts." },
-  { date: "2026 · 09 · 12", title: "The correction changes the live branch", body: "The μdual solar-system failure is documented, the old covariant downstream is retired, and μstd becomes the surviving branch." },
-  { date: "2026 · 09 · 16", title: "The research state is realigned", body: "The current-state documents separate derived algebra, empirical measurements, conditional bridges, open problems, and historical results." },
-  { date: "2026 · 09 · 17", title: "The horizon question is sharpened", body: "The FLRW apparent horizon becomes the candidate home of the Hubble-form scale, while the RC100 high-z test becomes a constrained two-sided falsifier rather than an exclusion." },
-  { date: "Now", title: "A public atlas makes the program legible", body: "This site is the cold-reading layer: a map from questions to theory to evidence to the next test." },
+  {
+    date: "2026 · 08",
+    title: "The corpus becomes an auditable research package",
+    body: "Claim ledgers, verification runs, release checklists, and formal inventories become first-class artifacts.",
+  },
+  {
+    date: "2026 · 09 · 12",
+    title: "The correction changes the live branch",
+    body: "The μdual solar-system failure is documented, the old covariant downstream is retired, and μstd becomes the surviving branch.",
+  },
+  {
+    date: "2026 · 09 · 16",
+    title: "The research state is realigned",
+    body: "The current-state documents separate derived algebra, empirical measurements, conditional bridges, open problems, and historical results.",
+  },
+  {
+    date: "2026 · 09 · 17",
+    title: "The horizon question is sharpened",
+    body: "The FLRW apparent horizon becomes the candidate home of the Hubble-form scale, while the RC100 high-z test becomes a constrained two-sided falsifier rather than an exclusion.",
+  },
+  {
+    date: "2026 · 10 · 03",
+    title: "Cassini and the tier-0 comparison are stated up front",
+    body: "Unscreened μ_std fails Cassini. D7 stays open: a proposed no-go was not adopted. On SPARC, the horizon anchor's tier-0 median reduced χ² is 11.08 and the literature a₀ is 9.93, same μ_std.",
+  },
+  {
+    date: "Now",
+    title: "A public atlas makes the program legible",
+    body: "This site is the cold-reading layer: a map from questions to theory to evidence to the next test.",
+  },
 ];
 
-export const statusMeta: Record<EvidenceStatus, { label: string; tone: StatusTone; description: string }> = {
-  derived: { label: "[D] Derived", tone: "blue", description: "Follows from stated definitions and assumptions." },
-  computed: { label: "[D] Computed", tone: "blue", description: "Generated from a declared dataset and analysis procedure." },
-  cited: { label: "[C] Cited", tone: "slate", description: "Imported from external literature or public source material." },
-  conditional: { label: "[C] Conditional", tone: "amber", description: "Depends on an explicit model choice or unresolved premise." },
-  open: { label: "[O] Open", tone: "amber", description: "A live question, pending derivation, data, or simulation." },
-  refuted: { label: "[X] Refuted", tone: "red", description: "A contradiction or failed test is preserved in the record." },
-  superseded: { label: "[X] Superseded", tone: "red", description: "Historical state retained for provenance, not current use." },
+export const statusMeta: Record<
+  EvidenceStatus,
+  { label: string; tone: StatusTone; description: string }
+> = {
+  derived: {
+    label: "[D] Derived",
+    tone: "blue",
+    description: "Follows from stated definitions and assumptions.",
+  },
+  computed: {
+    label: "[D] Computed",
+    tone: "blue",
+    description: "Generated from a declared dataset and analysis procedure.",
+  },
+  cited: {
+    label: "[C] Cited",
+    tone: "slate",
+    description: "Imported from external literature or public source material.",
+  },
+  conditional: {
+    label: "[C] Conditional",
+    tone: "amber",
+    description: "Depends on an explicit model choice or unresolved premise.",
+  },
+  open: {
+    label: "[O] Open",
+    tone: "amber",
+    description: "A live question, pending derivation, data, or simulation.",
+  },
+  refuted: {
+    label: "[X] Refuted",
+    tone: "red",
+    description: "A contradiction or failed test is preserved in the record.",
+  },
+  superseded: {
+    label: "[X] Superseded",
+    tone: "red",
+    description: "Historical state retained for provenance, not current use.",
+  },
 };
 
 export const chartData = [
-  { label: "Tier 0 fixed", value: 11.08, live: 11.08, comparison: 9.93 },
-  { label: "Tier 1 live μstd", value: 3.36, live: 3.36, comparison: 3.41 },
-  { label: "NFW constrained", value: 5.62, live: 5.62, comparison: 5.62 },
+  { label: "Tier 0 median", value: 11.08, live: 11.08, comparison: 9.93 },
+  { label: "Tier 1 median", value: 3.36, live: 3.36, comparison: 3.41 },
+  { label: "Tier 1 mean", value: 5.63, live: 5.63, comparison: 5.63 },
 ];
 
 export const a0Measurement = {
@@ -319,8 +439,24 @@ export function gDeepMond(gbar: number, a0 = a0Measurement.t1.value) {
 }
 
 export const glossary = [
-  { term: "AQUAL", definition: "A nonlinear weak-field formulation used here as the bridge between an effective action and galaxy-scale acceleration." },
-  { term: "AeST", definition: "The corrected covariant completion under review in the live research state." },
-  { term: "SPARC", definition: "Spitzer Photometry and Accurate Rotation Curves, a public galaxy rotation-curve dataset." },
-  { term: "Evidence status", definition: "A label describing how a claim is supported, not a score of how important it sounds." },
+  {
+    term: "AQUAL",
+    definition:
+      "A nonlinear weak-field formulation used here as the bridge between an effective action and galaxy-scale acceleration.",
+  },
+  {
+    term: "AeST",
+    definition:
+      "The corrected covariant completion under review in the live research state.",
+  },
+  {
+    term: "SPARC",
+    definition:
+      "Spitzer Photometry and Accurate Rotation Curves, a public galaxy rotation-curve dataset.",
+  },
+  {
+    term: "Evidence status",
+    definition:
+      "A label describing how a claim is supported, not a score of how important it sounds.",
+  },
 ];

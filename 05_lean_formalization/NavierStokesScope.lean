@@ -9,7 +9,7 @@ equations, vorticity, a solution class, a Lyapunov functional, a time integral,
 or a continuation criterion. Consequently, none of its declarations establishes
 Navier–Stokes regularity.
 
-The module is the L0 starting point in `NAVIER_STOKES_DEPENDENCY_AUDIT.md`.
+The module is the L0 starting point in `archive/legacy_root/NAVIER_STOKES_DEPENDENCY_AUDIT.md`.
 -/
 
 namespace NavierStokesScope

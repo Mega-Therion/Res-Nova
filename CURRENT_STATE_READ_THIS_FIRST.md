@@ -7,8 +7,10 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against the physics:** 2026-10-03 (the audit-cycle state below supersedes
-any pre-2026-09-16 substrate claim not updated by it).
+**Last verified against the physics:** 2026-10-04 (UTC). The audit-cycle state below supersedes
+any pre-2026-09-16 substrate claim not updated by it. The 2026-10-04 stamp records a
+pointer move of the Navier–Stokes notes into `archive/legacy_root/` and the public
+framing of the SPARC tier-0 comparison. It is not a new physical result.
 
 This line is **enforced**, not decorative: `scripts/current_state_freshness.py` fails the
 gate if any physics surface — the Lean modules, the manuscript, `PEER_REVIEW_READINESS.md`

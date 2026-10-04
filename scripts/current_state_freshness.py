@@ -12,10 +12,11 @@ with authority it has not earned. Documentation, scripts and tooling churn do
 not trip this -- only the surfaces whose change would alter what the state file
 asserts.
 """
+
 import re
 import subprocess
 import sys
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -34,7 +35,9 @@ PHYSICS_PATHS = [
     "TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md",
 ]
 
-DATE_RE = re.compile(r"\*\*Last verified against the physics:\*\*\s*(\d{4}-\d{2}-\d{2})")
+DATE_RE = re.compile(
+    r"\*\*Last verified against the physics:\*\*\s*(\d{4}-\d{2}-\d{2})"
+)
 
 
 def verified_date(text: str):
@@ -42,15 +45,32 @@ def verified_date(text: str):
     return date.fromisoformat(m.group(1)) if m else None
 
 
+def utc_today():
+    """GitHub Actions checks out in UTC. A CDT evening commit is the next UTC day,
+    so both sides of the comparison have to use UTC or the gate fails after 19:00 CDT.
+    """
+    return datetime.now(timezone.utc).date()
+
+
 def newest_physics_change() -> tuple[str, str] | None:
-    """(iso date, path) of the most recent commit touching a physics surface."""
+    """(UTC iso date, path) of the most recent commit touching a physics surface.
+
+    `%cs` keeps the calendar day written on the commit, so a 21:43 CDT commit
+    stays 2026-10-03 here and can read as 2026-10-04 on a UTC runner.
+    `%ct` is the instant. This formats that instant in UTC.
+    """
     newest = None
     for p in PHYSICS_PATHS:
         r = subprocess.run(
-            ["git", "-C", str(ROOT), "log", "-1", "--format=%cs", "--", p],
-            capture_output=True, text=True)
-        d = r.stdout.strip()
-        if d and (newest is None or d > newest[0]):
+            ["git", "-C", str(ROOT), "log", "-1", "--format=%ct", "--", p],
+            capture_output=True,
+            text=True,
+        )
+        raw = r.stdout.strip()
+        if not raw:
+            continue
+        d = datetime.fromtimestamp(int(raw), timezone.utc).date().isoformat()
+        if newest is None or d > newest[0]:
             newest = (d, p)
     return newest
 
@@ -62,18 +82,24 @@ def check() -> int:
     text = STATE.read_text(encoding="utf-8")
     vd = verified_date(text)
     if vd is None:
-        print("current-state freshness: FAIL -- no '**Last verified against "
-              "the physics:** YYYY-MM-DD' line found")
+        print(
+            "current-state freshness: FAIL -- no '**Last verified against "
+            "the physics:** YYYY-MM-DD' line found"
+        )
         return 1
-    if vd > date.today():
+    if vd > utc_today():
         print(f"current-state freshness: FAIL -- verified date {vd} is in the future")
         return 1
     newest = newest_physics_change()
     if newest and newest[0] > vd.isoformat():
-        print(f"current-state freshness: FAIL -- physics changed {newest[0]} "
-              f"({newest[1]}) but CURRENT_STATE was last verified {vd}.")
-        print("  Re-read PEER_REVIEW_READINESS.md, update the state file, then "
-              "set the date to today.")
+        print(
+            f"current-state freshness: FAIL -- physics changed {newest[0]} "
+            f"({newest[1]}) but CURRENT_STATE was last verified {vd}."
+        )
+        print(
+            "  Re-read PEER_REVIEW_READINESS.md, update the state file, then "
+            "set the date to today."
+        )
         return 1
     tail = f"; newest physics change {newest[0]} ({newest[1]})" if newest else ""
     print(f"current-state freshness: PASS (verified {vd}{tail})")
@@ -96,11 +122,15 @@ def self_test() -> int:
         else:
             fired = newest is not None and newest > vd.isoformat()
         if fired != should_fail:
-            print(f"  self-test MISMATCH: {text[:44]!r} newest={newest} "
-                  f"fired={fired} expected={should_fail}")
+            print(
+                f"  self-test MISMATCH: {text[:44]!r} newest={newest} "
+                f"fired={fired} expected={should_fail}"
+            )
             bad += 1
-    print(f"current_state_freshness self-test: {'PASS' if not bad else 'FAIL'} "
-          f"({len(cases)} cases)")
+    print(
+        f"current_state_freshness self-test: {'PASS' if not bad else 'FAIL'} "
+        f"({len(cases)} cases)"
+    )
     return 1 if bad else 0
 
 
