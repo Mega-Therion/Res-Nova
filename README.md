@@ -25,6 +25,10 @@ Technical manuscript, formal verification, and reproducibility package.
 | [`assurance/claims.json`](assurance/claims.json) | The machine-readable claim registry, gated in CI. |
 | [`research-hub/`](research-hub/) | Source for the Research Atlas web app, merged here 2026-10-03 from the former `res-nova-research-hub` repository. |
 
+## Where this stands
+
+The galaxies measure a scale. Around that scale the turnover is \(\mu(x)=x/\sqrt{1+x^2}\). That is the standard MOND function, and the information-tension derivative lands on the same function when the measured scale is the input. The horizon formula does not track the galaxies, so it is not where the scale comes from. The dual-channel force law leaves a shove the planets do not have, so it is not the solar-system law. A screen that would make one formula true up close is not in either action. Until that screen is written and passes Cassini, this theory's domain is the galaxy regime, and ordinary gravity keeps the solar system.
+
 ## What this repository is — and is not
 
 Res-Nova is the only public home of claims about the physical world. Notes in Chyren stay in the workshop until they name a catalog, a measurement, or a physical model and are promoted here. Nova-Conscientia may borrow a formula as code. That borrowing is not a result of this repository. See [`docs/REPO_PROMOTION.md`](docs/REPO_PROMOTION.md).
