@@ -13,7 +13,7 @@ _sim = F.simulate
 
 
 def simulate8(b, model, nmc=F.NMC, noise=True):
-    return _sim(b, model, nmc=nmc * 8, noise=noise)
+    return _sim(b, model, nmc=nmc if nmc == 1 else nmc * 8, noise=noise)
 
 
 F.simulate = simulate8
