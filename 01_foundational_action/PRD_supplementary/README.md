@@ -1,4 +1,6 @@
-# PRD Letter Supplementary — Parameter-Free Derivation of MOND a0
+# PRD Letter Supplementary — fixed-a₀ SPARC fits (historical)
+
+> **Status (2026-10-03): framing withdrawn.** This supplement predates the parameter accounting now used in Res-Nova. Its "parameter-free" / "zero galaxy-fit parameters" wording and its "derivation of a₀" title are withdrawn. The fits fix a₀ = cH₀/2π (the 2π is declared, not derived; 13% from empirical MOND) and take Υ*, distance and inclination from SPARC without marginalising over them, so they are not parameter-free. Current accounting: one acceleration scale and one functional choice, plus the per-galaxy SPARC inputs; see the top-level README. The numbers below are kept as a dated, reproducible record.
 
 Reproduces every number and figure in `../PRD_a0_geometric_derivation_Letter.md`.
 
