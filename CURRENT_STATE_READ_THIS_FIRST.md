@@ -7,10 +7,20 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against the physics:** 2026-10-04 (UTC). The audit-cycle state below supersedes
-any pre-2026-09-16 substrate claim not updated by it. The 2026-10-04 stamp records a
-pointer move of the Navier–Stokes notes into `archive/legacy_root/` and the public
-framing of the SPARC tier-0 comparison. It is not a new physical result.
+**Last verified against the physics:** 2026-10-06 (UTC). The audit-cycle state below supersedes
+any pre-2026-09-16 substrate claim not updated by it.
+
+The 2026-10-06 stamp records:
+- **A comment-only correction in `PillarIV_AntiDriftGate.lean` (`f38d21a`).** Its κ docstrings now follow RY's
+  2026-09-26 rejection of the 2026-09-24 "0.9561 lock": the corpus κ is 0.9539. Both `kappaBand` evaluations (7/10
+  and 1/√2) are unchanged theorems; the code outside comments is byte-identical.
+- **Exploratory D7 box-extension bookkeeping** (`exploration/d7_stage2/PREREG_BOX_EXTEND_2026-10-06.md`). The anchor
+  passed and attempt 1 did not converge, so there is no verdict.
+
+`PEER_REVIEW_READINESS.md` was re-read and carries no κ statement. This stamp is not a new physical result.
+
+The 2026-10-04 stamp recorded a pointer move of the Navier–Stokes notes into `archive/legacy_root/` and the public
+framing of the SPARC tier-0 comparison.
 
 This line is **enforced**, not decorative: `scripts/current_state_freshness.py` fails the
 gate if any physics surface — the Lean modules, the manuscript, `PEER_REVIEW_READINESS.md`
