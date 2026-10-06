@@ -1,0 +1,17 @@
+{
+ "prereg": "PREREG_BOX_EXTEND_2026-10-06.md Amendment 1",
+ "rows": [
+  {
+   "n": 31,
+   "B": 13911.298421406967,
+   "edge_kpc": 1391.1298421406968,
+   "grid": [
+    31,
+    62
+   ],
+   "converged": false,
+   "residual": 0.0332527635998594,
+   "seconds": 2894.3
+  }
+ ]
+}

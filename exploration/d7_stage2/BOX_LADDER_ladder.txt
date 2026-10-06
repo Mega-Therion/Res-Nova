@@ -1,0 +1,22 @@
+    newton 0: equilibrated |grad|/|src| = 8.465e+00
+    newton 1: equilibrated |grad|/|src| = 1.271e+00  (last linear solve rel. residual 9.1e-12)
+    newton 2: equilibrated |grad|/|src| = 2.276e-01  (last linear solve rel. residual 2.1e-13)
+      line search: lambda = 0.5
+    newton 3: equilibrated |grad|/|src| = 2.237e-01  (last linear solve rel. residual 1.5e-13)
+      line search: lambda = 0.25
+    newton 4: equilibrated |grad|/|src| = 1.831e-01  (last linear solve rel. residual 9.6e-14)
+    newton 5: equilibrated |grad|/|src| = 1.103e-01  (last linear solve rel. residual 7.1e-14)
+    newton 6: equilibrated |grad|/|src| = 1.040e-01  (last linear solve rel. residual 1.6e-13)
+    newton 7: equilibrated |grad|/|src| = 9.508e-02  (last linear solve rel. residual 2.9e-13)
+      line search: lambda = 0.0312
+    newton 8: equilibrated |grad|/|src| = 9.441e-02  (last linear solve rel. residual 6.8e-13)
+    newton 9: equilibrated |grad|/|src| = 7.822e-02  (last linear solve rel. residual 4.1e-13)
+    newton 10: equilibrated |grad|/|src| = 3.339e-02  (last linear solve rel. residual 4.2e-13)
+      line search: lambda = 0.125
+    newton 11: equilibrated |grad|/|src| = 3.327e-02  (last linear solve rel. residual 2.6e-13)
+      line search: lambda = 0.00391
+    newton 12: equilibrated |grad|/|src| = 3.326e-02  (last linear solve rel. residual 9.6e-13)
+      line search: lambda = 0.000977
+    newton 13: equilibrated |grad|/|src| = 3.325e-02  (last linear solve rel. residual 1.4e-12)
+rung n=31 edge 1391 kpc: converged False (3.3e-02) [2894s]
+STOP RULE: rung did not converge; no verdict.

@@ -113,3 +113,11 @@ on an 11 GB machine.
 - The **optional from-static check was stopped and is not run**, so initial-guess independence at n = 31 remains untested.
 
 No threshold, target or rule changed.
+
+**Attempt 2 (Amendment 1, nested-grid continuation): NON-CONVERGENCE at the first rung, so no verdict (stop rule).**
+- Rung n = 31 (1391 kpc, 31×62), started from the zero-padded converged 1000 kpc solution.
+- Equilibrated |grad|/|src| went 8.47 → 1.27 → 0.228 → 0.110 (step 5) → 0.0333 (step 10), then stalled at 0.0333. At step 13 the backtracking line search found no descent along the Newton direction (λ < 1e-4), and Newton returned unconverged. Total 2894 s.
+- The queued n = 34 static reference was stopped at start, since without a ladder solution it cannot enter a verdict.
+- Rows in `BOX_LADDER_C1.json`; log in `BOX_LADDER_ladder.txt`.
+
+**Reading, descriptive only.** Attempts 1 and 2 fail the same way: Newton direction without descent at residual 0.136 and 0.033 respectively. Beyond the 1000 kpc box, the obstacle is the solver's globalisation near a near-singular direction, not the initial guess. That matches the long-standing stage-2 static failure at every box ≥ 100 kpc. **D7 box convergence remains open `[O]`. Nothing here is a physics result.**
