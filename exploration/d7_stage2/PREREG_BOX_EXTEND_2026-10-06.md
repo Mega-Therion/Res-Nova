@@ -104,3 +104,12 @@ descriptive only.
 **Optional check.** A from-static solve at n = 31, in parallel. If it converges and matches the continuation root, the root is independent of the initial guess there. If it fails, that is consistent with attempt 1.
 
 Whatever the ladder gives is reported as "attempt 2 under Amendment 1 at 3745 kpc", not as the 3000 kpc result.
+
+**Operational note (2026-10-06, during attempt 2).** Running the ladder, the n = 34 static reference and the optional
+n = 31 from-static check at the same time exhausted memory: about 4.3 GB RSS plus 6.3 GB swap across the three solves
+on an 11 GB machine.
+- The **ladder continues unchanged.**
+- The static reference was stopped and re-queued (`d7-ladder-static34-after`) to start when the ladder exits. Its result is unaffected; it is the same computation.
+- The **optional from-static check was stopped and is not run**, so initial-guess independence at n = 31 remains untested.
+
+No threshold, target or rule changed.
