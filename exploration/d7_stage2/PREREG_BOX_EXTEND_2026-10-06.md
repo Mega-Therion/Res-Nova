@@ -144,3 +144,16 @@ equilibrated wind Hessian at the five cached converged sweep solutions.
 - **Stall levels:** ε/λ_min ≈ 0.037 and 0.37 at those boxes, versus the observed stalls 0.033 and 0.136.
 - **Counterexample:** the 1000 kpc solve converged (5.5e-11) with ε/λ_min ≈ 0.013. So "ε/λ_min sets the stall" is suggestive, not established.
 - **Status:** the hypothesis "a near-null direction softening with box volume blocks Newton beyond 1000 kpc" is supported, not proved. D7 remains `[O]`.
+
+**Soft-subspace check at attempt 2's initial guess (2026-10-06; `diag_soft_subspace.py`, `SOFT_SUBSPACE_C1.json`).**
+The point is the zero-padded 1000 kpc solution on 31×62, 75,772 DOFs, measured in Newton's equilibrated coordinates.
+
+- **Spectrum:** the 12 smallest |eigenvalues| run continuously from 6.1e-15 (Ω) through 9.1e-15 (ω) and −1.8e-14 (ψ) up to 1.6e-13. The largest ratio between neighbours is only 2.06, so there is **no clear spectral gap**; the soft band is wider than 3 modes.
+- **(a) Residual in the 3 softest modes: 1.9e-9 of the equilibrated residual.** That is at roundoff level.
+- **(b) Newton step in those modes: 0.82 of the step in equilibrated (y) coordinates.** In physical (x) coordinates ‖dx‖ and ‖dx_perp‖ differ by 5e-8 relative.
+  - The full and projected steps reduce the residual identically: 8.4649 → 1.27076 in both.
+- **(c) Moving along the softest mode by the Newton step's own x-norm:**
+  - g/flux at 0.3 kpc changes by 4.8e-6 relative, and Y by 4.6e-5;
+  - the residual changes by 2.8e-7 relative.
+  - The direction is nearly flat, not exactly flat.
+- **Reading:** projecting out the soft band is admissible, since the residual has no measurable soft component. At the initial guess it changes nothing, so whether it fixes the stall can only be seen at the stall point, which attempts 1–2 did not save.

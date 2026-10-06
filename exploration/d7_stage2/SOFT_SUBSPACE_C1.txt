@@ -1,0 +1,91 @@
+{
+ "point": "attempt-2 initial guess: 1000 kpc converged solution zero-padded onto 31x62 (1391 kpc)",
+ "ndof": 75772,
+ "A_asymmetry_rel": 1.621778120216415e-11,
+ "eigs_sorted_by_abs": [
+  6.1386201492550245e-15,
+  9.141242916752427e-15,
+  -1.8316761971705778e-14,
+  3.771180446417335e-14,
+  4.3793566116842004e-14,
+  -7.54095832556198e-14,
+  7.662686697830834e-14,
+  9.361744481714268e-14,
+  1.1742603425527385e-13,
+  1.4652682704757372e-13,
+  -1.5321460200373034e-13,
+  1.5624139118638547e-13
+ ],
+ "eig_fields": [
+  [
+   "Omega",
+   1.0
+  ],
+  [
+   "omega",
+   0.667
+  ],
+  [
+   "psi",
+   0.667
+  ],
+  [
+   "omega",
+   0.667
+  ],
+  [
+   "Omega",
+   1.0
+  ],
+  [
+   "psi",
+   0.667
+  ],
+  [
+   "omega",
+   0.667
+  ],
+  [
+   "omega",
+   0.667
+  ],
+  [
+   "Omega",
+   1.0
+  ],
+  [
+   "omega",
+   0.667
+  ],
+  [
+   "psi",
+   0.667
+  ],
+  [
+   "Omega",
+   1.0
+  ]
+ ],
+ "gap_after_index": 2,
+ "gap_ratio": 2.0588685119360854,
+ "cluster_size": 3,
+ "a_frac_residual_in_soft": 1.923743868200647e-09,
+ "b_frac_step_in_soft": 0.815732210628254,
+ "step_norm_dx": 3.153295303572814e-08,
+ "step_norm_dx_perp": 3.153296722495929e-08,
+ "c_obs_at_x0": {
+  "g_over_flux": 0.9778217608849343,
+  "Y": 3.507726936279399e-16
+ },
+ "c_obs_after_soft_move": {
+  "g_over_flux": 0.9778170504084277,
+  "Y": 3.5075663408738804e-16
+ },
+ "c_rel_change_g_over_flux": 4.8173160948758225e-06,
+ "c_rel_change_Y": 4.578332590757594e-05,
+ "residual_x0": 8.464884161667081,
+ "residual_after_soft_move": 8.464886507636537,
+ "residual_after_full_newton_step": 1.27075851435182,
+ "residual_after_projected_step": 1.2707585152006229,
+ "seconds": 278.7
+}
