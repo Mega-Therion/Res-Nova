@@ -120,4 +120,9 @@ No threshold, target or rule changed.
 - The queued n = 34 static reference was stopped at start, since without a ladder solution it cannot enter a verdict.
 - Rows in `BOX_LADDER_C1.json`; log in `BOX_LADDER_ladder.txt`.
 
-**Reading, descriptive only.** Attempts 1 and 2 fail the same way: Newton direction without descent at residual 0.136 and 0.033 respectively. Beyond the 1000 kpc box, the obstacle is the solver's globalisation near a near-singular direction, not the initial guess. That matches the long-standing stage-2 static failure at every box ≥ 100 kpc. **D7 box convergence remains open `[O]`. Nothing here is a physics result.**
+**What was measured.** Both attempts ended in line-search failure (no descent for λ ≥ 1e-4) at equilibrated residuals 0.136 (attempt 1) and 0.033 (attempt 2). The cause is **not yet diagnosed**:
+- Attempts 1 and 2 differ in both box size and initial guess, so they cannot separate the two.
+- The one run that could, the optional from-static solve at n = 31, was not run.
+- Hypothesis under test, not a finding: a direction softens as the box grows. Next step: the near-zero Hessian spectrum of the five cached converged sweep solutions.
+
+**D7 box convergence remains open `[O]`. Nothing here is a physics result.**
