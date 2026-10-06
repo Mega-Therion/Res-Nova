@@ -157,3 +157,14 @@ The point is the zero-padded 1000 kpc solution on 31×62, 75,772 DOFs, measured 
   - the residual changes by 2.8e-7 relative.
   - The direction is nearly flat, not exactly flat.
 - **Reading:** projecting out the soft band is admissible, since the residual has no measurable soft component. At the initial guess it changes nothing, so whether it fixes the stall can only be seen at the stall point, which attempts 1–2 did not save.
+
+**Attempt 3 (projected Newton, `attempt3_projected_newton.py`, `5f52f13`): VALIDATION FAIL, so the ladder did not run and there is no verdict.**
+- Validation: the committed 100 kpc row from static. Plain Newton converged there to 2.7e-11 in the original sweep.
+- Projected Newton: residual 86.6 → 1.35 → 0.239 → 0.0341 → 1.25e-3 → 9.99e-5, then no descent at step 6.
+- λ_min = 1.68e-11 throughout. All 24 computed eigenpairs lie within 1000× of λ_min, so the soft band is ≥ 24 modes wide at 100 kpc.
+- **The residual's share in the soft band rose to 1:** 1.1e-6, 7.4e-5, 4.2e-4, 2.9e-3, 0.080, **0.9998**, **1 − 9e-12**.
+- **Reading (measured):** the final part of the solve lives entirely in the soft band (Ω/ω/ψ). The band carries real residual, not roundoff, so projecting it out cannot converge. This retracts the inference drawn from (a) at the initial guess: (a) holds only far from the root.
+- **Consistent with attempts 1–2:**
+  - The band's λ_min falls as R⁻³; plain Newton resolves it up to 1000 kpc.
+  - Beyond that, float64 solves along it lose precision (ε/λ_min ≈ 0.04 at 1391 kpc, ≈ 0.4 at 3000 kpc), and Newton stalls at 0.033 / 0.136.
+- **Per the third-attempt rule, solo attempts stop here.** D7 box convergence beyond 1000 kpc goes to RY as a joint problem. D7 remains `[O]`. Nothing here is a physics result.

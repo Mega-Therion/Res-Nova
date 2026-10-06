@@ -1,0 +1,9 @@
+[validate start 2026-10-06T09:45:46-05:00]
+    pnewton 0: residual 8.663e+01, lam_min 1.68e-11, n_soft 24, soft_frac_r 1.12e-06, soft_frac_y 0.11, lambda 1
+    pnewton 1: residual 1.348e+00, lam_min 1.68e-11, n_soft 24, soft_frac_r 7.39e-05, soft_frac_y 0.65, lambda 1
+    pnewton 2: residual 2.388e-01, lam_min 1.68e-11, n_soft 24, soft_frac_r 4.18e-04, soft_frac_y 0.97, lambda 1
+    pnewton 3: residual 3.413e-02, lam_min 1.68e-11, n_soft 24, soft_frac_r 2.93e-03, soft_frac_y 1.00, lambda 1
+    pnewton 4: residual 1.249e-03, lam_min 1.68e-11, n_soft 24, soft_frac_r 7.99e-02, soft_frac_y 1.00, lambda 1
+    pnewton 5: residual 9.986e-05, lam_min 1.68e-11, n_soft 24, soft_frac_r 1.00e+00, soft_frac_y 1.00, lambda 1
+    pnewton 6: residual 9.984e-05, lam_min 1.68e-11, n_soft 24, soft_frac_r 1.00e+00, soft_frac_y 1.00: NO DESCENT
+VALIDATION FAIL {"converged": false, "residual": 9.984383354864124e-05, "rel_diff": null}
