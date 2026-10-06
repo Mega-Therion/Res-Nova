@@ -1,0 +1,220 @@
+{
+ "note": "equilibrated wind Hessian at the cached converged stripped state; eig = smallest |eigenvalues| (eigsh, sigma=0)",
+ "rows": [
+  {
+   "edge_kpc": 10.0,
+   "grid": [
+    16,
+    32
+   ],
+   "ndof": 19912,
+   "modes": {
+    "modes": [
+     {
+      "eig": 1.665146765227336e-08,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 2.4935326093725194e-08,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": -3.4019004422047013e-08,
+      "field": "S",
+      "weight": 0.417
+     },
+     {
+      "eig": -4.9868457642706535e-08,
+      "field": "psi",
+      "weight": 0.667
+     },
+     {
+      "eig": -5.8933911234045876e-08,
+      "field": "s",
+      "weight": 0.568
+     },
+     {
+      "eig": -6.021807202693084e-08,
+      "field": "A",
+      "weight": 0.6
+     }
+    ]
+   },
+   "seconds": 14.9
+  },
+  {
+   "edge_kpc": 30.0,
+   "grid": [
+    20,
+    40
+   ],
+   "ndof": 31288,
+   "modes": {
+    "modes": [
+     {
+      "eig": 5.468481413341684e-10,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 8.053301209972848e-10,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": -1.6104638166260828e-09,
+      "field": "psi",
+      "weight": 0.667
+     },
+     {
+      "eig": 3.3388465618836237e-09,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": 3.855252862912881e-09,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": -4.1166708845763075e-09,
+      "field": "S",
+      "weight": 0.441
+     }
+    ]
+   },
+   "seconds": 30.7
+  },
+  {
+   "edge_kpc": 100.0,
+   "grid": [
+    23,
+    46
+   ],
+   "ndof": 41500,
+   "modes": {
+    "modes": [
+     {
+      "eig": 1.6818579280289217e-11,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 2.46892794288243e-11,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": -4.937052175170034e-11,
+      "field": "psi",
+      "weight": 0.667
+     },
+     {
+      "eig": 1.018951178543386e-10,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": 1.1839782968621105e-10,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": -2.0376951814202355e-10,
+      "field": "psi",
+      "weight": 0.667
+     }
+    ]
+   },
+   "seconds": 50.8
+  },
+  {
+   "edge_kpc": 300.0,
+   "grid": [
+    27,
+    54
+   ],
+   "ndof": 57356,
+   "modes": {
+    "modes": [
+     {
+      "eig": 5.660667912536436e-13,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 8.28550128348625e-13,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": -1.6568510489603573e-12,
+      "field": "psi",
+      "weight": 0.667
+     },
+     {
+      "eig": 3.428814082281131e-12,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": 3.9874543531336045e-12,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": -6.856895565291275e-12,
+      "field": "psi",
+      "weight": 0.667
+     }
+    ]
+   },
+   "seconds": 90.2
+  },
+  {
+   "edge_kpc": 1000.0,
+   "grid": [
+    30,
+    60
+   ],
+   "ndof": 70928,
+   "modes": {
+    "modes": [
+     {
+      "eig": 1.671936861136382e-14,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": 2.46076473859479e-14,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": -4.922097835949549e-14,
+      "field": "psi",
+      "weight": 0.667
+     },
+     {
+      "eig": 1.0149093634320005e-13,
+      "field": "omega",
+      "weight": 0.667
+     },
+     {
+      "eig": 1.1804255929675924e-13,
+      "field": "Omega",
+      "weight": 1.0
+     },
+     {
+      "eig": -2.0299718350774604e-13,
+      "field": "psi",
+      "weight": 0.667
+     }
+    ]
+   },
+   "seconds": 134.2
+  }
+ ]
+}

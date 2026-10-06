@@ -126,3 +126,21 @@ No threshold, target or rule changed.
 - Hypothesis under test, not a finding: a direction softens as the box grows. Next step: the near-zero Hessian spectrum of the five cached converged sweep solutions.
 
 **D7 box convergence remains open `[O]`. Nothing here is a physics result.**
+
+**Diagnostic (2026-10-06, no solve; `diag_box_zero_modes.py`, `BOX_ZERO_MODES_C1.json`).** Six smallest |eigenvalues| of the
+equilibrated wind Hessian at the five cached converged sweep solutions.
+
+| box edge | smallest eigenvalue | dominant field |
+|---|---|---|
+| 10 kpc | 1.665e-8 | Ω (the gradient part of the shift, h₀ᵢ = ∇Ω + curl(ω θ̂)), weight 1.0 |
+| 30 kpc | 5.468e-10 | Ω |
+| 100 kpc | 1.682e-11 | Ω |
+| 300 kpc | 5.661e-13 | Ω |
+| 1000 kpc | 1.672e-14 | Ω |
+
+- **Scaling:** local log–log slopes −3.11, −2.89, −3.09, −2.93; fit **λ_min ∝ R^−3.00**.
+- **The next modes** are ω (0.667) and ψ (0.667). Some eigenvalues are negative, so the Hessian is indefinite.
+- **Extrapolated:** 6.0e-15 at 1391 kpc and 6.0e-16 at 3000 kpc, against float64 ε = 2.2e-16.
+- **Stall levels:** ε/λ_min ≈ 0.037 and 0.37 at those boxes, versus the observed stalls 0.033 and 0.136.
+- **Counterexample:** the 1000 kpc solve converged (5.5e-11) with ε/λ_min ≈ 0.013. So "ε/λ_min sets the stall" is suggestive, not established.
+- **Status:** the hypothesis "a near-null direction softening with box volume blocks Newton beyond 1000 kpc" is supported, not proved. D7 remains `[O]`.
