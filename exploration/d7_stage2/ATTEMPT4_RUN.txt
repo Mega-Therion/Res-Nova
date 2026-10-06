@@ -1,0 +1,32 @@
+[check 2026-10-06T12:19:13-05:00]
+check @100 kpc: {"src_rel": 2.1854222243093534e-16, "res_f64": 2.749978574028437e-11, "res_ld": 2.5363670561993222e-11, "grad_diff_equil": 1.196108409097996e-11, "hess_action_rel": 7.140139973013381e-16, "gmres_random_rel": 4.083164547741213e-12, "gmres_random_its": 3, "PASS": true}
+check @1000 kpc committed root: {"res_f64": 5.5183944510696223e-11, "res_ld": 5.1318688053347336e-11}
+check @1391 kpc initial guess: {"res0_ld": 8.464884161667142, "f64_step_true_linear_rel": 2.3384861147070337e-11, "ld_step_true_linear_rel": 3.6638494724284135e-14, "ld_gmres_its": 2, "res_after_full_f64_step": 1.2707585143518214, "res_after_full_ld_step": 1.2707585143702265, "step_rel_diff": 0.0005072699282531381}
+CHECK PASS
+[validate 2026-10-06T12:24:37-05:00]
+    mpnewton 0: residual(ld) 8.663e+01  residual(f64) 8.663e+01  gmres 2 its rel 1.3e-14  lambda 1
+    mpnewton 1: residual(ld) 1.348e+00  residual(f64) 1.348e+00  gmres 2 its rel 3.8e-13  lambda 1
+    mpnewton 2: residual(ld) 2.388e-01  residual(f64) 2.388e-01  gmres 2 its rel 5.3e-15  lambda 1
+    mpnewton 3: residual(ld) 3.413e-02  residual(f64) 3.413e-02  gmres 2 its rel 3.9e-15  lambda 1
+    mpnewton 4: residual(ld) 1.245e-03  residual(f64) 1.245e-03  gmres 2 its rel 4.5e-15  lambda 1
+    mpnewton 5: residual(ld) 1.899e-06  residual(f64) 1.899e-06  gmres 2 its rel 5.0e-15  lambda 1
+    mpnewton 6: residual(ld) 1.084e-11  residual(f64) 2.439e-11  CONVERGED
+VALIDATION PASS {"converged": true, "residual_ld": 1.0842619029065507e-11, "residual_f64": 2.438529216287216e-11, "rel_diff": {"g_ratio_static": 1.0234006325530936e-15, "g_ratio_phihat_flux": 9.724765700108068e-16, "Y_ratio": 9.283421932849766e-15}}
+[ladder 2026-10-06T12:41:28-05:00]
+    mpnewton 0: residual(ld) 8.465e+00  residual(f64) 8.465e+00  gmres 2 its rel 3.6e-14  lambda 1
+    mpnewton 1: residual(ld) 1.271e+00  residual(f64) 1.271e+00  gmres 2 its rel 2.1e-15  lambda 1
+    mpnewton 2: residual(ld) 2.276e-01  residual(f64) 2.276e-01  gmres 2 its rel 1.7e-14  lambda 0.5
+    mpnewton 3: residual(ld) 2.237e-01  residual(f64) 2.237e-01  gmres 2 its rel 1.3e-14  lambda 0.25
+    mpnewton 4: residual(ld) 1.831e-01  residual(f64) 1.831e-01  gmres 2 its rel 1.8e-14  lambda 1
+    mpnewton 5: residual(ld) 1.103e-01  residual(f64) 1.103e-01  gmres 2 its rel 1.2e-14  lambda 1
+    mpnewton 6: residual(ld) 1.040e-01  residual(f64) 1.040e-01  gmres 2 its rel 1.4e-14  lambda 1
+    mpnewton 7: residual(ld) 9.508e-02  residual(f64) 9.508e-02  gmres 2 its rel 8.6e-14  lambda 0.0312
+    mpnewton 8: residual(ld) 9.441e-02  residual(f64) 9.441e-02  gmres 2 its rel 1.6e-14  lambda 1
+    mpnewton 9: residual(ld) 7.822e-02  residual(f64) 7.822e-02  gmres 2 its rel 7.2e-15  lambda 1
+    mpnewton 10: residual(ld) 3.339e-02  residual(f64) 3.339e-02  gmres 2 its rel 5.0e-14  lambda 0.125
+    mpnewton 11: residual(ld) 3.327e-02  residual(f64) 3.327e-02  gmres 2 its rel 2.5e-13  lambda 0.00391
+    mpnewton 12: residual(ld) 3.326e-02  residual(f64) 3.326e-02  gmres 2 its rel 4.3e-13  lambda 0.000977
+    mpnewton 13: residual(ld) 3.325e-02  residual(f64) 3.325e-02  gmres 3 its rel 9.1e-13  lambda 0.000122
+    mpnewton 14: residual(ld) 3.325e-02  residual(f64) 3.325e-02  gmres 3 its rel 1.3e-12: NO DESCENT
+rung n=31 edge 1391 kpc: converged False (ld 3.3e-02, f64 3.3e-02) [1477s]
+STOP RULE: rung did not converge; no verdict.

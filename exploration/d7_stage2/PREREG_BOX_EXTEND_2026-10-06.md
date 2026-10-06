@@ -214,3 +214,15 @@ Also recorded, descriptive only: the long-double residual of the committed 1000 
 **Ladder, target, predictions, thresholds, stop rule, static-reference rule:** unchanged from Amendment 1 (n = 31 → 34, R* = 3745.16 kpc). The static reference at n = 34 comes from `box_ladder_c1.py static 34` (float64, the same path as every committed row). The verdict is computed by `attempt4_mixed_precision.py verdict` using the Amendment 1 rule.
 
 **After this.** If attempt 4 fails, the next step is option 3: a descriptive `[O]` write-up of the five committed boxes. D7 remains open either way.
+
+**Attempt 4 (Amendment 2, mixed-precision Newton): CHECK PASS, VALIDATION PASS, ladder NON-CONVERGENCE at rung n = 31, so no verdict (stop rule).**
+- **Check:** all four correctness thresholds met.
+  - src 2.2e-16; gradient 1.2e-11; Hessian action 7.1e-16; GMRES on a random right-hand side 4.1e-12.
+  - The committed 1000 kpc float64 root is also a long-double root: 5.13e-11.
+- **Validation (100 kpc from static):** converged in 6 Newton steps, 86.6 → 1.08e-11 long double (float64 2.44e-11). Observables match the committed row to ≤ 1.0e-15 relative. Attempt 3's projected Newton had stalled at 9.98e-5 on the same box.
+- **Ladder rung n = 31 (1391 kpc):** 15 steps, then no descent at **0.03325** (1477 s).
+  - GMRES true linear residual 7e-15 to 1.3e-12 every step.
+  - Long-double and float64 residuals agree to 7e-14 relative at the stall (0.033252947124434884 vs 0.03325294712443254).
+  - The stall level equals float64 attempt 2's (0.0333).
+- **Reading `[E]`:** neither arithmetic precision (this attempt) nor diagonal scaling (option 1, `eaa68ba`) limits the solve. With accurate linear algebra the Newton direction gives no descent at a nonzero residual.
+- **Open `[O]`:** whether the stripped branch continues past ~1000 kpc. A fold, where the root branch turns back, would produce exactly this signature. The tool that tests it is pseudo-arclength continuation in box size, or a trust-region / Levenberg–Marquardt Newton. That choice is a joint decision with RY. **D7 remains `[O]`.**
