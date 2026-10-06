@@ -482,15 +482,17 @@ is not decoration here; doubling the channel is what buys back the gate.
 
 The band ceiling is its square root: `kappa = sqrt (t * (2 - t))`.
 
-**LOCK 2026-09-24.** `t` is locked to the chiral floor `theta_g = 1/sqrt 2`,
-giving `kappa = sqrt (sqrt 2 - 1/2) = 0.9561451576...`. The value `t = 7/10`
-(`kappa = sqrt (91/100) = 0.953939...`) is **RETIRED**: its dimension-ratio
-provenance failed audit (cited source D13 does not exist; the real source gives
-40600/57600 = 0.70486 and rounds; both denominators belong to a substrate
-retired 2026-08-25). `theta_g` carries three independent derivations. The
-theorem `kappaBand_at_seven_tenths` below remains a true evaluation of
-`kappaBand` at 7/10 and is retained as the historical record, NOT as the corpus
-value. And
+**LOCK 2026-09-24 -- REJECTED 2026-09-26 (RY).** The corpus ceiling is
+`kappa = 0.9539` (`CHI_STABILITY_MAX` in the Chyren repo,
+`Codebase/l2_verification/chyren-adccl/src/constants.rs`). The rejected note is
+kept here as the record. It read: `t` is locked to the chiral floor
+`theta_g = 1/sqrt 2`, giving `kappa = sqrt (sqrt 2 - 1/2) = 0.9561451576...`, and
+the value `t = 7/10` (`kappa = sqrt (91/100) = 0.953939...`) is retired because
+its dimension-ratio provenance failed audit (cited source D13 does not exist; the
+real source gives 40600/57600 = 0.70486 and rounds; both denominators belong to a
+substrate retired 2026-08-25), while `theta_g` carries three independent
+derivations. Both theorems below remain true evaluations of `kappaBand`, at 7/10
+and at 1/sqrt 2; neither statement selects the corpus value. And
 `kappa^2 + (1 - t)^2 = 1` exactly -- `kappa` and the unfired complement are the
 legs of a unit hypotenuse, which is why a probability union produces a constant
 that behaves like a direction cosine. -/
@@ -546,18 +548,19 @@ theorem theta_le_kappaBand {t : ℝ} (ht : t ∈ Set.Icc (0 : ℝ) 1) :
   calc t = Real.sqrt (t ^ 2) := by rw [Real.sqrt_sq ht.1]
     _ ≤ Real.sqrt (twoChannelUnion t) := Real.sqrt_le_sqrt hle
 
-/-- **RETIRED value**, kept as a true evaluation and historical record: at
-`t = 7/10` the ceiling is `sqrt (91/100) = 0.953939...`. This is no longer the
-corpus value — see the LOCK note in the module header. -/
+/-- True evaluation at `t = 7/10`: the ceiling is `sqrt (91/100) = 0.953939...`.
+The 2026-09-24 lock that called this value retired was rejected on 2026-09-26;
+the corpus ceiling is `kappa = 0.9539` -- see the LOCK note in the module header. -/
 theorem kappaBand_at_seven_tenths :
     kappaBand (7 / 10) = Real.sqrt (91 / 100) := by
   unfold kappaBand twoChannelUnion
   norm_num
 
-/-- **THE LOCKED CORPUS VALUE (2026-09-24).** At the chiral floor
-`theta_g = 1/sqrt 2` the two-channel union is `sqrt 2 - 1/2`, so the ceiling is
-`kappa = sqrt (sqrt 2 - 1/2) = 0.9561451576...`. Every number in the band is then
-algebraic in `sqrt 2` alone. -/
+/-- True evaluation at the chiral floor `theta_g = 1/sqrt 2`: the two-channel union
+is `sqrt 2 - 1/2`, so `kappaBand` gives `sqrt (sqrt 2 - 1/2) = 0.9561451576...`,
+the spin ceiling `chi_s`. This is **not** the corpus `kappa`: the 2026-09-24 lock
+that made it so was rejected on 2026-09-26 (corpus `kappa = 0.9539`; see the
+module header). -/
 theorem kappaBand_at_chiral_floor :
     kappaBand (1 / Real.sqrt 2) = Real.sqrt (Real.sqrt 2 - 1 / 2) := by
   unfold kappaBand twoChannelUnion
