@@ -180,3 +180,37 @@ The point is the zero-padded 1000 kpc solution on 31×62, 75,772 DOFs, measured 
 No diagonal scaling beats the current one, so the near-singularity is intrinsic to the discrete equations, not a scaling artefact.
 
 **Next: option 2 (mixed-precision Newton).** Extended-precision (80-bit long double, ε = 1.08e-19) Hessian and gradient assembly, plus refinement of the float64 LU solve with extended-precision residuals. Feasibility checked: scipy.sparse supports float128 matvec and matmul. Not yet built. **D7 stays `[O]`.**
+
+## Amendment 2 (2026-10-06, committed before attempt 4 runs): option 2, mixed-precision Newton
+
+**Why.** RY chose the order 1 → 2 → 3. Option 1 (rescaling) is ruled out (`eaa68ba`). Script: `attempt4_mixed_precision.py`.
+
+**Method.** Unchanged from `ProblemC1.newton`:
+- the equations, and all problem-defining data (D, w, ρ, constants) at their float64 values;
+- Sd = 1/√(row sums of |H|), computed at x0 and then fixed;
+- the residual |Sd g|/|Sd src|;
+- Armijo backtracking (factor 1e-4, stop when λ < 1e-4), tol 1e-10, maxit 40.
+
+Changed, arithmetic only:
+- **(i) Assembly:** gradient and Hessian assembled in x87 long double (ε = 1.08e-19) instead of rounding local terms to float64.
+- **(ii) Newton step:** right-preconditioned restarted GMRES in long double on the matrix-free long-double operator, preconditioned by the float64 LU of the float64-rounded A.
+  - Restart 80, ≤ 3 restarts, relative tolerance 1e-12.
+  - Stop early when a restart cycle gains < 2×. The attainable floor is ~ε_ld‖A‖‖y‖/‖b‖ ≈ ε_ld·κ; the synthetic unit test reached 1.6e-6 against a float64 direct solve's 2.0e-3.
+- **(iii) Residuals:** evaluated in long double. "Newton residual" in the stop rule now means this long-double residual. The float64 residual (original code path, same Sd) is logged every iteration and reported at the end.
+
+**Correctness checks (`check`; must PASS or the chain stops).** At the cached converged 100 kpc solution:
+- |src_ld − src_f64|/|src_f64| ≤ 1e-14;
+- equilibrated |g_ld − g_f64|/|Sd src| ≤ 1e-10;
+- Hessian action on a random vector, extended operator vs float64-assembled H, relative ≤ 1e-12;
+- GMRES on a random right-hand side reaches ≤ 1e-10.
+
+Also recorded, descriptive only: the long-double residual of the committed 1000 kpc float64 root, and at the 1391 kpc initial guess, the true linear residual of the float64 Newton step against the long-double one.
+
+**Validation (`validate`; must PASS or the ladder refuses to run).** The committed 100 kpc fixed-sweep row from static (23×46, B = 1000). It passes iff:
+- the long-double residual reaches ≤ 1e-10 within 40 iterations, **and**
+- the float64 residual at the final iterate is ≤ 1e-10, **and**
+- relative differences from the committed row are ≤ 1e-6 (g/Φ̂-flux, g/g_static) and ≤ 1e-5 (Y/Y_static).
+
+**Ladder, target, predictions, thresholds, stop rule, static-reference rule:** unchanged from Amendment 1 (n = 31 → 34, R* = 3745.16 kpc). The static reference at n = 34 comes from `box_ladder_c1.py static 34` (float64, the same path as every committed row). The verdict is computed by `attempt4_mixed_precision.py verdict` using the Amendment 1 rule.
+
+**After this.** If attempt 4 fails, the next step is option 3: a descriptive `[O]` write-up of the five committed boxes. D7 remains open either way.
