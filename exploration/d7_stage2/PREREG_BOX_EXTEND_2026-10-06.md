@@ -53,3 +53,14 @@ run does not count.
 ## Scope limits
 One grid family, one speed (100 km/s), one K_B (1/2), g_e = 0, and the clamp kept. Even a "converging" result does not
 establish uniqueness, does not pass gate B2 or C (different gates), and does not select a branch.
+
+## Results
+
+**Anchor (2026-10-06): PASS.**
+- `anchor_quick` and the full `anchor`, re-evaluated from `cache_branch/boxsweep_B10000_30x60_v100.npy`, reproduce the committed 1000 kpc row to every printed digit: g/g_static = 0.029036439110345473, g/Φ̂-flux = 0.9778217608849343, Y/Y_static = 7.323625928307524e-05, static g/flux = 33.67567755705084.
+- Static reference (stage 1): 4.05e-11, the same as the committed row.
+
+**Attempt 1 (B = 30000, 3000 kpc, 34×68, Newton from the static state): NON-CONVERGENCE, so no verdict, per the rule above.**
+- Static reference: stage 1 at 4.86e-11, same pattern as every committed box ≥ 100 kpc.
+- Wind solve: equilibrated |grad|/|src| fell 85.9 → 1.37 in one step, then stalled at **0.136 after 26 Newton steps**, with the line search at λ ≈ 1e-4. Total 9114 s.
+- Row in `BOX_EXTEND_C1_16x32_fixed.json`; log in `BOX_EXTEND_C1_run.txt`.

@@ -1,0 +1,23 @@
+{
+ "box_B": 10000.0,
+ "edge_kpc": 1000.0,
+ "grid": [
+  30,
+  60
+ ],
+ "g_ratio_static": 0.029036439110345473,
+ "g_ratio_phihat_flux": 0.9778217608849343,
+ "excess_over_GR": 0.22782176088493433,
+ "Y_ratio": 7.323625928307524e-05,
+ "static_g_over_flux": 33.67567755705084,
+ "u_over_tilt": 0.003487556432593124,
+ "kind": "anchor_from_cache",
+ "grad_norm": 6.794547121366328e-17,
+ "static": [
+  false,
+  4.050882661288274e-11,
+  false,
+  0.0017688728396097386
+ ],
+ "seconds": 4181.3
+}
