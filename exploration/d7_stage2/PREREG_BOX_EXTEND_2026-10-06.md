@@ -64,3 +64,43 @@ establish uniqueness, does not pass gate B2 or C (different gates), and does not
 - Static reference: stage 1 at 4.86e-11, same pattern as every committed box ≥ 100 kpc.
 - Wind solve: equilibrated |grad|/|src| fell 85.9 → 1.37 in one step, then stalled at **0.136 after 26 Newton steps**, with the line search at λ ≈ 1e-4. Total 9114 s.
 - Row in `BOX_EXTEND_C1_16x32_fixed.json`; log in `BOX_EXTEND_C1_run.txt`.
+
+## Amendment 1 (2026-10-06, committed after attempt 1 and before attempt 2 runs)
+
+**Why.** Attempt 1 failed in the wind Newton solve started from the static state. Attempt 2 changes only the initial
+guess and the target box. The question, decision variables, rule structure and scope limits are unchanged.
+
+**Method: box continuation on exactly nested grids.**
+- The fixed-resolution grids share dξ = dη = asinh(10⁴)/30 = 0.3301162518345376.
+- Choosing B_n = sinh(n·dξ) makes the n×2n grid contain the committed 1000 kpc 30×60 grid node for node: radial offset 0, η offset n − 30 elements on each side, verified to 1e-12.
+- Rungs n = 31, 32, 33, 34 (edges 1390, 1935, 2692, **3745 kpc**). Each rung starts from the previous converged solution, with every nodal DOF (f, f_ξ, f_η, f_ξη) copied unchanged (same dξ, so no rescaling) and new outer DOFs set to 0.
+- **This tracks the stripped branch by construction.** That matches the question, which concerns the stripped state's remnant.
+
+**Correctness checks before any solve.**
+- (i) Embedding into the same grid (offset 0) reproduces x exactly.
+- (ii) dξ equality is asserted in code.
+- (iii) `observables` on the padded 1000 kpc solution on the 31×62 grid gives g/Φ̂-flux = 0.9778217608849343 at 0.3 kpc.
+
+**Target, fixed now: n = 34, edge R* = 3745.16 kpc (B = 37451.6251).** Chosen because it nests exactly. Rungs 31–33 are
+descriptive only.
+
+**Predictions at R*,** using the same two pre-registered formulas: the 5-point pure power fit for H_pw, and the last local slope for H_steep.
+- e: H_pw = 0.2059, H_steep = 0.06218.
+- Y/Y_static: H_pw = 9.348e-5, H_steep = 5.337e-6.
+
+**Thresholds at R*,** placed at the same log-space positions between H_steep and H_pw that the original thresholds held at
+3000 kpc. Positions: e 0.3996 / 0.7684; Y 0.5947 / 0.8565.
+- **Converging:** e(R*) ≤ 0.1003 **and** Y/Y_static(R*) ≤ 2.929e-5.
+- **Persistent:** e(R*) ≥ 0.156 **or** Y/Y_static(R*) ≥ 6.198e-5.
+- **Otherwise:** inconclusive.
+- The overshoot flag (e < −0.02) and the scope limits are unchanged.
+
+**Stop rule.** If any rung does not converge (Newton residual > 1e-10 after 40 iterations), the ladder stops there and there is no verdict.
+
+**Static reference at R*.** Computed in a separate process by the same two-stage path as every committed row.
+- If its stage 1 does not reach ≤ 1e-10, "converging" cannot be declared, since it needs Y.
+- "Persistent" can still be declared from e alone. Otherwise e is reported descriptively.
+
+**Optional check.** A from-static solve at n = 31, in parallel. If it converges and matches the continuation root, the root is independent of the initial guess there. If it fails, that is consistent with attempt 1.
+
+Whatever the ladder gives is reported as "attempt 2 under Amendment 1 at 3745 kpc", not as the 3000 kpc result.
