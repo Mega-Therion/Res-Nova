@@ -1,0 +1,7 @@
+1000kpc_converged_30x60        rowsum  lam_max 9.629e-01 lam_min 1.672e-14 kappa 5.758e+13
+1000kpc_converged_30x60        jacobi  lam_max 4.875e+04 lam_min 5.255e-14 kappa 9.277e+17
+1000kpc_converged_30x60        ruiz    lam_max 8.599e+00 lam_min 5.271e-14 kappa 1.631e+14
+1391kpc_attempt2_guess_31x62   rowsum  lam_max 9.643e-01 lam_min 6.136e-15 kappa 1.572e+14
+1391kpc_attempt2_guess_31x62   jacobi  lam_max 4.875e+04 lam_min 1.926e-14 kappa 2.531e+18
+1391kpc_attempt2_guess_31x62   ruiz    lam_max 8.599e+00 lam_min 1.935e-14 kappa 4.445e+14
+total 670s

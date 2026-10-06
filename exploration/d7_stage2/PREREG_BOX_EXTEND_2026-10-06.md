@@ -168,3 +168,15 @@ The point is the zero-padded 1000 kpc solution on 31×62, 75,772 DOFs, measured 
   - The band's λ_min falls as R⁻³; plain Newton resolves it up to 1000 kpc.
   - Beyond that, float64 solves along it lose precision (ε/λ_min ≈ 0.04 at 1391 kpc, ≈ 0.4 at 3000 kpc), and Newton stalls at 0.033 / 0.136.
 - **Per the third-attempt rule, solo attempts stop here.** D7 box convergence beyond 1000 kpc goes to RY as a joint problem. D7 remains `[O]`. Nothing here is a physics result.
+
+**Option 1 (field rescaling), ruled out (2026-10-06; `diag_scaling_condition.py`, `SCALING_CONDITION_C1.json`).**
+κ = |eig|max/|eig|min of sym(D H D):
+
+| point | rowsum (current) | Ruiz | Jacobi |
+|---|---|---|---|
+| 1000 kpc converged | **5.8e13** | 1.6e14 | 9.3e17 |
+| 1391 kpc initial guess | **1.6e14** | 4.4e14 | 2.5e18 |
+
+No diagonal scaling beats the current one, so the near-singularity is intrinsic to the discrete equations, not a scaling artefact.
+
+**Next: option 2 (mixed-precision Newton).** Extended-precision (80-bit long double, ε = 1.08e-19) Hessian and gradient assembly, plus refinement of the float64 LU solve with extended-precision residuals. Feasibility checked: scipy.sparse supports float128 matvec and matmul. Not yet built. **D7 stays `[O]`.**

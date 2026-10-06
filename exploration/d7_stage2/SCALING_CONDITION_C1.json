@@ -1,0 +1,52 @@
+{
+ "rows": [
+  {
+   "point": "1000kpc_converged_30x60",
+   "scaling": "rowsum",
+   "lam_max": 0.9629408998291821,
+   "lam_min": 1.672363864481232e-14,
+   "kappa": 57579628469662.414,
+   "seconds": 83.1
+  },
+  {
+   "point": "1000kpc_converged_30x60",
+   "scaling": "jacobi",
+   "lam_max": 48746.58963771129,
+   "lam_min": 5.2545080451352084e-14,
+   "kappa": 9.277098677742523e+17,
+   "seconds": 81.5
+  },
+  {
+   "point": "1000kpc_converged_30x60",
+   "scaling": "ruiz",
+   "lam_max": 8.599192788312985,
+   "lam_min": 5.271132495151727e-14,
+   "kappa": 163137481295003.22,
+   "seconds": 77.2
+  },
+  {
+   "point": "1391kpc_attempt2_guess_31x62",
+   "scaling": "rowsum",
+   "lam_max": 0.9643113490195344,
+   "lam_min": 6.1356030203851795e-15,
+   "kappa": 157166515795703.66,
+   "seconds": 95.8
+  },
+  {
+   "point": "1391kpc_attempt2_guess_31x62",
+   "scaling": "jacobi",
+   "lam_max": 48746.58963771122,
+   "lam_min": 1.926161192726511e-14,
+   "kappa": 2.53076377105852e+18,
+   "seconds": 109.3
+  },
+  {
+   "point": "1391kpc_attempt2_guess_31x62",
+   "scaling": "ruiz",
+   "lam_max": 8.599234010706187,
+   "lam_min": 1.9347108119023195e-14,
+   "kappa": 444471285207266.9,
+   "seconds": 151.8
+  }
+ ]
+}
