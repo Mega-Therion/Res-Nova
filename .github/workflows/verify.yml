@@ -25,6 +25,11 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history: current_state_freshness.py runs a path-limited `git log`.
+          # On a depth-1 clone that returns HEAD's date for EVERY path, so the gate
+          # reported "physics changed today" on every push (2026-10-08).
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"

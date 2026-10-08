@@ -8,7 +8,7 @@ The galaxy scale \(a_0 = 1.16306\times 10^{-10}\,\mathrm{m\,s^{-2}}\) (SPARC T3)
 
 At Mercury, \(g_N = GM_\odot/r^2 = 0.0396\,\mathrm{m\,s^{-2}}\), so \(g_N/a_0 \approx 3.4\times 10^8\).
 
-**G.O.D., Branch B.** The dual-channel potential \(\mathcal{F}_{\rm dual} = \tfrac12 x^2 - x + \ln(1+x)\) gives \(\mu = x/(1+x)\). For a strong field the extra acceleration does not die. It tends to a constant of size \(a_0\), here \(1.16\times 10^{-10}\,\mathrm{m\,s^{-2}}\). That is the offset already known to fail planetary bounds. The algebra of this branch remains a Lean identity. The solar-system reading does not.
+**G.O.D., Branch B (retired, `[X]`).** The dual-channel potential \(\mathcal{F}_{\rm dual} = \tfrac12 x^2 - x + \ln(1+x)\) gives \(\mu = x/(1+x)\). For a strong field the extra acceleration does not die. It tends to a constant of size \(a_0\), here \(1.16\times 10^{-10}\,\mathrm{m\,s^{-2}}\). That is the offset already known to fail planetary bounds. The algebra of this branch remains a Lean identity. The solar-system reading does not.
 
 **ITT shape, Branch C.** \(\mu = x/\sqrt{1+x^2}\) gives an extra acceleration \(a_0^2/(2 g_N) = 1.71\times 10^{-19}\,\mathrm{m\,s^{-2}}\) at Mercury. That is \(6.8\times 10^8\) times smaller than the G.O.D. offset. The isolated-Sun monopole is not the problem for this shape.
 
