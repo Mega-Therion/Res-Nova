@@ -1,0 +1,107 @@
+{
+  "payload": {
+    "protocol": "vkernel/0.1",
+    "evidence_mode": "signed-service",
+    "ci_run": null,
+    "lean_toolchain": "leanprover/lean4:v4.33.0-rc1",
+    "source_commitment": "20c0a0e6e90f49aea964b6bae1a898dfd968ad085731fe208db160d226ce0d77",
+    "build_exit": 0,
+    "probe_exit": 0,
+    "axiom_policy": "standard-3",
+    "theorems": [
+      {
+        "name": "ResNova.TensorSpeed.c_T_sq_at_zero",
+        "statement_hash": "da2ccce46ba73954a3117aa188e8e232ce9038e63354d9d6aeac487a45552a4a",
+        "statement_text": "Eq.{1} Real (ResNova.TensorSpeed.c_T_sq (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))",
+        "def_closure_hash": "6e67dea9ca9bd24e9a817c3e2a18298465cce17e0d24e7e2c7c2c2b5031372a3",
+        "def_closure_size": 1088,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.TensorSpeed.maxwellian_c13_vanishes",
+        "statement_hash": "e1b4a36768bcad951562a078cad94724d282a8c91fb32f25496c438471cc7ef9",
+        "statement_text": "forall (K : Real), have c1 : Real := HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) K (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0)))))); have c3 : Real := HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (Neg.neg.{0} Real Real.instNeg K) (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0)))))); Eq.{1} Real (HAdd.hAdd.{0, 0, 0} Real Real Real (instHAdd.{0} Real Real.instAdd) c1 c3) (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))",
+        "def_closure_hash": "23750bf405b5e16b25710136d0c27a06e9f85b8b5bb46f18099fecc8e02622ef",
+        "def_closure_size": 1095,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal",
+        "statement_hash": "49a7784b2278a37faee226549e77dff3b986299c249d55820c94b41d089e7935",
+        "statement_text": "forall (K : Real), Eq.{1} Real (ResNova.TensorSpeed.c_T_sq (HAdd.hAdd.{0, 0, 0} Real Real Real (instHAdd.{0} Real Real.instAdd) (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) K (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0))))))) (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (Neg.neg.{0} Real Real.instNeg K) (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0))))))))) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))",
+        "def_closure_hash": "b941f5fed55093c97adc663efded196c346874749fe105b9ba22d654e035d883",
+        "def_closure_size": 1096,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.TensorSpeed.conformal_preserves_tensor_speed",
+        "statement_hash": "be9730af37e4573b3bd448935972475b38cb6c5979a4b5acc3c30ec5088de5d4",
+        "statement_text": "forall (F_TT : Real) (G_TT : Real) (A : Real), (GT.gt.{0} Real Real.instLT A (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))) -> (GT.gt.{0} Real Real.instLT G_TT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))) -> (Eq.{1} Real (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (HMul.hMul.{0, 0, 0} Real Real Real (instHMul.{0} Real Real.instMul) A F_TT) (HMul.hMul.{0, 0, 0} Real Real Real (instHMul.{0} Real Real.instMul) A G_TT)) (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) F_TT G_TT))",
+        "def_closure_hash": "5e3f490f66a02ad3978514159a01363455a6530bf116472b8312d3e72bf987e0",
+        "def_closure_size": 1096,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.TensorSpeed.physical_frame_tensor_speed_unity",
+        "statement_hash": "b92cc5f4042d78fbb9babcb5a4f721cbe64066dac70e2e5c83f58dfc280f8e2a",
+        "statement_text": "forall (c_T_g : Real), (Eq.{1} Real c_T_g (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))) -> (Eq.{1} Real c_T_g (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)))",
+        "def_closure_hash": "40947c092a2a836e175a038d83bc07c6c6c15fc45bb20738256ca168ec42903e",
+        "def_closure_size": 903,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.TensorSpeed.gw170817_concordance",
+        "statement_hash": "4ce8633a44439b8e3d2c8d362ee32b48ca21779168fabf58383dea89f6985b87",
+        "statement_text": "forall (c_T : Real) (c_gamma : Real), (Eq.{1} Real c_T (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))) -> (Eq.{1} Real c_gamma (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))) -> (forall (eps : Real), (GT.gt.{0} Real Real.instLT eps (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))) -> (LT.lt.{0} Real Real.instLT (abs.{0} Real Real.lattice Real.instAddGroup (HSub.hSub.{0, 0, 0} Real Real Real (instHSub.{0} Real Real.instSub) (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) c_T c_gamma) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)))) eps))",
+        "def_closure_hash": "3e1862af56a3ccc1ce60c83f394384b3ffd529b47e2fc058a81bfa44e7e160e9",
+        "def_closure_size": 1133,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      }
+    ],
+    "missing_theorems": [],
+    "statement_match": "not-checked",
+    "nonvacuity": "not-established",
+    "independent_checker": "leanchecker",
+    "checker_runs": [
+      {
+        "module": "PrintAxiomsD8",
+        "exit": 0,
+        "clean_output": true,
+        "ok": true
+      }
+    ],
+    "formal_result": "accepted",
+    "signer": "9049bf248ade5fc5719ae3016fbf5535496d7331fc63a3727d5ddfaec3718384"
+  },
+  "signature": "28620c7c0ca9da2650c0e9ba28dc6e499193bc999a08eb3f2c8b6f23026a8ccf7323df98523cdb2f147c688989d8cc7eee8d07fc7a07177d621358b8b7a8580a"
+}

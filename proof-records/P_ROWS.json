@@ -1,0 +1,22 @@
+{
+  "_doc": "Map from each [P] / [P/O] row of CURRENT_STATE_READ_THIS_FIRST.md to the Lean modules behind it, read by 4Leibniz/scripts/vkernel/p_receipt_check.py. named_in_row=false means the row itself names no .lean file; the legend (docs/EPISTEMIC_TIER_LEGEND.md) requires a named module and theorem for [P]. Built 2026-10-08 from the row text; 'inferred_from' says where an unnamed mapping came from.",
+  "source_doc": "CURRENT_STATE_READ_THIS_FIRST.md",
+  "rows": [
+    {"row": "D1", "tier": "[P]", "modules": [], "named_in_row": false,
+     "note": "the row cites TARGET_D1_SUPPLEMENT and names no Lean module"},
+    {"row": "D2", "tier": "[P]", "modules": ["MuNDuality"], "named_in_row": true, "prefixes": ["MuNDuality."]},
+    {"row": "D3", "tier": "[P/O]", "modules": [], "named_in_row": false,
+     "note": "the row says 'verified symbolically (note 7 §34)': a CAS result, not a Lean module"},
+    {"row": "D5", "tier": "[P/O]", "modules": ["CoshCosmology"], "named_in_row": true, "prefixes": ["ResNova.CoshCosmology."]},
+    {"row": "D6", "tier": "[P/O]", "modules": [], "named_in_row": false, "note": "the row names no Lean module"},
+    {"row": "D7", "tier": "[P/O]", "modules": ["AeSTStealthSector"], "named_in_row": false,
+     "inferred_from": "module name AeSTStealthSector.lean; the row cites the stealth sector (D3 §34)",
+     "prefixes": ["ResNova.AeSTStealthSector."]},
+    {"row": "D8", "tier": "[P]", "modules": ["TensorSpeed", "PrintAxiomsD8"], "named_in_row": false,
+     "inferred_from": "README.md 'c_T = c (D8)' and the file name PrintAxiomsD8.lean",
+     "prefixes": ["ResNova.TensorSpeed."]},
+    {"row": "D9", "tier": "[P]", "modules": ["SZStdEmbedding"], "named_in_row": true, "prefixes": ["SZStdEmbedding."]},
+    {"row": "MuStdFoundations (2026-09-30 correction, line ~103)", "tier": "[P]", "modules": ["MuStdFoundations"],
+     "named_in_row": true, "prefixes": ["ResNova.MuStdFoundations."]}
+  ]
+}

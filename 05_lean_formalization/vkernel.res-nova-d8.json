@@ -1,0 +1,18 @@
+{
+  "imports": [
+    "PrintAxiomsD8"
+  ],
+  "theorems": [
+    "ResNova.TensorSpeed.c_T_sq_at_zero",
+    "ResNova.TensorSpeed.maxwellian_c13_vanishes",
+    "ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal",
+    "ResNova.TensorSpeed.conformal_preserves_tensor_speed",
+    "ResNova.TensorSpeed.physical_frame_tensor_speed_unity",
+    "ResNova.TensorSpeed.gw170817_concordance"
+  ],
+  "axiom_policy": "standard-3",
+  "check_modules": [
+    "PrintAxiomsD8"
+  ],
+  "_scope": "D8 c_T=c: the PrintAxiomsD8 module (cannot be imported together with TensorSpeed: duplicate declarations)."
+}
