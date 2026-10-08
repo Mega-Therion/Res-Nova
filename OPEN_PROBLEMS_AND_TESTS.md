@@ -76,6 +76,8 @@ Two hardening changes landed with the closure: (i) `fetch_sparc.sh` now falls ba
 
 **Caveat kept honest:** the SPARC *analysis* scripts (`a0_measure.py`, `parameter_ledger.py`) were not re-run in this walk. Their frozen JSON outputs are unchanged and remain the empirical authority (`AGENT_COVENANT.md`).
 
+**Update 2026-10-08:** `parameter_ledger.py`, `efe_quadrupole_q2.py` and `cassini_pareto_scan.py` were re-run cold from a fresh clone. All three outputs are byte-identical to the commit (`VERIFICATION_RUN_010_COLD_CORE/`). `./reproduce_core_results.sh` repeats the check in one command. `a0_measure.py` was not part of this run.
+
 ---
 
 ## O6 — Fresh-clone Lean reproduction

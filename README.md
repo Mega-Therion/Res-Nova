@@ -17,6 +17,8 @@ Technical manuscript, formal verification, and reproducibility package.
 
 | | |
 | :--- | :--- |
+| [`RESULTS.md`](RESULTS.md) | The core numbers. `./reproduce_core_results.sh` regenerates them from a fresh clone and checks them byte for byte against the commit. |
+| [`CHECKS.md`](CHECKS.md) | Every outside reproduction or critique, confirming or breaking. |
 | [`CURRENT_STATE_READ_THIS_FIRST.md`](CURRENT_STATE_READ_THIS_FIRST.md) | The current status of every physics claim. Its verification date is enforced by CI against the newest physics change. |
 | [`PEER_REVIEW_READINESS.md`](PEER_REVIEW_READINESS.md) | The twelve research targets, each scored and decomposed. |
 | [`docs/EPISTEMIC_TIER_LEGEND.md`](docs/EPISTEMIC_TIER_LEGEND.md) | The canonical claim tags. Where any other legend disagrees, this one wins. |
