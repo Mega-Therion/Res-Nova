@@ -1,24 +1,10 @@
-import { useEffect, useMemo, useState } from "react";
-import { ChevronLeft, ChevronRight, Clipboard, Download, Info, MousePointer2, Quote, RotateCcw } from "lucide-react";
-import { canonicalSparcCurves, sparcSource } from "../data/sparc";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Download, Info, RotateCcw } from "lucide-react";
+import { canonicalSparcCurves, sparcSource } from "@/data/sparc";
+import { exportSvgAsPng, exportSvgElement, niceTicks } from "@/lib/chart";
+import { cn } from "@/lib/cn";
 
-export type RotationCurvePoint = {
-  radius: number;
-  observed: number;
-  model: number;
-  uncertainty: number;
-};
-
-type RotationCurveGalaxy = {
-  id: string;
-  name: string;
-  morphology: string;
-  distance: string;
-  points: RotationCurvePoint[];
-  note: string;
-};
-
-const curves: RotationCurveGalaxy[] = canonicalSparcCurves.map((curve) => ({
+const curves = canonicalSparcCurves.map((curve) => ({
   ...curve,
   points: curve.points.map((point) => ({
     radius: point.radius,
@@ -28,128 +14,93 @@ const curves: RotationCurveGalaxy[] = canonicalSparcCurves.map((curve) => ({
   })),
 }));
 
-const width = 760;
-const height = 370;
-const plot = { left: 64, right: 24, top: 22, bottom: 52 };
-const xMax = 30;
-const yMax = 240;
-const xScale = (value: number) => plot.left + (value / xMax) * (width - plot.left - plot.right);
-const yScale = (value: number) => height - plot.bottom - (value / yMax) * (height - plot.top - plot.bottom);
-const linePath = (points: RotationCurvePoint[], key: "observed" | "model") => points.map((point, index) => `${index === 0 ? "M" : "L"} ${xScale(point.radius).toFixed(1)} ${yScale(point[key]).toFixed(1)}`).join(" ");
-const PAGE_SIZE = 18;
+const W = 760;
+const MAIN = 318;
+const GAP = 18;
+const RES = 108;
+const H = MAIN + GAP + RES;
+const P = { l: 58, r: 18, t: 16, b: 28 };
+const PAGE = 16;
+const DEFAULT_ID = curves.find((c) => c.name === "NGC3198")?.id ?? curves[0].id;
 
-function formatVelocity(value: number) {
+function formatVel(value: number) {
   return `${value.toFixed(0)} km/s`;
 }
 
-function saveBlob(blob: Blob, filename: string) {
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = filename;
-  link.click();
-  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+function Sparkline({ points, active }: { points: Array<{ radius: number; observed: number; model: number }>; active?: boolean }) {
+  const xMax = Math.max(...points.map((p) => p.radius), 1);
+  const yMax = Math.max(...points.map((p) => p.observed), 1);
+  const d = points
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${((p.radius / xMax) * 88 + 4).toFixed(1)} ${(28 - (p.observed / yMax) * 22).toFixed(1)}`)
+    .join(" ");
+  const m = points
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${((p.radius / xMax) * 88 + 4).toFixed(1)} ${(28 - (p.model / yMax) * 22).toFixed(1)}`)
+    .join(" ");
+  return (
+    <svg viewBox="0 0 96 32" className="h-8 w-24" aria-hidden="true">
+      <path d={m} fill="none" stroke="var(--color-model)" strokeWidth="1.2" opacity={active ? 1 : 0.55} />
+      <path d={d} fill="none" stroke="var(--color-obs)" strokeWidth="1.4" />
+    </svg>
+  );
 }
 
-function createPdfFromJpeg(jpegDataUrl: string, width: number, height: number) {
-  const encoder = new TextEncoder();
-  const jpegBytes = Uint8Array.from(atob(jpegDataUrl.split(",")[1]), (character) => character.charCodeAt(0));
-  const chunks: BlobPart[] = [];
-  const offsets = [0];
-  let offset = 0;
-  const push = (chunk: Uint8Array) => { chunks.push(chunk as unknown as BlobPart); offset += chunk.length; };
-  const object = (number: number, body: string, binary?: Uint8Array) => {
-    offsets[number] = offset;
-    push(encoder.encode(`${number} 0 obj\n${body}`));
-    if (binary) push(binary);
-    push(encoder.encode("\nendobj\n"));
-  };
-  push(encoder.encode("%PDF-1.4\n%\xFF\xFF\xFF\xFF\n"));
-  object(1, "<< /Type /Catalog /Pages 2 0 R >>\n");
-  object(2, "<< /Type /Pages /Kids [3 0 R] /Count 1 >>\n");
-  object(3, `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${width} ${height}] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>\n`);
-  object(4, `<< /Type /XObject /Subtype /Image /Width ${width} /Height ${height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpegBytes.length} >>\nstream\n`, jpegBytes);
-  const content = `q\n${width} 0 0 ${height} 0 0 cm\n/Im0 Do\nQ\n`;
-  object(5, `<< /Length ${content.length} >>\nstream\n${content}endstream\n`);
-  const xrefOffset = offset;
-  const xref = `xref\n0 6\n0000000000 65535 f \n${[1, 2, 3, 4, 5].map((number) => `${String(offsets[number]).padStart(10, "0")} 00000 n `).join("\n")}\ntrailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`;
-  push(encoder.encode(xref));
-  return new Blob(chunks, { type: "application/pdf" });
-}
-
-function exportChart(format: "svg" | "png" | "pdf", galaxyName: string) {
-  const svg = document.querySelector(".rotation-chart svg");
-  if (!svg) return;
-  const serialized = new XMLSerializer().serializeToString(svg);
-  if (format === "svg") {
-    saveBlob(new Blob([serialized], { type: "image/svg+xml" }), `${galaxyName.toLowerCase()}-rotation-curve.svg`);
-    return;
-  }
-  const svgBlob = new Blob([serialized], { type: "image/svg+xml;charset=utf-8" });
-  const url = URL.createObjectURL(svgBlob);
-  const image = new Image();
-  image.onload = () => {
-    const width = 1520;
-    const height = 740;
-    const canvas = document.createElement("canvas");
-    canvas.width = width;
-    canvas.height = height;
-    const context = canvas.getContext("2d");
-    if (!context) return;
-    context.fillStyle = "#fbfcfa";
-    context.fillRect(0, 0, width, height);
-    context.drawImage(image, 0, 0, width, height);
-    if (format === "png") canvas.toBlob((blob) => blob && saveBlob(blob, `${galaxyName.toLowerCase()}-rotation-curve.png`), "image/png");
-    if (format === "pdf") saveBlob(createPdfFromJpeg(canvas.toDataURL("image/jpeg", 0.95), width, height), `${galaxyName.toLowerCase()}-rotation-curve.pdf`);
-    URL.revokeObjectURL(url);
-  };
-  image.src = url;
-}
-
-export default function RotationCurveExplorer() {
-  const [galaxyId, setGalaxyId] = useState(curves[0].id);
+export function RotationCurveExplorer() {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const [galaxyId, setGalaxyId] = useState<string>(DEFAULT_ID);
   const [showModel, setShowModel] = useState(true);
   const [showUncertainty, setShowUncertainty] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(0);
-  const [citationCopied, setCitationCopied] = useState(false);
   const galaxy = curves.find((item) => item.id === galaxyId) ?? curves[0];
-  const filteredCurves = useMemo(() => curves.filter((item) => item.name.toLowerCase().includes(search.toLowerCase())), [search]);
-  const pageCount = Math.max(1, Math.ceil(filteredCurves.length / PAGE_SIZE));
-  const pageCurves = filteredCurves.slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE);
-  const selectOptions = [galaxy, ...pageCurves.filter((item) => item.id !== galaxy.id)];
+  const filtered = useMemo(
+    () => curves.filter((item) => item.name.toLowerCase().includes(search.toLowerCase())),
+    [search],
+  );
+  const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE));
+  const pageCurves = filtered.slice(page * PAGE, page * PAGE + PAGE);
   const activePoint = galaxy.points[activeIndex] ?? galaxy.points[0];
   const residual = activePoint.observed - activePoint.model;
-  const uncertaintyPath = useMemo(() => {
-    if (!showUncertainty) return "";
-    const upper = galaxy.points.map((point, index) => `${index === 0 ? "M" : "L"} ${xScale(point.radius).toFixed(1)} ${yScale(point.observed + point.uncertainty).toFixed(1)}`).join(" ");
-    const lower = [...galaxy.points].reverse().map((point) => `L ${xScale(point.radius).toFixed(1)} ${yScale(Math.max(0, point.observed - point.uncertainty)).toFixed(1)}`).join(" ");
-    return `${upper} ${lower} Z`;
-  }, [galaxy, showUncertainty]);
+
+  const scales = useMemo(() => {
+    const xMax = Math.max(...galaxy.points.map((p) => p.radius), 1) * 1.08;
+    const yMax = Math.max(...galaxy.points.map((p) => p.observed + p.uncertainty), ...galaxy.points.map((p) => p.model), 40) * 1.12;
+    const rMax = Math.max(...galaxy.points.map((p) => Math.abs(p.observed - p.model) + p.uncertainty), 12) * 1.15;
+    const xScale = (v: number) => Number((P.l + (v / xMax) * (W - P.l - P.r)).toFixed(2));
+    const yScale = (v: number) => Number((MAIN - P.b - (Math.max(0, v) / yMax) * (MAIN - P.t - P.b)).toFixed(2));
+    const rScale = (v: number) => Number((MAIN + GAP + RES / 2 - (v / rMax) * ((RES - 28) / 2)).toFixed(2));
+    return {
+      xMax,
+      yMax,
+      rMax,
+      xScale,
+      yScale,
+      rScale,
+      xt: niceTicks(0, xMax, 5),
+      yt: niceTicks(0, yMax, 5),
+      rt: niceTicks(-rMax, rMax, 3),
+    };
+  }, [galaxy]);
+
+  const observedPath = galaxy.points
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${scales.xScale(p.radius).toFixed(1)} ${scales.yScale(p.observed).toFixed(1)}`)
+    .join(" ");
+  const modelPath = galaxy.points
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${scales.xScale(p.radius).toFixed(1)} ${scales.yScale(p.model).toFixed(1)}`)
+    .join(" ");
+  const residualPath = galaxy.points
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${scales.xScale(p.radius).toFixed(1)} ${scales.rScale(p.observed - p.model).toFixed(1)}`)
+    .join(" ");
 
   const selectGalaxy = (id: string) => {
     setGalaxyId(id);
     setActiveIndex(0);
-  };
-
-  const updateSearch = (value: string) => {
-    setSearch(value);
-    setPage(0);
-  };
-
-  const copyCitation = async () => {
-    try {
-      await navigator.clipboard.writeText(`Res Nova Research Atlas. ${galaxy.name} canonical SPARC rotation curve. ${sparcSource.authors}; ${sparcSource.archiveFile}; ${sparcSource.doi}.`);
-      setCitationCopied(true);
-      window.setTimeout(() => setCitationCopied(false), 1800);
-    } catch {
-      setCitationCopied(false);
-    }
+    const idx = filtered.findIndex((item) => item.id === id);
+    if (idx >= 0) setPage(Math.floor(idx / PAGE));
   };
 
   useEffect(() => {
-    const handleGuideAction = (event: Event) => {
+    const handle = (event: Event) => {
       const detail = (event as CustomEvent<{ galaxy?: string; showModel?: boolean; showUncertainty?: boolean }>).detail;
       if (detail.galaxy) {
         const requested = curves.find((item) => item.name.toLowerCase() === detail.galaxy?.toLowerCase());
@@ -158,52 +109,247 @@ export default function RotationCurveExplorer() {
       if (typeof detail.showModel === "boolean") setShowModel(detail.showModel);
       if (typeof detail.showUncertainty === "boolean") setShowUncertainty(detail.showUncertainty);
     };
-    window.addEventListener("resnova:guide-action", handleGuideAction);
-    return () => window.removeEventListener("resnova:guide-action", handleGuideAction);
+    window.addEventListener("resnova:guide-action", handle);
+    return () => window.removeEventListener("resnova:guide-action", handle);
   }, []);
 
+  const exportChart = (format: "svg" | "png") => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const name = `${galaxy.name.toLowerCase()}-rotation-curve.${format}`;
+    if (format === "svg") exportSvgElement(svg, name);
+    else exportSvgAsPng(svg, name, "#09080c");
+  };
+
   return (
-    <section className="rotation-explorer" aria-labelledby="rotation-explorer-title">
-      <div className="rotation-explorer-head">
-        <div>
+    <section className="mt-16" aria-labelledby="rotation-explorer-title">
+      <div className="mb-6 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="max-w-xl">
           <span className="eyebrow">Canonical evidence · {sparcSource.galaxyCount} galaxies · {sparcSource.authors}</span>
-          <h2 id="rotation-explorer-title">Read the curve point by point.</h2>
-          <p>Hover or focus a marker to inspect an official SPARC radius, measured velocity, uncertainty, and the published baryonic component baseline.</p>
+          <h2 id="rotation-explorer-title" className="mt-3 font-display text-[clamp(1.8rem,3.4vw,2.6rem)] font-medium leading-tight">
+            Read the curve point by point.
+          </h2>
+          <p className="mt-3 text-muted">
+            Hover a marker to inspect an official SPARC radius, measured velocity, uncertainty, and the published baryonic baseline. The lower panel is V_obs − V_bar. Axes autoscale per galaxy.
+          </p>
         </div>
-        <div className="rotation-controls" aria-label="Rotation curve controls">
-          <label className="rotation-select-label" htmlFor="galaxy-search">Find</label>
-          <input className="rotation-search" id="galaxy-search" value={search} onChange={(event) => updateSearch(event.target.value)} placeholder="NGC…" />
-          <label className="rotation-select-label" htmlFor="galaxy-select">Galaxy</label>
-          <select id="galaxy-select" value={galaxyId} onChange={(event) => selectGalaxy(event.target.value)}>
-            {selectOptions.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}
+        <div className="flex flex-wrap items-center gap-2">
+          <label className="sr-only" htmlFor="galaxy-search">Find galaxy</label>
+          <input
+            id="galaxy-search"
+            className="min-h-11 w-32 border border-line bg-surface px-3 font-mono text-sm"
+            value={search}
+            onChange={(e) => { setSearch(e.target.value); setPage(0); }}
+            placeholder="NGC…"
+          />
+          <label className="sr-only" htmlFor="galaxy-select">Galaxy</label>
+          <select
+            id="galaxy-select"
+            className="min-h-11 border border-line bg-surface px-3 font-mono text-sm"
+            value={galaxyId}
+            onChange={(e) => selectGalaxy(e.target.value)}
+          >
+            {(filtered.some((item) => item.id === galaxyId) ? filtered : [galaxy, ...filtered]).map((item) => (
+              <option key={item.id} value={item.id}>{item.name}</option>
+            ))}
           </select>
-          <button className={`rotation-toggle ${showModel ? "is-on" : ""}`} type="button" aria-pressed={showModel} onClick={() => setShowModel(!showModel)}><span className="toggle-swatch swatch-model" /> Baseline</button>
-          <button className={`rotation-toggle ${showUncertainty ? "is-on" : ""}`} type="button" aria-pressed={showUncertainty} onClick={() => setShowUncertainty(!showUncertainty)}><span className="toggle-swatch swatch-band" /> Uncertainty</button>
-          <div className="rotation-pagination"><button type="button" disabled={page === 0} onClick={() => setPage((current) => Math.max(0, current - 1))} aria-label="Previous galaxy page"><ChevronLeft size={13} /></button><span>{filteredCurves.length ? page * PAGE_SIZE + 1 : 0}–{Math.min((page + 1) * PAGE_SIZE, filteredCurves.length)} / {filteredCurves.length} galaxies</span><button type="button" disabled={page >= pageCount - 1} onClick={() => setPage((current) => Math.min(pageCount - 1, current + 1))} aria-label="Next galaxy page"><ChevronRight size={13} /></button></div>
+          <button type="button" className={cn("btn btn-quiet min-h-11 px-3", showModel && "border-accent text-accent")} aria-pressed={showModel} onClick={() => setShowModel(!showModel)}>
+            Baseline
+          </button>
+          <button type="button" className={cn("btn btn-quiet min-h-11 px-3", showUncertainty && "border-accent text-accent")} aria-pressed={showUncertainty} onClick={() => setShowUncertainty(!showUncertainty)}>
+            Uncertainty
+          </button>
         </div>
       </div>
-      <div className="rotation-layout">
-        <div className="rotation-chart-wrap">
-          <div className="rotation-chart" role="img" aria-label={`Canonical SPARC rotation curve for ${galaxy.name}. Horizontal axis is radius in kiloparsecs; vertical axis is circular velocity in kilometers per second.`}>
-            <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none">
-              <title>{galaxy.name} canonical SPARC rotation curve</title>
-              <desc>Official observed velocity markers with published uncertainty and an optional baryonic component baseline.</desc>
-              {[0, 60, 120, 180, 240].map((tick) => <g key={tick}><line className="rotation-gridline" x1={plot.left} x2={width - plot.right} y1={yScale(tick)} y2={yScale(tick)} /><text className="rotation-tick" x={plot.left - 12} y={yScale(tick) + 4} textAnchor="end">{tick}</text></g>)}
-              {[0, 10, 20, 30].map((tick) => <g key={tick}><line className="rotation-gridline rotation-gridline-vertical" x1={xScale(tick)} x2={xScale(tick)} y1={plot.top} y2={height - plot.bottom} /><text className="rotation-tick" x={xScale(tick)} y={height - plot.bottom + 23} textAnchor="middle">{tick}</text></g>)}
-              <line className="rotation-axis" x1={plot.left} x2={width - plot.right} y1={height - plot.bottom} y2={height - plot.bottom} />
-              <line className="rotation-axis" x1={plot.left} x2={plot.left} y1={plot.top} y2={height - plot.bottom} />
-              {showUncertainty && <path className="rotation-band" d={uncertaintyPath} />}
-              {showModel && <path className="rotation-model" d={linePath(galaxy.points, "model")} />}
-              {galaxy.points.map((point, index) => <g key={`${galaxy.id}-${point.radius}`} className="rotation-point-group" onMouseEnter={() => setActiveIndex(index)} onFocus={() => setActiveIndex(index)}><line className="rotation-error" x1={xScale(point.radius)} x2={xScale(point.radius)} y1={yScale(point.observed - point.uncertainty)} y2={yScale(point.observed + point.uncertainty)} /><line className="rotation-error-cap" x1={xScale(point.radius) - 4} x2={xScale(point.radius) + 4} y1={yScale(point.observed - point.uncertainty)} y2={yScale(point.observed - point.uncertainty)} /><line className="rotation-error-cap" x1={xScale(point.radius) - 4} x2={xScale(point.radius) + 4} y1={yScale(point.observed + point.uncertainty)} y2={yScale(point.observed + point.uncertainty)} /><circle className={`rotation-point ${activeIndex === index ? "is-active" : ""}`} tabIndex={0} role="button" aria-label={`${galaxy.name}, radius ${point.radius} kiloparsecs, observed ${formatVelocity(point.observed)}`} cx={xScale(point.radius)} cy={yScale(point.observed)} r={activeIndex === index ? 6 : 4} /></g>)}
-              <text className="rotation-axis-label" x={(plot.left + width - plot.right) / 2} y={height - 8} textAnchor="middle">radius (kpc)</text>
-              <text className="rotation-axis-label" transform={`translate(15 ${(plot.top + height - plot.bottom) / 2}) rotate(-90)`} textAnchor="middle">circular velocity (km/s)</text>
-            </svg>
-            <div className="rotation-tooltip" aria-live="polite"><span className="tooltip-kicker">{galaxy.name} · point {activeIndex + 1}/{galaxy.points.length}</span><strong>r = {activePoint.radius.toFixed(2)} kpc</strong><div><span>observed <b>{formatVelocity(activePoint.observed)}</b></span><span>error <b>±{formatVelocity(activePoint.uncertainty)}</b></span><span>baseline <b>{formatVelocity(activePoint.model)}</b></span><span>residual <b className={residual >= 0 ? "residual-positive" : "residual-negative"}>{residual > 0 ? "+" : ""}{residual.toFixed(0)} km/s</b></span></div></div>
+
+      <div className="grid gap-5 lg:grid-cols-[1.45fr_.55fr]">
+        <div className="figure-frame rounded-xl p-4">
+          <svg
+            ref={svgRef}
+            viewBox={`0 0 ${W} ${H}`}
+            className="w-full"
+            role="img"
+            aria-label={`Canonical SPARC rotation curve for ${galaxy.name} with residual panel`}
+            tabIndex={0}
+            onKeyDown={(event) => {
+              if (event.key === "ArrowRight") {
+                event.preventDefault();
+                setActiveIndex((index) => Math.min(galaxy.points.length - 1, index + 1));
+              }
+              if (event.key === "ArrowLeft") {
+                event.preventDefault();
+                setActiveIndex((index) => Math.max(0, index - 1));
+              }
+            }}
+          >
+            {scales.yt.map((tick) => (
+              <g key={`y${tick}`}>
+                <line className="plot-grid" x1={P.l} x2={W - P.r} y1={scales.yScale(tick)} y2={scales.yScale(tick)} />
+                <text className="plot-tick" x={P.l - 8} y={scales.yScale(tick) + 4} textAnchor="end">
+                  {Math.round(tick)}
+                </text>
+              </g>
+            ))}
+            {scales.xt.map((tick) => (
+              <g key={`x${tick}`}>
+                <line className="plot-grid" x1={scales.xScale(tick)} x2={scales.xScale(tick)} y1={P.t} y2={MAIN - P.b} />
+              </g>
+            ))}
+            <line className="plot-axis" x1={P.l} x2={W - P.r} y1={MAIN - P.b} y2={MAIN - P.b} />
+            <line className="plot-axis" x1={P.l} x2={P.l} y1={P.t} y2={MAIN - P.b} />
+            {showUncertainty &&
+              galaxy.points.map((point) => (
+                <line
+                  key={`e-${point.radius}`}
+                  x1={scales.xScale(point.radius)}
+                  x2={scales.xScale(point.radius)}
+                  y1={scales.yScale(point.observed - point.uncertainty)}
+                  y2={scales.yScale(point.observed + point.uncertainty)}
+                  stroke="var(--color-obs)"
+                  strokeOpacity="0.45"
+                  strokeWidth="1.4"
+                />
+              ))}
+            {showModel && <path d={modelPath} fill="none" stroke="var(--color-model)" strokeWidth="2.2" />}
+            <path d={observedPath} fill="none" stroke="var(--color-obs)" strokeWidth="1.4" strokeOpacity="0.35" />
+            {galaxy.points.map((point, index) => (
+              <circle
+                key={`${galaxy.id}-${point.radius}`}
+                cx={scales.xScale(point.radius)}
+                cy={scales.yScale(point.observed)}
+                r={activeIndex === index ? 6 : 3.6}
+                fill="var(--color-obs)"
+                tabIndex={0}
+                role="button"
+                aria-label={`${galaxy.name}, radius ${point.radius} kiloparsecs, observed ${formatVel(point.observed)}`}
+                onMouseEnter={() => setActiveIndex(index)}
+                onFocus={() => setActiveIndex(index)}
+              />
+            ))}
+            <text className="plot-label" transform={`translate(16 ${MAIN / 2}) rotate(-90)`} textAnchor="middle">
+              V (km/s)
+            </text>
+
+            <line x1={P.l} x2={W - P.r} y1={scales.rScale(0)} y2={scales.rScale(0)} stroke="var(--color-muted)" strokeDasharray="4 4" />
+            {scales.rt.map((tick) => (
+              <text key={`r${tick}`} className="plot-tick" x={P.l - 8} y={scales.rScale(tick) + 4} textAnchor="end">
+                {Math.round(tick)}
+              </text>
+            ))}
+            {showUncertainty &&
+              galaxy.points.map((point) => (
+                <line
+                  key={`re-${point.radius}`}
+                  x1={scales.xScale(point.radius)}
+                  x2={scales.xScale(point.radius)}
+                  y1={scales.rScale(point.observed - point.model - point.uncertainty)}
+                  y2={scales.rScale(point.observed - point.model + point.uncertainty)}
+                  stroke="var(--color-obs)"
+                  strokeOpacity="0.35"
+                  strokeWidth="1.2"
+                />
+              ))}
+            {showModel && <path d={residualPath} fill="none" stroke="var(--color-obs)" strokeWidth="1.5" />}
+            {galaxy.points.map((point, index) => (
+              <circle
+                key={`rp-${point.radius}`}
+                cx={scales.xScale(point.radius)}
+                cy={scales.rScale(point.observed - point.model)}
+                r={activeIndex === index ? 4.5 : 2.6}
+                fill="var(--color-obs)"
+                onMouseEnter={() => setActiveIndex(index)}
+              />
+            ))}
+            {scales.xt.map((tick) => (
+              <text key={`xb${tick}`} className="plot-tick" x={scales.xScale(tick)} y={H - 6} textAnchor="middle">
+                {tick < 10 ? tick.toFixed(1) : Math.round(tick)}
+              </text>
+            ))}
+            <line className="plot-axis" x1={P.l} x2={W - P.r} y1={H - 22} y2={H - 22} />
+            <line className="plot-axis" x1={P.l} x2={P.l} y1={MAIN + GAP} y2={H - 22} />
+            <text className="plot-label" x={(P.l + W - P.r) / 2} y={MAIN - 8} textAnchor="middle">
+              radius (kpc)
+            </text>
+            <text className="plot-label" transform={`translate(16 ${MAIN + GAP + RES / 2}) rotate(-90)`} textAnchor="middle">
+              ΔV (km/s)
+            </text>
+          </svg>
+          <div className="mt-2 flex flex-wrap gap-4 px-1 font-mono text-[10px] uppercase tracking-wider text-muted">
+            <span className="inline-flex items-center gap-2"><i className="size-2.5 rounded-full bg-obs" /> observed</span>
+            <span className="inline-flex items-center gap-2"><i className="h-0.5 w-5 bg-model" /> baryonic baseline</span>
+            <span className="inline-flex items-center gap-2"><i className="h-3 w-0.5 bg-obs/50" /> ± published error</span>
+            <span>lower panel · residual</span>
           </div>
-          <div className="rotation-legend"><span><i className="legend-point" /> observed</span><span><i className="legend-line" /> baryonic baseline</span><span><i className="legend-band" /> ± published error</span></div>
         </div>
-        <aside className="rotation-reading"><div className="rotation-reading-icon"><MousePointer2 size={17} /></div><span className="eyebrow">Selected point</span><strong>{formatVelocity(activePoint.observed)}</strong><p>At <b>{activePoint.radius.toFixed(2)} kpc</b>, the observed curve sits <b>{Math.abs(residual).toFixed(0)} km/s {residual >= 0 ? "above" : "below"}</b> the published baryonic baseline.</p><div className="rotation-metadata"><span>morphology <b>{galaxy.morphology}</b></span><span>distance <b>{galaxy.distance}</b></span><span>points <b>{galaxy.points.length}</b></span></div><p className="rotation-caveat"><Info size={14} /> {galaxy.note}</p><div className="rotation-exports"><span>Publication exports</span><div><button type="button" onClick={() => exportChart("png", galaxy.name)}><Download size={12} /> PNG</button><button type="button" onClick={() => exportChart("pdf", galaxy.name)}><Download size={12} /> PDF</button><button type="button" onClick={() => exportChart("svg", galaxy.name)}><Download size={12} /> SVG</button><button type="button" onClick={copyCitation}>{citationCopied ? <Clipboard size={12} /> : <Quote size={12} />} {citationCopied ? "Copied" : "Cite"}</button></div></div><a className="rotation-source-link" href={sparcSource.archiveUrl} target="_blank" rel="noreferrer">Source archive · Zenodo DOI</a><button className="rotation-reset" type="button" onClick={() => { setGalaxyId(curves[0].id); setActiveIndex(0); setPage(0); setSearch(""); setShowModel(true); setShowUncertainty(true); }}><RotateCcw size={13} /> Reset explorer</button></aside>
+
+        <aside className="flex flex-col border border-line bg-surface p-5">
+          <span className="eyebrow">Selected point</span>
+          <strong className="mt-3 font-display text-4xl font-medium tabular-nums">{formatVel(activePoint.observed)}</strong>
+          <p className="mt-3 text-sm leading-relaxed text-muted">
+            At <b className="text-ink">{activePoint.radius.toFixed(2)} kpc</b>, the observed curve sits{" "}
+            <b className="text-ink">{Math.abs(residual).toFixed(0)} km/s {residual >= 0 ? "above" : "below"}</b> the published baryonic baseline.
+          </p>
+          <div className="mt-4 grid grid-cols-2 gap-2 font-mono text-[10px] uppercase tracking-wider text-muted">
+            <span>error <b className="block text-ink normal-case tracking-normal">±{formatVel(activePoint.uncertainty)}</b></span>
+            <span>baseline <b className="block text-ink normal-case tracking-normal">{formatVel(activePoint.model)}</b></span>
+            <span>distance <b className="block text-ink normal-case tracking-normal">{galaxy.distance.replace(" Mpc Mpc", " Mpc")}</b></span>
+            <span>points <b className="block text-ink normal-case tracking-normal">{galaxy.points.length}</b></span>
+          </div>
+          <p className="mt-4 flex gap-2 text-[12px] leading-relaxed text-muted">
+            <Info size={14} className="mt-0.5 shrink-0 text-accent" />
+            {galaxy.note}
+          </p>
+          <div className="mt-auto pt-5">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-muted">Publication exports</span>
+            <div className="mt-2 flex gap-2">
+              <button type="button" className="btn btn-quiet min-h-10 px-3" onClick={() => exportChart("png")}><Download size={12} /> PNG</button>
+              <button type="button" className="btn btn-quiet min-h-10 px-3" onClick={() => exportChart("svg")}><Download size={12} /> SVG</button>
+            </div>
+            <a className="mt-3 inline-flex font-mono text-[10px] uppercase tracking-widest text-accent" href={sparcSource.archiveUrl} target="_blank" rel="noreferrer">
+              Source archive · {sparcSource.doi}
+            </a>
+            <button
+              className="btn btn-quiet mt-3 w-full"
+              type="button"
+              onClick={() => { setGalaxyId(DEFAULT_ID); setActiveIndex(0); setPage(0); setSearch(""); setShowModel(true); setShowUncertainty(true); }}
+            >
+              <RotateCcw size={13} /> Reset explorer
+            </button>
+          </div>
+        </aside>
+      </div>
+
+      <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-8">
+        {pageCurves.map((item) => (
+          <button
+            key={item.id}
+            type="button"
+            onClick={() => selectGalaxy(item.id)}
+            className={cn(
+              "flex min-h-16 flex-col items-start border border-line bg-surface px-2 py-2 text-left",
+              item.id === galaxyId && "border-accent",
+            )}
+          >
+            <Sparkline points={item.points} active={item.id === galaxyId} />
+            <span className="mt-1 font-mono text-[10px] tracking-wide">{item.name}</span>
+          </button>
+        ))}
+      </div>
+
+      <div className="mt-4 flex items-center justify-between font-mono text-[11px] text-muted">
+        <button type="button" className="btn btn-quiet min-h-10 px-3" disabled={page === 0} onClick={() => setPage((p) => Math.max(0, p - 1))} aria-label="Previous galaxy page">
+          <ChevronLeft size={14} />
+        </button>
+        <span>
+          {filtered.length ? page * PAGE + 1 : 0}–{Math.min((page + 1) * PAGE, filtered.length)} / {filtered.length} galaxies
+        </span>
+        <button type="button" className="btn btn-quiet min-h-10 px-3" disabled={page >= pageCount - 1} onClick={() => setPage((p) => Math.min(pageCount - 1, p + 1))} aria-label="Next galaxy page">
+          <ChevronRight size={14} />
+        </button>
       </div>
     </section>
   );
 }
+
+export default RotationCurveExplorer;
+
