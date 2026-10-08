@@ -38,7 +38,7 @@ Forty injected catalogues per model per cut were run, each built under that mode
 
 **Verdict under C3** (calibrated > 18.5 AND raw > null max, in both cuts):
 - **F (fish, full boost): excluded.**
-- **N, E, S, P: not excluded.** All four pass the strict cut. In the loose cut N and P fail both criteria, E fails only the calibrated one, and S passes.
+- **N, E, S, P: not excluded.** All four pass the strict cut. In the loose cut N, E and P fail both criteria, and S passes. (Corrected 2026-10-08: this line said E "fails only the calibrated one", but the table gives E raw 31.7 > null max 27.5 and calibrated 20.3 > 18.5. The verdict is unchanged, since E passes the strict cut.)
 
 This replaces the reading in 9c986c0, where N and P "failed both cuts" against an uncalibrated threshold.
 
