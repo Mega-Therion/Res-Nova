@@ -53,7 +53,7 @@ expressed here — the axiom explicitly admits the competing simple-μ form.
 |---|---|---|:---:|---|
 | 195–199 | `BKMVorticityState` field `h_controlled : ∀ t ≥ 0, ω_sup t ≤ B` | `bkm_vorticity_integral_finite` (:203) — `ω_sup T · T ≤ B · T` | **Yes** (weakly) | Valid scaling of the assumed bound. |
 | same | same | `bkm_no_blowup` (:210) — `ω_sup T · T < M` given `B·T < M` | **Yes** (weakly) | Valid chaining. |
-| same | same | `sovereign_regularity_theorem` (:218) — `ω_sup T ≤ B` | **No — projection** | Proof term is `st.h_controlled T hT`. The flagship-named theorem **restates its own hypothesis**. Docstring claims *"globally regular and non-singular"*. |
+| same | same | `assumed_vorticity_bound_projection` (:218) — `ω_sup T ≤ B` | **No — projection** | Proof term is `st.h_controlled T hT`. The former flagship-named theorem has been corrected to state that it **restates its own hypothesis**; it is not a regularity theorem. |
 
 **Separate and more serious — the BKM integral is not an integral.** The Beale–Kato–Majda
 criterion concerns `∫₀ᵀ ‖ω(·,t)‖_∞ dt < ∞`. These statements use the **product** `ω_sup T · T`.
@@ -89,7 +89,7 @@ These are documentation defects, not theory changes. The gate passing does not l
 |---|---|---|
 | "zero custom unproven axioms" | `README.md`, `verify_all_proofs.sh:8` | "declares no Lean global `axiom`; assumptions are carried as typeclass fields, structure fields, and theorem hypotheses" |
 | "Deep-MOND … preserves Baryonic Tully-Fisher acceleration ratio" | `AXIOMS_V2.lean:79` docstring | "positivity of `√(g_bar · a₀)` under positivity of its factors" |
-| "globally regular and non-singular" | `SovereignRegularity.lean:216` docstring | "restates the assumed pointwise vorticity bound" |
+| "globally regular and non-singular" | `SovereignRegularity.lean:216` docstring | "projects the assumed pointwise vorticity bound; no PDE continuation is formalized" |
 | "Conditional BKM integral boundedness" | `res_nova_manuscript.tex` Table 2; `reproducibility_appendix.tex:20` | "pointwise vorticity bounded by assumption; no integral and no PDE are formalized" |
 | "Spectral gap positivity" presented without its premise | Table 2; appendix:19 | "positivity of an assumed spectral gap `κ² ≤ λ₁ − λ₀`" |
 | "the 5 core physical axioms" | `AXIOMS_V2.lean:11` header | accurate, but note A2/A3 are satisfied by trivial witnesses and A1/A5 are unused |

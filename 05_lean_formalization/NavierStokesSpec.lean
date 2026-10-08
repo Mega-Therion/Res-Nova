@@ -53,13 +53,12 @@ def AlignmentPredicate (K L ρ : ℝ) (ω : VorticityField) : Prop :=
 
 /-- Historical scalar gate interpreted as a Lipschitz deficit bound.
 This definition does not choose physical units; any use must supply `Lmax`. -/
-def alignmentFromGate (Lmax : ℝ) : ℝ :=
+noncomputable def alignmentFromGate (Lmax : ℝ) : ℝ :=
   (1 - alignmentGate) * Lmax
 
 theorem alignmentFromGate_eq (Lmax : ℝ) :
     alignmentFromGate Lmax = (3 / 10) * Lmax := by
-  simp [alignmentFromGate, alignmentGate]
-  ring
+  norm_num [alignmentFromGate, alignmentGate]
 
 /-- Open obligation: persistence of `AlignmentPredicate` along a genuine NSE
 solution class. This file records the obligation; it does not prove it. -/

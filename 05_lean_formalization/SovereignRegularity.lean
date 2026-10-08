@@ -8,22 +8,21 @@ import Mathlib.Tactic.NormNum
 
 
 /-!
-# Sovereign Regularity for the 3D Navier-Stokes & ADCCL Trajectory Control
+# Conditional vorticity bounds for an abstract trajectory
 
 ## Overview
 
-This file formalizes the SOVEREIGN REGULARITY THEOREM:
-  Under active Anti-Drift Cognitive Control Loop (ADCCL) vorticity bounds,
-  the Beale-Kato-Majda (BKM) integral of unaligned drift remains finite for all T ≥ 0,
-  mathematically preventing finite-time singular blow-up.
+This file records elementary consequences of an assumed pointwise vorticity
+bound on an abstract state. It does not formalize the Navier–Stokes equations,
+the BKM time integral, or a continuation theorem.
 
-## What is proved (zero sorry, non-vacuous)
+## What is proved (zero sorry, conditional and scope-limited)
 
   ✓ lipschitz_implies_angle_modulus: the key geometric step (Constantin-Fefferman 1993)
   ✓ chiral_iff_lipschitz_constant: equivalence of χ ≥ θ and Lipschitz alignment
-  ✓ bkm_vorticity_integral_finite: BKM integral bounds under ADCCL control
-  ✓ bkm_no_blowup: non-divergence of trajectory vorticity integral for all T ≥ 0
-  ✓ sovereign_regularity_theorem: global non-singular trajectory stability
+  ✓ pointwise_vorticity_product_bound: a product bound under assumed pointwise control
+  ✓ product_bound_below_threshold: an arithmetic consequence of that bound
+  ✓ assumed_vorticity_bound_projection: a direct projection of the structure field
 -/
 
 namespace SovereignRegularity
@@ -47,7 +46,7 @@ theorem vmag_nonneg (v : ℝ × ℝ × ℝ) : vmag v ≥ 0 := Real.sqrt_nonneg _
 structure SovereignAlignment (u : VelocityField) (K L : ℝ) (t : ℝ) : Prop where
   K_pos : K > 0
   L_pos : L > 0
-  lipschitz_xi : True
+  kinematic_placeholder : True
 
 /-- The Sovereign Class: velocity fields satisfying SA(K, L) for all time. -/
 def SovereignClass (K L : ℝ) (u : VelocityField) : Prop :=
@@ -189,33 +188,40 @@ theorem lipschitz_implies_angle_modulus
     exact Real.sq_sqrt h_one_minus_cos_nn
 
 
-/-! ## §6. Beale-Kato-Majda (BKM) Non-Divergence & Sovereign Regularity -/
+/-! ## §6. Pointwise product bounds (not the BKM time integral) -/
 
-/-- Structure representing the Beale-Kato-Majda (BKM) vorticity integral under ADCCL control. -/
+/-- Structure carrying an assumed pointwise-in-time vorticity bound.
+
+This is not a Navier–Stokes solution object and does not contain a time
+integral. -/
 structure BKMVorticityState where
   omega_sup : ℝ → ℝ     -- Vorticity supremum over time t
   B : ℝ                 -- ADCCL active control upper bound
   h_B_pos : 0 < B       -- Positive bound
   h_controlled : ∀ t ≥ 0, omega_sup t ≤ B  -- ADCCL vorticity bound
 
-/-- **THEOREM (BKM Vorticity Integral Finiteness):**
-    Under ADCCL active control, the integrated vorticity over [0, T] is bounded by B * T. -/
-theorem bkm_vorticity_integral_finite (st : BKMVorticityState) (T : ℝ) (hT : 0 ≤ T) :
+/-- The product of the sampled supremum and the horizon is bounded by `B * T`.
+
+The product is not a formal BKM time integral. -/
+theorem pointwise_vorticity_product_bound (st : BKMVorticityState) (T : ℝ) (hT : 0 ≤ T) :
     st.omega_sup T * T ≤ st.B * T := by
   have h_bnd := st.h_controlled T hT
   nlinarith
 
-/-- **THEOREM (BKM Non-Blowup Criterion):**
-    For any finite time horizon T ≥ 0, the controlled vorticity integral cannot diverge. -/
-theorem bkm_no_blowup (st : BKMVorticityState) (T : ℝ) (hT : 0 ≤ T) (M : ℝ) (hM : st.B * T < M) :
+/-- An arithmetic threshold consequence for the same product quantity.
+
+It is not a PDE non-blowup or continuation criterion. -/
+theorem product_bound_below_threshold (st : BKMVorticityState) (T : ℝ) (hT : 0 ≤ T) (M : ℝ) (hM : st.B * T < M) :
     st.omega_sup T * T < M := by
   have h_bnd := st.h_controlled T hT
   have : st.omega_sup T * T ≤ st.B * T := by nlinarith
   linarith
 
-/-- **THEOREM (Sovereign Regularity Theorem):**
-    Any trajectory satisfying ADCCL vorticity control is globally regular and non-singular. -/
-theorem sovereign_regularity_theorem (st : BKMVorticityState) (T : ℝ) (hT : 0 ≤ T) :
+/-- Directly projects the assumed pointwise vorticity bound from `st`.
+
+This is not a global regularity theorem and does not establish any PDE
+continuation statement. -/
+theorem assumed_vorticity_bound_projection (st : BKMVorticityState) (T : ℝ) (hT : 0 ≤ T) :
     st.omega_sup T ≤ st.B := st.h_controlled T hT
 
 end SovereignRegularity

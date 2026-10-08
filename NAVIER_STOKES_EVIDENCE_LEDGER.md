@@ -50,3 +50,21 @@ This ledger preserves provenance for the active conditional-regularity program. 
 - Do not cite `SUPERSEDED-PRESERVED` entries as current support unless a separate re-admission decision names the precise version and rationale.
 - Do not upgrade a claim status without a source link, exact statement, and reproducible build or derivation evidence.
 - Every public technical claim must link to one or more ledger IDs.
+
+
+## Dated remediation update — 2026-09-14
+
+The official Lean inventory was repaired to include `NavierStokesGeometry`, `NavierStokesScope`, and `NavierStokesSpec` in both `lakefile.lean` and `verify_all_proofs.sh`. The corrected source names in `SovereignRegularity.lean` are `pointwise_vorticity_product_bound`, `product_bound_below_threshold`, and `assumed_vorticity_bound_projection`. These declarations preserve the existing proof terms but explicitly state that the quantity is a product, not a BKM time integral, and that the flagship result is a projection of `h_controlled`.
+
+`NAVIER_STOKES_SOURCE_STATEMENTS.md` records the source-checked Clay Alternative B statement, the accessible Constantin–Fefferman direction-of-vorticity hypothesis and its domain boundary, and Tao's periodic local-existence/maximal-development statements. The repository's `AlignmentPredicate` is not claimed to imply the exact Constantin–Fefferman criterion because its domain, time dependence, quantifiers, threshold semantics, and angle-vs-vector-distance condition do not match the source statement.
+
+The connected repository checkout contains no recoverable Paper 17 manuscript file, `TensionProof.lean`, or separate `NavierStokes.lean`; the historical hash/pointer is preserved above and in `NAVIER_STOKES_LYAPUNOV_AUDIT.md`, but no missing source content is reconstructed. Paper 17 therefore remains `MANUSCRIPT-CONDITIONAL / PARTIALLY-SUPPORTED`, with its Lyapunov route unsupported for arbitrary data.
+
+The required Lean command was not yet executable in this sandbox at the time of this update because the pinned `leanprover/lean4:v4.33.0-rc1` toolchain is absent (`$HOME/.elan/bin/lake` and `lean` not found). A dated witness must report the actual installation/build result; no compilation success is inferred from prior historical runs.
+
+
+## Final verification update — 2026-09-14
+
+The official gate completed with the pinned Lean toolchain `leanprover/lean4:v4.33.0-rc1` (Lean 4.33.0-rc1, commit `62eed1db4d67327ec8120be05f1a1b0847d74561`) and Mathlib revision `5eec30bc56ed5a23be2e27c544a949ba0bceddeb`. On the final run, `lake exe cache get`, `lake build`, and `bash verify_all_proofs.sh` each returned exit code 0. The verifier reported `verified: 48 / 48 target(s)` and `RESULT: PASS`, including `NavierStokesGeometry.lean`, `NavierStokesScope.lean`, and `NavierStokesSpec.lean`. The corrected witness transcript and SHA-256 record are preserved at `05_lean_formalization/VERIFICATION_RUN_2026-10-08_FINAL/`.
+
+This result certifies elaboration, no `sorry` reports, and the gate's standard axiom-footprint check. It does not certify the physical or analytic justification of assumptions carried by structures, typeclasses, or theorem hypotheses. The Clay-level implication remains open.

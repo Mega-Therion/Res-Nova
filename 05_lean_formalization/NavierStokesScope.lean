@@ -16,7 +16,7 @@ namespace NavierStokesScope
 
 /-- The numerical threshold used in the historical alignment proposal.
 This is a scalar parameter choice, not a PDE theorem. -/
-def alignmentGate : ℝ := 7 / 10
+noncomputable def alignmentGate : ℝ := 7 / 10
 
 /-- If a scalar `χ` is at least the chosen gate, its deficit from one is at most
 `3/10`. This is elementary arithmetic only. -/

@@ -1,0 +1,468 @@
+timestamp_utc=2026-09-14T02:07:29Z
+git_commit=a0a79e869e87ddc857473c6e404b2bceb6ed44fb
+lean_toolchain=leanprover/lean4:v4.33.0-rc1
+lean_version=Lean (version 4.33.0-rc1, x86_64-unknown-linux-gnu, commit 62eed1db4d67327ec8120be05f1a1b0847d74561, Release)
+lake_version=Lake version 5.0.0-src+62eed1d (Lean version 4.33.0-rc1)
+mathlib_revision=5eec30bc56ed5a23be2e27c544a949ba0bceddeb
+target_count=58
+
+=== lake exe cache get ===
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+No files to download
+Already decompressed 8678 file(s)
+cache_exit_code=0
+
+=== lake build ===
+⚠ [1942/2102] Replayed FiniteSU2Envelope
+warning: FiniteSU2Envelope.lean:64:10: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: FiniteSU2Envelope.lean:67:10: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: FiniteSU2Envelope.lean:70:19: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: FiniteSU2Envelope.lean:70:43: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2221/2376] Replayed SU2MatrixEnvelope
+warning: SU2MatrixEnvelope.lean:74:6: This simp argument is unused:
+  qnorm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.conjTranspose, qMatrix, Matrix.mul_apply, Fin.sum_univ_two, Complex.ext_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ℹ [2227/2376] Replayed ChiralHolonomyOrientation
+info: ChiralHolonomyOrientation.lean:100:0: 'ChiralHolonomy.orientation_asymmetry_witness' does not depend on any axioms
+info: ChiralHolonomyOrientation.lean:101:0: 'ChiralHolonomy.involution_destroys_orientation' does not depend on any axioms
+info: ChiralHolonomyOrientation.lean:102:0: 'ChiralHolonomy.orientation_iff_not_involution' depends on axioms: [propext]
+info: ChiralHolonomyOrientation.lean:103:0: 'ChiralHolonomy.only_identity_is_orientation_blind' does not depend on any axioms
+ℹ [2228/2376] Replayed GenerationCycleChirality
+info: GenerationCycleChirality.lean:103:0: 'GenerationCycle.cycle_orientation_asymmetry' depends on axioms: [propext, Quot.sound]
+info: GenerationCycleChirality.lean:104:0: 'GenerationCycle.orientation_disagrees_everywhere' depends on axioms: [propext]
+info: GenerationCycleChirality.lean:105:0: 'GenerationCycle.sigma_squared_ne_id' depends on axioms: [propext, Quot.sound]
+info: GenerationCycleChirality.lean:106:0: 'GenerationCycle.three_cycle_chiral_two_cycle_not' depends on axioms: [propext]
+⚠ [3021/3165] Replayed DeSitterExtremal
+warning: DeSitterExtremal.lean:74:57: Variable name `hr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3023/3165] Replayed GODActionKinematics
+info: GODActionKinematics.lean:49:0: 'GODTheory.dual_channel_poly_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GODActionKinematics.lean:50:0: 'GODTheory.aqual_simple_mu_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GODActionKinematics.lean:51:0: 'GODTheory.btfr_algebraic_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3327/3393] Replayed MuProjection
+warning: MuProjection.lean:87:52: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3363/3393] Replayed MuStdUniqueness
+info: MuStdUniqueness.lean:472:0: 'ResNova.MuStdUniqueness.theorem_A_constitutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:473:0: 'ResNova.MuStdUniqueness.theorem_A_conjugacy' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:474:0: 'ResNova.MuStdUniqueness.theorem_A_postulate_R_ode' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:475:0: 'ResNova.MuStdUniqueness.theorem_A_celerity_forced' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:476:0: 'ResNova.MuStdUniqueness.theorem_A_uniqueness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:477:0: 'ResNova.MuStdUniqueness.mu_fam_hasDerivAt_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:478:0: 'ResNova.MuStdUniqueness.mu_fam_normalization' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:479:0: 'ResNova.MuStdUniqueness.theorem_B_fisher_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:480:0: 'ResNova.MuStdUniqueness.theorem_B_uniqueness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:481:0: 'ResNova.MuStdUniqueness.theorem_C_exponent_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:482:0: 'ResNova.MuStdUniqueness.theorem_C_selects_n_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:483:0: 'ResNova.MuStdUniqueness.theorem_C_rejects_n_ge_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:484:0: 'ResNova.MuStdUniqueness.F_std_deriv2_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:485:0: 'ResNova.MuStdUniqueness.F_std_strictConvexOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3366/3393] Replayed PillarIV_AntiDriftGate
+info: PillarIV_AntiDriftGate.lean:86:0: @le_div_iff₀ : ∀ {G₀ : Type u_1} [inst : GroupWithZero G₀] [inst_1 : PartialOrder G₀] [MulPosReflectLT G₀] {a b c : G₀},
+  0 < c → (a ≤ b / c ↔ a * c ≤ b)
+info: PillarIV_AntiDriftGate.lean:87:0: @div_le_iff₀ : ∀ {G₀ : Type u_1} [inst : GroupWithZero G₀] [inst_1 : PartialOrder G₀] [MulPosReflectLT G₀] {a b c : G₀},
+  0 < c → (b / c ≤ a ↔ b ≤ a * c)
+info: PillarIV_AntiDriftGate.lean:88:0: @one_le_div : ∀ {α : Type u_1} [inst : Semifield α] [inst_1 : PartialOrder α] [PosMulReflectLT α] {a b : α},
+  0 < b → (1 ≤ a / b ↔ b ≤ a)
+info: PillarIV_AntiDriftGate.lean:416:0: 'PillarIV.mu_eq_tanh_arsinh' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:417:0: 'PillarIV.mu_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:418:0: 'PillarIV.mu_ge_chiFloor_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:419:0: 'PillarIV.antiDrift_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:420:0: 'PillarIV.gksl_steady_state_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:421:0: 'PillarIV.steady_state_is_fixed_point' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:546:0: 'PillarIV.trace_steady_state' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:547:0: 'PillarIV.bloch_coherence_le_theta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:548:0: 'PillarIV.bloch_coherence_eq_theta_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:549:0: 'PillarIV.steady_state_coherence_im_eq_bloch' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:550:0: 'PillarIV.coherence_pinned_by_floor_and_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:551:0: 'PillarIV.saturating_ratio_eq_half_theta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:552:0: 'PillarIV.twoChannel_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:553:0: 'PillarIV.kappaBand_sq_add_complement_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:554:0: 'PillarIV.theta_le_kappaBand' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:555:0: 'PillarIV.kappaBand_at_seven_tenths' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3368/3393] Replayed PrintAxioms
+info: PrintAxioms.lean:17:0: 'ResNova.CovariantCompletion.raqual_superluminal_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:18:0: 'ResNova.CovariantCompletion.foliation_anchoring_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:19:0: 'ResNova.CovariantCompletion.disformal_gamma_ppn_unity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:20:0: 'ResNova.CovariantCompletion.preferred_frame_parameters_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:21:0: 'ResNova.CovariantCompletion.flrw_projected_gradient_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:22:0: 'ResNova.CovariantCompletion.no_dynamical_dark_energy_density' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [3369/3393] Replayed PrintAxiomsD8
+info: PrintAxiomsD8.lean:42:0: 'ResNova.TensorSpeed.c_T_sq_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:43:0: 'ResNova.TensorSpeed.maxwellian_c13_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:44:0: 'ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:45:0: 'ResNova.TensorSpeed.conformal_preserves_tensor_speed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:46:0: 'ResNova.TensorSpeed.physical_frame_tensor_speed_unity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:47:0: 'ResNova.TensorSpeed.gw170817_concordance' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3372/3393] Replayed RapidityEquipartition
+info: RapidityEquipartition.lean:54:0: 'RapidityEquipartition.arsinh_one_eq_log_one_add_sqrt_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RapidityEquipartition.lean:55:0: 'RapidityEquipartition.tanh_arsinh_one_eq_theta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RapidityEquipartition.lean:56:0: 'RapidityEquipartition.arsinh_one_eq_artanh_theta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RapidityEquipartition.lean:57:0: 'RapidityEquipartition.theta_odds_eq_silver_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3374/3393] Replayed SovereignSpinCeiling
+info: SovereignSpinCeiling.lean:34:0: 'SovereignSpinCeiling.two_theta_sub_theta_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SovereignSpinCeiling.lean:35:0: 'SovereignSpinCeiling.sovereign_spin_ceiling_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3375/3393] Replayed SkordisZlosnikEmbedding
+info: SkordisZlosnikEmbedding.lean:112:0: 'ResNova.SkordisZlosnik.sz_aqual_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:113:0: 'ResNova.SkordisZlosnik.dJ_dY_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:114:0: 'ResNova.SkordisZlosnik.sz_newtonian_limit_diff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:115:0: 'ResNova.SkordisZlosnik.sz_mond_limit_diff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:116:0: 'ResNova.SkordisZlosnik.sz_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:117:0: 'ResNova.SkordisZlosnik.sz_weak_field_lensing' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3376/3393] Replayed SovereignRegularity
+warning: SovereignRegularity.lean:70:43: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: SovereignRegularity.lean:84:22: Variable name `hθ_low` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hθ_low
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: SovereignRegularity.lean:84:39: Variable name `hθ_high` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hθ_high
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3378/3393] Replayed TensorSpeed
+info: TensorSpeed.lean:124:0: 'ResNova.TensorSpeed.c_T_sq_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:125:0: 'ResNova.TensorSpeed.maxwellian_c13_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:126:0: 'ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:127:0: 'ResNova.TensorSpeed.alpha_1_num_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:128:0: 'ResNova.TensorSpeed.alpha_1_den_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:129:0: 'ResNova.TensorSpeed.foster_jacobson_alpha_1_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:130:0: 'ResNova.TensorSpeed.disformal_photon_speed_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:131:0: 'ResNova.TensorSpeed.speed_ratio_unity_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:132:0: 'ResNova.TensorSpeed.speed_ratio_lt_one_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:133:0: 'ResNova.TensorSpeed.gw170817_deviation_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3379/3393] Replayed TrialityG2
+warning: TrialityG2.lean:48:10: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, Matrix.mul_apply, Matrix.transpose_apply, Fin.sum_univ_four, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: TrialityG2.lean:56:50: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, Matrix.mul_apply, Fin.sum_univ_four, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: TrialityG2.lean:75:31: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: TrialityG2.lean:75:31: 'norm_num' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ℹ [3382/3393] Replayed RamanujanGapDerivation
+info: RamanujanGapDerivation.lean:94:0: 'ResNova.RamanujanGap.RamanujanSpectrum.gap_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RamanujanGapDerivation.lean:95:0: 'ResNova.RamanujanGap.RamanujanSpectrum.kappa_sq_le_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RamanujanGapDerivation.lean:96:0: 'ResNova.RamanujanGap.petersen_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3392/3393] Built NavierStokesSpec (4.1s)
+warning: NavierStokesSpec.lean:33:63: Variable name `h` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: NavierStokesSpec.lean:41:30: This simp argument is unused:
+  abs_of_pos (norm_pos_iff.mpr h)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [direction, norm_smul, inv_mul_cancel₀ hx]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Build completed successfully (3393 jobs).
+build_exit_code=0
+
+=== bash verify_all_proofs.sh ===
+[gate] TARGETS == lakefile roots (48 modules)
+building library (required for cross-module imports)…
+⚠ [1942/2144] Replayed FiniteSU2Envelope
+warning: FiniteSU2Envelope.lean:64:10: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: FiniteSU2Envelope.lean:67:10: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: FiniteSU2Envelope.lean:70:19: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: FiniteSU2Envelope.lean:70:43: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2221/2417] Replayed SU2MatrixEnvelope
+warning: SU2MatrixEnvelope.lean:74:6: This simp argument is unused:
+  qnorm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Matrix.conjTranspose, qMatrix, Matrix.mul_apply, Fin.sum_univ_two, Complex.ext_iff]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ℹ [2227/2417] Replayed ChiralHolonomyOrientation
+info: ChiralHolonomyOrientation.lean:100:0: 'ChiralHolonomy.orientation_asymmetry_witness' does not depend on any axioms
+info: ChiralHolonomyOrientation.lean:101:0: 'ChiralHolonomy.involution_destroys_orientation' does not depend on any axioms
+info: ChiralHolonomyOrientation.lean:102:0: 'ChiralHolonomy.orientation_iff_not_involution' depends on axioms: [propext]
+info: ChiralHolonomyOrientation.lean:103:0: 'ChiralHolonomy.only_identity_is_orientation_blind' does not depend on any axioms
+ℹ [2228/2417] Replayed GenerationCycleChirality
+info: GenerationCycleChirality.lean:103:0: 'GenerationCycle.cycle_orientation_asymmetry' depends on axioms: [propext, Quot.sound]
+info: GenerationCycleChirality.lean:104:0: 'GenerationCycle.orientation_disagrees_everywhere' depends on axioms: [propext]
+info: GenerationCycleChirality.lean:105:0: 'GenerationCycle.sigma_squared_ne_id' depends on axioms: [propext, Quot.sound]
+info: GenerationCycleChirality.lean:106:0: 'GenerationCycle.three_cycle_chiral_two_cycle_not' depends on axioms: [propext]
+⚠ [3021/3213] Replayed DeSitterExtremal
+warning: DeSitterExtremal.lean:74:57: Variable name `hr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3023/3213] Replayed GODActionKinematics
+info: GODActionKinematics.lean:49:0: 'GODTheory.dual_channel_poly_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GODActionKinematics.lean:50:0: 'GODTheory.aqual_simple_mu_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: GODActionKinematics.lean:51:0: 'GODTheory.btfr_algebraic_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3327/3393] Replayed MuProjection
+warning: MuProjection.lean:87:52: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3363/3393] Replayed MuStdUniqueness
+info: MuStdUniqueness.lean:472:0: 'ResNova.MuStdUniqueness.theorem_A_constitutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:473:0: 'ResNova.MuStdUniqueness.theorem_A_conjugacy' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:474:0: 'ResNova.MuStdUniqueness.theorem_A_postulate_R_ode' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:475:0: 'ResNova.MuStdUniqueness.theorem_A_celerity_forced' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:476:0: 'ResNova.MuStdUniqueness.theorem_A_uniqueness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:477:0: 'ResNova.MuStdUniqueness.mu_fam_hasDerivAt_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:478:0: 'ResNova.MuStdUniqueness.mu_fam_normalization' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:479:0: 'ResNova.MuStdUniqueness.theorem_B_fisher_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:480:0: 'ResNova.MuStdUniqueness.theorem_B_uniqueness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:481:0: 'ResNova.MuStdUniqueness.theorem_C_exponent_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:482:0: 'ResNova.MuStdUniqueness.theorem_C_selects_n_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:483:0: 'ResNova.MuStdUniqueness.theorem_C_rejects_n_ge_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:484:0: 'ResNova.MuStdUniqueness.F_std_deriv2_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MuStdUniqueness.lean:485:0: 'ResNova.MuStdUniqueness.F_std_strictConvexOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3366/3393] Replayed PillarIV_AntiDriftGate
+info: PillarIV_AntiDriftGate.lean:86:0: @le_div_iff₀ : ∀ {G₀ : Type u_1} [inst : GroupWithZero G₀] [inst_1 : PartialOrder G₀] [MulPosReflectLT G₀] {a b c : G₀},
+  0 < c → (a ≤ b / c ↔ a * c ≤ b)
+info: PillarIV_AntiDriftGate.lean:87:0: @div_le_iff₀ : ∀ {G₀ : Type u_1} [inst : GroupWithZero G₀] [inst_1 : PartialOrder G₀] [MulPosReflectLT G₀] {a b c : G₀},
+  0 < c → (b / c ≤ a ↔ b ≤ a * c)
+info: PillarIV_AntiDriftGate.lean:88:0: @one_le_div : ∀ {α : Type u_1} [inst : Semifield α] [inst_1 : PartialOrder α] [PosMulReflectLT α] {a b : α},
+  0 < b → (1 ≤ a / b ↔ b ≤ a)
+info: PillarIV_AntiDriftGate.lean:416:0: 'PillarIV.mu_eq_tanh_arsinh' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:417:0: 'PillarIV.mu_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:418:0: 'PillarIV.mu_ge_chiFloor_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:419:0: 'PillarIV.antiDrift_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:420:0: 'PillarIV.gksl_steady_state_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:421:0: 'PillarIV.steady_state_is_fixed_point' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:546:0: 'PillarIV.trace_steady_state' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:547:0: 'PillarIV.bloch_coherence_le_theta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:548:0: 'PillarIV.bloch_coherence_eq_theta_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:549:0: 'PillarIV.steady_state_coherence_im_eq_bloch' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:550:0: 'PillarIV.coherence_pinned_by_floor_and_ceiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:551:0: 'PillarIV.saturating_ratio_eq_half_theta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:552:0: 'PillarIV.twoChannel_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:553:0: 'PillarIV.kappaBand_sq_add_complement_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:554:0: 'PillarIV.theta_le_kappaBand' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PillarIV_AntiDriftGate.lean:555:0: 'PillarIV.kappaBand_at_seven_tenths' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3368/3393] Replayed PrintAxioms
+info: PrintAxioms.lean:17:0: 'ResNova.CovariantCompletion.raqual_superluminal_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:18:0: 'ResNova.CovariantCompletion.foliation_anchoring_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:19:0: 'ResNova.CovariantCompletion.disformal_gamma_ppn_unity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:20:0: 'ResNova.CovariantCompletion.preferred_frame_parameters_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:21:0: 'ResNova.CovariantCompletion.flrw_projected_gradient_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxioms.lean:22:0: 'ResNova.CovariantCompletion.no_dynamical_dark_energy_density' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [3369/3393] Replayed PrintAxiomsD8
+info: PrintAxiomsD8.lean:42:0: 'ResNova.TensorSpeed.c_T_sq_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:43:0: 'ResNova.TensorSpeed.maxwellian_c13_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:44:0: 'ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:45:0: 'ResNova.TensorSpeed.conformal_preserves_tensor_speed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:46:0: 'ResNova.TensorSpeed.physical_frame_tensor_speed_unity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PrintAxiomsD8.lean:47:0: 'ResNova.TensorSpeed.gw170817_concordance' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3372/3393] Replayed RapidityEquipartition
+info: RapidityEquipartition.lean:54:0: 'RapidityEquipartition.arsinh_one_eq_log_one_add_sqrt_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RapidityEquipartition.lean:55:0: 'RapidityEquipartition.tanh_arsinh_one_eq_theta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RapidityEquipartition.lean:56:0: 'RapidityEquipartition.arsinh_one_eq_artanh_theta' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RapidityEquipartition.lean:57:0: 'RapidityEquipartition.theta_odds_eq_silver_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3374/3393] Replayed SovereignSpinCeiling
+info: SovereignSpinCeiling.lean:34:0: 'SovereignSpinCeiling.two_theta_sub_theta_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SovereignSpinCeiling.lean:35:0: 'SovereignSpinCeiling.sovereign_spin_ceiling_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3375/3393] Replayed SkordisZlosnikEmbedding
+info: SkordisZlosnikEmbedding.lean:112:0: 'ResNova.SkordisZlosnik.sz_aqual_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:113:0: 'ResNova.SkordisZlosnik.dJ_dY_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:114:0: 'ResNova.SkordisZlosnik.sz_newtonian_limit_diff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:115:0: 'ResNova.SkordisZlosnik.sz_mond_limit_diff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:116:0: 'ResNova.SkordisZlosnik.sz_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: SkordisZlosnikEmbedding.lean:117:0: 'ResNova.SkordisZlosnik.sz_weak_field_lensing' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3376/3393] Replayed SovereignRegularity
+warning: SovereignRegularity.lean:70:43: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: SovereignRegularity.lean:84:22: Variable name `hθ_low` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hθ_low
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: SovereignRegularity.lean:84:39: Variable name `hθ_high` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hθ_high
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3378/3393] Replayed TensorSpeed
+info: TensorSpeed.lean:124:0: 'ResNova.TensorSpeed.c_T_sq_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:125:0: 'ResNova.TensorSpeed.maxwellian_c13_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:126:0: 'ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:127:0: 'ResNova.TensorSpeed.alpha_1_num_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:128:0: 'ResNova.TensorSpeed.alpha_1_den_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:129:0: 'ResNova.TensorSpeed.foster_jacobson_alpha_1_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:130:0: 'ResNova.TensorSpeed.disformal_photon_speed_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:131:0: 'ResNova.TensorSpeed.speed_ratio_unity_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:132:0: 'ResNova.TensorSpeed.speed_ratio_lt_one_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TensorSpeed.lean:133:0: 'ResNova.TensorSpeed.gw170817_deviation_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3379/3393] Replayed TrialityG2
+warning: TrialityG2.lean:48:10: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, Matrix.mul_apply, Matrix.transpose_apply, Fin.sum_univ_four, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: TrialityG2.lean:56:50: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, Matrix.mul_apply, Fin.sum_univ_four, Matrix.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: TrialityG2.lean:75:31: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: TrialityG2.lean:75:31: 'norm_num' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+ℹ [3382/3393] Replayed RamanujanGapDerivation
+info: RamanujanGapDerivation.lean:94:0: 'ResNova.RamanujanGap.RamanujanSpectrum.gap_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RamanujanGapDerivation.lean:95:0: 'ResNova.RamanujanGap.RamanujanSpectrum.kappa_sq_le_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RamanujanGapDerivation.lean:96:0: 'ResNova.RamanujanGap.petersen_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3392/3393] Replayed NavierStokesSpec
+warning: NavierStokesSpec.lean:33:63: Variable name `h` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: NavierStokesSpec.lean:41:30: This simp argument is unused:
+  abs_of_pos (norm_pos_iff.mpr h)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [direction, norm_smul, inv_mul_cancel₀ hx]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Build completed successfully (3393 jobs).
+OK    BinaryTetrahedral.lean
+OK    TetrahedralQuotient.lean
+OK    TetrahedralAction.lean
+OK    TetrahedralEvenness.lean
+OK    FiniteSU2Envelope.lean
+OK    SU2MatrixEnvelope.lean
+OK    SU2CarrierRungs.lean
+OK    SU2FiniteFaithfulness.lean
+OK    AXIOMS_V2.lean
+OK    CartanTrialityGenerations.lean
+OK    ChiralCellularDuality.lean
+OK    ChiralCrackSketch.lean
+OK    ChiralResidue.lean
+OK    ChiralPartner.lean
+OK    ChiralHolonomyOrientation.lean
+OK    GenerationCycleChirality.lean
+OK    CosmologicalSector.lean
+OK    CovariantCompletion.lean
+OK    DeSitterExtremal.lean
+OK    DualChannelDerivation.lean
+OK    GODActionKinematics.lean
+OK    GenerationIndex.lean
+OK    DiagonalConeIndex.lean
+OK    Hamilgrangian.lean
+OK    HorizonScale.lean
+OK    ITActionClosure.lean
+OK    MuProjection.lean
+OK    MuStdUniqueness.lean
+OK    PPNLimits.lean
+OK    PillarIV_AntiDriftGate.lean
+OK    PrintAxioms.lean
+OK    PrintAxiomsD8.lean
+OK    RamanujanGapDerivation.lean
+OK    RamanujanModularBounds.lean
+OK    RelativisticStability.lean
+OK    RapidityEquipartition.lean
+OK    SOCasimirGenuine.lean
+OK    SovereignSpinCeiling.lean
+OK    SkordisZlosnikEmbedding.lean
+OK    SovereignRegularity.lean
+OK    SovereignSemiotics.lean
+OK    TensorSpeed.lean
+OK    TrialityFixedSubalgebra.lean
+OK    TrialityG2.lean
+OK    YettParadigm.lean
+OK    NavierStokesGeometry.lean
+OK    NavierStokesScope.lean
+OK    NavierStokesSpec.lean
+
+verified: 48 / 48 target(s)
+RESULT: PASS
+NOTE: this certifies elaboration, absence of sorry, and a standard axiom
+      footprint. It does not certify that assumptions carried as typeclass
+      or structure fields are physically justified — see THEORY_ASSUMPTION_AUDIT.md.
+verify_exit_code=0
+
+=== git status ===
+ [31mM[m 05_lean_formalization/NavierStokesScope.lean
+ [31mM[m 05_lean_formalization/NavierStokesSpec.lean
+ [31mM[m 05_lean_formalization/SovereignRegularity.lean
+ [31mM[m 05_lean_formalization/lakefile.lean
+ [31mM[m 05_lean_formalization/verify_all_proofs.sh
+ [31mM[m NAVIER_STOKES_EVIDENCE_LEDGER.md
+ [31mM[m NAVIER_STOKES_SCOPE.md
+ [31mM[m THEORY_ASSUMPTION_AUDIT.md
+[31m??[m 05_lean_formalization/VERIFICATION_RUN_2026-09-14_NAVIER_STOKES/
+[31m??[m 05_lean_formalization/VERIFICATION_RUN_2026-09-14_NAVIER_STOKES_02/
+[31m??[m 05_lean_formalization/VERIFICATION_RUN_2026-09-14_NAVIER_STOKES_03/
+[31m??[m NAVIER_STOKES_SOURCE_STATEMENTS.md
+[31m??[m docs/
+witness_exit_code=

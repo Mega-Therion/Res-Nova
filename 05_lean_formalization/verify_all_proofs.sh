@@ -41,7 +41,7 @@ TARGETS=(
   SU2MatrixEnvelope.lean \
   SU2CarrierRungs.lean \
   SU2FiniteFaithfulness.lean \
-  AXIOMS_V2.lean
+  AXIOMS_V2.lean \
   CartanTrialityGenerations.lean
   ChiralCellularDuality.lean
   ChiralCrackSketch.lean
@@ -54,9 +54,6 @@ TARGETS=(
   DeSitterExtremal.lean
   DualChannelDerivation.lean
   GODActionKinematics.lean
-  NavierStokesGeometry.lean
-  NavierStokesScope.lean
-  NavierStokesSpec.lean
   GenerationIndex.lean
   DiagonalConeIndex.lean
   Hamilgrangian.lean
@@ -80,7 +77,10 @@ TARGETS=(
   TensorSpeed.lean
   TrialityFixedSubalgebra.lean
   TrialityG2.lean
-  YettParadigm.lean
+  YettParadigm.lean \
+  NavierStokesGeometry.lean \
+  NavierStokesScope.lean \
+  NavierStokesSpec.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------
