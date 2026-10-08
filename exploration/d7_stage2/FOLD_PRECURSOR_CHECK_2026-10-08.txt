@@ -1,0 +1,8 @@
+edge_kpc  lam_min(Omega)   lam*R^3      sign pattern of 6 softest modes (field:sign)
+     10   1.665e-08   1.6651e-05  Omega:+ omega:+ S:- psi:- s:- A:-
+     30   5.468e-10   1.4765e-05  Omega:+ omega:+ psi:- omega:+ Omega:+ S:-
+    100   1.682e-11   1.6819e-05  Omega:+ omega:+ psi:- omega:+ Omega:+ psi:-
+    300   5.661e-13   1.5284e-05  Omega:+ omega:+ psi:- omega:+ Omega:+ psi:-
+   1000   1.672e-14   1.6719e-05  Omega:+ omega:+ psi:- omega:+ Omega:+ psi:-
+fit: lam_min ~ R^-2.9958
+lam*R^3: min 1.476e-05 max 1.682e-05 spread 13.9%
