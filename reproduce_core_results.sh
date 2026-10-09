@@ -6,24 +6,36 @@
 # 1. Fetches the 175 SPARC rotmod files and the master table from CWRU and verifies them by SHA-256
 #    (fetch_sparc.sh).
 # 2. Reruns every script whose output is cited as a headline number.
-# 3. Requires the regenerated files to be byte-identical to the commit. The one exception is the a0
-#    bootstrap file, whose percentiles move in the last floating-point digit across numpy builds;
-#    it is compared to a relative tolerance of 1e-12 and then restored.
+# 3. Compares the regenerated files with the commit. Five must be byte-identical. Three are optimizer or
+#    bootstrap outputs; they are compared numerically, field by field, to a relative tolerance, and then
+#    restored:
+#      A0_DISTANCE_CORRECTED_2026-09-16.json   1e-12  bootstrap percentiles move in the last digit across
+#                                                     numpy builds
+#      EFE_QUADRUPOLE_Q2.json,                 1e-8   L-BFGS-B stops once the relative decrease of chi^2
+#      CASSINI_PARETO_SCAN.json                       falls below ftol = 2.2e-9 (scipy's default), so two runs
+#                                                     whose floating-point summation order differs (another
+#                                                     BLAS thread count, another CPU) can stop a few ftol
+#                                                     apart. Measured 2026-10-09 in the air-gapped workshop VM
+#                                                     (2 vCPUs, the pinned wheels): up to 4.2e-10 against this
+#                                                     repository's 8-thread files, 1e-11 with one thread. Byte
+#                                                     identity had held only on the machine that wrote them.
 # 4. Re-checks that the generated benchmark tables in the manuscripts match the regenerated files.
 # Offline: set SPARC_DATA_DIR to a directory that already holds the SPARC files, and SPARC_OFFLINE=1.
 # fetch_sparc.sh then verifies them against their pinned SHA-256 and downloads nothing, so the whole run
 # needs no network.
-# Extended 2026-10-09: until then only the first three files below were covered, so the strict
-# SPARC check, the a0 headline, the Lambda_SC range and the generated tables were not reproduced
-# by this script.
+# Extended 2026-10-09: until then only three files were covered, so the strict SPARC check, the a0
+# headline, the Lambda_SC range and the generated tables were not reproduced by this script.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
 cd "$ROOT"
-OUTS=(02_galaxy_dynamics/PARAMETER_LEDGER.json 02_galaxy_dynamics/EFE_QUADRUPOLE_Q2.json 02_galaxy_dynamics/CASSINI_PARETO_SCAN.json
-      02_galaxy_dynamics/SPARC_175_summary.json 02_galaxy_dynamics/SPARC_175_GOD_fits.csv
-      02_galaxy_dynamics/LAMBDA_SC_UNSCREENED.json 02_galaxy_dynamics/LAMBDA_S_AT_LIVE_A0_2026-10-09.txt)
-A0=02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json
-if ! git diff --quiet -- "${OUTS[@]}" "$A0"; then
+EXACT=(02_galaxy_dynamics/PARAMETER_LEDGER.json 02_galaxy_dynamics/SPARC_175_summary.json
+       02_galaxy_dynamics/SPARC_175_GOD_fits.csv 02_galaxy_dynamics/LAMBDA_SC_UNSCREENED.json
+       02_galaxy_dynamics/LAMBDA_S_AT_LIVE_A0_2026-10-09.txt)
+NUMERIC=(02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json:1e-12
+         02_galaxy_dynamics/EFE_QUADRUPOLE_Q2.json:1e-8
+         02_galaxy_dynamics/CASSINI_PARETO_SCAN.json:1e-8)
+NUMERIC_FILES=("${NUMERIC[@]%%:*}")
+if ! git diff --quiet -- "${EXACT[@]}" "${NUMERIC_FILES[@]}"; then
   echo "refusing: the result files have local edits; run this on a clean checkout" >&2; exit 2
 fi
 export SPARC_DATA_DIR="${SPARC_DATA_DIR:-$(mktemp -d)/sparc_data}"
@@ -31,36 +43,15 @@ bash 02_galaxy_dynamics/fetch_sparc.sh
 ( cd 02_galaxy_dynamics && python3 parameter_ledger.py && python3 efe_quadrupole_q2.py && python3 cassini_pareto_scan.py \
     && python3 sparc_reproduce.py && python3 lambda_sc_unscreened.py \
     && python3 lambda_s_solar_system_check.py --a0 1.1607e-10 > LAMBDA_S_AT_LIVE_A0_2026-10-09.txt )
-COMMITTED_A0="$(mktemp)"; git show "HEAD:$A0" > "$COMMITTED_A0"
 python3 scripts/a0_distance_corrected_reextract.py
-a0_rc=0
-python3 - "$COMMITTED_A0" "$A0" <<'PY' || a0_rc=$?
-import json, math, sys
-a, b = (json.load(open(p)) for p in sys.argv[1:3])
-bad = []
-def walk(x, y, path):
-    if isinstance(x, dict) and isinstance(y, dict):
-        if set(x) != set(y):
-            bad.append(f"{path}: keys {sorted(set(x) ^ set(y))}")
-        for k in set(x) & set(y):
-            walk(x[k], y[k], f"{path}.{k}")
-    elif isinstance(x, list) and isinstance(y, list) and len(x) == len(y):
-        for i, (u, v) in enumerate(zip(x, y)):
-            walk(u, v, f"{path}[{i}]")
-    elif isinstance(x, float) or isinstance(y, float):
-        if not (isinstance(x, (int, float)) and isinstance(y, (int, float)) and math.isclose(x, y, rel_tol=1e-12, abs_tol=0.0)):
-            bad.append(f"{path}: {x!r} vs {y!r}")
-    elif x != y:
-        bad.append(f"{path}: {x!r} vs {y!r}")
-walk(a, b, "$")
-for line in bad[:20]:
-    print("  differs:", line)
-sys.exit(1 if bad else 0)
-PY
-git checkout -q -- "$A0"
+num_rc=0
+for spec in "${NUMERIC[@]}"; do
+  python3 scripts/compare_json_numeric.py "${spec%%:*}" "${spec##*:}" || num_rc=1
+done
+git checkout -q -- "${NUMERIC_FILES[@]}"
 python3 scripts/sparc_benchmark_tables.py --check
-if git diff --exit-code --stat -- "${OUTS[@]}" && [ "$a0_rc" -eq 0 ]; then
-  echo "REPRODUCED: ${#OUTS[@]} result files byte-identical and the a0 file equal to 1e-12, at $(git rev-parse --short HEAD)"
+if git diff --exit-code --stat -- "${EXACT[@]}" && [ "$num_rc" -eq 0 ]; then
+  echo "REPRODUCED: ${#EXACT[@]} result files byte-identical and ${#NUMERIC[@]} within tolerance (a0 1e-12; EFE, Cassini 1e-8), at $(git rev-parse --short HEAD)"
 else
   echo "DRIFT: regenerated results differ from $(git rev-parse --short HEAD) (see above)" >&2; exit 1
 fi
