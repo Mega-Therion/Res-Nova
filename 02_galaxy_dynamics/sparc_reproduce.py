@@ -53,7 +53,7 @@ def load_rotmod(path: Path) -> dict | None:
         line = line.strip()
         if not line or line.startswith("#"):
             continue
-        nums = re.findall(r"\d+\.\d+", line)
+        nums = re.findall(r"[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][-+]?\d+)?", line)
         if len(nums) < 6:
             continue
         r, vobs, verr, vgas, vdisk, vbul = map(float, nums[:6])
@@ -83,7 +83,8 @@ def load_rotmod(path: Path) -> dict | None:
 
 
 def v_baryon(v_gas, v_disk, v_bulge, yd: float, yb: float) -> np.ndarray:
-    return np.sqrt(v_gas**2 + (yd * v_disk) ** 2 + (yb * v_bulge) ** 2)
+    vb_sq = np.maximum(v_gas * np.abs(v_gas) + (yd * v_disk) ** 2 + (yb * v_bulge) ** 2, 1e-12)
+    return np.sqrt(vb_sq)
 
 
 def predict_velocity(

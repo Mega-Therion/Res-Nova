@@ -1,0 +1,9 @@
+{
+  "n_galaxies": 175,
+  "n_total_points": 3391,
+  "max_abs_diff_v_pred_km_s": 0.0,
+  "pearson_corr_v_pred": 1.0,
+  "max_abs_diff_chi2_red": 0.0,
+  "pearson_corr_chi2_red": 1.0,
+  "agreement": true
+}

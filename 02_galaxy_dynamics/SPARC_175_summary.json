@@ -1,33 +1,33 @@
 {
-  "generated": "2026-09-12",
-  "data_dir": "/home/mega/aeon-work/research/07_Domain_Tiers_and_Data/Datasets/data/sparc_data",
+  "generated": "2026-10-09",
+  "data_dir": "/app/conversations/6ac8f1039c0426a304e0cd0a/Res-Nova/02_galaxy_dynamics/sparc_data",
   "n_galaxies": 175,
   "a0_horizon_m_s2": 1.0421152108506952e-10,
   "a0_mond_empirical_m_s2": 1.2e-10,
   "strict_GOD": {
     "n": 175,
-    "median": 15.098198314171201,
-    "mean": 52.0587705745072,
+    "median": 15.00865689971704,
+    "mean": 52.010573770980535,
     "max": 1899.1883163182822,
-    "frac_lt_1": 5,
+    "frac_lt_1": 6,
     "frac_lt_2": 16,
     "frac_lt_5": 46
   },
   "strict_MOND": {
     "n": 175,
     "median": 17.013331789350957,
-    "mean": 59.32912067323242,
+    "mean": 59.273580384382626,
     "max": 2050.918292142981,
     "frac_lt_1": 5,
-    "frac_lt_2": 15,
+    "frac_lt_2": 16,
     "frac_lt_5": 43
   },
   "nuisance_GOD": {
     "n": 175,
-    "median": 2.892027483251747,
-    "mean": 6.991193431229098,
+    "median": 2.91969345029859,
+    "mean": 7.000925833751228,
     "max": 73.33743230403437,
-    "frac_lt_1": 32,
+    "frac_lt_1": 33,
     "frac_lt_2": 67,
     "frac_lt_5": 118
   },
