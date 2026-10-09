@@ -12,7 +12,7 @@ Five files must match byte for byte. Three are compared field by field to a stat
 - the a₀ file, to 10⁻¹², because its bootstrap percentiles move in the last digit across numpy builds;
 - `EFE_QUADRUPOLE_Q2.json` and `CASSINI_PARETO_SCAN.json`, to 10⁻⁸. Their values come out of L-BFGS-B fits, which stop once χ² improves by less than 2.2×10⁻⁹ in relative terms (scipy's default). A different BLAS thread count or CPU changes the summation order, so the fits can stop slightly apart. An offline run in a separate 2-vCPU machine on 2026-10-09 matched the other five files byte for byte, and these two to within 4.2×10⁻¹⁰ (`CHECKS.md`). Byte identity for them holds only on the machine that wrote them.
 
-Every number quoted on this page is far coarser than these tolerances. The command then re-checks the generated benchmark tables (`scripts/sparc_benchmark_tables.py --check`). A full run on 2026-10-09 took 389 s, exited 0, and printed `REPRODUCED: 7 result files byte-identical and the a0 file equal to 1e-12`.
+Every number quoted on this page is far coarser than these tolerances. The command then re-checks the generated benchmark tables (`scripts/sparc_benchmark_tables.py --check`). A full run on 2026-10-09, before the tolerance change, took 389 s, exited 0, and printed `REPRODUCED: 7 result files byte-identical and the a0 file equal to 1e-12`. After it, the offline run of `d154862` in the second machine (snapshot tree `047412d1`) exited 0 and printed `REPRODUCED: 5 result files byte-identical and 3 within tolerance (a0 1e-12; EFE, Cassini 1e-8)`.
 
 ## 1. SPARC rotation curves
 

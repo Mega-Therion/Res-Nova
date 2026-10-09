@@ -78,6 +78,8 @@ Two hardening changes landed with the closure: (i) `fetch_sparc.sh` now falls ba
 
 **Update 2026-10-08:** `parameter_ledger.py`, `efe_quadrupole_q2.py` and `cassini_pareto_scan.py` were re-run cold from a fresh clone. All three outputs are byte-identical to the commit (`VERIFICATION_RUN_010_COLD_CORE/`). `./reproduce_core_results.sh` repeats the check in one command. `a0_measure.py` was not part of this run.
 
+**Update 2026-10-09:** that byte identity held on this machine only. On a second machine (an air-gapped VM with 2 vCPUs), `EFE_QUADRUPOLE_Q2.json` and `CASSINI_PARETO_SCAN.json` differed by up to 4.2×10⁻¹⁰ relative, from the BLAS thread count. `./reproduce_core_results.sh` now compares those two files to 10⁻⁸ and the a₀ file to 10⁻¹². The other five must still match byte for byte (`RESULTS.md`, `CHECKS.md`).
+
 ---
 
 ## O6 — Fresh-clone Lean reproduction
