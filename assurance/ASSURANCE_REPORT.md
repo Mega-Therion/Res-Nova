@@ -1,8 +1,8 @@
 # Res-Nova Assurance Report
 
-Generated at (UTC): `2026-09-30T19:57:23.131211+00:00`  
-Git commit: `31453101db5acaf64bcb7bd0d5f08f7699a2e0d4`  
-Lean targets on disk excluding `lakefile.lean`: **65**  
+Generated at (UTC): `2026-10-09T06:43:53.430348+00:00`  
+Git commit: `5e1fa72af841c1478cab59e85629badf2a496877`  
+Lean targets on disk excluding `lakefile.lean`: **66**  
 Registry records: **48**
 
 ## Checks
@@ -28,7 +28,11 @@ Registry records: **48**
 
 ## Lean gate
 
-**STALE** — `05_lean_formalization/` has changed since the last recorded run (tree `f0c6004384451c428a87668ebc327a8939f329b7980c4265e96468abbac37bfd` then, `27756e02fcc9f6fc37fbf92077f2b89ec691848cfc5d3eb8d890e59b78c116fe` now). Rerun the gate; a previous PASS is evidence only for the sources it was run against.
+`cd 05_lean_formalization && bash verify_all_proofs.sh` exited **0** at `5e1fa72af841c1478cab59e85629badf2a496877` (2026-10-09T06:35:55Z), 66/66 targets, Lean v4.33.0-rc1, Mathlib 5eec30bc.
+
+Certifies: elaboration, absence of sorry, and a standard axiom footprint {propext, Classical.choice, Quot.sound}.
+
+Does not certify: that assumptions carried as typeclass or structure fields are physically justified (THEORY_ASSUMPTION_AUDIT.md), nor cold-clone reproducibility (O6).
 
 ## Limitations
 

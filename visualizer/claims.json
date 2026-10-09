@@ -4,10 +4,10 @@
  "claims": [
   {
    "id": "CLM-01",
-   "wording": "The dual-channel action F_dual(x) = x^2/2 - x + ln(1+x) has derivative x/(1+x).",
+   "wording": "For x > 0, the dual-channel action F_dual(x) = x^2/2 - x + ln(1+x) has derivative F_dual'(x) = x^2/(1+x) = x * mu_dual(x), with mu_dual(x) = x/(1+x); the previously asserted identity F_dual'(x) = x/(1+x) is false.",
    "state": "formally-verified",
-   "claim_type": "algebraic-identity",
-   "limitations": "This does not establish physical uniqueness or empirical adequacy. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
+   "claim_type": "mathematical-theorem",
+   "limitations": "Mathematics about a retired function. The x/(1+x) constitutive branch was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4); this record gives no physical support to it or to the live theory (mu_std), and does not establish physical uniqueness or empirical adequacy. Correction history: until PR #141 (2026-10-09) this record read 'F_dual has derivative x/(1+x)' as formally-verified. That wording was false, and the module then held no theorem about F_dual's derivative: dual_channel_flux_algebra is the field identity x - x/(1+x) = x^2/(1+x) (vacuity_screen 0.2: FIELD-ID).",
    "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-01"
   },
   {

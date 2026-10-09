@@ -4,9 +4,9 @@
   "claims": [
     {
       "id": "CLM-01",
-      "wording": "The dual-channel action F_dual(x) = x^2/2 - x + ln(1+x) has derivative x/(1+x).",
+      "wording": "For x > 0, the dual-channel action F_dual(x) = x^2/2 - x + ln(1+x) has derivative F_dual'(x) = x^2/(1+x) = x * mu_dual(x), with mu_dual(x) = x/(1+x); the previously asserted identity F_dual'(x) = x/(1+x) is false.",
       "state": "formally-verified",
-      "assurance_level": "formal-algebraic",
+      "assurance_level": "formal-machine-checked",
       "formal_artifacts": [
         "05_lean_formalization/DualChannelDerivation.lean",
         "05_lean_formalization/GODActionKinematics.lean"
@@ -14,23 +14,23 @@
       "computational_artifacts": [],
       "data_artifacts": [],
       "assumptions": [
-        "The claim is an algebraic identity over the declared Lean types."
+        "F_dual(x) = x^2/2 - x + ln(1+x), over the real numbers and x > 0."
       ],
       "verification_commands": [
         "cd 05_lean_formalization && bash verify_all_proofs.sh"
       ],
-      "independent_witness": "assurance/evidence/res_nova_verify_final.log",
-      "limitations": "This does not establish physical uniqueness or empirical adequacy. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
+      "independent_witness": "assurance/evidence/gate_66_targets_2026-10-09.log",
+      "limitations": "Mathematics about a retired function. The x/(1+x) constitutive branch was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4); this record gives no physical support to it or to the live theory (mu_std), and does not establish physical uniqueness or empirical adequacy. Correction history: until PR #141 (2026-10-09) this record read 'F_dual has derivative x/(1+x)' as formally-verified. That wording was false, and the module then held no theorem about F_dual's derivative: dual_channel_flux_algebra is the field identity x - x/(1+x) = x^2/(1+x) (vacuity_screen 0.2: FIELD-ID).",
       "status_owner": "Res-Nova formalization maintainers",
-      "claim_type": "algebraic-identity",
+      "claim_type": "mathematical-theorem",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-01",
       "falsifiability": {
-        "test": null,
-        "scope": null,
-        "result": "not_run"
+        "test": "Lean HasDerivAt on F_dual itself: F_dual_hasDerivAt_sq gives x^2/(1+x); F_dual_deriv_ne_mu_derived refutes x/(1+x) at x = 2 by HasDerivAt.unique. Sabotaged copies (claimed derivative x/(1+x); body ln(2+x); witness x = 1) each fail to compile.",
+        "scope": "F_dual(x) = x^2/2 - x + ln(1+x) for x > 0.",
+        "result": "supported"
       },
-      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+      "last_verified_commit": "5e1fa72af841c1478cab59e85629badf2a496877"
     },
     {
       "id": "CLM-02",

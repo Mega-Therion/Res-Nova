@@ -16,12 +16,22 @@ The 2026-10-09 stamp records (none of it changes a tier or a physical result):
   - The receipt check finds that **D1 is `[P]` but names no Lean module**.
   - A vacuity screen flags 14 of D8's 16 Lean theorems. This includes `physical_frame_tensor_speed_unity`, which restates its hypothesis. `docs/grounding_ledger.yaml` already rates those modules ARITH.
   - The four AeSTStealthSector PPN theorems are `rfl` on a structure literal.
+  - A receipt establishes build and proof-term integrity of the listed statements against the recorded source commitment (standard three axioms, independent checker). It does not establish their non-vacuity or their match to manuscript claims.
   - These go to RY as findings (`proof-records/README.md`). No tier was changed.
 - **Wide-binary orientation pre-registration, Amendment A** (`8583529`), before any orientation look.
   - Four models survive C3, not two.
   - The pipeline's `boost('E')` has the anisotropy sign opposite the QUMOND field solution. Its angle average is identical, so the R(s) fits are unaffected.
   - Gate 1 is expected to stop as underpowered.
   - `WIDE_BINARY_FINAL_2026-10-04.md`'s loose-cut prose was corrected; the verdict is unchanged (`1012bca`).
+- **Derivative-claim correction (PR #141).** `F_dual(x) = x^2/2 - x + ln(1+x)` has `F_dual'(x) = x - 1 + 1/(1+x) = x^2/(1+x)`, not `x/(1+x)`; the two agree only at x = 0 and x = 1.
+  - The PR's first theorem did not compile at `5e89c53`: CI lean-gate and a local gate both exited 1, because the module had no calculus imports.
+  - `5e1fa72` makes it elaborate and adds `F_dual_hasDerivAt_sq`, `F_dual_hasDerivAt_mu` and the refutation `F_dual_deriv_ne_mu_derived`. Gate: `verify_all_proofs.sh` exit 0, 66/66 targets, standard three axioms. Vacuity screen 0.2: PASS on all four.
+  - CLM-01 now states the corrected identity and stays `formally-verified`, as it was on main under the false wording. This is a wording correction, not a tier upgrade. D1.2 stays `[X]`, and the branch stays retired (2026-09-12).
+- **SPARC parser repair (PR #138), recomputed 2026-10-09** with the official files (175/175 verified).
+  - The parser change leaves `SPARC_175_GOD_fits.csv` and `SPARC_175_summary.json` byte-identical, because `v_baryon` squares `v_gas`.
+  - The real difference from `parameter_ledger.py` is `v_baryon`: gas unsigned, and Υ applied to V instead of V².
+  - CLM-04's and CLM-06's numbers come from `VERIFICATION_RUN_001` (2026-08-14), not from the files those records list.
+  - Findings are on PR #138. No committed number changed.
 
 `PEER_REVIEW_READINESS.md` was re-read. Its D8 row is `[P]` for the structural argument (no TT piece in δA); the Lean
 behind it is arithmetic, which is the decision noted above. This stamp is not a new physical result.
@@ -95,8 +105,8 @@ one place, unambiguous, checked first, every time.
   (`02_galaxy_dynamics/SCREENING_WINDOW_2026-09-27.md`). No covariant AeST version exists [O];
   BDE 2011 itself is c_T-excluded (`TARGET_D7` §11) — only the §11.4 openings (aether-projected
   operators, conformal/symmetron) remain for a covariant realization.
-  A size-based shield provably needs a new constant (dimensional no-go). The **parameter-free**
-  environmental form S = 1 − μ_std(g_ext/a0) passes Cassini (+0.25σ / −0.10σ) and does not degrade
+  A size-based shield provably needs a new constant (dimensional no-go). The environmental form
+  S = 1 − μ_std(g_ext/a0), which adds no constant beyond the two irreducible ones (a0 and the μ_std choice), passes Cassini (+0.25σ / −0.10σ) and does not degrade
   SPARC (uniform and per-galaxy η from Chae 2020; per-galaxy environment NOT detected by SPARC —
   shuffled fields do as well; `ENVIRONMENT_SCREENING_2026-09-27.md`). **MW dwarfs (42, LVDB)
   reject that form** (Δχ² +50…+107); the duality form S = 1/(1+η²) = μ_std(1/η)² passes Cassini,

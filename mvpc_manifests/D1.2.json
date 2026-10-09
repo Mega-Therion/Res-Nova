@@ -1,16 +1,20 @@
 {
   "schema_version": "mvpc-claim-manifest-v1",
   "claim_id": "D1.2",
-  "title": "Dual-channel action yields simple mu derivative identity",
-  "statement": "Dual-channel kinetic action F(x) = x^2/2 - x + ln(1+x) satisfies F'(x) = x/(1+x) and mu(x) = x/(1+x) with mu(x) < 1 for all x > 0 and deep-MOND scaling mu(x) ~ x as x -> 0.",
-  "epistemic_tier": "[P]",
-  "status": "VERIFIED",
+  "title": "Retired dual-channel derivative claim (retracted; the corrected identity is CLM-01)",
+  "statement": "RETRACTED: The prior assertion F'(x) = x/(1+x) is false for F(x) = x^2/2 - x + ln(1+x). Direct differentiation gives F'(x) = x - 1 + 1/(1+x) = x^2/(1+x). The retired constitutive definition mu(x)=x/(1+x) is not this derivative.",
+  "epistemic_tier": "[X]",
+  "status": "RETRACTED",
   "target_backend": "lean4",
   "artifacts": [
     {
       "path": "05_lean_formalization/DualChannelDerivation.lean",
-      "sha256": "c2c5e4ec54008457a4121b8517e11e674a458ada3fcf6c1b01ec3275f0672fae",
+      "sha256": "472eca13a77c0054da4b1dce606c1838b105a7597f847f6755e55629adaaeffc",
       "theorems": [
+        "F_dual_hasDerivAt",
+        "F_dual_hasDerivAt_sq",
+        "F_dual_hasDerivAt_mu",
+        "F_dual_deriv_ne_mu_derived",
         "dual_channel_flux_algebra",
         "mu_derived_inversion",
         "mu_derived_deep_mond_upper_bound",
@@ -39,7 +43,8 @@
     ],
     "custom_axioms": [],
     "sorry_count": 0,
-    "pass": true
+    "pass": true,
+    "note": "The original claim F'(x) = x/(1+x) is retracted ([X]). At commit 5e1fa72 the listed theorems, including the corrected F_dual_hasDerivAt / F_dual_hasDerivAt_sq / F_dual_hasDerivAt_mu and the refutation F_dual_deriv_ne_mu_derived, pass verify_all_proofs.sh (exit 0, 66/66 targets, standard three axioms). 'pass' records that gate result for the artifacts; it gives no support to the retracted statement."
   },
   "epistemic_boundary": {
     "scope": "Mathematical proof of algebraic identity only.",
