@@ -105,8 +105,8 @@ one place, unambiguous, checked first, every time.
   (`02_galaxy_dynamics/SCREENING_WINDOW_2026-09-27.md`). No covariant AeST version exists [O];
   BDE 2011 itself is c_T-excluded (`TARGET_D7` §11) — only the §11.4 openings (aether-projected
   operators, conformal/symmetron) remain for a covariant realization.
-  A size-based shield provably needs a new constant (dimensional no-go). The **parameter-free**
-  environmental form S = 1 − μ_std(g_ext/a0) passes Cassini (+0.25σ / −0.10σ) and does not degrade
+  A size-based shield provably needs a new constant (dimensional no-go). The environmental form
+  S = 1 − μ_std(g_ext/a0), which adds no constant beyond the two irreducible ones (a0 and the μ_std choice), passes Cassini (+0.25σ / −0.10σ) and does not degrade
   SPARC (uniform and per-galaxy η from Chae 2020; per-galaxy environment NOT detected by SPARC —
   shuffled fields do as well; `ENVIRONMENT_SCREENING_2026-09-27.md`). **MW dwarfs (42, LVDB)
   reject that form** (Δχ² +50…+107); the duality form S = 1/(1+η²) = μ_std(1/η)² passes Cassini,
