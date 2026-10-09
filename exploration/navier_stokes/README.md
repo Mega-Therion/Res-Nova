@@ -7,7 +7,7 @@ they are built and gated like every other module.
 
 **The target (frozen 2026-10-08).** The target is Fefferman's statement (B): the problem on
 `ℝ³/ℤ³` with zero force and `ν > 0`. Every smooth, divergence-free, periodic initial velocity
-must have a smooth periodic solution on `ℝ³ × [0, ∞)`. The source text is in
+must have a smooth solution on `ℝ³ × [0, ∞)`, with velocity and pressure both periodic (the pressure by the problem description's Errata). The source text is in
 `SOURCE_STATEMENTS.md`, and the Lean statement is
 `NavierStokesTarget.PeriodicGlobalRegularity`. That is a `Prop`, and no declaration proves or
 assumes it.
@@ -19,7 +19,7 @@ assumes it.
 | L1 | two unit vectors are at distance ≤ 2 | `NavierStokesGeometry.norm_sub_le_two_of_norm_eq_one` | proved; elementary |
 | L2 | kinematic high-vorticity alignment predicate on one time slice | `NavierStokesSpec.AlignmentPredicate`, `direction_unit` | definitions, and one normalization lemma |
 | target | statement (B), smooth periodic solutions, curl, divergence | `NavierStokesTarget` | definitions, plus 4 sanity theorems (below) |
-| L3a | on one time slice, `AlignmentPredicate K L ρ` ⇒ `sin φ(x, y) ≤ L·|x − y|` for high-vorticity pairs at distance ≤ ρ: the sine form, with `ρ_CF = 1/L` | `NavierStokesTarget.alignment_gives_sine_condition`, using `sin_angle_le_norm_sub` | **proved**. A substitution test fails at `L/2`, so the bound is load-bearing |
+| L3a | on one time slice, `AlignmentPredicate K L ρ` ⇒ the single-time form of Constantin–Fefferman's Assumption (A): `sin φ(x, y) ≤ |x − y|/(1/L)` for every pair with `|ω| > K` at both, assuming `0 ≤ K`, `0 < L` and `L·ρ ≥ 1` | `NavierStokesTarget.alignment_gives_assumptionA_slice`, using `alignment_gives_sine_condition` and `sin_angle_le_norm_sub` | **proved**. Substitution tests fail at `L/2` and at `L·ρ ≥ 1/2`, so both bounds are load-bearing |
 | L3b | the rest of the exact Constantin–Fefferman hypothesis: time and solution class, the domain (they work on `ℝ³`; the target is the torus), threshold and `δ` conventions | none | **open:** see `SOURCE_STATEMENTS.md` |
 | L4 | a continuation theorem for the chosen class, imported with provenance | none | stated as a source in `SOURCE_STATEMENTS.md`, not formalized |
 | L5 | `AlignmentPersistence K L ρ`: every admissible solution stays aligned | `NavierStokesTarget.AlignmentPersistence` (a `Prop`) | **open**. This is the missing implication |

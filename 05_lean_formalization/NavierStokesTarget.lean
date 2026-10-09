@@ -94,11 +94,13 @@ def AdmissibleData (u₀ : Point3 → Vector3) : Prop :=
   ContDiff ℝ ∞ u₀ ∧ UnitPeriodic u₀ ∧ ∀ x, divergence u₀ x = 0
 
 /-- A global smooth periodic solution with data `u₀`. It satisfies the equations for `t > 0`,
-is smooth on `[0, ∞) × ℝ³`, is spatially periodic for `t ≥ 0`, and has `u(0) = u₀`. -/
+is smooth on `[0, ∞) × ℝ³`, has `u(0) = u₀`, and is spatially periodic for `t ≥ 0`. Periodicity
+covers the velocity (Fefferman's (10)) **and the pressure**, per the problem description's
+Errata: "The further condition p(x + ej, t) = p(x, t) should be made explicit". -/
 def GlobalSmoothPeriodicSolution (ν : ℝ) (u₀ : Point3 → Vector3) (u : Velocity)
     (p : Pressure) : Prop :=
   SmoothOnClosedHalfSpace u ∧ SmoothOnClosedHalfSpace p ∧
-  (∀ t, 0 ≤ t → UnitPeriodic (u t)) ∧ u 0 = u₀ ∧
+  (∀ t, 0 ≤ t → UnitPeriodic (u t)) ∧ (∀ t, 0 ≤ t → UnitPeriodic (p t)) ∧ u 0 = u₀ ∧
   ∀ t, 0 < t → ∀ x, NavierStokesAt ν u p t x
 
 /-- **Statement (B), as a proposition.** This module does not prove it, and no declaration
@@ -111,6 +113,7 @@ def PeriodicGlobalRegularity : Prop :=
 def SmoothPeriodicSolutionOn (ν : ℝ) (u₀ : Point3 → Vector3) (u : Velocity) (p : Pressure)
     (T : ℝ) : Prop :=
   SmoothOn u 0 T ∧ SmoothOn p 0 T ∧ (∀ t, 0 ≤ t → t < T → UnitPeriodic (u t)) ∧
+  (∀ t, 0 ≤ t → t < T → UnitPeriodic (p t)) ∧
   u 0 = u₀ ∧ ∀ t, 0 < t → t < T → ∀ x, NavierStokesAt ν u p t x
 
 /-- **The open obligation of the conditional program.** Every smooth periodic solution, from
@@ -140,7 +143,8 @@ theorem zero_admissible : AdmissibleData (fun _ => 0) := by
 is satisfiable and statement (B) is not vacuously false. -/
 theorem zero_solution (ν : ℝ) :
     GlobalSmoothPeriodicSolution ν (fun _ => 0) (fun _ _ => 0) (fun _ _ => 0) := by
-  refine ⟨contDiffOn_const, contDiffOn_const, fun _ _ _ _ => rfl, rfl, fun t _ x => ?_⟩
+  refine ⟨contDiffOn_const, contDiffOn_const, fun _ _ _ _ => rfl, fun _ _ _ _ => rfl, rfl,
+    fun t _ x => ?_⟩
   refine ⟨fun i => ?_, ?_⟩
   · simp [laplacian]
   · simp [divergence]
@@ -226,5 +230,29 @@ theorem alignment_gives_sine_condition {K L ρ : ℝ} {w : VorticityField}
       InnerProductGeometry.angle_smul_right_of_pos _ _ hry]
   rw [hang]
   exact (sin_angle_le_norm_sub _ _ (direction_unit w x hx0) (direction_unit w y hy0)).trans hle
+
+/-- **L3a, full form on one time slice.** Suppose `0 ≤ K`, `0 < L` and `L · ρ ≥ 1`, and set `Ω = K`. Then
+`AlignmentPredicate K L ρ w` gives `sin φ(x, y) ≤ |x − y| / (1/L)` for **every** pair of points
+with `|w| > Ω` at both. (`0 ≤ K` matters: Mathlib's angle with a zero vector is `π/2`, so with
+`K < 0` and `w x = 0` the case `x = y` would fail.) This is the single-time form of Constantin–Fefferman's Assumption (A) with
+their `ρ = 1/L`; for unit vectors their `|P^⊥_ξ(η)|` equals `sin φ`.
+- For pairs farther apart than `ρ`, the bound is automatic, since `L|x − y| > Lρ ≥ 1 ≥ sin φ`.
+- The time quantifier, the regularized-solution setting on `ℝ³`, and the torus are not addressed
+  (`exploration/navier_stokes/SOURCE_STATEMENTS.md`). -/
+theorem alignment_gives_assumptionA_slice {K L ρ : ℝ} {w : VorticityField} (hK : 0 ≤ K)
+    (hL : 0 < L) (hLρ : 1 ≤ L * ρ) (h : AlignmentPredicate K L ρ w) {x y : Point3}
+    (hx : K < ‖w x‖) (hy : K < ‖w y‖) :
+    Real.sin (InnerProductGeometry.angle (w x) (w y)) ≤ dist x y / (1 / L) := by
+  rw [one_div, div_inv_eq_mul, mul_comm]
+  rcases eq_or_lt_of_le (dist_nonneg : 0 ≤ dist x y) with h0 | h0
+  · have hxy : x = y := dist_eq_zero.mp h0.symm
+    subst hxy
+    have hne : w x ≠ 0 := fun hz => by rw [hz, norm_zero] at hx; linarith
+    rw [InnerProductGeometry.angle_self hne, Real.sin_zero, dist_self, mul_zero]
+  · by_cases hρ : dist x y ≤ ρ
+    · exact alignment_gives_sine_condition h hx.le hy.le h0 hρ
+    · have hρ' : ρ < dist x y := not_le.mp hρ
+      have h1 : 1 < L * dist x y := by nlinarith
+      linarith [Real.sin_le_one (InnerProductGeometry.angle (w x) (w y))]
 
 end NavierStokesTarget
