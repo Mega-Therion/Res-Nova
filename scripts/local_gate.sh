@@ -80,6 +80,7 @@ step "sparc benchmark tables in sync" python3 scripts/sparc_benchmark_tables.py 
 step "sparc benchmark self-test" python3 scripts/sparc_benchmark_tables.py --self-test
 step "sparc model parity (synthetic)" python3 02_galaxy_dynamics/test_sparc_parser.py
 step "sparc summary invariants" python3 scripts/validate_sparc_reproduction.py 02_galaxy_dynamics/SPARC_175_summary.json --measurement 02_galaxy_dynamics/A0_MEASUREMENT.json
+step "json numeric comparator self-test" python3 scripts/compare_json_numeric.py --self-test
 step "visualizer ledger in sync" python3 scripts/export_visualizer_ledger.py --check
 step "visualizer physics" node scripts/test_visualizer_physics.mjs
 
