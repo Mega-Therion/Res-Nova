@@ -1,7 +1,7 @@
 # Milky Way dwarfs vs environmental screening — 2026-09-27
 
-**Question.** `ENVIRONMENT_SCREENING_2026-09-27.md` found that the parameter-free form
-S = 1 − μ_std(g_ext/a0) passes Cassini at no cost to SPARC, but galaxies cannot detect it.
+**Question.** `ENVIRONMENT_SCREENING_2026-09-27.md` found that the form
+S = 1 − μ_std(g_ext/a0), which adds no parameter beyond a₀, passes Cassini at no cost to SPARC, but galaxies cannot detect it.
 Milky Way satellites sit in the Galaxy's field at η = g_ext/a0 ≈ 0.1–0.7, where the screening bites.
 Do they survive it?
 

@@ -48,7 +48,7 @@ foundational axioms of Lean 4's type theory.
 |--------|---------|--------|
 | GODActionKinematics.lean | Dual-channel polynomial identity | [P] |
 | MuProjection.lean | μ(x) cosine geometry, quadratic law root | [P] |
-| DualChannelDerivation.lean | F(x) = x²/2 - x + ln(1+x), F'(x) = x/(1+x) | [P] |
+| DualChannelDerivation.lean | F(x) = x²/2 - x + ln(1+x), F'(x) = x/(1+x) (the retired μ_dual branch; true as mathematics) | [P] |
 | ITActionClosure.lean | Information tension action closure | [P] |
 | CovariantCompletion.lean | RAQUAL superluminal failure | [P] |
 | TensorSpeed.lean | c_T = c constraint | [P] |

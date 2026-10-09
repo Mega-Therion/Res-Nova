@@ -17,6 +17,19 @@
 #
 # Adding a line here is a decision that the mention is correct. If you are
 # adding one to silence the gate, fix the document instead.
+#
+# Added 2026-10-09 (27 -> 47). The mu_dual pattern learned its Unicode forms
+# (μ_dual, μ(x) = x/(1+x)) and the gate learned the free-parameter and mu-name
+# entities. The live-surface defects that surfaced were fixed in the documents (book
+# chapters 12 and 15, the book README, CURRENT_STATE, TARGET_D10, and others). The
+# mentions below are KEEP-AS-CONTRAST, one category each:
+#   - CASSINI_EFE_QUADRUPOLE, SPARC_MU_STD_RECOMPUTE, PREREG_A0_OF_Z_V3,
+#     PHYSICAL_INTERPRETATION_LAYER_0, TARGET_D6_D8_D9, docs/A0_CLOSURE_EVOLUTION,
+#     publication/PAPER_OUTLINE_ONE_LAW, book ch13: mu_dual named as the falsified
+#     control beside mu_std. The comparison is the content.
+#   - POSTULATE_R_ISOLATION: mu_dual as a counterexample (independence witness).
+#   - FIG_TREE_ASSET_LEDGER: the inventory quotes PAPER_02's \title; the paper's own
+#     notice withdraws the "zero parameter" framing.
 01_foundational_action/PRD_Relativistic_Extension.tex::mu_dual interpolating function::a806395e2356
 02_galaxy_dynamics/A0_HIGHZ_MEASUREMENT_2026-09-16.md::fabricated a0(z) figure::0b519f87332b
 03_observer_jwst/PREREG_A0_OF_Z.md::mu_dual interpolating function::903bcceda9e2
@@ -44,3 +57,23 @@ TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::mu_dual interpolating function::7622ecd1192c
 TARGET_D3_PPN_AND_SOLAR_SYSTEM.md::mu_dual interpolating function::fbfcd61072ca
 TARGET_D6_D8_D9_SUPPLEMENT_MU_STD_REVALIDATION.md::F_dual kinetic function::3c9a8dca1f42
 TTEY_COUPLING_AND_THRUST_ACCOUNTING.md::F_dual kinetic function::41cab30ca840
+02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md::mu_dual interpolating function::4c8226c67c77
+02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md::mu_dual interpolating function::67199d296392
+02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md::mu_dual interpolating function::807e96fd8481
+02_galaxy_dynamics/SPARC_MU_STD_RECOMPUTE_2026-09-12.md::mu_dual interpolating function::1fe395e99b5e
+02_galaxy_dynamics/SPARC_MU_STD_RECOMPUTE_2026-09-12.md::mu_dual interpolating function::731ff4b98c3b
+02_galaxy_dynamics/SPARC_MU_STD_RECOMPUTE_2026-09-12.md::mu_dual interpolating function::cf87d2c1adeb
+03_observer_jwst/PREREG_A0_OF_Z_V3.md::mu_dual interpolating function::a20975ac5b9a
+03_observer_jwst/PREREG_A0_OF_Z_V3.md::mu_dual interpolating function::aa27411b4a90
+03_observer_jwst/PREREG_A0_OF_Z_V3.md::mu_dual interpolating function::c2fecc4c142d
+03_observer_jwst/PREREG_A0_OF_Z_V3.md::mu_dual interpolating function::de1ed79577bb
+FIG_TREE_ASSET_LEDGER.md::zero-free-parameter claim::36cbab9ce3fe
+PHYSICAL_INTERPRETATION_LAYER_0_2026-09-16.md::mu_dual interpolating function::aa029450075f
+POSTULATE_R_ISOLATION_2026-09-16.md::mu_dual interpolating function::2244fb2f0c70
+POSTULATE_R_ISOLATION_2026-09-16.md::mu_dual interpolating function::f0a694035f3a
+TARGET_D6_D8_D9_SUPPLEMENT_MU_STD_REVALIDATION.md::mu_dual interpolating function::650e5cdc8a55
+TARGET_D6_D8_D9_SUPPLEMENT_MU_STD_REVALIDATION.md::mu_dual interpolating function::c42895ba7bdd
+book/chapters/ch13-171-galaxies.md::mu_dual interpolating function::ad5454973464
+book/chapters/ch13-171-galaxies.md::mu_dual interpolating function::f44be0697489
+docs/A0_CLOSURE_EVOLUTION.md::mu_dual interpolating function::c7980ab8d723
+publication/PAPER_OUTLINE_ONE_LAW_2026-09-27.md::mu_dual interpolating function::72e9fc11f568

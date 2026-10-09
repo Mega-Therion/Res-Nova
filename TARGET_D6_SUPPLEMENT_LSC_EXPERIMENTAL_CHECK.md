@@ -18,7 +18,7 @@ $$\Lambda_{\rm SC} = \left(\frac{a_0^2}{G}\right)^{1/4}\text{restoring }\hbar c 
 |---|---|---|
 | D6 §3 (1.2×10⁻¹⁰) | 1.7938 meV | **110.0 μm** |
 | SPARC (1.116×10⁻¹⁰) | 1.7299 meV | **114.1 μm** |
-| canonical (1.2211×10⁻¹⁰) | 1.8095 meV | **109.1 μm** |
+| retired rigid canon (1.2211×10⁻¹⁰ = √5·χ²cH₀/(2πκ); historical, retired 2026-07-01) | 1.8095 meV | **109.1 μm** |
 
 (Agree with `TARGET_D6_D8_D9_SUPPLEMENT` row 1 to the rounding of constants.)
 

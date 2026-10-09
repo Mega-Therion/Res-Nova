@@ -1,5 +1,7 @@
 # Chapter 12: A Function from First Principles
 
+> **SUPERSEDED in part (correction 2026-10-09).** This chapter presents μ_dual, μ(x) = x/(1+x) with F(x) = x²/2 − x + ln(1+x), as the core of Res Nova, and says the derivation has no free parameters. Both statements are withdrawn. μ_dual was falsified on 2026-09-12 by the corpus's own exact solar-system solution (Chapter 13). The live function is μ_std(x) = x/√(1+x²). It is one of the theory's two irreducible inputs, the other being the a₀ scale: structurally motivated and empirically selected, but not derived from the action. The chapter is kept as written, as the history of the retired branch.
+
 The core of Res Nova is a function. Not a particle, not a field, not a force — a function. Specifically, it is the function F(x) = x²/2 - x + ln(1+x), and its derivative μ(x) = x/(1+x). This function, derived from a dual-channel variational identity, is the interpolation that bridges the Newtonian and MOND regimes. It is, in the language of the corpus, the heart of Geometrically Ordered Dynamics — GOD.
 
 To understand why a function matters so much, we need to understand what it replaces. In the standard AQUAL framework, the interpolation function μ(x) is chosen empirically. You look at the data, you try different functional forms, and you pick the one that fits best. This works, but it is not a derivation — it is a fit. The function is a free choice, not a consequence of deeper principles.

@@ -34,11 +34,13 @@ comparison tests.
 ## Recomputed numbers (171 galaxies, 3375 points, identical grids/priors/parser to the
 original, only `v_mond_like` changed to μ_std)
 
-| Tier 0 (0 free params) | μ_dual (old, wrong) | μ_std (current) |
+| Tier 0 (no per-galaxy fitted parameters) | μ_dual (old, wrong) | μ_std (current) |
 |---|---|---|
 | GOD median χ²_red | 9.200 | **11.077** |
 | MOND median χ²_red | 11.352 | **9.935** |
 | Headline | "GOD wins median −19%" | **GOD loses median +11.5%** |
+
+*Correction (2026-10-09): the Tier 0 header read "0 free params". Tier 0 fits nothing per galaxy, but the model carries two irreducible inputs, the a₀ scale and the μ choice.*
 
 | Tier 1 (374 shared nuisance) | μ_dual | μ_std |
 |---|---|---|

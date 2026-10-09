@@ -32,7 +32,7 @@ The thermal match derives \(a=cH\), and the \(2\pi\) cancels **[P]**. Putting th
 
 Unscreened \(\mu_{\rm std}\) at the galaxy scale fails Cassini's external-field quadrupole **[D]**. A phenomenological screen can be written so that a number passes. It has no covariant realization yet **[O]**. The disformal equation printed in the information-tension paper adds a scalar to a tensor and is ill-formed **[X]** as a disformal metric. The chameleon minimum that does work in the fact-check is the textbook linear coupling, not that equation. D7's branch, which would have to carry a covariant screen, is open: at one grid, \(K_B=0.25,0.5,1\) all converge and none is a held remnant **[O]**.
 
-Unscreened, the strong-coupling range is 109–114 μm (109–118 μm once the true horizon anchor cH₀/2π is included and the live a₀ is used; `LAMBDA_SC_UNSCREENED.json`, 2026-10-09), inside the window where a gravitational-strength fifth force is quoted as excluded **[D]**. Screening is not used in that comparison.
+Unscreened, the strong-coupling range is 109–114 μm (110.0–118.1 μm across the live a₀ values once the true horizon anchor cH₀/2π is included and the live a₀ is used; the 109.1 μm end came from the retired 1.2211×10⁻¹⁰, traced 2026-10-09; `LAMBDA_SC_UNSCREENED.json`), inside the window where a gravitational-strength fifth force is quoted as excluded **[D]**. Screening is not used in that comparison.
 
 ## Exploratory assembly **[E]**
 

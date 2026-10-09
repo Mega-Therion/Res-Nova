@@ -28,7 +28,7 @@ Every document, claim, and equation in the 138-manuscript corpus is categorized 
 | Node ID / Manuscript | Primary Assertion | Epistemic Tier | Support Type | Upstream Dependencies | Downstream Consumers |
 |---|---|---|---|---|---|
 | **Root 1: $\mu(x)$ Closure** | Dual-channel $\mathcal{F}_{\text{dual}}'(x) = \frac{x}{1+x}$ is `[P]` algebraic; uniqueness of action in nature | `[P]` (algebra) / `[O]` (closure) | `DualChannelDerivation.lean`, `GODActionKinematics.lean` | None (Constitutive Action) | SPARC fits, Paper 09, Monograph §2 |
-| **Root 2: $a_0$ Scale** | $a_0 = c H_0 / (2\pi)$ from horizon thermodynamics | `[O]` Null/Negative Result | KMS temperature matching (cancels $2\pi$) | De Sitter horizon equilibrium | Zero-parameter benchmarks |
+| **Root 2: $a_0$ Scale** | $a_0 = c H_0 / (2\pi)$ from horizon thermodynamics | `[O]` Null/Negative Result | KMS temperature matching (cancels $2\pi$) | De Sitter horizon equilibrium | Tier 0 and strict benchmarks (a₀ fixed in advance) |
 | **Root 3: $\Omega_\Lambda = \ln 2$** | Dark energy density matches 1-qubit Shannon limit | `[O]` Conjectural Limit | Entanglement entropy bound ($S_E \le \ln 2$) | Qubit state factorization | Cosmological expansion notes |
 | **Bridge 1: Weak-Field AQUAL** | $\nabla\cdot[\mu(|\nabla\Phi|/a_0)\nabla\Phi] = 4\pi G\rho$ | `[C]` Cited Literature | Bekenstein-Milgrom (1984) field theory | Action Principle | SPARC rotation curves |
 | **Bridge 2: 5-Fold Cross-Val** | Honest CV retrains $a_0$ per fold (D4.6); working measurement $a_0 = 1.1607\times 10^{-10}$ (μ_std; the 171-galaxy μ_dual $1.116$ is superseded) | `[D]` Empirical Benchmark | 175 SPARC galaxies / 3,391 kinematic points | Fixed population priors / bootstrap | Generalization bounds |

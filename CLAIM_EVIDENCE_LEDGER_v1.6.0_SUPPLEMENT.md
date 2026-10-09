@@ -26,7 +26,7 @@
 | ID | Claim | Status | Evidence |
 |----|-------|--------|----------|
 | CLM-D2-01 | F_dual is uniquely determined given 4 structural constraints (constitutive-relation, Padé[1/1], MOND BCs, dual-channel) | [P] | TARGET_D2 §9 Theorem 9.1; SymPy-verified |
-| CLM-D2-02 | μ(x)=x/(1+x) is the unique Padé[1/1] satisfying μ(0)=0, μ(∞)=1, μ'(0)=1 | [P] | TARGET_D2 §5 Theorem 5.1 |
+| CLM-D2-02 | μ(x)=x/(1+x) is the unique Padé[1/1] satisfying μ(0)=0, μ(∞)=1, μ'(0)=1 (proved about the retired μ_dual branch) | [P] | TARGET_D2 §5 Theorem 5.1 |
 | CLM-D2-03 | μ is the inverse of the odds ratio function (Bayesian structure) | [P] | TARGET_D2 §6 Theorem 6.1 |
 | CLM-D2-04 | F'(x)²·I(μ(x)) = x³ (Fisher information identity) | [P] | TARGET_D2 §7 Theorem 7.1; SymPy-verified |
 | CLM-D2-05 | Padé necessity can be derived from first principles | [O] | TARGET_D2 §9 Q1-Q4 |
