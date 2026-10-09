@@ -10,11 +10,24 @@ are the only current physics.**
 **Last verified against the physics:** 2026-10-09 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
-The 2026-10-09 stamp records:
+The 2026-10-09 stamp records (none of it changes a tier or a physical result):
+- **Signed vkernel receipts for the Lean modules behind the `[P]` rows** (`proof-records/`, `c6c527f`).
+  - Two configs were added under `05_lean_formalization/`. No Lean source changed.
+  - The receipt check finds that **D1 is `[P]` but names no Lean module**.
+  - A vacuity screen flags 14 of D8's 16 Lean theorems. This includes `physical_frame_tensor_speed_unity`, which restates its hypothesis. `docs/grounding_ledger.yaml` already rates those modules ARITH.
+  - The four AeSTStealthSector PPN theorems are `rfl` on a structure literal.
+  - A receipt establishes build and proof-term integrity of the listed statements against the recorded source commitment (standard three axioms, independent checker). It does not establish their non-vacuity or their match to manuscript claims.
+  - These go to RY as findings (`proof-records/README.md`). No tier was changed.
+- **Wide-binary orientation pre-registration, Amendment A** (`8583529`), before any orientation look.
+  - Four models survive C3, not two.
+  - The pipeline's `boost('E')` has the anisotropy sign opposite the QUMOND field solution. Its angle average is identical, so the R(s) fits are unaffected.
+  - Gate 1 is expected to stop as underpowered.
+  - `WIDE_BINARY_FINAL_2026-10-04.md`'s loose-cut prose was corrected; the verdict is unchanged (`1012bca`).
 - **Derivative-claim correction (PR #141):** the expression `F_dual(x) = x^2/2 - x + ln(1+x)` differentiates to `x - 1 + 1/(1+x) = x^2/(1+x)`, not `x/(1+x)`. The proposed Lean theorem is not yet verified: the first CI run failed on stale artifact hashes, current-state freshness, and the public visualizer ledger before Lean compilation (Lean gate skipped). CLM-01 and manifest D1.2 are being corrected to avoid preserving the false derivative claim; no formal-verification tier is asserted for the new theorem.
-- **Proof-receipt/vacuity audit (2026-10-08):** signed vkernel receipts verify listed theorem statements against the recorded source commitment with the standard three Lean axioms and a clean independent checker. This establishes build/proof-term integrity for those statements, not their non-vacuity or match to manuscript claims. D1 has no receipt; D8 contains hypothesis-restating statements; D7's four PPN results are `rfl` on supplied structure fields. No epistemic tier is upgraded by this audit.
 - **SPARC parser repair remains separate:** PR #138 fixes signed numeric parsing and its local gate passed, but the affected `sparc_reproduce.py` results still require recomputation and comparison against the independent parameter-ledger pipeline.
-- **Freshness update:** `PEER_REVIEW_READINESS.md` and the current proof-receipt/vacuity findings were re-read. This is an evidence-status correction, not a new physical result; it does not upgrade any epistemic tier.
+
+`PEER_REVIEW_READINESS.md` was re-read. Its D8 row is `[P]` for the structural argument (no TT piece in δA); the Lean
+behind it is arithmetic, which is the decision noted above. This stamp is not a new physical result.
 
 The 2026-10-06 stamp records:
 - **A comment-only correction in `PillarIV_AntiDriftGate.lean` (`f38d21a`).** Its κ docstrings now follow RY's
