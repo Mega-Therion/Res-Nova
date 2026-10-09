@@ -189,6 +189,12 @@ Notes that matter for what the monograph can claim:
   horizon-tension/a_0 result with three smaller pillars attached.
 
 ### 2. TeX files failing compilation
+> **Update (2026-10-09, measured; the 2026-09-03 rows below are left as recorded).** Re-run with
+> `pdflatex -interaction=nonstopmode`, two passes: `PAPER_01_MU_DERIVATION_ACTION.tex` exits 0 after its cover
+> figure `figs/e8_sigil_codex.pdf` was restored from `Research_and_Data/04_Publications_and_Outreach/codex/e8_sigil_codex.tikz`;
+> `PRD_Relativistic_Extension.tex` exits 0 (it now includes the tracked `cmb_power_spectrum.png`);
+> `Res_Nova_Geometrically_Ordered_Dynamics_and_Information_Tension.tex` exits 0 (its `gold` colour error is gone).
+
 - `01_foundational_action/PAPER_01_MU_DERIVATION_ACTION.tex`: `! Package pdftex.def Error: File 'figs/e8_sigil_codex.pdf' not found: using draft setting.`
 - `01_foundational_action/PRD_Relativistic_Extension.tex`: `! Package pdftex.def Error: File 'PRD_supplementary/figures/cmb_power_spectrum.pdf' not found: using draft setting.`
 - `01_foundational_action/Res_Nova_Geometrically_Ordered_Dynamics_and_Information_Tension.tex`: `! Package xcolor Error: Undefined color 'gold'.`
