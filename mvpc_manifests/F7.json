@@ -80,7 +80,7 @@
     },
     {
       "path": "05_lean_formalization/SovereignRegularity.lean",
-      "sha256": "fedae3de5174bed197535b0638e184cddb9e9d25bce5f06811b719d32df11298",
+      "sha256": "695b817d7f2aa133ada35246fede813972bfdf532272f6a351cbf7cb06cb9c5f",
       "role": "physics_proof"
     },
     {

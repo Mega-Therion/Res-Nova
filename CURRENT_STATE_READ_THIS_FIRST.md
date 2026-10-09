@@ -23,6 +23,11 @@ The 2026-10-09 stamp records (none of it changes a tier or a physical result):
   - Gate 1 is expected to stop as underpowered.
   - `WIDE_BINARY_FINAL_2026-10-04.md`'s loose-cut prose was corrected; the verdict is unchanged (`1012bca`).
 
+- **The adjacent Navier–Stokes program, PR #142 (this branch).**
+  - `SovereignRegularity.lean` identifiers and comments were renamed to match `THEORY_ASSUMPTION_AUDIT.md`. Its proof terms are unchanged, and F7's pin was moved.
+  - `NavierStokesTarget.lean` was added and scoped in `ADJACENT_MODULES.txt`. It freezes the periodic target as a `Prop` and proves a single-time alignment step.
+  - None of this touches a D-target or the MOND manuscript.
+
 `PEER_REVIEW_READINESS.md` was re-read. Its D8 row is `[P]` for the structural argument (no TT piece in δA); the Lean
 behind it is arithmetic, which is the decision noted above. This stamp is not a new physical result.
 
