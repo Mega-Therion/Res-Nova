@@ -19,7 +19,7 @@ def main() -> None:
     ]
     with tempfile.TemporaryDirectory() as tmp:
         path = Path(tmp) / "TEST_rotmod.dat"
-        path.write_text("\\n".join(rows) + "\\n")
+        path.write_text("\n".join(rows) + "\n")
         result = load_rotmod(path)
 
     assert result is not None, "valid fixture rows should be parsed"
