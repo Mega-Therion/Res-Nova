@@ -7,8 +7,24 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against the physics:** 2026-10-06 (UTC). The audit-cycle state below supersedes
+**Last verified against the physics:** 2026-10-09 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
+
+The 2026-10-09 stamp records (none of it changes a tier or a physical result):
+- **Signed vkernel receipts for the Lean modules behind the `[P]` rows** (`proof-records/`, `c6c527f`).
+  - Two configs were added under `05_lean_formalization/`. No Lean source changed.
+  - The receipt check finds that **D1 is `[P]` but names no Lean module**.
+  - A vacuity screen flags 14 of D8's 16 Lean theorems. This includes `physical_frame_tensor_speed_unity`, which restates its hypothesis. `docs/grounding_ledger.yaml` already rates those modules ARITH.
+  - The four AeSTStealthSector PPN theorems are `rfl` on a structure literal.
+  - These go to RY as findings (`proof-records/README.md`). No tier was changed.
+- **Wide-binary orientation pre-registration, Amendment A** (`8583529`), before any orientation look.
+  - Four models survive C3, not two.
+  - The pipeline's `boost('E')` has the anisotropy sign opposite the QUMOND field solution. Its angle average is identical, so the R(s) fits are unaffected.
+  - Gate 1 is expected to stop as underpowered.
+  - `WIDE_BINARY_FINAL_2026-10-04.md`'s loose-cut prose was corrected; the verdict is unchanged (`1012bca`).
+
+`PEER_REVIEW_READINESS.md` was re-read. Its D8 row is `[P]` for the structural argument (no TT piece in δA); the Lean
+behind it is arithmetic, which is the decision noted above. This stamp is not a new physical result.
 
 The 2026-10-06 stamp records:
 - **A comment-only correction in `PillarIV_AntiDriftGate.lean` (`f38d21a`).** Its κ docstrings now follow RY's
