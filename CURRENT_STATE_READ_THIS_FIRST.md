@@ -54,13 +54,13 @@ The 2026-10-09 stamp records (none of it changes a tier or a physical result):
   - CLM-04's and CLM-06's numbers come from `VERIFICATION_RUN_001` (2026-08-14), not from the files those records list.
   - Findings are on PR #138. No committed number changed.
 
-- **The adjacent Navier–Stokes program, PR #142 (this branch).**
+- **The adjacent Navier–Stokes program, PR #142.**
   - `SovereignRegularity.lean` identifiers and comments were renamed to match `THEORY_ASSUMPTION_AUDIT.md`. Its proof terms are unchanged, and F7's pin was moved.
   - `NavierStokesTarget.lean` was added and scoped in `ADJACENT_MODULES.txt`. It freezes the periodic target as a `Prop` and proves a single-time alignment step.
   - None of this touches a D-target or the MOND manuscript.
 
-`PEER_REVIEW_READINESS.md` was re-read. Its D8 row is `[P]` for the structural argument (no TT piece in δA); the Lean
-behind it is arithmetic, which is the decision noted above. This stamp is not a new physical result.
+`PEER_REVIEW_READINESS.md` was re-read. At that point its D8 row was `[P]` for the structural argument (no TT piece in δA),
+with arithmetic Lean behind it. The [P]-rule decision above, made the same day, relabelled D8 `[D]`. This stamp is not a new physical result.
 
 The 2026-10-06 stamp records:
 - **A comment-only correction in `PillarIV_AntiDriftGate.lean` (`f38d21a`).** Its κ docstrings now follow RY's
