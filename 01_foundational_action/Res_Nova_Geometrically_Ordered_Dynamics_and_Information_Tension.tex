@@ -272,8 +272,10 @@ All algebraic and structural theorems have been formalized in Lean 4 and certifi
 #print axioms adccl_trajectory_bounded
 -- [propext, Classical.choice, Quot.sound]
 
-#print axioms bkm_no_blowup
+#print axioms product_bound_below_threshold
 -- [propext, Classical.choice, Quot.sound]
+-- (renamed 2026-10-08 from bkm_no_blowup: arithmetic on an assumed bound,
+--  not a non-blowup criterion)
 \end{lstlisting}
 
 \noindent \textbf{Kernel Certification} \tagP: Zero custom physical axioms or \texttt{sorryAx} shortcuts exist in the formal proofs. All proofs depend strictly on Lean's foundational classical logic triple $\{\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}\}$.

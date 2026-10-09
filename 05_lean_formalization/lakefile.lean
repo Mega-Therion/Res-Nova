@@ -52,6 +52,9 @@ lean_lib «ResNovaFormal» where
     `NavierStokesGeometry,
     `NavierStokesScope,
     `NavierStokesSpec,
+    -- ADDED 2026-10-08. The periodic target (Fefferman's statement B) as a Prop, the
+    -- alignment obligation over genuine solutions, and four sanity theorems. No proof of B.
+    `NavierStokesTarget,
     -- AUDITED VACUOUS 2026-08-29 (D47_generation_index_audit.md). Compiles and is
     -- sorry-free, which is why it is gated -- but `z3NetChirality` returns 3/-3/0
     -- because those literals are written into its if-then-else, and the theorem

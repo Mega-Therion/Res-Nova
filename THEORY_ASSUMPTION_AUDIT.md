@@ -55,6 +55,8 @@ expressed here — the axiom explicitly admits the competing simple-μ form.
 | same | same | `bkm_no_blowup` (:210) — `ω_sup T · T < M` given `B·T < M` | **Yes** (weakly) | Valid chaining. |
 | same | same | `sovereign_regularity_theorem` (:218) — `ω_sup T ≤ B` | **No — projection** | Proof term is `st.h_controlled T hT`. The flagship-named theorem **restates its own hypothesis**. Docstring claims *"globally regular and non-singular"*. |
 
+> **2026-10-08:** these declarations were renamed to match this audit (proof terms unchanged): `BKMVorticityState` → `AssumedVorticityBoundState`, `bkm_vorticity_integral_finite` → `pointwise_vorticity_product_bound`, `bkm_no_blowup` → `product_bound_below_threshold`, `sovereign_regularity_theorem` → `assumed_vorticity_bound_projection`. The table above keeps the names it audited.
+
 **Separate and more serious — the BKM integral is not an integral.** The Beale–Kato–Majda
 criterion concerns `∫₀ᵀ ‖ω(·,t)‖_∞ dt < ∞`. These statements use the **product** `ω_sup T · T`.
 No `MeasureTheory` integral appears in the file. For a constant bound the two agree
