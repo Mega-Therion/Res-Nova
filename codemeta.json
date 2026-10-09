@@ -1,0 +1,49 @@
+{
+  "@context": "https://w3id.org/codemeta/3.0",
+  "@type": "SoftwareSourceCode",
+  "name": "Res Nova: technical manuscript, formal verification, and reproducibility package",
+  "description": "Manuscript source, Lean 4 formalization, verification gates, claim/evidence ledger, and the SPARC reproducibility package for the Res Nova programme (Geometrically Ordered Dynamics and Information Tension).",
+  "author": [
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0009-0001-1303-7190",
+      "givenName": "R.W.",
+      "familyName": "Yett",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Arkansas"
+      }
+    }
+  ],
+  "codeRepository": "https://github.com/Mega-Therion/Res-Nova",
+  "issueTracker": "https://github.com/Mega-Therion/Res-Nova/issues",
+  "readme": "https://github.com/Mega-Therion/Res-Nova/blob/main/README.md",
+  "license": "https://spdx.org/licenses/CC-BY-4.0",
+  "version": "1.9.0",
+  "developmentStatus": "active",
+  "programmingLanguage": [
+    "Lean 4",
+    "Python",
+    "TeX"
+  ],
+  "runtimePlatform": [
+    "Lean 4 (leanprover/lean4:v4.33.0-rc1) with Mathlib, pinned by 05_lean_formalization/lake-manifest.json",
+    "Python 3"
+  ],
+  "softwareRequirements": [
+    "numpy==2.4.6",
+    "scipy==1.17.1",
+    "sympy==1.14.0",
+    "mpmath==1.3.0",
+    "PyYAML==6.0.3"
+  ],
+  "keywords": [
+    "formal verification",
+    "Lean 4",
+    "modified gravity",
+    "MOND",
+    "AeST",
+    "SPARC",
+    "reproducibility"
+  ]
+}
