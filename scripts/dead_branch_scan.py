@@ -121,7 +121,11 @@ RETIRED = [
 # visualizer/ added 2026-09-30: it is deployed publicly on Vercel, and it was
 # still computing rotation curves with the falsified mu_dual and presenting
 # F_dual as [P] -- invisible to this gate, which only read prose.
-LIVE_GLOBS = ("*.tex", "*.md", "zenodo*.json", "visualizer/*.html", "visualizer/*.js")
+# .zenodo.json and CITATION.cff added 2026-10-09. Zenodo's GitHub integration publishes the
+# deposit from .zenodo.json, and "zenodo*.json" never matched the dotfile, so the description
+# that actually goes public was outside the gate.
+LIVE_GLOBS = ("*.tex", "*.md", "zenodo*.json", ".zenodo.json", "CITATION.cff",
+              "visualizer/*.html", "visualizer/*.js")
 EXEMPT = (
     "raw/Logs/", "80_Archive/", "obsidian_vault_legacy/", "archive/",
     "docs/recovered/", "archive_previous_iterations/", "Tier_2_Physics_Attempt/",
@@ -210,10 +214,16 @@ RETIRED_CONTEXT = re.compile(
 # zero free parameters") or quotations of the phrase itself ("replace ambiguous
 # 'zero-parameter' language"), so for it a match preceded by a negation, or opened
 # by a quote mark, is a mention and not a use.
+# The negation has to govern the phrase: at most three words between them, with no
+# clause punctuation in between. A 45-character window was too loose. It let "This is
+# not a fit: the model has zero free parameters" through, and also "Rather than fitting
+# a0, we use a parameter-free scale" (both are self-test cases).
+_WORD = r"(?:[^\s;:!?.]|\.(?=\d))+"
 NEGATED = {
     "zero-free-parameter claim": re.compile(
-        r"(?:\bno claim of|\bnot\b|\bnever\b|\bnor\b|n't\b|\bneither\b|"
-        r"\brather than\b|\binstead of\b)[^\n]{0,45}$", re.I),
+        r"(?:\bno claim of|\bnot\b|\bnever\b|\bnor\b|n't\b|\bneither\b|\bno longer\b|"
+        r"\bdrop(?:s|ped)?\b|\brather than\b|\binstead of\b)"
+        r"(?:[ \t,]+" + _WORD + r"){0,3}[ \t,]*$", re.I),
 }
 _QUOTES = "\"'`\u201c\u201d\u2018\u2019"
 
@@ -424,6 +434,11 @@ def self_test() -> int:
         ("a0 = cH0/2pi is not a parameter-free derivation", False),
         ("Replace ambiguous \u201czero-parameter\u201d language with the tier definition", False),
         ("Tier 0 fits no per-galaxy parameters; the a0 scale and mu are fixed in advance", False),
+        ("This is not a fit: the model has zero free parameters.", True),
+        ("Rather than fitting a0, we use a parameter-free scale.", True),
+        ("This is not a fit and the model has zero free parameters.", True),
+        ("rather than a parameter-free one", False),
+        ("drop the 1.07/zero-param claim", False),
         # swapped MOND mu names (2026-10-09)
         ("the simple function $\\mu(x) = x/\\sqrt{1+x^2}$ is derived", True),
         ("the 'simple' form x/\u221a(1+x\u00b2), the 'standard' form x/(1+x)", True),
