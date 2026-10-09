@@ -9,11 +9,18 @@ which GROWS as r^2, so the binding solar-system datum is the outermost body,
 not the innermost. This recomputes the published table from CODATA/IAU inputs
 and checks each column, rather than trusting the transcription.
 
-    python3 lambda_s_solar_system_check.py
+    python3 lambda_s_solar_system_check.py                   # at D3's a0, reproduces its table
+    python3 lambda_s_solar_system_check.py --a0 1.1607e-10   # at the live mu_std a0
 """
 from __future__ import annotations
 
-A0 = 1.116e-10          # m/s^2, SPARC-measured (D3 §8)
+import sys
+
+# a0 behind D3 section 8's published table: the 171-galaxy simple-nu (mu_dual) SPARC fit, superseded
+# 2026-09-17. The live mu_std value is 1.1607e-10 (A0_DISTANCE_CORRECTED_2026-09-16.json); with --a0 set to it
+# the D3 comparison column reads NO by design, because D3's table was computed at A0_D3.
+A0_D3 = 1.116e-10
+A0 = float(sys.argv[sys.argv.index("--a0") + 1]) if "--a0" in sys.argv else A0_D3
 GM_SUN = 1.32712440018e20   # m^3/s^2, IAU nominal
 AU = 1.495978707e11     # m, IAU definition
 # s^-2, Cassini quadrupole ceiling. Park, Hees, Famaey, Desmond & Durakovic
@@ -63,6 +70,8 @@ def saturn_lambda_readings() -> None:
 
 def main() -> None:
     tol = 0.02
+    note = "" if A0 == A0_D3 else "  (D3's table is at 1.116e-10; its column is not expected to agree)"
+    print(f"a0 = {A0:.4e} m/s^2{note}")
     print(f"{'body':<9}{'g_N':>11}{'delta_g':>12}{'Q2':>12}{'margin':>9}"
           f"{'lam<=':>8}   agrees with D3")
     all_ok = True

@@ -8,7 +8,7 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 **Claim (not granted):** `a0 = c H_0 / (2π)`.
 
-**Status:** `[O]`. SPARC prefers `a0 = 1.116\times 10^{-10}\,\mathrm{m\,s^{-2}}` with 14.4% total error (`A0_MEASUREMENT.json`). That sits `0.46\sigma` from `cH_0/(2\pi)` and `0.52\sigma` from MOND's `1.2\times 10^{-10}`. The systematic floor is about 8.7%. A 3`\sigma` split at `z=0` would need ~4.7% total uncertainty. More local galaxies cannot buy that. The limit is the distance ladder (`3c90ef3e` commit message).
+**Status:** `[O]`. SPARC prefers `a0 = 1.1607\times 10^{-10}\,\mathrm{m\,s^{-2}}` under μ_std (175 galaxies; bootstrap 95% `[0.972, 1.295]\times 10^{-10}`, `A0_DISTANCE_CORRECTED_2026-09-16.json`), an interval that contains both `cH_0/(2\pi)` and MOND's `1.2\times 10^{-10}`. (Until 2026-10-09 this line quoted the superseded 171-galaxy μ_dual fit, `1.116\times 10^{-10}` with 14.4% total error, `0.46\sigma` from `cH_0/(2\pi)` and `0.52\sigma` from MOND.) The systematic floor is about 8.7%. A 3`\sigma` split at `z=0` would need ~4.7% total uncertainty. More local galaxies cannot buy that. The limit is the distance ladder (`3c90ef3e` commit message).
 
 **Closure path:** a derivation of the factor `1/(2\pi)` from a stated action plus a stated equilibrium condition, with the `2\pi` surviving after the same cancellations that already killed earlier KMS attempts (`CORPUS_DEPENDENCY_MAP.md` Root 2). Until that exists, do not say “derived.”
 
@@ -22,11 +22,11 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 **Claim (not granted):** `\xi = a0/(c H_0)` is a fundamental order-unity coupling.
 
-**Status:** Arithmetic `[D]`, ontology `[O]`. From `A0_MEASUREMENT.json`:
+**Status:** Arithmetic `[D]`, ontology `[O]`. From `A0_DISTANCE_CORRECTED_2026-09-16.json` (T1, μ_std):
 
-`a0 = 1.1162688655613144e-10`, `a0_horizon = cH0/(2\pi) = 1.0421152108506952e-10`, `cH0 = 2\pi \times a0_horizon`, so
+`a0 = 1.1606685226039266e-10`, `a0_horizon = cH0/(2\pi) = 1.0421152108506952e-10`, `cH0 = 2\pi \times a0_horizon`, so
 
-`\xi = a0 / (c H_0) = 0.170 \pm 0.025` (total error propagated from `total_sigma`).
+`\xi = a0 / (c H_0) = 0.177` (bootstrap 68% `[0.162, 0.188]`). The superseded `A0_MEASUREMENT.json` value (`1.1163e-10`, μ_dual) gave `0.170 \pm 0.025`.
 
 **Closure path:** none without O1 or a redshift test. Explaining `0.17` is a research problem, not a defense problem.
 
