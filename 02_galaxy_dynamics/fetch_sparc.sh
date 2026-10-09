@@ -27,12 +27,31 @@ fi
 
 mkdir -p "${DATA_DIR}"
 TMP_ZIP="${DATA_DIR}/Rotmod_LTG.zip"
-
-echo "Downloading SPARC master table (distance method f_D per galaxy) ..."
-curl -fL -o "${DATA_DIR}/SPARC_Lelli2016c.mrt" "https://astroweb.cwru.edu/SPARC/SPARC_Lelli2016c.mrt"
 # Pinned 2026-10-09: CWRU's file, identical to the two copies already in the Chyren tree.
 # The table was downloaded but never verified until then.
 MASTER_SHA256="5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+
+# Offline path (2026-10-09). If the master table and all 175 rotmod files are already in DATA_DIR and
+# every one matches its pinned SHA-256, nothing is downloaded. This lets the reproduction run with no
+# network at all, e.g. in an air-gapped referee machine fed a verified copy of the data. With
+# SPARC_OFFLINE=1 a missing or mismatching file is an error instead of a download.
+present_and_verified() {
+    [ -f "${DATA_DIR}/SPARC_Lelli2016c.mrt" ] || return 1
+    [ "$(find "${DATA_DIR}" -maxdepth 1 -type f -name '*_rotmod.dat' | wc -l)" -eq 175 ] || return 1
+    echo "${MASTER_SHA256}  SPARC_Lelli2016c.mrt" | ( cd "${DATA_DIR}" && sha256sum -c --quiet - ) >/dev/null 2>&1 || return 1
+    ( cd "${DATA_DIR}" && sha256sum -c --quiet "${MANIFEST}" ) >/dev/null 2>&1
+}
+if present_and_verified; then
+    echo "=== SUCCESS: SPARC data already present; 175 rotmod files and the master table verified, nothing downloaded ==="
+    exit 0
+fi
+if [ "${SPARC_OFFLINE:-0}" = "1" ]; then
+    echo "ERROR: SPARC_OFFLINE=1, and the data in ${DATA_DIR} is missing or fails verification" >&2
+    exit 1
+fi
+
+echo "Downloading SPARC master table (distance method f_D per galaxy) ..."
+curl -fL -o "${DATA_DIR}/SPARC_Lelli2016c.mrt" "https://astroweb.cwru.edu/SPARC/SPARC_Lelli2016c.mrt"
 echo "${MASTER_SHA256}  SPARC_Lelli2016c.mrt" | ( cd "${DATA_DIR}" && sha256sum -c - ) || {
     echo "ERROR: SPARC_Lelli2016c.mrt does not match the pinned SHA-256" >&2; exit 1; }
 
