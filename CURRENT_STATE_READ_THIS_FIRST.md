@@ -14,7 +14,8 @@ The 2026-10-09 decisions (RY) record. **These do change tiers and one cited numb
 - **[P] rule.** A row keeps [P] only where a named Lean theorem proves its claim; otherwise it is [D] or [O].
   - D1: [P] core (`MuStdUniqueness.theorem_A_constitutive`, F′ = xμ_std as `HasDerivAt`; `MuStdFoundations`), [D] rebuild.
   - D3, D7: [D] with an [O] part (branch selection). D6: [D] with an [O] part (covariant profile). D8: [D].
-  - No registry state changed: those claims were already `derived`/`computed`. O1, O5 and O6 keep [P]; by the legend they would be [A] and [E], flagged for RY.
+  - No registry state changed: those claims were already `derived`/`computed`.
+  - O1, O5 and O6 were relabelled by the same rule (they had been flagged, not changed): O1 → [A]; [O] (a declared input; the 2π identity open), O5 and O6 → [E] (reproducibility measurements). No number changed.
   - Vacuity screen 0.2: the six D1-core theorems PASS. The receipts were re-signed on the unchanged Lean sources (`proof-records/`).
 - **a₀ headline: 1.1607×10⁻¹⁰ m/s²** (μ_std, 175 galaxies, `A0_DISTANCE_CORRECTED_2026-09-16.json` T1; bootstrap 95% [0.972, 1.295]).
   - Switched on README, the Zenodo metadata, FOR_REFEREES, the parameter budget, open problems, the manuscript's eq. a0_measured, checklists and ledgers. 1.116 is labelled everywhere as the superseded μ_dual fit. Pre-registrations and dated records are unchanged.

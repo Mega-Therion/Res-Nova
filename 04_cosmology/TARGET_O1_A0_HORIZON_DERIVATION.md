@@ -1,5 +1,7 @@
 # 🌌 Target O1: First-Principles Horizon Acceleration Scale Derivation & KMS $2\pi$ Cancellation Audit
 
+> **Tier relabelled 2026-10-09: O1 is [A]; [O], not [P].** Under the [P] rule a declared input is an axiom [A] (`docs/EPISTEMIC_TIER_LEGEND.md`), and the 2π identity is [O]. The closure below is unchanged.
+>
 > **✅ STATUS 2026-09-27: O1 → [P] under the two-irreducible-parameters accounting.** RY's framework declares
 > two inputs. Input 1 is the scale a₀, a *boundary condition anchored to cH₀*; input 2 is μ. "Not derived" is
 > not a defect for a declared input. The identification a₀ = cH₀/2π is therefore the framework's declared
