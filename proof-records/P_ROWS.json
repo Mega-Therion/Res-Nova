@@ -1,22 +1,15 @@
 {
-  "_doc": "Map from each [P] / [P/O] row of CURRENT_STATE_READ_THIS_FIRST.md to the Lean modules behind it, read by 4Leibniz/scripts/vkernel/p_receipt_check.py. named_in_row=false means the row itself names no .lean file; the legend (docs/EPISTEMIC_TIER_LEGEND.md) requires a named module and theorem for [P]. Built 2026-10-08 from the row text; 'inferred_from' says where an unnamed mapping came from.",
+  "_doc": "Map from each [P] / [P/O] row of CURRENT_STATE_READ_THIS_FIRST.md to the Lean modules behind it, read by 4Leibniz/scripts/vkernel/p_receipt_check.py. named_in_row=false means the row itself names no .lean file; the legend (docs/EPISTEMIC_TIER_LEGEND.md) requires a named module and theorem for [P]. Built 2026-10-08 from the row text; 'inferred_from' says where an unnamed mapping came from. Rescored 2026-10-09 under the [P] rule (RY): [P] only where a named Lean theorem proves the row's claim; D3, D6, D7, D8 are no longer [P] rows, and D1's [P] core is MuStdUniqueness + MuStdFoundations.",
   "source_doc": "CURRENT_STATE_READ_THIS_FIRST.md",
   "rows": [
-    {"row": "D1", "tier": "[P]", "modules": [], "named_in_row": false,
-     "note": "the row cites TARGET_D1_SUPPLEMENT and names no Lean module"},
+    {"row": "D1", "tier": "[P]", "modules": ["MuStdUniqueness", "MuStdFoundations"], "named_in_row": true, "note": "relabelled 2026-10-09 under the [P] rule: [P] core (F' = x mu_std as HasDerivAt on F_std; convexity; c_parallel^2) via the named theorems; the rebuild in TARGET_D1_SUPPLEMENT is [D]", "prefixes": ["ResNova.MuStdUniqueness.theorem_A_constitutive", "ResNova.MuStdUniqueness.F_std_hasDerivAt", "ResNova.MuStdFoundations."]},
     {"row": "D2", "tier": "[P]", "modules": ["MuNDuality"], "named_in_row": true, "prefixes": ["MuNDuality."]},
-    {"row": "D3", "tier": "[P/O]", "modules": [], "named_in_row": false,
-     "note": "the row says 'verified symbolically (note 7 §34)': a CAS result, not a Lean module"},
+    {"row": "D3", "tier": "[D]; [O]", "modules": [], "named_in_row": false, "note": "relabelled 2026-10-09: CAS derivation, no Lean theorem; branch selection [O]"},
     {"row": "D5", "tier": "[P/O]", "modules": ["CoshCosmology"], "named_in_row": true, "prefixes": ["ResNova.CoshCosmology."]},
-    {"row": "D6", "tier": "[P/O]", "modules": [], "named_in_row": false, "note": "the row names no Lean module"},
-    {"row": "D7", "tier": "[P/O]", "modules": ["AeSTStealthSector"], "named_in_row": false,
-     "inferred_from": "module name AeSTStealthSector.lean; the row cites the stealth sector (D3 §34)",
-     "prefixes": ["ResNova.AeSTStealthSector."]},
-    {"row": "D8", "tier": "[P]", "modules": ["TensorSpeed", "PrintAxiomsD8"], "named_in_row": false,
-     "inferred_from": "README.md 'c_T = c (D8)' and the file name PrintAxiomsD8.lean",
-     "prefixes": ["ResNova.TensorSpeed."]},
+    {"row": "D6", "tier": "[D]; [O]", "modules": [], "named_in_row": false, "note": "relabelled 2026-10-09: no Lean module carries the D6 results; covariant profile [O]"},
+    {"row": "D7", "tier": "[D]; [O]", "modules": ["AeSTStealthSector"], "named_in_row": false, "inferred_from": "module name AeSTStealthSector.lean; the row cites the stealth sector (D3 §34)", "prefixes": ["ResNova.AeSTStealthSector."], "note": "relabelled 2026-10-09: AeSTStealthSector is bookkeeping (PPN theorems rfl on typed values); stealth screening [D], branch selection [O]; AeST not falsified"},
+    {"row": "D8", "tier": "[D]", "modules": ["TensorSpeed", "PrintAxiomsD8"], "named_in_row": false, "inferred_from": "README.md 'c_T = c (D8)' and the file name PrintAxiomsD8.lean", "prefixes": ["ResNova.TensorSpeed."], "note": "relabelled 2026-10-09: c_T = c is a structural derivation; TensorSpeed is arithmetic plus the superseded disformal model and Foster-Jacobson alpha_1"},
     {"row": "D9", "tier": "[P]", "modules": ["SZStdEmbedding"], "named_in_row": true, "prefixes": ["SZStdEmbedding."]},
-    {"row": "MuStdFoundations (2026-09-30 correction, line ~103)", "tier": "[P]", "modules": ["MuStdFoundations"],
-     "named_in_row": true, "prefixes": ["ResNova.MuStdFoundations."]}
+    {"row": "MuStdFoundations (2026-09-30 correction, line ~103)", "tier": "[P]", "modules": ["MuStdFoundations"], "named_in_row": true, "prefixes": ["ResNova.MuStdFoundations."]}
   ]
 }

@@ -20,8 +20,15 @@ def main() -> None:
     if summary.get("n_galaxies") != 175:
         errors.append(f"fresh run has n_galaxies={summary.get('n_galaxies')}, expected 175")
     strict = summary.get("strict_GOD", {})
-    if not math.isclose(strict.get("median", float("nan")), 29.124125998290637, rel_tol=0, abs_tol=1e-9):
+    # Pinned 2026-10-09 after the baryon fix (Y multiplies V^2, signed V_gas, fd scales V_bar^2 and R),
+    # under mu_std. The previous pin, 29.124125998290637, was the 2026-08-14 run under the retired mu_dual.
+    if not math.isclose(strict.get("median", float("nan")), 15.00865689971704, rel_tol=0, abs_tol=1e-9):
         errors.append(f"strict GOD median drifted: {strict.get('median')!r}")
+    if summary.get("n_points") != 3391:
+        errors.append(f"fresh run has n_points={summary.get('n_points')}, expected 3391")
+    digest = summary.get("data", {}).get("sha256_of_manifest")
+    if digest != "e78c1d6883a7843ca69a6a6f23ebad228e4a362c4861e9cd81a01c43fae9a4e7":
+        errors.append(f"input data digest {digest!r} != SHA-256 of RAW_DATA_MANIFEST.sha256")
     if summary.get("a0_horizon_m_s2") != measurement.get("a0_horizon_m_s2", summary.get("a0_horizon_m_s2")):
         # The committed measurement uses a fitted value and therefore need not equal
         # the horizon prior. Keep this branch only to make an accidental key change loud.

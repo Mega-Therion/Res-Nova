@@ -4,15 +4,15 @@
  "claims": [
   {
    "id": "CLM-01",
-   "wording": "The dual-channel action F_dual(x) = x^2/2 - x + ln(1+x) has derivative x/(1+x).",
+   "wording": "For x > 0, the dual-channel action F_dual(x) = x^2/2 - x + ln(1+x) has derivative F_dual'(x) = x^2/(1+x) = x * mu_dual(x), with mu_dual(x) = x/(1+x); the previously asserted identity F_dual'(x) = x/(1+x) is false.",
    "state": "formally-verified",
-   "claim_type": "algebraic-identity",
-   "limitations": "This does not establish physical uniqueness or empirical adequacy. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
+   "claim_type": "mathematical-theorem",
+   "limitations": "Mathematics about a retired function. The x/(1+x) constitutive branch was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4); this record gives no physical support to it or to the live theory (mu_std), and does not establish physical uniqueness or empirical adequacy. Correction history: until PR #141 (2026-10-09) this record read 'F_dual has derivative x/(1+x)' as formally-verified. That wording was false, and the module then held no theorem about F_dual's derivative: dual_channel_flux_algebra is the field identity x - x/(1+x) = x^2/(1+x) (vacuity_screen 0.2: FIELD-ID).",
    "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-01"
   },
   {
    "id": "CLM-02",
-   "wording": "The geometry selects the quadratic boundary condition, hence mu_simple(x) = x/sqrt(1+x^2); equivalently mu_simple = cos of the projection angle between total and Newtonian legs.",
+   "wording": "The geometry selects the quadratic boundary condition, hence mu(x) = x/sqrt(1+x^2) (the standard mu, mu_std; the Lean identifiers call it mu_simple, but the simple mu of the MOND literature is x/(1+x)); equivalently mu_simple = cos of the projection angle between total and Newtonian legs.",
    "state": "formally-verified",
    "claim_type": "formal-proof",
    "limitations": "Selection is by ELIMINATION within the two candidate ansaetze considered: powerLaw_solves_dilaton_eom shows sigma(r)=k/r with k^2=2c^4/a0^2 satisfies the EOM, while exp_profile_fails_cubic shows the linear-BC exponential cannot. This does not establish that no third ansatz exists. laws_differ separately proves x/(x+1) and x/sqrt(1+x^2) are distinct functions, so the earlier corpus contradiction between them was real. CAS companion mu_residual_witness.py (11/11) lives in the Chyren repo at Research_and_Data/02_Documents/, outside this repository.",
@@ -28,10 +28,10 @@
   },
   {
    "id": "CLM-04",
-   "wording": "The strict SPARC GOD run reports a median reduced chi-squared of approximately 29.12 across 175 galaxies.",
+   "wording": "The strict SPARC unit-M/L check (Y_disk = Y_bulge = 1, f_d = 1, a0 = cH0/2pi, mu_std) reports a median reduced chi-squared of 15.01 and an aggregate chi2/dof of 69.07 across 175 galaxies (3,391 points).",
    "state": "computed",
    "claim_type": "empirical-measurement",
-   "limitations": "The strict result is a poor absolute fit and does not by itself establish physical validity or causality.",
+   "limitations": "A poor absolute fit, and not the canonical comparison: Tier 0 in PARAMETER_LEDGER.json uses the 171-galaxy sample at prior-mean M/L. Correction history: until 2026-10-09 this record read 29.12, the 2026-08-14 VERIFICATION_RUN_001 value computed under the retired mu_dual (tau form); the artifacts it listed did not produce that number.",
    "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-04"
   },
   {
@@ -44,10 +44,10 @@
   },
   {
    "id": "CLM-06",
-   "wording": "Baryons-only unit M/L control on SPARC: median chi2_data/N_g = 51.58, aggregate sum chi2_data/dof = 204.65.",
+   "wording": "Baryons-only unit M/L control on SPARC: median chi2_data/N_g = 51.58, aggregate sum chi2_data/dof = 204.66.",
    "state": "computed",
    "claim_type": "empirical-measurement",
-   "limitations": "This is a deliberately poor-fitting control, not a result. It exists to bound the baryons-only baseline.",
+   "limitations": "A deliberately poor-fitting control, not a result; it bounds the baryons-only baseline. Re-derived 2026-10-09: 51.584 / 204.659 against VERIFICATION_RUN_001's 51.5839 / 204.6455 (agreement to 0.007%). Until then the record listed parameter_ledger.py and PARAMETER_LEDGER.json, which do not produce these numbers.",
    "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-06"
   },
   {

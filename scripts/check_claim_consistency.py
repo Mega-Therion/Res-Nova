@@ -52,8 +52,9 @@ if ledger_path.is_file() and nfw_path.is_file():
         errors.append(f"NFW-GOD parameter gap is {extra}, expected 342")
 
 readme = (ROOT / "README.md").read_text() if (ROOT / "README.md").is_file() else ""
-if "1.116" not in readme:
-    errors.append("README.md does not mention the working a0 1.116e-10")
+if "1.1607" not in readme:
+    errors.append("README.md does not mention the working a0 1.1607e-10 (mu_std, 175 galaxies; "
+                  "1.116e-10 was the superseded mu_dual fit, switched 2026-10-09)")
 if "SUPERSEDED" not in readme:
     errors.append("README.md must mark the old a0 headline SUPERSEDED")
 

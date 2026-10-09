@@ -14,7 +14,9 @@ from scipy import constants as k
 
 C = k.c                              # exact by SI definition, m/s
 MPC = 3.0856775814913673e22          # m, IAU
-A0, S_STAT, S_SYST = 1.116e-10, 0.128e-10, 0.097e-10   # SPARC, 171 galaxies
+# The superseded 171-galaxy mu_dual fit (2026-09-17). This script is the record of that inversion; the live
+# mu_std inversion (H0 = 75.1, 95% [62.9, 83.7]) is in A0_DISTANCE_CORRECTED_2026-09-16.json.
+A0, S_STAT, S_SYST = 1.116e-10, 0.128e-10, 0.097e-10   # SPARC, 171 galaxies, mu_dual
 PLANCK, SHOES = 67.4, 73.0
 
 kms_mpc = lambda h_si: h_si * MPC / 1000.0

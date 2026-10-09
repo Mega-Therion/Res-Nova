@@ -59,6 +59,17 @@ RETIRED = [
     ("fabricated a0(z) figure",
      re.compile(r"a0_z_analysis\.png"),
      "do not cite -- 3 of 5 points fabricated"),
+    # Added 2026-10-09. The mu_dual-era SPARC benchmark sat on the canonical manuscript,
+    # FOR_REFEREES.md and the parameter budget for three weeks after PARAMETER_LEDGER.json
+    # was recomputed under mu_std, and under mu_std the Tier 0 order reverses. Those tables
+    # are now generated (scripts/sparc_benchmark_tables.py). This catches the old numbers
+    # wherever they are typed back in by hand.
+    ("mu_dual-era SPARC benchmark numbers",
+     re.compile(r"\b9\.20\b[^\n]{0,80}\b11\.35\b|\b11\.35\b[^\n]{0,80}\b9\.20\b|"
+                r"\b2\.95\b[^\n]{0,80}\b2\.89\b|(?:GOD|Tier)[^\n|]{0,60}\|[^\n]{0,40}\b(?:9\.20|2\.95)\b|"
+                r"median[^\n]{0,30}\b(?:9\.20|2\.95)\b"),
+     "PARAMETER_LEDGER.json under mu_std (Tier 0 GOD 11.08 / MOND 9.93; Tier 1 3.36 / 3.41); "
+     "generated tables: scripts/sparc_benchmark_tables.py"),
 ]
 
 # Surfaces where a retired entity is a defect. Everything else -- archives,
@@ -298,6 +309,9 @@ def self_test() -> int:
         ("mu_dual(x) = x/(1+x) is the interpolating function", True),
         ("the V_240 substrate underlies the frame", True),
         ("see a0_z_analysis.png for the fit", True),
+        ("| GOD | 0 | 9.20 | 51.45 | Tier 0 GOD 9.20 vs MOND 11.35", True),
+        ("Tier 1 GOD median 2.95 / 374 parameters; MOND 2.89 / 374", True),
+        ("Tier 1 GOD median 3.36 / 374 parameters; MOND 3.41 / 374", False),
         ("mu_std(x) = x/sqrt(1+x^2) is the live branch", False),
         ("mu_dual was falsified on 2026-09-12 and is retired", False),
     ]

@@ -40,7 +40,7 @@ def main():
     assert sp.simplify(high_series_std - (1 / (2 * x**2) - 3 / (8 * x**4))) == 0
 
     # 4. Numerical evaluation at Cassini scale
-    # g_earth ≈ 5.93e-3 m/s^2, a0 ≈ 1.116e-10 m/s^2 -> x ≈ 5.31e7
+    # g_earth ≈ 5.93e-3 m/s^2, a0 ≈ 1.161e-10 m/s^2 (live mu_std fit) -> x ≈ 5.11e7
     # Canonical conservative benchmark: x_cassini = 6.0e7
     x_cassini = 6.0e7
     val_dual = float(delta_gamma_dual.subs(x, x_cassini))

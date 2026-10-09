@@ -24,8 +24,11 @@ EOT_WASH_UM = 39.0
 rows = []
 for name, a0 in (
     ("literature", 1.2e-10),
-    ("sparc_fit", 1.116e-10),
-    ("horizon_anchor", 1.2211e-10),
+    ("sparc_fit_mu_std", 1.1607e-10),           # live mu_std fit (A0_DISTANCE_CORRECTED_2026-09-16.json)
+    # 5.461e-11 * sqrt(5): the "canonical constants block" value. Labelled "horizon_anchor" until 2026-10-09,
+    # which it is not; the horizon anchor is cH0/2pi, added below.
+    ("canonical_5.461e-11_sqrt5", 1.2211e-10),
+    ("horizon_anchor_cH0_2pi", 1.0421152108506952e-10),
 ):
     lam = ((a0**2 / G) * HBAR_C**3) ** 0.25
     rang_um = HBAR_C / lam * 1e6

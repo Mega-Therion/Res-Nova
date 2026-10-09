@@ -126,9 +126,9 @@ modules:
     falsifier: TODO
 
   - module: DualChannelDerivation
-    tier: ARITH
-    theorems: 4
-    structures: 0
+    tier: STRUCT
+    theorems: 8
+    structures: 4
     plain_real_defs: 0
     denotes: "the AQUAL simple interpolating function mu(x) = x/(1+x) and its associated scalar kinetic potential F(x) = x^2/2 - x + ln(1+x), evaluated as real functions where x = g/a_0"
     observable: "SPARC galaxy rotation curves via the AQUAL simple mu interpolating function"

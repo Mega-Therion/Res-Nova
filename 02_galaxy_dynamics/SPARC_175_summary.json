@@ -1,35 +1,72 @@
 {
-  "generated": "2026-09-12",
-  "data_dir": "/home/mega/aeon-work/research/07_Domain_Tiers_and_Data/Datasets/data/sparc_data",
+  "generated": "2026-10-09",
+  "data": {
+    "files": "SPARC Rotmod_LTG *_rotmod.dat (scripts/fetch_sparc.sh)",
+    "n_files": 175,
+    "sha256_of_manifest": "e78c1d6883a7843ca69a6a6f23ebad228e4a362c4861e9cd81a01c43fae9a4e7"
+  },
   "n_galaxies": 175,
+  "n_points": 3391,
   "a0_horizon_m_s2": 1.0421152108506952e-10,
   "a0_mond_empirical_m_s2": 1.2e-10,
   "strict_GOD": {
     "n": 175,
-    "median": 15.098198314171201,
-    "mean": 52.0587705745072,
-    "max": 1899.1883163182822,
-    "frac_lt_1": 5,
+    "median": 15.00865689971704,
+    "mean": 52.01057377098053,
+    "max": 1899.1883163182815,
+    "frac_lt_1": 6,
     "frac_lt_2": 16,
     "frac_lt_5": 46
   },
   "strict_MOND": {
     "n": 175,
-    "median": 17.013331789350957,
-    "mean": 59.32912067323242,
-    "max": 2050.918292142981,
+    "median": 17.013331789350943,
+    "mean": 59.27358038438261,
+    "max": 2050.918292142979,
     "frac_lt_1": 5,
-    "frac_lt_2": 15,
+    "frac_lt_2": 16,
     "frac_lt_5": 43
   },
   "nuisance_GOD": {
     "n": 175,
-    "median": 2.892027483251747,
-    "mean": 6.991193431229098,
-    "max": 73.33743230403437,
-    "frac_lt_1": 32,
+    "median": 3.0591566453585726,
+    "mean": 7.074765921412479,
+    "max": 80.03778582943852,
+    "frac_lt_1": 30,
     "frac_lt_2": 67,
-    "frac_lt_5": 118
+    "frac_lt_5": 117
   },
-  "note": "Strict: fixed a0, unit M/L, no distance rescaling. Nuisance: per-galaxy Yd, Yb (if bulge), fd with Gaussian priors; reduced chi2 = chi2_data/(N - Nfree)."
+  "newtonian": {
+    "n": 175,
+    "median": 51.58389681265,
+    "mean": 157.60291216337745,
+    "max": 2485.338988225139,
+    "frac_lt_1": 5,
+    "frac_lt_2": 8,
+    "frac_lt_5": 16
+  },
+  "newtonian_prior_mean_ML": {
+    "n": 175,
+    "median": 85.23278224846521,
+    "mean": 267.91963891628546,
+    "max": 3386.1189973517085,
+    "frac_lt_1": 4,
+    "frac_lt_2": 5,
+    "frac_lt_5": 11
+  },
+  "aggregate_chi2_per_dof": {
+    "strict_GOD": 69.0743689167484,
+    "strict_MOND": 78.04883324221218,
+    "nuisance_GOD": 7.780166324162498,
+    "newtonian": 204.65882716499755,
+    "newtonian_prior_mean_ML": 406.48918138998243
+  },
+  "total_dof": {
+    "strict_GOD": 3391,
+    "strict_MOND": 3391,
+    "nuisance_GOD": 3009,
+    "newtonian": 3391,
+    "newtonian_prior_mean_ML": 3391
+  },
+  "note": "Strict: fixed a0, unit M/L, no distance rescaling. Nuisance: per-galaxy Yd, Yb (if bulge), fd with Gaussian priors; reduced chi2 = chi2_data/(N - Nfree). Newtonian: baryons only, unit M/L; newtonian_prior_mean_ML: baryons only at Yd = 0.5, Yb = 0.7 (0 if no bulge). V_bar^2 = V_gas|V_gas| + Yd V_disk^2 + Yb V_bul^2; fd scales V_bar^2 and R."
 }

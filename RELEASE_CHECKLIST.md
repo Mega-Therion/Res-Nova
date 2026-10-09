@@ -15,8 +15,8 @@
 
 ### Phase 2: Empirical SPARC Reproduction & Parameter Accounting
 - [x] **Raw Input Data Authenticated:** 175 SPARC `*_rotmod.dat` files cryptographically hashed, and the clean-clone fetch pipeline walked end-to-end 2026-09-09 with 175/175 checksums OK, 0 drift (VERIFICATION_RUN_009) (`SHA-256: e76e6752164b80b14a20c1d6c05f96d095456e067bdd5c6da59d2be4ec70c1eb` in `VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256`).
-- [x] **Working Measurement:** $a_0 = (1.116 \pm 0.128_{\text{stat}} \pm 0.097_{\text{syst}})\times 10^{-10}\text{ m/s}^2$ (total 14.4% error) across 171 galaxies (3,375 points) from `02_galaxy_dynamics/A0_MEASUREMENT.json`.
-- [x] **Tier 1 Parameter Accounting:** Matched-nuisance Tier 1 GOD model has $N_{\text{par}} = 374$ parameters ($171 \times 2 + 32 = 374$), median $\chi^2_{\text{data}}/N_g = 2.95$ (`02_galaxy_dynamics/PARAMETER_LEDGER.json`).
+- [x] **Working Measurement:** $a_0 = 1.1607\times 10^{-10}\text{ m/s}^2$ (μ_std; bootstrap 95% $[0.972, 1.295]\times10^{-10}$) across 175 galaxies (3,391 points) from `02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json`. Superseded 2026-09-17: the 171-galaxy μ_dual fit $(1.116 \pm 0.128_{\text{stat}} \pm 0.097_{\text{syst}})\times 10^{-10}$ in `A0_MEASUREMENT.json`.
+- [x] **Tier 1 Parameter Accounting:** Matched-nuisance Tier 1 GOD model has $N_{\text{par}} = 374$ parameters ($171 \times 2 + 32 = 374$), median $\chi^2_{\text{data}}/N_g = 3.36$ under μ_std (`02_galaxy_dynamics/PARAMETER_LEDGER.json`; the 2.95 printed here until 2026-10-09 was μ_dual-era).
 - [x] **Constrained NFW Baseline:** NFW with cosmological concentration prior yields median $\chi^2_{\text{data}}/N_g = 5.62$ ($N_{\text{par}} = 716$, 342 extra knobs vs GOD). Unconstrained NFW rails 97/171 galaxies at $c=1$ (`02_galaxy_dynamics/NFW_CONSTRAINED.json`).
 - [x] **Terminology Precision:** Per-galaxy metric consistently reported as $\chi^2_{\text{data}}/N_g$ (data-residual $\chi^2$ per kinematic point). "Zero free parameters" language withdrawn as a working model class.
 

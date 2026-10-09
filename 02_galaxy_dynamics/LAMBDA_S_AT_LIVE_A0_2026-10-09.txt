@@ -1,0 +1,20 @@
+a0 = 1.1607e-10 m/s^2  (D3's table is at 1.116e-10; its column is not expected to agree)
+body             g_N     delta_g          Q2   margin   lam<=   agrees with D3
+Mercury    3.959e-02   1.701e-19   2.939e-30   1157.0    9.50   NO
+Earth      5.930e-03   1.136e-18   7.593e-30    447.8    6.65   NO
+Mars       2.553e-03   2.638e-18   1.157e-29    293.8    5.65   NO
+Jupiter    2.190e-04   3.076e-17   3.951e-29     86.0    3.41   NO
+Saturn     6.457e-05   1.043e-16   7.277e-29     46.7    2.60   NO
+Uranus     1.605e-05   4.196e-16   1.459e-28     23.3    1.86   NO
+
+every published column reproduced within 2%: False
+
+structure (the [D] content, independent of the empirical inputs):
+  delta_g doubling r        x4.00   (r^2 -> 4.00)
+  Q2 doubling r             x2.00   (r^1 -> 2.00)
+  ceiling doubling r        x0.763  (tightens)
+  => the outermost body with a datum binds; Mercury is the weakest test.
+
+Saturn precession route, lambda_s ceilings:
+  Hees et al. 2014, PRD 89:102002 (direct Cassini)     margin  33.0  lambda_s <= 2.21
+  Fienga et al. 2011, CMDA 111:363 Table 5, 1 sigma    margin  49.8  lambda_s <= 2.68

@@ -2,16 +2,16 @@
   "schema_version": "1.0",
   "note": "Recorded result of the full Lean gate, written by hand from an actual run. generate_assurance_report.py reads it and never runs the gate itself (~12 min). Staleness is keyed on the SHA-256 of the on-disk sources in 05_lean_formalization/ (.lean files, lakefile, lean-toolchain, verify_all_proofs.sh): any edit to a .lean file, the lakefile, or the gate script invalidates the record. The commit field records where it was run; it is not the staleness key, because a commit touching only assurance docs cannot invalidate a Lean run.",
   "command": "cd 05_lean_formalization && bash verify_all_proofs.sh",
-  "commit": "cbb4717239e88b3c1d0e195a52f7864413374116",
-  "run_at_utc": "2026-09-05T01:12:38Z",
+  "commit": "5e1fa72af841c1478cab59e85629badf2a496877",
+  "run_at_utc": "2026-10-09T06:35:55Z",
   "exit_code": 0,
-  "targets_declared": 30,
-  "targets_passed": 30,
+  "targets_declared": 66,
+  "targets_passed": 66,
   "lean": "v4.33.0-rc1",
   "mathlib": "5eec30bc",
   "mathlib_cache": "pre-existing in .lake/packages (not a cold fetch; see assurance/O6.json)",
-  "evidence": "assurance/evidence/gate_30_targets_2026-09-04.log",
+  "evidence": "assurance/evidence/gate_66_targets_2026-10-09.log",
   "certifies": "elaboration, absence of sorry, and a standard axiom footprint {propext, Classical.choice, Quot.sound}",
   "does_not_certify": "that assumptions carried as typeclass or structure fields are physically justified (THEORY_ASSUMPTION_AUDIT.md), nor cold-clone reproducibility (O6)",
-  "lean_tree_at_run": "f0c6004384451c428a87668ebc327a8939f329b7980c4265e96468abbac37bfd"
+  "lean_tree_at_run": "a9ccc3fddf26c62716c3eef494dca911869e570cc00267f8b604ad45266f3474"
 }
