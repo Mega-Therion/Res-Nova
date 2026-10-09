@@ -1,6 +1,6 @@
 {
-  "tool": "vacuity_screen/0.1",
-  "project": "Res-Nova/05_lean_formalization",
+  "tool": "vacuity_screen/0.2",
+  "project": "05_lean_formalization",
   "source_commitment": "20c0a0e6e90f49aea964b6bae1a898dfd968ad085731fe208db160d226ce0d77",
   "config": {
     "imports": [
@@ -28,7 +28,7 @@
   "lake_build_exit": 0,
   "lean_exit": 0,
   "lean_errors": [],
-  "seconds": 33.9,
+  "seconds": 9.5,
   "nonvacuity": "not-established",
   "results": [
     {
