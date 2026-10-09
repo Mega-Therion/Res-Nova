@@ -22,6 +22,24 @@ open Real
 /-- The Dual-Channel Entropic Action Potential F(x) -/
 def F_dual (x : ℝ) : ℝ := (1/2) * x^2 - x + Real.log (1 + x)
 
+/-- The derivative of the dual-channel action, proved by calculus.
+This is an algebraic fact about the retired function; it does not validate the
+retired constitutive branch as physical. -/
+theorem F_dual_hasDerivAt (x : ℝ) (hx : 0 < x) :
+    HasDerivAt F_dual (x - 1 + 1 / (1 + x)) x := by
+  have hpoly : HasDerivAt (fun y : ℝ => (1 / 2 : ℝ) * y ^ 2 - y) (x - 1) x := by
+    have hpow : HasDerivAt (fun y : ℝ => (1 / 2 : ℝ) * y ^ 2) x x := by
+      convert (hasDerivAt_pow 2 x).const_mul (1 / 2 : ℝ) using 1 <;> ring
+    have hid : HasDerivAt (fun y : ℝ => y) 1 x := hasDerivAt_id x
+    convert hpow.sub hid using 1 <;> ring
+  have harg : HasDerivAt (fun y : ℝ => 1 + y) 1 x := by
+    simpa using (hasDerivAt_id x).const_add 1
+  have hlog : HasDerivAt (fun y : ℝ => Real.log (1 + y)) (1 / (1 + x)) x := by
+    have hlog' := (Real.hasDerivAt_log (show 1 + x ≠ 0 by linarith)).comp x harg
+    convert hlog' using 1 <;> ring
+  have hsum := hpoly.add hlog
+  simpa [F_dual] using hsum
+
 /-- The derived weak-field constitutive relation mu(x) -/
 def mu_derived (x : ℝ) : ℝ := x / (1 + x)
 
