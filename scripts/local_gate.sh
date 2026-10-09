@@ -49,6 +49,9 @@ step "physics grounding audit" python3 scripts/grounding_audit.py --check
 step "corpus surfaces self-test" python3 scripts/corpus_surfaces.py
 step "dead-branch scan" python3 scripts/dead_branch_scan.py --check
 step "dead-branch self-test" python3 scripts/dead_branch_scan.py --self-test
+# Every retired entity and Zenodo correction has an entry in docs/ERRATA.yaml.
+step "errata coverage" python3 scripts/check_errata.py
+step "errata self-test" python3 scripts/check_errata.py --self-test
 step "dead-branch permissiveness" python3 scripts/dead_branch_scan.py --regression
 # One tier vocabulary. Four were in simultaneous use before 2026-09-20.
 step "tier legend" python3 scripts/tier_legend_check.py --check
