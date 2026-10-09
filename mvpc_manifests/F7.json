@@ -30,7 +30,7 @@
     },
     {
       "path": "05_lean_formalization/DualChannelDerivation.lean",
-      "sha256": "c2c5e4ec54008457a4121b8517e11e674a458ada3fcf6c1b01ec3275f0672fae",
+      "sha256": "15de1bdef5ed835de55ddc8bf7a66068c9807ba24fb5b9e26cfd2e1142f7040d",
       "role": "physics_proof"
     },
     {
