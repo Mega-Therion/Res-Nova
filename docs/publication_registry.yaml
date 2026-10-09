@@ -12,7 +12,9 @@
 # role: version  -- one frozen version. Cite this when you mean 'this text'.
 # is_latest: true -- the current version inside its concept family.
 #
-# Generated from DataCite 2026-09-20.
+# Generated from DataCite 2026-09-20. Titles, authors and versions were refreshed from DataCite on
+# 2026-10-09 with --refresh (139 fields: 133 creators now "Yett, R.W.", and 6 concept titles that
+# now open on their 2026-10-03 correction versions).
 
 identity:
   name: "R.W. Yett"
@@ -34,7 +36,7 @@ known_gaps: []
 works:
   - work_id: the_yett_paradigm_complete_unified
     title: "The Yett Paradigm: Complete Unified Framework (Quantum Gravity & Chy-Bridge)"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Report"
     canonical_doi: "10.5281/zenodo.19693512"
@@ -51,7 +53,7 @@ works:
 
   - work_id: the_yett_paradigm_complete_unified_2
     title: "The Yett Paradigm: Complete Unified Framework (Quantum Gravity & Chy-Bridge)"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20026859"
@@ -68,7 +70,7 @@ works:
 
   - work_id: the_yett_paradigm_complete_unified_3
     title: "The Yett Paradigm: Complete Unified Framework (Millennium Solutions, Quantum Gravity, & Chy-Bridge)"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20454618"
@@ -85,7 +87,7 @@ works:
 
   - work_id: the_yett_paradigm_complete_unified_4
     title: "[SUPERSEDED — DO NOT CITE] The Yett Paradigm: Complete Unified Framework (Millennium Solutions, Quantum Gravity, & Chy-Bridge)"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.19693511"
@@ -102,7 +104,7 @@ works:
 
   - work_id: the_yett_paradigm_complete_unified_5
     title: "[SUPERSEDED — DO NOT CITE] The Yett Paradigm: Complete Unified Framework (Millennium Solutions, Quantum Gravity, & Chy-Bridge)"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652241"
@@ -119,7 +121,7 @@ works:
 
   - work_id: the_yett_paradigm_complete_unified_6
     title: "The Yett Paradigm: Complete Unified Framework (Millennium Solutions, Quantum Gravity, & Chy-Bridge)"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652078"
@@ -136,7 +138,7 @@ works:
 
   - work_id: the_yett_paradigm_complete_unified_7
     title: "The Yett Paradigm: Complete Unified Framework (Millennium Solutions, Quantum Gravity, & Chy-Bridge)"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20651488"
@@ -153,7 +155,7 @@ works:
 
   - work_id: information_tension_theory_a_geometric
     title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027635"
@@ -170,7 +172,7 @@ works:
 
   - work_id: information_tension_theory_a_geometric_2
     title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Preprint"
     canonical_doi: "10.5281/zenodo.20046458"
@@ -187,7 +189,7 @@ works:
 
   - work_id: information_tension_theory_a_geometric_3
     title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20196143"
@@ -204,7 +206,7 @@ works:
 
   - work_id: information_tension_theory_a_geometric_4
     title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20454397"
@@ -221,7 +223,7 @@ works:
 
   - work_id: information_tension_theory_a_geometric_5
     title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20651509"
@@ -238,7 +240,7 @@ works:
 
   - work_id: information_tension_theory_a_geometric_6
     title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652096"
@@ -255,7 +257,7 @@ works:
 
   - work_id: information_tension_theory_a_geometric_7
     title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652221"
@@ -272,7 +274,7 @@ works:
 
   - work_id: information_tension_theory_a_geometric_8
     title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027634"
@@ -289,7 +291,7 @@ works:
 
   - work_id: information_tension_theory_a_geometric_9
     title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20780901"
@@ -306,7 +308,7 @@ works:
 
   - work_id: information_tension_theory_a_geometric_10
     title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20776408"
@@ -323,7 +325,7 @@ works:
 
   - work_id: information_tension_theory_a_geometric_11
     title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20776911"
@@ -340,7 +342,7 @@ works:
 
   - work_id: information_tension_theory_a_geometric_12
     title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20781199"
@@ -357,7 +359,7 @@ works:
 
   - work_id: the_anti_drift_cognitive_control
     title: "The Anti-Drift Cognitive Control Loop (ADCCL): A Geometric Foundation for Hallucination-Free AI"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027643"
@@ -374,7 +376,7 @@ works:
 
   - work_id: the_anti_drift_cognitive_control_2
     title: "The Anti-Drift Cognitive Control Loop (ADCCL): A Geometric Foundation for Hallucination-Free AI"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Preprint"
     canonical_doi: "10.5281/zenodo.20046459"
@@ -391,7 +393,7 @@ works:
 
   - work_id: the_anti_drift_cognitive_control_3
     title: "The Anti-Drift Cognitive Control Loop (ADCCL): A Geometric Foundation for Hallucination-Free AI"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20454398"
@@ -408,7 +410,7 @@ works:
 
   - work_id: the_anti_drift_cognitive_control_4
     title: "[SUPERSEDED — DO NOT CITE] The Anti-Drift Cognitive Control Loop (ADCCL): A Geometric Foundation for Hallucination-Free AI"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027642"
@@ -425,7 +427,7 @@ works:
 
   - work_id: the_anti_drift_cognitive_control_5
     title: "[SUPERSEDED — DO NOT CITE] The Anti-Drift Cognitive Control Loop (ADCCL): A Geometric Foundation for Hallucination-Free AI"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652222"
@@ -442,7 +444,7 @@ works:
 
   - work_id: the_anti_drift_cognitive_control_6
     title: "The Anti-Drift Cognitive Control Loop (ADCCL): A Geometric Foundation for Hallucination-Free AI"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652091"
@@ -459,7 +461,7 @@ works:
 
   - work_id: the_anti_drift_cognitive_control_7
     title: "The Anti-Drift Cognitive Control Loop (ADCCL): A Geometric Foundation for Hallucination-Free AI"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20651508"
@@ -476,7 +478,7 @@ works:
 
   - work_id: the_ramanujan_yett_hamiltonian_quantum
     title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027645"
@@ -493,7 +495,7 @@ works:
 
   - work_id: the_ramanujan_yett_hamiltonian_quantum_2
     title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Preprint"
     canonical_doi: "10.5281/zenodo.20046460"
@@ -510,7 +512,7 @@ works:
 
   - work_id: the_ramanujan_yett_hamiltonian_quantum_3
     title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20196154"
@@ -527,7 +529,7 @@ works:
 
   - work_id: the_ramanujan_yett_hamiltonian_quantum_4
     title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20454540"
@@ -544,7 +546,7 @@ works:
 
   - work_id: the_ramanujan_yett_hamiltonian_quantum_5
     title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20454403"
@@ -561,7 +563,7 @@ works:
 
   - work_id: the_ramanujan_yett_hamiltonian_quantum_6
     title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652079"
@@ -578,7 +580,7 @@ works:
 
   - work_id: the_ramanujan_yett_hamiltonian_quantum_7
     title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20651495"
@@ -595,7 +597,7 @@ works:
 
   - work_id: the_ramanujan_yett_hamiltonian_quantum_8
     title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652238"
@@ -612,7 +614,7 @@ works:
 
   - work_id: the_ramanujan_yett_hamiltonian_quantum_9
     title: "[SUPERSEDED — DO NOT CITE] The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027644"
@@ -629,7 +631,7 @@ works:
 
   - work_id: the_ramanujan_yett_hamiltonian_quantum_10
     title: "[SUPERSEDED — DO NOT CITE] The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20781203"
@@ -646,7 +648,7 @@ works:
 
   - work_id: the_ramanujan_yett_hamiltonian_quantum_11
     title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20776418"
@@ -663,7 +665,7 @@ works:
 
   - work_id: the_ramanujan_yett_hamiltonian_quantum_12
     title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Yang-Mills Mass Gap"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20776918"
@@ -680,7 +682,7 @@ works:
 
   - work_id: omega_a_layered_architecture_for
     title: "OmegA: A Layered Architecture for Sovereign Cognitive Agents"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027647"
@@ -697,7 +699,7 @@ works:
 
   - work_id: omega_a_layered_architecture_for_2
     title: "OmegA: A Layered Architecture for Sovereign Cognitive Agents"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20454381"
@@ -714,7 +716,7 @@ works:
 
   - work_id: omega_a_layered_architecture_for_3
     title: "[SUPERSEDED — DO NOT CITE] OmegA: A Layered Architecture for Sovereign Cognitive Agents"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027646"
@@ -731,7 +733,7 @@ works:
 
   - work_id: omega_a_layered_architecture_for_4
     title: "[SUPERSEDED — DO NOT CITE] OmegA: A Layered Architecture for Sovereign Cognitive Agents"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652223"
@@ -748,7 +750,7 @@ works:
 
   - work_id: omega_a_layered_architecture_for_5
     title: "OmegA: A Layered Architecture for Sovereign Cognitive Agents"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652087"
@@ -765,7 +767,7 @@ works:
 
   - work_id: omega_a_layered_architecture_for_6
     title: "OmegA: A Layered Architecture for Sovereign Cognitive Agents"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20651507"
@@ -782,7 +784,7 @@ works:
 
   - work_id: neuro_topological_stability_biological_regularity
     title: "Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027651"
@@ -799,7 +801,7 @@ works:
 
   - work_id: neuro_topological_stability_biological_regularity_2
     title: "Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Preprint"
     canonical_doi: "10.5281/zenodo.20046456"
@@ -816,7 +818,7 @@ works:
 
   - work_id: neuro_topological_stability_biological_regularity_3
     title: "Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20196150"
@@ -833,7 +835,7 @@ works:
 
   - work_id: neuro_topological_stability_biological_regularity_4
     title: "Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20454374"
@@ -850,7 +852,7 @@ works:
 
   - work_id: neuro_topological_stability_biological_regularity_5
     title: "Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20454406"
@@ -867,7 +869,7 @@ works:
 
   - work_id: neuro_topological_stability_biological_regularity_6
     title: "Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20651505"
@@ -884,7 +886,7 @@ works:
 
   - work_id: neuro_topological_stability_biological_regularity_7
     title: "Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652230"
@@ -901,7 +903,7 @@ works:
 
   - work_id: neuro_topological_stability_biological_regularity_8
     title: "Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652086"
@@ -918,7 +920,7 @@ works:
 
   - work_id: neuro_topological_stability_biological_regularity_9
     title: "[SUPERSEDED — DO NOT CITE] Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027650"
@@ -935,7 +937,7 @@ works:
 
   - work_id: neuro_topological_stability_biological_regularity_10
     title: "[SUPERSEDED — DO NOT CITE] Neuro-Topological Stability: Biological Regularity as a Solution to Navier-Stokes Drift"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20776424"
@@ -952,7 +954,7 @@ works:
 
   - work_id: resource_holonomy_market_stability_and
     title: "Resource Holonomy: Market Stability and the Critical Line of Sovereignty"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027657"
@@ -969,7 +971,7 @@ works:
 
   - work_id: resource_holonomy_market_stability_and_2
     title: "Resource Holonomy: Market Stability and the Critical Line of Sovereignty"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Preprint"
     canonical_doi: "10.5281/zenodo.20046455"
@@ -986,7 +988,7 @@ works:
 
   - work_id: resource_holonomy_market_stability_and_3
     title: "Resource Holonomy: Market Stability and the Critical Line of Sovereignty"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20196151"
@@ -1003,7 +1005,7 @@ works:
 
   - work_id: resource_holonomy_market_stability_and_4
     title: "Resource Holonomy: Market Stability and the Critical Line of Sovereignty"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20454409"
@@ -1020,7 +1022,7 @@ works:
 
   - work_id: resource_holonomy_market_stability_and_5
     title: "Resource Holonomy: Market Stability and the Critical Line of Sovereignty"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20027656"
@@ -1037,7 +1039,7 @@ works:
 
   - work_id: resource_holonomy_market_stability_and_6
     title: "Resource Holonomy: Market Stability and the Critical Line of Sovereignty"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652233"
@@ -1054,7 +1056,7 @@ works:
 
   - work_id: resource_holonomy_market_stability_and_7
     title: "Resource Holonomy: Market Stability and the Critical Line of Sovereignty"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652085"
@@ -1071,7 +1073,7 @@ works:
 
   - work_id: resource_holonomy_market_stability_and_8
     title: "Resource Holonomy: Market Stability and the Critical Line of Sovereignty"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20651504"
@@ -1088,7 +1090,7 @@ works:
 
   - work_id: trinity_survey_replication_dark_matter
     title: "Trinity Survey Replication: Dark Matter Information Tension Analysis"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20092723"
@@ -1105,7 +1107,7 @@ works:
 
   - work_id: trinity_survey_replication_dark_matter_2
     title: "[RETRACTED] Trinity Survey Replication: Dark Matter Information Tension Analysis"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652203"
@@ -1122,7 +1124,7 @@ works:
 
   - work_id: trinity_survey_replication_dark_matter_3
     title: "[RETRACTED] Trinity Survey Replication: Dark Matter Information Tension Analysis"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20092722"
@@ -1139,7 +1141,7 @@ works:
 
   - work_id: trinity_survey_replication_dark_matter_4
     title: "Trinity Survey Replication: Dark Matter Information Tension Analysis"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20651523"
@@ -1156,7 +1158,7 @@ works:
 
   - work_id: trinity_survey_replication_dark_matter_5
     title: "Trinity Survey Replication: Dark Matter Information Tension Analysis"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652124"
@@ -1173,7 +1175,7 @@ works:
 
   - work_id: statistical_signatures_of_14_dimensional
     title: "Statistical Signatures of 14-Dimensional Vacuum Geometry: A High-Redshift Analysis of Information Tension Boosts"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20142809"
@@ -1190,7 +1192,7 @@ works:
 
   - work_id: statistical_signatures_of_14_dimensional_2
     title: "Statistical Signatures of 14-Dimensional Vacuum Geometry: A High-Redshift Analysis of Information Tension Boosts"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20454464"
@@ -1207,7 +1209,7 @@ works:
 
   - work_id: statistical_signatures_of_14_dimensional_3
     title: "Statistical Signatures of 14-Dimensional Vacuum Geometry: A High-Redshift Analysis of Information Tension Boosts"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652082"
@@ -1224,7 +1226,7 @@ works:
 
   - work_id: statistical_signatures_of_14_dimensional_4
     title: "Statistical Signatures of 14-Dimensional Vacuum Geometry: A High-Redshift Analysis of Information Tension Boosts"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20651501"
@@ -1241,7 +1243,7 @@ works:
 
   - work_id: statistical_signatures_of_14_dimensional_5
     title: "Statistical Signatures of 14-Dimensional Vacuum Geometry: A High-Redshift Analysis of Information Tension Boosts"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652237"
@@ -1258,7 +1260,7 @@ works:
 
   - work_id: statistical_signatures_of_14_dimensional_6
     title: "Statistical Signatures of 14-Dimensional Vacuum Geometry: A High-Redshift Analysis of Information Tension Boosts"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20776440"
@@ -1275,7 +1277,7 @@ works:
 
   - work_id: statistical_signatures_of_14_dimensional_7
     title: "Statistical Signatures of 14-Dimensional Vacuum Geometry: A High-Redshift Analysis of Information Tension Boosts"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20781204"
@@ -1292,7 +1294,7 @@ works:
 
   - work_id: the_observerse_as_an_e8
     title: "The Observerse as an E8 Branching: A Group-Theoretic Derivation of the 14 = 4 + 10 Structure and its Metric Fiber"
-    author: "Yett, Ryan W.; Chyren"
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21316842"
@@ -1309,7 +1311,7 @@ works:
 
   - work_id: the_observerse_as_an_e8_2
     title: "The Observerse as an E8 Branching: A Group-Theoretic Derivation of the 14 = 4 + 10 Structure and its Metric Fiber"
-    author: "Yett, Ryan W.; Chyren"
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20142808"
@@ -1326,7 +1328,7 @@ works:
 
   - work_id: sovereign_regularity_for_the_three
     title: "Sovereign Regularity for the Three-Dimensional Navier-Stokes Equations under Chiral Vorticity Alignment"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20195964"
@@ -1343,7 +1345,7 @@ works:
 
   - work_id: sovereign_regularity_for_the_three_2
     title: "Sovereign Regularity for the Three-Dimensional Navier-Stokes Equations under Chiral Vorticity Alignment"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20454459"
@@ -1360,7 +1362,7 @@ works:
 
   - work_id: sovereign_regularity_for_the_three_3
     title: "[SUPERSEDED — DO NOT CITE] Sovereign Regularity for the Three-Dimensional Navier-Stokes Equations under Chiral Vorticity Alignment"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652236"
@@ -1377,7 +1379,7 @@ works:
 
   - work_id: sovereign_regularity_for_the_three_4
     title: "[SUPERSEDED — DO NOT CITE] Sovereign Regularity for the Three-Dimensional Navier-Stokes Equations under Chiral Vorticity Alignment"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20195963"
@@ -1394,7 +1396,7 @@ works:
 
   - work_id: sovereign_regularity_for_the_three_5
     title: "Sovereign Regularity for the Three-Dimensional Navier-Stokes Equations under Chiral Vorticity Alignment"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652083"
@@ -1411,7 +1413,7 @@ works:
 
   - work_id: sovereign_regularity_for_the_three_6
     title: "Sovereign Regularity for the Three-Dimensional Navier-Stokes Equations under Chiral Vorticity Alignment"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20651502"
@@ -1428,7 +1430,7 @@ works:
 
   - work_id: universal_information_geometry_topological_primality
     title: "Universal Information Geometry: Topological Primality, the E8 Lattice, and the Origin of Gravitational Stability"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20348355"
@@ -1445,7 +1447,7 @@ works:
 
   - work_id: universal_information_geometry_topological_primality_2
     title: "Universal Information Geometry: Topological Primality, the E8 Lattice, and the Origin of Gravitational Stability"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20651513"
@@ -1462,7 +1464,7 @@ works:
 
   - work_id: universal_information_geometry_topological_primality_3
     title: "Universal Information Geometry: Topological Primality, the E8 Lattice, and the Origin of Gravitational Stability"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652218"
@@ -1479,7 +1481,7 @@ works:
 
   - work_id: universal_information_geometry_topological_primality_4
     title: "Universal Information Geometry: Topological Primality, the E8 Lattice, and the Origin of Gravitational Stability"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20652110"
@@ -1496,7 +1498,7 @@ works:
 
   - work_id: universal_information_geometry_topological_primality_5
     title: "Universal Information Geometry: Topological Primality, the E8 Lattice, and the Origin of Gravitational Stability (v2 — corrected)"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21479962"
@@ -1512,8 +1514,8 @@ works:
     is_new_version_of: []
 
   - work_id: universal_information_geometry_topological_primality_6
-    title: "Universal Information Geometry: Topological Primality, the E8 Lattice, and the Origin of Gravitational Stability (v2 — corrected)"
-    author: "Yett, Ryan W."
+    title: "Correction: this record does not solve a Millennium problem or derive a parameter-free law"
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20348354"
@@ -1530,7 +1532,7 @@ works:
 
   - work_id: geometric_accretion_limits_in_early
     title: "Geometric Accretion Limits in Early Universe Supermassive Black Holes: A Falsifiable Prediction from Information Tension Theory"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20780765"
@@ -1547,7 +1549,7 @@ works:
 
   - work_id: geometric_accretion_limits_in_early_2
     title: "Geometric Accretion Limits in Early Universe Supermassive Black Holes: A Falsifiable Prediction from Information Tension Theory"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20776361"
@@ -1564,7 +1566,7 @@ works:
 
   - work_id: geometric_accretion_limits_in_early_3
     title: "Geometric Accretion Limits in Early Universe Supermassive Black Holes: A Falsifiable Prediction from Information Tension Theory"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.20776916"
@@ -1581,7 +1583,7 @@ works:
 
   - work_id: geometric_accretion_limits_in_early_4
     title: "Geometric Accretion Limits in Early Universe Supermassive Black Holes: A Falsifiable Prediction from Information Tension Theory"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.21367552"
@@ -1598,7 +1600,7 @@ works:
 
   - work_id: geometric_accretion_limits_in_early_5
     title: "Geometric Accretion Limits in Early Universe Supermassive Black Holes: A Falsifiable Prediction from Information Tension Theory"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.20776360"
@@ -1615,7 +1617,7 @@ works:
 
   - work_id: verified_qubit_decoherence_and_stiefel
     title: "Verified Qubit Decoherence and Stiefel Manifold Topology"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Dataset"
     canonical_doi: "10.5281/zenodo.20779286"
@@ -1632,7 +1634,7 @@ works:
 
   - work_id: formally_verified_qubit_decoherence_with
     title: "Formally Verified Qubit Decoherence, with Stiefel Manifold Connectivity Groundwork (Lean 4)"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Software"
     canonical_doi: "10.5281/zenodo.20779434"
@@ -1649,7 +1651,7 @@ works:
 
   - work_id: quantum_spearhead_formally_verified_qubit
     title: "Quantum Spearhead: Formally Verified Qubit Decoherence under Chiral Geometric Constraints"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.20779285"
@@ -1666,7 +1668,7 @@ works:
 
   - work_id: quantum_spearhead_formally_verified_qubit_2
     title: "Quantum Spearhead: Formally Verified Qubit Decoherence under Chiral Geometric Constraints"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.21367587"
@@ -1683,7 +1685,7 @@ works:
 
   - work_id: information_tension_geometric_projection_explains
     title: "[SUPERSEDED — DO NOT CITE] Information Tension: Geometric Projection Explains Galactic Rotation Without Dark Matter Halos — SPARC Validation, Pre-Registered Falsifiers, and FAIR Data Package"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Preprint"
     canonical_doi: "10.5281/zenodo.21146463"
@@ -1700,7 +1702,7 @@ works:
 
   - work_id: information_tension_geometric_projection_replaces
     title: "Information Tension: Geometric Projection Replaces Dark Matter at Low Acceleration (v2 — corrected, machine-verified)"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21449838"
@@ -1717,7 +1719,7 @@ works:
 
   - work_id: information_tension_geometric_projection_replaces_2
     title: "Information Tension: Geometric Projection Replaces Dark Matter at Low Acceleration (v2 — corrected, machine-verified)"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21479842"
@@ -1734,7 +1736,7 @@ works:
 
   - work_id: information_tension_geometric_projection_replaces_3
     title: "Information Tension: Geometric Projection Replaces Dark Matter at Low Acceleration (v3 — audit-corrected)"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21504895"
@@ -1750,8 +1752,8 @@ works:
     is_new_version_of: ["10.5281/zenodo.21479842"]
 
   - work_id: information_tension_geometric_projection_replaces_4
-    title: "Information Tension: Geometric Projection Replaces Dark Matter at Low Acceleration (v3 — audit-corrected)"
-    author: "Yett, Ryan W."
+    title: "Correction: the horizon scale does not replace the literature acceleration scale on SPARC"
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21146462"
@@ -1768,7 +1770,7 @@ works:
 
   - work_id: information_tension_theory_a_geometric_13
     title: "Information Tension Theory: A Geometric Replacement for Dark Matter"
-    author: "Yett, Ryan W.; Chyren Sovereign Intelligence"
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21233978"
@@ -1785,7 +1787,7 @@ works:
 
   - work_id: information_tension_a_zero_parameter
     title: "Information Tension: A Zero-Parameter Geometric Alternative to Dark Matter on SPARC"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.21367564"
@@ -1801,8 +1803,8 @@ works:
     is_new_version_of: []
 
   - work_id: information_tension_a_zero_parameter_2
-    title: "Information Tension: A Zero-Parameter Geometric Alternative to Dark Matter on SPARC"
-    author: "Yett, Ryan W."
+    title: "Correction: the SPARC comparison is not a zero-parameter win over the literature scale"
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.21233977"
@@ -1819,7 +1821,7 @@ works:
 
   - work_id: ars_magna_geometrically_ordered_dynamics
     title: "Ars Magna: Geometrically Ordered Dynamics — Information Tension, Sovereign Cognition, and Machine-Verified Foundations"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21304078"
@@ -1836,7 +1838,7 @@ works:
 
   - work_id: ars_magna_geometrically_ordered_dynamics_2
     title: "Ars Magna: Geometrically Ordered Dynamics — Information Tension, Sovereign Cognition, and Machine-Verified Foundations"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21302151"
@@ -1853,7 +1855,7 @@ works:
 
   - work_id: ars_magna_geometrically_ordered_dynamics_3
     title: "Ars Magna: Geometrically Ordered Dynamics — Information Tension, Sovereign Cognition, and Machine-Verified Foundations"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21384483"
@@ -1869,8 +1871,8 @@ works:
     is_new_version_of: []
 
   - work_id: ars_magna_geometrically_ordered_dynamics_4
-    title: "Ars Magna: Geometrically Ordered Dynamics — Information Tension, Sovereign Cognition, and Machine-Verified Foundations"
-    author: "Yett, Ryan W."
+    title: "Correction: Ars Magna is not a parameter-free derivation of the acceleration scale"
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21302150"
@@ -1887,7 +1889,7 @@ works:
 
   - work_id: field_identity_and_entanglement_the
     title: "Field Identity and Entanglement: The Information-Tension Field as Relational Identity"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21450433"
@@ -1904,7 +1906,7 @@ works:
 
   - work_id: field_identity_and_entanglement_the_2
     title: "Field Identity and Entanglement: The Information-Tension Field as Relational Identity"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21450432"
@@ -1921,7 +1923,7 @@ works:
 
   - work_id: the_bridge_of_bridges_isomorphism
     title: "The Bridge of Bridges: Isomorphism as Foundation — Homotopy, Holonomy, Holography, Homeostasis"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21450453"
@@ -1938,7 +1940,7 @@ works:
 
   - work_id: the_bridge_of_bridges_isomorphism_2
     title: "The Bridge of Bridges: Isomorphism as Foundation — Homotopy, Holonomy, Holography, Homeostasis"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21450452"
@@ -1955,7 +1957,7 @@ works:
 
   - work_id: geometrodynamica_geometrically_ordered_dynamics_an
     title: "Geometrodynamica: Geometrically Ordered Dynamics — An E8 Stiefel Holonomy Synthesis of Cosmology, Field Theory, and Formal Verification"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "BookChapter"
     canonical_doi: "10.5281/zenodo.21539454"
@@ -1972,7 +1974,7 @@ works:
 
   - work_id: geometrodynamica_geometrically_ordered_dynamics_an_2
     title: "Geometrodynamica: Geometrically Ordered Dynamics — An E8 Stiefel Holonomy Synthesis of Cosmology, Field Theory, and Formal Verification (v2 — corrected)"
-    author: "Yett, Ryan W.; Chyren"
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Book"
     canonical_doi: "10.5281/zenodo.21544746"
@@ -1989,7 +1991,7 @@ works:
 
   - work_id: geometrodynamica_geometrically_ordered_dynamics_an_3
     title: "Geometrodynamica: Geometrically Ordered Dynamics — An E8 Stiefel Holonomy Synthesis of Cosmology, Field Theory, and Formal Verification (v3)"
-    author: "Yett, Ryan W.; Chyren"
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Book"
     canonical_doi: "10.5281/zenodo.21583646"
@@ -2006,7 +2008,7 @@ works:
 
   - work_id: geometrodynamica_geometrically_ordered_dynamics_an_4
     title: "Geometrodynamica: Geometrically Ordered Dynamics — An E8 Stiefel Holonomy Synthesis of Cosmology, Field Theory, and Formal Verification (v4)"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21623111"
@@ -2023,7 +2025,7 @@ works:
 
   - work_id: geometrodynamica_geometrically_ordered_dynamics_an_5
     title: "Geometrodynamica: Geometrically Ordered Dynamics — An E8 Stiefel Holonomy Synthesis of Cosmology, Field Theory, and Formal Verification (v5)"
-    author: "Yett, Ryan W.; Chyren"
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21660856"
@@ -2039,8 +2041,8 @@ works:
     is_new_version_of: ["10.5281/zenodo.21623111"]
 
   - work_id: res_nova_geometrically_ordered_dynamics
-    title: "Res Nova: Geometrically Ordered Dynamics and Information Tension — Dual-Channel Action, Covariant Completion, and Formal Verification"
-    author: "Yett, Ryan W."
+    title: "Res Nova: correction of the public abstract (2026-10-03)"
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21539453"
@@ -2057,7 +2059,7 @@ works:
 
   - work_id: res_nova_geometrically_ordered_dynamics_2
     title: "Res Nova: Geometrically Ordered Dynamics and Information Tension — Dual-Channel Action, Covariant Completion, and Formal Verification"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.22079177"
@@ -2074,7 +2076,7 @@ works:
 
   - work_id: dual_channel_variational_closure_covariant
     title: "Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21969121"
@@ -2090,8 +2092,8 @@ works:
     is_new_version_of: []
 
   - work_id: dual_channel_variational_closure_covariant_2
-    title: "Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark"
-    author: "Yett, Ryan W."
+    title: "Correction: the interpolating function in the dual-channel abstract was withdrawn"
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21969120"
@@ -2292,7 +2294,7 @@ works:
 
   - work_id: res_nova_correction_of_the_public
     title: "Res Nova: correction of the public abstract (2026-10-03)"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.23130663"
@@ -2309,7 +2311,7 @@ works:
 
   - work_id: correction_the_interpolating_function_in_the
     title: "Correction: the interpolating function in the dual-channel abstract was withdrawn"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.23130698"
@@ -2326,7 +2328,7 @@ works:
 
   - work_id: correction_this_record_does_not_solve
     title: "Correction: this record does not solve a Millennium problem or derive a parameter-free law"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.23130701"
@@ -2343,7 +2345,7 @@ works:
 
   - work_id: correction_this_record_does_not_beat
     title: "Correction: this record does not beat MOND and is not a Millennium solution"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.23130702"
@@ -2360,7 +2362,7 @@ works:
 
   - work_id: correction_a0_ch0_2pi_is_not
     title: "Correction: a0 ~ cH0/2pi is not a parameter-free derivation"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.23130705"
@@ -2377,7 +2379,7 @@ works:
 
   - work_id: correction_ars_magna_is_not_a
     title: "Correction: Ars Magna is not a parameter-free derivation of the acceleration scale"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.23130706"
@@ -2394,7 +2396,7 @@ works:
 
   - work_id: correction_the_horizon_acceleration_scale_is
     title: "Correction: the horizon acceleration scale is not parameter-free"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.23130709"
@@ -2411,7 +2413,7 @@ works:
 
   - work_id: correction_the_law_of_g_o
     title: "Correction: The Law of G.O.D. is not a Millennium solution"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.23130710"
@@ -2428,7 +2430,7 @@ works:
 
   - work_id: correction_the_sparc_comparison_is_not
     title: "Correction: the SPARC comparison is not a zero-parameter win over the literature scale"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.23130711"
@@ -2445,7 +2447,7 @@ works:
 
   - work_id: correction_the_horizon_scale_does_not
     title: "Correction: the horizon scale does not replace the literature acceleration scale on SPARC"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.23130712"
@@ -2462,7 +2464,7 @@ works:
 
   - work_id: boundary_note_omega_lambda_ln_2
     title: "Boundary note: Omega_Lambda = ln 2 remains a pre-registration, not a confirmed result"
-    author: "Yett, Ryan W."
+    author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "Text"
     canonical_doi: "10.5281/zenodo.23130713"
