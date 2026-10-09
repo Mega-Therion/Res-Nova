@@ -77,7 +77,7 @@ SHA-256 in the JSON, not vendored.
 - With the ceiling left free (share fixed at ln 2 today), the supernovae choose **Ω_f = 0.958, 1σ range 0.936–0.984**.
   κ = 0.954 lies inside, 0.04 in χ² from the best point.
 - Among ln 2-anchored models, a ceiling near 0.96 is preferred over none (no ceiling is ln 2-ΛCDM) by Δχ² = 2.3.
-- **Reading.** A zero-parameter model fits the supernovae as well as the one-parameter best fit (ΔBIC ≈ −7.7 by
+- **Reading.** A model with no fitted parameter (share fixed at ln 2 today, ceiling at κ) fits the supernovae as well as the one-parameter best fit (ΔBIC ≈ −7.7 by
   parameter count), and the supernovae put the freeze at the top of the band. The direction, w₀ > −1 and w_a < 0,
   matches DESI's evolving-dark-energy hint; the model's |w_a| is smaller than DESI's central values.
 - **Limits.**

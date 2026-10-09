@@ -128,3 +128,9 @@ This protocol falsifies:
 - **Q2 2027:** Combined meta-analysis and publication
 
 This protocol is frozen. Any deviation must be documented as a new protocol version with explicit justification.
+
+---
+
+> **SUPERSEDED in part (note appended 2026-10-09; the protocol above is unedited).** The interpolation
+> function registered above, μ(x) = x/(1+x) `[P]`, is μ_dual, falsified on 2026-09-12. The successor protocol
+> run under μ_std is `PREREG_A0_OF_Z_V3.md`.

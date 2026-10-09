@@ -54,7 +54,7 @@ fourth root (3.83×10⁻³ in SI) is not an energy and cannot be read as eV. Res
 |---|---|---|---|
 | D6 §3 | 1.2000e-10 | 3.8326e-03 | **1.7935e-03** |
 | D1-supp §4 (SPARC) | 1.1160e-10 | 3.6960e-03 | **1.7296e-03** |
-| canonical `5.461e-11·√5` | 1.2211e-10 | 3.8661e-03 | **1.8092e-03** |
+| retired rigid canon `5.461e-11·√5` (historical) | 1.2211e-10 | 3.8661e-03 | **1.8092e-03** |
 
 Three different a₀ values are in live use across the corpus; the spread on Λ_SC is 4.6%,
 negligible next to the 7.25-order error. **This failure is μ-independent** — it survives the

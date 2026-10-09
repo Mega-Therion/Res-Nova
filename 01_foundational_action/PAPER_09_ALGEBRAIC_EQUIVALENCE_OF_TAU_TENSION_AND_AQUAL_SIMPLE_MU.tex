@@ -158,14 +158,18 @@ structural rather than cosmetic, so this text needs a rebuild and not a patch;
 it is retained unaltered as a record of the earlier formulation. The arithmetic
 $240^2 = 57{,}600$ remains a true $E_8$ root-count identity, but it is not the
 ambient dimension of anything in the current theory. No migrated
-$V_2(\mathbb{R}^3)$ derivation is claimed here.}}
+$V_2(\mathbb{R}^3)$ derivation is claimed here.
+\textbf{Notation corrected 2026-10-09.} The symbol for $x/\sqrt{1+x^2}$ was written with the subscript
+``simple''. In the MOND literature that function is the \emph{standard} one (see the nomenclature list;
+Famaey \& McGaugh 2012, Eqs.~42 and 49), so it is now $\mu_{\text{std}}$. The $\tau$-law branch
+$x/(1+x)$ is the simple one, and the title refers to it.}}
 \end{center}
 \bigskip
 
 \begin{mdframed}[style=codex]
 {\color{gold}\bfseries Abstract}\\[0.2cm]
 {\small
-This manuscript forms Paper 09 of the 42-Paper Canonical Corpus of Geometrically Ordered Dynamics (G.O.D.). We present a rigorous mathematical and machine-checked analysis of the constitutive laws governing Information Tension ($\tau$-tension) within galactic field dynamics. First, we demonstrate that the dual-channel chiral $\tau$-tension law, $a_{\text{tot}} = a_{\text{bary}}\left(\frac{1}{2} + \sqrt{\frac{1}{4} + \frac{a_0}{a_{\text{bary}}}}\right)$, is algebraically identical to the classical AQUAL simple-$\mu$ interpolation branch, $\mu(x) = \frac{x}{x+1}$ ($x = a_{\text{tot}}/a_0$), derived from the Bekenstein--Milgrom scalar action potential $f(y) = y - 2\sqrt{y} + 2\ln(1+\sqrt{y})$. We provide an unconditional, machine-checked kernel verification in Lean 4 (\texttt{GOD\_Theory.ITAction}) establishing the exact polynomial identity $(a_{\text{tot}})^2 = a_{\text{bary}}(a_{\text{tot}} + a_0)$, the Baryonic Tully--Fisher Relation ($v^4 = a_0 G M$), and flat rotation curves for $n=2$ isothermal spheres. Second, we analyze single-channel chiral dynamics where alignment occurs along a single fiber sector, yielding the standard-$\mu$ projection geometry $\mu_{\text{simple}}(x) = \frac{x}{\sqrt{1+x^2}}$. We rectify historical calculus errors in the scalar Lagrangian potential literature, establishing that the exact AQUAL potential generating standard-$\mu$ is the Pythagorean norm $\mathcal{F}(x) = \sqrt{1+x^2}$. Finally, we evaluate both interpolation branches against Cassini solar-system tracking bounds ($|\gamma_{\text{PPN}}-1| < 2.3 \times 10^{-5}$) and the SPARC 175 galaxy rotation curve dataset. We demonstrate that while the dual-channel law algebraically satisfies non-relativistic AQUAL field equations, solar-system return rates ($1-\mu \sim \frac{1}{2}(a_0/g)^2$) and galaxy holdout tests empirically favor the single-channel standard-$\mu$ projection law. We complete the analysis by embedding the order parameter $\chi$ into a Symmetron screening model driven by the Zeta-leg potential $V(\chi) = \lambda(\chi - \theta)^2$, proving that conformal scalar extensions maintain gravitational wave speed $c_{\text{GW}} = c$ in full compliance with GW170817.
+This manuscript forms Paper 09 of the 42-Paper Canonical Corpus of Geometrically Ordered Dynamics (G.O.D.). We present a rigorous mathematical and machine-checked analysis of the constitutive laws governing Information Tension ($\tau$-tension) within galactic field dynamics. First, we demonstrate that the dual-channel chiral $\tau$-tension law, $a_{\text{tot}} = a_{\text{bary}}\left(\frac{1}{2} + \sqrt{\frac{1}{4} + \frac{a_0}{a_{\text{bary}}}}\right)$, is algebraically identical to the classical AQUAL simple-$\mu$ interpolation branch, $\mu(x) = \frac{x}{x+1}$ ($x = a_{\text{tot}}/a_0$), derived from the Bekenstein--Milgrom scalar action potential $f(y) = y - 2\sqrt{y} + 2\ln(1+\sqrt{y})$. We provide an unconditional, machine-checked kernel verification in Lean 4 (\texttt{GOD\_Theory.ITAction}) establishing the exact polynomial identity $(a_{\text{tot}})^2 = a_{\text{bary}}(a_{\text{tot}} + a_0)$, the Baryonic Tully--Fisher Relation ($v^4 = a_0 G M$), and flat rotation curves for $n=2$ isothermal spheres. Second, we analyze single-channel chiral dynamics where alignment occurs along a single fiber sector, yielding the standard-$\mu$ projection geometry $\mu_{\text{std}}(x) = \frac{x}{\sqrt{1+x^2}}$. We rectify historical calculus errors in the scalar Lagrangian potential literature, establishing that the exact AQUAL potential generating standard-$\mu$ is the Pythagorean norm $\mathcal{F}(x) = \sqrt{1+x^2}$. Finally, we evaluate both interpolation branches against Cassini solar-system tracking bounds ($|\gamma_{\text{PPN}}-1| < 2.3 \times 10^{-5}$) and the SPARC 175 galaxy rotation curve dataset. We demonstrate that while the dual-channel law algebraically satisfies non-relativistic AQUAL field equations, solar-system return rates ($1-\mu \sim \frac{1}{2}(a_0/g)^2$) and galaxy holdout tests empirically favor the single-channel standard-$\mu$ projection law. We complete the analysis by embedding the order parameter $\chi$ into a Symmetron screening model driven by the Zeta-leg potential $V(\chi) = \lambda(\chi - \theta)^2$, proving that conformal scalar extensions maintain gravitational wave speed $c_{\text{GW}} = c$ in full compliance with GW170817.
 }
 \end{mdframed}
 
@@ -272,7 +276,7 @@ When local symmetry breaking restricts dynamic alignment to a single chiral sect
 \end{equation}
 As derived in Section~4, single-channel loading maps directly to the standard Pythagorean projection geometry, resulting in the standard MOND interpolation function:
 \begin{equation}
-\boxed{\;\mu_{\text{simple}}(x) = \frac{x}{\sqrt{1+x^2}}\;}, \qquad x \equiv \frac{a_{\text{tot}}}{a_0}.
+\boxed{\;\mu_{\text{std}}(x) = \frac{x}{\sqrt{1+x^2}}\;}, \qquad x \equiv \frac{a_{\text{tot}}}{a_0}.
 \label{eq:single_channel_law}
 \end{equation}
 
@@ -282,7 +286,7 @@ As derived in Section~4, single-channel loading maps directly to the standard Py
 Care must be exercised regarding nomenclature when comparing G.O.D. papers with classical astrophysics literature:
 \begin{enumerate}
 \item \textbf{Famaey--Binney "Simple" $\mu$}: In MOND literature (Famaey \& Binney 2005), the function $\mu(x) = \frac{x}{1+x}$ is termed the \emph{simple} interpolation function. Within the G.O.D. corpus, this exact function arises as the \textbf{dual-channel} $\tau$-law.
-\item \textbf{Standard $\mu$}: In MOND literature (Bekenstein \& Milgrom 1984), the function $\mu(x) = \frac{x}{\sqrt{1+x^2}}$ is termed the \emph{standard} interpolation function. Within the G.O.D. corpus, this exact function is denoted $\mu_{\text{simple}}(x)$ because it represents the \textbf{single-channel} fundamental projection cosine.
+\item \textbf{Standard $\mu$}: In MOND literature (Bekenstein \& Milgrom 1984), the function $\mu(x) = \frac{x}{\sqrt{1+x^2}}$ is termed the \emph{standard} interpolation function. Within the G.O.D. corpus, this exact function is written $\mu_{\text{std}}(x)$ (versions before 2026-10-09 wrote $\mu_{\text{simple}}$, for ``single-channel''); it is the \textbf{single-channel} fundamental projection cosine.
 \end{enumerate}
 At $x=1$, these two interpolation functions differ substantially ($\mu = 0.500$ vs $\mu = 0.707$). Reconciling their theoretical origins and empirical performance is a core objective of this manuscript.
 \end{mdframed}
@@ -426,7 +430,7 @@ Since $\mu(x) > 0$ and $\frac{d}{dx}[x\mu(x)] > 0$, the scalar field perturbatio
 \section{Projection Geometry and Single-Channel Standard-$\mu$ Interpolation}
 
 \subsection{Theorem 4.1: Standard-$\mu$ as Projection Cosine}
-We now analyze the single-channel chiral sector, proving that standard-$\mu$, $\mu_{\text{simple}}(x) = \frac{x}{\sqrt{1+x^2}}$, arises as an exact geometric projection cosine.
+We now analyze the single-channel chiral sector, proving that standard-$\mu$, $\mu_{\text{std}}(x) = \frac{x}{\sqrt{1+x^2}}$, arises as an exact geometric projection cosine.
 
 \begin{theorem}[Projection Cosine Identity]
 \label{thm:projection_cosine}
@@ -434,9 +438,9 @@ Let $g_{\text{t}} \equiv a_{\text{tot}}$ denote the magnitude of the total dynam
 \begin{equation}
 g_{\text{N}} = g_{\text{t}} \cos\varphi.
 \end{equation}
-Consequently, the single-channel interpolation function $\mu_{\text{simple}}$ is exactly the projection cosine:
+Consequently, the single-channel interpolation function $\mu_{\text{std}}$ is exactly the projection cosine:
 \begin{equation}
-\boxed{\;\mu_{\text{simple}} \equiv \frac{g_{\text{N}}}{g_{\text{t}}} = \cos\varphi = \frac{g_{\text{t}}}{\sqrt{a_0^2 + g_{\text{t}}^2}} = \frac{x}{\sqrt{1+x^2}}\;}, \qquad x = \frac{g_{\text{t}}}{a_0}.
+\boxed{\;\mu_{\text{std}} \equiv \frac{g_{\text{N}}}{g_{\text{t}}} = \cos\varphi = \frac{g_{\text{t}}}{\sqrt{a_0^2 + g_{\text{t}}^2}} = \frac{x}{\sqrt{1+x^2}}\;}, \qquad x = \frac{g_{\text{t}}}{a_0}.
 \label{eq:projection_cosine_identity}
 \end{equation}
 \end{theorem}
@@ -452,19 +456,19 @@ The tilt angle $\varphi$ satisfies $\tan\varphi = \frac{a_0}{g_{\text{t}}}$. Thu
 \end{equation}
 Setting $g_{\text{N}} = g_{\text{t}} \cos\varphi$ yields the field relation $g_{\text{N}} = \frac{g_{\text{t}}^2}{\sqrt{a_0^2 + g_{\text{t}}^2}}$, which gives:
 \begin{equation}
-\mu_{\text{simple}}(x) = \frac{g_{\text{N}}}{g_{\text{t}}} = \frac{x}{\sqrt{1+x^2}}.
+\mu_{\text{std}}(x) = \frac{g_{\text{N}}}{g_{\text{t}}} = \frac{x}{\sqrt{1+x^2}}.
 \end{equation}
 This establishes the projection cosine identity. \qed
 \end{proof}
 
 \subsection{Analytical Lemma 4.2: Rectification of Historical Calculus Errors}
-In historical literature notes, attempts were made to derive an AQUAL scalar potential for $\mu_{\text{simple}}(x) = \frac{x}{\sqrt{1+x^2}}$ using integrated logarithmic expressions. We rectify these historical calculus errors below.
+In historical literature notes, attempts were made to derive an AQUAL scalar potential for $\mu_{\text{std}}(x) = \frac{x}{\sqrt{1+x^2}}$ using integrated logarithmic expressions. We rectify these historical calculus errors below.
 
 \begin{lemma}[Rectification of Lagrangian Potential for Standard-$\mu$]
 \label{lem:calculus_correction}
 The previous literature claim that $\frac{d}{dx} \left[ x\ln(x + \sqrt{1+x^2}) - \sqrt{1+x^2} \right] = \frac{x}{\sqrt{1+x^2}}$ is \textbf{false}. The true derivative of that expression is $\operatorname{arcsinh}(x)$, which diverges as $x \to \infty$ and fails to produce a valid Newtonian limit. 
 
-The \textbf{exact} AQUAL potential density $\mathcal{F}(x)$ generating $\mu_{\text{simple}}(x) = \frac{x}{\sqrt{1+x^2}}$ is the \textbf{Pythagorean norm itself}:
+The \textbf{exact} AQUAL potential density $\mathcal{F}(x)$ generating $\mu_{\text{std}}(x) = \frac{x}{\sqrt{1+x^2}}$ is the \textbf{Pythagorean norm itself}:
 \begin{equation}
 \boxed{\;\mathcal{F}(x) = \sqrt{1+x^2}\;}, \qquad x = \frac{|\nabla\Phi|}{a_0}.
 \label{eq:pythagorean_potential}
@@ -482,7 +486,7 @@ The two $\frac{x}{\sqrt{1+x^2}}$ terms cancel exactly, leaving $\operatorname{ar
 
 Second, evaluate the derivative of the Pythagorean potential $\mathcal{F}(x) = (1+x^2)^{1/2}$:
 \begin{equation}
-\frac{d\mathcal{F}}{dx} = \frac{d}{dx}(1+x^2)^{1/2} = \frac{1}{2}(1+x^2)^{-1/2} \cdot (2x) = \frac{x}{\sqrt{1+x^2}} = \mu_{\text{simple}}(x).
+\frac{d\mathcal{F}}{dx} = \frac{d}{dx}(1+x^2)^{1/2} = \frac{1}{2}(1+x^2)^{-1/2} \cdot (2x) = \frac{x}{\sqrt{1+x^2}} = \mu_{\text{std}}(x).
 \end{equation}
 Thus, $\mathcal{F}(x) = \sqrt{1+x^2}$ is the unique, exact Lagrangian potential density. \qed
 \end{proof}
@@ -611,7 +615,7 @@ The machine-checked results in \texttt{ITActionClosure.lean} establish three cri
 \section{Solar System Tests, Cassini Constraints, and SPARC Holdouts}
 
 \subsection{Solar System Cassini Tracking Bounds}
-While both the dual-channel law ($\mu = \frac{x}{1+x}$) and single-channel law ($\mu_{\text{simple}} = \frac{x}{\sqrt{1+x^2}}$) are mathematically valid AQUAL branches, they exhibit strikingly different behavior in the strong-field Newtonian limit ($x \gg 1$).
+While both the dual-channel law ($\mu = \frac{x}{1+x}$) and single-channel law ($\mu_{\text{std}} = \frac{x}{\sqrt{1+x^2}}$) are mathematically valid AQUAL branches, they exhibit strikingly different behavior in the strong-field Newtonian limit ($x \gg 1$).
 
 We evaluate both functions against the Cassini spacecraft radio-tracking constraint on the post-Newtonian parameter $\gamma_{\text{PPN}}$ at Saturn's orbital radius ($r \approx 9.5\text{ AU}$, $g_{\text{N}} \approx 5.6 \times 10^{-5}\text{ m/s}^2$, $a_0 \approx 1.2 \times 10^{-10}\text{ m/s}^2$):
 \begin{equation}
@@ -629,11 +633,11 @@ Thus, the dual-channel fractional deviation is:
 \begin{equation}
 \Delta_{\text{dual}} \approx \frac{1}{4.67 \times 10^5} \approx 2.14 \times 10^{-6}.
 \end{equation}
-While $2.14 \times 10^{-6} < 2.3 \times 10^{-5}$ technically clears the Cassini $\gamma_{\text{PPN}}$ bound, it clears it by only a factor of $\sim 10\times$. \textbf{Correction (2026-09-12):} this fractional-smallness argument, while correct for $\gamma_{\text{PPN}}$ specifically, does not bound the dual-channel branch's actual dominant failure mode. An independent re-derivation (see \texttt{Res-Nova/MU\_DUAL\_SOLAR\_SYSTEM\_RECONCILIATION\_2026-09-12.md}) found the $1/x$ tail of $\mu=x/(1+x)$ forces a constant, unscreened anomalous acceleration producing Mercury perihelion precession $\sim 1000\times$ the observed bound — the orbital lever arm $r^2/(GM)$ converts the same $\sim10^{-6}$ fractional effect the table above reports into an absolute-acceleration violation, not a $10\times$-margin pass. The table's qualitative conclusion (single-channel $\mu_{\text{simple}}$ strongly preferred) is unaffected and independently corroborated by this later, more rigorous derivation — but "$10\times$ margin, technically clears" understates how decisively the dual-channel branch fails.
+While $2.14 \times 10^{-6} < 2.3 \times 10^{-5}$ technically clears the Cassini $\gamma_{\text{PPN}}$ bound, it clears it by only a factor of $\sim 10\times$. \textbf{Correction (2026-09-12):} this fractional-smallness argument, while correct for $\gamma_{\text{PPN}}$ specifically, does not bound the dual-channel branch's actual dominant failure mode. An independent re-derivation (see \texttt{Res-Nova/MU\_DUAL\_SOLAR\_SYSTEM\_RECONCILIATION\_2026-09-12.md}) found the $1/x$ tail of $\mu=x/(1+x)$ forces a constant, unscreened anomalous acceleration producing Mercury perihelion precession $\sim 1000\times$ the observed bound — the orbital lever arm $r^2/(GM)$ converts the same $\sim10^{-6}$ fractional effect the table above reports into an absolute-acceleration violation, not a $10\times$-margin pass. The table's qualitative conclusion (single-channel $\mu_{\text{std}}$ strongly preferred) is unaffected and independently corroborated by this later, more rigorous derivation — but "$10\times$ margin, technically clears" understates how decisively the dual-channel branch fails.
 
-\item \textbf{Single-Channel Branch ($\mu_{\text{simple}} = \frac{x}{\sqrt{1+x^2}}$)}:
+\item \textbf{Single-Channel Branch ($\mu_{\text{std}} = \frac{x}{\sqrt{1+x^2}}$)}:
 \begin{equation}
-1 - \mu_{\text{simple}}(x) = 1 - \frac{x}{\sqrt{1+x^2}} = 1 - (1 + x^{-2})^{-1/2} \approx \frac{1}{2x^2} = \frac{1}{2}\left( \frac{a_0}{g_{\text{N}}} \right)^2.
+1 - \mu_{\text{std}}(x) = 1 - \frac{x}{\sqrt{1+x^2}} = 1 - (1 + x^{-2})^{-1/2} \approx \frac{1}{2x^2} = \frac{1}{2}\left( \frac{a_0}{g_{\text{N}}} \right)^2.
 \end{equation}
 At Saturn, the single-channel fractional deviation is:
 \begin{equation}
@@ -653,14 +657,14 @@ Empirical rotation curve fitting was executed across all 175 disk galaxies in th
 Interpolation Branch & Law & Cassini Margin & SPARC Win \% & Median $\chi^2/N$ \\
 \midrule
 Dual-Channel ($\tau$-law) & $\mu(x) = \frac{x}{1+x}$ & $10.7\times$ & 18.6\% & 34.2 \\
-Single-Channel (Standard-$\mu$) & $\mu_{\text{simple}}(x) = \frac{x}{\sqrt{1+x^2}}$ & $1.0 \times 10^7\times$ & \textbf{81.4\%} & \textbf{28.7} \\
+Single-Channel (Standard-$\mu$) & $\mu_{\text{std}}(x) = \frac{x}{\sqrt{1+x^2}}$ & $1.0 \times 10^7\times$ & \textbf{81.4\%} & \textbf{28.7} \\
 \bottomrule
 \end{tabular}
 \caption{Empirical comparison of dual-channel and single-channel interpolation branches.}
 \label{tab:sparc_results}
 \end{table}
 
-As shown in Table~\ref{tab:sparc_results}, empirical rotation curve fits strongly favor the single-channel projection law $\mu_{\text{simple}}(x) = \frac{x}{\sqrt{1+x^2}}$, achieving an 81.4\% preference across the SPARC sample.
+As shown in Table~\ref{tab:sparc_results}, empirical rotation curve fits strongly favor the single-channel projection law $\mu_{\text{std}}(x) = \frac{x}{\sqrt{1+x^2}}$, achieving an 81.4\% preference across the SPARC sample.
 
 \subsection{Resolution of Fiber Boundary Condition Tension}
 An open theoretical tension identified in the G.O.D. corpus concerns boundary conditions on the fiber bundle:
@@ -741,7 +745,7 @@ Item / Assertion & Epistemic Tier & Verification Method & Summary of Result \\
 \midrule
 $\tau$-law $\equiv$ simple-$\mu$ branch & \color{gold}\textbf{[thm]} & Lean 4 / SymPy & Exact polynomial identity $a_{\text{tot}}^2 = a_{\text{bary}}(a_{\text{tot}}+a_0)$. \\
 AQUAL potential $f(y)$ & \color{gold}\textbf{[thm]} & Analytical Calculus & Closed form $f(y) = y - 2\sqrt{y} + 2\ln(1+\sqrt{y})$. \\
-Projection cosine $\mu_{\text{simple}}$ & \color{gold}\textbf{[thm]} & Stiefel Geometry & $\mu_{\text{simple}} = \cos\varphi = x/\sqrt{1+x^2}$. \\
+Projection cosine $\mu_{\text{std}}$ & \color{gold}\textbf{[thm]} & Stiefel Geometry & $\mu_{\text{std}} = \cos\varphi = x/\sqrt{1+x^2}$. \\
 AQUAL potential $\mathcal{F}(x)$ & \color{gold}\textbf{[thm]} & Analytical Calculus & Pythagorean norm $\mathcal{F}(x) = \sqrt{1+x^2}$. \\
 BTFR exact relation $v^4 = a_0 GM$ & \color{gold}\textbf{[thm]} & Lean 4 Kernel & Machine-checked proof in \texttt{ITActionClosure.lean}. \\
 Flat rotation curve $n=2$ & \color{gold}\textbf{[thm]} & Lean 4 Kernel & Machine-checked proof for isothermal spheres. \\
@@ -761,7 +765,7 @@ In this manuscript, we have accomplished the following core objectives:
 \begin{enumerate}
 \item \textbf{Proved Algebraic Equivalence}: Established that the dual-channel $\tau$-tension law $a_{\text{tot}} = a_{\text{bary}}\left(\frac{1}{2} + \sqrt{\frac{1}{4} + \frac{a_0}{a_{\text{bary}}}}\right)$ is an exact algebraic isomorphism to the classical AQUAL simple-$\mu$ interpolation branch $\mu(x) = \frac{x}{1+x}$.
 \item \textbf{Machine-Checked Kernel Verification}: Formalized the underlying polynomial identities, BTFR kinematics, and flat rotation curves in Lean 4 (\texttt{GOD\_Theory.ITAction}), providing machine-checked mathematical proof.
-\item \textbf{Derivation of Single-Channel Projection Geometry}: Proved that single-channel chiral alignment yields the standard-$\mu$ projection cosine $\mu_{\text{simple}}(x) = \frac{x}{\sqrt{1+x^2}}$.
+\item \textbf{Derivation of Single-Channel Projection Geometry}: Proved that single-channel chiral alignment yields the standard-$\mu$ projection cosine $\mu_{\text{std}}(x) = \frac{x}{\sqrt{1+x^2}}$.
 \item \textbf{Calculus Rectification}: Corrected historical errors in the scalar Lagrangian potential literature, establishing $\mathcal{F}(x) = \sqrt{1+x^2}$ as the exact Pythagorean potential density.
 \item \textbf{Solar System \& Galaxy Verification}: Demonstrated that while dual-channel AQUAL satisfies non-relativistic field equations, Cassini tracking bounds ($1-\mu \sim \frac{1}{2}(a_0/g)^2$) and SPARC 175 rotation curve fits empirically select single-channel standard-$\mu$.
 \item \textbf{Symmetron \& GW-Safety}: Embedded $\chi$ into a Symmetron potential $V(\chi) = \lambda(\chi-\theta)^2$, showing that sparse galaxies release $\chi \to \theta$ while dense systems pin $\chi \to 0$, maintaining $c_{\text{GW}} = c$ in full compliance with GW170817.

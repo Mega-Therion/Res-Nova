@@ -3,7 +3,9 @@
 **Status:** §1/§3/§5 **RE-RUN COMPLETE 2026-09-12** (Vesper) under the corrected AQUAL convention $F'=x\mu$; §4 unaffected (μ unchanged); D2's uniqueness gap remains **[O]** and is now the load-bearing open problem. D6's ghost-free re-check is closed by §5. `TARGET_D7` §4/§11 concluded μ(x)=x/(1+x) is
 falsified by its own solar-system solution and is not rescuable by any GW170817-safe
 (c_T=c) screening mechanism. This document rebuilds the core algebraic machinery for the
-surviving candidate, μ_std(x) = x/√(1+x²) — the "simple" interpolating function already
+surviving candidate, μ_std(x) = x/√(1+x²) — the "standard" interpolating function of the MOND literature
+(Famaey & McGaugh 2012, Eq. 49 with n = 2; their "simple" function is x/(1+x), Eq. 42; this line said "simple"
+until 2026-10-09), already
 used inconsistently elsewhere in this corpus (`TARGET_D1`'s own "standard square-root
 interpolation" aside, `TARGET_D2`, `FIRST_PRINCIPLES_PHYSICS_MONOGRAPH.md` §64,
 `FIG_TREE_MONOGRAPH.md`, `MuProjection.lean`, and `AXIOMS_V2.lean:64`'s right disjunct).

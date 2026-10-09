@@ -32,18 +32,32 @@ import corpus_surfaces  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 BASELINE = ROOT / "docs" / "dead_branch_baseline.txt"
 
+# Written forms of sqrt(1+x^2) and x/(1+x), for the mu-name entity in RETIRED.
+_SQRT = (r"(?:\\sqrt\s*\{\s*1\s*\+\s*x\s*\^\s*\{?2\}?\s*\}"
+         r"|sqrt\s*\(\s*1\s*\+\s*x\s*(?:(?:\*\*|\^)\s*2|²)\s*\)"
+         r"|√\s*\(?\s*1\s*\+\s*x\s*(?:²|\^\s*2))")
+_LIN = r"(?:x\s*/\s*\(\s*1\s*\+\s*x\s*\)|\\frac\s*\{\s*x\s*\}\s*\{\s*1\s*\+\s*x\s*\})"
+# Between a formula and a name that FOLLOWS it, a comma or "and" means the name
+# starts the next item of a list ("x/(1+x), the standard ..."), not a label.
+_TAIL = r"(?:(?!standard|std|simple|=|,|\band\b)[^\n]){0,15}?"
+
 # (label, pattern, what to use instead)
 RETIRED = [
+    # The Unicode forms (μ_dual, μ(x) = x/(1+x)) were added 2026-10-09. Until then the
+    # pattern matched only LaTeX "\\mu" and ASCII "mu_dual", so a public book chapter
+    # presenting x/(1+x) as "the core of Res Nova" in plain Unicode passed the gate.
     ("mu_dual interpolating function",
-     re.compile(r"\\mu_\{?\\?(?:text|mathrm)?\{?dual\}?|mu_dual|"
-                r"\\mu\s*\(\s*x\s*\)\s*=\s*x\s*/\s*\(\s*1\s*\+\s*x\s*\)"),
+     re.compile(r"\\mu_\{?\\?(?:text|mathrm)?\{?dual\}?|mu_dual|μ_\{?\\?(?:text|mathrm)?\{?dual|"
+                r"(?:\\mu|μ)\s*\(\s*x\s*\)\s*=\s*x\s*/\s*\(\s*1\s*\+\s*x\s*\)"),
      "mu_std(x) = x/sqrt(1+x^2); mu_dual falsified 2026-09-12"),
     ("F_dual kinetic function",
      # \mathcal{F}_{\text{dual}} is the form the LaTeX actually uses and the
      # old pattern missed it entirely: there is no contiguous "F_" in
      # "\mathcal{F}_{\text{dual}}", so the dead entity's commonest written
      # form slipped the gate completely. Allow a "}" between F and "_".
-     re.compile(r"F\}?_\{?\\?(?:text|mathrm|rm)?\s*\{?dual\}?|F_dual"),
+     # The explicit Unicode formula was added 2026-10-09 with the mu_dual forms.
+     re.compile(r"F\}?_\{?\\?(?:text|mathrm|rm)?\s*\{?dual\}?|F_dual|"
+                r"(?:x²\s*/\s*2|½\s*x²)\s*[-−]\s*x\s*\+\s*ln\s*\(\s*1\s*\+\s*x\s*\)"),
      "the mu_std branch; F_dual falsified with mu_dual"),
     ("V_240 big-dimension substrate",
      re.compile(r"V_\{?240\}?|57,?600\s*[-\s]*dimensional|"
@@ -70,6 +84,30 @@ RETIRED = [
                 r"median[^\n]{0,30}\b(?:9\.20|2\.95)\b"),
      "PARAMETER_LEDGER.json under mu_std (Tier 0 GOD 11.08 / MOND 9.93; Tier 1 3.36 / 3.41); "
      "generated tables: scripts/sparc_benchmark_tables.py"),
+    # Added 2026-10-09. The withdrawn claim: the model, a0 or mu has no free parameter.
+    # The standing position is two irreducible inputs, the a0 scale and the choice of mu.
+    # Most live mentions are negations ("is not parameter-free"), so this entity also
+    # has a per-line filter (NEGATED below). "Zero parameters re-fitted at the test"
+    # describes a held-out test, not the model, and does not fire.
+    ("zero-free-parameter claim",
+     re.compile(r"zero[- ]free[- ]param|\b0 free param|"
+                r"zero[- ]param(?:eter)?s?\b(?![^\n]{0,25}re-?fit)|no free param|"
+                r"parameter[- ]free|without (?:any )?(?:free|adjustable) param|"
+                r"no adjustable param|zero adjustable|no free inputs?\b|"
+                r"free of (?:free|adjustable) param", re.I),
+     "name the two irreducible inputs (the a0 scale and the mu choice), or the tier "
+     "definition, e.g. 'no per-galaxy fitted parameters'"),
+    # Added 2026-10-09. The MOND literature calls x/(1+x) the "simple" mu and
+    # x/sqrt(1+x^2) the "standard" mu (Famaey & McGaugh 2012, Living Rev. Relativ.
+    # 15, 10, Eqs. 42 and 49); the corpus's mu_std is the standard one. Several
+    # surfaces had the two names swapped. A line naming both correctly does not
+    # fire: the other name sits between the word and its formula.
+    ("swapped MOND mu names",
+     re.compile(r"simple(?:(?!standard|std)[^\n]){0,60}?" + _SQRT
+                + r"|" + _SQRT + _TAIL + r"\bsimple"
+                + r"|standard(?:(?!simple)[^\n]){0,40}?" + _LIN
+                + r"|" + _LIN + _TAIL + r"\bstandard", re.I),
+     "simple = x/(1+x); standard = x/sqrt(1+x^2) = mu_std (Famaey & McGaugh 2012, Eqs. 42, 49)"),
 ]
 
 # Surfaces where a retired entity is a defect. Everything else -- archives,
@@ -94,6 +132,8 @@ EXEMPT = (
     # Audit artifacts whose SUBJECT is the retired entities. Naming a dead
     # branch in order to flag it is the intended use, not a violation.
     "RES_NOVA_INVENTORY_", "RES_NOVA_CONTRADICTION_LOG_",
+    # The record of mu_dual's falsification. Its subject is the retired function.
+    "MU_DUAL_SOLAR_SYSTEM_RECONCILIATION_",
 )
 # A line that marks the entity as dead is a correct mention, not a violation.
 # A document-level notice remediates the mentions it actually covers. Local
@@ -101,8 +141,12 @@ EXEMPT = (
 # file is checked separately -- but PER ENTITY. A V_240 substrate banner does
 # NOT license an unqualified F_dual claim later in the same file; an earlier
 # version of this rule exempted whole files and silenced 28 of them.
+# "STATUS NOTICE" and a dated "Status (YYYY-MM-DD):" header were added 2026-10-09:
+# PRD_supplementary/README.md withdrew its "parameter-free" framing in a notice the
+# gate could not recognise. Both are explicit notice markers, not prose.
 FILE_NOTICE = re.compile(
-    r"BRANCH NOTICE|BRANCH NOTE|SUBSTRATE NOTICE|SUPERSEDED|RETRACTED|"
+    r"BRANCH NOTICE|BRANCH NOTE|SUBSTRATE NOTICE|STATUS NOTICE|SUPERSEDED|RETRACTED|"
+    r"\bstatus \(\d{4}-\d{2}-\d{2}\)|"
     r"retired (branch|substrate)|falsified .{0,30}(branch|function)", re.I)
 # 200, not 40: a LaTeX preamble routinely runs past 100 lines, so a banner
 # placed correctly right after \maketitle sat OUTSIDE a 40-line window and the
@@ -145,7 +189,10 @@ def head_notice_covers(head: str, label: str) -> bool:
                 if quoted and not ln.lstrip().startswith(">"):
                     break
             span.append(ln)
-            if "}}" in ln:
+            # "}}" closes a LaTeX \fbox{\parbox{...}} banner. Inside a markdown
+            # blockquote it is usually math ("\mathcal{F}_{\text{dual}}"), and ending
+            # the block there cut a TTEY notice off before the mu(x) = x/(1+x) it names.
+            if "}}" in ln and not quoted:
                 break
         block = "\n".join(span)
         if any(p.search(block) for p in pats):
@@ -155,7 +202,31 @@ def head_notice_covers(head: str, label: str) -> bool:
 RETIRED_CONTEXT = re.compile(
     r"retire|retract|falsif|dead|do not use|superseded|obsolete|"
     r"no[- ]go|historical|deprecat|\[X\]|void|predates|"
-    r"ruled out|excluded by", re.I)
+    r"ruled out|excluded by|withdr[ae]wn?|misreading|"
+    r"\bcorrection \(\d{4}-\d{2}-\d{2}\)", re.I)
+
+# Per-entity filter for mentions that are correct as written. The free-parameter
+# claim is the first entity whose live mentions are mostly negations ("no claim of
+# zero free parameters") or quotations of the phrase itself ("replace ambiguous
+# 'zero-parameter' language"), so for it a match preceded by a negation, or opened
+# by a quote mark, is a mention and not a use.
+NEGATED = {
+    "zero-free-parameter claim": re.compile(
+        r"(?:\bno claim of|\bnot\b|\bnever\b|\bnor\b|n't\b|\bneither\b|"
+        r"\brather than\b|\binstead of\b)[^\n]{0,45}$", re.I),
+}
+_QUOTES = "\"'`\u201c\u201d\u2018\u2019"
+
+
+def entity_match(label: str, pat: re.Pattern, line: str):
+    """First match of an entity on a line that is a use, not a negated mention."""
+    neg = NEGATED.get(label)
+    for m in pat.finditer(line):
+        before = line[:m.start()]
+        if neg is not None and (neg.search(before) or (before and before[-1] in _QUOTES)):
+            continue
+        return m
+    return None
 
 
 # Surface enumeration lives in scripts/corpus_surfaces.py -- the single place
@@ -200,7 +271,7 @@ def scan_lines(lines: list[str], rel: str, base: set[str]) -> list[str]:
         if RETIRED_CONTEXT.search(window):
             continue
         for label, pat, instead in RETIRED:
-            m = pat.search(line)
+            m = entity_match(label, pat, line)
             if m:
                 if head_notice_covers(head, label):
                     break
@@ -258,6 +329,17 @@ _FDUAL_NOTICE = [
 _FILLER = [f"Ordinary body text line {i}." for i in range(40)]
 _CLAIM_FDUAL = ["We adopt $F_{dual}$ as the live kinetic function."]
 _CLAIM_V240 = ["The substrate is $V_{240}(\\mathbb{R}^{57{,}600})$."]
+_ZFP_NOTICE = ["% STATUS NOTICE (2026-10-09): SUPERSEDED in part. The zero-parameter framing",
+               "% of this document gave way to two irreducible inputs (a0 scale, mu choice)."]
+_CLAIM_ZFP = ["The fit uses zero free parameters."]
+# Markdown notices (2026-10-09): a dated "Status (...)" header, and a blockquote
+# BRANCH NOTICE whose first line closes LaTeX braces ("}}") before naming mu_dual.
+_STATUS_MD_NOTICE = ["> **Status (2026-10-03): framing withdrawn.** Its \"parameter-free\" wording",
+                     "> is withdrawn; the model carries two irreducible inputs."]
+_TTEY_MD_NOTICE = ["> **BRANCH NOTICE (2026-09-20).** The results below concern",
+                   "> $\\mathcal{F}_{\\text{dual}}(x) = \\tfrac12 x^2 - x + \\ln(1+x)$ and its constitutive",
+                   "> ratio $\\mu(x) = x/(1+x)$, a branch falsified on 2026-09-12."]
+_CLAIM_MUDUAL_MD = ["With `μ(x) = x/(1+x)`:"]
 
 
 def _regression_cases() -> list[tuple[str, list[str], str, bool]]:
@@ -285,6 +367,19 @@ def _regression_cases() -> list[tuple[str, list[str], str, bool]]:
         ("inline 'ruled out' remediates",
          _PREAMBLE + ["$F_{dual}$ is ruled out by solar-system screening."],
          "F_dual", False),
+        # The free-parameter entity (2026-10-09): same per-entity rule.
+        ("V_240 notice must NOT license a zero-free-parameter claim",
+         _PREAMBLE + _V240_NOTICE + _FILLER + _CLAIM_ZFP, "zero-free-parameter", True),
+        ("a notice naming the zero-parameter framing DOES cover it",
+         _PREAMBLE + _ZFP_NOTICE + _FILLER + _CLAIM_ZFP, "zero-free-parameter", False),
+        ("a dated markdown 'Status (...)' notice DOES cover what it names",
+         _STATUS_MD_NOTICE + _FILLER + ["The fit is parameter-free."], "zero-free-parameter", False),
+        ("a STATUS notice about the zero-parameter framing must NOT license V_240",
+         _PREAMBLE + _ZFP_NOTICE + _FILLER + _CLAIM_V240, "V_240", True),
+        ("a blockquote notice is not cut short by '}}' in its math",
+         _TTEY_MD_NOTICE + _FILLER + _CLAIM_MUDUAL_MD, "mu_dual", False),
+        ("without a notice the same Unicode mu_dual line fires",
+         _FILLER + _CLAIM_MUDUAL_MD, "mu_dual", True),
     ]
 
 
@@ -314,10 +409,32 @@ def self_test() -> int:
         ("Tier 1 GOD median 3.36 / 374 parameters; MOND 3.41 / 374", False),
         ("mu_std(x) = x/sqrt(1+x^2) is the live branch", False),
         ("mu_dual was falsified on 2026-09-12 and is retired", False),
+        # Unicode mu_dual / F_dual forms (2026-10-09)
+        ("its derivative μ(x) = x/(1+x) is the interpolation", True),
+        ("the function F(x) = x²/2 - x + ln(1+x)", True),
+        ("μ_dual is the live interpolating function", True),
+        # zero-free-parameter claim (2026-10-09)
+        ("The model contains zero free parameters.", True),
+        ("| Tier 0 (0 free params) | mu_std |", True),
+        ("which provides a parameter-free geometric derivation of a0", True),
+        ("# Parameter-free environmental screening", True),
+        ("No free parameters. No fitting.", True),
+        ("ZERO parameters are re-fitted at the test redshift", False),
+        ("No claim of zero free parameters is made.", False),
+        ("a0 = cH0/2pi is not a parameter-free derivation", False),
+        ("Replace ambiguous \u201czero-parameter\u201d language with the tier definition", False),
+        ("Tier 0 fits no per-galaxy parameters; the a0 scale and mu are fixed in advance", False),
+        # swapped MOND mu names (2026-10-09)
+        ("the simple function $\\mu(x) = x/\\sqrt{1+x^2}$ is derived", True),
+        ("the 'simple' form x/\u221a(1+x\u00b2), the 'standard' form x/(1+x)", True),
+        ("mu_std(x) = x/\u221a(1+x\u00b2) \u2014 the \"simple\" interpolating function", True),
+        ("the standard function $\\mu(x) = \\frac{x}{1+x}$ fits the disks", True),
+        ("the simple mu is x/(1+x) and the standard mu is x/sqrt(1+x^2)", False),
+        ("$\\mu_{\\text{simple}} = x/(1+x)$, $\\mu_{\\text{std}} = x/\\sqrt{1+x^2}$", False),
     ]
     fails = 0
     for text, should_hit in cases:
-        hit = any(p.search(text) for _, p, _ in RETIRED)
+        hit = any(entity_match(l, p, text) for l, p, _ in RETIRED)
         ctx = bool(RETIRED_CONTEXT.search(text))
         flagged = hit and not ctx
         if flagged != should_hit:

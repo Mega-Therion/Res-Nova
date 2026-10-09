@@ -51,7 +51,7 @@ graph TD
 | **2. The Law of GOD** | `02_Documents/THE_LAW_OF_GOD__...MASTER.md` | Master field equations, $E_8$ projection, initial Lagrangian. | *Zenodo Canonical DOI `10.5281/zenodo.20026859`.* |
 | **3. The Pleroman & Panaryan** | `02_Documents/THE_PLEROMAN.md` | Conformal topological ontology, Casimir invariants, four-boundary manifold. | *Subsumed into Res Nova.* |
 | **4. Ars Magna / Res Nova** | `Research_and_Data/Res_Nova_Monograph/` | Full SPARC 175-galaxy empirical audit, Lean 4 machine-verified core (16 modules), honesty statement. | *Published Canonical Edition.* |
-| **5. IO/OI Transmission Monograph** | `04_Publications_and_Outreach/IO_OI_...pdf` | AdS/dS holographic boundary, unified transmission codex styling, parameter-free $a_0 = cH_0/2\pi$. | **Current Active Master Monograph** (92 KB PDF). |
+| **5. IO/OI Transmission Monograph** | `04_Publications_and_Outreach/IO_OI_...pdf` | AdS/dS holographic boundary, unified transmission codex styling, declared $a_0 = cH_0/2\pi$ (the $1/2\pi$ is `[O]`). | **Current Active Master Monograph** (92 KB PDF). |
 
 ---
 

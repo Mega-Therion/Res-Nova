@@ -18,9 +18,9 @@ $$S_{\text{AQUAL}} = \int d^4x \left[ -\frac{1}{8\pi G}\nabla \Phi_N \cdot \nabl
 
 2. **The Missing Bridge (Eq. 245 $\to$ Eq. 249):**
    - The direct derivative of $\mathcal{F}(x)$ evaluates algebraically to $\operatorname{arcsinh}(x)$, **not** $\frac{x}{\sqrt{1+x^2}}$.
-   - In the text, the transition to $\mu_{\text{simple}}(x) = \frac{x}{\sqrt{1+x^2}}$ is invoked under the physical assertion *"planar disk surface balance enforces that the non-linear derivative reduces to the direct gradient ratio"*.
+   - In the text, the transition to $\mu_{\text{std}}(x) = \frac{x}{\sqrt{1+x^2}}$ is invoked under the physical assertion *"planar disk surface balance enforces that the non-linear derivative reduces to the direct gradient ratio"*.
    - **Theoretical Finding:** The algebraic reduction from the 4D action $S_Y$ to the exact rational form $\frac{x}{\sqrt{1+x^2}}$ is **not an unconditioned mathematical consequence of Euler-Lagrange variation alone**. It requires an auxiliary boundary projection condition (equivalent to setting $\mu = \cos\theta$ on the right-triangle acceleration legs, formalized in `MuProjection.lean`).
-   - **Epistemic Classification:** The bridge is **`[O]` (Open Conjectural / Constitutive Closure)**, while the properties of the resulting function $\mu_{\text{simple}}(x)$ are **`[P]` (Proved)**.
+   - **Epistemic Classification:** The bridge is **`[O]` (Open Conjectural / Constitutive Closure)**, while the properties of the resulting function $\mu_{\text{std}}(x)$ are **`[P]` (Proved)**.
 
 ---
 
@@ -95,7 +95,7 @@ $$g_{\mu\nu}^{\text{opt}} = g_{\mu\nu} + \beta(\chi) \nabla_\mu\chi \nabla_\nu\c
 | :--- | :--- | :--- |
 | **`SOCasimirGenuine.lean`** | Quadratic Casimir eigenvalue of standard $\mathfrak{so}(n)$ generators is $(n-1)/2$. | Does not prove that spacetime gauge group is $\mathrm{SO}(N)$ or $E_8$. |
 | **`DeSitterExtremal.lean`** | Lapse $1-H^2r^2=0$ at $r=1/H$, and arithmetic positivity of $cH/(2\pi)$. | Does not derive $a_0 = cH_0/(2\pi)$ from horizon thermodynamics. |
-| **`MuProjection.lean`** | Algebraic properties of $\mu_{\text{simple}}(x) = x/\sqrt{1+x^2}$ and second derivative of $k/r$. | Does not derive the variational necessity of single-channel AQUAL potential. |
+| **`MuProjection.lean`** | Algebraic properties of $\mu_{\text{std}}(x) = x/\sqrt{1+x^2}$ (Lean names it `mu_simple`, a misnomer: the literature's simple $\mu$ is $x/(1+x)$) and second derivative of $k/r$. | Does not derive the variational necessity of single-channel AQUAL potential. |
 | **`ITActionClosure.lean`** | Polynomial equivalence of $\tau$-law and AQUAL simple-$\mu$ relation; BTFR $M \propto v^4$. | Does not prove absence of non-linear ghost instabilities in full relativistic tensor theory. |
 | **`YettParadigm.lean`** | Positivity of spectral gap $\lambda_1 - \lambda_0 > 0$ for Hamiltonian operator with $\kappa > 0$. | Does not prove physical existence of the Ramanujan-Yett spectrum in physical vacuum. |
 | **`SovereignRegularity.lean`** | Under hypothesis $\chi \ge \theta$, the Beale-Kato-Majda integral remains finite for all $T \ge 0$. | Does not prove that Navier-Stokes initial data dynamically enforces $\chi \ge \theta$ without control. |

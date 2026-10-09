@@ -24,10 +24,11 @@ open on. So it gets tested, and the result gets recorded whichever way it falls.
 
 We test the **surviving** branch `μ_std(x) = x/√(1+x²)` with
 
-    a₀ = c H₀ / (2π) = 1.0557 × 10⁻¹⁰ m s⁻²      (DERIVED, no free parameter)
+    a₀ = c H₀ / (2π) = 1.0557 × 10⁻¹⁰ m s⁻²      (declared anchor [O]; H₀ fixed in advance)
 
 at `H₀ = 68.27 km/s/Mpc` (pre-registered P1, Zenodo 21867985) and `Ω_Λ = ln 2`.
-For reference Milgrom's *fitted* value is `1.2 × 10⁻¹⁰`; the derived one is 12% smaller.
+For reference Milgrom's *fitted* value is `1.2 × 10⁻¹⁰`; the declared one is 12% smaller.
+*Correction (2026-10-09): the a₀ line read "DERIVED, no free parameter". The 1/(2π) normalization is `[O]` (`build/STATUS_AND_SCOPE.tex`), so a₀ here is a declared anchor, not a derived value.*
 
 **Why weak lensing and not X-ray hydrostatic masses.** The standard escape from X-ray
 cluster tests is hydrostatic mass bias (~20–30%). Weak lensing assumes no hydrostatic

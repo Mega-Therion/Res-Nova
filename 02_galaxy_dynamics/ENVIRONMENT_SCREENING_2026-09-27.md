@@ -1,4 +1,6 @@
-# Parameter-free environmental screening — 2026-09-27
+# Environmental screening with no parameter beyond a₀ — 2026-09-27
+
+*Correction (2026-10-09): the title read "Parameter-free environmental screening". The form adds no parameter beyond the a₀ scale and μ_std, the model's two irreducible inputs.*
 
 **Question.** `SCREENING_WINDOW_2026-09-27.md` found that μ_std plus a screening *radius* of
 0.1–1 pc (for the Sun) reconciles Cassini and SPARC. Can that shield size be derived instead of
