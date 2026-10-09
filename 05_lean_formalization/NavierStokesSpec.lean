@@ -61,8 +61,11 @@ theorem alignmentFromGate_eq (Lmax : ℝ) :
   unfold alignmentFromGate alignmentGate
   ring
 
-/-- Open obligation: persistence of `AlignmentPredicate` along a genuine NSE
-solution class. This file records the obligation; it does not prove it. -/
+/-- Historical name: this was meant to record the open obligation, persistence of
+`AlignmentPredicate` along a genuine Navier–Stokes solution class. **As written it does not:**
+it quantifies over every vorticity field, with no equation or solution in sight, and it is
+false (`NavierStokesTarget.persistenceObligation_false` refutes it at `K = L = ρ = 1`, added
+2026-10-08). The obligation over genuine solutions is `NavierStokesTarget.AlignmentPersistence`. -/
 def PersistenceObligation (K L ρ : ℝ) : Prop :=
   ∀ ω : VorticityField, AlignmentPredicate K L ρ ω
 

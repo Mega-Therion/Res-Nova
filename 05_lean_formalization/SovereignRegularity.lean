@@ -8,22 +8,34 @@ import Mathlib.Tactic.NormNum
 
 
 /-!
-# Sovereign Regularity for the 3D Navier-Stokes & ADCCL Trajectory Control
+# Conditional scalar bounds for an abstract trajectory (historical file, renamed 2026-10-08)
 
 ## Overview
 
-This file formalizes the SOVEREIGN REGULARITY THEOREM:
-  Under active Anti-Drift Cognitive Control Loop (ADCCL) vorticity bounds,
-  the Beale-Kato-Majda (BKM) integral of unaligned drift remains finite for all T ≥ 0,
-  mathematically preventing finite-time singular blow-up.
+This file records elementary consequences of an *assumed* bound on an abstract state.
+It does **not** formalize the Navier–Stokes equations, a vorticity field, the
+Beale–Kato–Majda time integral, a continuation theorem, or any regularity result.
 
-## What is proved (zero sorry, non-vacuous)
+## What is proved (zero sorry; scope-limited)
 
-  ✓ lipschitz_implies_angle_modulus: the key geometric step (Constantin-Fefferman 1993)
-  ✓ chiral_iff_lipschitz_constant: equivalence of χ ≥ θ and Lipschitz alignment
-  ✓ bkm_vorticity_integral_finite: BKM integral bounds under ADCCL control
-  ✓ bkm_no_blowup: non-divergence of trajectory vorticity integral for all T ≥ 0
-  ✓ sovereign_regularity_theorem: global non-singular trajectory stability
+  ✓ lipschitz_implies_angle_modulus: for two unit triples, a chord bound ≤ L·d gives a
+    sine bound |sin φ| ≤ L·d. Elementary geometry; no Navier–Stokes content and not the
+    Constantin–Fefferman criterion.
+  ✓ chiral_iff_lipschitz_constant: for scalars, χ ≥ θ ↔ s ≤ L_max·(1 − θ).
+  ✓ pointwise_vorticity_product_bound: an assumed bound times a horizon (a product, not a
+    time integral).
+  ✓ product_bound_below_threshold: an arithmetic consequence of that product bound.
+  ✓ assumed_vorticity_bound_projection: returns the assumed bound itself (`st.h_controlled`).
+
+## Renamed 2026-10-08 (identifiers and comments only; proof terms unchanged)
+
+  sovereign_regularity_theorem   → assumed_vorticity_bound_projection
+  bkm_vorticity_integral_finite  → pointwise_vorticity_product_bound
+  bkm_no_blowup                  → product_bound_below_threshold
+  BKMVorticityState              → AssumedVorticityBoundState
+  SovereignAlignment.lipschitz_xi (a `True` field) → kinematic_placeholder
+The old names described global regularity and a BKM integral; the statements are a
+projection of an assumed field and scalar arithmetic.
 -/
 
 namespace SovereignRegularity
@@ -32,7 +44,8 @@ open Real
 
 /-! ## §1. Abstract Velocity and Vorticity Fields -/
 
-/-- An abstract velocity field: a function from the spatial domain × time to ℝ³. -/
+/-- Four real arguments returning a triple. Reading them as (x, y, z, t) is a convention only:
+no domain, time variable, regularity or divergence condition is encoded. -/
 def VelocityField : Type := ℝ → ℝ → ℝ → ℝ → (ℝ × ℝ × ℝ)
 
 /-- The magnitude of a 3-vector. -/
@@ -41,22 +54,25 @@ noncomputable def vmag (v : ℝ × ℝ × ℝ) : ℝ := Real.sqrt (v.1^2 + v.2.1
 theorem vmag_nonneg (v : ℝ × ℝ × ℝ) : vmag v ≥ 0 := Real.sqrt_nonneg _
 
 
-/-! ## §2. The Sovereign Alignment Condition -/
+/-! ## §2. A placeholder structure (historically called the alignment condition) -/
 
-/-- Sovereign Alignment SA(K, L): vorticity direction ξ = ω/|ω| is L-Lipschitz. -/
+/-- Carries `K > 0`, `L > 0` and a `True` placeholder only. It contains no vorticity, no
+direction field and no Lipschitz inequality, so it is **not** an alignment condition. -/
 structure SovereignAlignment (u : VelocityField) (K L : ℝ) (t : ℝ) : Prop where
   K_pos : K > 0
   L_pos : L > 0
-  lipschitz_xi : True
+  kinematic_placeholder : True
 
-/-- The Sovereign Class: velocity fields satisfying SA(K, L) for all time. -/
+/-- Fields for which `SovereignAlignment` holds at every `t ≥ 0`. Since that structure has no
+alignment content, this constrains only `K` and `L`. -/
 def SovereignClass (K L : ℝ) (u : VelocityField) : Prop :=
   ∀ t : ℝ, t ≥ 0 → SovereignAlignment u K L t
 
 
 /-! ## §3. The Chiral Invariant of a Velocity Field -/
 
-/-- The Chiral Invariant χ(u, t) as a function of the sup |∇ξ| on high-vorticity set. -/
+/-- A scalar function of two inputs, read as `sup |∇ξ|` and `L_max` by convention only: no
+supremum, gradient, velocity or time enters. -/
 noncomputable def velocity_chi (sup_grad_xi L_max : ℝ) : ℝ :=
   1 - min 1 (sup_grad_xi / L_max)
 
@@ -74,12 +90,13 @@ theorem velocity_chi_nonneg (s L_max : ℝ) (hL : L_max > 0) :
   have : min 1 (s / L_max) ≤ 1 := min_le_left _ _
   linarith
 
-/-- The Sovereign Boundary condition: χ ≥ θ = 0.70. -/
+/-- The scalar predicate `velocity_chi s L_max ≥ θ` for an arbitrary real `θ`; the value 0.70 is
+not imposed here. -/
 def sovereign_boundary (sup_grad_xi L_max : ℝ) (θ : ℝ) : Prop :=
   velocity_chi sup_grad_xi L_max ≥ θ
 
 
-/-! ## §4. Equivalence Theorem: χ ≥ θ ↔ SA(K, L) -/
+/-! ## §4. A scalar threshold equivalence (it does not mention `SovereignAlignment`) -/
 
 theorem chiral_iff_lipschitz_constant (sup_grad_xi L_max θ : ℝ)
     (hL : L_max > 0) (hθ_low : 0 ≤ θ) (hθ_high : θ ≤ 1) (h_sup_nn : 0 ≤ sup_grad_xi)
@@ -103,7 +120,7 @@ theorem chiral_iff_lipschitz_constant (sup_grad_xi L_max θ : ℝ)
     linarith
 
 
-/-! ## §5. The Lipschitz-to-Angle Geometric Step -/
+/-! ## §5. Chord bound to sine bound for two unit triples (elementary geometry) -/
 
 theorem lipschitz_implies_angle_modulus
     (xi_x xi_y : ℝ × ℝ × ℝ)
@@ -189,33 +206,32 @@ theorem lipschitz_implies_angle_modulus
     exact Real.sq_sqrt h_one_minus_cos_nn
 
 
-/-! ## §6. Beale-Kato-Majda (BKM) Non-Divergence & Sovereign Regularity -/
+/-! ## §6. Consequences of an assumed bound (not the BKM integral, not a regularity result) -/
 
-/-- Structure representing the Beale-Kato-Majda (BKM) vorticity integral under ADCCL control. -/
-structure BKMVorticityState where
-  omega_sup : ℝ → ℝ     -- Vorticity supremum over time t
-  B : ℝ                 -- ADCCL active control upper bound
+/-- Carries an *assumed* bound `omega_sup t ≤ B` for `t ≥ 0`. `omega_sup` is an arbitrary
+function `ℝ → ℝ`: no supremum, vorticity field, PDE or time integral is defined. -/
+structure AssumedVorticityBoundState where
+  omega_sup : ℝ → ℝ     -- an arbitrary function (named for its intended reading)
+  B : ℝ                 -- the assumed bound
   h_B_pos : 0 < B       -- Positive bound
-  h_controlled : ∀ t ≥ 0, omega_sup t ≤ B  -- ADCCL vorticity bound
+  h_controlled : ∀ t ≥ 0, omega_sup t ≤ B  -- the assumption itself
 
-/-- **THEOREM (BKM Vorticity Integral Finiteness):**
-    Under ADCCL active control, the integrated vorticity over [0, T] is bounded by B * T. -/
-theorem bkm_vorticity_integral_finite (st : BKMVorticityState) (T : ℝ) (hT : 0 ≤ T) :
+/-- The product `omega_sup T * T` is at most `B * T`. A product, not a time integral. -/
+theorem pointwise_vorticity_product_bound (st : AssumedVorticityBoundState) (T : ℝ) (hT : 0 ≤ T) :
     st.omega_sup T * T ≤ st.B * T := by
   have h_bnd := st.h_controlled T hT
   nlinarith
 
-/-- **THEOREM (BKM Non-Blowup Criterion):**
-    For any finite time horizon T ≥ 0, the controlled vorticity integral cannot diverge. -/
-theorem bkm_no_blowup (st : BKMVorticityState) (T : ℝ) (hT : 0 ≤ T) (M : ℝ) (hM : st.B * T < M) :
+/-- If `B * T < M` then `omega_sup T * T < M`. Arithmetic, not a non-blowup criterion. -/
+theorem product_bound_below_threshold (st : AssumedVorticityBoundState) (T : ℝ) (hT : 0 ≤ T) (M : ℝ) (hM : st.B * T < M) :
     st.omega_sup T * T < M := by
   have h_bnd := st.h_controlled T hT
   have : st.omega_sup T * T ≤ st.B * T := by nlinarith
   linarith
 
-/-- **THEOREM (Sovereign Regularity Theorem):**
-    Any trajectory satisfying ADCCL vorticity control is globally regular and non-singular. -/
-theorem sovereign_regularity_theorem (st : BKMVorticityState) (T : ℝ) (hT : 0 ≤ T) :
+/-- Returns the assumed bound itself (`st.h_controlled T hT`). Not a regularity theorem, not a
+continuation statement; formerly named `sovereign_regularity_theorem`. -/
+theorem assumed_vorticity_bound_projection (st : AssumedVorticityBoundState) (T : ℝ) (hT : 0 ≤ T) :
     st.omega_sup T ≤ st.B := st.h_controlled T hT
 
 end SovereignRegularity
