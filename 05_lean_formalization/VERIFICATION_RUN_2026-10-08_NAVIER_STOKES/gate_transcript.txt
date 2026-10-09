@@ -1,19 +1,18 @@
-# Official gate witness, 2026-10-08T20:42:42-05:00
-branch: research/navier-stokes-remediation-2026-10-08  head: f28cff382cd13c2c59868d3be3c4baa68eb68abe  (plus uncommitted: NavierStokesTarget.lean, lakefile/TARGETS/ADJACENT/NavierStokesSpec doc edits)
+# Official gate witness, 2026-10-08T20:52:36-05:00
+branch: research/navier-stokes-remediation-2026-10-08  head: 07c3c03f2cb5972b63778f76c55647db6b61c6f8  (plus uncommitted: NavierStokesTarget.lean L3a theorems)
 lean-toolchain: leanprover/lean4:v4.33.0-rc1
 lean --version: Lean (version 4.33.0-rc1, x86_64-unknown-linux-gnu, commit 62eed1db4d67327ec8120be05f1a1b0847d74561, Release)
 mathlib rev (lake-manifest): 5eec30bc56ed5a23be2e27c544a949ba0bceddeb
+NavierStokesTarget.lean sha256: aaed7fbbe2c33c542775ee854e528eccf07015e2de3e38e95b27917ad86e5f98
 
 $ lake exe cache get
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
-Attempting to download 8678 file(s) from leanprover-community/mathlib4 cache at https://lakecache.blob.core.windows.net/mathlib4-master
-Downloaded: 1 file(s) [attempted 1/8678 = 0%, 10 KB/s], Decompressed: 0[KDownloaded: 33 file(s) [attempted 33/8678 = 0%, 314 KB/s], Decompressed: 30[KDownloaded: 65 file(s) [attempted 65/8678 = 0%, 26 KB/s], Decompressed: 62[KDownloaded: 111 file(s) [attempted 111/8678 = 1%, 583 KB/s], Decompressed: 108[KDownloaded: 150 file(s) [attempted 150/8678 = 1%, 392 KB/s], Decompressed: 145[KDownloaded: 192 file(s) [attempted 192/8678 = 2%, 673 KB/s], Decompressed: 189[KDownloaded: 228 file(s) [attempted 228/8678 = 2%, 798 KB/s], Decompressed: 224[KDownloaded: 251 file(s) [attempted 251/8678 = 2%, 202 KB/s], Decompressed: 248[KDownloaded: 307 file(s) [attempted 307/8678 = 3%, 1228 KB/s], Decompressed: 300[KDownloaded: 363 file(s) [attempted 363/8678 = 4%, 246 KB/s], Decompressed: 356[KDownloaded: 405 file(s) [attempted 405/8678 = 4%, 273 KB/s], Decompressed: 402[KDownloaded: 456 file(s) [attempted 456/8678 = 5%, 409 KB/s], Decompressed: 451[KDownloaded: 496 file(s) [attempted 496/8678 = 5%, 288 KB/s], Decompressed: 493[KDownloaded: 514 file(s) [attempted 514/8678 = 5%, 318 KB/s], Decompressed: 512[KDownloaded: 556 file(s) [attempted 556/8678 = 6%, 396 KB/s], Decompressed: 554[KDownloaded: 598 file(s) [attempted 598/8678 = 6%, 346 KB/s], Decompressed: 596[KDownloaded: 634 file(s) [attempted 634/8678 = 7%, 296 KB/s], Decompressed: 631[KDownloaded: 684 file(s) [attempted 684/8678 = 7%, 82 KB/s], Decompressed: 675[KDownloaded: 724 file(s) [attempted 724/8678 = 8%, 733 KB/s], Decompressed: 722[KDownloaded: 771 file(s) [attempted 771/8678 = 8%, 128 KB/s], Decompressed: 769[KDownloaded: 811 file(s) [attempted 811/8678 = 9%, 365 KB/s], Decompressed: 808[KDownloaded: 832 file(s) [attempted 832/8678 = 9%, 22 KB/s], Decompressed: 829[KDownloaded: 857 file(s) [attempted 857/8678 = 9%, 315 KB/s], Decompressed: 855[KDownloaded: 899 file(s) [attempted 899/8678 = 10%, 371 KB/s], Decompressed: 897[KDownloaded: 946 file(s) [attempted 946/8678 = 10%, 48 KB/s], Decompressed: 941[KDownloaded: 995 file(s) [attempted 995/8678 = 11%, 72 KB/s], Decompressed: 988[KDownloaded: 1020 file(s) [attempted 1020/8678 = 11%, 139 KB/s], Decompressed: 1018[KDownloaded: 1046 file(s) [attempted 1046/8678 = 12%, 274 KB/s], Decompressed: 1044[KDownloaded: 1067 file(s) [attempted 1067/8678 = 12%, 339 KB/s], Decompressed: 1065[KDownloaded: 1114 file(s) [attempted 1114/8678 = 12%, 110 KB/s], Decompressed: 1111[KDownloaded: 1146 file(s) [attempted 1146/8678 = 13%, 285 KB/s], Decompressed: 1139[KDownloaded: 1189 file(s) [attempted 1189/8678 = 13%, 639 KB/s], Decompressed: 1184[KDownloaded: 1224 file(s) [attempted 1224/8678 = 14%, 408 KB/s], Decompressed: 1216[KDownloaded: 1253 file(s) [attempted 1253/8678 = 14%, 382 KB/s], Decompressed: 1251[KDownloaded: 1309 file(s) [attempted 1309/8678 = 15%, 830 KB/s], Decompressed: 1302[KDownloaded: 1358 file(s) [attempted 1358/8678 = 15%, 135 KB/s], Decompressed: 1356[KDownloaded: 1407 file(s) [attempted 1407/8678 = 16%, 887 KB/s], Decompressed: 1403[KDownloaded: 1454 file(s) [attempted 1454/8678 = 16%, 121 KB/s], Decompressed: 1449[KDownloaded: 1473 file(s) [attempted 1473/8678 = 16%, 140 KB/s], Decompressed: 1470[KDownloaded: 1510 file(s) [attempted 1510/8678 = 17%, 210 KB/s], Decompressed: 1505[KDownloaded: 1531 file(s) [attempted 1531/8678 = 17%, 77 KB/s], Decompressed: 1528[KDownloaded: 1554 file(s) [attempted 1554/8678 = 17%, 93 KB/s], Decompressed: 1552[KDownloaded: 1591 file(s) [attempted 1591/8678 = 18%, 534 KB/s], Decompressed: 1589[KDownloaded: 1633 file(s) [attempted 1633/8678 = 18%, 292 KB/s], Decompressed: 1626[KDownloaded: 1673 file(s) [attempted 1673/8678 = 19%, 662 KB/s], Decompressed: 1671[KDownloaded: 1710 file(s) [attempted 1710/8678 = 19%, 862 KB/s], Decompressed: 1708[KDownloaded: 1752 file(s) [attempted 1752/8678 = 20%, 607 KB/s], Decompressed: 1748[KDownloaded: 1792 file(s) [attempted 1792/8678 = 20%, 1573 KB/s], Decompressed: 1789[KDownloaded: 1836 file(s) [attempted 1836/8678 = 21%, 367 KB/s], Decompressed: 1834[KDownloaded: 1874 file(s) [attempted 1874/8678 = 21%, 512 KB/s], Decompressed: 1866[KDownloaded: 1913 file(s) [attempted 1913/8678 = 22%, 247 KB/s], Decompressed: 1908[KDownloaded: 1953 file(s) [attempted 1953/8678 = 22%, 639 KB/s], Decompressed: 1950[KDownloaded: 1995 file(s) [attempted 1995/8678 = 22%, 483 KB/s], Decompressed: 1992[KDownloaded: 2043 file(s) [attempted 2043/8678 = 23%, 692 KB/s], Decompressed: 2041[KDownloaded: 2095 file(s) [attempted 2095/8678 = 24%, 1378 KB/s], Decompressed: 2092[KDownloaded: 2135 file(s) [attempted 2135/8678 = 24%, 268 KB/s], Decompressed: 2132[KDownloaded: 2174 file(s) [attempted 2174/8678 = 25%, 365 KB/s], Decompressed: 2172[KDownloaded: 2198 file(s) [attempted 2198/8678 = 25%, 263 KB/s], Decompressed: 2195[KDownloaded: 2239 file(s) [attempted 2239/8678 = 25%, 35 KB/s], Decompressed: 2235[KDownloaded: 2279 file(s) [attempted 2279/8678 = 26%, 31 KB/s], Decompressed: 2274[KDownloaded: 2297 file(s) [attempted 2297/8678 = 26%, 246 KB/s], Decompressed: 2295[KDownloaded: 2332 file(s) [attempted 2332/8678 = 26%, 39 KB/s], Decompressed: 2330[KDownloaded: 2360 file(s) [attempted 2360/8678 = 27%, 226 KB/s], Decompressed: 2353[KDownloaded: 2412 file(s) [attempted 2412/8678 = 27%, 535 KB/s], Decompressed: 2409[KDownloaded: 2447 file(s) [attempted 2447/8678 = 28%, 367 KB/s], Decompressed: 2444[KDownloaded: 2486 file(s) [attempted 2486/8678 = 28%, 388 KB/s], Decompressed: 2479[KDownloaded: 2512 file(s) [attempted 2512/8678 = 28%, 269 KB/s], Decompressed: 2500[KDownloaded: 2549 file(s) [attempted 2549/8678 = 29%, 325 KB/s], Decompressed: 2547[KDownloaded: 2577 file(s) [attempted 2577/8678 = 29%, 769 KB/s], Decompressed: 2570[KDownloaded: 2617 file(s) [attempted 2617/8678 = 30%, 498 KB/s], Decompressed: 2614[KDownloaded: 2663 file(s) [attempted 2663/8678 = 30%, 713 KB/s], Decompressed: 2659[KDownloaded: 2705 file(s) [attempted 2705/8678 = 31%, 1270 KB/s], Decompressed: 2701[KDownloaded: 2750 file(s) [attempted 2750/8678 = 31%, 393 KB/s], Decompressed: 2745[KDownloaded: 2779 file(s) [attempted 2779/8678 = 32%, 66 KB/s], Decompressed: 2775[KDownloaded: 2823 file(s) [attempted 2823/8678 = 32%, 806 KB/s], Decompressed: 2812[KDownloaded: 2864 file(s) [attempted 2864/8678 = 33%, 574 KB/s], Decompressed: 2859[KDownloaded: 2902 file(s) [attempted 2902/8678 = 33%, 688 KB/s], Decompressed: 2894[KDownloaded: 2939 file(s) [attempted 2939/8678 = 33%, 472 KB/s], Decompressed: 2934[KDownloaded: 2983 file(s) [attempted 2983/8678 = 34%, 131 KB/s], Decompressed: 2976[KDownloaded: 3027 file(s) [attempted 3027/8678 = 34%, 75 KB/s], Decompressed: 3025[KDownloaded: 3066 file(s) [attempted 3066/8678 = 35%, 548 KB/s], Decompressed: 3064[KDownloaded: 3108 file(s) [attempted 3108/8678 = 35%, 213 KB/s], Decompressed: 3106[KDownloaded: 3157 file(s) [attempted 3157/8678 = 36%, 575 KB/s], Decompressed: 3150[KDownloaded: 3206 file(s) [attempted 3206/8678 = 36%, 171 KB/s], Decompressed: 3197[KDownloaded: 3253 file(s) [attempted 3253/8678 = 37%, 87 KB/s], Decompressed: 3246[KDownloaded: 3295 file(s) [attempted 3295/8678 = 37%, 519 KB/s], Decompressed: 3290[KDownloaded: 3337 file(s) [attempted 3337/8678 = 38%, 715 KB/s], Decompressed: 3334[KDownloaded: 3381 file(s) [attempted 3381/8678 = 38%, 164 KB/s], Decompressed: 3379[KDownloaded: 3439 file(s) [attempted 3439/8678 = 39%, 547 KB/s], Decompressed: 3432[KDownloaded: 3472 file(s) [attempted 3472/8678 = 40%, 153 KB/s], Decompressed: 3465[KDownloaded: 3516 file(s) [attempted 3516/8678 = 40%, 318 KB/s], Decompressed: 3512[KDownloaded: 3563 file(s) [attempted 3563/8678 = 41%, 830 KB/s], Decompressed: 3558[KDownloaded: 3610 file(s) [attempted 3610/8678 = 41%, 1854 KB/s], Decompressed: 3602[KDownloaded: 3651 file(s) [attempted 3651/8678 = 42%, 88 KB/s], Decompressed: 3649[KDownloaded: 3689 file(s) [attempted 3689/8678 = 42%, 343 KB/s], Decompressed: 3686[KDownloaded: 3743 file(s) [attempted 3743/8678 = 43%, 1005 KB/s], Decompressed: 3735[KDownloaded: 3784 file(s) [attempted 3784/8678 = 43%, 271 KB/s], Decompressed: 3777[KDownloaded: 3824 file(s) [attempted 3824/8678 = 44%, 394 KB/s], Decompressed: 3817[KDownloaded: 3866 file(s) [attempted 3866/8678 = 44%, 215 KB/s], Decompressed: 3856[KDownloaded: 3899 file(s) [attempted 3899/8678 = 44%, 161 KB/s], Decompressed: 3896[KDownloaded: 3947 file(s) [attempted 3947/8678 = 45%, 191 KB/s], Decompressed: 3945[KDownloaded: 3985 file(s) [attempted 3985/8678 = 45%, 374 KB/s], Decompressed: 3980[KDownloaded: 4037 file(s) [attempted 4037/8678 = 46%, 169 KB/s], Decompressed: 4034[KDownloaded: 4087 file(s) [attempted 4087/8678 = 47%, 857 KB/s], Decompressed: 4083[KDownloaded: 4124 file(s) [attempted 4124/8678 = 47%, 1149 KB/s], Decompressed: 4117[KDownloaded: 4162 file(s) [attempted 4162/8678 = 47%, 81 KB/s], Decompressed: 4159[KDownloaded: 4194 file(s) [attempted 4194/8678 = 48%, 235 KB/s], Decompressed: 4190[KDownloaded: 4241 file(s) [attempted 4241/8678 = 48%, 58 KB/s], Decompressed: 4239[KDownloaded: 4283 file(s) [attempted 4283/8678 = 49%, 284 KB/s], Decompressed: 4281[KDownloaded: 4327 file(s) [attempted 4327/8678 = 49%, 1331 KB/s], Decompressed: 4325[KDownloaded: 4369 file(s) [attempted 4369/8678 = 50%, 315 KB/s], Decompressed: 4364[KDownloaded: 4414 file(s) [attempted 4414/8678 = 50%, 287 KB/s], Decompressed: 4411[KDownloaded: 4447 file(s) [attempted 4447/8678 = 51%, 529 KB/s], Decompressed: 4441[KDownloaded: 4486 file(s) [attempted 4486/8678 = 51%, 71 KB/s], Decompressed: 4483[KDownloaded: 4518 file(s) [attempted 4518/8678 = 52%, 882 KB/s], Decompressed: 4516[KDownloaded: 4565 file(s) [attempted 4565/8678 = 52%, 83 KB/s], Decompressed: 4563[KDownloaded: 4615 file(s) [attempted 4615/8678 = 53%, 573 KB/s], Decompressed: 4604[KDownloaded: 4644 file(s) [attempted 4644/8678 = 53%, 73 KB/s], Decompressed: 4642[KDownloaded: 4679 file(s) [attempted 4679/8678 = 53%, 94 KB/s], Decompressed: 4677[KDownloaded: 4730 file(s) [attempted 4730/8678 = 54%, 370 KB/s], Decompressed: 4729[KDownloaded: 4777 file(s) [attempted 4777/8678 = 55%, 682 KB/s], Decompressed: 4775[KDownloaded: 4817 file(s) [attempted 4817/8678 = 55%, 362 KB/s], Decompressed: 4810[KDownloaded: 4842 file(s) [attempted 4842/8678 = 55%, 471 KB/s], Decompressed: 4838[KDownloaded: 4896 file(s) [attempted 4896/8678 = 56%, 108 KB/s], Decompressed: 4886[KDownloaded: 4935 file(s) [attempted 4935/8678 = 56%, 127 KB/s], Decompressed: 4928[KDownloaded: 4991 file(s) [attempted 4991/8678 = 57%, 369 KB/s], Decompressed: 4984[KDownloaded: 5032 file(s) [attempted 5032/8678 = 57%, 82 KB/s], Decompressed: 5022[KDownloaded: 5073 file(s) [attempted 5073/8678 = 58%, 429 KB/s], Decompressed: 5061[KDownloaded: 5117 file(s) [attempted 5117/8678 = 58%, 59 KB/s], Decompressed: 5113[KDownloaded: 5164 file(s) [attempted 5164/8678 = 59%, 426 KB/s], Decompressed: 5154[KDownloaded: 5201 file(s) [attempted 5201/8678 = 59%, 233 KB/s], Decompressed: 5199[KDownloaded: 5248 file(s) [attempted 5248/8678 = 60%, 118 KB/s], Decompressed: 5245[KDownloaded: 5290 file(s) [attempted 5290/8678 = 60%, 22 KB/s], Decompressed: 5287[KDownloaded: 5336 file(s) [attempted 5336/8678 = 61%, 42 KB/s], Decompressed: 5334[KDownloaded: 5378 file(s) [attempted 5378/8678 = 61%, 170 KB/s], Decompressed: 5374[KDownloaded: 5418 file(s) [attempted 5418/8678 = 62%, 958 KB/s], Decompressed: 5415[KDownloaded: 5457 file(s) [attempted 5457/8678 = 62%, 634 KB/s], Decompressed: 5455[KDownloaded: 5502 file(s) [attempted 5502/8678 = 63%, 321 KB/s], Decompressed: 5499[KDownloaded: 5548 file(s) [attempted 5548/8678 = 63%, 683 KB/s], Decompressed: 5546[KDownloaded: 5590 file(s) [attempted 5590/8678 = 64%, 690 KB/s], Decompressed: 5583[KDownloaded: 5620 file(s) [attempted 5620/8678 = 64%, 143 KB/s], Decompressed: 5611[KDownloaded: 5660 file(s) [attempted 5660/8678 = 65%, 162 KB/s], Decompressed: 5656[KDownloaded: 5711 file(s) [attempted 5711/8678 = 65%, 287 KB/s], Decompressed: 5702[KDownloaded: 5753 file(s) [attempted 5753/8678 = 66%, 384 KB/s], Decompressed: 5739[KDownloaded: 5788 file(s) [attempted 5788/8678 = 66%, 1006 KB/s], Decompressed: 5786[KDownloaded: 5835 file(s) [attempted 5835/8678 = 67%, 359 KB/s], Decompressed: 5830[KDownloaded: 5872 file(s) [attempted 5872/8678 = 67%, 883 KB/s], Decompressed: 5865[KDownloaded: 5914 file(s) [attempted 5914/8678 = 68%, 960 KB/s], Decompressed: 5905[KDownloaded: 5954 file(s) [attempted 5954/8678 = 68%, 521 KB/s], Decompressed: 5949[KDownloaded: 5993 file(s) [attempted 5993/8678 = 69%, 160 KB/s], Decompressed: 5991[KDownloaded: 6032 file(s) [attempted 6032/8678 = 69%, 168 KB/s], Decompressed: 6028[KDownloaded: 6080 file(s) [attempted 6080/8678 = 70%, 137 KB/s], Decompressed: 6075[KDownloaded: 6126 file(s) [attempted 6126/8678 = 70%, 64 KB/s], Decompressed: 6119[KDownloaded: 6164 file(s) [attempted 6164/8678 = 71%, 1306 KB/s], Decompressed: 6161[KDownloaded: 6210 file(s) [attempted 6210/8678 = 71%, 255 KB/s], Decompressed: 6203[KDownloaded: 6252 file(s) [attempted 6252/8678 = 72%, 133 KB/s], Decompressed: 6250[KDownloaded: 6292 file(s) [attempted 6292/8678 = 72%, 89 KB/s], Decompressed: 6289[KDownloaded: 6339 file(s) [attempted 6339/8678 = 73%, 1018 KB/s], Decompressed: 6331[KDownloaded: 6378 file(s) [attempted 6378/8678 = 73%, 186 KB/s], Decompressed: 6376[KDownloaded: 6420 file(s) [attempted 6420/8678 = 73%, 666 KB/s], Decompressed: 6415[KDownloaded: 6457 file(s) [attempted 6457/8678 = 74%, 335 KB/s], Decompressed: 6452[KDownloaded: 6497 file(s) [attempted 6497/8678 = 74%, 112 KB/s], Decompressed: 6480[KDownloaded: 6534 file(s) [attempted 6534/8678 = 75%, 125 KB/s], Decompressed: 6529[KDownloaded: 6576 file(s) [attempted 6576/8678 = 75%, 133 KB/s], Decompressed: 6573[KDownloaded: 6613 file(s) [attempted 6613/8678 = 76%, 575 KB/s], Decompressed: 6612[KDownloaded: 6653 file(s) [attempted 6653/8678 = 76%, 92 KB/s], Decompressed: 6651[KDownloaded: 6702 file(s) [attempted 6702/8678 = 77%, 363 KB/s], Decompressed: 6692[KDownloaded: 6741 file(s) [attempted 6741/8678 = 77%, 89 KB/s], Decompressed: 6739[KDownloaded: 6790 file(s) [attempted 6790/8678 = 78%, 900 KB/s], Decompressed: 6788[KDownloaded: 6839 file(s) [attempted 6839/8678 = 78%, 1831 KB/s], Decompressed: 6837[KDownloaded: 6886 file(s) [attempted 6886/8678 = 79%, 864 KB/s], Decompressed: 6884[KDownloaded: 6924 file(s) [attempted 6924/8678 = 79%, 140 KB/s], Decompressed: 6919[KDownloaded: 6970 file(s) [attempted 6970/8678 = 80%, 206 KB/s], Decompressed: 6963[KDownloaded: 7016 file(s) [attempted 7016/8678 = 80%, 736 KB/s], Decompressed: 7009[KDownloaded: 7061 file(s) [attempted 7061/8678 = 81%, 1067 KB/s], Decompressed: 7058[KDownloaded: 7108 file(s) [attempted 7108/8678 = 81%, 396 KB/s], Decompressed: 7103[KDownloaded: 7156 file(s) [attempted 7156/8678 = 82%, 915 KB/s], Decompressed: 7149[KDownloaded: 7210 file(s) [attempted 7210/8678 = 83%, 147 KB/s], Decompressed: 7207[KDownloaded: 7255 file(s) [attempted 7255/8678 = 83%, 75 KB/s], Decompressed: 7249[KDownloaded: 7289 file(s) [attempted 7289/8678 = 83%, 348 KB/s], Decompressed: 7287[KDownloaded: 7330 file(s) [attempted 7330/8678 = 84%, 394 KB/s], Decompressed: 7322[KDownloaded: 7389 file(s) [attempted 7389/8678 = 85%, 382 KB/s], Decompressed: 7382[KDownloaded: 7410 file(s) [attempted 7410/8678 = 85%, 152 KB/s], Decompressed: 7406[KDownloaded: 7427 file(s) [attempted 7427/8678 = 85%, 113 KB/s], Decompressed: 7424[KDownloaded: 7436 file(s) [attempted 7436/8678 = 85%, 23 KB/s], Decompressed: 7434[KDownloaded: 7466 file(s) [attempted 7466/8678 = 86%, 73 KB/s], Decompressed: 7464[KDownloaded: 7482 file(s) [attempted 7482/8678 = 86%, 245 KB/s], Decompressed: 7480[KDownloaded: 7513 file(s) [attempted 7513/8678 = 86%, 369 KB/s], Decompressed: 7510[KDownloaded: 7550 file(s) [attempted 7550/8678 = 87%, 105 KB/s], Decompressed: 7545[KDownloaded: 7566 file(s) [attempted 7566/8678 = 87%, 71 KB/s], Decompressed: 7562[KDownloaded: 7597 file(s) [attempted 7597/8678 = 87%, 145 KB/s], Decompressed: 7594[KDownloaded: 7622 file(s) [attempted 7622/8678 = 87%, 303 KB/s], Decompressed: 7615[KDownloaded: 7649 file(s) [attempted 7649/8678 = 88%, 200 KB/s], Decompressed: 7646[KDownloaded: 7669 file(s) [attempted 7669/8678 = 88%, 162 KB/s], Decompressed: 7667[KDownloaded: 7688 file(s) [attempted 7688/8678 = 88%, 136 KB/s], Decompressed: 7685[KDownloaded: 7706 file(s) [attempted 7706/8678 = 88%, 20 KB/s], Decompressed: 7704[KDownloaded: 7727 file(s) [attempted 7727/8678 = 89%, 176 KB/s], Decompressed: 7725[KDownloaded: 7753 file(s) [attempted 7753/8678 = 89%, 316 KB/s], Decompressed: 7748[KDownloaded: 7788 file(s) [attempted 7788/8678 = 89%, 279 KB/s], Decompressed: 7781[KDownloaded: 7806 file(s) [attempted 7806/8678 = 89%, 227 KB/s], Decompressed: 7804[KDownloaded: 7846 file(s) [attempted 7846/8678 = 90%, 106 KB/s], Decompressed: 7844[KDownloaded: 7869 file(s) [attempted 7869/8678 = 90%, 608 KB/s], Decompressed: 7867[KDownloaded: 7911 file(s) [attempted 7911/8678 = 91%, 496 KB/s], Decompressed: 7909[KDownloaded: 7942 file(s) [attempted 7942/8678 = 91%, 59 KB/s], Decompressed: 7939[KDownloaded: 7967 file(s) [attempted 7967/8678 = 91%, 98 KB/s], Decompressed: 7965[KDownloaded: 7993 file(s) [attempted 7993/8678 = 92%, 150 KB/s], Decompressed: 7991[KDownloaded: 8023 file(s) [attempted 8023/8678 = 92%, 686 KB/s], Decompressed: 8021[KDownloaded: 8043 file(s) [attempted 8043/8678 = 92%, 420 KB/s], Decompressed: 8039[KDownloaded: 8086 file(s) [attempted 8086/8678 = 93%, 45 KB/s], Decompressed: 8081[KDownloaded: 8109 file(s) [attempted 8109/8678 = 93%, 322 KB/s], Decompressed: 8107[KDownloaded: 8144 file(s) [attempted 8144/8678 = 93%, 308 KB/s], Decompressed: 8137[KDownloaded: 8182 file(s) [attempted 8182/8678 = 94%, 406 KB/s], Decompressed: 8177[KDownloaded: 8200 file(s) [attempted 8200/8678 = 94%, 57 KB/s], Decompressed: 8199[KDownloaded: 8224 file(s) [attempted 8224/8678 = 94%, 86 KB/s], Decompressed: 8221[KDownloaded: 8261 file(s) [attempted 8261/8678 = 95%, 118 KB/s], Decompressed: 8258[KDownloaded: 8289 file(s) [attempted 8289/8678 = 95%, 508 KB/s], Decompressed: 8286[KDownloaded: 8317 file(s) [attempted 8317/8678 = 95%, 302 KB/s], Decompressed: 8312[KDownloaded: 8349 file(s) [attempted 8349/8678 = 96%, 89 KB/s], Decompressed: 8347[KDownloaded: 8389 file(s) [attempted 8389/8678 = 96%, 246 KB/s], Decompressed: 8380[KDownloaded: 8405 file(s) [attempted 8405/8678 = 96%, 87 KB/s], Decompressed: 8403[KDownloaded: 8424 file(s) [attempted 8424/8678 = 97%, 214 KB/s], Decompressed: 8422[KDownloaded: 8445 file(s) [attempted 8445/8678 = 97%, 40 KB/s], Decompressed: 8440[KDownloaded: 8480 file(s) [attempted 8480/8678 = 97%, 521 KB/s], Decompressed: 8478[KDownloaded: 8499 file(s) [attempted 8499/8678 = 97%, 366 KB/s], Decompressed: 8494[KDownloaded: 8522 file(s) [attempted 8522/8678 = 98%, 107 KB/s], Decompressed: 8520[KDownloaded: 8559 file(s) [attempted 8559/8678 = 98%, 497 KB/s], Decompressed: 8554[KDownloaded: 8578 file(s) [attempted 8578/8678 = 98%, 110 KB/s], Decompressed: 8575[KDownloaded: 8622 file(s) [attempted 8622/8678 = 99%, 464 KB/s], Decompressed: 8613[KDownloaded: 8652 file(s) [attempted 8652/8678 = 99%, 224 KB/s], Decompressed: 8650[KDownloaded: 8673 file(s) [attempted 8673/8678 = 99%, 210 KB/s], Decompressed: 8671[KDownloaded: 8676 file(s) [attempted 8676/8678 = 99%, 440 KB/s], Decompressed: 8673[KDownloaded: 8678 file(s) [attempted 8678/8678 = 100%, 440 KB/s], Decompressed: 8676[K
-Decompressed 8678 file(s)
+No files to download
 Already decompressed 8678 file(s)
-cache_get_exit=0 secs=35
+cache_get_exit=0 secs=16
 $ lake build
-⚠ [1942/2114] Replayed FiniteSU2Envelope
+⚠ [1942/2029] Replayed FiniteSU2Envelope
 warning: FiniteSU2Envelope.lean:64:10: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -26,7 +25,7 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: FiniteSU2Envelope.lean:70:43: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [2221/2258] Replayed SU2MatrixEnvelope
+⚠ [2221/2379] Replayed SU2MatrixEnvelope
 warning: SU2MatrixEnvelope.lean:74:6: This simp argument is unused:
   qnorm
 
@@ -34,28 +33,28 @@ Hint: Omit it from the simp argument list.
   [apply] simp [Matrix.conjTranspose, qMatrix, Matrix.mul_apply, Fin.sum_univ_two, Complex.ext_iff]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-ℹ [2301/2435] Replayed ChiralHolonomyOrientation
+ℹ [2301/2379] Replayed ChiralHolonomyOrientation
 info: ChiralHolonomyOrientation.lean:100:0: 'ChiralHolonomy.orientation_asymmetry_witness' does not depend on any axioms
 info: ChiralHolonomyOrientation.lean:101:0: 'ChiralHolonomy.involution_destroys_orientation' does not depend on any axioms
 info: ChiralHolonomyOrientation.lean:102:0: 'ChiralHolonomy.orientation_iff_not_involution' depends on axioms: [propext]
 info: ChiralHolonomyOrientation.lean:103:0: 'ChiralHolonomy.only_identity_is_orientation_blind' does not depend on any axioms
-ℹ [2302/2435] Replayed GenerationCycleChirality
+ℹ [2302/2379] Replayed GenerationCycleChirality
 info: GenerationCycleChirality.lean:103:0: 'GenerationCycle.cycle_orientation_asymmetry' depends on axioms: [propext, Quot.sound]
 info: GenerationCycleChirality.lean:104:0: 'GenerationCycle.orientation_disagrees_everywhere' depends on axioms: [propext]
 info: GenerationCycleChirality.lean:105:0: 'GenerationCycle.sigma_squared_ne_id' depends on axioms: [propext, Quot.sound]
 info: GenerationCycleChirality.lean:106:0: 'GenerationCycle.three_cycle_chiral_two_cycle_not' depends on axioms: [propext]
-⚠ [3022/3060] Replayed DeSitterExtremal
+⚠ [3029/3349] Replayed DeSitterExtremal
 warning: DeSitterExtremal.lean:74:57: Variable name `hr` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hr
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-ℹ [3024/3060] Replayed GODActionKinematics
+ℹ [3031/3349] Replayed GODActionKinematics
 info: GODActionKinematics.lean:49:0: 'GODTheory.dual_channel_poly_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: GODActionKinematics.lean:50:0: 'GODTheory.aqual_simple_mu_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: GODActionKinematics.lean:51:0: 'GODTheory.btfr_algebraic_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [3158/3197] Replayed NavierStokesSpec
+⚠ [3158/3349] Replayed NavierStokesSpec
 warning: NavierStokesSpec.lean:33:63: Variable name `h` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -69,14 +68,14 @@ Hint: Omit it from the simp argument list.
   [apply] simp [direction, norm_smul, inv_mul_cancel₀ hx]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [3289/3352] Replayed MuProjection
+⚠ [3284/3349] Replayed MuProjection
 warning: MuProjection.lean:87:52: Variable name `hb` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hb
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-ℹ [3369/3413] Replayed MuStdUniqueness
+ℹ [3376/3415] Replayed MuStdUniqueness
 info: MuStdUniqueness.lean:472:0: 'ResNova.MuStdUniqueness.theorem_A_constitutive' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdUniqueness.lean:473:0: 'ResNova.MuStdUniqueness.theorem_A_conjugacy' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdUniqueness.lean:474:0: 'ResNova.MuStdUniqueness.theorem_A_postulate_R_ode' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -91,7 +90,7 @@ info: MuStdUniqueness.lean:482:0: 'ResNova.MuStdUniqueness.theorem_C_selects_n_o
 info: MuStdUniqueness.lean:483:0: 'ResNova.MuStdUniqueness.theorem_C_rejects_n_ge_two' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdUniqueness.lean:484:0: 'ResNova.MuStdUniqueness.F_std_deriv2_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdUniqueness.lean:485:0: 'ResNova.MuStdUniqueness.F_std_strictConvexOn' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3370/3413] Replayed MuStdDuality
+ℹ [3377/3415] Replayed MuStdDuality
 info: MuStdDuality.lean:173:0: 'ResNova.MuStdDuality.sqrt_inv_arg_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdDuality.lean:174:0: 'ResNova.MuStdDuality.mu_std_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdDuality.lean:175:0: 'ResNova.MuStdDuality.theorem_livedual' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -100,7 +99,7 @@ info: MuStdDuality.lean:177:0: 'ResNova.MuStdDuality.livedual_is_lorentz' depend
 info: MuStdDuality.lean:178:0: 'ResNova.MuStdDuality.mu_std_fixed_point' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdDuality.lean:179:0: 'ResNova.MuStdDuality.odds_one_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdDuality.lean:180:0: 'ResNova.MuStdDuality.mu_dual_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3374/3413] Replayed GateHolonomySusceptibility
+ℹ [3381/3415] Replayed GateHolonomySusceptibility
 info: GateHolonomySusceptibility.lean:145:0: 'ResNova.GateHolonomy.kappa_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: GateHolonomySusceptibility.lean:146:0: 'ResNova.GateHolonomy.pythagorean' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: GateHolonomySusceptibility.lean:147:0: 'ResNova.GateHolonomy.gate_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -109,7 +108,7 @@ info: GateHolonomySusceptibility.lean:149:0: 'ResNova.GateHolonomy.susceptibilit
 info: GateHolonomySusceptibility.lean:150:0: 'ResNova.GateHolonomy.deriv_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: GateHolonomySusceptibility.lean:151:0: 'ResNova.GateHolonomy.kappa_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: GateHolonomySusceptibility.lean:152:0: 'ResNova.GateHolonomy.height_eq_cos' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3376/3413] Replayed MuStdFoundations
+ℹ [3383/3415] Replayed MuStdFoundations
 info: MuStdFoundations.lean:144:0: 'ResNova.MuStdFoundations.F_std_deriv_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdFoundations.lean:145:0: 'ResNova.MuStdFoundations.F_std_deriv2_positivity' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdFoundations.lean:146:0: 'ResNova.MuStdFoundations.F_std_strict_convexity' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -118,14 +117,14 @@ info: MuStdFoundations.lean:148:0: 'ResNova.MuStdFoundations.c_long_sq_superlumi
 info: MuStdFoundations.lean:149:0: 'ResNova.MuStdFoundations.c_long_sq_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdFoundations.lean:150:0: 'ResNova.MuStdFoundations.deviation_le_inv_two_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdFoundations.lean:151:0: 'ResNova.MuStdFoundations.saturn_monopole_deviation_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [3380/3413] Replayed PrecessionBound
+⚠ [3387/3415] Replayed PrecessionBound
 warning: PrecessionBound.lean:66:54: Variable name `hr` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hr
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-ℹ [3384/3413] Replayed PillarIV_AntiDriftGate
+ℹ [3391/3415] Replayed PillarIV_AntiDriftGate
 info: PillarIV_AntiDriftGate.lean:86:0: @le_div_iff₀ : ∀ {G₀ : Type u_1} [inst : GroupWithZero G₀] [inst_1 : PartialOrder G₀] [MulPosReflectLT G₀] {a b c : G₀},
   0 < c → (a ≤ b / c ↔ a * c ≤ b)
 info: PillarIV_AntiDriftGate.lean:87:0: @div_le_iff₀ : ∀ {G₀ : Type u_1} [inst : GroupWithZero G₀] [inst_1 : PartialOrder G₀] [MulPosReflectLT G₀] {a b c : G₀},
@@ -149,7 +148,7 @@ info: PillarIV_AntiDriftGate.lean:580:0: 'PillarIV.twoChannel_gate' depends on a
 info: PillarIV_AntiDriftGate.lean:581:0: 'PillarIV.kappaBand_sq_add_complement_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PillarIV_AntiDriftGate.lean:582:0: 'PillarIV.theta_le_kappaBand' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PillarIV_AntiDriftGate.lean:583:0: 'PillarIV.kappaBand_at_seven_tenths' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3386/3413] Replayed PrintAxioms
+ℹ [3393/3415] Replayed PrintAxioms
 info: PrintAxioms.lean:17:0: 'ResNova.CovariantCompletion.raqual_superluminal_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PrintAxioms.lean:18:0: 'ResNova.CovariantCompletion.foliation_anchoring_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PrintAxioms.lean:19:0: 'ResNova.CovariantCompletion.disformal_gamma_ppn_unity' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -158,26 +157,26 @@ info: PrintAxioms.lean:21:0: 'ResNova.CovariantCompletion.flrw_projected_gradien
 info: PrintAxioms.lean:22:0: 'ResNova.CovariantCompletion.no_dynamical_dark_energy_density' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-ℹ [3387/3413] Replayed PrintAxiomsD8
+ℹ [3394/3415] Replayed PrintAxiomsD8
 info: PrintAxiomsD8.lean:42:0: 'ResNova.TensorSpeed.c_T_sq_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PrintAxiomsD8.lean:43:0: 'ResNova.TensorSpeed.maxwellian_c13_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PrintAxiomsD8.lean:44:0: 'ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PrintAxiomsD8.lean:45:0: 'ResNova.TensorSpeed.conformal_preserves_tensor_speed' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PrintAxiomsD8.lean:46:0: 'ResNova.TensorSpeed.physical_frame_tensor_speed_unity' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PrintAxiomsD8.lean:47:0: 'ResNova.TensorSpeed.gw170817_concordance' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3390/3413] Replayed RapidityEquipartition
+ℹ [3397/3415] Replayed RapidityEquipartition
 info: RapidityEquipartition.lean:54:0: 'RapidityEquipartition.arsinh_one_eq_log_one_add_sqrt_two' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: RapidityEquipartition.lean:55:0: 'RapidityEquipartition.tanh_arsinh_one_eq_theta' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: RapidityEquipartition.lean:56:0: 'RapidityEquipartition.arsinh_one_eq_artanh_theta' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: RapidityEquipartition.lean:57:0: 'RapidityEquipartition.theta_odds_eq_silver_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3392/3413] Replayed SovereignSpinCeiling
+ℹ [3399/3415] Replayed SovereignSpinCeiling
 info: SovereignSpinCeiling.lean:125:0: 'SovereignSpinCeiling.two_theta_sub_theta_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: SovereignSpinCeiling.lean:126:0: 'SovereignSpinCeiling.sovereign_spin_ceiling_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: SovereignSpinCeiling.lean:127:0: 'SovereignSpinCeiling.sovereign_spin_ceiling_enclosure' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: SovereignSpinCeiling.lean:128:0: 'SovereignSpinCeiling.novikov_thorne_torque_apparent_spin_shift' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-ℹ [3393/3413] Replayed SkordisZlosnikEmbedding
+ℹ [3400/3415] Replayed SkordisZlosnikEmbedding
 info: SkordisZlosnikEmbedding.lean:128:0: 'ResNova.SkordisZlosnik.sz_aqual_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: SkordisZlosnikEmbedding.lean:129:0: 'ResNova.SkordisZlosnik.dJ_dY_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: SkordisZlosnikEmbedding.lean:130:0: 'ResNova.SkordisZlosnik.sz_newtonian_limit_diff' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -186,7 +185,26 @@ info: SkordisZlosnikEmbedding.lean:132:0: 'ResNova.SkordisZlosnik.sz_std_aqual_r
 info: SkordisZlosnikEmbedding.lean:133:0: 'ResNova.SkordisZlosnik.dJ_dY_std_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: SkordisZlosnikEmbedding.lean:134:0: 'ResNova.SkordisZlosnik.sz_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: SkordisZlosnikEmbedding.lean:135:0: 'ResNova.SkordisZlosnik.sz_weak_field_lensing' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3395/3413] Replayed TensorSpeed
+⚠ [3401/3415] Replayed SovereignRegularity
+warning: SovereignRegularity.lean:87:43: Variable name `hL` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hL
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: SovereignRegularity.lean:102:22: Variable name `hθ_low` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hθ_low
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: SovereignRegularity.lean:102:39: Variable name `hθ_high` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hθ_high
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3403/3415] Replayed TensorSpeed
 info: TensorSpeed.lean:124:0: 'ResNova.TensorSpeed.c_T_sq_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: TensorSpeed.lean:125:0: 'ResNova.TensorSpeed.maxwellian_c13_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: TensorSpeed.lean:126:0: 'ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -197,7 +215,7 @@ info: TensorSpeed.lean:130:0: 'ResNova.TensorSpeed.disformal_photon_speed_sq' de
 info: TensorSpeed.lean:131:0: 'ResNova.TensorSpeed.speed_ratio_unity_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: TensorSpeed.lean:132:0: 'ResNova.TensorSpeed.speed_ratio_lt_one_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: TensorSpeed.lean:133:0: 'ResNova.TensorSpeed.gw170817_deviation_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [3396/3413] Replayed TrialityG2
+⚠ [3404/3415] Replayed TrialityG2
 warning: TrialityG2.lean:48:10: This simp argument is unused:
   Matrix.one_apply
 
@@ -218,11 +236,11 @@ Note: This linter can be disabled with `set_option linter.unreachableTactic fals
 warning: TrialityG2.lean:75:31: 'norm_num' tactic does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-ℹ [3399/3413] Replayed RamanujanGapDerivation
+ℹ [3407/3415] Replayed RamanujanGapDerivation
 info: RamanujanGapDerivation.lean:94:0: 'ResNova.RamanujanGap.RamanujanSpectrum.gap_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: RamanujanGapDerivation.lean:95:0: 'ResNova.RamanujanGap.RamanujanSpectrum.kappa_sq_le_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: RamanujanGapDerivation.lean:96:0: 'ResNova.RamanujanGap.petersen_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3400/3413] Replayed LeptonMassCollar
+ℹ [3408/3415] Replayed LeptonMassCollar
 info: LeptonMassCollar.lean:217:0: 'ResNova.LeptonMassCollar.tau_ratio_three_two' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: LeptonMassCollar.lean:218:0: 'ResNova.LeptonMassCollar.tauBaseScale_eq_six_sqrt_seven' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: LeptonMassCollar.lean:219:0: 'ResNova.LeptonMassCollar.tau_mu_mass_ratio_enclosure' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -235,7 +253,7 @@ info: LeptonMassCollar.lean:225:0: 'ResNova.LeptonMassCollar.tau_mass_interval_e
 info: LeptonMassCollar.lean:226:0: 'ResNova.LeptonMassCollar.second_order_generational_consistency' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-ℹ [3401/3413] Replayed NavierStokesCorticalBound
+ℹ [3409/3415] Replayed NavierStokesCorticalBound
 info: NavierStokesCorticalBound.lean:104:0: 'ResNova.NavierStokesCorticalBound.re_critical_mul_theta_geom' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -245,13 +263,13 @@ info: NavierStokesCorticalBound.lean:107:0: 'ResNova.NavierStokesCorticalBound.e
 info: NavierStokesCorticalBound.lean:108:0: 'ResNova.NavierStokesCorticalBound.vortex_stretching_planar_vanishes' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-ℹ [3402/3413] Replayed YangMillsCasimirBound
+ℹ [3410/3415] Replayed YangMillsCasimirBound
 info: YangMillsCasimirBound.lean:142:0: 'ResNova.YangMillsCasimirBound.ym_casimir_gap_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: YangMillsCasimirBound.lean:143:0: 'ResNova.YangMillsCasimirBound.ym_gap_ratio_su3_su2' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: YangMillsCasimirBound.lean:144:0: 'ResNova.YangMillsCasimirBound.scale_factor_at_theta_geom' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: YangMillsCasimirBound.lean:145:0: 'ResNova.YangMillsCasimirBound.ym_su3_gap_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: YangMillsCasimirBound.lean:146:0: 'ResNova.YangMillsCasimirBound.ym_su3_gap_enclosure' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3403/3413] Replayed RiemannSpectralExpander
+ℹ [3411/3415] Replayed RiemannSpectralExpander
 info: RiemannSpectralExpander.lean:124:0: 'ResNova.RiemannSpectralExpander.expander_gap_eq_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: RiemannSpectralExpander.lean:125:0: 'ResNova.RiemannSpectralExpander.expander_gap_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: RiemannSpectralExpander.lean:126:0: 'ResNova.RiemannSpectralExpander.expander_gap_three_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -260,7 +278,7 @@ info: RiemannSpectralExpander.lean:127:0: 'ResNova.RiemannSpectralExpander.expan
  Quot.sound]
 info: RiemannSpectralExpander.lean:128:0: 'ResNova.RiemannSpectralExpander.expander_gap_le_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: RiemannSpectralExpander.lean:129:0: 'ResNova.RiemannSpectralExpander.normalized_expander_gap_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3405/3413] Replayed QuarkMassLadder
+ℹ [3413/3415] Replayed QuarkMassLadder
 info: QuarkMassLadder.lean:141:0: 'ResNova.QuarkMassLadder.color_casimir_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: QuarkMassLadder.lean:142:0: 'ResNova.QuarkMassLadder.u_quark_mass_enclosure' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: QuarkMassLadder.lean:143:0: 'ResNova.QuarkMassLadder.d_quark_mass_enclosure' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -271,31 +289,12 @@ info: QuarkMassLadder.lean:147:0: 'ResNova.QuarkMassLadder.t_quark_mass_enclosur
 info: QuarkMassLadder.lean:148:0: 'ResNova.QuarkMassLadder.top_to_up_hierarchy' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: QuarkMassLadder.lean:149:0: 'ResNova.QuarkMassLadder.light_quark_isospin_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: QuarkMassLadder.lean:150:0: 'ResNova.QuarkMassLadder.universal_quark_mass_enclosure' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [3412/3413] Built SovereignRegularity (15s)
-warning: SovereignRegularity.lean:87:43: Variable name `hL` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _hL
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: SovereignRegularity.lean:102:22: Variable name `hθ_low` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _hθ_low
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: SovereignRegularity.lean:102:39: Variable name `hθ_high` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _hθ_high
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-Build completed successfully (3413 jobs).
-lake_build_exit=0 secs=19
+Build completed successfully (3415 jobs).
+lake_build_exit=0 secs=2
 $ bash verify_all_proofs.sh
 [gate] TARGETS == lakefile roots (67 modules)
 building library (required for cross-module imports)…
-⚠ [1942/1965] Replayed FiniteSU2Envelope
+⚠ [1942/1999] Replayed FiniteSU2Envelope
 warning: FiniteSU2Envelope.lean:64:10: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
@@ -308,7 +307,7 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: FiniteSU2Envelope.lean:70:43: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [2221/2227] Replayed SU2MatrixEnvelope
+⚠ [2221/2337] Replayed SU2MatrixEnvelope
 warning: SU2MatrixEnvelope.lean:74:6: This simp argument is unused:
   qnorm
 
@@ -316,28 +315,28 @@ Hint: Omit it from the simp argument list.
   [apply] simp [Matrix.conjTranspose, qMatrix, Matrix.mul_apply, Fin.sum_univ_two, Complex.ext_iff]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-ℹ [2301/2522] Replayed ChiralHolonomyOrientation
+ℹ [2301/2337] Replayed ChiralHolonomyOrientation
 info: ChiralHolonomyOrientation.lean:100:0: 'ChiralHolonomy.orientation_asymmetry_witness' does not depend on any axioms
 info: ChiralHolonomyOrientation.lean:101:0: 'ChiralHolonomy.involution_destroys_orientation' does not depend on any axioms
 info: ChiralHolonomyOrientation.lean:102:0: 'ChiralHolonomy.orientation_iff_not_involution' depends on axioms: [propext]
 info: ChiralHolonomyOrientation.lean:103:0: 'ChiralHolonomy.only_identity_is_orientation_blind' does not depend on any axioms
-ℹ [2302/2522] Replayed GenerationCycleChirality
+ℹ [2302/2337] Replayed GenerationCycleChirality
 info: GenerationCycleChirality.lean:103:0: 'GenerationCycle.cycle_orientation_asymmetry' depends on axioms: [propext, Quot.sound]
 info: GenerationCycleChirality.lean:104:0: 'GenerationCycle.orientation_disagrees_everywhere' depends on axioms: [propext]
 info: GenerationCycleChirality.lean:105:0: 'GenerationCycle.sigma_squared_ne_id' depends on axioms: [propext, Quot.sound]
 info: GenerationCycleChirality.lean:106:0: 'GenerationCycle.three_cycle_chiral_two_cycle_not' depends on axioms: [propext]
-⚠ [3022/3057] Replayed DeSitterExtremal
+⚠ [3022/3315] Replayed DeSitterExtremal
 warning: DeSitterExtremal.lean:74:57: Variable name `hr` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hr
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-ℹ [3024/3057] Replayed GODActionKinematics
+ℹ [3024/3315] Replayed GODActionKinematics
 info: GODActionKinematics.lean:49:0: 'GODTheory.dual_channel_poly_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: GODActionKinematics.lean:50:0: 'GODTheory.aqual_simple_mu_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: GODActionKinematics.lean:51:0: 'GODTheory.btfr_algebraic_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [3158/3236] Replayed NavierStokesSpec
+⚠ [3158/3315] Replayed NavierStokesSpec
 warning: NavierStokesSpec.lean:33:63: Variable name `h` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -351,14 +350,14 @@ Hint: Omit it from the simp argument list.
   [apply] simp [direction, norm_smul, inv_mul_cancel₀ hx]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-⚠ [3339/3413] Replayed MuProjection
+⚠ [3341/3415] Replayed MuProjection
 warning: MuProjection.lean:87:52: Variable name `hb` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hb
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-ℹ [3375/3413] Replayed MuStdUniqueness
+ℹ [3377/3415] Replayed MuStdUniqueness
 info: MuStdUniqueness.lean:472:0: 'ResNova.MuStdUniqueness.theorem_A_constitutive' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdUniqueness.lean:473:0: 'ResNova.MuStdUniqueness.theorem_A_conjugacy' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdUniqueness.lean:474:0: 'ResNova.MuStdUniqueness.theorem_A_postulate_R_ode' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -373,7 +372,7 @@ info: MuStdUniqueness.lean:482:0: 'ResNova.MuStdUniqueness.theorem_C_selects_n_o
 info: MuStdUniqueness.lean:483:0: 'ResNova.MuStdUniqueness.theorem_C_rejects_n_ge_two' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdUniqueness.lean:484:0: 'ResNova.MuStdUniqueness.F_std_deriv2_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdUniqueness.lean:485:0: 'ResNova.MuStdUniqueness.F_std_strictConvexOn' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3376/3413] Replayed MuStdDuality
+ℹ [3378/3415] Replayed MuStdDuality
 info: MuStdDuality.lean:173:0: 'ResNova.MuStdDuality.sqrt_inv_arg_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdDuality.lean:174:0: 'ResNova.MuStdDuality.mu_std_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdDuality.lean:175:0: 'ResNova.MuStdDuality.theorem_livedual' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -382,7 +381,7 @@ info: MuStdDuality.lean:177:0: 'ResNova.MuStdDuality.livedual_is_lorentz' depend
 info: MuStdDuality.lean:178:0: 'ResNova.MuStdDuality.mu_std_fixed_point' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdDuality.lean:179:0: 'ResNova.MuStdDuality.odds_one_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdDuality.lean:180:0: 'ResNova.MuStdDuality.mu_dual_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3380/3413] Replayed GateHolonomySusceptibility
+ℹ [3382/3415] Replayed GateHolonomySusceptibility
 info: GateHolonomySusceptibility.lean:145:0: 'ResNova.GateHolonomy.kappa_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: GateHolonomySusceptibility.lean:146:0: 'ResNova.GateHolonomy.pythagorean' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: GateHolonomySusceptibility.lean:147:0: 'ResNova.GateHolonomy.gate_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -391,7 +390,7 @@ info: GateHolonomySusceptibility.lean:149:0: 'ResNova.GateHolonomy.susceptibilit
 info: GateHolonomySusceptibility.lean:150:0: 'ResNova.GateHolonomy.deriv_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: GateHolonomySusceptibility.lean:151:0: 'ResNova.GateHolonomy.kappa_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: GateHolonomySusceptibility.lean:152:0: 'ResNova.GateHolonomy.height_eq_cos' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3382/3413] Replayed MuStdFoundations
+ℹ [3384/3415] Replayed MuStdFoundations
 info: MuStdFoundations.lean:144:0: 'ResNova.MuStdFoundations.F_std_deriv_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdFoundations.lean:145:0: 'ResNova.MuStdFoundations.F_std_deriv2_positivity' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdFoundations.lean:146:0: 'ResNova.MuStdFoundations.F_std_strict_convexity' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -400,14 +399,14 @@ info: MuStdFoundations.lean:148:0: 'ResNova.MuStdFoundations.c_long_sq_superlumi
 info: MuStdFoundations.lean:149:0: 'ResNova.MuStdFoundations.c_long_sq_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdFoundations.lean:150:0: 'ResNova.MuStdFoundations.deviation_le_inv_two_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MuStdFoundations.lean:151:0: 'ResNova.MuStdFoundations.saturn_monopole_deviation_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [3385/3413] Replayed PrecessionBound
+⚠ [3388/3415] Replayed PrecessionBound
 warning: PrecessionBound.lean:66:54: Variable name `hr` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hr
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-ℹ [3389/3413] Replayed PillarIV_AntiDriftGate
+ℹ [3392/3415] Replayed PillarIV_AntiDriftGate
 info: PillarIV_AntiDriftGate.lean:86:0: @le_div_iff₀ : ∀ {G₀ : Type u_1} [inst : GroupWithZero G₀] [inst_1 : PartialOrder G₀] [MulPosReflectLT G₀] {a b c : G₀},
   0 < c → (a ≤ b / c ↔ a * c ≤ b)
 info: PillarIV_AntiDriftGate.lean:87:0: @div_le_iff₀ : ∀ {G₀ : Type u_1} [inst : GroupWithZero G₀] [inst_1 : PartialOrder G₀] [MulPosReflectLT G₀] {a b c : G₀},
@@ -431,7 +430,7 @@ info: PillarIV_AntiDriftGate.lean:580:0: 'PillarIV.twoChannel_gate' depends on a
 info: PillarIV_AntiDriftGate.lean:581:0: 'PillarIV.kappaBand_sq_add_complement_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PillarIV_AntiDriftGate.lean:582:0: 'PillarIV.theta_le_kappaBand' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PillarIV_AntiDriftGate.lean:583:0: 'PillarIV.kappaBand_at_seven_tenths' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3391/3413] Replayed PrintAxioms
+ℹ [3394/3415] Replayed PrintAxioms
 info: PrintAxioms.lean:17:0: 'ResNova.CovariantCompletion.raqual_superluminal_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PrintAxioms.lean:18:0: 'ResNova.CovariantCompletion.foliation_anchoring_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PrintAxioms.lean:19:0: 'ResNova.CovariantCompletion.disformal_gamma_ppn_unity' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -440,26 +439,26 @@ info: PrintAxioms.lean:21:0: 'ResNova.CovariantCompletion.flrw_projected_gradien
 info: PrintAxioms.lean:22:0: 'ResNova.CovariantCompletion.no_dynamical_dark_energy_density' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-ℹ [3392/3413] Replayed PrintAxiomsD8
+ℹ [3395/3415] Replayed PrintAxiomsD8
 info: PrintAxiomsD8.lean:42:0: 'ResNova.TensorSpeed.c_T_sq_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PrintAxiomsD8.lean:43:0: 'ResNova.TensorSpeed.maxwellian_c13_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PrintAxiomsD8.lean:44:0: 'ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PrintAxiomsD8.lean:45:0: 'ResNova.TensorSpeed.conformal_preserves_tensor_speed' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PrintAxiomsD8.lean:46:0: 'ResNova.TensorSpeed.physical_frame_tensor_speed_unity' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: PrintAxiomsD8.lean:47:0: 'ResNova.TensorSpeed.gw170817_concordance' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3395/3413] Replayed RapidityEquipartition
+ℹ [3398/3415] Replayed RapidityEquipartition
 info: RapidityEquipartition.lean:54:0: 'RapidityEquipartition.arsinh_one_eq_log_one_add_sqrt_two' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: RapidityEquipartition.lean:55:0: 'RapidityEquipartition.tanh_arsinh_one_eq_theta' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: RapidityEquipartition.lean:56:0: 'RapidityEquipartition.arsinh_one_eq_artanh_theta' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: RapidityEquipartition.lean:57:0: 'RapidityEquipartition.theta_odds_eq_silver_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3397/3413] Replayed SovereignSpinCeiling
+ℹ [3400/3415] Replayed SovereignSpinCeiling
 info: SovereignSpinCeiling.lean:125:0: 'SovereignSpinCeiling.two_theta_sub_theta_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: SovereignSpinCeiling.lean:126:0: 'SovereignSpinCeiling.sovereign_spin_ceiling_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: SovereignSpinCeiling.lean:127:0: 'SovereignSpinCeiling.sovereign_spin_ceiling_enclosure' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: SovereignSpinCeiling.lean:128:0: 'SovereignSpinCeiling.novikov_thorne_torque_apparent_spin_shift' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-ℹ [3398/3413] Replayed SkordisZlosnikEmbedding
+ℹ [3401/3415] Replayed SkordisZlosnikEmbedding
 info: SkordisZlosnikEmbedding.lean:128:0: 'ResNova.SkordisZlosnik.sz_aqual_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: SkordisZlosnikEmbedding.lean:129:0: 'ResNova.SkordisZlosnik.dJ_dY_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: SkordisZlosnikEmbedding.lean:130:0: 'ResNova.SkordisZlosnik.sz_newtonian_limit_diff' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -468,7 +467,7 @@ info: SkordisZlosnikEmbedding.lean:132:0: 'ResNova.SkordisZlosnik.sz_std_aqual_r
 info: SkordisZlosnikEmbedding.lean:133:0: 'ResNova.SkordisZlosnik.dJ_dY_std_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: SkordisZlosnikEmbedding.lean:134:0: 'ResNova.SkordisZlosnik.sz_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: SkordisZlosnikEmbedding.lean:135:0: 'ResNova.SkordisZlosnik.sz_weak_field_lensing' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [3399/3413] Replayed SovereignRegularity
+⚠ [3402/3415] Replayed SovereignRegularity
 warning: SovereignRegularity.lean:87:43: Variable name `hL` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
@@ -487,7 +486,7 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
   [apply] _hθ_high
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-ℹ [3401/3413] Replayed TensorSpeed
+ℹ [3404/3415] Replayed TensorSpeed
 info: TensorSpeed.lean:124:0: 'ResNova.TensorSpeed.c_T_sq_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: TensorSpeed.lean:125:0: 'ResNova.TensorSpeed.maxwellian_c13_vanishes' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: TensorSpeed.lean:126:0: 'ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -498,7 +497,7 @@ info: TensorSpeed.lean:130:0: 'ResNova.TensorSpeed.disformal_photon_speed_sq' de
 info: TensorSpeed.lean:131:0: 'ResNova.TensorSpeed.speed_ratio_unity_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: TensorSpeed.lean:132:0: 'ResNova.TensorSpeed.speed_ratio_lt_one_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: TensorSpeed.lean:133:0: 'ResNova.TensorSpeed.gw170817_deviation_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [3402/3413] Replayed TrialityG2
+⚠ [3405/3415] Replayed TrialityG2
 warning: TrialityG2.lean:48:10: This simp argument is unused:
   Matrix.one_apply
 
@@ -519,11 +518,11 @@ Note: This linter can be disabled with `set_option linter.unreachableTactic fals
 warning: TrialityG2.lean:75:31: 'norm_num' tactic does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-ℹ [3405/3413] Replayed RamanujanGapDerivation
+ℹ [3408/3415] Replayed RamanujanGapDerivation
 info: RamanujanGapDerivation.lean:94:0: 'ResNova.RamanujanGap.RamanujanSpectrum.gap_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: RamanujanGapDerivation.lean:95:0: 'ResNova.RamanujanGap.RamanujanSpectrum.kappa_sq_le_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: RamanujanGapDerivation.lean:96:0: 'ResNova.RamanujanGap.petersen_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3406/3413] Replayed LeptonMassCollar
+ℹ [3409/3415] Replayed LeptonMassCollar
 info: LeptonMassCollar.lean:217:0: 'ResNova.LeptonMassCollar.tau_ratio_three_two' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: LeptonMassCollar.lean:218:0: 'ResNova.LeptonMassCollar.tauBaseScale_eq_six_sqrt_seven' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: LeptonMassCollar.lean:219:0: 'ResNova.LeptonMassCollar.tau_mu_mass_ratio_enclosure' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -536,7 +535,7 @@ info: LeptonMassCollar.lean:225:0: 'ResNova.LeptonMassCollar.tau_mass_interval_e
 info: LeptonMassCollar.lean:226:0: 'ResNova.LeptonMassCollar.second_order_generational_consistency' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-ℹ [3407/3413] Replayed NavierStokesCorticalBound
+ℹ [3410/3415] Replayed NavierStokesCorticalBound
 info: NavierStokesCorticalBound.lean:104:0: 'ResNova.NavierStokesCorticalBound.re_critical_mul_theta_geom' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -546,13 +545,13 @@ info: NavierStokesCorticalBound.lean:107:0: 'ResNova.NavierStokesCorticalBound.e
 info: NavierStokesCorticalBound.lean:108:0: 'ResNova.NavierStokesCorticalBound.vortex_stretching_planar_vanishes' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-ℹ [3408/3413] Replayed YangMillsCasimirBound
+ℹ [3411/3415] Replayed YangMillsCasimirBound
 info: YangMillsCasimirBound.lean:142:0: 'ResNova.YangMillsCasimirBound.ym_casimir_gap_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: YangMillsCasimirBound.lean:143:0: 'ResNova.YangMillsCasimirBound.ym_gap_ratio_su3_su2' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: YangMillsCasimirBound.lean:144:0: 'ResNova.YangMillsCasimirBound.scale_factor_at_theta_geom' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: YangMillsCasimirBound.lean:145:0: 'ResNova.YangMillsCasimirBound.ym_su3_gap_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: YangMillsCasimirBound.lean:146:0: 'ResNova.YangMillsCasimirBound.ym_su3_gap_enclosure' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3409/3413] Replayed RiemannSpectralExpander
+ℹ [3412/3415] Replayed RiemannSpectralExpander
 info: RiemannSpectralExpander.lean:124:0: 'ResNova.RiemannSpectralExpander.expander_gap_eq_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: RiemannSpectralExpander.lean:125:0: 'ResNova.RiemannSpectralExpander.expander_gap_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: RiemannSpectralExpander.lean:126:0: 'ResNova.RiemannSpectralExpander.expander_gap_three_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -561,7 +560,7 @@ info: RiemannSpectralExpander.lean:127:0: 'ResNova.RiemannSpectralExpander.expan
  Quot.sound]
 info: RiemannSpectralExpander.lean:128:0: 'ResNova.RiemannSpectralExpander.expander_gap_le_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: RiemannSpectralExpander.lean:129:0: 'ResNova.RiemannSpectralExpander.normalized_expander_gap_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [3411/3413] Replayed QuarkMassLadder
+ℹ [3414/3415] Replayed QuarkMassLadder
 info: QuarkMassLadder.lean:141:0: 'ResNova.QuarkMassLadder.color_casimir_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: QuarkMassLadder.lean:142:0: 'ResNova.QuarkMassLadder.u_quark_mass_enclosure' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: QuarkMassLadder.lean:143:0: 'ResNova.QuarkMassLadder.d_quark_mass_enclosure' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -572,7 +571,7 @@ info: QuarkMassLadder.lean:147:0: 'ResNova.QuarkMassLadder.t_quark_mass_enclosur
 info: QuarkMassLadder.lean:148:0: 'ResNova.QuarkMassLadder.top_to_up_hierarchy' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: QuarkMassLadder.lean:149:0: 'ResNova.QuarkMassLadder.light_quark_isospin_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: QuarkMassLadder.lean:150:0: 'ResNova.QuarkMassLadder.universal_quark_mass_enclosure' depends on axioms: [propext, Classical.choice, Quot.sound]
-Build completed successfully (3413 jobs).
+Build completed successfully (3415 jobs).
 OK    BinaryTetrahedral.lean
 OK    TetrahedralQuotient.lean
 OK    TetrahedralAction.lean
@@ -646,4 +645,4 @@ RESULT: PASS
 NOTE: this certifies elaboration, absence of sorry, and a standard axiom
       footprint. It does not certify that assumptions carried as typeclass
       or structure fields are physically justified — see THEORY_ASSUMPTION_AUDIT.md.
-gate_exit=0 secs=338
+gate_exit=0 secs=314

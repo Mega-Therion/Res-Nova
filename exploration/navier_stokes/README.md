@@ -19,7 +19,8 @@ assumes it.
 | L1 | two unit vectors are at distance ≤ 2 | `NavierStokesGeometry.norm_sub_le_two_of_norm_eq_one` | proved; elementary |
 | L2 | kinematic high-vorticity alignment predicate on one time slice | `NavierStokesSpec.AlignmentPredicate`, `direction_unit` | definitions, and one normalization lemma |
 | target | statement (B), smooth periodic solutions, curl, divergence | `NavierStokesTarget` | definitions, plus 4 sanity theorems (below) |
-| L3 | `AlignmentPredicate` ⇒ the exact Constantin–Fefferman hypothesis | none | **open:** the predicates do not match. See `SOURCE_STATEMENTS.md` §5 |
+| L3a | on one time slice, `AlignmentPredicate K L ρ` ⇒ `sin φ(x, y) ≤ L·|x − y|` for high-vorticity pairs at distance ≤ ρ: the sine form, with `ρ_CF = 1/L` | `NavierStokesTarget.alignment_gives_sine_condition`, using `sin_angle_le_norm_sub` | **proved**. A substitution test fails at `L/2`, so the bound is load-bearing |
+| L3b | the rest of the exact Constantin–Fefferman hypothesis: time and solution class, the domain (they work on `ℝ³`; the target is the torus), threshold and `δ` conventions | none | **open:** see `SOURCE_STATEMENTS.md` |
 | L4 | a continuation theorem for the chosen class, imported with provenance | none | stated as a source in `SOURCE_STATEMENTS.md`, not formalized |
 | L5 | `AlignmentPersistence K L ρ`: every admissible solution stays aligned | `NavierStokesTarget.AlignmentPersistence` (a `Prop`) | **open**. This is the missing implication |
 
@@ -52,7 +53,10 @@ The witness is in `05_lean_formalization/VERIFICATION_RUN_2026-10-08_NAVIER_STOK
 
 **Missing implication.**
 - Global regularity would follow if every admissible periodic solution satisfied a vorticity-direction condition matching a source-verified continuation criterion on `ℝ³/ℤ³`, for its whole existence time.
-- No such persistence is derived from the equations. The repository's alignment predicate does not yet match the cited criterion: it has no time variable, no solution class, a Euclidean rather than a periodic statement, and a Lipschitz form rather than the source's sine form.
+- No such persistence is derived from the equations.
+- On one time slice, the repository's alignment predicate does imply the source's sine-form condition (L3a, with `ρ_CF = 1/L`).
+- It still lacks the time quantifier and the solution class.
+- It is stated on Euclidean `ℝ³`, while the criterion is proved for the Cauchy problem on `ℝ³` and the target is the torus. That needs a periodic version of the criterion.
 
 This remains a conditional regularity program. The unproved implication is that every
 admissible periodic solution of statement (B) satisfies the specified alignment predicate for

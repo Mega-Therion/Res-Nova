@@ -2,6 +2,7 @@ import Mathlib.Analysis.Calculus.FDeriv.Basic
 import Mathlib.Analysis.Calculus.Deriv.Basic
 import Mathlib.Analysis.Calculus.ContDiff.Defs
 import Mathlib.Analysis.InnerProductSpace.PiL2
+import Mathlib.Geometry.Euclidean.Angle.Unoriented.Basic
 import NavierStokesSpec
 
 /-!
@@ -181,5 +182,49 @@ theorem persistenceObligation_false : ¬ PersistenceObligation 1 1 1 := by
     rw [← two_smul ℝ v, norm_smul, hv]; norm_num
   rw [h2] at hle
   norm_num at hle
+
+/-! ## L3a: on one time slice, alignment gives the sine form of the direction condition -/
+
+/-- For unit vectors, the sine of the angle between them is at most the chord length. -/
+theorem sin_angle_le_norm_sub (a b : Vector3) (ha : ‖a‖ = 1) (hb : ‖b‖ = 1) :
+    Real.sin (InnerProductGeometry.angle a b) ≤ ‖a - b‖ := by
+  have hc : Real.cos (InnerProductGeometry.angle a b) = inner ℝ a b := by
+    rw [InnerProductGeometry.cos_angle, ha, hb]; simp
+  have hs0 : 0 ≤ Real.sin (InnerProductGeometry.angle a b) := InnerProductGeometry.sin_angle_nonneg a b
+  have hsq : ‖a - b‖ ^ 2 = 2 - 2 * inner ℝ a b := by
+    rw [@norm_sub_sq_real, ha, hb]; ring
+  have hcos_le : inner ℝ a b ≤ 1 := by
+    have := real_inner_le_norm a b; rw [ha, hb] at this; linarith
+  have hcos_ge : -1 ≤ inner ℝ a b := by
+    have := neg_le_of_abs_le (abs_real_inner_le_norm a b); rw [ha, hb] at this; linarith
+  have hsin2 : Real.sin (InnerProductGeometry.angle a b) ^ 2 = 1 - inner ℝ a b ^ 2 := by
+    rw [← hc]; linarith [Real.sin_sq_add_cos_sq (InnerProductGeometry.angle a b)]
+  have key : Real.sin (InnerProductGeometry.angle a b) ^ 2 ≤ ‖a - b‖ ^ 2 := by
+    rw [hsin2, hsq]; nlinarith
+  nlinarith [key, hs0, norm_nonneg (a - b)]
+
+/-- **L3a: kinematic, one time slice.** Suppose `AlignmentPredicate K L ρ ω` holds. Then for any
+two high-vorticity points at distance in `(0, ρ]`, the angle `φ` between the vorticity vectors
+satisfies `sin φ ≤ L · |x − y|`. This is the sine form of a vorticity-direction condition, with
+`ρ_CF = 1 / L`.
+
+It is only the geometric half of L3. It says nothing about:
+- time, or a solution class;
+- the torus versus `ℝ³`;
+- the source's threshold or `δ` conventions (`exploration/navier_stokes/SOURCE_STATEMENTS.md`). -/
+theorem alignment_gives_sine_condition {K L ρ : ℝ} {w : VorticityField}
+    (h : AlignmentPredicate K L ρ w) {x y : Point3} (hx : HighVorticity K w x)
+    (hy : HighVorticity K w y) (h0 : 0 < dist x y) (hρ : dist x y ≤ ρ) :
+    Real.sin (InnerProductGeometry.angle (w x) (w y)) ≤ L * dist x y := by
+  obtain ⟨hx0, hy0, hle⟩ := h x y hx hy h0 hρ
+  have hrx : 0 < ‖w x‖⁻¹ := inv_pos.mpr (norm_pos_iff.mpr hx0)
+  have hry : 0 < ‖w y‖⁻¹ := inv_pos.mpr (norm_pos_iff.mpr hy0)
+  have hang : InnerProductGeometry.angle (w x) (w y)
+      = InnerProductGeometry.angle (direction w x hx0) (direction w y hy0) := by
+    unfold direction
+    rw [InnerProductGeometry.angle_smul_left_of_pos _ _ hrx,
+      InnerProductGeometry.angle_smul_right_of_pos _ _ hry]
+  rw [hang]
+  exact (sin_angle_le_norm_sub _ _ (direction_unit w x hx0) (direction_unit w y hy0)).trans hle
 
 end NavierStokesTarget
