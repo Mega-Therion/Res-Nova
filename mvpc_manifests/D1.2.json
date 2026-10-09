@@ -1,7 +1,7 @@
 {
   "schema_version": "mvpc-claim-manifest-v1",
   "claim_id": "D1.2",
-  "title": "Retired dual-channel derivative claim (corrected identity under verification)",
+  "title": "Retired dual-channel derivative claim (retracted; the corrected identity is CLM-01)",
   "statement": "RETRACTED: The prior assertion F'(x) = x/(1+x) is false for F(x) = x^2/2 - x + ln(1+x). Direct differentiation gives F'(x) = x - 1 + 1/(1+x) = x^2/(1+x). The retired constitutive definition mu(x)=x/(1+x) is not this derivative.",
   "epistemic_tier": "[X]",
   "status": "RETRACTED",
@@ -43,8 +43,8 @@
     ],
     "custom_axioms": [],
     "sorry_count": 0,
-    "pass": false,
-    "note": "The original derivative claim is retracted. The corrected calculus theorem is proposed on PR #141 but has not been compiled by the Lean gate; the successful PR workflow only ran the Python/local gate and MVPC-X judge."
+    "pass": true,
+    "note": "The original claim F'(x) = x/(1+x) is retracted ([X]). At commit 5e1fa72 the listed theorems, including the corrected F_dual_hasDerivAt / F_dual_hasDerivAt_sq / F_dual_hasDerivAt_mu and the refutation F_dual_deriv_ne_mu_derived, pass verify_all_proofs.sh (exit 0, 66/66 targets, standard three axioms). 'pass' records that gate result for the artifacts; it gives no support to the retracted statement."
   },
   "epistemic_boundary": {
     "scope": "Mathematical proof of algebraic identity only.",

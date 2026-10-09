@@ -23,8 +23,15 @@ The 2026-10-09 stamp records (none of it changes a tier or a physical result):
   - The pipeline's `boost('E')` has the anisotropy sign opposite the QUMOND field solution. Its angle average is identical, so the R(s) fits are unaffected.
   - Gate 1 is expected to stop as underpowered.
   - `WIDE_BINARY_FINAL_2026-10-04.md`'s loose-cut prose was corrected; the verdict is unchanged (`1012bca`).
-- **Derivative-claim correction (PR #141):** the expression `F_dual(x) = x^2/2 - x + ln(1+x)` differentiates to `x - 1 + 1/(1+x) = x^2/(1+x)`, not `x/(1+x)`. The proposed Lean theorem is not yet verified: the first CI run failed on stale artifact hashes, current-state freshness, and the public visualizer ledger before Lean compilation (Lean gate skipped). CLM-01 and manifest D1.2 are being corrected to avoid preserving the false derivative claim; no formal-verification tier is asserted for the new theorem.
-- **SPARC parser repair remains separate:** PR #138 fixes signed numeric parsing and its local gate passed, but the affected `sparc_reproduce.py` results still require recomputation and comparison against the independent parameter-ledger pipeline.
+- **Derivative-claim correction (PR #141).** `F_dual(x) = x^2/2 - x + ln(1+x)` has `F_dual'(x) = x - 1 + 1/(1+x) = x^2/(1+x)`, not `x/(1+x)`; the two agree only at x = 0 and x = 1.
+  - The PR's first theorem did not compile at `5e89c53`: CI lean-gate and a local gate both exited 1, because the module had no calculus imports.
+  - `5e1fa72` makes it elaborate and adds `F_dual_hasDerivAt_sq`, `F_dual_hasDerivAt_mu` and the refutation `F_dual_deriv_ne_mu_derived`. Gate: `verify_all_proofs.sh` exit 0, 66/66 targets, standard three axioms. Vacuity screen 0.2: PASS on all four.
+  - CLM-01 now states the corrected identity and stays `formally-verified`, as it was on main under the false wording. This is a wording correction, not a tier upgrade. D1.2 stays `[X]`, and the branch stays retired (2026-09-12).
+- **SPARC parser repair (PR #138), recomputed 2026-10-09** with the official files (175/175 verified).
+  - The parser change leaves `SPARC_175_GOD_fits.csv` and `SPARC_175_summary.json` byte-identical, because `v_baryon` squares `v_gas`.
+  - The real difference from `parameter_ledger.py` is `v_baryon`: gas unsigned, and Υ applied to V instead of V².
+  - CLM-04's and CLM-06's numbers come from `VERIFICATION_RUN_001` (2026-08-14), not from the files those records list.
+  - Findings are on PR #138. No committed number changed.
 
 `PEER_REVIEW_READINESS.md` was re-read. Its D8 row is `[P]` for the structural argument (no TT piece in δA); the Lean
 behind it is arithmetic, which is the decision noted above. This stamp is not a new physical result.
