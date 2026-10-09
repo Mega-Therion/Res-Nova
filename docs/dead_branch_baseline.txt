@@ -19,7 +19,6 @@
 # adding one to silence the gate, fix the document instead.
 01_foundational_action/PRD_Relativistic_Extension.tex::mu_dual interpolating function::a806395e2356
 02_galaxy_dynamics/A0_HIGHZ_MEASUREMENT_2026-09-16.md::fabricated a0(z) figure::0b519f87332b
-02_galaxy_dynamics/SPARC_PARAMETER_BUDGET.md::mu_dual interpolating function::a5a43ebcae6f
 03_observer_jwst/PREREG_A0_OF_Z.md::mu_dual interpolating function::903bcceda9e2
 CORPUS_DEPENDENCY_MAP.md::mu_dual interpolating function::eaaa9c0f159f
 FIG_TREE_ASSET_LEDGER.md::F_dual kinetic function::68b4d2c28d11

@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-10-09T06:43:53.430348+00:00",
-  "git_commit": "5e1fa72af841c1478cab59e85629badf2a496877",
-  "git_branch": "fix141-local",
+  "generated_at_utc": "2026-10-09T16:30:24.525361+00:00",
+  "git_commit": "8d729b7252feb3b2ff1f24478696904f275828d8",
+  "git_branch": "fix/sparc-repro-recompute-137",
   "lean_target_count": 66,
   "claim_count": 48,
   "claim_states": {

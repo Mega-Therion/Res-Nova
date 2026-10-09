@@ -1,7 +1,7 @@
 # Res-Nova Assurance Report
 
-Generated at (UTC): `2026-10-09T06:43:53.430348+00:00`  
-Git commit: `5e1fa72af841c1478cab59e85629badf2a496877`  
+Generated at (UTC): `2026-10-09T16:30:24.525361+00:00`  
+Git commit: `8d729b7252feb3b2ff1f24478696904f275828d8`  
 Lean targets on disk excluding `lakefile.lean`: **66**  
 Registry records: **48**
 

@@ -6,6 +6,11 @@
 **Empirical seal:** `3c90ef3e` (2026-08-15 SPARC measurement)
 **This document:** epistemic alignment only. It does not add theorems.
 
+> **SUPERSEDED benchmark values (2026-10-09).** Rows D4.7 and D4.8 below give the v1.5.0 numbers, Tier 0 GOD 9.20 vs MOND
+> 11.35 and Tier 1 GOD 2.95 vs MOND 2.89. They were computed under the retired μ_dual. Under μ_std the order at Tier 0 reverses
+> (MOND 9.93, GOD 11.08) and Tier 1 is a tie (3.36 vs 3.41). The current, generated tables are in
+> `02_galaxy_dynamics/SPARC_PARAMETER_BUDGET.md`. The rows below are kept as published in v1.5.0.
+
 Standard: `[P]` proved, `[D]` direct empirical, `[C]` cited, `[O]` open / quarantined. These four are the only permitted tiers (`AGENT_COVENANT.md:14-17`).
 
 > **2026-08-16 status correction.** D3.1 suspended to `[O]` (cited file contains no limit). D3.2 regraded from the unsanctioned `[P]`-cond to `[P]` with its condition stated. F7 provenance replaced with the `VERIFICATION_RUN_003/` artifact. See `VERIFICATION_STATUS_AUDIT.md` and `THEORY_ASSUMPTION_AUDIT.md`.

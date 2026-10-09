@@ -93,25 +93,30 @@
     },
     {
       "id": "CLM-04",
-      "wording": "The strict SPARC GOD run reports a median reduced chi-squared of approximately 29.12 across 175 galaxies.",
+      "wording": "The strict SPARC unit-M/L check (Y_disk = Y_bulge = 1, f_d = 1, a0 = cH0/2pi, mu_std) reports a median reduced chi-squared of 15.01 and an aggregate chi2/dof of 69.07 across 175 galaxies (3,391 points).",
       "state": "computed",
       "assurance_level": "reproducible-computation",
       "formal_artifacts": [],
       "computational_artifacts": [
         "02_galaxy_dynamics/sparc_reproduce.py",
-        "02_galaxy_dynamics/SPARC_175_summary.json"
+        "02_galaxy_dynamics/independent_sparc_recompute.py"
       ],
       "data_artifacts": [
-        "02_galaxy_dynamics/SPARC_175_GOD_fits.csv"
+        "02_galaxy_dynamics/SPARC_175_summary.json",
+        "02_galaxy_dynamics/SPARC_175_GOD_fits.csv",
+        "02_galaxy_dynamics/SPARC_RECOMPUTE_VERIFICATION.json"
       ],
       "assumptions": [
-        "The declared strict tier fixes a0 and does not use per-galaxy nuisance freedom."
+        "Unit mass-to-light, no distance rescaling, a0 fixed at the declared horizon anchor; the theory's two irreducible inputs (the a0 scale and the mu choice) are not free parameters here but are not derived either.",
+        "V_bar^2 = V_gas|V_gas| + Y_disk V_disk^2 + Y_bulge V_bul^2 (SPARC convention)."
       ],
       "verification_commands": [
-        "python3 scripts/check_claim_consistency.py"
+        "bash scripts/fetch_sparc.sh && python3 02_galaxy_dynamics/sparc_reproduce.py",
+        "python3 02_galaxy_dynamics/independent_sparc_recompute.py",
+        "python3 scripts/sparc_benchmark_tables.py --check"
       ],
-      "independent_witness": "02_galaxy_dynamics/SPARC_PARAMETER_BUDGET.md",
-      "limitations": "The strict result is a poor absolute fit and does not by itself establish physical validity or causality.",
+      "independent_witness": "02_galaxy_dynamics/SPARC_RECOMPUTE_VERIFICATION.json",
+      "limitations": "A poor absolute fit, and not the canonical comparison: Tier 0 in PARAMETER_LEDGER.json uses the 171-galaxy sample at prior-mean M/L. Correction history: until 2026-10-09 this record read 29.12, the 2026-08-14 VERIFICATION_RUN_001 value computed under the retired mu_dual (tau form); the artifacts it listed did not produce that number.",
       "status_owner": "Res-Nova empirical maintainers",
       "claim_type": "empirical-measurement",
       "quotation_type": "paraphrase",
@@ -155,25 +160,26 @@
     },
     {
       "id": "CLM-06",
-      "wording": "Baryons-only unit M/L control on SPARC: median chi2_data/N_g = 51.58, aggregate sum chi2_data/dof = 204.65.",
+      "wording": "Baryons-only unit M/L control on SPARC: median chi2_data/N_g = 51.58, aggregate sum chi2_data/dof = 204.66.",
       "state": "computed",
       "assurance_level": "numerical-control",
       "formal_artifacts": [],
       "computational_artifacts": [
-        "02_galaxy_dynamics/parameter_ledger.py"
+        "02_galaxy_dynamics/sparc_reproduce.py"
       ],
       "data_artifacts": [
-        "02_galaxy_dynamics/PARAMETER_LEDGER.json",
+        "02_galaxy_dynamics/SPARC_175_summary.json",
         "02_galaxy_dynamics/SPARC_175_GOD_fits.csv"
       ],
       "assumptions": [
         "Fixed prescription Upsilon_disk = 1.0, Upsilon_bulge = 1.0 across 3391 data points."
       ],
       "verification_commands": [
-        "python3 02_galaxy_dynamics/parameter_ledger.py"
+        "bash scripts/fetch_sparc.sh && python3 02_galaxy_dynamics/sparc_reproduce.py",
+        "python3 scripts/sparc_benchmark_tables.py --check"
       ],
-      "independent_witness": "02_galaxy_dynamics/PARAMETER_LEDGER.json",
-      "limitations": "This is a deliberately poor-fitting control, not a result. It exists to bound the baryons-only baseline.",
+      "independent_witness": "VERIFICATION_RUN_001/02_sparc_strict_135/STRICT_EVALUATION.json",
+      "limitations": "A deliberately poor-fitting control, not a result; it bounds the baryons-only baseline. Re-derived 2026-10-09: 51.584 / 204.659 against VERIFICATION_RUN_001's 51.5839 / 204.6455 (agreement to 0.007%). Until then the record listed parameter_ledger.py and PARAMETER_LEDGER.json, which do not produce these numbers.",
       "status_owner": "Res-Nova formalization maintainers",
       "claim_type": "empirical-measurement",
       "quotation_type": "paraphrase",
