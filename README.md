@@ -17,7 +17,7 @@ Technical manuscript, formal verification, and reproducibility package.
 
 | | |
 | :--- | :--- |
-| [`RESULTS.md`](RESULTS.md) | The core numbers. `./reproduce_core_results.sh` regenerates them from a fresh clone and checks them byte for byte against the commit. |
+| [`RESULTS.md`](RESULTS.md) | The core numbers. `./reproduce_core_results.sh` regenerates them and the other headline files from the official SPARC data and checks them against the commit: byte for byte, except the a₀ bootstrap file, which is compared to 10⁻¹². |
 | [`CHECKS.md`](CHECKS.md) | Every outside reproduction or critique, confirming or breaking. |
 | [`CURRENT_STATE_READ_THIS_FIRST.md`](CURRENT_STATE_READ_THIS_FIRST.md) | The current status of every physics claim. Its verification date is enforced by CI against the newest physics change. |
 | [`PEER_REVIEW_READINESS.md`](PEER_REVIEW_READINESS.md) | The twelve research targets, each scored and decomposed. |

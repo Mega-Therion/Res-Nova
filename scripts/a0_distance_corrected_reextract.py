@@ -33,6 +33,7 @@ import tempfile
 import glob
 import json
 import re
+import os
 import sys
 from pathlib import Path
 
@@ -42,8 +43,11 @@ BASE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(BASE / "02_galaxy_dynamics"))
 import sparc_a0_reextract_3mu as M  # the frozen harness: prep/fit/A0_GRID/mu_close
 
-SPARC_DIR = str(BASE / "02_galaxy_dynamics" / "sparc_data")
-MASTER = Path(__file__).resolve().parent.parent / "02_galaxy_dynamics" / "sparc_data" / "SPARC_Lelli2016c.mrt"
+# SPARC_DATA_DIR (or the legacy SPARC_DATA) is the project-wide data override that
+# sparc_paths.py and fetch_sparc.sh honour. This script ignored it until 2026-10-09, so it
+# could not run from a fresh fetch such as reproduce_core_results.sh does.
+SPARC_DIR = os.environ.get("SPARC_DATA_DIR") or os.environ.get("SPARC_DATA") or str(BASE / "02_galaxy_dynamics" / "sparc_data")
+MASTER = Path(SPARC_DIR) / "SPARC_Lelli2016c.mrt"
 H0_FLOW, H0_PLANCK = 73.0, 67.4
 MPC, KMS = 3.0856775814913673e22, 1000.0
 C_LIGHT = 2.99792458e8
@@ -163,6 +167,10 @@ def main():
     h0 = lambda a: 2 * np.pi * a / C_LIGHT * MPC / 1e3  # 1/s -> km/s/Mpc
     for name, t in (("T1", t1), ("T2", t2), ("T3", t3)):
         t["H0_from_a0_95"] = [float(h0(t["bootstrap_95"][0]) * 1e0), float(h0(t["bootstrap_95"][1]))]
+        # The committed JSON (07deb05) carries H0_from_a0_best, which CURRENT_STATE cites as
+        # H0 = 75.1, but no committed version of this script wrote it. It is written here so
+        # the cited number regenerates (2026-10-09).
+        t["H0_from_a0_best"] = float(h0(t["a0_best"]))
     print()
     print(f"T1 all 175 (as-is):        a0 = {t1['a0_best']:.4e}, 95% [{t1['bootstrap_95'][0]:.4e}, {t1['bootstrap_95'][1]:.4e}]")
     print(f"T2 flow->Planck scale:     a0 = {t2['a0_best']:.4e}, 95% [{t2['bootstrap_95'][0]:.4e}, {t2['bootstrap_95'][1]:.4e}]")
