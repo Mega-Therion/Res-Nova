@@ -7,8 +7,14 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against the physics:** 2026-10-06 (UTC). The audit-cycle state below supersedes
+**Last verified against the physics:** 2026-10-09 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
+
+The 2026-10-09 stamp records:
+- **Derivative-claim correction (PR #141):** the expression `F_dual(x) = x^2/2 - x + ln(1+x)` differentiates to `x - 1 + 1/(1+x) = x^2/(1+x)`, not `x/(1+x)`. The proposed Lean theorem is not yet verified: the first CI run failed on stale artifact hashes, current-state freshness, and the public visualizer ledger before Lean compilation (Lean gate skipped). CLM-01 and manifest D1.2 are being corrected to avoid preserving the false derivative claim; no formal-verification tier is asserted for the new theorem.
+- **Proof-receipt/vacuity audit (2026-10-08):** signed vkernel receipts verify listed theorem statements against the recorded source commitment with the standard three Lean axioms and a clean independent checker. This establishes build/proof-term integrity for those statements, not their non-vacuity or match to manuscript claims. D1 has no receipt; D8 contains hypothesis-restating statements; D7's four PPN results are `rfl` on supplied structure fields. No epistemic tier is upgraded by this audit.
+- **SPARC parser repair remains separate:** PR #138 fixes signed numeric parsing and its local gate passed, but the affected `sparc_reproduce.py` results still require recomputation and comparison against the independent parameter-ledger pipeline.
+- **Freshness update:** `PEER_REVIEW_READINESS.md` and the current proof-receipt/vacuity findings were re-read. This is an evidence-status correction, not a new physical result; it does not upgrade any epistemic tier.
 
 The 2026-10-06 stamp records:
 - **A comment-only correction in `PillarIV_AntiDriftGate.lean` (`f38d21a`).** Its κ docstrings now follow RY's
