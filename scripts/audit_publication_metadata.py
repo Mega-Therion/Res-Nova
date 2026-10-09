@@ -307,6 +307,56 @@ def check_datacite(reg: dict) -> list[str]:
     return errs
 
 
+# ---------------------------------------------------------------- refresh ---
+def refresh(path: Path = REGISTRY) -> int:
+    """Rewrite each entry's title, author and version from DataCite, in place.
+
+    The module docstring advertised --refresh, but main() never handled it, so the registry
+    stayed as generated on 2026-09-20. By 2026-10-09 it disagreed with DataCite on 139 fields:
+    - 133 creators still read "Yett, Ryan W." (some with a "Chyren" co-author) after the records
+      were corrected to "Yett, R.W.";
+    - 6 concept titles predated the 2026-10-03 correction versions.
+    Only these three fields are touched, and only when DataCite differs. Every other line and
+    comment is kept byte for byte."""
+    text = path.read_text(encoding="utf-8")
+    head, sep, body = text.partition("\nworks:")
+    if not sep:
+        print("refresh: no works section found", file=sys.stderr)
+        return 1
+    blocks = re.split(r"(?=\n  - work_id: )", body)
+    changed = 0
+    for i, block in enumerate(blocks):
+        m = re.search(r'^    canonical_doi: "([^"]+)"', block, re.M)
+        if not m or not m.group(1).startswith(OWN_PREFIX):
+            continue
+        doi = m.group(1)
+        try:
+            with urllib.request.urlopen(f"https://api.datacite.org/dois/{doi}", timeout=30) as r:
+                a = json.load(r)["data"]["attributes"]
+        except Exception as e:                       # network or 404: leave the entry alone
+            print(f"refresh: {doi} did not resolve at DataCite ({e}); unchanged", file=sys.stderr)
+            continue
+        new = {
+            "title": (a.get("titles") or [{}])[0].get("title", "").strip(),
+            "author": "; ".join(c.get("name", "") for c in a.get("creators", [])).strip(),
+            "version": (a.get("version") or "").strip(),
+        }
+        for field, value in new.items():
+            fm = re.search(rf'^    {field}: (.*)$', block, re.M)
+            if not fm:
+                continue
+            old = json.loads(fm.group(1)) if fm.group(1).startswith('"') else fm.group(1)
+            if str(old).strip() == value:
+                continue
+            block = block[:fm.start(1)] + json.dumps(value, ensure_ascii=False) + block[fm.end(1):]
+            print(f"refresh: {doi} {field}: {old!r} -> {value!r}")
+            changed += 1
+        blocks[i] = block
+    path.write_text(head + sep + "".join(blocks), encoding="utf-8")
+    print(f"refresh: {changed} field(s) updated from DataCite")
+    return 0
+
+
 # --------------------------------------------------------------- self-test ---
 def self_test() -> int:
     import tempfile
@@ -359,12 +409,18 @@ def main() -> int:
     ap.add_argument("--online", action="store_true",
                     help="also verify every canonical DOI against DataCite")
     ap.add_argument("--self-test", action="store_true")
+    ap.add_argument("--refresh", action="store_true",
+                    help="rewrite each entry's title/author/version from DataCite, then audit")
     ap.add_argument("--report", metavar="PATH",
                     help="also write the audit report to PATH, for archiving "
                          "alongside a release")
     args = ap.parse_args()
     if args.self_test:
         return self_test()
+    if args.refresh:
+        rc = refresh()
+        if rc:
+            return rc
 
     reg = load_registry()
     if not reg["works"]:
