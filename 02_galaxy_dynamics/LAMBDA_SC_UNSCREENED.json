@@ -11,17 +11,24 @@
    "inside_eot_wash_window": true
   },
   {
-   "a0_m_s2": 1.116e-10,
-   "label": "sparc_fit",
-   "lambda_sc_meV": 1.7295890235037492,
-   "range_um": 114.08894116283035,
+   "a0_m_s2": 1.1607e-10,
+   "label": "sparc_fit_mu_std",
+   "lambda_sc_meV": 1.7638872271192407,
+   "range_um": 111.8705194439604,
    "inside_eot_wash_window": true
   },
   {
    "a0_m_s2": 1.2211e-10,
-   "label": "horizon_anchor",
+   "label": "canonical_5.461e-11_sqrt5",
    "lambda_sc_meV": 1.8091994155328117,
    "range_um": 109.06867349406221,
+   "inside_eot_wash_window": true
+  },
+  {
+   "a0_m_s2": 1.0421152108506952e-10,
+   "label": "horizon_anchor_cH0_2pi",
+   "lambda_sc_meV": 1.671354944982001,
+   "range_um": 118.06407784943698,
    "inside_eot_wash_window": true
   }
  ]

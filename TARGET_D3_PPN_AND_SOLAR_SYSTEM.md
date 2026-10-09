@@ -1,6 +1,6 @@
 # TARGET D3: PPN Limits and Solar System Constraints
 
-**Status:** D3_PARTIAL — **γ CLOSED, β SCOPED, α₁/α₂ OPEN with a named obstruction. See §8 (2026-09-12), which supersedes §7 entirely.** γ_PPN=1 is now *derived* for AeST with F_std (and for any free function): every source of traceless anisotropic stress is O(ε²), so Φ=Ψ exactly and lensing gives GR's 4G_N M_dyn/bc² with no slip. β's free-function dependence is bounded by ε_J=2𝒴J″/J′=1/(1+x²)≲10⁻¹⁷; its (λ_s,K_B) part is a 2PN calculation nobody has done. Foster–Jacobson's α₁,α₂ formulas are **inapplicable** at AeST's couplings (c₁₂₃=0 Maxwell locus, spin-0 aether speed zero). Binding evaluable constraint: the μ_std residual δg=(1+λ_s)³a₀²/2g_N **grows as r²**, so Saturn, not Mercury, binds. The bound comes from **perihelion precession** (§8.4), which has no monopole-vs-quadrupole mismatch: **λ_s ≲ 2.2** [D] from the Cassini limit on Saturn's anomalous precession. The Q₂ᵉᑫ comparison (λ_s ≲ 2.7) is a **magnitude heuristic [C]**, demoted 2026-09-20. λ_s ≲ 0.97 is **withdrawn** — it required a ceiling tighter than INPOP10a's own 1σ.
+**Status:** D3_PARTIAL — **γ CLOSED, β SCOPED, α₁/α₂ OPEN with a named obstruction. See §8 (2026-09-12), which supersedes §7 entirely.** γ_PPN=1 is now *derived* for AeST with F_std (and for any free function): every source of traceless anisotropic stress is O(ε²), so Φ=Ψ exactly and lensing gives GR's 4G_N M_dyn/bc² with no slip. β's free-function dependence is bounded by ε_J=2𝒴J″/J′=1/(1+x²)≲10⁻¹⁷; its (λ_s,K_B) part is a 2PN calculation nobody has done. Foster–Jacobson's α₁,α₂ formulas are **inapplicable** at AeST's couplings (c₁₂₃=0 Maxwell locus, spin-0 aether speed zero). Binding evaluable constraint: the μ_std residual δg=(1+λ_s)³a₀²/2g_N **grows as r²**, so Saturn, not Mercury, binds. The bound comes from **perihelion precession** (§8.4), which has no monopole-vs-quadrupole mismatch: **λ_s ≲ 2.2** [D] from the Cassini limit on Saturn's anomalous precession. The Q₂ᵉᑫ comparison (λ_s ≲ 2.7 at a₀ = 1.116; 2.6 at the live 1.1607) is a **magnitude heuristic [C]**, demoted 2026-09-20. λ_s ≲ 0.97 is **withdrawn** — it required a ceiling tighter than INPOP10a's own 1σ.
 **Prior status (superseded):** D3_OPEN_FAILING — μ(x)=x/(1+x) leaves a constant anomalous acceleration ≥ a₀ (D7 §4.2), failing Cassini Q₂ by 5.7×10⁵. That kill stands; §8 is built on its replacement, μ_std.
 **Last updated:** 2026-09-12
 **Author:** R.W. Yett / Sovereign Architecture Group
@@ -589,6 +589,8 @@ the strongest, which inverts `TARGET_D1_SUPPLEMENT` §4's framing. At `λ_s→0`
 | **Saturn (Cassini)** | **9.583** | **6.458×10⁻⁵** | **9.643×10⁻¹⁷** | **6.727×10⁻²⁹** | **50.5** | **2.70** |
 | Uranus | 19.22 | 1.606×10⁻⁵ | 3.878×10⁻¹⁶ | 1.349×10⁻²⁸ | 25.2 | 1.93 |
 
+> **Live a₀ (2026-10-09).** This table uses a₀ = 1.116×10⁻¹⁰, the superseded 171-galaxy μ_dual fit. At the live μ_std a₀ = 1.1607×10⁻¹⁰, `lambda_s_solar_system_check.py --a0 1.1607e-10` gives Saturn margin 46.7 with λ_s ≤ 2.60, and Mercury margin 1157 with λ_s ≤ 9.50 (`02_galaxy_dynamics/LAMBDA_S_AT_LIVE_A0_2026-10-09.txt`). The r² structure and the Saturn-binds conclusion are unchanged. The precession-route ceilings (2.21, 2.68) do not depend on a₀.
+
 **ROUTE 1 IS A HEURISTIC, NOT A BOUND (settled 2026-09-20).** `Q₂ᵉᑫ = δg/r`
 compares two different geometric objects. `δg ∝ r²` is an **isotropic central**
 perturbation — a monopole; `∇²δΦ = −4kr ≠ 0`, i.e. an effective source density.
@@ -745,7 +747,7 @@ and the structure theorem says by how much.
   correction; the verdict (μ_std survives, μ_dual does not) is unchanged and the contrast is
   still 4–5 orders of magnitude, since μ_dual's residual is `≥a₀` at *every* radius.
 - **First upper bound on λ_s in this corpus: `λ_s = O(1)`, binding at Saturn** — `≲2.7` by the
-  `Q₂ᵉᑫ` route, `≲1.0` by the precession route. D7 §2.2 recorded `λ_s∈(0,∞)` unfixed by the MOND
+  `Q₂ᵉᑫ` route, `≲1.0` by the precession route *(withdrawn 2026-09-20, as this file's header says: it required a 0.10 mas/cy ceiling; the live precession bound is `≲2.2`)*. D7 §2.2 recorded `λ_s∈(0,∞)` unfixed by the MOND
   limit **[O]**; this closes the upper half. At `λ_s≲1`: `G_N/Ĝ = 1+1/λ_s ≳ 2` and
   `ã₀ = (1+λ_s)a₀ ≲ 2a₀`. Existence of the bound **[D]**, the number **[C]** (see above). The
   lower half is still open.
@@ -796,7 +798,7 @@ EOF
 | `δg ∝ r²` is a **monopole**; `Q₂ᵉᑫ=δg/r` against an anisotropic-quadrupole bound is the weak link | **[D]** | §8.4 |
 | `r²` profile not degenerate with `GM_⊙`(r⁻²), `J₂`(r⁻⁴), Λ(r¹) or the MOND EFE quadrupole(r¹, anisotropic) | **[D]** | §8.4 |
 | **Existence of an O(1) upper bound on λ_s**, binding at Saturn — first in this corpus | **[D]** | §8.4 |
-| The number: `λ_s ≲ 2.7` (Q₂ route) / `≲1.0` (precession route); quote `λ_s ≲ 1–3` | **[C]** | §8.4 — mapping + bound provenance |
+| The number: `λ_s ≲ 2.7` (Q₂ route; 2.6 at the live a₀) / `≲2.2` (precession route; the earlier `≲1.0` is withdrawn); quote `λ_s ≲ 1–3` | **[C]** | §8.4 — mapping + bound provenance |
 
 ### 8.6 Verdict
 
@@ -818,7 +820,7 @@ obstruction is therefore §8.4**: μ_std's residual force `(1+λ_s)³a₀²/2g_N
 the binding test is Saturn rather than Mercury, the margin there is **50×** (`Q₂ᵉᑫ` route) or **7.6×**
 (perihelion-precession route) rather than the 1300× the corpus currently quotes, and requiring
 it gives the first real constraint on the tracking slope, **`λ_s = O(1)`** — `≲2.7` and `≲1.0`
-by the two routes. The *existence* of that bound is **[D]**; the number is **[C]**, limited by
+by the two routes *(the `≲1.0` and the 7.6× precession margin used the withdrawn 0.10 mas/cy reading; with Hees et al. 2014 the margin is 33× and the bound `≲2.2`)*. The *existence* of that bound is **[D]**; the number is **[C]**, limited by
 the monopole-vs-quadrupole mapping in the first route and by ephemeris-bound provenance in the
 second. Handing off: the exact numerics above to the falsifier; the
 Lean statement `Φ=Ψ ⇐ A^i=0 ∧ ∂_iφ̄=0`, whose substitutability test is whether it still closes

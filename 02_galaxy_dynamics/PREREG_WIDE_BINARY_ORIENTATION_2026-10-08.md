@@ -105,3 +105,8 @@ Other a0 values may be added only by a later amendment committed before Gate 1.
 - Nulls: ΔR in the 2–5 kAU bin and in the orientation-split control, plus a placebo ψ → ψ − 45°. Any null above 3σ blocks a verdict. A 90° placebo is not a null, because it only flips the sign.
 
 **Considered and not adopted.** "Restrict the test to s ≥ 20 kAU" (numerical pass): not adopted, because A5 drops the strict 20–30 kAU bin. The A4 bracket handles the regime instead.
+
+## Erratum (2026-10-09): notation only; nothing above is changed
+
+- **K0 (A2).** Line 52 reads `K0 = ∂ln ν/∂ln n`. The `n` is a typo: it is undefined here, this document uses `n` for bin counts (A5), and elsewhere in the corpus `n` is the μₙ family index (`MuNDuality.lean`). The intended and computed quantity is `K0 = ∂ln ν/∂ln y` at `y = g_N,ext/a0`, as in the red-team code (`Kq(y) = −2/(y² + y√(y²+4) + 4)`, which equals `d ln ν_std/d ln y`).
+- **`boost('E')` (A2).** The pipeline function keeps its wrong-sign anisotropy on purpose: `wide_binary_fish.py` is pinned by sha256 (`8035a1e1…`, red-team README) as the frozen E model. It must not be used for orientation injection; A2's Eq. 36 form is the injected model.

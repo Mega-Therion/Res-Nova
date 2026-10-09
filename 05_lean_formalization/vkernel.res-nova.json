@@ -5,7 +5,8 @@
     "MuNDuality",
     "MuStdFoundations",
     "SZStdEmbedding",
-    "TensorSpeed"
+    "TensorSpeed",
+    "MuStdUniqueness"
   ],
   "theorems": [
     "ResNova.AeSTStealthSector.P00_vanishes",
@@ -51,7 +52,10 @@
     "ResNova.TensorSpeed.disformal_photon_speed_sq",
     "ResNova.TensorSpeed.speed_ratio_unity_iff",
     "ResNova.TensorSpeed.speed_ratio_lt_one_of_pos",
-    "ResNova.TensorSpeed.gw170817_deviation_of_pos"
+    "ResNova.TensorSpeed.gw170817_deviation_of_pos",
+    "ResNova.MuStdUniqueness.theorem_A_constitutive",
+    "ResNova.MuStdUniqueness.F_std_hasDerivAt",
+    "ResNova.MuStdUniqueness.F_std_hasDerivAt_deriv"
   ],
   "axiom_policy": "standard-3",
   "check_modules": [
@@ -60,7 +64,8 @@
     "MuNDuality",
     "MuStdFoundations",
     "SZStdEmbedding",
-    "TensorSpeed"
+    "TensorSpeed",
+    "MuStdUniqueness"
   ],
-  "_scope": "Lean modules behind Res-Nova [P] rows in CURRENT_STATE_READ_THIS_FIRST.md (D2 MuNDuality, D5 CoshCosmology, D7 AeSTStealthSector, D8 TensorSpeed, D9 SZStdEmbedding, MuStdFoundations). PrintAxiomsD8 re-declares TensorSpeed names, so it has its own config: vkernel.res-nova-d8.json."
+  "_scope": "Lean modules behind Res-Nova [P] rows in CURRENT_STATE_READ_THIS_FIRST.md after the 2026-10-09 [P]-rule rescoring: D1 core (MuStdUniqueness.theorem_A_constitutive and F_std derivative facts, MuStdFoundations), D2 MuNDuality, D5 CoshCosmology, D9 SZStdEmbedding. AeSTStealthSector and TensorSpeed are kept for continuity of the record, though D7 and D8 are no longer [P] rows. PrintAxiomsD8 re-declares TensorSpeed names, so it has its own config: vkernel.res-nova-d8.json."
 }

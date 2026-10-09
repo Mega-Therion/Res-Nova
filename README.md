@@ -149,11 +149,15 @@ Res-Nova houses the foundational physics manuscript on Geometrically Ordered Dyn
 
 ## Acceleration Scale
 
-The working value, fitted over 171 SPARC galaxies / 3375 points under
-`tau(g) = 1/2 + sqrt(1/4 + a0/g)` with per-galaxy published distance and
-inclination errors (`02_galaxy_dynamics/A0_MEASUREMENT.json`):
+The working value is the μ_std (x/√(1+x²)) extraction over all 175 SPARC galaxies / 3391 points,
+with per-galaxy Υ_disk, Υ_bulge and distance-factor nuisance priors and a bootstrap over galaxies
+(`02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json`, treatment T1):
 
-`a0 = (1.116 \pm 0.128_{stat} \pm 0.097_{syst}) \times 10^{-10}\,\mathrm{m\,s^{-2}}` (14.4% total)
+`a0 = 1.1607 \times 10^{-10}\,\mathrm{m\,s^{-2}}`, bootstrap 68% `[1.059, 1.232] \times 10^{-10}`, 95% `[0.972, 1.295] \times 10^{-10}`
+
+The 78 galaxies whose distances do not assume H0 (treatment T3) give `1.1631 \times 10^{-10}`.
+
+**SUPERSEDED 2026-09-17 (do not quote as current):** `a0 = (1.116 \pm 0.128_{stat} \pm 0.097_{syst}) \times 10^{-10}`, a 171-galaxy pre-audit fit under `tau(g) = 1/2 + sqrt(1/4 + a0/g)`, which is the inverse of the retired simple μ, μ_dual = x/(1+x) (`02_galaxy_dynamics/A0_MEASUREMENT.json`, kept for provenance).
 
 `a0` is an **empirical acceleration scale**. It is numerically close to `cH0/2pi`;
 that closeness is an observation, **not** a derivation, and must not be quoted as one.

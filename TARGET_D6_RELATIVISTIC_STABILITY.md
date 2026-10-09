@@ -12,7 +12,7 @@
 > **genuine AeST** — the Skordis–Złośnik action (PRL 127, 161302; arXiv:2007.00082) with scalar
 > field $\mathcal{Y}$ and minimal matter coupling, on the $V_2(\mathbb{R}^3)$ Cartan-trialality substrate —
 > with $\mu_{\rm std}(x)=x/\sqrt{1+x^2}$ selected by the empirical coordinate elimination
-> (`TARGET_D2_SUPPLEMENT` §8) and bounded $\lambda_s \lesssim 2.7$ (Cassini Q₂) / $\lesssim 1.0$
+> (`TARGET_D2_SUPPLEMENT` §8) and bounded $\lambda_s \lesssim 2.7$ (Cassini Q₂ heuristic at a₀ = 1.116; 2.6 at the live 1.1607) / $\lesssim 2.2$ (precession; the earlier $\lesssim 1.0$ is withdrawn)
 > (perihelion) (`TARGET_D1_SUPPLEMENT` §4). $c_T=c$ is structural and F-independent (`TARGET_D8`,
 > revalidation rows 12–15), as is PPN $\gamma=1$ (`TARGET_D3`). Its ghost-free closure is
 > **identical and verified twice independently**:
@@ -116,7 +116,7 @@ the old $\sim10^{-10}$ eV number carries no dimensional content at all.
 The dimensionally correct strong-coupling scale requires restoring $\hbar$ and $c$:
 $$\Lambda_{\text{SC}}^4 \sim \frac{a_0^2}{G}(\hbar c)^3$$
 
-Evaluated with $a_0=1.116\times10^{-10}$ m/s² (this repo's own SPARC value), $G=6.674\times10^{-11}$
+Evaluated with $a_0=1.116\times10^{-10}$ m/s² (the superseded μ_dual SPARC fit; the live μ_std value 1.1607 and the other a₀ in use are tabulated in `02_galaxy_dynamics/LAMBDA_SC_UNSCREENED.json`), $G=6.674\times10^{-11}$
 m³ kg⁻¹ s⁻², $\hbar=1.0546\times10^{-34}$ J·s, $c=2.998\times10^8$ m/s:
 
 $$\Lambda_{\text{SC}} \approx 1.73\times10^{-3}\;\text{eV} = 1.73\;\text{meV}$$

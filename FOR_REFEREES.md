@@ -24,7 +24,7 @@ Read this first, then the ledger, then the manuscript.
 | RAQUAL no-go | `CovariantCompletion.lean`, `TARGET_D7_COVARIANT_COMPLETION.md` | same |
 | GW170817 / disformal split | `TensorSpeed.lean`, `TARGET_D8_TENSOR_SPEED.md` | same |
 | RMOND parent | `SkordisZlosnikEmbedding.lean`, `TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md` | same |
-| Working `a0` | `A0_MEASUREMENT.json` | `python3 02_galaxy_dynamics/a0_measure.py` |
+| Working `a0` | `A0_DISTANCE_CORRECTED_2026-09-16.json` (μ_std, T1; the superseded μ_dual fit is `A0_MEASUREMENT.json`) | `python3 scripts/a0_distance_corrected_reextract.py` |
 | Parameter budget / 342 extra NFW knobs | `PARAMETER_LEDGER.json`, `NFW_CONSTRAINED.json`, `SPARC_PARAMETER_BUDGET.md` | `parameter_ledger.py`, `nfw_constrained.py` |
 | Halo correlations | `HALO_CONSPIRACY.json` | `halo_conspiracy.py` |
 | Withdrawn zero-parameter language | this file; README related-publications note; Zenodo titles are historical | — |
@@ -39,8 +39,8 @@ Read this first, then the ledger, then the manuscript.
 
 ## Numbers that are current (`[D]`, commit `3c90ef3e`)
 
-- `a0 = 1.116\times 10^{-10}` ± `0.128\times 10^{-10}` (stat) ± `0.097\times 10^{-10}` (syst).
-- Horizon comparison: `0.46\sigma`. MOND `1.2\times 10^{-10}`: `0.52\sigma`.
+- `a0 = 1.1607\times 10^{-10}` (μ_std, 175 galaxies; bootstrap 95% `[0.972, 1.295]\times 10^{-10}`, `A0_DISTANCE_CORRECTED_2026-09-16.json` T1; this line updated 2026-10-09). The interval contains both `cH_0/2\pi = 1.042\times 10^{-10}` and MOND's `1.2\times 10^{-10}`.
+- Superseded 2026-09-17: `a0 = 1.116\times 10^{-10}` ± `0.128\times 10^{-10}` (stat) ± `0.097\times 10^{-10}` (syst), the 171-galaxy fit under the retired μ_dual; its comparisons were horizon `0.46\sigma`, MOND `0.52\sigma`.
 - Tier 1 GOD median 2.95 / 374 parameters; MOND 2.89 / 374; NFW free-c 1.92 / 716; NFW cosmological-c 5.62 / 716.
 - Extra NFW knobs versus GOD at Tier 1: 342.
 
