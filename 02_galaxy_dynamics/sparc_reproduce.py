@@ -121,9 +121,9 @@ def chi2_data(v_obs, v_model, v_err) -> float:
     return float(np.sum(((v_obs - v_model) / v_err) ** 2))
 
 
-def newtonian_chi2(g: dict) -> float:
-    """Baryons-only control: V_pred = V_bar at unit M/L, fd = 1. Returns chi2_data."""
-    vb = v_baryon(g["v_gas"], g["v_disk"], g["v_bulge"], 1.0, 1.0)
+def newtonian_chi2(g: dict, yd: float = 1.0, yb: float = 1.0) -> float:
+    """Baryons-only control: V_pred = V_bar at fixed M/L, fd = 1. Returns chi2_data."""
+    vb = v_baryon(g["v_gas"], g["v_disk"], g["v_bulge"], yd, yb)
     return chi2_data(g["v_obs"], vb, g["v_err"])
 
 
@@ -218,7 +218,9 @@ def main() -> None:
     strict_mond = []
     nuisance_god = []
     newton = []
-    agg = {"strict_GOD": [0.0, 0], "strict_MOND": [0.0, 0], "nuisance_GOD": [0.0, 0], "newtonian": [0.0, 0]}
+    newton_pm = []
+    agg = {"strict_GOD": [0.0, 0], "strict_MOND": [0.0, 0], "nuisance_GOD": [0.0, 0], "newtonian": [0.0, 0],
+           "newtonian_prior_mean_ML": [0.0, 0]}
 
     for g in galaxies:
         s_god = strict_chi2_reduced(g, A0_HORIZON)
@@ -229,10 +231,13 @@ def main() -> None:
         nuisance_god.append(fit["chi2_reduced"])
         n_chi2 = newtonian_chi2(g)
         newton.append(n_chi2 / g["n_points"])
+        npm_chi2 = newtonian_chi2(g, 0.5, 0.7 if g["has_bulge"] else 0.0)
+        newton_pm.append(npm_chi2 / g["n_points"])
         for key, c2, dof in (("strict_GOD", s_god * g["n_points"], g["n_points"]),
                              ("strict_MOND", s_mond * g["n_points"], g["n_points"]),
                              ("nuisance_GOD", fit["chi2_data"], max(g["n_points"] - fit["n_free"], 1)),
-                             ("newtonian", n_chi2, g["n_points"])):
+                             ("newtonian", n_chi2, g["n_points"]),
+                             ("newtonian_prior_mean_ML", npm_chi2, g["n_points"])):
             agg[key][0] += c2
             agg[key][1] += dof
         vb = v_baryon(g["v_gas"], g["v_disk"], g["v_bulge"], 1.0, 1.0)
@@ -258,15 +263,16 @@ def main() -> None:
 
     import hashlib
 
-    digest = hashlib.sha256()
-    for path in sorted(args.data_dir.glob("*_rotmod.dat")):
-        digest.update(path.name.encode() + b"\0" + path.read_bytes())
+    files = sorted(args.data_dir.glob("*_rotmod.dat"))
+    # Same definition as `sha256sum *_rotmod.dat | sha256sum`, which is the SHA-256 of the
+    # committed VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256.
+    listing = "".join(f"{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.name}\n" for p in files)
     summary = {
         "generated": date.today().isoformat(),
         # A content digest, not the local path: the path is machine-specific (2026-10-09).
-        "data": {"files": "SPARC Rotmod_LTG *_rotmod.dat (scripts/fetch_sparc.sh; RAW_DATA_MANIFEST.sha256)",
-                 "n_files": len(list(args.data_dir.glob("*_rotmod.dat"))),
-                 "sha256_names_and_bytes": digest.hexdigest()},
+        "data": {"files": "SPARC Rotmod_LTG *_rotmod.dat (scripts/fetch_sparc.sh)",
+                 "n_files": len(files),
+                 "sha256_of_manifest": hashlib.sha256(listing.encode()).hexdigest()},
         "n_galaxies": len(galaxies),
         "n_points": int(sum(g["n_points"] for g in galaxies)),
         "a0_horizon_m_s2": A0_HORIZON,
@@ -275,12 +281,14 @@ def main() -> None:
         "strict_MOND": summarize(strict_mond),
         "nuisance_GOD": summarize(nuisance_god),
         "newtonian": summarize(newton),
+        "newtonian_prior_mean_ML": summarize(newton_pm),
         "aggregate_chi2_per_dof": {k: v[0] / v[1] for k, v in agg.items()},
         "total_dof": {k: v[1] for k, v in agg.items()},
         "note": (
             "Strict: fixed a0, unit M/L, no distance rescaling. "
             "Nuisance: per-galaxy Yd, Yb (if bulge), fd with Gaussian priors; "
-            "reduced chi2 = chi2_data/(N - Nfree). Newtonian: baryons only, unit M/L. "
+            "reduced chi2 = chi2_data/(N - Nfree). Newtonian: baryons only, unit M/L; "
+            "newtonian_prior_mean_ML: baryons only at Yd = 0.5, Yb = 0.7 (0 if no bulge). "
             "V_bar^2 = V_gas|V_gas| + Yd V_disk^2 + Yb V_bul^2; fd scales V_bar^2 and R."
         ),
     }

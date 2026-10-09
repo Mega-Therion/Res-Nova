@@ -255,18 +255,19 @@ Both models share the same frozen $\mu(x) = x/(1+x)$ and zero NFW parameters. No
 
 \subsection{Observational Sample}
 
-We use the complete Spitzer Photometry and Accurate Rotation Curves (SPARC) database \cite{Lelli2016}: 175 disk galaxies, 3,391 kinematic observations. Raw data SHA-256:
+We use the complete Spitzer Photometry and Accurate Rotation Curves (SPARC) database \cite{Lelli2016}: 175 disk galaxies, 3,391 kinematic observations. Raw data: SHA-256 of the per-file manifest \texttt{RAW\_DATA\_MANIFEST.sha256}, i.e.\ \texttt{sha256sum *\_rotmod.dat | sha256sum}:
 \begin{center}\ttfamily\small
-e76e6752164b\ldots c05f96d095456e067bdd5c6da59d2be4ec70c1eb
+e78c1d6883a7843ca69a6a6f23ebad228e4a362c4861e9cd81a01c43fae9a4e7
 \end{center}
-The $a_0$ measurement sub-sample is 171 galaxies / 3,375 points (4 galaxies excluded for insufficient data coverage).
+(Earlier versions printed \texttt{e76e6752164b\ldots}, whose definition was not recorded and which no tested definition reproduces.)
+The matched benchmark below uses the 171 galaxies / 3,375 points with at least five usable points (four galaxies excluded for insufficient coverage). The $a_0$ extraction of Eq.~\eqref{eq:a0_measured} uses all 175 galaxies / 3,391 points.
 
 \subsection{Specification Definitions}
 
 \begin{itemize}
-    \item \textbf{GOD Tier 0 (Zero-Parameter):} $\Upsilon_{\text{disk}} = \Upsilon_{\text{bulge}} = f_d = 1.0$ fixed; $a_0$ from horizon formula. Tests the $a_0$ source hypothesis directly.
+    \item \textbf{GOD Tier 0 (no per-galaxy freedom):} $\Upsilon_{\text{disk}} = 0.5$, $\Upsilon_{\text{bulge}} = 0.7$ (the prior means), $f_d = 1$; $a_0 = cH_0/2\pi$, the declared anchor. Tests the $a_0$ source hypothesis directly. It carries the theory's two irreducible inputs, the $a_0$ scale and the choice of $\mu$.
     \item \textbf{MOND Tier 0:} Same, with $a_0 = 1.2 \times 10^{-10}\,\text{m\,s}^{-2}$ from literature \cite{McGaugh2016}.
-    \item \textbf{GOD/MOND Tier 1 ($N_{\text{par}} = 374$):} 174 $\Upsilon_{\text{disk}}$ + 199 $\Upsilon_{\text{bulge}}$ (where applicable) + 1 global $a_0$ under $\mathcal{N}(0.5, 0.125^2)$ / $\mathcal{N}(0.7, 0.175^2)$ priors.
+    \item \textbf{GOD/MOND Tier 1 ($N_{\text{par}} = 374$):} 171 $\Upsilon_{\text{disk}}$ + 32 $\Upsilon_{\text{bulge}}$ (galaxies with a bulge) + 171 $f_d$, under $\mathcal{N}(0.5, 0.125^2)$, $\mathcal{N}(0.7, 0.175^2)$ and $\mathcal{N}(1, 0.10^2)$ priors. $a_0$ is not fitted in either row.
     \item \textbf{NFW Free-$c$ ($N_{\text{par}} = 716$):} Per-galaxy NFW halo concentration $c$ free. 97/171 railed at $c=1$; not a fair $\Lambda$CDM proxy.
     \item \textbf{NFW Cosmological-$c$ Prior ($N_{\text{par}} = 716$):} Concentration $c$ constrained to cosmological mass--concentration relation. This is the fair $\Lambda$CDM-comparable row.
 \end{itemize}
@@ -276,27 +277,30 @@ The $a_0$ measurement sub-sample is 171 galaxies / 3,375 points (4 galaxies excl
 \begin{table*}[t]
 \centering
 \footnotesize
+% BEGIN GENERATED: sparc-results-table (scripts/sparc_benchmark_tables.py; do not hand-edit)
 \begin{tabularx}{\textwidth}{@{}l c c c X@{}}
 \toprule
-\textbf{Specification} & \textbf{Free Params} & \textbf{Median $\chi^2_{\text{data}}/N_g$} & \textbf{Aggregate} & \textbf{Role} \\
+\textbf{Specification} & \textbf{Free Params} & \textbf{Median $\chi^2_{\text{data}}/N_g$} & \textbf{Aggregate $\chi^2/\mathrm{dof}$} & \textbf{Role} \\
 \midrule
-GOD Tier 0 (horizon $a_0$, fixed $M/L$) $\mathbf{[D]}$ & 0 & 9.20 & --- & Tests $a_0$ source hypothesis \\
-MOND Tier 0 (literature $a_0$) $\mathbf{[D]}$ & 0 & 11.35 & --- & Zero-param control \\
-\textbf{GOD Tier 1} $\mathbf{[D]}$ & \textbf{374} & \textbf{2.95} & \textbf{---} & \textbf{Dual-channel $\mu$, horizon $a_0$} \\
-MOND Tier 1 $\mathbf{[D]}$ & 374 & 2.89 & --- & Dual-channel $\mu$, fitted $a_0$ \\
-NFW Free $c$ $\mathbf{[D]}$ & 716 & 1.92 & --- & 97/171 railed at $c=1$; not $\Lambda$CDM \\
-\textbf{NFW Cosmological-$c$ Prior} $\mathbf{[D]}$ & \textbf{716} & \textbf{5.62} & \textbf{---} & \textbf{Fair $\Lambda$CDM row; 342 extra params vs GOD} \\
+GOD Tier 0 (prior-mean $M/L$, horizon $a_0$) $\mathbf{[D]}$ & 0 & 11.08 & 93.65 & Tests the $a_0$ source \\
+MOND Tier 0 (prior-mean $M/L$, literature $a_0$) $\mathbf{[D]}$ & 0 & 9.93 & 78.95 & Same, literature $a_0$ \\
+\textbf{GOD Tier 1} $\mathbf{[D]}$ & 374 & 3.36 & 6.09 & $\mu_{\text{std}}$, horizon $a_0$ \\
+MOND Tier 1 $\mathbf{[D]}$ & 374 & 3.41 & 6.03 & $\mu_{\text{std}}$, literature $a_0$ \\
+NFW Free $c$ $\mathbf{[D]}$ & 716 & 1.92 & 4.58 & 97/171 railed at $c=1$; not $\Lambda$CDM \\
+\textbf{NFW Cosmological-$c$ Prior} $\mathbf{[D]}$ & 716 & 5.62 & --- & Fair $\Lambda$CDM-like row; 342 extra parameters vs GOD \\
 \bottomrule
 \end{tabularx}
-\caption{Matched-parameter SPARC benchmark on 171 galaxies. GOD Tier~1 achieves median $\chi^2/N_g = 2.95$ with 374 parameters; the fair cosmological NFW model requires 342 additional parameters (716 total) for median $\chi^2/N_g = 5.62$. Parameter counts and fit results frozen in \texttt{PARAMETER\_LEDGER.json} and \texttt{NFW\_CONSTRAINED.json} (\texttt{VERIFICATION\_RUN\_003}).}
+\caption{Matched-parameter SPARC benchmark on 171 galaxies under $\mu_{\text{std}}$ (\texttt{PARAMETER\_LEDGER.json}, \texttt{NFW\_CONSTRAINED.json}; generated by \texttt{scripts/sparc\_benchmark\_tables.py}). At Tier~0, MOND has the lower median. At Tier~1, GOD and MOND differ only in where $a_0$ comes from and neither leads. The fair cosmological NFW model uses 342 more parameters (716 total) for median 5.62.}
 \label{tab:sparc_results}
+% END GENERATED: sparc-results-table
 \end{table*}
 
 \subsection{Pre-Registered Falsification Contract}
 
 \begin{tcolorbox}[colback=boxbg,colframe=primary,title=\textbf{Pre-Registered Interpretation Contract}]
 \begin{enumerate}
-    \item \textbf{Closure Test ($A_4$):} If the canonical 374-parameter GOD Tier~1 aggregate $\chi^2/\text{dof}$ underperforms the legacy $\mu_{\text{simple}}$ zero-parameter baseline in a like-for-like test, the derived closure is falsified.
+    \item \textbf{Closure Test ($A_4$):} If the canonical 374-parameter GOD Tier~1 aggregate $\chi^2/\text{dof}$ underperforms the legacy $\mu_{\text{simple}}$ baseline with no per-galaxy freedom in a like-for-like test, the derived closure is falsified.
+    \textit{Status 2026-10-09 $\mathbf{[X]}$:} the derived closure this test was written for, $\mu_{\text{dual}}$, was falsified on 2026-09-12 on solar-system grounds (\S\ref{sec:covariant}). The live function $\mu_{\text{std}} = x/\sqrt{1+x^2}$ is the function this text calls $\mu_{\text{simple}}$ (the Lean name), so under $\mu_{\text{std}}$ the comparison is between a function and itself and no longer tests anything. The test is kept as pre-registered and is not re-scored.
     \item \textbf{Scale Test ($F_3$):} Any persistent tension in fitted $a_0$ vs.\ horizon anchor exceeding $3\sigma$ falsifies the horizon-normalization narrative.
     \item \textbf{No Silent Spec Changes:} Sample, error models, and priors frozen across all runs; changes must be versioned in the ledger.
     \item \textbf{Parameter Ledger:} All parameter counts reported against identical galaxy samples. NFW comparisons must use cosmological-$c$ priors to constitute a fair test.

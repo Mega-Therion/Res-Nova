@@ -62,7 +62,7 @@ $$g_{\mu\nu}^{\text{opt}} = g_{\mu\nu} + \beta(\chi) \nabla_\mu\chi \nabla_\nu\c
 
 ## 4. SPARC Canonical Benchmark & Control Reconciliation Ledger
 
-*Data: 175 SPARC galaxies (Lelli et al. 2016c), 3,391 kinematic data points. SHA-256: `e76e6752164b80b14a20c1d6c05f96d095456e067bdd5c6da59d2be4ec70c1eb`*  
+*Data: 175 SPARC galaxies (Lelli et al. 2016c), 3,391 kinematic data points. SHA-256 of `RAW_DATA_MANIFEST.sha256` (`sha256sum *_rotmod.dat | sha256sum`): `e78c1d6883a7843ca69a6a6f23ebad228e4a362c4861e9cd81a01c43fae9a4e7`. The earlier `e76e6752164b…` has no recorded definition, and no tested definition reproduces it.*  
 *Script: `02_galaxy_dynamics/sparc_reproduce.py`*  
 *Artifacts: `VERIFICATION_RUN_002/02_sparc/SPARC_175_CANONICAL_382_RESIDUALS.csv` & `SPARC_175_CANONICAL_382_MANIFEST.json`*
 
@@ -75,12 +75,17 @@ $$g_{\mu\nu}^{\text{opt}} = g_{\mu\nu} + \beta(\chi) \nabla_\mu\chi \nabla_\nu\c
 
 ### B. Canonical Benchmark Table:
 
-| Model / Control Specification | Free Params / Priors | Total Points / Nominal DOF | Median $\chi^2_{\text{data}}/N_g$ | Mean $\chi^2_{\text{data}}/N_g$ | Aggregate $\sum\chi^2_{\text{data}}/\text{DOF}_{\text{nom}}$ | Statistical & Physical Assessment |
-| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **Strict ITT / G.O.D. Zero-Param** [D] | 0 ($\Upsilon=1.0, f_d=1.0, a_0=\frac{cH_0}{2\pi}$) | **3,391 / 3,391** | **29.12** | **100.40** | **144.04** | Better than baryons-only baselines, but a poor absolute fit across uncurated sample. |
-| **Canonical Nuisance ITT / G.O.D.** [D] | 382 params (Gaussian priors) | **3,391 / 3,009** | **2.88** | **7.47** | **7.93** | Data-residual $\chi^2$ at MAP fit; priors excluded from numerator. In-sample fit. |
-| **Baryons-Only Unit $M/L$ Control** [D] | 0 ($\Upsilon_{\text{disk}}=1.0, \Upsilon_{\text{bulge}}=1.0$) | **3,391 / 3,391** | **51.58** | **157.58** | **204.65** | Poor absolute fit under this specified dataset, error model, and fixed unit prescription. |
-| **Baryons-Only Standard SPARC Control** [D] | 0 ($\Upsilon_{\text{disk}}=0.5, \Upsilon_{\text{bulge}}=0.7$) | **3,391 / 3,391** | **85.23** | **267.92** | **406.49** | Poor absolute fit under this specified dataset, error model, and fixed standard-SPARC mass-to-light prescription. |
+<!-- BEGIN GENERATED: sparc-audit-table (scripts/sparc_benchmark_tables.py; do not hand-edit) -->
+| Model / Control Specification | Free Params / Priors | Total Points / DOF | Median $\chi^2_{\text{data}}/N_g$ | Mean $\chi^2_{\text{data}}/N_g$ | Aggregate $\sum\chi^2_{\text{data}}/\text{DOF}$ |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Strict GOD, unit $M/L$** [D] | 0 ($\Upsilon=1.0, f_d=1.0, a_0=\frac{cH_0}{2\pi}$) | **3,391 / 3,391** | **15.01** | **52.01** | **69.07** |
+| **Strict MOND, unit $M/L$** [D] | 0 ($\Upsilon=1.0, f_d=1.0, a_0=1.2\times10^{-10}$) | **3,391 / 3,391** | **17.01** | **59.27** | **78.05** |
+| **GOD, grid nuisance fit** [D] | 382 params (Gaussian priors) | **3,391 / 3,009** | **3.06** | **7.07** | **7.78** |
+| **Baryons-only, unit $M/L$** [D] | 0 ($\Upsilon_{\text{disk}}=\Upsilon_{\text{bulge}}=1.0$) | **3,391 / 3,391** | **51.58** | **157.60** | **204.66** |
+| **Baryons-only, prior-mean $M/L$** [D] | 0 ($\Upsilon_{\text{disk}}=0.5, \Upsilon_{\text{bulge}}=0.7$) | **3,391 / 3,391** | **85.23** | **267.92** | **406.49** |
+<!-- END GENERATED: sparc-audit-table -->
+
+*Rows regenerated 2026-10-09 from `SPARC_175_summary.json` under μ_std with the corrected baryons (V_bar² = V_gas|V_gas| + Υ V²). Until then this table carried the 2026-08-14 `VERIFICATION_RUN_001` run (strict median 29.12, aggregate 144.04, computed under the τ form of the retired μ_dual). That run's baryons-only controls reproduce here: 85.23 / 406.49 exactly at prior-mean M/L, and 51.58 / 204.66 vs 204.65 at unit M/L. The matched GOD/MOND/NFW comparison is `02_galaxy_dynamics/SPARC_PARAMETER_BUDGET.md`.*
 
 ---
 

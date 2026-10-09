@@ -33,7 +33,7 @@
 | **F1** | AQUAL Weak-Field Field Equation | `[C]` Literature Baseline | `res_nova_manuscript.tex` §2 | Bekenstein-Milgrom (1984) |
 | **F2** | $\mu(x)$ Dual-Channel Derivative Identity | `[P]` (algebra) / `[O]` (closure) | `05_lean_formalization/DualChannelDerivation.lean`, `01_foundational_action/PAPER_01_NOTICE.md` | Dual-channel $\mu(x)=x/(1+x)$ `[P]`; single-channel quarantined |
 | **F3** | $a_0 = cH_0/(2\pi)$ KMS Cancellation Null Result | `[O]` Horizon Normalization | `res_nova_manuscript.tex` §3.2, `04_cosmology/A0_AND_OMEGA_NORMALIZATION_LEDGER.md` | Thermal KMS cancellation derived; $1/(2\pi)$ is open normalization |
-| **F4** | Fixed Tier 0 SPARC Benchmark | `[D]` Empirical Evaluation | `02_galaxy_dynamics/PARAMETER_LEDGER.json` (Tier 0: median 9.20) | "Zero free parameters" language withdrawn as a working model class |
+| **F4** | Fixed Tier 0 SPARC Benchmark | `[D]` Empirical Evaluation | `02_galaxy_dynamics/PARAMETER_LEDGER.json` (Tier 0: GOD median 11.08 vs MOND 9.93 under μ_std; the 9.20 printed here until 2026-10-09 was μ_dual-era) | "Zero free parameters" language withdrawn as a working model class |
 | **F5** | SPARC Nuisance Fits & Working $a_0$ | `[D]` Regularized Fit / Measurement | `02_galaxy_dynamics/A0_MEASUREMENT.json`, `PARAMETER_LEDGER.json` | Tier 1 ($N_{\text{par}}=374$, median 2.95); $a_0 = 1.1607\times 10^{-10}\text{ m/s}^2$ (μ_std, 175 galaxies, `A0_DISTANCE_CORRECTED_2026-09-16.json`; the earlier $1.116 \pm 0.161$ was the superseded μ_dual fit) |
 | **F6** | $\Omega_\Lambda = \ln 2 \approx 0.693$ Holographic / Disformal Boundary | `[O]` Conjectural Limit | Motivational Narrative Annex | Conjectured horizon boundary condition, not a derived density |
 | **F7** | 17 Lean 4 Modules on Disk | `[P]` Kernel Verified / Diagnostic | `05_lean_formalization/*.lean` | `verify_all_proofs.sh` exit 0 on local gate; standard axioms only |
@@ -130,7 +130,7 @@ not $a_0 = \frac{cH_0}{2\pi}$. The additional $1/(2\pi)$ divisor is an open boun
 * **Summary:**
   - Working measurement: $a_0 = (1.116 \pm 0.128_{\text{stat}} \pm 0.097_{\text{syst}})\times 10^{-10}\text{ m/s}^2$ (total 14.4% error) across 171 galaxies (3,375 points). **SUPERSEDED 2026-09-17 — provenance only.** The live object is the $\mu_{\text{std}}$ row, $a_0 = 1.1607\times10^{-10}$ on 175 galaxies (3,391 points). The gap between the two is *not* the closure effect: it mixes sample, distance treatment and closure. On one frozen harness the closure effect alone is $9.2420\times10^{-11}\to1.16067\times10^{-10}$, **+25.6%**. See `docs/A0_CLOSURE_EVOLUTION.md`.
   - Tension with horizon $cH_0/(2\pi)$: $0.46\sigma$; tension with MOND $1.2\times 10^{-10}$: $0.52\sigma$.
-  - Tier 1 matched nuisance GOD fit: 374 parameters (171 galaxies), median $\chi^2_{\text{data}}/N_g = 2.95$.
+  - Tier 1 matched nuisance GOD fit: 374 parameters (171 galaxies), median $\chi^2_{\text{data}}/N_g = 3.36$ under μ_std (MOND 3.41; `SPARC_PARAMETER_BUDGET.md`). The 2.95 printed here until 2026-10-09 was the μ_dual-era value.
   - NFW with cosmological concentration prior: 716 parameters (342 extra knobs vs GOD), median $\chi^2_{\text{data}}/N_g = 5.62$.
 
 ---

@@ -73,6 +73,10 @@ step "witness: dwarf wind receipt" receipt_check scripts/verify_dwarf_screening_
 # Public visualizer (Vercel). Its ledger and Lean panel are generated from the
 # registry and the real module sources, and its physics engine is the live
 # mu_std inversion -- until 2026-09-30 it ran the falsified mu_dual unchecked.
+step "sparc benchmark tables in sync" python3 scripts/sparc_benchmark_tables.py --check
+step "sparc benchmark self-test" python3 scripts/sparc_benchmark_tables.py --self-test
+step "sparc model parity (synthetic)" python3 02_galaxy_dynamics/test_sparc_parser.py
+step "sparc summary invariants" python3 scripts/validate_sparc_reproduction.py 02_galaxy_dynamics/SPARC_175_summary.json --measurement 02_galaxy_dynamics/A0_MEASUREMENT.json
 step "visualizer ledger in sync" python3 scripts/export_visualizer_ledger.py --check
 step "visualizer physics" node scripts/test_visualizer_physics.mjs
 

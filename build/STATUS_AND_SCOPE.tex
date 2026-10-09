@@ -46,10 +46,13 @@ This compendium presents the unified compilation of the Conformal Sovereign Acti
 \toprule
 \textbf{Sector / Claim} & \textbf{Status} & \textbf{Scope \& Boundary Definition} \\ \midrule
 Lean 4 Module Suite & \textbf{[P] Verified} & Formally verifies mathematical theorems from encoded definitions. \\
-SPARC Zero-Param ($a_0=\frac{cH_0}{2\pi}$) & \textbf{[D] Computed} & Strict median $\chi^2_{\text{data}}/N_g = 29.12$, aggregate $\sum\chi^2_{\text{data}}/\text{dof} = 144.04$ ($3,391 / 3,391$). Poor absolute fit across uncurated sample. \\
-SPARC Canonical Nuisance Fit & \textbf{[D] Computed} & Median $\chi^2_{\text{data}}/N_g = 2.88$, aggregate $\sum\chi^2_{\text{data}}/\text{dof}_{\text{nom}} = 7.93$ ($3,391 / 3,009$, $N_{\text{par}}=382$, Gaussian priors). \\
-Baryons-Only Baseline (Unit $M/L$) & \textbf{[D] Computed} & Median $\chi^2_{\text{data}}/N_g = 51.58$, aggregate $\sum\chi^2_{\text{data}}/\text{dof} = 204.65$ ($3,391 / 3,391$). Poor absolute fit under fixed unit prescription. \\
-Baryons-Only Baseline (SPARC Std) & \textbf{[D] Computed} & Median $\chi^2_{\text{data}}/N_g = 85.23$, aggregate $\sum\chi^2_{\text{data}}/\text{dof} = 406.49$ ($3,391 / 3,391$). Poor absolute fit under fixed standard-SPARC mass-to-light prescription. \\
+% BEGIN GENERATED: sparc-status-rows (scripts/sparc_benchmark_tables.py; do not hand-edit)
+SPARC Tier 0 (prior-mean $M/L$, $a_0=\frac{cH_0}{2\pi}$ declared) & \textbf{[D] Computed} & Median $\chi^2_{\text{data}}/N_g = 11.08$ vs MOND $9.93$ (171 galaxies, \texttt{PARAMETER\_LEDGER.json}). Two irreducible inputs: the $a_0$ scale and the $\mu$ choice. \\
+SPARC strict unit-$M/L$ check & \textbf{[D] Computed} & Median $\chi^2_{\text{data}}/N_g = 15.01$, aggregate $\sum\chi^2_{\text{data}}/\text{dof} = 69.07$ ($3,391 / 3,391$, \texttt{SPARC\_175\_summary.json}). \\
+SPARC grid nuisance fit & \textbf{[D] Computed} & Median $\chi^2_{\text{data}}/N_g = 3.06$, aggregate $\sum\chi^2_{\text{data}}/\text{dof} = 7.78$ ($3,391 / 3,009$, $N_{\text{par}}=382$, Gaussian priors). \\
+Baryons-Only Baseline (Unit $M/L$) & \textbf{[D] Computed} & Median $\chi^2_{\text{data}}/N_g = 51.58$, aggregate $\sum\chi^2_{\text{data}}/\text{dof} = 204.66$. \\
+Baryons-Only Baseline (prior-mean $M/L$) & \textbf{[D] Computed} & Median $\chi^2_{\text{data}}/N_g = 85.23$, aggregate $\sum\chi^2_{\text{data}}/\text{dof} = 406.49$. \\
+% END GENERATED: sparc-status-rows
 Action $\to \mu_{\text{simple}}(x)$ Bridge & \textbf{[O] Open} & Direct variation yields $\operatorname{arcsinh}(x)$; rational $\mu$ is an open closure. \\
 $a_0 = \frac{cH_0}{2\pi}$ Normalization & \textbf{[O] Open} & $T_U = T_{\text{GH}}$ yields $a = cH_0$; the $1/(2\pi)$ divisor is an open residue. \\
 Optical Metric \& Redshift Jacobian & \textbf{[O] Open} & Effective disformal couplings; Maxwell/Poynting derivations pending. \\ \bottomrule
