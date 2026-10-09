@@ -7,8 +7,14 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against the physics:** 2026-10-06 (UTC). The audit-cycle state below supersedes
+**Last verified against the physics:** 2026-10-09 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
+
+The 2026-10-09 stamp records:
+- **Proof-receipt/vacuity audit (2026-10-08):** signed vkernel receipts verify 44 + 6 listed theorem statements against the recorded source commitment with the standard three Lean axioms and a clean independent checker. This establishes build/proof-term integrity for those statements, not their non-vacuity or match to manuscript claims. The screen flagged 14/16 D8 theorem statements, all 9 AeSTStealthSector statements, and found no receipt for D1; no epistemic tier was changed. D8's `physical_frame_tensor_speed_unity` restates its hypothesis, `gw170817_concordance` assumes both speeds equal one, and the four stealth PPN results are `rfl` on a structure literal. These are audit findings requiring claim-to-proof reconciliation, not a blanket invalidation of all modules.
+- **Core results cold reproduction (2026-10-08):** a fresh-clone run reproduced `PARAMETER_LEDGER.json`, `EFE_QUADRUPOLE_Q2.json`, and `CASSINI_PARETO_SCAN.json` byte-for-byte; 175/175 SPARC file checksums matched, and 171/175 galaxies were used because four had fewer than five points. At tier 0 the literature-fitted a0 performs better than the declared horizon anchor; at tier 1 they are tied, while the NFW comparison fits better with more parameters. The live μ_std function still fails the reported Cassini external-field quadrupole test. This reproduction does not validate the separate `sparc_reproduce.py` pipeline whose signed-value parser is under review.
+- **Wide-binary orientation preregistration (2026-10-08/09):** the red-team correction says model E fails both loose-cut criteria, but still passes the strict cut; the overall verdict is unchanged. The orientation test remains preregistered and not yet run. D7's box-extension attempt remains exploratory with no verdict.
+- **Freshness update:** `PEER_REVIEW_READINESS.md`, the proof receipt audit, the current core-results report, and the wide-binary correction were re-read. This stamp records evidence-status reconciliation, not a new physical result; it does not upgrade any epistemic tier.
 
 The 2026-10-06 stamp records:
 - **A comment-only correction in `PillarIV_AntiDriftGate.lean` (`f38d21a`).** Its κ docstrings now follow RY's
