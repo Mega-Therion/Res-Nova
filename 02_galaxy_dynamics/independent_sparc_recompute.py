@@ -1,138 +1,101 @@
 #!/usr/bin/env python3
-"""Independent reimplementation of SPARC rotation curve fitting and reproducibility verification.
+"""Cross-check sparc_reproduce.py against parameter_ledger.py, two separately written code paths.
 
-Uses a direct line-splitting code path (without regex matching) over raw SPARC *_rotmod.dat files
-to independently parse inputs, compute baryon velocities and predicted rotation curves under the GOD model,
-and compare output numbers against sparc_reproduce.py.
+The version of this file in PR #143's first commit compared sparc_reproduce with a copy of
+its own baryon formula, evaluated only at unit mass-to-light (Y = 1) and fd = 1. There
+Y^2 = Y and the distance factor drops out, so it could not see the two defects that remained:
+Y applied to V instead of V^2, and fd dividing R instead of scaling V_bar^2 and R.
+
+This version checks three things on every galaxy both loaders accept:
+  1. loaders agree: sparc_reproduce.load_rotmod (regex) vs parameter_ledger.load (line.split);
+  2. baryonic V_bar agrees at non-unit (Yd, Yb, fd);
+  3. the mu_std prediction agrees at non-unit (Yd, Yb, fd).
+
+    python3 independent_sparc_recompute.py --data-dir <sparc_data> [--out SPARC_RECOMPUTE_VERIFICATION.json]
+
+Tolerances: 1e-6 km/s on V_bar and 1e-3 km/s on the prediction (SPARC velocity errors are >= 1 km/s).
+At fd = 1 the two paths agree to 1e-13. At fd != 1 they differ by at most ~2e-4 km/s, only at points
+whose V_bar^2 is negative (net outward gas force): parameter_ledger clamps fd*V_bar^2 at 1e-12, while
+sparc_reproduce clamps V_bar^2 and then scales by fd. The count of such points is reported.
 """
-
 from __future__ import annotations
 
+import argparse
 import json
-import math
+import sys
 from pathlib import Path
+
 import numpy as np
 
-C_LIGHT = 2.998e8
-H0_KMS_MPC = 67.4
-H0_SI = H0_KMS_MPC * 1000 / 3.086e22
-KPC_TO_M = 3.086e19
-KM_TO_M = 1000
-A0_HORIZON = C_LIGHT * H0_SI / (2 * math.pi)
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import parameter_ledger as pl  # noqa: E402
+import sparc_reproduce as sr  # noqa: E402
 
-SCRIPT_DIR = Path(__file__).resolve().parent
-SPARC_DIR = SCRIPT_DIR / "sparc_data"
+# (Yd, Yb, fd): unit, SPARC prior means, and off-centre points where Y^2 != Y and fd != 1.
+POINTS = [(1.0, 1.0, 1.0), (0.5, 0.7, 1.0), (0.5, 0.7, 0.9), (1.3, 0.4, 1.12), (0.25, 1.75, 0.85)]
+TOL_BAR = 1e-6
+TOL_PRED = 1e-3
 
-def load_rotmod_independent(path: Path) -> dict | None:
-    """Independent parser using direct line split and float conversion."""
-    rows = []
-    for line in path.read_text(errors="replace").splitlines():
-        line = line.strip()
-        if not line or line.startswith("#"):
-            continue
-        tokens = line.split()
-        if len(tokens) < 6:
-            continue
-        try:
-            r, vobs, verr, vgas, vdisk, vbul = [float(t) for t in tokens[:6]]
-        except ValueError:
-            continue
-        rows.append((r, vobs, verr, vgas, vdisk, vbul))
-    if len(rows) < 3:
-        return None
-    arr = np.array(rows)
-    r, vobs, verr, vgas, vdisk, vbul = arr.T
-    mask = (r > 0) & (vobs > 0) & (verr > 0)
-    vgas, vdisk, vbul = vgas[mask], vdisk[mask], vbul[mask]
-    r, vobs, verr = r[mask], vobs[mask], verr[mask]
-    if len(r) < 3:
-        return None
-    has_bulge = np.any(vbul > 0.5)
-    gid = path.stem.replace("_rotmod", "")
-    return {
-        "id": gid,
-        "r": r,
-        "v_obs": vobs,
-        "v_err": np.maximum(verr, 1.0),
-        "v_gas": vgas,
-        "v_disk": vdisk,
-        "v_bulge": vbul,
-        "has_bulge": bool(has_bulge),
-        "n_points": int(len(r)),
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--data-dir", type=Path, default=sr.DEFAULT_DATA)
+    ap.add_argument("--out", type=Path, default=HERE / "SPARC_RECOMPUTE_VERIFICATION.json")
+    args = ap.parse_args()
+
+    ledger = {g["name"]: g for g in pl.load(args.data_dir)}
+    repro = {}
+    for p in sorted(args.data_dir.glob("*_rotmod.dat")):
+        g = sr.load_rotmod(p)
+        if g is not None:
+            repro[g["id"]] = g
+    common = sorted(set(ledger) & set(repro))
+
+    loader_diff = 0.0
+    n_points = 0
+    worst = {"v_bar": 0.0, "v_pred": 0.0}
+    per_point = []
+    for yd, yb, fd in POINTS:
+        dbar = dpred = 0.0
+        for name in common:
+            L, R = ledger[name], repro[name]
+            if len(L["r"]) != len(R["r"]):
+                print(f"FAIL loader length {name}: {len(L['r'])} vs {len(R['r'])}")
+                return 1
+            if (yd, yb, fd) == POINTS[0]:
+                n_points += len(L["r"])
+                for a, b in (("r", "r"), ("vobs", "v_obs"), ("vgas", "v_gas"), ("vdisk", "v_disk"), ("vbul", "v_bulge")):
+                    loader_diff = max(loader_diff, float(np.max(np.abs(L[a] - R[b]))))
+            vbar_l = np.sqrt(pl.v_bary_sq(L, yd, yb, fd))
+            vbar_r = np.sqrt(fd) * sr.v_baryon(R["v_gas"], R["v_disk"], R["v_bulge"], yd, yb)
+            vp_l = pl.v_mond_like(L, pl.A0_HORIZON, yd, yb, fd)
+            vp_r = sr.predict_velocity(sr.v_baryon(R["v_gas"], R["v_disk"], R["v_bulge"], yd, yb), R["r"], sr.A0_HORIZON, fd)
+            dbar = max(dbar, float(np.max(np.abs(vbar_l - vbar_r))))
+            dpred = max(dpred, float(np.max(np.abs(vp_l - vp_r))))
+        per_point.append({"Yd": yd, "Yb": yb, "fd": fd, "max_abs_diff_v_bar_km_s": dbar, "max_abs_diff_v_pred_km_s": dpred})
+        worst["v_bar"] = max(worst["v_bar"], dbar)
+        worst["v_pred"] = max(worst["v_pred"], dpred)
+
+    n_floor = int(sum(int(np.sum(L["vgas"] * np.abs(L["vgas"]) + L["vdisk"] ** 2 + L["vbul"] ** 2 <= 0))
+                      for L in (ledger[n] for n in common)))
+    ok = loader_diff == 0.0 and worst["v_bar"] <= TOL_BAR and worst["v_pred"] <= TOL_PRED
+    rec = {
+        "method": "sparc_reproduce.py vs parameter_ledger.py (separately written loaders and models), mu_std, a0 = cH0/2pi",
+        "n_galaxies_compared": len(common),
+        "n_points_compared": n_points,
+        "only_in_sparc_reproduce": sorted(set(repro) - set(ledger)),
+        "only_in_parameter_ledger": sorted(set(ledger) - set(repro)),
+        "max_abs_diff_loaded_columns": loader_diff,
+        "points": per_point,
+        "points_with_negative_v_bar_sq_at_unit_ML": n_floor,
+        "tolerance_km_s": {"v_bar": TOL_BAR, "v_pred": TOL_PRED},
+        "agreement": ok,
     }
+    args.out.write_text(json.dumps(rec, indent=2) + "\n")
+    print(json.dumps(rec, indent=2))
+    return 0 if ok else 1
 
-def v_baryon_independent(v_gas, v_disk, v_bulge, yd: float = 1.0, yb: float = 1.0) -> np.ndarray:
-    vb_sq = np.maximum(v_gas * np.abs(v_gas) + (yd * v_disk)**2 + (yb * v_bulge)**2, 1e-12)
-    return np.sqrt(vb_sq)
-
-def predict_velocity_independent(v_bary: np.ndarray, r_kpc: np.ndarray, a0: float) -> np.ndarray:
-    r_m = r_kpc * KPC_TO_M
-    v_m = v_bary * KM_TO_M
-    a_bary = v_m**2 / np.maximum(r_m, 1e-6)
-    g_std = np.sqrt(0.5 * a_bary**2 + np.sqrt(0.25 * a_bary**4 + (a_bary**2) * (a0**2)))
-    return v_bary * np.sqrt(np.maximum(g_std / np.maximum(a_bary, 1e-30), 0.0))
-
-def main():
-    files = sorted(SPARC_DIR.glob("*_rotmod.dat"))
-    indep_records = []
-    for p in files:
-        g = load_rotmod_independent(p)
-        if g is None:
-            continue
-        vb = v_baryon_independent(g["v_gas"], g["v_disk"], g["v_bulge"])
-        vp = predict_velocity_independent(vb, g["r"], A0_HORIZON)
-        chi2 = float(np.sum(((g["v_obs"] - vp) / g["v_err"])**2))
-        chi2_red = chi2 / g["n_points"]
-        indep_records.append({
-            "id": g["id"],
-            "n_points": g["n_points"],
-            "v_pred": vp,
-            "chi2_red_god": chi2_red
-        })
-    
-    # Load repo pipeline output
-    import sparc_reproduce as sr
-    repo_galaxies = sr.load_galaxies(SPARC_DIR)
-    repo_records = []
-    for g in repo_galaxies:
-        vb = sr.v_baryon(g["v_gas"], g["v_disk"], g["v_bulge"], 1.0, 1.0)
-        vp = sr.predict_velocity(vb, g["r"], A0_HORIZON)
-        chi2_red = sr.strict_chi2_reduced(g, A0_HORIZON)
-        repo_records.append({
-            "id": g["id"],
-            "n_points": g["n_points"],
-            "v_pred": vp,
-            "chi2_red_god": chi2_red
-        })
-    
-    assert len(indep_records) == len(repo_records) == 175
-    
-    v_pred_indep = np.concatenate([r["v_pred"] for r in indep_records])
-    v_pred_repo = np.concatenate([r["v_pred"] for r in repo_records])
-    
-    c2_indep = np.array([r["chi2_red_god"] for r in indep_records])
-    c2_repo = np.array([r["chi2_red_god"] for r in repo_records])
-    
-    max_diff_vp = float(np.max(np.abs(v_pred_indep - v_pred_repo)))
-    corr_vp = float(np.corrcoef(v_pred_indep, v_pred_repo)[0, 1])
-    
-    max_diff_c2 = float(np.max(np.abs(c2_indep - c2_repo)))
-    corr_c2 = float(np.corrcoef(c2_indep, c2_repo)[0, 1])
-    
-    report = {
-        "n_galaxies": len(indep_records),
-        "n_total_points": int(len(v_pred_indep)),
-        "max_abs_diff_v_pred_km_s": max_diff_vp,
-        "pearson_corr_v_pred": corr_vp,
-        "max_abs_diff_chi2_red": max_diff_c2,
-        "pearson_corr_chi2_red": corr_c2,
-        "agreement": max_diff_vp == 0 and max_diff_c2 == 0
-    }
-    
-    out_file = SCRIPT_DIR / "SPARC_RECOMPUTE_VERIFICATION.json"
-    out_file.write_text(json.dumps(report, indent=2))
-    print(json.dumps(report, indent=2))
-    print(f"Wrote verification report to {out_file}")
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

@@ -2,10 +2,17 @@
 """Reproduce SPARC rotation-curve fits for the Law of G.O.D. master manuscript.
 
 Data: SPARC Rotmod_LTG (Lelli+2016c) *_rotmod.dat files.
-Strict mode: fixed a0 = c*H0/(2*pi), chirally-derived tau interpolation (Thm 8.7), zero per-galaxy params.
-  tau(g) = 1/2 + sqrt(1/4 + a0/g); v_pred = v_bary * sqrt(tau). See DERIVATION_MU_INTERPOLATION__8_7.md.
-Nuisance mode: per-galaxy fit of disk M/L (Yd), bulge M/L (Yb if bulge), distance scale (fd)
-  with Gaussian priors matching standard SPARC practice (see script docstring in output JSON).
+Model: mu_std(x) = x/sqrt(1+x^2) (the live interpolating function since 2026-09-12; the
+  tau(g) = 1/2 + sqrt(1/4 + a0/g) form this header described until 2026-10-09 is the inverse of the
+  retired mu_dual and is not what the code computes).
+Baryons (SPARC convention, Lelli+2016, and parameter_ledger.py):
+  V_bar^2 = V_gas|V_gas| + Yd V_disk^2 + Yb V_bul^2   (Y multiplies V^2; negative V_gas subtracts)
+  distance factor fd: V_bar^2 -> fd V_bar^2, R -> fd R, so g_bar = V_bar^2/R is distance-independent.
+Strict mode: fixed a0, unit M/L (Yd = Yb = 1), fd = 1: no per-galaxy parameters. The model still
+  carries the theory's two irreducible inputs: the a0 scale and the mu choice.
+Nuisance mode: per-galaxy fit of Yd, Yb (if bulge) and fd with Gaussian priors N(0.5, 0.125),
+  N(0.7, 0.175), N(1, 0.10) (standard SPARC practice).
+Controls: baryons only (Newtonian), Yd = Yb = 1, fd = 1.
 
 Usage:
   python3 sparc_reproduce.py
@@ -83,7 +90,10 @@ def load_rotmod(path: Path) -> dict | None:
 
 
 def v_baryon(v_gas, v_disk, v_bulge, yd: float, yb: float) -> np.ndarray:
-    vb_sq = np.maximum(v_gas * np.abs(v_gas) + (yd * v_disk) ** 2 + (yb * v_bulge) ** 2, 1e-12)
+    """V_bar at fd = 1. Y multiplies V^2 (mass-to-light scales the mass, so V^2), and a
+    negative SPARC V_gas (net outward gas force) subtracts: V_gas|V_gas|. Same form as
+    parameter_ledger.v_bary_sq. Until 2026-10-09 this squared (Y V)^2, which is Y^2 V^2."""
+    vb_sq = np.maximum(v_gas * np.abs(v_gas) + yd * v_disk**2 + yb * v_bulge**2, 1e-12)
     return np.sqrt(vb_sq)
 
 
@@ -96,20 +106,25 @@ def predict_velocity(
     solar-system bounds by ~5.7e5x. See TARGET_D7_COVARIANT_COMPLETION.md Sec 4
     and 02_galaxy_dynamics/SPARC_MU_STD_RECOMPUTE_2026-09-12.md.
 
-    KNOWN SEPARATE BUG, not fixed here: this script's SPARC-file parser uses
-    re.findall(r"\\d+\\.\\d+") which drops the minus sign on negative v_gas
-    values, so its output is not directly comparable to parameter_ledger.py's
-    tier-0 numbers even after this mu fix. Flagged, not fixed, in this pass.
+    Distance factor fd (parameter_ledger.v_mond_like): V_bar^2 -> fd V_bar^2 and R -> fd R.
+    Until 2026-10-09 this divided R by fd and left V_bar unscaled. The parser sign bug noted
+    here before is fixed in load_rotmod.
     """
-    r_m = r_kpc * KPC_TO_M / fd
-    v_m = v_bary * KM_TO_M
-    a_bary = v_m**2 / np.maximum(r_m, 1e-6)
+    vb2_m = fd * (v_bary * KM_TO_M) ** 2
+    r_m = r_kpc * KPC_TO_M * fd
+    a_bary = vb2_m / np.maximum(r_m, 1e-6)
     g_std = np.sqrt(0.5 * a_bary**2 + np.sqrt(0.25 * a_bary**4 + (a_bary**2) * (a0**2)))
-    return v_bary * np.sqrt(np.maximum(g_std / np.maximum(a_bary, 1e-30), 0.0))
+    return np.sqrt(vb2_m * np.maximum(g_std / np.maximum(a_bary, 1e-30), 0.0)) / KM_TO_M
 
 
 def chi2_data(v_obs, v_model, v_err) -> float:
     return float(np.sum(((v_obs - v_model) / v_err) ** 2))
+
+
+def newtonian_chi2(g: dict) -> float:
+    """Baryons-only control: V_pred = V_bar at unit M/L, fd = 1. Returns chi2_data."""
+    vb = v_baryon(g["v_gas"], g["v_disk"], g["v_bulge"], 1.0, 1.0)
+    return chi2_data(g["v_obs"], vb, g["v_err"])
 
 
 def strict_chi2_reduced(g: dict, a0: float) -> float:
@@ -202,6 +217,8 @@ def main() -> None:
     strict_god = []
     strict_mond = []
     nuisance_god = []
+    newton = []
+    agg = {"strict_GOD": [0.0, 0], "strict_MOND": [0.0, 0], "nuisance_GOD": [0.0, 0], "newtonian": [0.0, 0]}
 
     for g in galaxies:
         s_god = strict_chi2_reduced(g, A0_HORIZON)
@@ -210,6 +227,14 @@ def main() -> None:
         strict_mond.append(s_mond)
         fit = fit_nuisance(g, A0_HORIZON)
         nuisance_god.append(fit["chi2_reduced"])
+        n_chi2 = newtonian_chi2(g)
+        newton.append(n_chi2 / g["n_points"])
+        for key, c2, dof in (("strict_GOD", s_god * g["n_points"], g["n_points"]),
+                             ("strict_MOND", s_mond * g["n_points"], g["n_points"]),
+                             ("nuisance_GOD", fit["chi2_data"], max(g["n_points"] - fit["n_free"], 1)),
+                             ("newtonian", n_chi2, g["n_points"])):
+            agg[key][0] += c2
+            agg[key][1] += dof
         vb = v_baryon(g["v_gas"], g["v_disk"], g["v_bulge"], 1.0, 1.0)
         vp = predict_velocity(vb, g["r"], A0_HORIZON)
         rows.append(
@@ -220,6 +245,7 @@ def main() -> None:
                 "chi2_reduced_strict_GOD": round(s_god, 4),
                 "chi2_reduced_strict_MOND": round(s_mond, 4),
                 "chi2_reduced_nuisance_GOD": round(fit["chi2_reduced"], 4),
+                "chi2_reduced_newtonian": round(n_chi2 / g["n_points"], 4),
                 "Yd_fit": round(fit["yd"], 3),
                 "Yb_fit": round(fit["yb"], 3),
                 "fd_fit": round(fit["fd"], 3),
@@ -230,19 +256,32 @@ def main() -> None:
 
     from datetime import date
 
+    import hashlib
+
+    digest = hashlib.sha256()
+    for path in sorted(args.data_dir.glob("*_rotmod.dat")):
+        digest.update(path.name.encode() + b"\0" + path.read_bytes())
     summary = {
         "generated": date.today().isoformat(),
-        "data_dir": str(args.data_dir),
+        # A content digest, not the local path: the path is machine-specific (2026-10-09).
+        "data": {"files": "SPARC Rotmod_LTG *_rotmod.dat (scripts/fetch_sparc.sh; RAW_DATA_MANIFEST.sha256)",
+                 "n_files": len(list(args.data_dir.glob("*_rotmod.dat"))),
+                 "sha256_names_and_bytes": digest.hexdigest()},
         "n_galaxies": len(galaxies),
+        "n_points": int(sum(g["n_points"] for g in galaxies)),
         "a0_horizon_m_s2": A0_HORIZON,
         "a0_mond_empirical_m_s2": A0_MOND,
         "strict_GOD": summarize(strict_god),
         "strict_MOND": summarize(strict_mond),
         "nuisance_GOD": summarize(nuisance_god),
+        "newtonian": summarize(newton),
+        "aggregate_chi2_per_dof": {k: v[0] / v[1] for k, v in agg.items()},
+        "total_dof": {k: v[1] for k, v in agg.items()},
         "note": (
             "Strict: fixed a0, unit M/L, no distance rescaling. "
             "Nuisance: per-galaxy Yd, Yb (if bulge), fd with Gaussian priors; "
-            "reduced chi2 = chi2_data/(N - Nfree)."
+            "reduced chi2 = chi2_data/(N - Nfree). Newtonian: baryons only, unit M/L. "
+            "V_bar^2 = V_gas|V_gas| + Yd V_disk^2 + Yb V_bul^2; fd scales V_bar^2 and R."
         ),
     }
 
