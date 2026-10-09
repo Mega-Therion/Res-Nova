@@ -4,8 +4,8 @@
   "claims": [
     {
       "id": "CLM-01",
-      "wording": "The dual-channel action F_dual(x) = x^2/2 - x + ln(1+x) has derivative x/(1+x).",
-      "state": "formally-verified",
+      "wording": "The previously asserted identity F_dual'(x) = x/(1+x) is false; for x > 0, direct differentiation gives F_dual'(x) = x^2/(1+x).",
+      "state": "proposed",
       "assurance_level": "formal-algebraic",
       "formal_artifacts": [
         "05_lean_formalization/DualChannelDerivation.lean",
@@ -14,21 +14,21 @@
       "computational_artifacts": [],
       "data_artifacts": [],
       "assumptions": [
-        "The claim is an algebraic identity over the declared Lean types."
+        "F_dual(x) = x^2/2 - x + ln(1+x), over the real numbers and x > 0."
       ],
       "verification_commands": [
         "cd 05_lean_formalization && bash verify_all_proofs.sh"
       ],
       "independent_witness": "assurance/evidence/res_nova_verify_final.log",
-      "limitations": "This does not establish physical uniqueness or empirical adequacy. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
+      "limitations": "The corrected derivative identity is elementary calculus, but the newly added Lean theorem has not yet passed the repository gate. The x/(1+x) constitutive branch is retired and physically falsified; this correction does not restore it or establish physical uniqueness or empirical adequacy.",
       "status_owner": "Res-Nova formalization maintainers",
       "claim_type": "algebraic-identity",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-01",
       "falsifiability": {
-        "test": null,
-        "scope": null,
-        "result": "not_run"
+        "test": "Differentiate F_dual exactly and compare with x/(1+x).",
+        "scope": "F_dual(x)=x^2/2-x+ln(1+x) for x>0.",
+        "result": "contradicted"
       },
       "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
     },
