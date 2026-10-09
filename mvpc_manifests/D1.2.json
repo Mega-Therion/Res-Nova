@@ -1,16 +1,17 @@
 {
   "schema_version": "mvpc-claim-manifest-v1",
   "claim_id": "D1.2",
-  "title": "Dual-channel action yields simple mu derivative identity",
-  "statement": "Dual-channel kinetic action F(x) = x^2/2 - x + ln(1+x) satisfies F'(x) = x/(1+x) and mu(x) = x/(1+x) with mu(x) < 1 for all x > 0 and deep-MOND scaling mu(x) ~ x as x -> 0.",
+  "title": "Retired dual-channel derivative claim (corrected identity under verification)",
+  "statement": "RETRACTED: The prior assertion F'(x) = x/(1+x) is false for F(x) = x^2/2 - x + ln(1+x). Direct differentiation gives F'(x) = x - 1 + 1/(1+x) = x^2/(1+x). The retired constitutive definition mu(x)=x/(1+x) is not this derivative.",
   "epistemic_tier": "[P]",
-  "status": "VERIFIED",
+  "status": "RETRACTED",
   "target_backend": "lean4",
   "artifacts": [
     {
       "path": "05_lean_formalization/DualChannelDerivation.lean",
-      "sha256": "c2c5e4ec54008457a4121b8517e11e674a458ada3fcf6c1b01ec3275f0672fae",
+      "sha256": "15de1bdef5ed835de55ddc8bf7a66068c9807ba24fb5b9e26cfd2e1142f7040d",
       "theorems": [
+        "F_dual_hasDerivAt",
         "dual_channel_flux_algebra",
         "mu_derived_inversion",
         "mu_derived_deep_mond_upper_bound",
@@ -39,7 +40,8 @@
     ],
     "custom_axioms": [],
     "sorry_count": 0,
-    "pass": true
+    "pass": false,
+    "note": "Corrected derivative theorem added on PR branch; Lean gate failed before theorem compilation because manifest hashes, current-state freshness, and visualizer ledger were stale. Re-run the gate before asserting formal verification."
   },
   "epistemic_boundary": {
     "scope": "Mathematical proof of algebraic identity only.",
