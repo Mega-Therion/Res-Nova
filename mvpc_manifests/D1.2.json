@@ -3,7 +3,7 @@
   "claim_id": "D1.2",
   "title": "Retired dual-channel derivative claim (corrected identity under verification)",
   "statement": "RETRACTED: The prior assertion F'(x) = x/(1+x) is false for F(x) = x^2/2 - x + ln(1+x). Direct differentiation gives F'(x) = x - 1 + 1/(1+x) = x^2/(1+x). The retired constitutive definition mu(x)=x/(1+x) is not this derivative.",
-  "epistemic_tier": "[P]",
+  "epistemic_tier": "[X]",
   "status": "RETRACTED",
   "target_backend": "lean4",
   "artifacts": [
@@ -41,7 +41,7 @@
     "custom_axioms": [],
     "sorry_count": 0,
     "pass": false,
-    "note": "Corrected derivative theorem added on PR branch; Lean gate failed before theorem compilation because manifest hashes, current-state freshness, and visualizer ledger were stale. Re-run the gate before asserting formal verification."
+    "note": "The original derivative claim is retracted. The corrected calculus theorem is proposed on PR #141 but has not been compiled by the Lean gate; the successful PR workflow only ran the Python/local gate and MVPC-X judge."
   },
   "epistemic_boundary": {
     "scope": "Mathematical proof of algebraic identity only.",
