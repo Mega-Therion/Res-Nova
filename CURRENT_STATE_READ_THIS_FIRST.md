@@ -60,6 +60,14 @@ The 2026-10-09 stamp records (none of it changes a tier or a physical result):
   - `NavierStokesTarget.lean` was added and scoped in `ADJACENT_MODULES.txt`. It freezes the periodic target as a `Prop` and proves a single-time alignment step.
   - None of this touches a D-target or the MOND manuscript.
 
+- **Withdrawn phrasing and swapped names, now gated (`scripts/dead_branch_scan.py`).**
+  - New entity: the withdrawn "zero free parameters / parameter-free" claim. The standing accounting is two irreducible inputs, the a₀ scale and the μ choice.
+  - New entity: swapped μ names. The literature's simple μ is x/(1+x) and its standard μ is x/√(1+x²) = μ_std (Famaey & McGaugh 2012, Eqs. 42, 49).
+  - The μ_dual and F_dual patterns now match Unicode. That is how book chapters 12 and 15 still presented x/(1+x) as the theory's core.
+  - The live surfaces that fired were fixed, and the historical ones got dated notices.
+  - The fourth a₀ (1.2211×10⁻¹⁰) is traced and retired: see the Λ_SC bullet above.
+  - No tier and no physical result changed.
+
 `PEER_REVIEW_READINESS.md` was re-read. At that point its D8 row was `[P]` for the structural argument (no TT piece in δA),
 with arithmetic Lean behind it. The [P]-rule decision above, made the same day, relabelled D8 `[D]`. This stamp is not a new physical result.
 
