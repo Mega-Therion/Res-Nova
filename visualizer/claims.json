@@ -12,7 +12,7 @@
   },
   {
    "id": "CLM-02",
-   "wording": "The geometry selects the quadratic boundary condition, hence mu_simple(x) = x/sqrt(1+x^2); equivalently mu_simple = cos of the projection angle between total and Newtonian legs.",
+   "wording": "The geometry selects the quadratic boundary condition, hence mu(x) = x/sqrt(1+x^2) (the standard mu, mu_std; the Lean identifiers call it mu_simple, but the simple mu of the MOND literature is x/(1+x)); equivalently mu_simple = cos of the projection angle between total and Newtonian legs.",
    "state": "formally-verified",
    "claim_type": "formal-proof",
    "limitations": "Selection is by ELIMINATION within the two candidate ansaetze considered: powerLaw_solves_dilaton_eom shows sigma(r)=k/r with k^2=2c^4/a0^2 satisfies the EOM, while exp_profile_fails_cubic shows the linear-BC exponential cannot. This does not establish that no third ansatz exists. laws_differ separately proves x/(x+1) and x/sqrt(1+x^2) are distinct functions, so the earlier corpus contradiction between them was real. CAS companion mu_residual_witness.py (11/11) lives in the Chyren repo at Research_and_Data/02_Documents/, outside this repository.",

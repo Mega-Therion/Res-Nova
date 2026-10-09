@@ -33,7 +33,7 @@ Held to its own concentration prior, NFW’s median is 5.62 against GOD’s 2.95
 
 ## Working `a0` (not a budget row, a measurement)
 
-`a0 = 1.116\times 10^{-10}` ± `0.128\times 10^{-10}` (stat) ± `0.097\times 10^{-10}` (syst), `N=171`, 3375 points. Total 14.4%. Horizon `0.46\sigma`. MOND `0.52\sigma`.
+`a0 = 1.1607\times 10^{-10}` (μ_std, `N=175`, 3391 points; bootstrap 68% `[1.059, 1.232]`, 95% `[0.972, 1.295]` ×10⁻¹⁰; `A0_DISTANCE_CORRECTED_2026-09-16.json` T1). **Superseded 2026-09-17:** `1.116\times 10^{-10}` ± `0.128` (stat) ± `0.097` (syst) ×10⁻¹⁰, `N=171`, 3375 points, total 14.4%, horizon `0.46\sigma`, MOND `0.52\sigma`, fitted under the retired μ_dual.
 
 ## Provenance tags (`PARAMETER_LEDGER.json`)
 
