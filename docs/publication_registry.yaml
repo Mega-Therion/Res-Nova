@@ -2476,3 +2476,41 @@ works:
     is_latest: true
     has_versions: []
     is_new_version_of: ["10.5281/zenodo.21131486"]
+
+  # Added 2026-10-09, copied field by field from DataCite (title, creators, type, version, issued
+  # date, IsVersionOf). They are the two pre-registrations the IO-OI monograph cites
+  # (03_observer_jwst/io_oi_refs.bib). Each cited version is the latest in its concept
+  # (Zenodo API, 2026-10-09).
+  - work_id: omegacdm_preregistered_prediction
+    title: "ΩCDM: A Pre-Registered Cosmological Prediction — Ω_Λ = ln 2 as a Fixed Constant"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Preprint"
+    canonical_doi: "10.5281/zenodo.21867985"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-08-10"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21867984"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: preregistered_falsifiable_predictions_v2
+    title: "Pre-Registered Falsifiable Predictions — Information Tension / Geometrodynamics (v2, corrected)"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Preprint"
+    canonical_doi: "10.5281/zenodo.21864057"
+    lineage: manuscript
+    role: version
+    version: "2.0"
+    status: live
+    publication_date: "2026-08-09"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21864056"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
