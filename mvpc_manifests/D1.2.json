@@ -9,9 +9,12 @@
   "artifacts": [
     {
       "path": "05_lean_formalization/DualChannelDerivation.lean",
-      "sha256": "15de1bdef5ed835de55ddc8bf7a66068c9807ba24fb5b9e26cfd2e1142f7040d",
+      "sha256": "472eca13a77c0054da4b1dce606c1838b105a7597f847f6755e55629adaaeffc",
       "theorems": [
         "F_dual_hasDerivAt",
+        "F_dual_hasDerivAt_sq",
+        "F_dual_hasDerivAt_mu",
+        "F_dual_deriv_ne_mu_derived",
         "dual_channel_flux_algebra",
         "mu_derived_inversion",
         "mu_derived_deep_mond_upper_bound",
