@@ -747,7 +747,7 @@ and the structure theorem says by how much.
   correction; the verdict (μ_std survives, μ_dual does not) is unchanged and the contrast is
   still 4–5 orders of magnitude, since μ_dual's residual is `≥a₀` at *every* radius.
 - **First upper bound on λ_s in this corpus: `λ_s = O(1)`, binding at Saturn** — `≲2.7` by the
-  `Q₂ᵉᑫ` route, `≲1.0` by the precession route. D7 §2.2 recorded `λ_s∈(0,∞)` unfixed by the MOND
+  `Q₂ᵉᑫ` route, `≲1.0` by the precession route *(withdrawn 2026-09-20, as this file's header says: it required a 0.10 mas/cy ceiling; the live precession bound is `≲2.2`)*. D7 §2.2 recorded `λ_s∈(0,∞)` unfixed by the MOND
   limit **[O]**; this closes the upper half. At `λ_s≲1`: `G_N/Ĝ = 1+1/λ_s ≳ 2` and
   `ã₀ = (1+λ_s)a₀ ≲ 2a₀`. Existence of the bound **[D]**, the number **[C]** (see above). The
   lower half is still open.
@@ -798,7 +798,7 @@ EOF
 | `δg ∝ r²` is a **monopole**; `Q₂ᵉᑫ=δg/r` against an anisotropic-quadrupole bound is the weak link | **[D]** | §8.4 |
 | `r²` profile not degenerate with `GM_⊙`(r⁻²), `J₂`(r⁻⁴), Λ(r¹) or the MOND EFE quadrupole(r¹, anisotropic) | **[D]** | §8.4 |
 | **Existence of an O(1) upper bound on λ_s**, binding at Saturn — first in this corpus | **[D]** | §8.4 |
-| The number: `λ_s ≲ 2.7` (Q₂ route; 2.6 at the live a₀) / `≲1.0` (precession route); quote `λ_s ≲ 1–3` | **[C]** | §8.4 — mapping + bound provenance |
+| The number: `λ_s ≲ 2.7` (Q₂ route; 2.6 at the live a₀) / `≲2.2` (precession route; the earlier `≲1.0` is withdrawn); quote `λ_s ≲ 1–3` | **[C]** | §8.4 — mapping + bound provenance |
 
 ### 8.6 Verdict
 
@@ -820,7 +820,7 @@ obstruction is therefore §8.4**: μ_std's residual force `(1+λ_s)³a₀²/2g_N
 the binding test is Saturn rather than Mercury, the margin there is **50×** (`Q₂ᵉᑫ` route) or **7.6×**
 (perihelion-precession route) rather than the 1300× the corpus currently quotes, and requiring
 it gives the first real constraint on the tracking slope, **`λ_s = O(1)`** — `≲2.7` and `≲1.0`
-by the two routes. The *existence* of that bound is **[D]**; the number is **[C]**, limited by
+by the two routes *(the `≲1.0` and the 7.6× precession margin used the withdrawn 0.10 mas/cy reading; with Hees et al. 2014 the margin is 33× and the bound `≲2.2`)*. The *existence* of that bound is **[D]**; the number is **[C]**, limited by
 the monopole-vs-quadrupole mapping in the first route and by ephemeris-bound provenance in the
 second. Handing off: the exact numerics above to the falsifier; the
 Lean statement `Φ=Ψ ⇐ A^i=0 ∧ ∂_iφ̄=0`, whose substitutability test is whether it still closes

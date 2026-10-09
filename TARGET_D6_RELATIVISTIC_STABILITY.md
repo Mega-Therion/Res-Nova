@@ -12,7 +12,7 @@
 > **genuine AeST** — the Skordis–Złośnik action (PRL 127, 161302; arXiv:2007.00082) with scalar
 > field $\mathcal{Y}$ and minimal matter coupling, on the $V_2(\mathbb{R}^3)$ Cartan-trialality substrate —
 > with $\mu_{\rm std}(x)=x/\sqrt{1+x^2}$ selected by the empirical coordinate elimination
-> (`TARGET_D2_SUPPLEMENT` §8) and bounded $\lambda_s \lesssim 2.7$ (Cassini Q₂ heuristic at a₀ = 1.116; 2.6 at the live 1.1607) / $\lesssim 1.0$
+> (`TARGET_D2_SUPPLEMENT` §8) and bounded $\lambda_s \lesssim 2.7$ (Cassini Q₂ heuristic at a₀ = 1.116; 2.6 at the live 1.1607) / $\lesssim 2.2$ (precession; the earlier $\lesssim 1.0$ is withdrawn)
 > (perihelion) (`TARGET_D1_SUPPLEMENT` §4). $c_T=c$ is structural and F-independent (`TARGET_D8`,
 > revalidation rows 12–15), as is PPN $\gamma=1$ (`TARGET_D3`). Its ghost-free closure is
 > **identical and verified twice independently**:

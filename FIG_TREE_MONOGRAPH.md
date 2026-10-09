@@ -140,7 +140,7 @@ $$T_H = \frac{\hbar H_0}{2\pi k_B c}$$
 From horizon information conservation, the critical acceleration scale below which boundary information tension dominates bulk inertia is:
 $$\boxed{a_0 = \frac{c H_0}{2\pi}}$$
 
-With $H_0 = 67.4\;\text{km/s/Mpc}$ (Planck 2018), this evaluates to $a_0^{\text{FIG}} = 1.042 \times 10^{-10}\;\text{m/s}^2$. With $H_0 = 73.0$ (SH0ES), $a_0^{\text{FIG}} = 1.129 \times 10^{-10}$. The Res-Nova SPARC fit under $\mu_{\text{std}}$ over all 175 galaxies measures $a_0^{\text{obs}} = 1.1607 \times 10^{-10}\;\text{m/s}^2$ (bootstrap 95% $[0.972, 1.295]$; the earlier 171-galaxy $1.116 \pm 0.161$ was fitted under the retired $\mu_{\text{dual}}$), which the derived value brackets across the current $H_0$ tension range.
+With $H_0 = 67.4\;\text{km/s/Mpc}$ (Planck 2018), this evaluates to $a_0^{\text{FIG}} = 1.042 \times 10^{-10}\;\text{m/s}^2$. With $H_0 = 73.0$ (SH0ES), $a_0^{\text{FIG}} = 1.129 \times 10^{-10}$. The Res-Nova SPARC fit under $\mu_{\text{std}}$ over all 175 galaxies measures $a_0^{\text{obs}} = 1.1607 \times 10^{-10}\;\text{m/s}^2$ (bootstrap 95% $[0.972, 1.295]$; the earlier 171-galaxy $1.116 \pm 0.161$ was fitted under the retired $\mu_{\text{dual}}$). The derived range, $1.042$–$1.129$ from Planck to SH0ES, lies inside the measurement's 95% interval, but the measured central value sits above it.
 
 > **On the value of $a_0$.** The prediction is fixed by $H_0$: with $H_0 = 67.4$ (Planck)
 > the relation gives $a_0 = 1.042\times10^{-10}\,\mathrm{m\,s^{-2}}$, and with $H_0 = 73.0$
@@ -150,6 +150,8 @@ With $H_0 = 67.4\;\text{km/s/Mpc}$ (Planck 2018), this evaluates to $a_0^{\text{
 
 ### III.1 — Read backwards, the relation is a cosmological probe
 
+> **Correction (2026-10-09).** Forward: the live $\mu_{\rm std}$ measurement $a_0 = 1.1607$ lies above the range $[1.042, 1.129]$, which in turn lies inside its 95% interval $[0.972, 1.295]$. So the agreement is consistency within the interval, not bracketing. The inversion below was computed from the superseded 171-galaxy $\mu_{\rm dual}$ fit, $a_0 = 1.116 \pm 0.161$. With the live $\mu_{\rm std}$ value (`02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json`), all 175 galaxies give $H_0 = 75.1$ (95% $[62.9, 83.7]$) km/s/Mpc. The 78 galaxies whose distances do not assume $H_0$ give $75.2$ (95% $[62.5, 85.6]$), and rescaling the Hubble-flow distances to Planck gives $71.0$ (95% $[59.9, 79.8]$). The route is **not** free of the distance ladder: 97 of the 175 SPARC distances are Hubble-flow distances that assume $H_0 = 73$, and the rest are TRGB, Cepheid, cluster and supernova distances. The figures below are kept as the record of the superseded computation.
+
 Forward, the relation is weak: $a_0^{\text{FIG}}$ lands anywhere in
 $[1.0422, 1.1288] \times 10^{-10}$ across the $H_0$ tension interval, so agreement with
 $a_0^{\text{obs}}$ is bracketing, not prediction. Recorded honestly, that was an open item.
@@ -158,8 +160,6 @@ But the relation is an equality, and an equality may be read from either end. In
 turns the *measurement* into the input:
 
 $$\boxed{H_0 = \frac{2\pi a_0}{c}}$$
-
-> **Correction (2026-10-09).** The inversion below was computed from the superseded 171-galaxy $\mu_{\rm dual}$ fit, $a_0 = 1.116 \pm 0.161$. With the live $\mu_{\rm std}$ value (`02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json`), all 175 galaxies give $H_0 = 75.1$ (95% $[62.9, 83.7]$) km/s/Mpc. The 78 galaxies whose distances do not assume $H_0$ give $75.2$ (95% $[62.5, 85.6]$), and rescaling the Hubble-flow distances to Planck gives $71.0$ (95% $[59.9, 79.8]$). The route is **not** free of the distance ladder: 97 of the 175 SPARC distances are Hubble-flow distances that assume $H_0 = 73$, and the rest are TRGB, Cepheid, cluster and supernova distances. The figures below are kept as the record of the superseded computation.
 
 With $a_0^{\text{obs}} = (1.116 \pm 0.161) \times 10^{-10}\;\text{m/s}^2$ from 171 SPARC
 galaxies (stat and syst combined in quadrature):
