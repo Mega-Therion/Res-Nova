@@ -1,0 +1,27 @@
+/tmp/claude-1000/-home-mega/bc48b354-7191-4780-abc4-6b74e703368f/scratchpad/falsifier/s3_qumond_fft.py:19: RuntimeWarning: divide by zero encountered in divide
+  nu = lambda y: np.sqrt((1 + np.sqrt(1 + 4 / y**2)) / 2)
+/tmp/claude-1000/-home-mega/bc48b354-7191-4780-abc4-6b74e703368f/scratchpad/falsifier/s3_qumond_fft.py:40: RuntimeWarning: invalid value encountered in multiply
+  Fk = [sfft.rfftn(nv * g, workers=8) for g in gN]
+y_e = GE/A0 = 1.8234; nu_e = 1.1145; K0 = -0.1631
+linear QUMOND (B&Z eq.15): boost axis = 1.1145, perp = 1.0236, ratio = 1.0888
+mock E linear limit: axis = nu_e(1+K0) = 0.9327, perp = nu_e = 1.1145, ratio = 0.8369
+
+FFT QUMOND  N=256 L=32.0 soft=0.2
+   r   gNint/gNe | PDE axis  PDE perp  PDE ax/pp | mockE axis mockE perp mockE ax/pp
+ 0.750    0.972   |  1.0265   1.0623    0.9662  |  0.9859    1.0659     0.9250
+ 1.000    0.548   |  1.0421   1.0700    0.9739  |  0.9347    1.0926     0.8555
+ 1.500    0.244   |  1.0682   1.0538    1.0137  |  0.9328    1.1094     0.8408
+ 2.000    0.137   |  1.0814   1.0408    1.0390  |  0.9327    1.1128     0.8381
+ 3.000    0.061   |  1.0924   1.0288    1.0618  |  0.9327    1.1142     0.8371
+ 4.000    0.034   |  1.0956   1.0237    1.0702  |  0.9327    1.1144     0.8369
+
+FFT QUMOND  N=256 L=24.0 soft=0.15
+   r   gNint/gNe | PDE axis  PDE perp  PDE ax/pp | mockE axis mockE perp mockE ax/pp
+ 0.562    1.728   |  1.0248   1.0383    0.9870  |  1.0542    1.0346     1.0189
+ 0.750    0.975   |  1.0264   1.0632    0.9654  |  0.9878    1.0657     0.9268
+ 1.125    0.433   |  1.0512   1.0683    0.9839  |  0.9335    1.0997     0.8488
+ 1.500    0.243   |  1.0690   1.0553    1.0130  |  0.9328    1.1094     0.8408
+ 2.250    0.108   |  1.0864   1.0386    1.0460  |  0.9327    1.1135     0.8377
+ 3.000    0.060   |  1.0935   1.0316    1.0600  |  0.9327    1.1142     0.8371
+
+control gNe=0: [(1.0, np.float64(nan)), (2.0, np.float64(nan))]

@@ -1,0 +1,14 @@
+mu_std(x) = x/sqrt(x**2 + 1)
+K_e = d ln mu/d ln x = 1/(x**2 + 1)   (claimed 1/(1+x^2)) -> equal: True
+  K_e(x=1.8) = 0.23585   claimed ~0.24
+  K_e(x=1.785) = 0.23888   claimed ~0.24
+K0(y) = d ln nu/d ln y = -2/(y**2 + y*sqrt(y**2 + 4) + 4)
+  x=1.785: y=x*mu=1.5573  L=0.23888  K0=-0.19282  (1+L)(1+K0)=1.000000  -L/(1+L)=-0.19282  nu(y)*mu(x)=1.000000
+  x=1.8: y=x*mu=1.5735  L=0.23585  K0=-0.19084  (1+L)(1+K0)=1.000000  -L/(1+L)=-0.19084  nu(y)*mu(x)=1.000000
+  x=2.0: y=x*mu=1.7889  L=0.20000  K0=-0.16667  (1+L)(1+K0)=1.000000  -L/(1+L)=-0.16667  nu(y)*mu(x)=1.000000
+AQUAL: linearised operator on Phi (r != 0) simplifies to: 0
+  AQUAL flux (L=0.1953) / (4 pi G M) = 1.000000  (must be 1)
+  AQUAL flux (L=0.2389) / (4 pi G M) = 1.000000  (must be 1)
+QUMOND: nabla^2 Phi - nu_e K0 d_z^2 phiN (r != 0) = 0
+  claimed x_e=1.8: AQUAL v_c^2(0)/v_c^2(90) = sqrt(1+K_e) = 1.11169
+B&Z setup: g_ext=2.1419e-10  a0=1.200e-10  x_e=1.7849  nu_ext=1/mu=1.1462 (B&Z 1.1462)  L0=0.2389  K0=-0.1928  eta_QUMOND=1.0726 (1.0726)  eta_AQUAL=1.0662 (1.0661)

@@ -1,0 +1,26 @@
+MC N=4000000: median |cos psi| = 0.70688 (uniform psi -> cos45 = 0.70711); Q(q1=0.5)=0.7810
+<sin^2 th> aligned/perp: 3D split 0.4164/0.9167; sky split 0.5248/0.8082  (extreme 0/1)
+prereg AQUAL x=1.8 K=0.236     Q=yes: v2(0)/v2(90)=1.0878  R(0)-R(90)=+0.0434  <R>-1=+0.0251  dR 3D-median=+0.0210  dR sky-median=+0.0121  surviving sky/extreme=0.280
+prereg AQUAL x=1.8 K=0.236     Q=no : v2(0)/v2(90)=1.1117  R(0)-R(90)=+0.0551  <R>-1=+0.0320  dR 3D-median=+0.0267  dR sky-median=+0.0154  surviving sky/extreme=0.280
+QUMOND B&Z eq15, code y_e      Q=yes: v2(0)/v2(90)=1.0697  R(0)-R(90)=+0.0346  <R>-1=+0.0208  dR 3D-median=+0.0174  dR sky-median=+0.0099  surviving sky/extreme=0.285
+QUMOND B&Z eq15, code y_e      Q=no : v2(0)/v2(90)=1.0888  R(0)-R(90)=+0.0440  <R>-1=+0.0266  dR 3D-median=+0.0222  dR sky-median=+0.0125  surviving sky/extreme=0.285
+existing mock E (algebraic)    Q=yes: v2(0)/v2(90)=0.8697  R(0)-R(90)=-0.0704  <R>-1=+0.0208  dR 3D-median=-0.0348  dR sky-median=-0.0197  surviving sky/extreme=0.280
+existing mock E (algebraic)    Q=no : v2(0)/v2(90)=0.8369  R(0)-R(90)=-0.0899  <R>-1=+0.0266  dR 3D-median=-0.0443  dR sky-median=-0.0251  surviving sky/extreme=0.279
+
+strict: sigma_dR per bin [0.034 0.046 0.172], inverse-variance weights [0.631 0.345 0.025], combined sigma_dR = 0.0270; 2-sigma Gate-1 needs dR >= 0.0540
+   prereg AQUAL x=1.8 K=0.236     Q=yes: upper-bound z = +0.450  (N multiplier for |z|=2:   19.8x)
+   prereg AQUAL x=1.8 K=0.236     Q=no : upper-bound z = +0.572  (N multiplier for |z|=2:   12.2x)
+   QUMOND B&Z eq15, code y_e      Q=yes: upper-bound z = +0.365  (N multiplier for |z|=2:   30.0x)
+   QUMOND B&Z eq15, code y_e      Q=no : upper-bound z = +0.465  (N multiplier for |z|=2:   18.5x)
+   existing mock E (algebraic)    Q=yes: upper-bound z = -0.730  (N multiplier for |z|=2:    7.5x)
+   existing mock E (algebraic)    Q=no : upper-bound z = -0.929  (N multiplier for |z|=2:    4.6x)
+   absolute ceiling (theta=0 vs 90 exactly, QUMOND, Q): dR=0.0346 -> z=1.28
+
+loose: sigma_dR per bin [0.022 0.034 0.1  ], inverse-variance weights [0.682 0.285 0.033], combined sigma_dR = 0.0182; 2-sigma Gate-1 needs dR >= 0.0363
+   prereg AQUAL x=1.8 K=0.236     Q=yes: upper-bound z = +0.669  (N multiplier for |z|=2:    8.9x)
+   prereg AQUAL x=1.8 K=0.236     Q=no : upper-bound z = +0.850  (N multiplier for |z|=2:    5.5x)
+   QUMOND B&Z eq15, code y_e      Q=yes: upper-bound z = +0.543  (N multiplier for |z|=2:   13.6x)
+   QUMOND B&Z eq15, code y_e      Q=no : upper-bound z = +0.691  (N multiplier for |z|=2:    8.4x)
+   existing mock E (algebraic)    Q=yes: upper-bound z = -1.085  (N multiplier for |z|=2:    3.4x)
+   existing mock E (algebraic)    Q=no : upper-bound z = -1.382  (N multiplier for |z|=2:    2.1x)
+   absolute ceiling (theta=0 vs 90 exactly, QUMOND, Q): dR=0.0346 -> z=1.90

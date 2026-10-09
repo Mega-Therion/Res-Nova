@@ -1,0 +1,14 @@
+A. prereg check: 1/(1+1.8^2) = 0.23584905660377356
+  mu_std    a0=1.042e-10 ge=1.90e-10 x_e=1.823 mu_e=0.8768 L0(=prereg K_e)=0.2312 K0(BZ QUMOND)=-0.1878 (1+L0)(1+K0)=1.0000 perp/along force: QUMOND 0.9061 AQUAL 0.9012
+  mu_std    a0=1.042e-10 ge=2.20e-10 x_e=2.111 mu_e=0.9038 L0(=prereg K_e)=0.1832 K0(BZ QUMOND)=-0.1549 (1+L0)(1+K0)=1.0000 perp/along force: QUMOND 0.9226 AQUAL 0.9193
+  mu_std    a0=1.200e-10 ge=1.90e-10 x_e=1.583 mu_e=0.8455 L0(=prereg K_e)=0.2851 K0(BZ QUMOND)=-0.2219 (1+L0)(1+K0)=1.0000 perp/along force: QUMOND 0.8891 AQUAL 0.8821
+  mu_std    a0=1.200e-10 ge=2.20e-10 x_e=1.833 mu_e=0.8779 L0(=prereg K_e)=0.2293 K0(BZ QUMOND)=-0.1865 (1+L0)(1+K0)=1.0000 perp/along force: QUMOND 0.9067 AQUAL 0.9019
+  mu_simple a0=1.042e-10 ge=1.90e-10 x_e=1.823 mu_e=0.6458 L0(=prereg K_e)=0.3542 K0(BZ QUMOND)=-0.2615 (1+L0)(1+K0)=1.0000 perp/along force: QUMOND 0.8692 AQUAL 0.8593
+  mu_simple a0=1.042e-10 ge=2.20e-10 x_e=2.111 mu_e=0.6786 L0(=prereg K_e)=0.3214 K0(BZ QUMOND)=-0.2432 (1+L0)(1+K0)=1.0000 perp/along force: QUMOND 0.8784 AQUAL 0.8699
+  mu_simple a0=1.200e-10 ge=1.90e-10 x_e=1.583 mu_e=0.6129 L0(=prereg K_e)=0.3871 K0(BZ QUMOND)=-0.2791 (1+L0)(1+K0)=1.0000 perp/along force: QUMOND 0.8605 AQUAL 0.8491
+  mu_simple a0=1.200e-10 ge=2.20e-10 x_e=1.833 mu_e=0.6471 L0(=prereg K_e)=0.3529 K0(BZ QUMOND)=-0.2609 (1+L0)(1+K0)=1.0000 perp/along force: QUMOND 0.8696 AQUAL 0.8597
+B. pipeline-E  gN/ge=0.01: radial boost aligned=0.9327 perp=1.1145 aligned-perp=-0.1818  (BZ field-equation sign: aligned > perp)
+B. pipeline-E  gN/ge=0.10: radial boost aligned=0.9327 perp=1.1136 aligned-perp=-0.1809  (BZ field-equation sign: aligned > perp)
+B. pipeline-E  gN/ge=0.50: radial boost aligned=0.9341 perp=1.0956 aligned-perp=-0.1616  (BZ field-equation sign: aligned > perp)
+B. pipeline-E  gN/ge=1.50: radial boost aligned=1.0699 perp=1.0418 aligned-perp=+0.0282  (BZ field-equation sign: aligned > perp)
+   pipeline treats GE as Newtonian: nu_e=1.1145, K0=-0.1631; algebraic predicts aligned/perp = 1+K0 = 0.8369; BZ Eq.37 predicts perp/aligned = 1+K0/2 = 0.9184

@@ -1,0 +1,5 @@
+sigma_test [0.0155 0.0219 0.0857] sigma_dR floor per bin [0.031  0.0438 0.1714] combined floor 0.0250; Gate-1 2sigma needs dR >= 0.0501
+  QUMOND sky-split Q           dR=0.0099 -> z <= 0.40
+  prereg AQUAL sky-split noQ   dR=0.0154 -> z <= 0.62
+  ceiling theta 0 vs 90, Q     dR=0.0346 -> z <= 1.38
+  ceiling noQ prereg K         dR=0.0551 -> z <= 2.20

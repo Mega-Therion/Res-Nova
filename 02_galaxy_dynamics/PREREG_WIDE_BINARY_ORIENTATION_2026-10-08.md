@@ -50,7 +50,7 @@ Two independent passes attacked this protocol: a numerical check and a referee p
 **A2. Model input.**
 - The potential written above is Banik & Zhao's **AQUAL** form (arXiv:1509.08457, Eq. 18). Its K_e is their L0; it is renamed **L_e** here.
 - Because the pipeline is QUMOND, the injected model is their **QUMOND** form, Eq. 36: Φ = −(GMν_ext/r)(1 + (K0/2) sin²θ), with K0 = ∂ln ν/∂ln n at the Newtonian external field.
-- **The pipeline's `boost('E')` must not be used for injection.** Its anisotropy has the wrong sign: aligned 0.933 vs perpendicular 1.115 at g_N/g_ext = 0.01, while the field solution has aligned > perpendicular (`checks_a.out`, `s3_qumond_fft.out`, `s3c_qumond_converge.out`). Its orientation average equals the field solution's (1.05391, `s6_other_checks.out`), which is why R(s) fits are unaffected.
+- **The pipeline's `boost('E')` must not be used for injection.** Its anisotropy has the wrong sign: aligned 0.933 vs perpendicular 1.115 at g_N/g_ext = 0.01, while the field solution has aligned > perpendicular (`checks_a.txt`, `s3_qumond_fft.txt`, `s3c_qumond_converge.txt`). Its orientation average equals the field solution's (1.05391, `s6_other_checks.txt`), which is why R(s) fits are unaffected.
 - The injected model's orientation-averaged R(s) must reproduce the frozen E column. If it does not, it is a new model and needs its own χ² run first.
 
 **A3. Parameters, pinned.** These are the pipeline's constants (`wide_binary_fish.py`):
@@ -65,7 +65,7 @@ E's prediction is reported as a band over:
 Other a0 values may be added only by a later amendment committed before Gate 1.
 
 **A4. Regime.**
-- The asymptotic (external-field-dominated) form fails at 5–10 kAU, where q = g_N/g_ext = 0.25–2.25 for M = 0.8–1.8 M☉ (`s6_other_checks.out`), and is marginal at 10–20 kAU.
+- The asymptotic (external-field-dominated) form fails at 5–10 kAU, where q = g_N/g_ext = 0.25–2.25 for M = 0.8–1.8 M☉ (`s6_other_checks.txt`), and is marginal at 10–20 kAU.
 - ΔR_E therefore comes from a numerical QUMOND solve, or from a declared bracket [0, asymptotic]. The bracket's lower edge sets Gate 1 and the "disfavours E" threshold.
 
 **A5. Bins.**
@@ -79,13 +79,13 @@ Other a0 values may be added only by a later amendment committed before Gate 1.
   - a |cos ψ| split at 1/√2;
   - a split on w = sin²λ cos 2ψ at 0 (λ = angle between ĝ_ext and the line of sight);
   - a regression on w.
-- In the toy, the regression on w gave 1.217× the z of the |cos ψ| split (`checks_d.out`). The other two estimators are reported.
+- In the toy, the regression on w gave 1.217× the z of the |cos ψ| split (`checks_d.txt`). The other two estimators are reported.
 
 **A7. Gate 1 is raised.**
-- Gate 1 passes only if the median Z of ≥ 200 E mocks is **≥ 4**. At that separation, P(favour E | E) = 0.841 and P(disfavour E | S) = 0.954 (`checks_d.out`); at the old 2σ bar they were 0.159 and 0.477.
+- Gate 1 passes only if the median Z of ≥ 200 E mocks is **≥ 4**. At that separation, P(favour E | E) = 0.841 and P(disfavour E | S) = 0.954 (`checks_d.txt`); at the old 2σ bar they were 0.159 and 0.477.
 - σ comes from ≥ 200 isotropic-null mocks, and "favours E" must also exceed the largest null-mock value.
 - **Expected outcome: STOP.** These are two red-team upper bounds, not averaged and not results:
-  - z ≤ 0.40–0.62, with ceiling 1.38 for an exact 0°/90° split (`s4b_sigma_floor.out`);
+  - z ≤ 0.40–0.62, with ceiling 1.38 for an exact 0°/90° split (`s4b_sigma_floor.txt`);
   - Z ≲ 1.1 (referee panel).
 
 **A8. Decision rule, defined.**
@@ -96,8 +96,8 @@ Other a0 values may be added only by a later amendment committed before Gate 1.
 
 **A9. Mocks.**
 - λ comes from each binary's real (l, b). Positions only: no separation orientation is used.
-- The hidden-companion variant T and the Galactic tide are added to every model. The tide is ≤ 3.2×10⁻³ g_N at 30 kAU (`checks_d.out`).
-- Local-force velocities are checked against orbits integrated in Eq. 36. In the toy, 6.2% of orbits drifted in energy at K0 ≠ 0 (`checks_c2.out`).
+- The hidden-companion variant T and the Galactic tide are added to every model. The tide is ≤ 3.2×10⁻³ g_N at 30 kAU (`checks_d.txt`).
+- Local-force velocities are checked against orbits integrated in Eq. 36. In the toy, 6.2% of orbits drifted in energy at K0 ≠ 0 (`checks_c2.txt`).
 
 **A10. Pinned before running.**
 - The runner script, output file and commit are named in the Gate-1 commit.

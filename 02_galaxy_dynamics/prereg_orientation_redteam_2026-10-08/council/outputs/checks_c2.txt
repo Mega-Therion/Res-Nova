@@ -1,0 +1,8 @@
+k=+0.0000 kept orbits 100.0% (6000), snapshots 1512000
+  3D: median v^2 r ratio |cos th|>0.8 vs <0.2 = 1.0170; mean ratio = 1.0153  (ergodic 1/(1+k/2) = 1.0000)
+  sky, all snapshots: median v~ aligned/perp - 1 = +0.0060  (|cos psi| split at 1/sqrt2)
+  sky, 1 snapshot/orbit bootstrap: effect +0.0070 +- 0.0180 (N=6000 orbits)
+k=-0.1878 kept orbits 93.8% (5626), snapshots 1417752
+  3D: median v^2 r ratio |cos th|>0.8 vs <0.2 = 1.1100; mean ratio = 0.9923  (ergodic 1/(1+k/2) = 1.1036)
+  sky, all snapshots: median v~ aligned/perp - 1 = +0.0330  (|cos psi| split at 1/sqrt2)
+  sky, 1 snapshot/orbit bootstrap: effect +0.0340 +- 0.0183 (N=5626 orbits)

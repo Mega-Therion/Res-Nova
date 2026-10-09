@@ -1,0 +1,14 @@
+D. regress cos^2(theta) on w: intercept 0.3335 slope 0.3339 (predicted 1/3, 1/3)
+   Delta<cos^2 th> between |cos psi| halves = 0.2836 (8/(9pi)=0.2829); fraction of 3D signal range retained
+   relative z: median split |cos psi| 1.000 | split w>0 1.000 | regression on w 1.217
+   sky fraction with lambda<30deg (psi nearly uninformative): 0.134
+F. D=2: P(favour E|E)=0.159 P(favour E|S)=0.0013 P(disfavour E|S)=0.477 P(disfavour E|E)=0.0227 P(inconclusive|E)=0.819 P(inconclusive|S)=0.521
+F. D=3: P(favour E|E)=0.500 P(favour E|S)=0.0013 P(disfavour E|S)=0.819 P(disfavour E|E)=0.0227 P(inconclusive|E)=0.477 P(inconclusive|S)=0.180
+F. D=4: P(favour E|E)=0.841 P(favour E|S)=0.0013 P(disfavour E|S)=0.954 P(disfavour E|E)=0.0228 P(inconclusive|E)=0.136 P(inconclusive|S)=0.044
+F. D=5: P(favour E|E)=0.977 P(favour E|S)=0.0013 P(disfavour E|S)=0.954 P(disfavour E|E)=0.0013 P(inconclusive|E)=0.021 P(inconclusive|S)=0.044
+G. s=10 kAU M=1.2: radial tide/gN=3.7e-05, vertical tide/gN=1.2e-04
+G. s=20 kAU M=1.2: radial tide/gN=2.9e-04, vertical tide/gN=9.5e-04
+G. s=30 kAU M=1.2: radial tide/gN=9.9e-04, vertical tide/gN=3.2e-03
+   |z|=50 pc: K_z~8.76e-12 m/s^2 (linear, upper) -> tilt of g_ext from GC direction 2.6 deg, P2 amplitude factor 0.997
+   |z|=100 pc: K_z~1.75e-11 m/s^2 (linear, upper) -> tilt of g_ext from GC direction 5.3 deg, P2 amplitude factor 0.987
+   |z|=200 pc: K_z~3.50e-11 m/s^2 (linear, upper) -> tilt of g_ext from GC direction 10.4 deg, P2 amplitude factor 0.951
