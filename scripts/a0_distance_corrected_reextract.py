@@ -34,6 +34,7 @@ import glob
 import json
 import re
 import os
+import shutil
 import sys
 from pathlib import Path
 
@@ -139,8 +140,15 @@ def main():
     scale = H0_FLOW / H0_PLANCK
     pairs = [(f, scale if recs[f.split("/")[-1].replace("_rotmod.dat", "")][1] == 1 else 1.0)
              for f in files]
-    n2 = rescaled_copy(pairs, Path(tempfile.gettempdir()) / "sparc_T2")
-    t2 = run_treatment(sorted(str(p) for p in (Path(tempfile.gettempdir()) / "sparc_T2").glob("*_rotmod.dat")))
+    # A private temporary directory, not the fixed /tmp/sparc_T2 used until 2026-10-09: on a shared machine
+    # that name belongs to whichever user created it first, so a second user's run failed to write, and a
+    # stale file planted there would have been read as data.
+    t2_dir = Path(tempfile.mkdtemp(prefix="sparc_T2_"))
+    try:
+        n2 = rescaled_copy(pairs, t2_dir)
+        t2 = run_treatment(sorted(str(p) for p in t2_dir.glob("*_rotmod.dat")))
+    finally:
+        shutil.rmtree(t2_dir, ignore_errors=True)
     note(n2 == 175, "C4a T2 rescaled files written", f"{n2}")
 
     # T3: non-flow only

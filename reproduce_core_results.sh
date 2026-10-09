@@ -10,6 +10,9 @@
 #    bootstrap file, whose percentiles move in the last floating-point digit across numpy builds;
 #    it is compared to a relative tolerance of 1e-12 and then restored.
 # 4. Re-checks that the generated benchmark tables in the manuscripts match the regenerated files.
+# Offline: set SPARC_DATA_DIR to a directory that already holds the SPARC files, and SPARC_OFFLINE=1.
+# fetch_sparc.sh then verifies them against their pinned SHA-256 and downloads nothing, so the whole run
+# needs no network.
 # Extended 2026-10-09: until then only the first three files below were covered, so the strict
 # SPARC check, the a0 headline, the Lambda_SC range and the generated tables were not reproduced
 # by this script.
