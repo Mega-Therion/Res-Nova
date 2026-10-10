@@ -1,0 +1,77 @@
+{
+  "tool": "vacuity_screen/0.2",
+  "project": "05_lean_formalization",
+  "source_commitment": "7eb5324848bfdb5625be3c43a9638e0f10c6d2b622b42a6323923987d150251e",
+  "config": {
+    "imports": [
+      "PrintAxiomsD8"
+    ],
+    "theorems": [
+      "ResNova.TensorSpeed.c_T_sq_at_zero",
+      "ResNova.TensorSpeed.maxwellian_c13_vanishes",
+      "ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal",
+      "ResNova.TensorSpeed.conformal_preserves_tensor_speed",
+      "ResNova.TensorSpeed.physical_frame_tensor_speed_unity",
+      "ResNova.TensorSpeed.gw170817_concordance"
+    ],
+    "axiom_policy": "standard-3",
+    "check_modules": [
+      "PrintAxiomsD8"
+    ],
+    "_scope": "D8 c_T=c: the PrintAxiomsD8 module (cannot be imported together with TensorSpeed: duplicate declarations)."
+  },
+  "preamble_used": false,
+  "tactic_imports": [
+    "Mathlib.Tactic"
+  ],
+  "tactic_imports_missing": [],
+  "lake_build_exit": 0,
+  "lean_exit": 0,
+  "lean_errors": [],
+  "seconds": 14.5,
+  "nonvacuity": "not-established",
+  "results": [
+    {
+      "theorem": "ResNova.TensorSpeed.c_T_sq_at_zero",
+      "statement": "CLOSED-ARITH/unfolded",
+      "conjuncts": [
+        "CLOSED-ARITH/unfolded"
+      ]
+    },
+    {
+      "theorem": "ResNova.TensorSpeed.maxwellian_c13_vanishes",
+      "statement": "RING-ID",
+      "conjuncts": [
+        "RING-ID"
+      ]
+    },
+    {
+      "theorem": "ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal",
+      "statement": "RING-ID/unfolded",
+      "conjuncts": [
+        "RING-ID/unfolded"
+      ]
+    },
+    {
+      "theorem": "ResNova.TensorSpeed.conformal_preserves_tensor_speed",
+      "statement": "FIELD-ID",
+      "conjuncts": [
+        "FIELD-ID"
+      ]
+    },
+    {
+      "theorem": "ResNova.TensorSpeed.physical_frame_tensor_speed_unity",
+      "statement": "HYP-RESTATED",
+      "conjuncts": [
+        "HYP-RESTATED"
+      ]
+    },
+    {
+      "theorem": "ResNova.TensorSpeed.gw170817_concordance",
+      "statement": "HYP-PINNED/FIELD-ID",
+      "conjuncts": [
+        "HYP-PINNED/FIELD-ID"
+      ]
+    }
+  ]
+}

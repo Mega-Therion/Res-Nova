@@ -1,0 +1,682 @@
+{
+  "payload": {
+    "protocol": "vkernel/0.2",
+    "evidence_mode": "signed-service",
+    "ci_run": null,
+    "issued_at": "2026-10-10T05:21:26Z",
+    "lean_toolchain": "leanprover/lean4:v4.33.0-rc1",
+    "source_commitment": "7eb5324848bfdb5625be3c43a9638e0f10c6d2b622b42a6323923987d150251e",
+    "build_exit": 0,
+    "probe_exit": 0,
+    "build_isolation": "bwrap",
+    "network_blocked": true,
+    "recheck_isolation": "bwrap",
+    "axiom_policy": "standard-3",
+    "theorems": [
+      {
+        "name": "ResNova.AeSTStealthSector.P00_vanishes",
+        "statement_hash": "453a9cf27cde5fdfaeee0eb653db92dd788423574c56637497ae6434ff390c8e",
+        "statement_text": "Eq.{1} Real (ResNova.AeSTStealthSector.P00 (Neg.neg.{0} Real Real.instNeg (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))) (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))",
+        "def_closure_hash": "cedd0e9e983b6b793c19d9a6e8cdd6a92b3fa6b7b21ce408a8e5bd2004dbc07a",
+        "def_closure_size": 948,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.AeSTStealthSector.Y_stealth_is_zero",
+        "statement_hash": "4a61ef461fa3f8347369ce73087e7f3e33a5d5fa49dc4c9c26a5c6c21a0d75c0",
+        "statement_text": "forall (p : ResNova.AeSTStealthSector.StealthParams), Eq.{1} Real (ResNova.AeSTStealthSector.Y_stealth (Neg.neg.{0} Real Real.instNeg (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (ResNova.AeSTStealthSector.StealthParams.Q0 p)) (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))",
+        "def_closure_hash": "c6ec49d21e6c3917177713c577c3477230b8545fad754a86b1ff2b6fb69cdcd7",
+        "def_closure_size": 1004,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.AeSTStealthSector.Q_stealth_eq_Q0",
+        "statement_hash": "ef56c147e4b0cd630c56fe106508284f638bfd80450246c5347ac932b5299fe4",
+        "statement_text": "forall (p : ResNova.AeSTStealthSector.StealthParams), Eq.{1} Real (ResNova.AeSTStealthSector.Q_stealth (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (ResNova.AeSTStealthSector.StealthParams.Q0 p)) (ResNova.AeSTStealthSector.StealthParams.Q0 p)",
+        "def_closure_hash": "54d71bcfb253004d9aad87d582bc708f072727237912867e859199d8522e4dd4",
+        "def_closure_size": 944,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.AeSTStealthSector.condensate_offset_zero",
+        "statement_hash": "06023c908f16db80f16d2bb5086f674011066f864113146b5e8d455acd0f4497",
+        "statement_text": "forall (p : ResNova.AeSTStealthSector.StealthParams), Eq.{1} Real (ResNova.AeSTStealthSector.condensate_offset p) (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))",
+        "def_closure_hash": "93bbe8f4bd30c5dd921251950ed371a98532e9b7ec1a1da1dff06beb9f40f09f",
+        "def_closure_size": 962,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.AeSTStealthSector.F_kinetic_stealth_vanishes",
+        "statement_hash": "2b220bedea325c55e3121aeafea81419c2aff7c7a50649033c26152ea85aa7f1",
+        "statement_text": "forall (p : ResNova.AeSTStealthSector.StealthParams) (cY : Real) (K2 : Real), Eq.{1} Real (ResNova.AeSTStealthSector.F_kinetic cY K2 (ResNova.AeSTStealthSector.Y_stealth (Neg.neg.{0} Real Real.instNeg (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (ResNova.AeSTStealthSector.StealthParams.Q0 p)) (ResNova.AeSTStealthSector.Q_stealth (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (ResNova.AeSTStealthSector.StealthParams.Q0 p)) (ResNova.AeSTStealthSector.StealthParams.Q0 p)) (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))",
+        "def_closure_hash": "7b73b23b91e5712346bc491d8b671a6eec0bdb26b83602fb1a20acb0ef1312b9",
+        "def_closure_size": 1011,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.AeSTStealthSector.stealth_ppn_gamma_unity",
+        "statement_hash": "040e4460aed57b15a04229bac8f8c75b89e6911c105ae46946ec4a518da21d87",
+        "statement_text": "Eq.{1} Real (ResNova.AeSTStealthSector.StealthPPN.gamma ResNova.AeSTStealthSector.canonicalStealthPPN) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))",
+        "def_closure_hash": "5e8cbc6d2a3153e26b042d8613b8af3aaa33cc58f9d03baa7d696aaee95a07da",
+        "def_closure_size": 912,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.AeSTStealthSector.stealth_ppn_beta_unity",
+        "statement_hash": "8154316a6a64a0f37b51b1cc8152192682ed83f206f8ad70a464af992ab06f6a",
+        "statement_text": "Eq.{1} Real (ResNova.AeSTStealthSector.StealthPPN.beta ResNova.AeSTStealthSector.canonicalStealthPPN) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))",
+        "def_closure_hash": "2105ac383c4543ac083e31e1116bfbacf94efc705e15b572d676c2d5705e04e5",
+        "def_closure_size": 912,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.AeSTStealthSector.stealth_ppn_alpha1_zero",
+        "statement_hash": "c7a60a66a8c476107eccbafd8240dd0a35f06e2fe910e8f07427146a5ddb8468",
+        "statement_text": "Eq.{1} Real (ResNova.AeSTStealthSector.StealthPPN.alpha1 ResNova.AeSTStealthSector.canonicalStealthPPN) (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))",
+        "def_closure_hash": "7b87fedf2f3cfc67b1b05e66b0ed3d6aa2d059d9ef3f9d9c005c4530ead73d81",
+        "def_closure_size": 912,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.AeSTStealthSector.stealth_ppn_alpha2_zero",
+        "statement_hash": "b255605cbe01decbc09bb4354eb10a5ef264988a8d9d6328e43deb6144dd2792",
+        "statement_text": "Eq.{1} Real (ResNova.AeSTStealthSector.StealthPPN.alpha2 ResNova.AeSTStealthSector.canonicalStealthPPN) (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))",
+        "def_closure_hash": "b9408b1747d97795e26d0c6a9c78b43e221d522378578ad1af080cb98b2745a3",
+        "def_closure_size": 912,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.CoshCosmology.cosh_curvature_independent_of_Z0",
+        "statement_hash": "3163c08d4239df0a58dde670da4db688bbfa4e511e2fa3ed72e5b8a20f9342b4",
+        "statement_text": "forall (K₂ : Real) (Z₀ : Real) (Q₀ : Real), Eq.{1} Real (ResNova.CoshCosmology.K_QQ K₂ Z₀ Q₀ Q₀) (HMul.hMul.{0, 0, 0} Real Real Real (instHMul.{0} Real Real.instMul) (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0)))))) K₂)",
+        "def_closure_hash": "4f3220f13cc18654ff0272573ca7e6f39a5aa55cacfdeb146dedc66a68700a5b",
+        "def_closure_size": 1719,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.CoshCosmology.cad_sq_early_saturation",
+        "statement_hash": "9fa24ce1bde32cd4bca8d925b2f8c1d14dda7f3463e622df66a313a1fae9c3ce",
+        "statement_text": "forall {Z : Real} {r : Real}, (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) r) -> (LE.le.{0} Real Real.instLE (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) Z) -> (LE.le.{0} Real Real.instLE (ResNova.CoshCosmology.cad_sq r Z) r)",
+        "def_closure_hash": "9e7f65f1fd6298a33b4630c6199356efa72e7d496c90ec550b19af66f7e9598e",
+        "def_closure_size": 1716,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.CoshCosmology.cad_sq_pos",
+        "statement_hash": "b706719eb6172e699a0e1093612eafb49632a4f37f54ce9992284febb228270f",
+        "statement_text": "forall {Z : Real} {r : Real}, (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) r) -> (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) Z) -> (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) (ResNova.CoshCosmology.cad_sq r Z))",
+        "def_closure_hash": "9e7f65f1fd6298a33b4630c6199356efa72e7d496c90ec550b19af66f7e9598e",
+        "def_closure_size": 1716,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.CoshCosmology.late_time_equation_of_state",
+        "statement_hash": "2aa72d02e93ba40e3a71ac1764b782f7711ca6677f233feaf3bd9f4349500369",
+        "statement_text": "forall (Λ : Real) (K₂ : Real) (Z₀ : Real) (Q₀ : Real), Eq.{1} Real (ResNova.CoshCosmology.K_cosh Λ K₂ Z₀ Q₀ Q₀) (HMul.hMul.{0, 0, 0} Real Real Real (instHMul.{0} Real Real.instMul) (Neg.neg.{0} Real Real.instNeg (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0))))))) Λ)",
+        "def_closure_hash": "6e533a9201f95ca6b315c1d8d6732532c122dbd887aa52fb5fa1f395156fd271",
+        "def_closure_size": 1719,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.CoshCosmology.quadratic_exceeds_threshold",
+        "statement_hash": "9ed4c4925f9b863584805e34afebe0280df77befc0593d4eb50a0b983f7f1f56",
+        "statement_text": "forall {Q₀ : Real} {ε : Real}, (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) Q₀) -> (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) ε) -> (LT.lt.{0} Real Real.instLT ε (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))) -> (Exists.{1} Real (fun (Q : Real) => And (GT.gt.{0} Real Real.instLT Q Q₀) (LT.lt.{0} Real Real.instLT ε (ResNova.CoshCosmology.cad_sq_quadratic Q₀ Q))))",
+        "def_closure_hash": "f581325895156f8c1b37e6a33dc70caea7bcc007a74a402ec50fc69b61a67aa0",
+        "def_closure_size": 1097,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.CoshCosmology.quadratic_bounded_by_one",
+        "statement_hash": "b041936a052c0bd113d93286b0b02d62d7d4fcba8eec6d420d3959b984ac117e",
+        "statement_text": "forall {Q₀ : Real} {Q : Real}, (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) Q₀) -> (LE.le.{0} Real Real.instLE Q₀ Q) -> (LT.lt.{0} Real Real.instLT (ResNova.CoshCosmology.cad_sq_quadratic Q₀ Q) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)))",
+        "def_closure_hash": "f495014c688dc9678e5c9755b7c9954b45b58989631a27f7680e17aaa6c101bc",
+        "def_closure_size": 1101,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "MuNDuality.one_add_pow_pos",
+        "statement_hash": "f3cdbfbc4df5bb976d8b755be3e21f4928a6fea64ee00cc4fc4bd34cb4b4d010",
+        "statement_text": "forall (n : Nat) {x : Real}, (LE.le.{0} Real Real.instLE (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) x) -> (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) (HAdd.hAdd.{0, 0, 0} Real Real Real (instHAdd.{0} Real Real.instAdd) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) x n)))",
+        "def_closure_hash": "af9fd5c348813adef1c452c04adbb7b75a25cc4def7824730eadbeaf544d6da9",
+        "def_closure_size": 1003,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "MuNDuality.muN_pow",
+        "statement_hash": "2716576502e05a2179f2b6ef402fee178f5425df67c5de9bac13efc4af68f347",
+        "statement_text": "forall (n : Nat), (Ne.{1} Nat n (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0))) -> (forall {x : Real}, (LE.le.{0} Real Real.instLE (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) x) -> (Eq.{1} Real (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) (MuNDuality.muN n x) n) (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) x n) (HAdd.hAdd.{0, 0, 0} Real Real Real (instHAdd.{0} Real Real.instAdd) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) x n)))))",
+        "def_closure_hash": "48ec694910110488224f3379bbb84ecb2f795fa9727a7f881df7b8ca6080a5d7",
+        "def_closure_size": 1784,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "MuNDuality.muN_dual",
+        "statement_hash": "0d6bc2f175c80af2a4380ccae5e8a23ecd3f762cbfd9cdbfcd6326ee2041190f",
+        "statement_text": "forall (n : Nat), (Ne.{1} Nat n (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0))) -> (forall {x : Real}, (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) x) -> (Eq.{1} Real (HAdd.hAdd.{0, 0, 0} Real Real Real (instHAdd.{0} Real Real.instAdd) (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) (MuNDuality.muN n x) n) (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) (MuNDuality.muN n (Inv.inv.{0} Real Real.instInv x)) n)) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))))",
+        "def_closure_hash": "48ec694910110488224f3379bbb84ecb2f795fa9727a7f881df7b8ca6080a5d7",
+        "def_closure_size": 1784,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "MuNDuality.muN_one_pow",
+        "statement_hash": "f57164b599825521e788d5d6fde9c37794466f53e4bf8e2e039744e35529856d",
+        "statement_text": "forall (n : Nat), (Ne.{1} Nat n (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0))) -> (Eq.{1} Real (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) (MuNDuality.muN n (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))) n) (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0))))))))",
+        "def_closure_hash": "48ec694910110488224f3379bbb84ecb2f795fa9727a7f881df7b8ca6080a5d7",
+        "def_closure_size": 1784,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "MuNDuality.muN_two_eq_std",
+        "statement_hash": "2c54744b9bf74bb31d19062596eb4e24c1e9d28fdf766828bd57918779d9569c",
+        "statement_text": "forall (x : Real), Eq.{1} Real (MuNDuality.muN (OfNat.ofNat.{0} Nat 2 (instOfNatNat 2)) x) (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) x (Real.sqrt (HAdd.hAdd.{0, 0, 0} Real Real Real (instHAdd.{0} Real Real.instAdd) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) x (OfNat.ofNat.{0} Nat 2 (instOfNatNat 2))))))",
+        "def_closure_hash": "48ec694910110488224f3379bbb84ecb2f795fa9727a7f881df7b8ca6080a5d7",
+        "def_closure_size": 1784,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "MuNDuality.muN_two_one",
+        "statement_hash": "8c46734bb3696c3e22e559e6482643ef64089477c24a4c1e418089a568b5cd6b",
+        "statement_text": "Eq.{1} Real (MuNDuality.muN (OfNat.ofNat.{0} Nat 2 (instOfNatNat 2)) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))) (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (Real.sqrt (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0))))))))",
+        "def_closure_hash": "48ec694910110488224f3379bbb84ecb2f795fa9727a7f881df7b8ca6080a5d7",
+        "def_closure_size": 1784,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.MuStdFoundations.F_std_deriv_eq",
+        "statement_hash": "fbfe361c7af57aade66c149070d06b7f7fcd23808bd86f51d094bc1d73528091",
+        "statement_text": "forall (x : Real), Eq.{1} Real (ResNova.MuStdFoundations.F_std_deriv_analytic x) (HMul.hMul.{0, 0, 0} Real Real Real (instHMul.{0} Real Real.instMul) x (ResNova.MuStdUniqueness.mu_std x))",
+        "def_closure_hash": "8d0f00f86c9ac8ee0a6fbfb40fd100e5187e637de988b24e155ca88544726a70",
+        "def_closure_size": 1397,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.MuStdFoundations.F_std_deriv2_positivity",
+        "statement_hash": "75319daa9e3b8cb26b860db06d2d6d1b570ed10921498e6c050325ac3bf5d12c",
+        "statement_text": "forall {x : Real}, (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) x) -> (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) (ResNova.MuStdUniqueness.F_std_deriv2 x))",
+        "def_closure_hash": "91c4ef17e340e55454e3b1b6e3f18c1780e5700c9c2c94fcf3edaddd3eef78be",
+        "def_closure_size": 1401,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.MuStdFoundations.F_std_strict_convexity",
+        "statement_hash": "cabf882d68bc1730cdbb095a4edb382b6d68b7919341bf73e2ec19aa66711f2c",
+        "statement_text": "StrictConvexOn.{0, 0, 0} Real Real Real Real.semiring Real.partialOrder Real.instAddCommMonoid Real.instAddCommMonoid Real.partialOrder (instSMulOfMul.{0} Real Real.instMul) (instSMulOfMul.{0} Real Real.instMul) (Set.Ici.{0} Real Real.instPreorder (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))) ResNova.MuStdUniqueness.F_std",
+        "def_closure_hash": "0d67821382f54607906cb6966cd3ea6fe2bf2a086c328f6606a02e3f3ab3a158",
+        "def_closure_size": 1732,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.MuStdFoundations.c_long_sq_eq",
+        "statement_hash": "d26be3a188756b7a438984c633371fd3b5e4fb02df7e2fc97d13ec156af63347",
+        "statement_text": "forall {x : Real}, (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) x) -> (Eq.{1} Real (ResNova.MuStdFoundations.c_long_sq x) (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (HAdd.hAdd.{0, 0, 0} Real Real Real (instHAdd.{0} Real Real.instAdd) (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) x (OfNat.ofNat.{0} Nat 2 (instOfNatNat 2))) (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0))))))) (HAdd.hAdd.{0, 0, 0} Real Real Real (instHAdd.{0} Real Real.instAdd) (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) x (OfNat.ofNat.{0} Nat 2 (instOfNatNat 2))) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)))))",
+        "def_closure_hash": "2d99e9b18be362cca37075657a4e83fa87522dc41d763879c836bf2efc9357af",
+        "def_closure_size": 2488,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.MuStdFoundations.c_long_sq_superluminal",
+        "statement_hash": "7c223e45a5ef0f0fb5b96fce2bc021146e32edeae5bff5719873023ab2976dd1",
+        "statement_text": "forall {x : Real}, (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) x) -> (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (ResNova.MuStdFoundations.c_long_sq x))",
+        "def_closure_hash": "f4b608684be5e73b57a5b5d6ab35369089d1ade3b48152a78450fb71bccbcd0a",
+        "def_closure_size": 2484,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.MuStdFoundations.c_long_sq_le_two",
+        "statement_hash": "0cec143f3c8d5a0d4cf8975d4f9c60937d633ccf702ebaa1b5316428e0cfc97a",
+        "statement_text": "forall {x : Real}, (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) x) -> (LE.le.{0} Real Real.instLE (ResNova.MuStdFoundations.c_long_sq x) (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0)))))))",
+        "def_closure_hash": "2d99e9b18be362cca37075657a4e83fa87522dc41d763879c836bf2efc9357af",
+        "def_closure_size": 2488,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.MuStdFoundations.deviation_le_inv_two_sq",
+        "statement_hash": "30acdc47a55bdea9fae02605709fffa983479f0cc0d40dec3271d4543b897099",
+        "statement_text": "forall {x : Real}, (LE.le.{0} Real Real.instLE (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) x) -> (LE.le.{0} Real Real.instLE (HSub.hSub.{0, 0, 0} Real Real Real (instHSub.{0} Real Real.instSub) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (ResNova.MuStdUniqueness.mu_std x)) (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (HMul.hMul.{0, 0, 0} Real Real Real (instHMul.{0} Real Real.instMul) (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0)))))) (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) x (OfNat.ofNat.{0} Nat 2 (instOfNatNat 2))))))",
+        "def_closure_hash": "8ce7c700377c915d97d9baab0c1fbe3690d3bf7eda21c32c6ba6c3db0e004f93",
+        "def_closure_size": 1404,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.MuStdFoundations.saturn_monopole_deviation_le",
+        "statement_hash": "a481e84e1fb266a00836b41c1fe21404903e7b5cbb1c7a257bb48b13cb1ead2d",
+        "statement_text": "forall {x : Real}, (LE.le.{0} Real Real.instLE (OfNat.ofNat.{0} Real 500000 (instOfNatAtLeastTwo.{0} Real 500000 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 499999 (instOfNatNat 499999)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 499998 (instOfNatNat 499998)))))) x) -> (LE.le.{0} Real Real.instLE (HSub.hSub.{0, 0, 0} Real Real Real (instHSub.{0} Real Real.instSub) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (ResNova.MuStdUniqueness.mu_std x)) (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0)))))) (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) (OfNat.ofNat.{0} Real 10 (instOfNatAtLeastTwo.{0} Real 10 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 9 (instOfNatNat 9)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 8 (instOfNatNat 8)))))) (OfNat.ofNat.{0} Nat 12 (instOfNatNat 12)))))",
+        "def_closure_hash": "8ce7c700377c915d97d9baab0c1fbe3690d3bf7eda21c32c6ba6c3db0e004f93",
+        "def_closure_size": 1404,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "SZStdEmbedding.one_add_sq_pos",
+        "statement_hash": "86070e085d3eb27b0cdfeb671b320fed7beb5d47cc5b509e6e28b44bd578f7d7",
+        "statement_text": "forall (x : Real), LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) (HAdd.hAdd.{0, 0, 0} Real Real Real (instHAdd.{0} Real Real.instAdd) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) x (OfNat.ofNat.{0} Nat 2 (instOfNatNat 2))))",
+        "def_closure_hash": "1015df1906985b61c421173233713c60a31438e58a79ed1c58ebe056fea2ce5d",
+        "def_closure_size": 999,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "SZStdEmbedding.hasDerivAt_Fstd",
+        "statement_hash": "64c0626a7f4feee83b4d5315df1cd7f6c6db46f447ec2bc51e4d8bdaaf9fe46f",
+        "statement_text": "forall (x : Real), HasDerivAt.{0, 0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Real Real.instAddCommGroup (Semiring.toModule.{0} Real (DivisionSemiring.toSemiring.{0} Real (Semifield.toDivisionSemiring.{0} Real (Field.toSemifield.{0} Real (NormedField.toField.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField))))))) (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace)) (ContinuousMul.to_continuousSMul.{0} Real (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real (SeminormedRing.toPseudoMetricSpace.{0} Real (SeminormedCommRing.toSeminormedRing.{0} Real (NormedCommRing.toSeminormedCommRing.{0} Real (NormedField.toNormedCommRing.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))) Real.instMul (IsTopologicalSemiring.toContinuousMul.{0} Real (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real (SeminormedRing.toPseudoMetricSpace.{0} Real (SeminormedCommRing.toSeminormedRing.{0} Real (NormedCommRing.toSeminormedCommRing.{0} Real (NormedField.toNormedCommRing.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))) (NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Real (NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Real (NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Real (CommRing.toNonUnitalCommRing.{0} Real Real.commRing)))) (IsTopologicalRing.toIsTopologicalSemiring.{0} Real (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real (SeminormedRing.toPseudoMetricSpace.{0} Real (SeminormedCommRing.toSeminormedRing.{0} Real (NormedCommRing.toSeminormedCommRing.{0} Real (NormedField.toNormedCommRing.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))) (NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Real (NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Real (CommRing.toNonUnitalCommRing.{0} Real Real.commRing))) instIsTopologicalRingReal))) SZStdEmbedding.Fstd (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) x (OfNat.ofNat.{0} Nat 2 (instOfNatNat 2))) (Real.sqrt (HAdd.hAdd.{0, 0, 0} Real Real Real (instHAdd.{0} Real Real.instAdd) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) x (OfNat.ofNat.{0} Nat 2 (instOfNatNat 2)))))) x",
+        "def_closure_hash": "2d944d2260ac423030499b1657004685f213565aded587041687b49e350a34c1",
+        "def_closure_size": 2712,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "SZStdEmbedding.Fstd_deriv_eq",
+        "statement_hash": "03ea753586e279e953cae2ef32b8b5c428d4b21ae74ad4d10fe58f875acfd992",
+        "statement_text": "forall (x : Real), Eq.{1} Real (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) x (OfNat.ofNat.{0} Nat 2 (instOfNatNat 2))) (Real.sqrt (HAdd.hAdd.{0, 0, 0} Real Real Real (instHAdd.{0} Real Real.instAdd) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) x (OfNat.ofNat.{0} Nat 2 (instOfNatNat 2)))))) (HMul.hMul.{0, 0, 0} Real Real Real (instHMul.{0} Real Real.instMul) x (SZStdEmbedding.muStd x))",
+        "def_closure_hash": "b0e8427c280bd802646b05316b98f50d4c9ac8601210a022ce732f99d2074dd7",
+        "def_closure_size": 1396,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "SZStdEmbedding.hasDerivAt_Jstd",
+        "statement_hash": "f56220882b273a07591bc02e5d95b0e8c127f0ec437ed547ad44013d58f83c57",
+        "statement_text": "forall {Y : Real}, (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) Y) -> (HasDerivAt.{0, 0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Real Real.instAddCommGroup (Semiring.toModule.{0} Real (DivisionSemiring.toSemiring.{0} Real (Semifield.toDivisionSemiring.{0} Real (Field.toSemifield.{0} Real (NormedField.toField.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField))))))) (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace)) (ContinuousMul.to_continuousSMul.{0} Real (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real (SeminormedRing.toPseudoMetricSpace.{0} Real (SeminormedCommRing.toSeminormedRing.{0} Real (NormedCommRing.toSeminormedCommRing.{0} Real (NormedField.toNormedCommRing.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))) Real.instMul (IsTopologicalSemiring.toContinuousMul.{0} Real (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real (SeminormedRing.toPseudoMetricSpace.{0} Real (SeminormedCommRing.toSeminormedRing.{0} Real (NormedCommRing.toSeminormedCommRing.{0} Real (NormedField.toNormedCommRing.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))) (NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Real (NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Real (NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Real (CommRing.toNonUnitalCommRing.{0} Real Real.commRing)))) (IsTopologicalRing.toIsTopologicalSemiring.{0} Real (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real (SeminormedRing.toPseudoMetricSpace.{0} Real (SeminormedCommRing.toSeminormedRing.{0} Real (NormedCommRing.toSeminormedCommRing.{0} Real (NormedField.toNormedCommRing.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))) (NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Real (NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Real (CommRing.toNonUnitalCommRing.{0} Real Real.commRing))) instIsTopologicalRingReal))) SZStdEmbedding.Jstd (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (SZStdEmbedding.muStd (Real.sqrt Y)) (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0))))))) Y)",
+        "def_closure_hash": "49a268fdf025b47fa78f4eed87233bc258d5e5749a516e4d6d2e55ec02d32177",
+        "def_closure_size": 2718,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "SZStdEmbedding.Jstd_deriv_pos",
+        "statement_hash": "b0c957218a44c0e85a58cc9d9cb9227ee1e9ef518a67935cc7ae994c230b91f2",
+        "statement_text": "forall {Y : Real}, (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) Y) -> (LT.lt.{0} Real Real.instLT (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)) (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (SZStdEmbedding.muStd (Real.sqrt Y)) (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0))))))))",
+        "def_closure_hash": "680fe47de29255ed1afee27de0c7825c9c22ad7fee471751b6196ee672f2bb0b",
+        "def_closure_size": 1404,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.TensorSpeed.c_T_sq_at_zero",
+        "statement_hash": "da2ccce46ba73954a3117aa188e8e232ce9038e63354d9d6aeac487a45552a4a",
+        "statement_text": "Eq.{1} Real (ResNova.TensorSpeed.c_T_sq (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))",
+        "def_closure_hash": "6e67dea9ca9bd24e9a817c3e2a18298465cce17e0d24e7e2c7c2c2b5031372a3",
+        "def_closure_size": 1088,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.TensorSpeed.maxwellian_c13_vanishes",
+        "statement_hash": "e1b4a36768bcad951562a078cad94724d282a8c91fb32f25496c438471cc7ef9",
+        "statement_text": "forall (K : Real), have c1 : Real := HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) K (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0)))))); have c3 : Real := HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (Neg.neg.{0} Real Real.instNeg K) (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0)))))); Eq.{1} Real (HAdd.hAdd.{0, 0, 0} Real Real Real (instHAdd.{0} Real Real.instAdd) c1 c3) (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))",
+        "def_closure_hash": "23750bf405b5e16b25710136d0c27a06e9f85b8b5bb46f18099fecc8e02622ef",
+        "def_closure_size": 1095,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.TensorSpeed.einstein_frame_tensor_speed_luminal",
+        "statement_hash": "49a7784b2278a37faee226549e77dff3b986299c249d55820c94b41d089e7935",
+        "statement_text": "forall (K : Real), Eq.{1} Real (ResNova.TensorSpeed.c_T_sq (HAdd.hAdd.{0, 0, 0} Real Real Real (instHAdd.{0} Real Real.instAdd) (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) K (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0))))))) (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (Neg.neg.{0} Real Real.instNeg K) (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0))))))))) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))",
+        "def_closure_hash": "b941f5fed55093c97adc663efded196c346874749fe105b9ba22d654e035d883",
+        "def_closure_size": 1096,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.TensorSpeed.alpha_1_num_eq",
+        "statement_hash": "af4326c85cbbbba7065f77af193934e71f909857ce32198ca9e83ee3ab1d701c",
+        "statement_text": "forall (K : Real), Eq.{1} Real (ResNova.TensorSpeed.alpha_1_num K) (HMul.hMul.{0, 0, 0} Real Real Real (instHMul.{0} Real Real.instMul) (Neg.neg.{0} Real Real.instNeg (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0))))))) (HPow.hPow.{0, 0, 0} Real Nat Real (instHPow.{0, 0} Real Nat (NPow.toPow.{0} Real (Monoid.toNPow.{0} Real Real.instMonoid))) K (OfNat.ofNat.{0} Nat 2 (instOfNatNat 2))))",
+        "def_closure_hash": "5936600c179796230ecea28d7682e563cfbb45ceebed0462645b6be4ab08c1f0",
+        "def_closure_size": 1098,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.TensorSpeed.alpha_1_den_eq",
+        "statement_hash": "0ea13a89ad436935bd53eb065688a5e35ce56d8e014e601ce447c318a293c463",
+        "statement_text": "forall (K : Real), Eq.{1} Real (ResNova.TensorSpeed.alpha_1_den K) K",
+        "def_closure_hash": "7deff9c6f1f717c94ad26b728cebee6b6070f7936bab803c932c866cf6598e4d",
+        "def_closure_size": 1093,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.TensorSpeed.foster_jacobson_alpha_1_eval",
+        "statement_hash": "9261f46f8dc1dbbdf961077543e56bf8824504bc73c684252d7cff760f8de8e2",
+        "statement_text": "forall (K : Real), (Ne.{1} Real K (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))) -> (Eq.{1} Real (HDiv.hDiv.{0, 0, 0} Real Real Real (instHDiv.{0} Real (DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (ResNova.TensorSpeed.alpha_1_num K) (ResNova.TensorSpeed.alpha_1_den K)) (HMul.hMul.{0, 0, 0} Real Real Real (instHMul.{0} Real Real.instMul) (Neg.neg.{0} Real Real.instNeg (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0))))))) K))",
+        "def_closure_hash": "3a104087c5bad850b7ebff8d0bb4db0139de01de3b30f7e7a834f840ae789741",
+        "def_closure_size": 1099,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.TensorSpeed.disformal_photon_speed_sq",
+        "statement_hash": "257e3bc6faccbaf1e3e2a98089edff4f857751f9ff7c5d85fbcebfc8f956789e",
+        "statement_text": "forall (phi : Real), Eq.{1} Real (ResNova.TensorSpeed.c_gamma_coord_sq phi) (Real.exp (HMul.hMul.{0, 0, 0} Real Real Real (instHMul.{0} Real Real.instMul) (OfNat.ofNat.{0} Real 4 (instOfNatAtLeastTwo.{0} Real 4 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 3 (instOfNatNat 3)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 2 (instOfNatNat 2)))))) phi))",
+        "def_closure_hash": "3769f71af4ace8f258e8cc9c8255de6b1fa8dd17bee99ee7f2673bd2fd5785a3",
+        "def_closure_size": 1718,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.TensorSpeed.speed_ratio_unity_iff",
+        "statement_hash": "37353844963c425ecf467430b20a7e3004423202f3c3c59edd8e1ba04cbabf83",
+        "statement_text": "forall (phi : Real), Iff (Eq.{1} Real (ResNova.TensorSpeed.speed_ratio phi) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne))) (Eq.{1} Real phi (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero)))",
+        "def_closure_hash": "61914dd721200cbcc30aa0f1cb40ab41d514f98ec86fb65e5225bf798e4565bb",
+        "def_closure_size": 1713,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.TensorSpeed.speed_ratio_lt_one_of_pos",
+        "statement_hash": "5f8ea0a608ec4dcc35260637f84cb87107e36877810828039d2546a27e3dbcdc",
+        "statement_text": "forall (phi : Real), (GT.gt.{0} Real Real.instLT phi (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))) -> (LT.lt.{0} Real Real.instLT (ResNova.TensorSpeed.speed_ratio phi) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)))",
+        "def_closure_hash": "61914dd721200cbcc30aa0f1cb40ab41d514f98ec86fb65e5225bf798e4565bb",
+        "def_closure_size": 1713,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.TensorSpeed.gw170817_deviation_of_pos",
+        "statement_hash": "7ba623594b6aab6bfb9a2741feb090588bbd7995f7b8e39cb5044f2aed576a6f",
+        "statement_text": "forall (phi : Real), (GT.gt.{0} Real Real.instLT phi (OfNat.ofNat.{0} Real 0 (Zero.toOfNat0.{0} Real Real.instZero))) -> (Eq.{1} Real (abs.{0} Real Real.lattice Real.instAddGroup (HSub.hSub.{0, 0, 0} Real Real Real (instHSub.{0} Real Real.instSub) (ResNova.TensorSpeed.speed_ratio phi) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)))) (HSub.hSub.{0, 0, 0} Real Real Real (instHSub.{0} Real Real.instSub) (OfNat.ofNat.{0} Real 1 (One.toOfNat1.{0} Real Real.instOne)) (Real.exp (HMul.hMul.{0, 0, 0} Real Real Real (instHMul.{0} Real Real.instMul) (Neg.neg.{0} Real Real.instNeg (OfNat.ofNat.{0} Real 2 (instOfNatAtLeastTwo.{0} Real 2 Real.instNatCast (Nat.instAtLeastTwoHAddOfNat (OfNat.ofNat.{0} Nat 1 (instOfNatNat 1)) (Nat.instNeZeroSucc (OfNat.ofNat.{0} Nat 0 (instOfNatNat 0))))))) phi))))",
+        "def_closure_hash": "6f01043b4b2b6255202c98757028d4caef4c48239953e6020b7fd39117e725c2",
+        "def_closure_size": 1717,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.MuStdUniqueness.theorem_A_constitutive",
+        "statement_hash": "2aeb5f0acdb4fa3ebe13f685066d3647b144f3a4c648cb7e06db952509f16680",
+        "statement_text": "forall (x : Real), HasDerivAt.{0, 0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Real Real.instAddCommGroup (Semiring.toModule.{0} Real (DivisionSemiring.toSemiring.{0} Real (Semifield.toDivisionSemiring.{0} Real (Field.toSemifield.{0} Real (NormedField.toField.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField))))))) (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace)) (ContinuousMul.to_continuousSMul.{0} Real (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real (SeminormedRing.toPseudoMetricSpace.{0} Real (SeminormedCommRing.toSeminormedRing.{0} Real (NormedCommRing.toSeminormedCommRing.{0} Real (NormedField.toNormedCommRing.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))) Real.instMul (IsTopologicalSemiring.toContinuousMul.{0} Real (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real (SeminormedRing.toPseudoMetricSpace.{0} Real (SeminormedCommRing.toSeminormedRing.{0} Real (NormedCommRing.toSeminormedCommRing.{0} Real (NormedField.toNormedCommRing.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))) (NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Real (NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Real (NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Real (CommRing.toNonUnitalCommRing.{0} Real Real.commRing)))) (IsTopologicalRing.toIsTopologicalSemiring.{0} Real (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real (SeminormedRing.toPseudoMetricSpace.{0} Real (SeminormedCommRing.toSeminormedRing.{0} Real (NormedCommRing.toSeminormedCommRing.{0} Real (NormedField.toNormedCommRing.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))) (NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Real (NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Real (CommRing.toNonUnitalCommRing.{0} Real Real.commRing))) instIsTopologicalRingReal))) ResNova.MuStdUniqueness.F_std (HMul.hMul.{0, 0, 0} Real Real Real (instHMul.{0} Real Real.instMul) x (ResNova.MuStdUniqueness.mu_std x)) x",
+        "def_closure_hash": "dc1b870b12169b3abf0ec5241888981465156b217809a6c4db794860a5dfb3fe",
+        "def_closure_size": 2713,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.MuStdUniqueness.F_std_hasDerivAt",
+        "statement_hash": "19b9690f5ad1b70a466f1c00fce0d381a5ecbdb947551a1437216eb741668bed",
+        "statement_text": "forall (x : Real), HasDerivAt.{0, 0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Real Real.instAddCommGroup (Semiring.toModule.{0} Real (DivisionSemiring.toSemiring.{0} Real (Semifield.toDivisionSemiring.{0} Real (Field.toSemifield.{0} Real (NormedField.toField.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField))))))) (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace)) (ContinuousMul.to_continuousSMul.{0} Real (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real (SeminormedRing.toPseudoMetricSpace.{0} Real (SeminormedCommRing.toSeminormedRing.{0} Real (NormedCommRing.toSeminormedCommRing.{0} Real (NormedField.toNormedCommRing.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))) Real.instMul (IsTopologicalSemiring.toContinuousMul.{0} Real (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real (SeminormedRing.toPseudoMetricSpace.{0} Real (SeminormedCommRing.toSeminormedRing.{0} Real (NormedCommRing.toSeminormedCommRing.{0} Real (NormedField.toNormedCommRing.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))) (NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Real (NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Real (NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Real (CommRing.toNonUnitalCommRing.{0} Real Real.commRing)))) (IsTopologicalRing.toIsTopologicalSemiring.{0} Real (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real (SeminormedRing.toPseudoMetricSpace.{0} Real (SeminormedCommRing.toSeminormedRing.{0} Real (NormedCommRing.toSeminormedCommRing.{0} Real (NormedField.toNormedCommRing.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))) (NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Real (NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Real (CommRing.toNonUnitalCommRing.{0} Real Real.commRing))) instIsTopologicalRingReal))) ResNova.MuStdUniqueness.F_std (ResNova.MuStdUniqueness.F_std_deriv x) x",
+        "def_closure_hash": "3748a55a501837dabd801fa0df8f9acaffbace6df682c24442862148b833d019",
+        "def_closure_size": 2713,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      },
+      {
+        "name": "ResNova.MuStdUniqueness.F_std_hasDerivAt_deriv",
+        "statement_hash": "30a510286d081974ce48920352faff8e7d823d2ba6e41c174be0688ba91187c4",
+        "statement_text": "forall (x : Real), HasDerivAt.{0, 0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Real Real.instAddCommGroup (Semiring.toModule.{0} Real (DivisionSemiring.toSemiring.{0} Real (Semifield.toDivisionSemiring.{0} Real (Field.toSemifield.{0} Real (NormedField.toField.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField))))))) (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace)) (ContinuousMul.to_continuousSMul.{0} Real (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real (SeminormedRing.toPseudoMetricSpace.{0} Real (SeminormedCommRing.toSeminormedRing.{0} Real (NormedCommRing.toSeminormedCommRing.{0} Real (NormedField.toNormedCommRing.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))) Real.instMul (IsTopologicalSemiring.toContinuousMul.{0} Real (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real (SeminormedRing.toPseudoMetricSpace.{0} Real (SeminormedCommRing.toSeminormedRing.{0} Real (NormedCommRing.toSeminormedCommRing.{0} Real (NormedField.toNormedCommRing.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))) (NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring.{0} Real (NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Real (NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Real (CommRing.toNonUnitalCommRing.{0} Real Real.commRing)))) (IsTopologicalRing.toIsTopologicalSemiring.{0} Real (UniformSpace.toTopologicalSpace.{0} Real (PseudoMetricSpace.toUniformSpace.{0} Real (SeminormedRing.toPseudoMetricSpace.{0} Real (SeminormedCommRing.toSeminormedRing.{0} Real (NormedCommRing.toSeminormedCommRing.{0} Real (NormedField.toNormedCommRing.{0} Real (NontriviallyNormedField.toNormedField.{0} Real (DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))) (NonUnitalNonAssocCommRing.toNonUnitalNonAssocRing.{0} Real (NonUnitalCommRing.toNonUnitalNonAssocCommRing.{0} Real (CommRing.toNonUnitalCommRing.{0} Real Real.commRing))) instIsTopologicalRingReal))) ResNova.MuStdUniqueness.F_std_deriv (ResNova.MuStdUniqueness.F_std_deriv2 x) x",
+        "def_closure_hash": "3380973f2ad0e08cef37e20629cf9cafad3df585cc89787be9b26a8fca360394",
+        "def_closure_size": 2460,
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "axiom_policy_ok": true
+      }
+    ],
+    "missing_theorems": [],
+    "statement_match": "not-checked",
+    "comparison_relation": null,
+    "nonvacuity": "not-established",
+    "independent_checker": "leanchecker",
+    "checker_runs": [
+      {
+        "module": "AeSTStealthSector",
+        "exit": 0,
+        "clean_output": true,
+        "ok": true
+      },
+      {
+        "module": "CoshCosmology",
+        "exit": 0,
+        "clean_output": true,
+        "ok": true
+      },
+      {
+        "module": "MuNDuality",
+        "exit": 0,
+        "clean_output": true,
+        "ok": true
+      },
+      {
+        "module": "MuStdFoundations",
+        "exit": 0,
+        "clean_output": true,
+        "ok": true
+      },
+      {
+        "module": "SZStdEmbedding",
+        "exit": 0,
+        "clean_output": true,
+        "ok": true
+      },
+      {
+        "module": "TensorSpeed",
+        "exit": 0,
+        "clean_output": true,
+        "ok": true
+      },
+      {
+        "module": "MuStdUniqueness",
+        "exit": 0,
+        "clean_output": true,
+        "ok": true
+      }
+    ],
+    "formal_result": "accepted",
+    "signer": "9049bf248ade5fc5719ae3016fbf5535496d7331fc63a3727d5ddfaec3718384"
+  },
+  "payload_digest": "sha256:182724eb06710c16d0a2e041f3e59456b45ba513407f9c0f3d72903af5c18021",
+  "signature": "b83495a4f09f77c8392f455c800cfb320c2b6939b470b550c52cb13e9ef4212096c5157081f08738b6bb027cc0ad20c8970002023dcd614140047acb9e5cd00e"
+}
