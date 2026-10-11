@@ -21,7 +21,7 @@ cd 05_lean_formalization && bash verify_all_proofs.sh; echo $?
 Exit 0 is the only definition of done. Not `lake build`, not a module count, not an
 assessment.
 
-- Takes ~12 min (30 targets × ~24 s). **Exceeds the 10-min Bash timeout — background it.**
+- 67 targets as of 2026-10-11 (was ~12 min at 30 targets × ~24 s; expect roughly 25+ min now, unmeasured). **Exceeds the 10-min Bash timeout — background it.**
 - Needs Mathlib: `lake exe cache get` (~8.2 GB). Without it 30 modules read `MISSING_INPUT`.
 - `lake build` alone is **not** the gate. It can pass while a sorried file sits outside the
   lakefile roots — target-drift detection is what catches that.
