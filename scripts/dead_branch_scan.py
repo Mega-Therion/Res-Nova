@@ -108,6 +108,26 @@ RETIRED = [
                 + r"|standard(?:(?!simple)[^\n]){0,40}?" + _LIN
                 + r"|" + _LIN + _TAIL + r"\bstandard", re.I),
      "simple = x/(1+x); standard = x/sqrt(1+x^2) = mu_std (Famaey & McGaugh 2012, Eqs. 42, 49)"),
+    # Added 2026-10-11 from the Zenodo claim audit (1,102 claims, 25 live papers). The published
+    # Information Tension Theory paper (all 12 versions) names 0.9539 "chi_s"; that value is kappa.
+    ("0.9539 named chi_s",
+     re.compile(r"(?:\\chi_\{?s\}?|χ_s|χₛ|\bchi_s)\s*(?:=|≈|\\approx|~)\s*0\.9539"),
+     "0.9539 is kappa (theta = 0.70, settled 2026-09-26); chi_s = sqrt(sqrt2 - 1/2) = 0.956145 is a different constant"),
+    # The same paper reports the Trinity 2.0 substitution value as a measured boost. The methods
+    # note (03_observer_jwst/Trinity_2_0_Methods_Note.md) records it as an input, not a measurement;
+    # that note names 141.99x without "boost" and does not fire.
+    ("Trinity 2.0 cited as a measurement",
+     re.compile(r"141\.99\d*\s*(?:x|×|\\times)[^\n]{0,40}\bboost\b"
+                r"|Trinity\s*2\.0[^\n]{0,80}\b(?:confirm\w*|evidence|resolv\w*)\b", re.I),
+     "Trinity 2.0 is a forward-substitution consistency check; 141.99x is its input, not a measurement "
+     "(03_observer_jwst/Trinity_2_0_Methods_Note.md)"),
+    # The same paper writes v = v_N * T(r) with T(r) carrying the formula of tau = 1 + 2/chi.
+    # With a_tot = g_N * tau, the historical tau law reads v = v_N * sqrt(tau).
+    ("v_N * T(r) velocity law",
+     re.compile(r"v_\{?(?:yett|Yett|ITT)\}?\s*=\s*v_\{?(?:newton|Newton|N)\}?\s*"
+                r"(?:\\times|×|\*|\\cdot|·)\s*T\(r\)"),
+     "historical tau law: v = v_N sqrt(tau) (docs/corrections/ITT_VELOCITY_LAW_2026-10-11.md); "
+     "the live galaxy law is quasistatic AQUAL with mu_std"),
 ]
 
 # Surfaces where a retired entity is a defect. Everything else -- archives,
@@ -390,6 +410,23 @@ def _regression_cases() -> list[tuple[str, list[str], str, bool]]:
          _TTEY_MD_NOTICE + _FILLER + _CLAIM_MUDUAL_MD, "mu_dual", False),
         ("without a notice the same Unicode mu_dual line fires",
          _FILLER + _CLAIM_MUDUAL_MD, "mu_dual", True),
+        # Entities added 2026-10-11 (Zenodo claim audit): each fires on its published form
+        # and stays quiet on the correct form.
+        ("0.9539 named chi_s fires",
+         _FILLER + ["The sovereign boundary is $\\chi_s = 0.9539$."], "0.9539 named chi_s", True),
+        ("chi_s = 0.956145 beside kappa = 0.9539 does not fire",
+         _FILLER + ["$\\chi_s = 0.956145$ and $\\kappa = 0.9539$ are different constants."],
+         "0.9539 named chi_s", False),
+        ("a 141.99x boost presented as a result fires",
+         _FILLER + ["Results confirm a consistent 141.99x Information Tension boost."],
+         "Trinity 2.0 cited", True),
+        ("the methods note's substitution line does not fire",
+         _FILLER + ["- Substituted void mean: 141.9991× (this is the **input** being checked, not an output)"],
+         "Trinity 2.0 cited", False),
+        ("v_yett = v_newton times T(r) fires",
+         _FILLER + ["$v_{yett} = v_{newton} \\times T(r)$"], "v_N * T(r)", True),
+        ("v = v_N sqrt(tau) does not fire",
+         _FILLER + ["$v = v_N\\sqrt{\\tau}$ with $\\tau = 1 + 2/\\chi$"], "v_N * T(r)", False),
     ]
 
 
@@ -446,6 +483,13 @@ def self_test() -> int:
         ("the standard function $\\mu(x) = \\frac{x}{1+x}$ fits the disks", True),
         ("the simple mu is x/(1+x) and the standard mu is x/sqrt(1+x^2)", False),
         ("$\\mu_{\\text{simple}} = x/(1+x)$, $\\mu_{\\text{std}} = x/\\sqrt{1+x^2}$", False),
+        # Zenodo claim audit (2026-10-11)
+        ("the Sovereign Boundary $\\chi_s = 0.9539$", True),
+        ("$\\chi_s = 0.956145$ and $\\kappa = 0.9539$ are different constants", False),
+        ("Results confirm a consistent 141.99x Information Tension boost.", True),
+        ("Substituted void mean: 141.9991× (this is the input being checked, not an output)", False),
+        ("$v_{yett} = v_{newton} \\times T(r)$", True),
+        ("$v = v_N\\sqrt{\\tau}$ with $\\tau = 1 + 2/\\chi$", False),
     ]
     fails = 0
     for text, should_hit in cases:

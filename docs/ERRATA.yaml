@@ -104,3 +104,24 @@ errata:
     evidence: [ZENODO_CORRECTION_INDEX_2026-10-03.md]
     scan_entities: []
     dois: ["10.5281/zenodo.23130713"]
+  - id: E-13
+    withdrawn: "2026-10-11"
+    what: "the value 0.9539 named chi_s (published in Information Tension Theory, concept 10.5281/zenodo.20027634, as the 'Sovereign Boundary chi_s = 0.9539')"
+    replacement: "0.9539 is kappa (theta = 0.70); chi_s = sqrt(sqrt2 - 1/2) = 0.956145 is a different constant"
+    evidence: [ALIGNMENT_CEILING_ONE_RELATION.md]
+    scan_entities: ["0.9539 named chi_s"]
+    dois: []
+  - id: E-14
+    withdrawn: "2026-10-11"
+    what: "the Trinity 2.0 substitution value (141.99x) reported as a measured Information Tension boost"
+    replacement: "Trinity 2.0 is a forward-substitution consistency check; 141.99x is its input, not a measurement"
+    evidence: [03_observer_jwst/Trinity_2_0_Methods_Note.md]
+    scan_entities: ["Trinity 2.0 cited as a measurement"]
+    dois: []
+  - id: E-15
+    withdrawn: "2026-10-11"
+    what: "the velocity law v = v_N * T(r) with T(r) = 1 + 2/chi_local (Information Tension Theory, concept 10.5281/zenodo.20027634)"
+    replacement: "the historical tau law reads v = v_N sqrt(tau); the live galaxy law is quasistatic AQUAL with mu_std"
+    evidence: [docs/corrections/ITT_VELOCITY_LAW_2026-10-11.md]
+    scan_entities: ["v_N * T(r) velocity law"]
+    dois: []
