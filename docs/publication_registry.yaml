@@ -2516,3 +2516,54 @@ works:
     is_latest: true
     has_versions: []
     is_new_version_of: []
+
+  - work_id: resource_holonomy_economic_coherence_zaudit
+    title: "Resource Holonomy: Market Stability and the Critical Line of Economic Coherence"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21367589"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-07-15"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21233993"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: dirac_projection_chiral_invariant_zaudit
+    title: "The Dirac Projection: Chiral Invariant as Stiefel Holonomy and Maximally Entangled Inner Product (v2 — corrected)"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21449900"
+    lineage: manuscript
+    role: version
+    version: "2.0.0"
+    status: live
+    publication_date: "2026-07-20"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21384458"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
+
+  - work_id: ramanujan_yett_hamiltonian_zaudit
+    title: "The Ramanujan-Yett Hamiltonian: Quantum Sovereignty and the Spectral Gap of the Sovereign Action (v1.1 — audit-corrected)"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.21504896"
+    lineage: manuscript
+    role: version
+    version: "1.1.0"
+    status: live
+    publication_date: "2026-07-23"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21233985"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
