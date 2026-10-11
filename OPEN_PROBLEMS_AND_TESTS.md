@@ -104,7 +104,7 @@ Two hardening changes landed with the closure: (i) `fetch_sparc.sh` now falls ba
 with observations; its ε(z=0) = 0.00233 deviation from ΛCDM does not blow up in
 the non-linear regime.
 
-**Protocol:** `PREREG_D5_MG_EVOLUTION.md` (SHA-256 `b9a939dd2b60d61ac177160ccaf7265a48c52ebd08b48359ee46aadb1af16b98`), two-arm MG-evolution mapping (Hassani–Lombriser arXiv:2003.05927 parametrization), identical ICs (seed 42), validation config 256³ particles / 256³ grid / L = 200 Mpc/h, z ∈ {0, 1}, k ∈ [0.05, 2.5] h/Mpc. Verdict rules V0–V2 frozen before any run. No re-tuning of ε, k0, af, b after seeing output (prereg §7).
+**Protocol:** `PREREG_D5_MG_EVOLUTION.md` (SHA-256 `b9a939dd2b60d61ac177160ccaf7265a48c52bd08b48359ee46aadb1f16b98`), two-arm MG-evolution mapping (Hassani–Lombriser arXiv:2003.05927 parametrization), identical ICs (seed 42), validation config 256³ particles / 256³ grid / L = 200 Mpc/h, z ∈ {0, 1}, k ∈ [0.05, 2.5] h/Mpc. Verdict rules V0–V2 frozen before any run. No re-tuning of ε, k0, af, b after seeing output (prereg §7).
 
 **Status (pre-verdict):** Pipeline validated end-to-end at sanity config (64³/128 Mpc/h): ΛCDM/Arm A/Arm B all exit clean; V1 negative control satisfied (Arm B ΔP/P = +64% at k > 1 — far above the +5% floor). Sanity-config theory-arm signal: ΔP/P|_A = +0.26% (k > 1, 292 bins), first-order consistent with the frozen ε. Validation-config run (2026-09-11): worst |ΔP/P|_A = 1.14% at z=0; worst 3.03% at k = 1.354 h/Mpc at z=1. Bins over the 1% consistency bound: 124/180 (z=0), 180/180 (z=1). Bins over the 5% tension threshold: 0 at both z.
 
@@ -157,6 +157,8 @@ The pre-registered $k_0$-sensitivity sweep (`d5_k0_sensitivity_analysis.py`) was
 ---
 
 ## Fork Lock — 2026-08-28
+
+> **SUPERSEDED 2026-10-11 — do not use this section.** This Fork Lock was written under the withdrawn μ_dual branch (μ(x) = x/(1+x)) and the retired cosmological-screening chain. Its Cassini margin (Q₂ ≈ 2.85×10⁻²⁹ s⁻², “119× below Cassini”) belongs to the μ_dual era, and its cosmological-screening number (ℱ″/ℱ′ ≈ 0.00233) was voided when TARGET_D7 §3 deleted x₀ ≈ 5.67. μ_dual was falsified for solar-system use on 2026-09-12 (TARGET_D7 §4.2–§4.3, Mercury precession row). The live function is μ_std(x) = x/√(1+x²); the binding solar-system observable is the Cassini EFE quadrupole Q₂, which unscreened μ_std fails at +8.7σ. The sole binding status authority is the 2026-10-09 score in PEER_REVIEW_READINESS.md; see also the live-physics ledger and the scale-crisis closure (The Block, 2026-10-11). The section below is kept as a dated record only.
 
 **Decision: Path B locked.** The RMOND completion (`res_nova_manuscript.tex` §7–§9) implements Path B from the `gut_toe_status` fork analysis. The Skordis–Złośnik embedding with $\mathcal{F}(\mathcal{K}) = \mathcal{F}_{\text{dual}}(\sqrt{\mathcal{K}})$ provides:
 - Vainshtein screening: $Q_2 \approx 2.85 \times 10^{-29}$ s⁻² (119× below Cassini; corrected 2026-09-12 from a misstated 70× that used the retracted F''/F'=0.004) `[D]`
