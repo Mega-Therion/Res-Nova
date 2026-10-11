@@ -1,18 +1,18 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-10-09T16:30:24.525361+00:00",
-  "git_commit": "8d729b7252feb3b2ff1f24478696904f275828d8",
-  "git_branch": "fix/sparc-repro-recompute-137",
-  "lean_target_count": 66,
-  "claim_count": 48,
+  "generated_at_utc": "2026-10-11T22:03:41.157205+00:00",
+  "git_commit": "223c385779ee2f43dd83560a8e9ca2e0b1594cb7",
+  "git_branch": "holy-canon-phase5-registry",
+  "lean_target_count": 67,
+  "claim_count": 57,
   "claim_states": {
-    "computed": 6,
-    "conditional": 8,
-    "derived": 10,
+    "computed": 10,
+    "conditional": 9,
+    "derived": 11,
     "empirically-supported": 1,
     "formally-verified": 9,
     "proposed": 2,
-    "retracted": 12
+    "retracted": 15
   },
   "lean_gate": {
     "schema_version": "1.0",
@@ -30,8 +30,8 @@
     "certifies": "elaboration, absence of sorry, and a standard axiom footprint {propext, Classical.choice, Quot.sound}",
     "does_not_certify": "that assumptions carried as typeclass or structure fields are physically justified (THEORY_ASSUMPTION_AUDIT.md), nor cold-clone reproducibility (O6)",
     "lean_tree_at_run": "a9ccc3fddf26c62716c3eef494dca911869e570cc00267f8b604ad45266f3474",
-    "lean_tree": "a9ccc3fddf26c62716c3eef494dca911869e570cc00267f8b604ad45266f3474",
-    "stale": false
+    "lean_tree": "99aafbc658b610679eba99edb402236e6278e115946ab32cfc1c986e21690631",
+    "stale": true
   },
   "checks": {
     "claim_registry": "PASS",
