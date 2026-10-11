@@ -385,6 +385,78 @@
    "claim_type": "computational-result",
    "limitations": "Linear and local (WKB); not proved beyond linear order, since linear theory cannot fix the remainder once dS ~ -S. Computed at K_B = 1/2 and K2 = 75: the near-total cancellation uses 8K_B/(4+lambda) ~ 1 and 4 - 8K_B = 0, and kappa's K_B-dependence is unmeasured. At K2 = 7.5e5 near the scalar sound speed (~670 km/s) the scalar row contributes as much as the aether row and the Poisson reading fails at 300-600 km/s. Satellite outskirts dominated by the external field are not covered. The plane-wave plateau is k-independent; holding the point residual fixed instead gives 0.35-3.1 (a convention). A genuinely non-linear steady held branch is not excluded. Related prior art: Peloso & Sorbo 2004 (moving sources in a ghost condensate). No moving-source treatment was found in four AeST abstracts checked; no full literature search was made.",
    "source_locator": "TARGET_D7_SUPPLEMENT_BRANCH_SELECTION_2026-09-27.md sec.7"
+  },
+  {
+   "id": "CLM-Z-01",
+   "wording": "SPARC benchmark under nu_std (PARAMETER_LEDGER.json): Tier 0 median reduced chi2 11.08 at the anchor a0 = cH0/2pi and 9.93 at the literature a0; Tier 1 (374 fitted nuisance parameters) 3.36 and 3.41, a tie.",
+   "state": "computed",
+   "claim_type": "computed-result",
+   "limitations": "A goodness-of-fit comparison; it does not select a0 and makes no zero-free-parameter claim (E-07). Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
+   "source_locator": "02_galaxy_dynamics/PARAMETER_LEDGER.json"
+  },
+  {
+   "id": "CLM-Z-02",
+   "wording": "A profile fit over 175 SPARC galaxies under mu_std (treatment T1) gives a0 = 1.1607e-10 m/s^2, bootstrap 68% [1.059, 1.232]e-10 and 95% [0.972, 1.295]e-10; the anchor cH0/2pi = 1.042e-10 at H0 = 67.4 lies inside the 95% interval.",
+   "state": "computed",
+   "claim_type": "computed-result",
+   "limitations": "A fitted value of the a0 scale, one of the two irreducible inputs; cH0/2pi stays an input, not a derivation (CLM-O1-01). Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
+   "source_locator": "02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json"
+  },
+  {
+   "id": "CLM-Z-03",
+   "wording": "On AeST's held branch, the Milky Way external field gives mu_std a solar-system quadrupole Q2 = 1.67-1.72e-26 s^-2 at the anchor a0, excluded by Cassini at +4.6/+4.7 sigma against Hees et al. 2014; sharper interpolating functions are excluded more strongly, and SPARC's total chi2 prefers the smooth mu_std transition. The isolated-Sun monopole term is negligible.",
+   "state": "computed",
+   "claim_type": "computed-result",
+   "limitations": "Applies to the held branch only. On the dragged branch the solar system is exactly GR (CLM-D3-10), so this does not exclude AeST; branch selection stays [O]. Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
+   "source_locator": "02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md"
+  },
+  {
+   "id": "CLM-Z-04",
+   "wording": "In the exploratory D7 stage-2 run (one toy Plummer sphere at four speeds), every converged satellite-speed solve is stripped of its MOND field, and pre-registered gates B2 (first Newton step reaches 77-90% of the linear amplitude) and C (one of six solves stops at residual 5.7e-10 against 1e-10) fail.",
+   "state": "conditional",
+   "claim_type": "exploratory-result",
+   "limitations": "Exploratory; not a verdict on branch selection, which stays [O]. The four physical dwarf M/L ratios remain uncomputed. Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
+   "source_locator": "exploration/d7_stage2/README.md"
+  },
+  {
+   "id": "CLM-Z-05",
+   "wording": "Of 42 Milky Way satellites with measured dispersions (LMC and SMC excluded), 37 would need stellar M/L > 10 at the 1-sigma-low dispersion if they were Newtonian.",
+   "state": "computed",
+   "claim_type": "computed-result",
+   "limitations": "An input to the branch question, not a test that falsifies AeST; branch selection stays [O]. Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
+   "source_locator": "02_galaxy_dynamics/BRANCH_RULE_SATELLITES.json"
+  },
+  {
+   "id": "CLM-Z-06",
+   "wording": "With the chiral threshold theta = 0.70 as an adopted input, the band ceiling is kappa = sqrt(theta(2-theta)) = sqrt(0.91) = 0.953939; the corpus kappa is 0.9539.",
+   "state": "derived",
+   "claim_type": "derived-identity",
+   "limitations": "The Lean theorem evaluates kappaBand at 7/10; it does not derive theta. chi_s = 0.956145 (CLM-11) is a different constant (E-13). Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
+   "source_locator": "05_lean_formalization/PillarIV_AntiDriftGate.lean#kappaBand_at_seven_tenths"
+  },
+  {
+   "id": "CLM-Z-R1",
+   "wording": "RETRACTED: kappa = 0.9539 is a hypersurface average of T_mu_nu, a curvature scalar of the GOD substrate, a 3-sphere trace normalization, or a value that emerges from the GOD action. Replacement: kappa = sqrt(theta(2-theta)) at theta = 0.70 (CLM-Z-06); the published eq. 11 fixes xi = 0.127 by requiring kappa, so it is tuned, not derived.",
+   "state": "retracted",
+   "claim_type": "structural-correction",
+   "limitations": "Affected surfaces: the published records listed in published_in. Corrections reach Zenodo only as new versions. Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
+   "source_locator": "Zenodo claim audit 2026-10-11"
+  },
+  {
+   "id": "CLM-Z-R2",
+   "wording": "RETRACTED: the Information Tension acceleration relation is derived from the weak-field limit of T_mu_nu, and its SPARC fits use zero per-galaxy free parameters. Replacement: mu is an irreducible input (E-07); the fitted function was mu_dual, withdrawn (E-01, E-06); the live comparison is PARAMETER_LEDGER.json under mu_std (CLM-Z-01).",
+   "state": "retracted",
+   "claim_type": "structural-correction",
+   "limitations": "Affected surfaces: the published records listed in published_in. Corrections reach Zenodo only as new versions. Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
+   "source_locator": "docs/ERRATA.yaml#E-07"
+  },
+  {
+   "id": "CLM-Z-R3",
+   "wording": "RETRACTED: the boundary theta, or the dephasing limit chi, equals 1/sqrt2 = 0.707. Replacement: theta = 0.70 is the settled input; 1/sqrt2 is the band's lower wall and the angle of the rejected 0.9561 ceiling (E-13).",
+   "state": "retracted",
+   "claim_type": "structural-correction",
+   "limitations": "Affected surfaces: the published records listed in published_in. Corrections reach Zenodo only as new versions. Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
+   "source_locator": "docs/ERRATA.yaml#E-13"
   }
  ]
 }
