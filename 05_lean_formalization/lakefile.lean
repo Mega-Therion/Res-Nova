@@ -52,6 +52,10 @@ lean_lib «ResNovaFormal» where
     `NavierStokesGeometry,
     `NavierStokesScope,
     `NavierStokesSpec,
+    -- ADDED 2026-10-12. Periodic-domain types (T3 = (R/Z)^3) and the alignment-along-velocity
+    -- interface. Interfaces only; no persistence theorem.
+    `NavierStokesDomain,
+    `NavierStokesSpacetimeBridge,
     -- ADDED 2026-10-08. The periodic target (Fefferman's statement B) as a Prop, the
     -- alignment obligation over genuine solutions, and four sanity theorems. No proof of B.
     `NavierStokesTarget,

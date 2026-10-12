@@ -7,7 +7,7 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against the physics:** 2026-10-09 (UTC). The audit-cycle state below supersedes
+**Last verified against the physics:** 2026-10-12 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
 The 2026-10-09 decisions (RY) record. **These do change tiers and one cited number:**
@@ -60,6 +60,7 @@ The 2026-10-09 stamp records (none of it changes a tier or a physical result):
   - `SovereignRegularity.lean` identifiers and comments were renamed to match `THEORY_ASSUMPTION_AUDIT.md`. Its proof terms are unchanged, and F7's pin was moved.
   - `NavierStokesTarget.lean` was added and scoped in `ADJACENT_MODULES.txt`. It freezes the periodic target as a `Prop` and proves a single-time alignment step.
   - None of this touches a D-target or the MOND manuscript.
+- **The adjacent Navier–Stokes program, PR #159 (2026-10-12).** `NavierStokesDomain.lean` (the T³ = (ℝ/ℤ)³ types and two quotient lemmas) and `NavierStokesSpacetimeBridge.lean` (a time-indexed alignment interface whose one theorem restates its own hypothesis) were added and scoped in `ADJACENT_MODULES.txt`. They are interfaces only. Neither proves persistence or regularity, and neither touches a D-target or the MOND manuscript.
 
 - **Withdrawn phrasing and swapped names, now gated (`scripts/dead_branch_scan.py`).**
   - New entity: the withdrawn "zero free parameters / parameter-free" claim. The standing accounting is two irreducible inputs, the a₀ scale and the μ choice.

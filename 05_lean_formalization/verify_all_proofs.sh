@@ -58,6 +58,8 @@ TARGETS=(
   NavierStokesGeometry.lean
   NavierStokesScope.lean
   NavierStokesSpec.lean
+  NavierStokesDomain.lean
+  NavierStokesSpacetimeBridge.lean
   NavierStokesTarget.lean
   GenerationIndex.lean
   DiagonalConeIndex.lean
