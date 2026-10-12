@@ -44,7 +44,7 @@ Res-Nova is a research program in modified gravity built to be checked:
 
 **What was killed.** Each `[X]` is kept with its date:
 - μ = x/(1+x), which fails in the solar system (2026-09-12);
-- the 20-point high-z table, with its 5.9σ and 2.06σ results (2026-09-27);
+- the 20-point high-z table, with its void results (2026-09-27);
 - lepton and quark mass "predictions". The Lean modules fit measured masses; they do not predict them. The ledger was corrected and status notices were added to the legacy manuscripts on 2026-10-03. `ARS_MAGNA_THE_LAW_OF_GOD` now lives in `archive/legacy_root/`. The Navier–Stokes notes live in the same directory. `05_lean_formalization/NavierStokesScope.lean` is an alignment-threshold lemma, not a regularity proof.
 
 **What is open.** Each `[O]`:

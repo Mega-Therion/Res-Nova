@@ -61,6 +61,7 @@ The 2026-10-09 stamp records (none of it changes a tier or a physical result):
   - `NavierStokesTarget.lean` was added and scoped in `ADJACENT_MODULES.txt`. It freezes the periodic target as a `Prop` and proves a single-time alignment step.
   - None of this touches a D-target or the MOND manuscript.
 - **The adjacent Navier–Stokes program, PR #159 (2026-10-12).** `NavierStokesDomain.lean` (the T³ = (ℝ/ℤ)³ types and two quotient lemmas) and `NavierStokesSpacetimeBridge.lean` (a time-indexed alignment interface whose one theorem restates its own hypothesis) were added and scoped in `ADJACENT_MODULES.txt`. They are interfaces only. Neither proves persistence or regularity, and neither touches a D-target or the MOND manuscript.
+- **Manuscript O4 withdrawal alignment (2026-10-12).** `res_nova_manuscript.tex`, `README.md`, `OPEN_PROBLEMS_AND_TESTS.md`, and `SUBMISSION/COVER_LETTER_PRD.md` were scrubbed of surviving mentions of the void 5.9σ and 2.06σ figures from the withdrawn 20-point high-z table. The text records the withdrawal under `[X]` (`03_observer_jwst/O4_REAL_DATA_MUSE_DARK_III_2026-09-27.md`), affirms the empirical status on real kinematics (RC100, MUSE-DARK III) as inconclusive, and confirms neither reading is excluded.
 
 - **Withdrawn phrasing and swapped names, now gated (`scripts/dead_branch_scan.py`).**
   - New entity: the withdrawn "zero free parameters / parameter-free" claim. The standing accounting is two irreducible inputs, the a₀ scale and the μ choice.
