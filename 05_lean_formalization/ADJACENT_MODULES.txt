@@ -140,6 +140,8 @@ NavierStokesCorticalBound.lean
 # regularity result. NavierStokesGeometry/Scope/Spec predate this list and are counted
 # in the manuscript's module total.
 NavierStokesTarget.lean
+NavierStokesDomain.lean
+NavierStokesSpacetimeBridge.lean
 
 # --- Yang-Mills Gauge Theory & Casimir Mass Gap Program ---
 # Positive spectral mass gap Delta_YM(N) = (kappa / theta) * (N - 1),
