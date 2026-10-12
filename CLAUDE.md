@@ -73,6 +73,8 @@ is exact but rests on an adopted premise — `sinh(psi)=1` is not selected by an
 argument. `formally-verified` (CLM-11, CLM-13) means the *mathematics* is machine-checked,
 not that the physical identification holds; both records say so in `limitations`.
 
+Before pushing, run `bash scripts/local_gate.sh`. CI's claim-hygiene job runs exactly this, and it covers what the four quick checks miss: `visualizer/claims.json` must be regenerated (`python3 scripts/export_visualizer_ledger.py`), and every DOI cited in `assurance/claims.json` needs an entry in `docs/publication_registry.yaml`. Zenodo DOIs are registered with DataCite, so check them at api.datacite.org/dois/<doi>; Crossref returns 404 for them by design.
+
 A module in `05_lean_formalization/ADJACENT_MODULES.txt` is scoped out of the manuscript,
 never out of the gate. Everything on disk is built and checked.
 
