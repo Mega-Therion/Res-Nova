@@ -1,0 +1,30 @@
+{
+ "n_used": 95,
+ "n_table": 100,
+ "beam_arcsec": 0.53,
+ "median_beam_over_Re": 0.764,
+ "slope_lna0_on_ln_beam_over_Re": 0.1949,
+ "slope_95ci_bootstrap": [
+  -0.233,
+  0.6043
+ ],
+ "spearman_lna0_vs_resolution": [
+  -0.023,
+  0.8271
+ ],
+ "spearman_resolution_vs_z": [
+  0.334,
+  0.0009
+ ],
+ "spearman_lna0_resid_vs_resolution": [
+  0.037,
+  0.7253
+ ],
+ "dln_beam_over_Re_dz": 0.1816,
+ "implied_lna0_shift_z0p6_to_2p6_at_ci": [
+  -0.085,
+  0.219
+ ],
+ "hubble_shape_lna0_growth_z0p6_to_2p6": 1.026,
+ "check_median_beam_over_Re_vs_paper_0p75": true
+}

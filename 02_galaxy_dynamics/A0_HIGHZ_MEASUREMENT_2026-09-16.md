@@ -18,7 +18,7 @@ dynamical-fit calibration that this audit cannot remove).
   This is the only result that does not depend on the calibration, and it leans toward **constancy**.
   It is still **not** established, for three reasons:
   (i) fDM comes from the same GR+NFW fit as a photometric prior whose own z-trend (+0.53) is near the fitted trend (+0.38);
-  (ii) a z-dependent Vc or beam-smearing bias was not tested;
+  (ii) a z-dependent Vc bias was not tested (beam smearing was tested on 2026-10-13 and cannot hide the Hubble shape; see the section "Resolution test");
   (iii) the estimator fails its own bias and coverage self-tests (S6, S8).
 - **Recommended citation:** "high-z a0 is flat across z = 0.6 to 2.6 at [C]; the step from z = 0 is calibration-limited; no reading is excluded" [O].
 
@@ -116,7 +116,7 @@ The Hubble vs constant separation at z = 1 is 0.58. Every row below is comparabl
 | M_bar-route geometry | k from q = 0.2 to a deprojected sphere | +0.91 |
 | BTFR H0 zero-point | — | 0.161 |
 
-Vc-scale and pressure-α variants were **not** added to the flip table. A z-dependent beam-smearing bias was not tested [O].
+Vc-scale and pressure-α variants were **not** added to the flip table. A z-dependent beam-smearing bias was tested on 2026-10-13 (section "Resolution test").
 
 ## Checks, as measured
 
@@ -201,3 +201,19 @@ Its legend also labels the worse model (χ²/ν 39.6 vs 20.4) as "BEST FIT".
 - `02_galaxy_dynamics/HIGHZ_A0_METHOD_SELFTEST_2026-09-16.json`
 - `02_galaxy_dynamics/highz_data/*.csv`
 - run logs `02_galaxy_dynamics/highz_data/*_run.txt`
+
+## Resolution test (added 2026-10-13)
+
+`scripts/a0_highz_resolution_test.py` → `A0_HIGHZ_RESOLUTION_TEST.json`. RC100's Vc and fDM come from beam-convolved forward models (Nestor Shachar+2023 §3) [C], so only a residual PSF-model bias can remain, and it would grow with beam/R_e. Per galaxy (95 of 100 with 0.05 ≤ fDM ≤ 0.95), a₀ from the fDM route under μ_std at R_e, against beam/R_e with the sample's median beam 0.53″ [D]:
+
+| measurement | value |
+|---|---|
+| median beam/R_e (paper: 0.75 ± 0.38) | 0.764 |
+| slope of ln a₀ on ln(beam/R_e), controls z and log M_bar | +0.195, 95% bootstrap [−0.233, +0.604] |
+| Spearman ln a₀ vs beam/R_e; residual after z and M_bar | −0.023 (p 0.83); +0.037 (p 0.73) |
+| Spearman beam/R_e vs z | +0.334 (p 0.0009) |
+| shift in ln a₀ from z 0.6 to 2.6 allowed by the slope interval | −0.085 to +0.219 |
+| Hubble-shape growth in ln a₀ over the same range | +1.026 |
+
+Resolution worsens with z, so a smearing bias would be z-dependent, but none is detected. The largest shift the interval allows in the direction that would fake constancy is −0.085 in ln, 8% of the Hubble-shape growth. Beam smearing therefore cannot explain the flat shape. Limits: one median beam stands in for per-galaxy beams (AO and seeing-limited data differ), and a₀ is a per-galaxy point estimate, not the joint likelihood. The fDM-prior trend (i) and the estimator self-test failures (iii) are untouched.
+
