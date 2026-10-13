@@ -247,3 +247,22 @@ Read from the existing self-test log (`highz_data/highz_a0_method_selftest_run.t
 - The S6 failure (max 0.042 at errors ÷10) matches the M_bar route's noise-free offset in S7 (+0.042 at 1×). The M_bar route is a cross-check only.
 - S9 coverage at 68% is 0.55–0.57 (the 3σ binomial test passes): the intervals are somewhat narrow, which makes the shape statement less secure, not more. Systematic (iii) is therefore not a route to faking constancy. Systematic (i) stays open, and so does the Vc-scale part of (ii).
 
+## Pressure-support scale (added 2026-10-13): the shape depends on it
+
+`scripts/a0_highz_pressure_scale_test.py` → `A0_HIGHZ_PRESSURE_SCALE_TEST.json`. RC100's Vc includes the Burkert et al. (2010) correction, V_circ² = V_rot² + 3.36 σ₀² at R_e [C], and σ₀/Vc rises with z (slope +0.104 per unit z; median 0.20). Rescale the correction by s with the baryons held fixed, recompute per-galaxy a₀ and refit the shape slope n (n = 1 Hubble, n = 0 constant) [D]:
+
+| s (1 = as published) | N | n | 95% bootstrap |
+|---|---|---|---|
+| 0.0 | 67 | -0.28 | [-0.79, +0.23] |
+| 0.5 | 73 | -0.15 | [-0.59, +0.30] |
+| 1.0 | 95 | -0.28 | [-0.72, +0.15] |
+| 1.5 | 95 | +0.05 | [-0.32, +0.43] |
+| 2.0 | 95 | +0.31 | [-0.06, +0.71] |
+| 3.0 | 95 | +0.65 | [+0.23, +1.10] |
+| 4.0 | 95 | +0.86 | [+0.40, +1.33] |
+
+- At the published scale the shape favours constancy (n = −0.28), as found above.
+- The Hubble shape enters the 95% interval only when the correction is three times the published one or larger; at s = 3 and 4 constancy is excluded instead.
+- Below s = 1 galaxies drop out (their fDM falls under 0.05), so those rows are censored and not comparable.
+- **This is the systematic that matters most for the shape.** Whether a pressure correction about three times Burkert's is physically allowed at z ≈ 1–2.5 is a question for the literature [O]; it is the decisive open item for a₀(z), ahead of the fDM prior.
+
