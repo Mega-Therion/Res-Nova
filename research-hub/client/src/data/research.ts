@@ -11,9 +11,9 @@ export type StatusTone = "blue" | "amber" | "red" | "slate";
 
 export const releaseState = {
   version: "Public atlas v0.3",
-  researchRelease: "Res Nova · correction cycle 2026-10-03",
-  commit: "5b75e793d3962edb7484d052f3051beef1eb627e",
-  note: "Aligned with main on 2026-10-03: 66 Lean targets, unscreened μ_std fails Cassini, D7 stays open, and the SPARC tier-0 comparison is horizon a₀ median reduced χ² 11.08 against literature a₀ 9.93 under the same μ_std.",
+  researchRelease: "Res Nova · correction cycle 2026-10-13",
+  commit: "54ee613846b88f9fdc15709675316557028d3041",
+  note: "Aligned with main (54ee613) on 2026-10-13: 69 Lean targets, a₀ = 1.1607 × 10⁻¹⁰ m s⁻² under μ_std, unscreened μ_std fails Cassini, D7 stays open, and the retracted-claim list matches assurance/claims.json.",
   links: {
     github: "https://github.com/Mega-Therion/Res-Nova",
     zenodo: "https://doi.org/10.5281/zenodo.21969121",
@@ -32,9 +32,9 @@ export const stats = [
     detail: "3,391 kinematic points",
   },
   {
-    value: "66",
+    value: "69",
     label: "Lean targets in the current gate",
-    detail: "counted in verify_all_proofs.sh on 2026-10-03",
+    detail: "counted in verify_all_proofs.sh on 2026-10-13",
   },
   { value: "6", label: "evidence states", detail: "from derived to refuted" },
   {
@@ -199,7 +199,7 @@ export const claimRegistryState = {
   source: "CLAIM_EVIDENCE_LEDGER.md",
   release: releaseState.researchRelease,
   commit: releaseState.commit,
-  snapshotDate: "2026-10-03",
+  snapshotDate: "2026-10-13",
   totalClaims: claims.length,
   statuses: {
     derived: claims.filter(claim => claim.status === "derived").length,
@@ -210,6 +210,26 @@ export const claimRegistryState = {
     superseded: claims.filter(claim => claim.status === "superseded").length,
   },
 } as const;
+
+/** Claims the registry (assurance/claims.json) marks `retracted`, summarized by hand.
+ *  A test (retracted-claims.test.ts) fails if this list and the registry disagree. */
+export const retractedClaims = [
+  { id: "CLM-05", title: "The 382-parameter SPARC fit is not the current fit", detail: "It is historical. The matched Tier 1 comparison uses 374 nuisance parameters." },
+  { id: "CLM-15", title: "The anti-drift gate u ≥ γ ⇔ χ ≥ θ is false", detail: "The steady-state coherence is not monotonic; θ is a ceiling on coherence, not a gate." },
+  { id: "CLM-D3-01", title: "\"1137× below Cassini\"", detail: "A category error: 1 − μ and γ − 1 are not comparable. The live figure is a MOND correction of about 2 × 10⁻⁸ at Earth." },
+  { id: "CLM-D3-03", title: "Vainshtein screening puts Q₂ 119× below the Cassini bound", detail: "Retracted 2026-09-30: computed with the retired F_dual action, and no GW170817-safe Vainshtein screen is available." },
+  { id: "CLM-D3-05", title: "γ = β = 1 with Cassini and MESSENGER margins", detail: "Void: derived for an Einstein-aether action that was not the AeST action." },
+  { id: "CLM-D6-03", title: "A strong-coupling scale of about 10⁻¹⁰ eV", detail: "A unit error. The correct scale is about 1.8 meV, a 110 μm range, which is lab-accessible." },
+  { id: "CLM-D7-01", title: "The RMOND action with F_dual is written and verified", detail: "Superseded 2026-09-12: written against a vector field, not the scalar AeST field." },
+  { id: "CLM-D7-02", title: "Background Friedmann equations are unmodified", detail: "Void 2026-09-12: the calculation it rested on does not apply under the corrected AeST action." },
+  { id: "CLM-D7-03", title: "Linear screening factor F″/F′ ≈ 0.00233", detail: "Void 2026-09-12: computed from a field the action does not contain." },
+  { id: "CLM-D7-05", title: "Natural O(1) couplings satisfy all constraints", detail: "Void 2026-09-12: those couplings do not exist in the corrected AeST action." },
+  { id: "CLM-D7-06", title: "Exact PPN γ, β for specific couplings", detail: "Superseded: γ = 1 follows from Ψ = Φ in the Skordis–Złośnik embedding, not from couplings." },
+  { id: "CLM-D9-01", title: "The D9 embedding normalization", detail: "Corrected 2026-09-12: a factor-of-2 prefactor disagreement, and ã₀ had been conflated with a₀." },
+  { id: "CLM-Z-R1", title: "κ = 0.9539 emerges from the theory", detail: "Retracted by the 2026-10-11 Zenodo audit: κ = √(θ(2 − θ)) at θ = 0.70 is an input relation, and ξ is tuned to it." },
+  { id: "CLM-Z-R2", title: "The acceleration relation is derived, and the SPARC fits use no per-galaxy freedom", detail: "Retracted by the 2026-10-11 Zenodo audit: μ is an irreducible input and the live comparison is the μ_std parameter ledger." },
+  { id: "CLM-Z-R3", title: "θ or χ equals 1/√2", detail: "Retracted by the 2026-10-11 Zenodo audit: θ = 0.70 is the settled input; 1/√2 is the band's lower wall." },
+];
 
 export const workstreams = [
   {
