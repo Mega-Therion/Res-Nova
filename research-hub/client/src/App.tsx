@@ -44,6 +44,7 @@ import {
   pillars,
   publications,
   releaseState,
+  retractedClaims,
   stats,
   statusMeta,
   timeline,
@@ -1446,6 +1447,23 @@ function OpenProblems() {
                 <p>{problem.body}</p>
               </div>
               <ArrowDownRight size={19} className="problem-arrow" />
+            </article>
+          ))}
+        </div>
+        <div className="problem-list" aria-label="Retracted claims">
+          <span className="eyebrow">
+            Retracted claims ({retractedClaims.length}), from assurance/claims.json
+          </span>
+          {retractedClaims.map(claim => (
+            <article className="problem-row" key={claim.id}>
+              <span className="problem-number">{claim.id}</span>
+              <div>
+                <div className="problem-title">
+                  <h3>{claim.title}</h3>
+                </div>
+                <p>{claim.detail}</p>
+              </div>
+              <span />
             </article>
           ))}
         </div>
