@@ -1,0 +1,77 @@
+{
+ "all": {
+  "N": 95,
+  "n": -0.277,
+  "n_95ci": [
+   -0.719,
+   0.152
+  ],
+  "median_frac_e_fDM": 0.444
+ },
+ "tight_frac_e_fDM": {
+  "N": 49,
+  "n": 0.396,
+  "n_95ci": [
+   -0.128,
+   0.951
+  ],
+  "median_frac_e_fDM": 0.263
+ },
+ "loose_frac_e_fDM": {
+  "N": 46,
+  "n": -0.413,
+  "n_95ci": [
+   -1.051,
+   0.379
+  ],
+  "median_frac_e_fDM": 0.71
+ },
+ "split_at_frac_e_fDM": 0.444,
+ "confound_tight_vs_loose_median_z": [
+  1.38,
+  2.04
+ ],
+ "confound_tight_vs_loose_median_fDM": [
+  0.47,
+  0.16
+ ],
+ "tight_abs_e_fDM": {
+  "N": 51,
+  "n": -0.572,
+  "n_95ci": [
+   -1.149,
+   -0.011
+  ],
+  "median_frac_e_fDM": 0.5
+ },
+ "loose_abs_e_fDM": {
+  "N": 44,
+  "n": -0.036,
+  "n_95ci": [
+   -0.683,
+   0.649
+  ],
+  "median_frac_e_fDM": 0.41
+ },
+ "fDM_below_0p4": {
+  "N": 59,
+  "n": -0.362,
+  "n_95ci": [
+   -0.907,
+   0.195
+  ],
+  "median_frac_e_fDM": 0.667
+ },
+ "fDM_above_0p4": {
+  "N": 36,
+  "n": 0.255,
+  "n_95ci": [
+   -0.236,
+   0.716
+  ],
+  "median_frac_e_fDM": 0.258
+ },
+ "hubble_n": 1.0,
+ "constant_n": 0.0,
+ "reading": "The two error splits disagree in sign, and the fractional split tracks fDM and z, so the published table cannot separate prior from data."
+}

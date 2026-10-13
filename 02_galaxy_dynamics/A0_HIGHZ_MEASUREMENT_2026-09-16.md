@@ -217,3 +217,18 @@ Its legend also labels the worse model (χ²/ν 39.6 vs 20.4) as "BEST FIT".
 
 Resolution worsens with z, so a smearing bias would be z-dependent, but none is detected. The largest shift the interval allows in the direction that would fake constancy is −0.085 in ln, 8% of the Hubble-shape growth. Beam smearing therefore cannot explain the flat shape. Limits: one median beam stands in for per-galaxy beams (AO and seeing-limited data differ), and a₀ is a per-galaxy point estimate, not the joint likelihood. The fDM-prior trend (i) and the estimator self-test failures (iii) are untouched.
 
+## Prior-split test (added 2026-10-13): inconclusive by construction
+
+`scripts/a0_highz_prior_split_test.py` → `A0_HIGHZ_PRIOR_SPLIT_TEST.json`. The test asks whether the flat shape holds where fDM is constrained by the kinematics rather than the photometric prior. Model: per-galaxy ln a₀ = c + n ln E(z) + b(log M_bar − 10.5), weighted; n = 1 is the Hubble shape, n = 0 constant [D].
+
+| subset | N | n | 95% bootstrap |
+|---|---|---|---|
+| all | 95 | −0.28 | [−0.72, +0.15] |
+| fractional e_fDM below median | 49 | +0.40 | [−0.13, +0.95] |
+| fractional e_fDM above median | 46 | −0.41 | [−1.05, +0.38] |
+| absolute e_fDM below median | — | −0.57 | [−1.15, −0.01] |
+| absolute e_fDM above median | — | −0.04 | [−0.68, +0.65] |
+| fDM < 0.4 / ≥ 0.4 | 59 / 36 | −0.36 / +0.26 | [−0.91, +0.20] / [−0.24, +0.72] |
+
+The two error splits disagree in sign. The fractional split mostly separates galaxies by fDM and redshift (median z 1.38 vs 2.04, median fDM 0.47 vs 0.16). So a per-galaxy error cannot stand in for the prior's weight, and the "tight half leans toward Hubble" pattern is not evidence. Separating prior from data needs each galaxy's prior and posterior widths, which Table 3 does not give. The whole-sample slope agrees with the shape result above. Systematic (i) stays open.
+
