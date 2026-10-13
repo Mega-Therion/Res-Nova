@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""The physical rule that ties the even part to the odd part: the corpus's own driven, damped two-level system.
+"""Pillar IV: the driven, damped two-level system, its even and odd parts, and the steady state in mu_std.
 
 Model (Res-Nova 05_lean_formalization/PillarIV_AntiDriftGate.lean, section 2): H = u sigma_x, jump operator
 sigma_minus with rate gamma, GKSL generator L(rho) = -i[H, rho] + gamma (L rho L+ - 1/2 {L+ L, rho}).
 
-chirality_of_a_chain.py showed that for a classical chain chi (from pi) and the sign (loop affinity) are
-independent, so a link needs added structure. Here the structure is the dynamics itself. In the steady state:
+For a classical Markov chain the stationary measure and the handedness (loop affinity) are independent, so a
+link between an even and an odd quantity needs added structure. Here the structure is the dynamics itself. In the steady state:
   * the populations are the even part: unchanged by the mirror (complex conjugation, equivalently u -> -u);
   * the coherence rho_01 is purely imaginary, the odd part: the mirror flips its sign;
   * balance of the excited population:  2 u Im(rho_01) = gamma rho_11   (drive in = decay out);
