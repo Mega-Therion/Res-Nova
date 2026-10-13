@@ -15,6 +15,8 @@ Same day: residual beam smearing in the high-z a₀ sample was tested (`scripts/
 Also: the fDM-prior split test is inconclusive by construction (#170, recorded null), and the estimator self-test bias is nearly constant (−0.039 vs −0.042 in ln at the two truths), so it shifts normalization, not shape. Open for a₀(z): the fDM prior and the Vc scale. The Vc-scale test (`scripts/a0_highz_pressure_scale_test.py`) shows the shape depends on the pressure-support correction: n = −0.28 at the published Burkert scale, and the Hubble shape enters the 95% interval only at three times that scale or more. Whether such a scale is physical is open and decisive.
 First literature pass (abstracts only, [C]): Kretschmer et al. 2021 find the correction at R_e in simulations is about 0.3× Burkert's, and Wellons et al. 2020 bound the bias at 40%; both point away from the ≥ 3× the Hubble shape needs. Reading [O] until the papers are read in full.
 
+Also 2026-10-13 (no tier change): `PILLAR_IV_MU_IDENTITY_2026-10-13.md`. Solved from its generator, the Pillar IV two-level steady state is exactly ρ₁₁ = μ²/2 and C = √2·μ·√(1−μ²) with μ = μ_std(2√2·u/γ); C peaks at μ = 1/√2. The retracted premise "coherence = μ(u/γ)" stays false. Identities `[D]`; any identification with g/a₀ is `[O]`.
+
 The 2026-10-09 decisions (RY) record. **These do change tiers and one cited number:**
 - **[P] rule.** A row keeps [P] only where a named Lean theorem proves its claim; otherwise it is [D] or [O].
   - D1: [P] core (`MuStdUniqueness.theorem_A_constitutive`, F′ = xμ_std as `HasDerivAt`; `MuStdFoundations`), [D] rebuild.
