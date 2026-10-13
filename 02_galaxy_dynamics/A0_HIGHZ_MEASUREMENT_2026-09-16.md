@@ -266,3 +266,17 @@ Read from the existing self-test log (`highz_data/highz_a0_method_selftest_run.t
 - Below s = 1 galaxies drop out (their fDM falls under 0.05), so those rows are censored and not comparable.
 - **This is the systematic that matters most for the shape.** Whether a pressure correction about three times Burkert's is physically allowed at z ≈ 1–2.5 is a question for the literature [O]; it is the decisive open item for a₀(z), ahead of the fDM prior.
 
+## Is a pressure correction three times Burkert's plausible? (added 2026-10-13)
+
+Sources read as abstracts through the arXiv API on 2026-10-13 [C]; the papers themselves were not read in full.
+
+| Source | What it says about the correction V_c² = V_rot² + α σ² |
+|---|---|
+| Burkert et al. 2010 (arXiv:0907.4777), used by RC100 | self-gravitating exponential disk: α = 3.36 (r/R_e) |
+| Kretschmer et al. 2021 (arXiv:2010.04629), VELA simulations, z = 1–5 | that prediction "is invalid in the simulations, where the dominant spheroid causes a weaker gradient from α ≃ 1 at R_e to 4 at 5R_e" |
+| Wellons et al. 2020 (arXiv:1908.05274), FIRE-2 simulations | turbulent pressure gradients "bias dynamical mass measurements low by up to 40%" at larger radii |
+
+- In the units of the previous section, Kretschmer et al. put the correction at R_e near s ≈ 0.3, below Burkert's, and their largest α anywhere inside 5R_e is 4. The Hubble shape needs s ≥ 3, that is α ≈ 10 at R_e.
+- In RC100 the published correction is already 14% of V_c² at the median (36% at the 84th percentile; 15% of galaxies above 40%). At s = 3 it would be 33% at the median and above 40% for 41% of the sample, past the largest bias Wellons et al. report [D] (`RC100` table, V_c and σ₀ columns; a few dispersion-dominated galaxies give unphysical values under this simple formula).
+- **Reading [O]:** the simulation literature moves the correction down, not up, so the pressure-support scale does not rescue the Hubble shape. The rows with s < 1 in the previous section are censored, so the size of the shift toward constancy at s ≈ 0.3 is not measured here. A full reading of these papers, and of any observational calibration of α at R_e, is still owed before this is cited.
+
