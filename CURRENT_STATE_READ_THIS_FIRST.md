@@ -12,6 +12,7 @@ any pre-2026-09-16 substrate claim not updated by it.
 
 The 2026-10-13 record (no tier or number changes): `HORIZON_SELECTION_AUDIT_2026-09-16.md` and its verifier are restored to the PR #66 version (`d0036ca`, 11/11), which this file already cited ("no selecting principle; a₀(z) decides"). Commit `f3d63b6` had replaced them with a version claiming T = ħH/2π holds "without approximations"; its cited sources (Cai–Cao–Hu 2009 p. 7; Helou 2015) state that form drops the Ṙ_A term. The core-objects ledger, layer 0 and the research-hub card CLM-HORIZON-01 now read OPEN.
 Same day: residual beam smearing in the high-z a₀ sample was tested (`scripts/a0_highz_resolution_test.py`). No resolution dependence is detected, and the allowed bias moves ln a₀ by at most −0.085 across z = 0.6–2.6, against +1.026 for the Hubble shape. Systematic (ii) of `A0_HIGHZ_MEASUREMENT_2026-09-16.md` is narrowed to the Vc scale; the verdict stays [O].
+Also: the fDM-prior split test is inconclusive by construction (#170, recorded null), and the estimator self-test bias is nearly constant (−0.039 vs −0.042 in ln at the two truths), so it shifts normalization, not shape. Open for a₀(z): the fDM prior and the Vc scale.
 
 The 2026-10-09 decisions (RY) record. **These do change tiers and one cited number:**
 - **[P] rule.** A row keeps [P] only where a named Lean theorem proves its claim; otherwise it is [D] or [O].
