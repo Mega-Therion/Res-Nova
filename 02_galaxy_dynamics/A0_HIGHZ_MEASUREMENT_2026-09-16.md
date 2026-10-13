@@ -19,7 +19,7 @@ dynamical-fit calibration that this audit cannot remove).
   It is still **not** established, for three reasons:
   (i) fDM comes from the same GR+NFW fit as a photometric prior whose own z-trend (+0.53) is near the fitted trend (+0.38);
   (ii) a z-dependent Vc bias was not tested (beam smearing was tested on 2026-10-13 and cannot hide the Hubble shape; see the section "Resolution test");
-  (iii) the estimator fails its own bias and coverage self-tests (S6, S8).
+  (iii) the estimator fails its own bias and coverage self-tests (S6, S8); on 2026-10-13 the failing bias was shown to be nearly constant, so it shifts the normalization, not the shape (section "Self-test bias and the shape").
 - **Recommended citation:** "high-z a0 is flat across z = 0.6 to 2.6 at [C]; the step from z = 0 is calibration-limited; no reading is excluded" [O].
 
 ## Datasets and provenance
@@ -231,4 +231,19 @@ Resolution worsens with z, so a smearing bias would be z-dependent, but none is 
 | fDM < 0.4 / ≥ 0.4 | 59 / 36 | −0.36 / +0.26 | [−0.91, +0.20] / [−0.24, +0.72] |
 
 The two error splits disagree in sign. The fractional split mostly separates galaxies by fDM and redshift (median z 1.38 vs 2.04, median fDM 0.47 vs 0.16). So a per-galaxy error cannot stand in for the prior's weight, and the "tight half leans toward Hubble" pattern is not evidence. Separating prior from data needs each galaxy's prior and posterior widths, which Table 3 does not give. The whole-sample slope agrees with the shape result above. Systematic (i) stays open.
+
+## Self-test bias and the shape (added 2026-10-13)
+
+Read from the existing self-test log (`highz_data/highz_a0_method_selftest_run.txt`), no new run [D]:
+
+| fDM route, N = 100, 60 realizations | truth 1× | truth 1.791× |
+|---|---|---|
+| median bias in ln a₀, all z | −0.0392 | −0.0416 |
+| bias, z < 1.2 | −0.044 | −0.041 |
+| bias, z ≥ 1.2 | −0.015 | −0.029 |
+
+- The S8 failure is a bias of about −0.04 in ln a₀ that barely depends on the injected truth: the two truths differ by 0.583 in ln, and their biases differ by 0.0024. A constant bias moves the normalization, which is already calibration-limited; the shape test compares bins and does not see it.
+- Between the redshift bins, the bias is less negative at high z, by +0.029 (1×) and +0.012 (1.791×). That direction makes a₀ look slightly rising, not flat. Its size is 2–5% of the Hubble-shape step between bins at z ≈ 0.9 and 2 (0.586 in ln), and within the Monte Carlo error of 60 realizations (about 0.015).
+- The S6 failure (max 0.042 at errors ÷10) matches the M_bar route's noise-free offset in S7 (+0.042 at 1×). The M_bar route is a cross-check only.
+- S9 coverage at 68% is 0.55–0.57 (the 3σ binomial test passes): the intervals are somewhat narrow, which makes the shape statement less secure, not more. Systematic (iii) is therefore not a route to faking constancy. Systematic (i) stays open, and so does the Vc-scale part of (ii).
 
