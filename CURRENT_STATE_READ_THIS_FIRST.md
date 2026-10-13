@@ -7,8 +7,10 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against the physics:** 2026-10-12 (UTC). The audit-cycle state below supersedes
+**Last verified against the physics:** 2026-10-13 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
+
+The 2026-10-13 record (no tier or number changes): `HORIZON_SELECTION_AUDIT_2026-09-16.md` and its verifier are restored to the PR #66 version (`d0036ca`, 11/11), which this file already cited ("no selecting principle; a₀(z) decides"). Commit `f3d63b6` had replaced them with a version claiming T = ħH/2π holds "without approximations"; its cited sources (Cai–Cao–Hu 2009 p. 7; Helou 2015) state that form drops the Ṙ_A term. The core-objects ledger, layer 0 and the research-hub card CLM-HORIZON-01 now read OPEN.
 
 The 2026-10-09 decisions (RY) record. **These do change tiers and one cited number:**
 - **[P] rule.** A row keeps [P] only where a named Lean theorem proves its claim; otherwise it is [D] or [O].

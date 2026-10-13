@@ -136,9 +136,9 @@ export const claims = [
     status: "conditional" as EvidenceStatus,
     tone: "amber" as StatusTone,
     domain: "horizon selection",
-    title: "The FLRW apparent horizon sharpens the candidate home of a₀",
+    title: "No principle yet selects the Hubble horizon for a₀",
     summary:
-      "[C] The candidate home is the FLRW apparent horizon R_A = c/H exactly, with T = ħH/2π reproducing a₀ = cH₀/2π. The 1.439× and 0.831× discrepancies are de Sitter-misidentification signatures. [O-sharp] The question is sharpened, not resolved: the local-to-global coupling remains a physical postulate. The falsifiable corollary is a₀(z) = a₀(0)·√(Ω_m(1+z)³ + Ω_Λ), +79% at z = 1.",
+      "[O-sharp] Only the Hubble/apparent-horizon radius with the quasi-static temperature T = ħH/2π fits the distance-robust a₀. That temperature drops a term that is 0.24 today; keeping it (the Kodama–Hayward temperature) gives an excluded a₀, so the step is circular. a₀(z) decides: 1.79× (Hubble), 0.96× (Kodama) or 1.00× (Λ) at z = 1.",
     source: "HORIZON_SELECTION_AUDIT_2026-09-16.md",
     limitation:
       "A local galaxy-channel coupling to the global FLRW expansion remains open and must be tested by high-redshift data.",
