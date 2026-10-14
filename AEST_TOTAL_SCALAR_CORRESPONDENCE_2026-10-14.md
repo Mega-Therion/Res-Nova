@@ -2,7 +2,7 @@
 
 **Status:** `[D]` (computer algebra and numerics). No tier of any existing row changes. D9's function stays the one in use; replacing it with the function below is `[O]`, under D7.
 **Date:** 2026-10-14
-**Machine:** `scripts/aest_total_scalar_correspondence.py`, 26 checks, exit 0.
+**Machine:** `scripts/aest_total_scalar_correspondence.py`, 28 checks, exit 0. Lean: `05_lean_formalization/AeSTTotalScalarCorrespondence.lean`, 20 theorems, axiom-clean, sabotage 5/5.
 **Scope:** the AeST quasistatic weak-field limit of `TARGET_D7_COVARIANT_COMPLETION.md` §2, in spherical symmetry, with the AeST mass term negligible and the Newtonian and scalar gradients aligned. Outside that (non-spherical and external-field problems, the mass-term regime) the relation below is not exact.
 
 ## Setting
@@ -22,7 +22,8 @@ If the total law is x μ_std(x) = y, the scalar channel must satisfy:
 | the scalar function, 𝒥(0) = 0 | 𝒥(𝒴(x)) = a₀² [2η F_std(x) − η² y(x)²], with 𝒴(x) = a₀² s(x)² |
 | F_std | (x√(1+x²) − arsinh x)/2, so F_std′(x) = x μ_std(x) |
 | deep-MOND end | 𝒥 ≈ (2λ_s / 3ã₀) 𝒴^{3/2}, with ã₀ = (1+λ_s) a₀ |
-| Newtonian end | 𝒥′ → λ_s |
+| Newtonian end | 𝒥′ → λ_s, so g/g_N → 1 |
+| high-acceleration channel split | ĝ/g → η and g_φ/g → 1 − η (the scalar channel does not switch off), summing to 1 |
 | single-valued | if and only if λ_s < (27 + 12√6)/5 = 11.2788 |
 
 The function is given in parametric form, with x as the parameter. The relation dJ/dx = 𝒥′(𝒴(x)) d𝒴/dx holds identically (check A3).
@@ -75,5 +76,18 @@ This tests the stated equations on one solution. It is not an independent audit 
 ## Reproduce
 
 ```bash
-python3 scripts/aest_total_scalar_correspondence.py   # 26 checks, exit 0, about 10 s
+python3 scripts/aest_total_scalar_correspondence.py   # 28 checks, exit 0, about 10 s
+cd 05_lean_formalization && lake env lean AeSTTotalScalarCorrespondence.lean   # 20 theorems, exit 0
 ```
+
+## Lean
+
+`AeSTTotalScalarCorrespondence.lean` proves, by calculus (`a₀ = 1`, `x = g/a₀`):
+- `gauss_law`: `𝒥′ · s = η · y`, the Gauss law along the curve.
+- `chain_rule`: `d𝒥/dx = 𝒥′(𝒴) · d𝒴/dx`, so the closed form integrates the slope.
+- `yTd_sq_le`: `y′(x)² ≤ 32/27`, from `32(1+t)³ − 27t(t+2)² = (t−2)²(5t+8)`.
+- `s_strictMono` / `s_not_monotone`: `s` is strictly increasing when `32η² < 27`, and folds at `√2` when `32η² > 27`.
+- `flux_hasDerivAt`: the flux `𝒥′ s` rises with `s` where `s′ > 0` (the second ghost condition, parametric).
+- `threshold_iff`: for `λ_s ≥ 0`, `32(λ_s/(1+λ_s))² < 27 ↔ λ_s < (27 + 12√6)/5`.
+
+Only `propext`, `Classical.choice`, `Quot.sound`. The two-channel reduction itself, and the choice of which scalar function is live, are not in the module.

@@ -116,6 +116,11 @@ SZStdEmbedding.lean              # ADDED 2026-09-27. D9 on the live branch: F_st
                                  # J_std(Y) = F_std(sqrt Y), and HasDerivAt proofs that F' = x mu_std and
                                  # 2 J' = mu_std (derived, replacing the definitional sz_std_aqual_reduction).
                                  # Sabotage (mu/3) fails. Adjacent: supports D9, not a Table 2 result.
+AeSTTotalScalarCorrespondence.lean  # ADDED 2026-10-14. D7/D9: the scalar-channel function whose TOTAL
+                                 # quasistatic law is mu_std is J = a0^2[2 eta F_std - eta^2 y^2],
+                                 # single-valued iff lambda_s < (27+12 sqrt6)/5 = 11.2788; both static
+                                 # ghost conditions hold there. Sabotage 5/5. Adjacent: supports D7/D9,
+                                 # not a Table 2 result. See AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md.
 
 # --- Information-theoretic spectral bounds ---
 # Not anchored to physics: RamanujanGapDerivation derives the spectral gap of a

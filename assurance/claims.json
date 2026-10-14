@@ -1291,7 +1291,9 @@
       "state": "derived",
       "assurance_level": "symbolic-derivation",
       "claim_type": "mathematical-derivation",
-      "formal_artifacts": [],
+      "formal_artifacts": [
+        "05_lean_formalization/AeSTTotalScalarCorrespondence.lean"
+      ],
       "computational_artifacts": [
         "scripts/aest_total_scalar_correspondence.py"
       ],
@@ -1301,16 +1303,17 @@
         "Spherical symmetry, AeST mass term negligible, gradients aligned; the total law is the fitted x mu_std(x) = y."
       ],
       "verification_commands": [
-        "python3 scripts/aest_total_scalar_correspondence.py"
+        "python3 scripts/aest_total_scalar_correspondence.py",
+        "cd 05_lean_formalization && lake env lean AeSTTotalScalarCorrespondence.lean"
       ],
       "independent_witness": "AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md",
-      "limitations": "Exact only in the stated limit; not exact for non-spherical or external-field problems or where the AeST mass term matters. The ghost conditions are those of the static scalar problem, not a stability analysis of the full constrained system. Choosing this function over D9's scalar-channel function (CLM-D9-02) is a model choice, open under D7. Under it the spherical solar-system residual carries no lambda_s, so the (1+lambda_s)^3-based lambda_s ceilings do not apply.",
+      "limitations": "Exact only in the stated limit; not exact for non-spherical or external-field problems or where the AeST mass term matters. The ghost conditions are those of the static scalar problem, not a stability analysis of the full constrained system. Choosing this function over D9's scalar-channel function (CLM-D9-02) is a model choice, open under D7. Under it the spherical solar-system residual carries no lambda_s, so the (1+lambda_s)^3-based lambda_s ceilings do not apply. The Gauss law, the chain rule, the y'^2 <= 32/27 bound, strict monotonicity below the threshold and folding above it, the flux monotonicity, and the lambda_s form of the bound are machine-checked (AeSTTotalScalarCorrespondence.lean, axiom-clean, sabotage 5/5); the closed-form J and the two-channel reduction it rests on are [D], not in the module.",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md",
       "falsifiability": {
         "test": "substitute the closed form into the Gauss law and the derivative identity, and invert the two-channel equations numerically at lambda_s = 0.5, 1, 2.6, 10; above the bound the map must fold",
-        "scope": "scripts/aest_total_scalar_correspondence.py checks A1-A11, B1-B2",
+        "scope": "scripts/aest_total_scalar_correspondence.py A1-A13, B1-B2; AeSTTotalScalarCorrespondence.lean",
         "result": "supported"
       },
       "last_verified_commit": "d4f2b919405df2a6f1d073ae9070da22fc46dde5"
