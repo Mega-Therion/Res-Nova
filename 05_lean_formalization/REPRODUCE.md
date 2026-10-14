@@ -58,7 +58,7 @@ foundational axioms of Lean 4's type theory.
 | SkordisZlosnikEmbedding.lean | Covariant embedding properties | [P] |
 | SovereignRegularity.lean | Beale-Kato-Majda regularity | [P] |
 | RelativisticStability.lean | Stability conditions | [P] |
-| YettParadigm.lean | Ramanujan-Yett spectral gap | [P] |
+| YettParadigm.lean | Ramanujan-Yett spectral gap (conditional on assumed gap bound; no operator/domain) | [P-cond] |
 | CosmologicalSector.lean | Cosmological sector definitions | [P] |
 | HorizonScale.lean | KMS 2π cancellation, ξ = 1 | [P] |
 | AXIOMS_V2.lean | Axiom inventory | [P] |

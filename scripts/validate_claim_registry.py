@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -193,6 +194,43 @@ def validate(payload: object, root: Path = ROOT) -> list[str]:
     return errors
 
 
+DECL_PATTERN = re.compile(r"^(?:theorem|lemma|def|abbrev)\s+([A-Za-z_][\w']*)", re.M)
+
+
+def declaration_mapping_warnings(
+    payload: object, root: Path = ROOT
+) -> list[str]:
+    """Regression check for issue #136 (CLM-01 class of bug).
+
+    For `formally-verified` claims, the `falsifiability.test` field should name
+    the exact Lean declaration(s) proving the wording, so the registry maps
+    wording to artifact instead of pointing at a module whose theorems prove
+    something weaker. Returns warnings (not errors): these do not fail the
+    gate, but must be cleared or justified before a publication-grade release.
+    """
+    warnings: list[str] = []
+    claims = payload.get("claims") if isinstance(payload, dict) else None
+    if not isinstance(claims, list):
+        return warnings
+    for claim in claims:
+        if not isinstance(claim, dict) or claim.get("state") != "formally-verified":
+            continue
+        claim_id = claim.get("id", "?")
+        test = (claim.get("falsifiability") or {}).get("test") or ""
+        declared: set[str] = set()
+        for art in claim.get("formal_artifacts", []) or []:
+            path = root / art
+            if path.suffix == ".lean" and path.is_file():
+                declared.update(DECL_PATTERN.findall(path.read_text()))
+        if declared and not any(name in test for name in declared):
+            warnings.append(
+                f"{claim_id}: formally-verified but falsifiability.test names no "
+                "Lean declaration from its formal_artifacts "
+                f"({len(declared)} declarations available)"
+            )
+    return warnings
+
+
 if __name__ == "__main__":
     if not REGISTRY.is_file():
         print("FAIL")
@@ -211,5 +249,9 @@ if __name__ == "__main__":
         print("FAIL")
         print("\n".join(f" - {error}" for error in errors))
         sys.exit(1)
+
+    warnings = declaration_mapping_warnings(payload)
+    for warning in warnings:
+        print(f"WARN - {warning}")
 
     print(f"PASS — validated {len(payload['claims'])} claim records")

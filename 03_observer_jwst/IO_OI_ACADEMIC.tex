@@ -139,11 +139,11 @@ Let $E(t)$ denote the total geometric action energy over $\mathcal{M}_{\mathrm{v
   \quad\Longrightarrow\quad
   E(t) \le E(0)\,e^{-\kappa^2 t},
 \end{equation}
-where $\kappa^2 = 0.909904 > 0$ is the Ramanujan--Yett spectral gap.
+where $\kappa^2 = 0.909904 > 0$ is an externally supplied numerical value (not computed by the Lean module below).
 \end{theorem}
 
 \begin{proof}
-Machine-checked in \texttt{YettParadigm.lean} (0 errors, 0 \texttt{sorry}, \texttt{VACUOUS\,0}). The Lean formalization verifies conditional Gronwall-type decay. The existence of the spectral gap $\kappa^2 > 0$ is assumed as a hypothesis in the formalization.
+Machine-checked in \texttt{YettParadigm.lean} (0 errors, 0 \texttt{sorry}, \texttt{VACUOUS\,0}): \texttt{ramanujan\_yett\_spectral\_gap\_pos} proves $\lambda_1 - \lambda_0 \ge \kappa^2 > 0$ \emph{given} the structure fields \texttt{h\_kappa} ($0 < \kappa$) and \texttt{h\_gap} ($\kappa^2 \le \lambda_1 - \lambda_0$); \texttt{adccl\_trajectory\_bounded} proves $E(t) \le E_0$ \emph{given} the monotonicity field \texttt{h\_monotone}. The Lean formalization verifies conditional Gronwall-type decay only. No Hamiltonian operator or spectral domain is constructed, no continuum spectral-gap bound is derived, and the numerical value $\kappa^2 = 0.909904$ is assumed, not proved, by this module.
 \end{proof}
 
 \begin{theorem}[Closed-Form Stiefel Spectral Gap --- {\normalfont\texttt{[thm]}}]
