@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-10-11T22:03:41.157205+00:00",
-  "git_commit": "223c385779ee2f43dd83560a8e9ca2e0b1594cb7",
-  "git_branch": "holy-canon-phase5-registry",
-  "lean_target_count": 67,
-  "claim_count": 57,
+  "generated_at_utc": "2026-10-14T07:25:39.460354+00:00",
+  "git_commit": "d4f2b919405df2a6f1d073ae9070da22fc46dde5",
+  "git_branch": "audit/aest-total-scalar-correspondence",
+  "lean_target_count": 69,
+  "claim_count": 58,
   "claim_states": {
     "computed": 10,
     "conditional": 9,
-    "derived": 11,
+    "derived": 12,
     "empirically-supported": 1,
     "formally-verified": 9,
     "proposed": 2,
@@ -30,7 +30,7 @@
     "certifies": "elaboration, absence of sorry, and a standard axiom footprint {propext, Classical.choice, Quot.sound}",
     "does_not_certify": "that assumptions carried as typeclass or structure fields are physically justified (THEORY_ASSUMPTION_AUDIT.md), nor cold-clone reproducibility (O6)",
     "lean_tree_at_run": "a9ccc3fddf26c62716c3eef494dca911869e570cc00267f8b604ad45266f3474",
-    "lean_tree": "99aafbc658b610679eba99edb402236e6278e115946ab32cfc1c986e21690631",
+    "lean_tree": "b6bcc21533daffb334956a79ee4d38561c3101a2531ef7ee4763b2503c4d8d82",
     "stale": true
   },
   "checks": {
