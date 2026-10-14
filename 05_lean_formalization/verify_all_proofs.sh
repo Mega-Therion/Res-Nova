@@ -71,6 +71,7 @@ TARGETS=(
   MuStdDuality.lean
   MuNDuality.lean
   SZStdEmbedding.lean
+  AeSTTotalScalarCorrespondence.lean
   GateHolonomySusceptibility.lean
   MuStdSelection.lean
   MuStdFoundations.lean

@@ -98,6 +98,8 @@ lean_lib «ResNovaFormal» where
     `MuNDuality,
     -- ADDED 2026-09-27. D9 on the live branch by calculus: J_std(Y)=F_std(sqrt Y) differentiates to mu_std/2.
     `SZStdEmbedding,
+    -- ADDED 2026-10-14. D7/D9: the scalar-channel function whose TOTAL law is mu_std, and its 11.2788 bound.
+    `AeSTTotalScalarCorrespondence,
     `GateHolonomySusceptibility,
     `MuStdSelection,
     `MuStdFoundations,

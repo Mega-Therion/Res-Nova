@@ -68,6 +68,13 @@ check("A10 ghost condition 2: J' + 2Y J'' = eta y'(x)/s'(x), positive iff s' > 0
 dJp = sp.simplify(sp.diff(Jp, x))
 check("A11 J'' > 0 where s' > 0: dJ'/dx = eta mu'/(1 - eta mu)^2 > 0 and dY/dx = 2 a0^2 s s' > 0",
       sp.simplify(dJp - eta * sp.diff(mu, x) / (1 - eta * mu) ** 2) == 0)
+# The scalar channel does NOT switch off at high acceleration: g = g_hat + g_phi with g_hat = eta g_N.
+ghat_over_g = eta * y / x  # g_hat/g = eta g_N/g = eta y/x = eta mu
+check("A12 high-acceleration channel split: g_hat/g -> eta and g_phi/g -> 1 - eta (not 0); sum = 1",
+      sp.limit(ghat_over_g, x, sp.oo) == eta and sp.limit(s / x, x, sp.oo) - (1 - eta) == 0
+      and sp.simplify(ghat_over_g + s / x - 1) == 0)
+check("A13 total law deep limit is g ~ sqrt(a0 g_N), i.e. y/x^2 -> 1 as x -> 0 (not sqrt(a0 g_hat))",
+      sp.limit(y / x ** 2, x, 0) == 1)
 
 # ---------------------------------------------------------------- B. numerics: inversion, fold, comparison
 def mu_f(z):

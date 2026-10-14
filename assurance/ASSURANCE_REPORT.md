@@ -1,8 +1,8 @@
 # Res-Nova Assurance Report
 
-Generated at (UTC): `2026-10-14T07:25:39.460354+00:00`  
-Git commit: `d4f2b919405df2a6f1d073ae9070da22fc46dde5`  
-Lean targets on disk excluding `lakefile.lean`: **69**  
+Generated at (UTC): `2026-10-14T08:37:25.795853+00:00`  
+Git commit: `87720fafcadfbdd9a29084a11c57050e2c13beb4`  
+Lean targets on disk excluding `lakefile.lean`: **70**  
 Registry records: **58**
 
 ## Checks
@@ -28,7 +28,7 @@ Registry records: **58**
 
 ## Lean gate
 
-**STALE** — `05_lean_formalization/` has changed since the last recorded run (tree `a9ccc3fddf26c62716c3eef494dca911869e570cc00267f8b604ad45266f3474` then, `b6bcc21533daffb334956a79ee4d38561c3101a2531ef7ee4763b2503c4d8d82` now). Rerun the gate; a previous PASS is evidence only for the sources it was run against.
+**STALE** — `05_lean_formalization/` has changed since the last recorded run (tree `a9ccc3fddf26c62716c3eef494dca911869e570cc00267f8b604ad45266f3474` then, `da321947cec00534ecc9a60300020abb406a4fcdae0d066b1dfcb4939deb37af` now). Rerun the gate; a previous PASS is evidence only for the sources it was run against.
 
 ## Limitations
 
