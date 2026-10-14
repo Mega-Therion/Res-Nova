@@ -56,9 +56,9 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 **Claim (not granted):** early galaxies confirm the theory.
 
-**Status:** `[O]`. The pre-registered intermediate-`z` `a0(z)` test under the live $\mu_{\text{std}}$ closure is inconclusive ($\Delta\chi^2 = +4.24$, $2.06\sigma$; `A0_OF_Z_REPORT_V2.json`). The earlier $5.9\sigma$ result under $\mu_{\text{dual}}$ was retracted on 2026-09-12 (`PREREG_A0_OF_Z_V2.md:46`).
+**Status:** `[O]`. The pre-registered 20-point high-$z$ table was withdrawn on 2026-09-27 as untraceable (`[X]`), rendering all prior numerical results from that protocol void. On real kinematics (RC100, 100 galaxies at $z = 0.6$–$2.6$; MUSE-DARK III), the empirical status is inconclusive: within $z \approx 0.6$–$2.6$ the shape favours a constant over $H(z)$ (not established), and the step from $z = 0$ is calibration-limited. Neither constant $a_0$ nor a horizon-tied evolution is excluded.
 
-**Data-status note (Updated 2026-09-20):** the 2026-09-09 $5.9\sigma$ result is retracted `[X]` as closure-dependent. Re-extraction under $\mu_{\text{std}}$ (`03_observer_jwst/a0_of_z_v2.py`, `A0_OF_Z_REPORT_V2.json`) finds neither constant $a_0$ nor horizon-tied $a_0(z)$ preferred above $3\sigma$ across the MUSE-DARK III sample. The test status is OPEN `[O]`. The *remaining* open scope of this entry is the JWST/NIRSpec high-`z` extension: a frozen, pre-registered catalog, a statistic, and a public script that emits a JSON the ledger can cite. Until that campaign has its JSON, JWST language stays out of the abstract.
+**Data-status note (Updated 2026-09-27):** With the 20-point table withdrawn `[X]`, the intermediate-redshift test status is OPEN `[O]`. The *remaining* open scope of this entry is the JWST/NIRSpec high-`z` extension: a frozen, pre-registered catalog, a statistic, and a public script that emits a JSON the ledger can cite. Until that campaign has its JSON, JWST language stays out of the abstract.
 
 **Closure path:** a frozen, pre-registered catalog, a statistic, and a public script that emits a JSON the ledger can cite.
 
