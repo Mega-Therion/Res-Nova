@@ -119,6 +119,8 @@ print(sp.simplify(sp.diff(F.subs(x, sp.sinh(psi)), psi) - sp.sinh(psi)**2))  # 0
 
 ## 4. Solar-system check — exact, not asymptotic [D]
 
+> **Scale note (2026-10-14).** This section and §5 write $a_0$ where `TARGET_D7` §2.1 and Paper I use $\tilde a_0=(1+\lambda_s)a_0$; the equation below is the $\lambda_s=1$ member with $a_0$ in $\tilde a_0$'s place. With the fitted $a_0$ in that slot the deep-MOND total is low by $1/\sqrt{1+\lambda_s}$. With $\tilde a_0$ the Newtonian-regime residual at a given $\lambda_s$ is $(1+\lambda_s)^3a_0^2/2g_N$, as `02_galaxy_dynamics/lambda_s_solar_system_check.py` computes; the margin quoted below is its $\lambda_s\to0$ value, and at the live $a_0$ Mercury clears the bound for $\lambda_s\le9.50$ (`LAMBDA_S_AT_LIVE_A0_2026-10-09.txt`). See `AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md`.
+
 Transplanting into AeST exactly as `TARGET_D7` §2.1/§4.2 did for $F_{\rm dual}$: the
 spherical scalar-field equation integrates to (Gauss's law form)
 
@@ -152,6 +154,8 @@ $\mu_{\rm std}$ clears the solar-system bound comfortably. This is the numeric c
 ---
 
 ## 5. Ghost-free check [D] — RE-RUN 2026-09-12; also closes the D6 pending item
+
+> **Scale note (2026-10-14).** $a_0$ here stands where `TARGET_D7` §2.1 has $\tilde a_0=(1+\lambda_s)a_0$ (note at §4). The ghost-free conclusions below hold for either scale; with $\tilde a_0$ the deep-MOND limit is $2\lambda_s/(3\tilde a_0)$.
 
 Transplanting via $J(\mathcal{Y}) = 2\lambda_s a_0^2\, F_{\rm std}\!\left(\sqrt{\mathcal{Y}}/a_0\right)$ (the `TARGET_D7` §2.1 normalization pattern, inherited as stated, not re-derived here):
 

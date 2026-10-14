@@ -351,8 +351,16 @@
    "wording": "The live interpolating function embeds into AeST by calculus: J_std(Y) = F_std(sqrt Y) gives 2 J'(Y) = mu_std(sqrt Y) and J'(Y) > 0 for Y > 0.",
    "state": "formally-verified",
    "claim_type": "mathematical-theorem",
-   "limitations": "Mathematics only: this proves the AQUAL reduction of the embedding. It does not select mu_std (MuNDuality.lean: the duality holds for every n), and lambda_s is an AeST parameter (the Saturn bound <~ 2.2 holds only on the held branch).",
+   "limitations": "Mathematics only: this proves the AQUAL reduction of the embedding. It does not select mu_std (MuNDuality.lean: the duality holds for every n), and lambda_s is an AeST parameter (the Saturn bound <~ 2.2 holds only on the held branch). Scope (2026-10-14): the law embedded is mu_std in the scalar channel (J' = lambda_s mu_std(sqrt(Y)/a0t)); its spherical total law is nu_std only as lambda_s -> 0 (Paper I sec.III), with max |g/g_tot - 1| = 0.145, 0.233, 0.369 at lambda_s = 0.5, 1, 2.6. The function whose total law is mu_std is CLM-D9-03.",
    "source_locator": "TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md (status 2026-09-27); SZStdEmbedding.lean"
+  },
+  {
+   "id": "CLM-D9-03",
+   "wording": "In the spherical quasistatic limit of AeST (mass term negligible, Newtonian and scalar gradients aligned), the scalar-channel function whose total law is mu_std is, parametric in x = g/a0: J(Y(x)) = a0^2 [2 eta F_std(x) - eta^2 y(x)^2], Y(x) = a0^2 x^2 (1 - eta mu_std(x))^2, y = x mu_std(x), eta = lambda_s/(1 + lambda_s). It is single-valued, and satisfies both static ghost conditions of TARGET_D7 sec.5, if and only if lambda_s < (27 + 12 sqrt 6)/5 = 11.2788.",
+   "state": "derived",
+   "claim_type": "mathematical-derivation",
+   "limitations": "Exact only in the stated limit; not exact for non-spherical or external-field problems or where the AeST mass term matters. The ghost conditions are those of the static scalar problem, not a stability analysis of the full constrained system. Choosing this function over D9's scalar-channel function (CLM-D9-02) is a model choice, open under D7. Under it the spherical solar-system residual carries no lambda_s, so the (1+lambda_s)^3-based lambda_s ceilings do not apply.",
+   "source_locator": "AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md"
   },
   {
    "id": "CLM-D6-04",

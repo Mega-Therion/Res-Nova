@@ -1269,7 +1269,7 @@
         "cd 05_lean_formalization && bash verify_all_proofs.sh"
       ],
       "independent_witness": "05_lean_formalization/SZStdEmbedding.lean",
-      "limitations": "Mathematics only: this proves the AQUAL reduction of the embedding. It does not select mu_std (MuNDuality.lean: the duality holds for every n), and lambda_s is an AeST parameter (the Saturn bound <~ 2.2 holds only on the held branch).",
+      "limitations": "Mathematics only: this proves the AQUAL reduction of the embedding. It does not select mu_std (MuNDuality.lean: the duality holds for every n), and lambda_s is an AeST parameter (the Saturn bound <~ 2.2 holds only on the held branch). Scope (2026-10-14): the law embedded is mu_std in the scalar channel (J' = lambda_s mu_std(sqrt(Y)/a0t)); its spherical total law is nu_std only as lambda_s -> 0 (Paper I sec.III), with max |g/g_tot - 1| = 0.145, 0.233, 0.369 at lambda_s = 0.5, 1, 2.6. The function whose total law is mu_std is CLM-D9-03.",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md (status 2026-09-27); SZStdEmbedding.lean",
@@ -1284,6 +1284,36 @@
         "10.5281/zenodo.23101840 claim 462",
         "10.5281/zenodo.23101840 claim 463"
       ]
+    },
+    {
+      "id": "CLM-D9-03",
+      "wording": "In the spherical quasistatic limit of AeST (mass term negligible, Newtonian and scalar gradients aligned), the scalar-channel function whose total law is mu_std is, parametric in x = g/a0: J(Y(x)) = a0^2 [2 eta F_std(x) - eta^2 y(x)^2], Y(x) = a0^2 x^2 (1 - eta mu_std(x))^2, y = x mu_std(x), eta = lambda_s/(1 + lambda_s). It is single-valued, and satisfies both static ghost conditions of TARGET_D7 sec.5, if and only if lambda_s < (27 + 12 sqrt 6)/5 = 11.2788.",
+      "state": "derived",
+      "assurance_level": "symbolic-derivation",
+      "claim_type": "mathematical-derivation",
+      "formal_artifacts": [],
+      "computational_artifacts": [
+        "scripts/aest_total_scalar_correspondence.py"
+      ],
+      "data_artifacts": [],
+      "assumptions": [
+        "The two-channel quasistatic reduction of TARGET_D7 sec.2: g = g_hat + g_phi, J'(Y) g_phi = g_hat, G_N = (1 + 1/lambda_s) G_hat.",
+        "Spherical symmetry, AeST mass term negligible, gradients aligned; the total law is the fitted x mu_std(x) = y."
+      ],
+      "verification_commands": [
+        "python3 scripts/aest_total_scalar_correspondence.py"
+      ],
+      "independent_witness": "AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md",
+      "limitations": "Exact only in the stated limit; not exact for non-spherical or external-field problems or where the AeST mass term matters. The ghost conditions are those of the static scalar problem, not a stability analysis of the full constrained system. Choosing this function over D9's scalar-channel function (CLM-D9-02) is a model choice, open under D7. Under it the spherical solar-system residual carries no lambda_s, so the (1+lambda_s)^3-based lambda_s ceilings do not apply.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "quotation_type": "paraphrase",
+      "source_locator": "AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md",
+      "falsifiability": {
+        "test": "substitute the closed form into the Gauss law and the derivative identity, and invert the two-channel equations numerically at lambda_s = 0.5, 1, 2.6, 10; above the bound the map must fold",
+        "scope": "scripts/aest_total_scalar_correspondence.py checks A1-A11, B1-B2",
+        "result": "supported"
+      },
+      "last_verified_commit": "d4f2b919405df2a6f1d073ae9070da22fc46dde5"
     },
     {
       "id": "CLM-D6-04",
