@@ -74,6 +74,7 @@ TARGETS=(
   GateHolonomySusceptibility.lean
   MuStdSelection.lean
   MuStdFoundations.lean
+  MasterEquationCore.lean
   AeSTStealthSector.lean
   PPNLimitsStd.lean
   LambdaSBound.lean
