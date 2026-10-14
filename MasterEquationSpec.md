@@ -5,7 +5,7 @@
 - **Created:** 2026-10-13
 **Repository baseline:** `Mega-Therion/Res-Nova`, branch `docs/master-equation-formalization-spine`
 
-**Linked artifacts:** [`MasterEquationTerms.csv`](MasterEquationTerms.csv) is the equation/term ledger; [`05_lean_formalization/MasterEquationCore.lean`](05_lean_formalization/MasterEquationCore.lean) is the initial typed constitutive slice; the module is registered in `05_lean_formalization/lakefile.lean` and `05_lean_formalization/verify_all_proofs.sh`.
+**Linked artifacts:** [`MasterEquationTerms.csv`](MasterEquationTerms.csv) is the equation/term ledger; [`05_lean_formalization/MasterEquationCore.lean`](05_lean_formalization/MasterEquationCore.lean) is the initial typed constitutive slice; [`05_lean_formalization/AQUALWeakFormDraft.lean`](05_lean_formalization/AQUALWeakFormDraft.lean) is an unregistered, unverified weak-form contract draft, not a theorem target. The core module is registered in `05_lean_formalization/lakefile.lean` and `05_lean_formalization/verify_all_proofs.sh`.
 
 ## Objective
 
@@ -38,12 +38,15 @@ There is not yet one frozen full master equation. The following source identitie
 | `rho` | baryonic mass density | scalar density | Specify measure/units and coupling normalization |
 | `g_munu` | spacetime metric | Lorentzian metric | Signature and curvature sign convention not globally frozen |
 | `A^mu` | unit-timelike vector/aether field in candidate completion | section of tangent bundle | Constraint, bundle, boundary data, and coefficients need explicit contracts |
-| `chi` | alignment/scalar field in candidate completion | real scalar field | Potential, normalization, units and coupling remain model-specific |
+| `chi` | dimensionless alignment variable in the cited source | real scalar field | Its source kinetic term is dimensionally incomplete as written; the provisional canonical field is `varphi = M_Pl * chi` with `[varphi] = L^-1` |
+| `varphi` | canonically normalized scalar used by the provisional T07 ledger action | real scalar field | Candidate corrected ansatz only; it is not claimed identical to the source action until the kinetic normalization is repaired |
 | `tilde(g)_munu` | matter/disformal metric | metric-valued map | Exact map and matter-coupling variation must be declared |
 | `F_dual` | distinct older dual-channel potential | positive scalar domain | Keep distinct from `F_std`; field-level physical interpretation open |
 | `rho_state` | density matrix in Chyren Lindblad source | positive trace-one operator | Separate framework; not a Res Nova action field |
 
 **Global conventions not yet fixed:** spacetime dimension (candidate 4), metric signature, orientation, curvature sign, boundary conditions, field regularity, integration measures, index conventions, and a single unit system for the eventual unified theory. For audit readability only, `MasterEquationTerms.csv` uses SI dimensions for the non-relativistic AQUAL PDE, natural units (`c = ℏ = 1`) for the covariant action candidates, and conventional operator units for the separate Lindblad source. These are per-source bookkeeping conventions, not a claim that the sectors are already normalized to one action; convert and reconcile them before unification.
+
+**T07 normalization choice and curvature check:** the ledger uses a canonical real scalar `varphi` with `[varphi] = [M_Pl] = L^-1` and the homogeneous candidate potential `V(varphi) = (lambda_chi/M_Pl^2) * (varphi^2 - M_Pl^2/2)^2 + V0`, where `[lambda_chi] = L^-2` and `[V0] = L^-4`. The canonical kinetic term is `-1/2 (∇varphi)^2`. Starting from the source's potential shape `V(chi) = lambda_chi*M_Pl^2*(chi^2 - 1/2)^2 + V0`, differentiation gives `V'_chi = 4*lambda_chi*M_Pl^2*chi*(chi^2 - 1/2)` and `V''_chi = 4*lambda_chi*M_Pl^2*(3*chi^2 - 1/2)`. At `chi0 = 1/sqrt(2)`, `V''_chi(chi0) = 4*lambda_chi*M_Pl^2`, not `8*lambda_chi*M_Pl^2`. Since `varphi = M_Pl*chi` has canonical kinetic normalization, `m_eff^2 = V''_varphi(varphi0) = V''_chi(chi0)/M_Pl^2 = 4*lambda_chi`, which has the required dimension `L^-2`. The source value has a factor-of-two error in its potential curvature and also treats `V''_chi` for a dimensionless field as a mass squared without dividing by its kinetic normalization. This is a corrected ansatz, not an algebraic identity with the source's bare kinetic term; the source-level field equations must be rederived.
 
 ## Epistemic labels
 
