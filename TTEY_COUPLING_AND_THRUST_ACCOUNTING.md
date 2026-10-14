@@ -126,9 +126,47 @@ energy density rather than momentum.
 
 ## 5. Open questions this leaves
 
-1. **Does the TTEY field equation require ρ < 0 anywhere?** Compute the stress-energy
-   the geometry demands and test `T_μν k^μ k^ν ≥ 0` for null k. If it stays
-   non-negative, the framework has something Alcubierre-class metrics do not.
+1. **Does the TTEY field equation require ρ < 0 anywhere? — ANSWERED for the scalar
+   sector (2026-10-14, `[D]`, `scripts/ttey_scalar_nec.py`, 8/8).** No. The covariant
+   AQUAL scalar sector `L = −(a₀²/8πG) F(𝒳)`, `𝒳 = (∂φ)²/a₀²`, has stress tensor
+   `T_μν = (1/4πG) F′(𝒳) ∂_μφ ∂_νφ + g_μν L` (metric variation; sign fixed against the
+   canonical scalar, which it reproduces as `ρ = ½|∇φ|²`). For a static field and any
+   null `k` (`g_μν k^μ k^ν = 0`),
+
+   > `T_μν k^μ k^ν = (1/4πG) F′(𝒳) (k·∇φ)² ≥ 0  ⟺  F′ ≥ 0`,
+
+   and `F′ = μ_std ≥ 0` is exactly the proven ghost condition (`SZStdEmbedding.lean`,
+   `J′ > 0`). The static energy density is `ρ = (a₀²/8πG) F_std ≥ 0` (since `F_std(0)=0`
+   and `F_std′ = x μ_std ≥ 0`). So the IT/MOND scalar sector satisfies the null energy
+   condition and carries non-negative energy density — the same positivity that makes
+   AeST ghost-free. This is the thing Alcubierre-class metrics do **not** have, and it is
+   why TTEY cannot source a warp bubble: a bubble needs NEC violation, and the scalar
+   sector is NEC-respecting by the ghost condition, not by a numerical accident. It
+   reinforces §3's sign/regime argument with a structural no-go. **Remaining:** the
+   vector sector on the held branch (on the dragged/stealth branch the full source
+   `𝒰^μν = 0`, `AeSTStealthSector`), and the full covariant `𝒰^μν` NEC, are not yet
+   closed; this is the scalar-channel result only.
+
+   **This does not by itself close the TTEY drive, because TTEY's own formalization uses a
+   different field model.** `…/god_theory/physics_formalization/Tension_Stress_Energy_Tensor.md`
+   (R.W. Yett, 2026-06-15) grants exactly the point above — a canonical scalar satisfies the
+   WEC, so it "cannot drive an Alcubierre metric" — and instead takes the IT field with a
+   **double-well potential** `V(𝒯) = λ(𝒯² − χ_vac²)²`, `χ_vac = 1/√2`, driven locally
+   **below** `χ_vac`, and reads the negative energy off a **vacuum-relative (Casimir-type)**
+   effective tensor `𝒯̃_μν = T_μν − ⟨0|T_μν|0⟩_global` against the E₈ baseline. That is a
+   distinct construction from the live AQUAL sector (a kinetic function `F_std` of `(∂φ)²`,
+   no double-well, no baseline subtraction), and the NEC result here does not refute it. What
+   it does is sharpen the real question for TTEY:
+   - **Same field, or two?** If the TTEY `𝒯` is the AQUAL `φ`, the double-well `V` and the
+     `F_std` kinetic function must coexist in one Lagrangian, and NEC must be redone for the
+     combined field. If it is a separate sector, that sector needs its own justification.
+   - **Does the baseline subtraction survive a quantum inequality?** Casimir-type relative
+     deficits are real but bounded; the Ford–Roman-type bounds are what forbid *macroscopic*
+     warp. The subtraction must be shown not to hide that bound.
+
+   So: the galaxy/AQUAL sector is NEC-respecting (new, `[D]`); the TTEY exotic-energy route is
+   a separate, still-open Casimir-type construction. Neither "TTEY works" nor "TTEY is dead" is
+   established. See [[Tension_Stress_Energy_Tensor]] and `papers_42/PAPER_27_*`.
 2. **Is `a₀²/8πG` derived or inherited?** It follows from `a₀ = cH₀/2π`, which is
    itself one of the two irreducible parameters. The coupling is therefore only as
    derived as a₀ is.
