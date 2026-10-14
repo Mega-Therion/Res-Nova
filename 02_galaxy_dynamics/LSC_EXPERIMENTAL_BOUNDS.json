@@ -1,0 +1,55 @@
+{
+  "lambda_sc_benchmarks": {
+    "literature": {
+      "a0_m_s2": 1.2e-10,
+      "lambda_sc_meV": 1.793500269109354,
+      "interaction_range_um": 110.02339042658095
+    },
+    "sparc_live_mu_std": {
+      "a0_m_s2": 1.1607e-10,
+      "lambda_sc_meV": 1.7638872271192407,
+      "interaction_range_um": 111.8705194439604
+    },
+    "horizon_anchor_cH0_2pi": {
+      "a0_m_s2": 1.0421e-10,
+      "lambda_sc_meV": 1.6713427472791795,
+      "interaction_range_um": 118.06493949827464
+    }
+  },
+  "laboratory_fifth_force": {
+    "earth_surface_g_m_s2": 9.80665,
+    "x_ambient": 84489101404.32497,
+    "screening_factor_1_over_2x2": 7.004362626248113e-23,
+    "predicted_alpha_lab": 7.004362626248113e-23,
+    "kapner_2007_alpha_bound_at_110um": 0.1,
+    "lee_2020_eot_wash_cutoff_um_alpha1": 39.0,
+    "fifth_force_acceleration_100g_5cm_m_s2": 1.8699686990547107e-31,
+    "laboratory_margin_orders_of_magnitude": 21.154631377936703,
+    "verdict": "NOT_EXCLUDED"
+  },
+  "equivalence_principle_microscope": {
+    "orbit_altitude_km": 710.0,
+    "g_orbit_m_s2": 7.949702529255706,
+    "x_orbit": 68490587828.51474,
+    "screening_factor_orbit": 1.0658797640540283e-22,
+    "delta_self_energy_fraction": 4.4556961614712e-27,
+    "predicted_eotvos_parameter_eta": 4.749236373285362e-49,
+    "microscope_2022_bound": 1.5e-15,
+    "ep_margin_orders_of_magnitude": 33.4994674737527,
+    "verdict": "NOT_EXCLUDED"
+  },
+  "quantum_eft_and_cosmology": {
+    "eft_cutoff_scale_meV": 1.7638872271192407,
+    "eft_cutoff_frequency_rad_s": 2679816447533.1304,
+    "lab_frequency_rad_s": 0.001,
+    "eft_expansion_ratio": 1.392483005021582e-31,
+    "thermal_production_gamma_over_h_at_T_cutoff": 3.022267869631629e-84,
+    "verdict": "DECOUPLED_AND_UNOBSERVABLE"
+  },
+  "overall_status": {
+    "experimental_exclusion": false,
+    "constituent_screening_tier": "[D]",
+    "formal_theory_verdict": "[O]",
+    "precise_missing_calculation": "Non-linear 3D PDE boundary-value solution for the scalar perturbation around finite-geometry laboratory test masses embedded in Earth's dipole field on the AeST held/dragged branch."
+  }
+}
