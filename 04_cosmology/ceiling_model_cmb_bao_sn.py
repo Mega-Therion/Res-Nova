@@ -3,7 +3,11 @@
 Ceiling model (share ln 2 today -> ceiling Omega_f; generalized logistic, exponent n):
    d ln r / d ln a = 3 (1 - (r/r_f)^n),  w = -(1 - (r/r_f)^n),  r = rho_DE/rho_m,  r0 = ln2/Omega_m0,  r_f = Of/(1-Of).
 CMB: Chen, Huang & Wang 2019 (arXiv:1808.05724) Planck TT,TE,EE+lowE distance priors (R, l_A, omega_b) with their
-     inverse covariance; z* from Hu-Sugiyama, r_s(z*) by direct integration (photons + 3.046 massless-equivalent nu).
+     inverse covariance, applied with CHW's own recipe (fixed 2026-10-15): z* from their eqs. (8)-(10) with g1's
+     coefficient 0.0738 as printed (Hu-Sugiyama's original is 0.0783), radiation Omega_r = Omega_m / (1 + z_eq) (their
+     eq. 6), r_s from their eq. (3), all matter as Omega_m (1+z)^3. The previous Hu-Sugiyama z* with photons + 3.046
+     neutrinos missed the priors at Planck's own best fit (l_A 302.008 vs 301.4707, chi2_CMB = 47.5); this recipe
+     reproduces them within 1 sigma (chi2_CMB = 1.16).
 BAO: DESI DR2 with r_d from Aubourg et al. 2015 eq.16 (Sum m_nu = 0.06 eV). SN: Pantheon+, M marginalized.
 Parameters: LCDM (Omega_m, h, omega_b); ceiling (h, omega_b) with Omega_DE0 = ln 2 fixed.
 Validation printed first: Planck best-fit LCDM must reproduce the priors.
@@ -18,16 +22,31 @@ from ceiling_model_bao_sn import load_bao
 LN2 = math.log(2.0); KAPPA = math.sqrt(0.91); CKMS = 299792.458
 OMG = 2.4728e-5            # omega_gamma for T = 2.7255 K
 ONU_M = 0.06 / 93.14       # massive-nu density today (treated as matter at late times)
-OR = OMG * (1 + 0.2271 * 3.046)   # radiation (early-time, massless-equivalent)
+OR = OMG * (1 + 0.2271 * 3.046)   # physical radiation; kept for non-CMB scripts (ceiling_future)
+THETA = 2.7255 / 2.7               # T_CMB / 2.7 K
+
+
+def omega_r(om, h):
+    """CHW 2019 eq. (6): Omega_r = Omega_m / (1 + z_eq), z_eq = 2.5e4 Omega_m h^2 THETA^-4. Used everywhere the CMB
+    priors are applied, so the expansion history matches the recipe the priors were built for."""
+    return om / (1 + 2.5e4 * om * h**2 * THETA**-4)
+
+
+def om0_ln2(h, extra=0.0):
+    """(Omega_m0, Omega_r) when the dark-energy share today is ln 2 (flat, minus 'extra', e.g. Omega_k), solving
+    Omega_m0 = 1 - ln 2 - Omega_r(Omega_m0) - extra by fixed point (converges in a few steps; Omega_r ~ 1e-4)."""
+    orad = OR / h**2
+    for _ in range(8):
+        orad = omega_r(1 - LN2 - orad - extra, h)
+    return 1 - LN2 - orad - extra, orad
 PRI = np.array([1.750235, 301.4707, 0.02235976])
 PINV = np.array([[94392.3971, -1360.4913, 1664517.2916], [-1360.4913, 161.4349, 3671.6180], [1664517.2916, 3671.6180, 79719182.5162]])
 
 def make_E(model, h, om=None, of=KAPPA, n=1.0):
-    orad = OR / h**2
     if model == "lcdm":
-        ol = 1 - om - orad
+        orad = omega_r(om, h); ol = 1 - om - orad
         return lambda z: np.sqrt(orad * (1 + z)**4 + om * (1 + z)**3 + ol), om
-    om0 = 1 - LN2 - orad; r0 = LN2 / om0; rf = of / (1 - of)
+    om0, orad = om0_ln2(h); r0 = LN2 / om0; rf = of / (1 - of)
     def E(z):
         a = 1 / (1 + z)
         # generalized logistic: d ln r / d ln a = 3 (1 - (r/rf)^n)  ->  (r/rf)^n = 1 / (1 + ((rf/r0)^n - 1) a^(-3n))
@@ -41,15 +60,15 @@ def dm_over(E, z):   # comoving distance in units of c/H0
     return np.interp(z, zs, dc)
 
 def zstar(ob, om):
-    g1 = 0.0783 * ob**(-0.238) / (1 + 39.5 * ob**0.763); g2 = 0.560 / (1 + 21.1 * ob**1.81)
+    # CHW 2019 eq. (9) prints 0.0738 (Hu & Sugiyama 1996 have 0.0783); 0.0738 is what reproduces CHW's priors
+    g1 = 0.0738 * ob**(-0.238) / (1 + 39.5 * ob**0.763); g2 = 0.560 / (1 + 21.1 * ob**1.81)
     return 1048.0 * (1 + 0.00124 * ob**(-0.738)) * (1 + g1 * om**g2)
 
-def rs_over(E, ob, zs_, h=None):   # sound horizon in units of c/H0 (E carries h)
-    a = np.geomspace(1e-9, 1 / (1 + zs_), 40001); z = 1 / a - 1
-    Rb = 3 * ob / (4 * OMG) * a
-    # near recombination the massive neutrino is radiation-like: remove its late-time matter term from E^2 here
-    Ez = E(z) if h is None else np.sqrt(np.maximum(E(z)**2 - (ONU_M / h**2) * (1 + z)**3, 1e-300))
-    f = 1 / np.sqrt(3 * (1 + Rb)) / (a**2 * Ez)
+def rs_over(E, ob, zs_, h=None):   # sound horizon in units of c/H0 (E carries h); CHW eq. (3)
+    a = np.geomspace(1e-9, 1 / (1 + zs_), 60001); z = 1 / a - 1
+    Rb = 31500 * ob * THETA**-4 * a   # 3 Omega_b h^2 / (4 Omega_gamma h^2) a
+    # CHW treat all matter as Omega_m (1+z)^3 at every epoch (h is accepted for older callers and ignored)
+    f = 1 / np.sqrt(3 * (1 + Rb)) / (a**2 * E(z))
     return float(np.sum(0.5 * (f[1:] + f[:-1]) * np.diff(a)))
 
 def rd_mpc(ob, omh2):

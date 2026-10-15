@@ -1,5 +1,10 @@
 # Δχ² across ΛCDM and the ceiling models (compressed-prior fit), 2026-10-03
 
+> **Corrected 2026-10-15.** The CMB-including χ² below came from a CMB block that missed Planck's own best fit
+> (χ²_CMB = 47.5). The cause is confirmed and fixed, and every CMB-dependent output is rerun: see
+> `O3_HORIZON_LANDING_ROUTE_2026-09-28.md`, section "CMB-block correction (2026-10-15)". The numbers here are kept
+> as the record.
+
 **Source.** An outside agent's analysis (2026-10-03), checked and corrected on intake by Claude Code.
 
 **Run basis.** `04_cosmology/CEILING_MODEL_CMB_BAO_SN.json`, from `ceiling_model_cmb_bao_sn.py`. The agent's
@@ -50,7 +55,7 @@ l_A = 302.008, against the priors 1.750235 and 301.4707. That is **χ²_CMB = 47
 The script's docstring says this validation "must reproduce the priors", and it does not. Every CMB block above, and
 the CMB-including O3 results, inherit the offset.
 
-**Likely cause (not yet confirmed):** z\* is taken from the Hu–Sugiyama fit, which gives 1091.9 against Planck's
+**Likely cause (confirmed and fixed 2026-10-15, together with a radiation-convention mismatch; see the O3 route doc):** z\* is taken from the Hu–Sugiyama fit, which gives 1091.9 against Planck's
 1089.9. That shift alone moves l_A by about 0.14%, close to the 0.18% miss. Confirm the convention Chen, Huang & Wang
 used for z\* and r_s, fix the script, and rerun before citing any CMB-including ceiling number.
 

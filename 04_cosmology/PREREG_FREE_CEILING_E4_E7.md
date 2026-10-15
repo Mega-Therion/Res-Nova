@@ -7,7 +7,8 @@
 > **Intake notes, 2026-10-03 (Claude Code).** These must be resolved before the freeze commit:
 > 1. **Placement.** This is Res-Nova cosmology, so it lives here, not in Nova-Conscientia as the bundle planned.
 > 2. **Not blind for BAO + SN.** The O3 route has already fitted these ceiling models to DESI + Pantheon+/DES-Y5, found
->    n ≈ 1.25, and tried about a dozen shape variants afterwards (`O3_HORIZON_LANDING_ROUTE_2026-09-28.md`).
+>    n ≈ 1.25 (n ≈ 1.2 after the 2026-10-15 CMB-block fix; see that doc), and tried about a dozen shape variants
+>    afterwards (`O3_HORIZON_LANDING_ROUTE_2026-09-28.md`).
 >    Confirmatory weight is limited to what is new: the clik-based Planck likelihood and the SPARC coupling.
 > 3. **The SPARC sector as specified cannot identify a₀.** With global Yd, Yb, fd and σ_v, the global distance scale fd
 >    absorbs a₀. Between H₀ = 60 and 90, fd moves from 0.695 to 1.029 and the SPARC profile log-likelihood changes by

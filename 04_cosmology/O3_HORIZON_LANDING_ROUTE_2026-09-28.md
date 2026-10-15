@@ -88,6 +88,10 @@ SHA-256 in the JSON, not vendored.
 
 ## The ceiling against CMB + BAO + supernovae `[D]` (same night)
 
+> **Corrected 2026-10-15.** The CMB-including numbers in this section were computed with a CMB block that missed
+> Planck's own best fit (χ²_CMB = 47.5). They are kept below as the record; the rerun values are in
+> [CMB-block correction (2026-10-15)](#cmb-block-correction-2026-10-15-old-vs-new-d).
+
 **Data.**
 - Planck 2018 TT,TE,EE+lowE distance priors (R, l_A, ω_b), using the inverse covariance of Chen, Huang & Wang 2019
   (arXiv:1808.05724), read from the paper's source.
@@ -107,6 +111,10 @@ hashes are in the JSON.
 - The residual l_A offset at Planck's parameters (302.0 vs 301.47) is the priors' own convention: their central values
   used the chains' z*, while their likelihood uses the Hu–Sugiyama formula. It is absorbed by a 0.3σ parameter shift
   and is common to all models compared.
+  - *Superseded 2026-10-15:* the offset came from two convention mismatches with the paper: Hu–Sugiyama's g₁
+    coefficient 0.0783 where the paper's eq. (9) prints 0.0738, and physical radiation where the paper uses
+    Ω_r = Ω_m/(1 + z_eq) (its eq. 6). With the paper's own recipe the block reproduces the priors at Planck's best fit,
+    χ²_CMB = 1.16 instead of 47.5. See [CMB-block correction (2026-10-15)](#cmb-block-correction-2026-10-15-old-vs-new-d).
 
 **BAO + SN (no CMB).** The zero-shape-parameter ceiling at κ beats best-fit ΛCDM by **Δχ² = −4.58**. The free ceiling
 is best at **0.950 (1σ 0.93–0.97)**, with κ at Δχ² = 0.04 from the best.
@@ -138,6 +146,10 @@ w = −(1 − (r/r_f)ⁿ).
   the Aubourg fitting formula; Pantheon+ here, DES-Y5 in the next section.
 
 ## DES-Y5 in place of Pantheon+ `[D]` (same night)
+
+> **Corrected 2026-10-15.** The CMB-including numbers in this section were computed with a CMB block that missed
+> Planck's own best fit (χ²_CMB = 47.5). They are kept below as the record; the rerun values are in
+> [CMB-block correction (2026-10-15)](#cmb-block-correction-2026-10-15-old-vs-new-d). The supernova-only results here do not use the CMB and are unchanged.
 
 DES-Dovekie is the recalibrated DES 5-year sample (Popovic et al. 2026, arXiv:2511.07517): 1,820 SNe, 1,623 from DES
 and 197 low-z. It is the supernova sample behind DESI's strongest evolving-dark-energy evidence. It shares its low-z SNe
@@ -197,6 +209,10 @@ from `fetch_external_data.sh`, which checks each file's SHA-256 against `cosmo_d
 
 ## The control rod, measured: n at a κ ceiling `[D]` (same night)
 
+> **Corrected 2026-10-15.** The CMB-including numbers in this section were computed with a CMB block that missed
+> Planck's own best fit (χ²_CMB = 47.5). They are kept below as the record; the rerun values are in
+> [CMB-block correction (2026-10-15)](#cmb-block-correction-2026-10-15-old-vs-new-d).
+
 RY: the threshold κ says where the share stops, and the approach law n says how it gets there, a rule rather than a
 number. Here Ω_f = κ is fixed and the data choose n, with (h, ω_b) re-fit at each n. Script `ceiling_n_at_kappa.py`;
 output `CEILING_N_AT_KAPPA.json`.
@@ -229,6 +245,10 @@ output `CEILING_N_AT_KAPPA.json`.
   - n enters only through the share's history.
 
 ## Counting landings: the factorial law `[D]` (RY: "how about n factorial", same night)
+
+> **Corrected 2026-10-15.** The CMB-including numbers in this section were computed with a CMB block that missed
+> Planck's own best fit (χ²_CMB = 47.5). They are kept below as the record; the rerun values are in
+> [CMB-block correction (2026-10-15)](#cmb-block-correction-2026-10-15-old-vs-new-d).
 
 Factorials enter the landing picture through counting. If landings arrive at random, the chance of k extra landings is
 μᵏe^(−μ)/k!. Suppose a unit of dark energy freezes (w → 0) only once its required landings are all present, each with
@@ -388,6 +408,10 @@ a ≤ 10. Time is converted with h = 0.68. Script `ceiling_future.py`; output `C
 
 ## Curvature inside the ceiling model: coast or crunch? `[D]` (RY: the rebound)
 
+> **Corrected 2026-10-15.** The CMB-including numbers in this section were computed with a CMB block that missed
+> Planck's own best fit (χ²_CMB = 47.5). They are kept below as the record; the rerun values are in
+> [CMB-block correction (2026-10-15)](#cmb-block-correction-2026-10-15-old-vs-new-d).
+
 **Method.**
 - Ω_k is fitted jointly with the κ ceiling, using the factorial counting law at μ = 1 (no fitted shape), against Planck
   priors + DESI DR2 + each SN sample.
@@ -484,6 +508,134 @@ marginalized, and compare. Script `pantheon_hemisphere_split.py`; output `PANTHE
 In terms of RY's blast question (one event, several waves at different speeds): light is the flash, which the wind does
 not touch, and the aether's own modes are the sound.
 
+## CMB-block correction (2026-10-15): old vs new `[D]`
+
+**What was wrong.** At Planck 2018's best fit (Ω_m 0.3153, h 0.6736, ω_b 0.02237), the compressed-CMB block in
+`ceiling_model_cmb_bao_sn.py` gave l_A = 302.008 against the prior 301.4707 (σ = 0.089): χ²_CMB = 47.5, with l_A about
+6σ off. Chen, Huang & Wang (arXiv:1808.05724) built their priors from the Planck chains' z\* (their line "Here we use
+the values of z∗ given by the Planck 2018 chains"). They apply them with a specific recipe, and this block differed from
+it twice:
+- **z\*.** Their eqs. (8)–(10) are the Hu–Sugiyama form, but eq. (9) prints g₁'s coefficient as **0.0738**. Hu &
+  Sugiyama (1996) have 0.0783, which this block used.
+- **Radiation.** Their eq. (6) sets Ω_r = Ω_m/(1 + z_eq), with z_eq = 2.5×10⁴ Ω_m h² (T/2.7 K)⁻⁴, and their E(z) treats
+  all matter as Ω_m(1+z)³. This block used photons plus 3.046 massless-equivalent neutrinos, and removed the massive
+  neutrino near recombination.
+
+**The fix.** The block now follows their recipe exactly, with r_s from their eq. (3). Every script that builds its own
+E(z) for a CMB fit uses the same radiation density, through `omega_r()` and `om0_ln2()`: the factorial law, DES-Y5 and
+curvature scripts. `ceiling_future.py` has no CMB fit and is unchanged.
+
+**Validation.** The block now reproduces the priors at Planck's best fit within 1σ: χ²_CMB = 1.16 (R pull −0.13, l_A
+pull +0.89). It gives 1.12 at the TT,TE,EE+lowE best fit the priors were built from. The same recipe with the chains'
+own z\* = 1089.92 gives 0.36. An independent implementation (adaptive quadrature, outside Res-Nova) agrees to 0.001 in
+l_A.
+
+**Old vs new.** All eight CMB-dependent outputs were rerun with nothing else changed. This table is generated from the
+JSON files: old means `origin/main` before this fix, new means the rerun.
+
+| quantity | before (Hu–Sugiyama 0.0783, physical radiation) | after (CHW recipe) |
+|---|---|---|
+| **The CMB block itself** | | |
+| χ²_CMB at Planck 2018's best fit | 47.54 | 1.16 |
+| l_A at Planck's best fit (prior 301.471 ± 0.089) | 302.008 | 301.550 |
+| z\* at Planck's best fit | 1091.91 | 1090.62 |
+| **CMB + BAO + Pantheon+** | | |
+| ΛCDM χ² | 1419.71 | 1421.00 |
+| κ ceiling, n = 1: Δχ² vs ΛCDM | +1.07 | −0.67 |
+| κ ceiling, n = 2: Δχ² vs ΛCDM | −0.09 | +0.64 |
+| κ ceiling, n = 0.5: Δχ² vs ΛCDM | +198.65 | +189.06 |
+| free ceiling, n = 1: Δχ² vs ΛCDM | −2.34 | −2.87 |
+| free ceiling, n = 1: best Ω_f | 0.976 | 0.972 |
+| profile n = 1: best Ω_f (1σ) | 0.975 (0.965–0.985) | 0.970 (0.960–0.980) |
+| profile n = 1: κ's Δχ² from the best | 3.40 | 2.18 |
+| profile n = 2: best Ω_f (1σ) | 0.900 (0.900–0.920) | 0.900 (0.900–0.915) |
+| profile n = 2: κ's Δχ² from the best | 2.35 | 3.21 |
+| **CMB + BAO + DES-Y5** | | |
+| ΛCDM χ² | 1648.93 | 1650.33 |
+| κ ceiling, n = 1: Δχ² vs ΛCDM | −0.83 | −2.68 |
+| κ ceiling, n = 2: Δχ² vs ΛCDM | −0.44 | +0.18 |
+| κ ceiling, n = 0.5: Δχ² vs ΛCDM | +200.10 | +190.40 |
+| free ceiling, n = 1: Δχ² vs ΛCDM (best Ω_f) | −3.49 (0.973) | −4.29 (0.969) |
+| free ceiling, n = 2: Δχ² vs ΛCDM (best Ω_f) | −4.16 (0.879) | −5.11 (0.871) |
+| w₀w_aCDM: Δχ² vs ΛCDM | −10.08 | −10.75 |
+| w₀w_aCDM: w₀, w_a | −0.825, −0.637 | −0.820, −0.644 |
+| profile n = 1: κ's Δχ² from the best | 2.59 | 1.60 |
+| profile n = 2: κ's Δχ² from the best | 3.72 | 5.28 |
+| **n at κ (CMB + BAO + SN)** | | |
+| Pantheon+: best n (1σ) | 1.27 (1.10–1.57) | 1.21 (1.07–1.43) |
+| Pantheon+: best Δχ² vs ΛCDM | −2.45 | −3.01 |
+| Pantheon+: Δχ² at n = 1, n = 2 above the best | 3.52, 2.36 | 2.33, 3.65 |
+| DES-Y5: best n (1σ) | 1.23 (1.08–1.47) | 1.17 (1.05–1.37) |
+| DES-Y5: best Δχ² vs ΛCDM | −3.69 | −4.43 |
+| DES-Y5: Δχ² at n = 1, n = 2 above the best | 2.86, 3.24 | 1.75, 4.61 |
+| **Counting laws at κ (best fit, Δχ² vs ΛCDM)** | | |
+| Pantheon+, power sⁿ: best shape | 1.25 | 1.20 |
+| Pantheon+, power sⁿ: Δχ² vs ΛCDM | −2.47 | −3.01 |
+| Pantheon+, shifted Poisson: best shape | 0.75 | 0.50 |
+| Pantheon+, shifted Poisson: Δχ² vs ΛCDM | −2.36 | −2.88 |
+| Pantheon+, truncated Poisson: best shape | 1.25 | 1.00 |
+| Pantheon+, truncated Poisson: Δχ² vs ΛCDM | −2.35 | −2.89 |
+| DES-Y5, power sⁿ: best shape | 1.20 | 1.15 |
+| DES-Y5, power sⁿ: Δχ² vs ΛCDM | −3.69 | −4.48 |
+| DES-Y5, shifted Poisson: best shape | 0.50 | 0.50 |
+| DES-Y5, shifted Poisson: Δχ² vs ΛCDM | −3.46 | −4.30 |
+| DES-Y5, truncated Poisson: best shape | 1.00 | 0.75 |
+| DES-Y5, truncated Poisson: Δχ² vs ΛCDM | −3.50 | −4.31 |
+| **Honeycomb and Poisson μ = 1 (no fitted shape), Δχ² vs ΛCDM, shifted / truncated** | | |
+| Pantheon+, p = 6 (honeycomb) | −2.12 / −2.15 | −2.15 / −2.88 |
+| Pantheon+, Poisson μ = 1 | −2.21 / −2.22 | −2.33 / −2.89 |
+| DES-Y5, p = 6 (honeycomb) | −2.98 / −3.47 | −3.12 / −4.30 |
+| DES-Y5, Poisson μ = 1 | −3.13 / −3.50 | −3.35 / −4.27 |
+| **Monogamy law (no fitted shape), Δχ² vs ΛCDM** | | |
+| Pantheon+, q = 0.665 (A, p = 6) | −2.19 | −2.28 |
+| Pantheon+, q = 0.632 (A, 1 − 1/e) | −2.27 | −2.44 |
+| Pantheon+, q = 0.760 (B, pairing) | −1.83 | −1.69 |
+| Pantheon+, q = 1 (n = 2 law) | −0.09 | +0.64 |
+| DES-Y5, q = 0.665 (A, p = 6) | −3.10 | −3.29 |
+| DES-Y5, q = 0.632 (A, 1 − 1/e) | −3.23 | −3.50 |
+| DES-Y5, q = 0.760 (B, pairing) | −2.59 | −2.54 |
+| DES-Y5, q = 1 (n = 2 law) | −0.44 | +0.18 |
+| **Curvature (Ω_k fitted)** | | |
+| Pantheon+, ΛCDM: Ω_k (σ) | 0.0024 (0.0012) | 0.0028 (0.0012) |
+| Pantheon+, ΛCDM: P(closed) | 0.027 | 0.012 |
+| Pantheon+, κ ceiling: Ω_k (σ) | 0.0014 (0.0011) | 0.0019 (0.0011) |
+| Pantheon+, κ ceiling: P(closed) | 0.101 | 0.039 |
+| DES-Y5, ΛCDM: Ω_k (σ) | 0.0024 (0.0012) | 0.0028 (0.0012) |
+| DES-Y5, ΛCDM: P(closed) | 0.025 | 0.011 |
+| DES-Y5, κ ceiling: Ω_k (σ) | 0.0014 (0.0011) | 0.0019 (0.0011) |
+| DES-Y5, κ ceiling: P(closed) | 0.103 | 0.040 |
+
+**What changes in the reading.**
+- **The κ ceilings still tie ΛCDM with one fewer parameter.**
+  - Pantheon+: n = 1 moves from +1.07 to −0.67, and n = 2 from −0.09 to +0.64. ΔBIC is −8.1 and −6.7.
+  - DES-Y5: n = 1 moves from −0.83 to −2.68, and n = 2 from −0.44 to +0.18. ΔBIC is −10.2 and −7.3.
+  - n = 0.5 stays excluded.
+- **κ sits closer to the preferred n = 1 ceiling.** The free n = 1 ceiling moves to Ω_f ≈ 0.97, and κ is now Δχ² 2.2
+  (Pantheon+) and 1.6 (DES-Y5) from its best, down from 3.4 and 2.6.
+- **The approach law moves toward the glide.**
+  - At κ the data now prefer n ≈ 1.2: Pantheon+ 1.21 (1σ 1.07–1.43, 2σ 0.97–2.17), DES-Y5 1.17 (1σ 1.05–1.37,
+    2σ 0.95–1.84).
+  - The upper side is now bounded at 2σ by both samples; before, Pantheon+ left it open.
+  - n = 1, first-order kinetics, is Δχ² 2.3 and 1.75 from the best, about 1.5σ and 1.3σ.
+  - n = 2 is 3.7 and 4.6 from the best, about 1.9σ and 2.1σ.
+  - n = 0.9 costs 6.5–7.4.
+  - n = 1.25, used in the future section, stays inside both 1σ ranges.
+- **The counting laws all gain 0.5–0.8 against ΛCDM.**
+  - μ = 1 still lies within Δχ² ≤ 1 of every best fit; the largest gap is 0.95, for the DES-Y5 shifted law.
+  - With μ = 1 fixed (no fitted shape), ΔBIC ≈ −10 to −12.
+  - Honeycomb p = 6 gives ΔBIC −9.5 to −10.3 (Pantheon+) and −10.6 to −11.8 (DES-Y5).
+- **Monogamy.** Version (A) still matches the best laws. Version (B) now trails (A) by about 0.6–0.75. q = 1, the n = 2
+  law, is now slightly worse than ΛCDM.
+- **Curvature leans further open.**
+  - ΛCDM + Ω_k gives +0.0028 ± 0.0012, about 2.3σ, and about 0.9σ from Planck 2018 + BAO.
+  - The κ ceiling gives +0.0019 ± 0.0011, about 1.8σ.
+  - P(closed) falls to about 1% for ΛCDM and about 4% for the ceiling, down from 2.5–2.7% and about 10%. The ceiling
+    model's chance of recollapse goes from about 1 in 10 to about 1 in 25.
+- **Unchanged.** BAO + SN without the CMB, supernovae alone, the hemisphere and direction tests (identical to 10⁻⁴), and
+  the future section, which has no CMB fit.
+- **Not edited.** `PREREG_FREE_CEILING_E4_E7.md` quotes n ≈ 1.25 in a dated intake note. It gets an inline pointer and is
+  otherwise left as written.
+
 ## Status and next
 
 `[O]`. This is a derivation *given* premises 2–4. It is not yet the closure O3 asks for, a covariant action whose
@@ -492,6 +644,6 @@ Friedmann constraint yields ln 2 on-shell. The next steps turn the premises into
    ∝ boundary area.
 2. Show that one balanced landing per cell is the action's stationary point.
 3. Pick between the once-landed Λ and the event-horizon version by the acceleration history (w₀, w_a).
-4. Derive the approach law n from the landing kinetics. At a κ ceiling, both supernova samples prefer n ≈ 1.25
-   (1σ about 1.1–1.5; n ≳ 1 at 2σ; the upper side is weakly bounded). The factorial counting law with μ = 1 fits as
-   well with no fitted shape. What remains is to derive μ = 1.
+4. Derive the approach law n from the landing kinetics. At a κ ceiling, both supernova samples prefer n ≈ 1.2
+   (1σ about 1.05–1.43; 2σ about 0.95–2.2, bounded on both sides; corrected 2026-10-15 from n ≈ 1.25). The factorial
+   counting law with μ = 1 fits as well with no fitted shape. What remains is to derive μ = 1.
