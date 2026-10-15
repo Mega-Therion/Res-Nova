@@ -131,5 +131,7 @@ lean_lib «ResNovaFormal» where
     `RiemannSpectralExpander,
     `StiefelLaplaceEigenvalue,
     `QuarkMassLadder,
-    `InitialAlgebraExecution
+    `InitialAlgebraExecution,
+    `ListInitialAlgebra,
+    `BinaryPrefixBasis
   ]
