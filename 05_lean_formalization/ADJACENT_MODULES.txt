@@ -450,3 +450,19 @@ PillarII_SecularRootQEC.lean     # secular root of the 5-class consonantal subsh
                                  # and the CRT idempotents of Z/22. The paper's own receipt is
                                  # ConsonantalSubshift.lean (doi:10.5281/zenodo.23101853). Not a result of
                                  # this manuscript.
+
+# --- Foundations: initial algebras and binary-prefix domains (ADDED 2026-10-15) ---
+# Order-theoretic and categorical scaffolding moved from 4Leibniz on 2026-10-15.
+# Not a result of the MOND manuscript, and no physical coordinate is defined in
+# any of the three. They are three separate developments, not one proof: the
+# generic structures in InitialAlgebraExecution are not instantiated by
+# ListInitialAlgebra or BinaryPrefixBasis (BLK-391).
+InitialAlgebraExecution.lean     # Endofunctors, F-algebras, initial algebra and final
+                                 # coalgebra as structures; Lambek and the execution
+                                 # morphism stated over those structures.
+ListInitialAlgebra.lean          # List as a constructed initial algebra of one
+                                 # polynomial functor: inn/out inverse, fold unique.
+                                 # Constructs no final coalgebra.
+BinaryPrefixBasis.lean           # Countable basis of finite binary prefixes, its ideal
+                                 # completion (Shade), directed suprema, and the Scott
+                                 # basis `above p`.

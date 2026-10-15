@@ -103,6 +103,9 @@ TARGETS=(
   RiemannSpectralExpander.lean \
   StiefelLaplaceEigenvalue.lean
   QuarkMassLadder.lean
+  InitialAlgebraExecution.lean
+  ListInitialAlgebra.lean
+  BinaryPrefixBasis.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------
