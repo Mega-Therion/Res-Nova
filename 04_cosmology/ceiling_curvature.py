@@ -35,8 +35,8 @@ def dm_curved(dc, ok):
 
 
 def make_E(model, h, ok, om=None, law="truncated_poisson", p=1.0, of=m.KAPPA):
-    orad = m.OR / h**2
     if model == "lcdm":
+        orad = m.omega_r(om, h)  # CHW radiation (2026-10-15 CMB-block fix)
         ol = 1 - om - orad - ok
         return (
             lambda z: np.sqrt(
@@ -44,7 +44,7 @@ def make_E(model, h, ok, om=None, law="truncated_poisson", p=1.0, of=m.KAPPA):
             ),
             om,
         )
-    om0 = 1 - m.LN2 - orad - ok
+    om0, orad = m.om0_ln2(h, extra=ok)
     r0 = m.LN2 / om0
     rf = of / (1 - of)
     s0 = r0 / rf

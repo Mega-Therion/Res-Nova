@@ -54,7 +54,7 @@ def load_inv_cov(npz_path):
 
 
 def make_E_w0wa(h, om, w0, wa):
-    orad = m.OR / h**2
+    orad = m.omega_r(om, h)  # CHW radiation (2026-10-15 CMB-block fix)
     ode = 1 - om - orad
     return lambda z: np.sqrt(
         orad * (1 + z) ** 4
@@ -119,7 +119,7 @@ def main():
             "published_omega_m": "0.330 +/- 0.015 (Popovic et al. 2026)",
         }
     }
-    c_ln2 = chi_sn(m.make_E("lcdm", H_SN, 1 - LN2 - m.OR / H_SN**2)[0])
+    c_ln2 = chi_sn(m.make_E("lcdm", H_SN, m.om0_ln2(H_SN)[0])[0])
     sn["lcdm_ln2"] = {"chi2": c_ln2, "delta_vs_lcdm": c_ln2 - float(c[i])}
     ofs = np.round(np.arange(0.70, 0.9991, 0.002), 4)
     for n in (1.0, 2.0):

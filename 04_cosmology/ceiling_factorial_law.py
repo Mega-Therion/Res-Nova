@@ -68,8 +68,7 @@ GRIDS = {
 
 
 def make_E_law(law, p, h, of=m.KAPPA):
-    orad = m.OR / h**2
-    om0 = 1 - m.LN2 - orad
+    om0, orad = m.om0_ln2(h)  # CHW radiation (2026-10-15 CMB-block fix)
     r0 = m.LN2 / om0
     rf = of / (1 - of)
     s0 = r0 / rf
@@ -88,7 +87,7 @@ def make_E_law(law, p, h, of=m.KAPPA):
 
 
 def w0_wa(law, p, h=0.68, of=m.KAPPA):
-    om0 = 1 - m.LN2 - m.OR / h**2
+    om0 = m.om0_ln2(h)[0]
     s0 = (m.LN2 / om0) / (of / (1 - of))
     g = lambda s: LAWS[law](s, p)
     g0 = g(s0)
