@@ -130,5 +130,6 @@ lean_lib «ResNovaFormal» where
     `YangMillsCasimirBound,
     `RiemannSpectralExpander,
     `StiefelLaplaceEigenvalue,
-    `QuarkMassLadder
+    `QuarkMassLadder,
+    `InitialAlgebraExecution
   ]
