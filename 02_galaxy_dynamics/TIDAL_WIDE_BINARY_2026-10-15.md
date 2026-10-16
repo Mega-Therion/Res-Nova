@@ -101,9 +101,38 @@ T  fails the loose  cut at 5–10  kAU,  where  the loose data sit at 1.067 ± 0
 
 **The  local-force step** (`tidal_local_force_check.py`,  post-hoc). The test  builds  Φ(r)  from the orientation-averaged Γ_r at M = 1 M☉ and q₁ = 0.5. For 12 orbits with a = 6–25 kAU and e = 0.3–0.7, it compares the energy-integral speed with √Γ times the Kepler speed at the same radius. The pointwise difference reaches 10–13% for orbits that cross 7–20 kAU. The time-weighted orbit mean differs by −1.6% to +2.1%, against the 10–20 kAU bin's σ of 2.3%. Every model in the frozen pipeline uses this step, but it is least accurate for T.
 
+**Energy-integral  speeds** (`tidal_wb_orbit_speed_check.py`, post-hoc,  2026-10-16). Each Monte  Carlo  speed  comes from energy conservation in the potential built from the action-form table, using the draw's Kepler periapsis and apoapsis. This follows Grok's `tidal_wb_orbit_chi2.py`.
+
+The  Kepler part of  the potential is  taken  exactly,  and only Φ + 1/r is integrated and interpolated. Interpolating Φ itself on the coarse nodes gives speeds 4–8% high where Γ = 1, which produced the strict χ² of 16.5 / 17.7 in Grok's local run.
+
+Gates:
+- Γ  = 1 reproduces  the Kepler speed  to  1.5×10⁻¹¹.
+- A  constant Γ reproduces √Γ to 5.7×10⁻⁶.
+- The orbit means match the independent `tidal_local_force_check.py` to 1.6×10⁻⁶.
+- Four sabotaged copies fail.
+
+At g_e = 1.9 / 2.4:
+
+| | strict | loose |
+|---|---|---|
+| raw χ² | 1.92 / 0.75 (N 9.51) | 23.42 / 24.92 (N 63.8) |
+| calibrated χ² | 1.72 / 0.40 | 12.6 / 16.0 |
+| Z_N | 2.79 / 2.84 | 5.30 / 4.83 |
+
+Neither cut excludes T under C3. Binned against the strict data:
+
+| bin (kAU) | T | data |
+|---|---|---|
+| 2–5 | 1.000 | 0.992 |
+| 5–10 | 1.017 | 1.003 |
+| 10–20 | 1.066 | 1.064 |
+| 20–30 | 1.060 | 1.095 |
+
+**The  dip does not  survive into R(s).**  An  orbit  seen at 5–10 kAU spends part of its period near the peak, and its speed reflects the potential along the whole orbit. The Γ_r dip of §4 is a feature of the relative acceleration at fixed 3D separation, not of the projected-velocity statistic. These are post-hoc numbers, so they describe the fit and do not test it.
+
 ## 6. What this settles and what it does not
 - The  route survives its  kill test without  moving  x*.  That is a pass under RY's refined K2, not a confirmation. The strict cut's power against Newton for this model is Z = 3.0–3.5, short of the 4 the pre-registration asks for.
-- A fair χ² comparison for T needs velocities from orbits integrated in its force law, not the local-force step. That is a change to the pipeline, so it needs its own pre-registration.
-- The prediction to test next is the mass-dependent dip and peak (§4). The feature's position scales as M^{1/3}; MOND's onset scales as M^{1/2}. A stratified test should be pre-registered now and run on Gaia DR4.
+- A fair χ² comparison for T needs velocities from orbits integrated in its force law. The post-hoc energy-integral version (§5) has T best in the strict cut and passing the loose one. A pre-registered version, with orbits integrated in the full anisotropic field, is the step that would make that a test.
+- The prediction to test next is the mass dependence. The screening edge scales as M^{1/3} and MOND's onset as M^{1/2}. Because the dip washes out of R(s) (§5), a DR4 test should target the onset of the rise in orbit-integrated R(s) per mass bin, not a dip.
 - K3 also names the Oort cloud. The Sun's screening edge at x*_A falls at about 9,700 AU, inside the cloud, and W's inner push and outer pull straddle it. That test has not been run.
 - Amendment A (orientation) was not touched. No sky orientation was used.
