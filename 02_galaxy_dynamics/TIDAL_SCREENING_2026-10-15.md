@@ -1,6 +1,6 @@
 # Screening on the tidal coordinate: GW speed, well-posedness, SPARC and Cassini
 
-**Tier:**  `[D]` for §1–§2.  `[E]` for §3  (SPARC,  Cassini).  `[X]` for the curvature-built coordinate, the linear-onset form S1, and the AeST single-scalar form. `[O]` for the new constant x*, which RY admitted on 2026-10-15 under a refined rule (§5).
+**Tier:**  `[D]` for §1–§2.  `[E]` for §3  (SPARC,  Cassini).  `[X]` for the curvature-built coordinate, the linear-onset form S1, and the AeST single-scalar form. `[O]` for the new constant x*, which RY admitted on 2026-10-15 under a refined rule (§5). **`[X]` since 2026-10-16 for the surviving form as built** (QUMOND, Φ_N's tidal tensor, S2, with the Lagrangian's zero C = 0): its shell term empties the observed Oort peak (`OORT_TORQUE_2026-10-16.md`). A variant with C ≠ 0 is `[O]` and untested.
 
 **Date:**  2026-10-15. This follows  `06_foundations/SETA_EXTERNAL_FIELD_SCREENING.md` §5: a  gradient  cannot  tell a compact body's surroundings from a galactic disk, and the tidal tensor can.
 
