@@ -44,7 +44,7 @@ x*_A  corresponds to the  tidal field of  about  2×10³  M☉/pc³, a globular-
 |---|---|
 | K1, Cassini, SPARC, dwarfs | Cassini at the 2σ bound by calibration (action form, x* = 7.04×10¹¹); SPARC Δχ² = −0.0004; dwarfs not run |
 | K2, refined by RY on 2026-10-15: a constant fixed once by one system is allowed if it predicts the others without retuning, and stays `[O]` until derived | passes on those terms: x* = 7.04×10¹¹ (action form), fixed by Cassini, did not move in the wide-binary test |
-| K3, no new tension in wide binaries, Oort cloud, dwarfs | wide binaries: not excluded under C3 (strict χ² 2.25; the loose cut fails, as it does for Newton); separation from Newton in the strict cut Z = 3.0–3.5 (`TIDAL_WIDE_BINARY_2026-10-15.md`). Oort cloud and dwarfs not run |
+| K3, no new tension in wide binaries, Oort cloud, dwarfs | wide binaries: not excluded under C3 (strict χ² 2.25; the loose cut fails, as it does for Newton); the strict cut's power against Newton is Z = 3.0–3.5, below 4, and the pipeline's local-force velocity step is approximate for this force law (`TIDAL_WIDE_BINARY_2026-10-15.md`). Oort cloud and dwarfs not run |
 | K4, c_T = c | passes for Φ_N's Hessian with S2; fails for the curvature coordinate and for S1 |
 | K5, derived from an action | the quasistatic QUMOND action, yes, with its W term kept (the `639fa63` runs dropped it); the covariant action is open |
 

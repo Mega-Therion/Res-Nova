@@ -1,18 +1,19 @@
 # Tidal screening in wide binaries: the two-body computation and the R(s) kill test (2026-10-15)
 
 **Verdict,  under the pre-registered  rule:** not excluded.
-- In  the  strict  cut, the screened model T has the lowest χ² of any model: raw 2.25, calibrated 1.6.
-- In the loose cut, T fails, as Newton does.
-- Its separation from Newton is Z_N = 3.0–3.5 in the strict cut, short of 4. So the one cut T passes cannot yet tell T from Newton at 4σ.
+- T,  the  screened  model, passes the strict cut and fails the loose cut, as Newton does.
+- The strict cut's power to tell T from Newton is Z_N = 3.0–3.5, below the pre-registered 4. Z_N is the expected separation if T were true, not a measured separation of the data from Newton.
+- The frozen pipeline scales each velocity by √Γ at the orbit's current radius. For T's dip and peak this local-force step is off by up to 2% in orbit-mean speed (§5), comparable to the 10–20 kAU bin's error. T's χ² values are therefore approximate and descriptive only, and are not a pre-registered preference test.
 
 **Tiers:**  `[D]` for the  field equation and  the  solver  (§1). `[E]` for §2–§5.
 
 **Pre-registration:**  `PREREG_TIDAL_WIDE_BINARY_2026-10-15.md`, committed in  `b11edd3`, with amendment  A1  in  `2d095d3`. The prediction table was committed in `b3197e1`, before R(s) was run.
 
 **Scripts:**
-- `tidal_screening_two_body.py`: gates, Cassini, table, refinement and summary.
-- `tidal_screening_wide_binary_rs.py`: R(s).
-- `tidal_screening_action_sparc.py`: SPARC.
+- `tidal_screening_two_body.py`:  gates, Cassini, table,  refinement and summary.
+- `tidal_screening_wide_binary_rs.py`:  R(s).
+- `tidal_screening_action_sparc.py`:  SPARC.
+- `tidal_local_force_check.py`:  the local-force step (post-hoc, §5).
 
 ---
 
@@ -85,7 +86,7 @@ Where  the dip and  peak come from:  they  are  W's. W's source is a double dive
 | Z_N | 3.00 / 3.55 | 5.05 / 5.46 |
 | Z_E₂ | 4.50 / 4.80 | 5.70 / 5.91 |
 
-The  pre-registered "underpowered" label  needs Z_N <  4  in  both cuts, so it does not apply. But the only cut T passes is below 4.
+Z  is power: the  median, over T's  own  injected  catalogues, of √(χ²_X − χ²_T). The pre-registered "underpowered" label needs Z_N < 4 in both cuts, so it does not apply. But in the only cut T passes, Z_N is below 4.
 
 **Strict  cut, R per  bin** (sky-projected separation;  the  model  columns are the combined curves at g_e = 1.9):
 
@@ -98,9 +99,11 @@ The  pre-registered "underpowered" label  needs Z_N <  4  in  both cuts, so it d
 
 T  fails the loose  cut at 5–10  kAU,  where  the loose data sit at 1.067 ± 0.011 and T predicts 0.986. `WIDE_BINARY_FINAL_2026-10-04.md` traces that loose-cut excess to unresolved companions in heavy pairs; that tracing is `[O]`. In the divergence form, 488 and 295 Monte Carlo draws had Γ_r < 0 and were clipped to 0. No other form had any.
 
+**The  local-force step** (`tidal_local_force_check.py`,  post-hoc). The test  builds  Φ(r)  from the orientation-averaged Γ_r at M = 1 M☉ and q₁ = 0.5. For 12 orbits with a = 6–25 kAU and e = 0.3–0.7, it compares the energy-integral speed with √Γ times the Kepler speed at the same radius. The pointwise difference reaches 10–13% for orbits that cross 7–20 kAU. The time-weighted orbit mean differs by −1.6% to +2.1%, against the 10–20 kAU bin's σ of 2.3%. Every model in the frozen pipeline uses this step, but it is least accurate for T.
+
 ## 6. What this settles and what it does not
-- The  route survives its  kill test without  moving  x*.  That is a pass under RY's refined K2, not a confirmation. The strict sample sits about 3σ from Newton for this model, short of the 4σ bar.
-- T's best strict χ² is a description, not a pre-registered preference test.
+- The  route survives its  kill test without  moving  x*.  That is a pass under RY's refined K2, not a confirmation. The strict cut's power against Newton for this model is Z = 3.0–3.5, short of the 4 the pre-registration asks for.
+- A fair χ² comparison for T needs velocities from orbits integrated in its force law, not the local-force step. That is a change to the pipeline, so it needs its own pre-registration.
 - The prediction to test next is the mass-dependent dip and peak (§4). The feature's position scales as M^{1/3}; MOND's onset scales as M^{1/2}. A stratified test should be pre-registered now and run on Gaia DR4.
 - K3 also names the Oort cloud. The Sun's screening edge at x*_A falls at about 9,700 AU, inside the cloud, and W's inner push and outer pull straddle it. That test has not been run.
 - Amendment A (orientation) was not touched. No sky orientation was used.
