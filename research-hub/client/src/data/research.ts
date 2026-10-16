@@ -11,9 +11,9 @@ export type StatusTone = "blue" | "amber" | "red" | "slate";
 
 export const releaseState = {
   version: "Public atlas v0.3",
-  researchRelease: "Res Nova · correction cycle 2026-10-13",
-  commit: "54ee613846b88f9fdc15709675316557028d3041",
-  note: "Aligned with main (54ee613) on 2026-10-13: 69 Lean targets, a₀ = 1.1607 × 10⁻¹⁰ m s⁻² under μ_std, unscreened μ_std fails Cassini, D7 stays open, and the retracted-claim list matches assurance/claims.json.",
+  researchRelease: "Res Nova · correction cycle 2026-10-15",
+  commit: "0cf59a0509801c38e4e9f4c79544b0af2b6fb2b5",
+  note: "Aligned with main (0cf59a0) on 2026-10-15: 73 Lean targets, all passing in CI, a₀ = 1.1607 × 10⁻¹⁰ m s⁻² under μ_std, unscreened μ_std fails Cassini, D7 stays open, and the retracted-claim list matches assurance/claims.json.",
   links: {
     github: "https://github.com/Mega-Therion/Res-Nova",
     zenodo: "https://doi.org/10.5281/zenodo.21969121",
@@ -32,9 +32,9 @@ export const stats = [
     detail: "3,391 kinematic points",
   },
   {
-    value: "69",
+    value: "73",
     label: "Lean targets in the current gate",
-    detail: "counted in verify_all_proofs.sh on 2026-10-13",
+    detail: "73/73 in CI on 2026-10-16 (verify run 38827607035)",
   },
   { value: "6", label: "evidence states", detail: "from derived to refuted" },
   {
@@ -114,8 +114,8 @@ export const claims = [
     domain: "covariant completion",
     title: "AeST is the live covariant completion under review",
     summary:
-      "The corrected program uses a scalar-sector AeST action with minimal matter coupling. Tensor-speed and selected weak-field claims are separated from unresolved post-Newtonian, screening, and nonlinear cosmology work.",
-    source: "TARGET_D7_COVARIANT_COMPLETION.md; TARGET_D8_TENSOR_SPEED.md",
+      "The corrected program uses a scalar-sector AeST action with minimal matter coupling. Tensor-speed and selected weak-field claims are separated from unresolved post-Newtonian, screening, and nonlinear cosmology work. In the spherical quasistatic limit, the scalar function whose total law is μ_std is single-valued and meets both static ghost conditions for λ_s < 11.28. D9's function stays the one in use.",
+    source: "TARGET_D7_COVARIANT_COMPLETION.md; TARGET_D8_TENSOR_SPEED.md; AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md",
     limitation:
       "Downstream calculations inherited from the retired vector/disformal action are not current evidence. A stage-2 search proposed a no-go. That no-go was not adopted. D7 stays open.",
   },
@@ -150,11 +150,11 @@ export const claims = [
     domain: "redshift test",
     title: "The horizon-tied a₀(z) corollary is constrained, not excluded",
     summary:
-      "[O] RC100 (100 galaxies, anchored on non-flow T3) misses both 2-bin 95% corollary intervals in opposite directions: a flat shape where H(z) rises, with Δχ² = 8.9–19.8 stat-only against the Hubble form. Verdict: CONSTRAINED, NOT EXCLUDED. Every reading is calibration-limited by the 0.5-ln cross-method nuisance, fDM-prior redshift trend, and untested beam-smearing.",
+      "[O] RC100 (100 galaxies, anchored on non-flow T3) misses both 2-bin 95% corollary intervals in opposite directions: a flat shape where H(z) rises, with Δχ² = 8.9–19.8 stat-only against the Hubble form. Verdict: CONSTRAINED, NOT EXCLUDED. Beam smearing is now tested: its allowed bias moves ln a₀ by at most −0.085 across z = 0.6–2.6, against +1.026 for the Hubble shape. The shape depends on the pressure-support correction: n = −0.28 at the published Burkert scale, and the Hubble shape enters the 95% interval only at three times that scale or more.",
     source:
-      "A0_HIGHZ_MEASUREMENT_2026-09-16.md; A0_HIGHZ_COROLLARY_COMPARISON_2026-09-17.md",
+      "A0_HIGHZ_MEASUREMENT_2026-09-16.md; A0_HIGHZ_COROLLARY_COMPARISON_2026-09-17.md; scripts/a0_highz_resolution_test.py; scripts/a0_highz_pressure_scale_test.py",
     limitation:
-      "The live two-sided falsifier needs geometric cross-method calibration, a tested beam-smearing model, and an fDM prior independent of redshift.",
+      "The live two-sided falsifier needs geometric cross-method calibration, an fDM prior independent of redshift, and a measured pressure-support scale. A first literature pass points to a correction below Burkert's, not three times above it.",
   },
   {
     id: "CLM-SPARC-TIER0",
@@ -176,9 +176,9 @@ export const claims = [
     domain: "solar system",
     title: "Unscreened μ_std fails the Cassini external-field test",
     summary:
-      "[E] At the working a₀, unscreened μ_std fails Cassini's external-field quadrupole by about 4.6σ, and by +8.7σ against the 2026 bound. A phenomenological screen S = 1/(1+η²) can pass. It has no covariant realization yet.",
+      "[E] At the live a₀, unscreened μ_std gives an external-field quadrupole of 19–20 × 10⁻²⁷ s⁻², +9.7σ to +10.2σ against the 2026 bound. A phenomenological screen S = 1/(1+η²) can pass. Taking η from an external field keeps the light cone luminal, but one field cannot give the Sun and the Milky Way their different η at the same point. A screen on the tidal coordinate passes Cassini and leaves SPARC unchanged in a QUMOND form, at the price of a third constant fixed by the Solar System.",
     source:
-      "02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md; CURRENT_STATE_READ_THIS_FIRST.md",
+      "02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md; 06_foundations/SETA_EXTERNAL_FIELD_SCREENING.md; 02_galaxy_dynamics/TIDAL_SCREENING_2026-10-15.md",
     limitation:
       "The failure is of the unscreened branch. It is not a measurement of a screened covariant theory, because that theory is not in hand.",
   },
