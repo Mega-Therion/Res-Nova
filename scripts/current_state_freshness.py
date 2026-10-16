@@ -35,8 +35,10 @@ PHYSICS_PATHS = [
     "TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md",
 ]
 
+# Spaces between the words may be doubled: gAIng signatures (gaing_sign.py) encode
+# authorship in the gaps of a prose block, and signing this line once broke the check.
 DATE_RE = re.compile(
-    r"\*\*Last verified against the physics:\*\*\s*(\d{4}-\d{2}-\d{2})"
+    r"\*\*Last\s+verified\s+against\s+the\s+physics:\*\*\s*(\d{4}-\d{2}-\d{2})"
 )
 
 
@@ -112,6 +114,7 @@ def self_test() -> int:
     cases = [
         ("**Last verified against the physics:** 2026-01-01", "2030-01-01", True),
         (f"**Last verified against the physics:** {today}", "2020-01-01", False),
+        (f"**Last  verified against the  physics:** {today}", "2020-01-01", False),
         ("no date line at all", None, True),
     ]
     bad = 0
