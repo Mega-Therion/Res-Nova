@@ -185,6 +185,8 @@ The SVT-MOND structural block (two-scalar parent cannot simultaneously pass Cass
 
 ## What would actually finish the physics
 
+**Terminal status (2026-10-16):** this list is a queue, not a new open problem. Item 3 is O1 and stays `[O]`. Item 4 is O3 and stays `[O]`. Items 1, 2, and 5 are already closed or are publication steps, and this run does not raise them.
+
 In order, and without romance:
 
 1. Keep D1.2, D7, D8, D9 as the formal core. They are already the publishable theorems.
