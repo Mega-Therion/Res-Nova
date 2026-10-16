@@ -69,3 +69,8 @@ Solver  development measured the  following (`TIDAL_TWO_BODY_GATES.json`):
 ## 5. SPARC under the action form
 - At  x*_A, SPARC is  refitted with S(x)  at  x*_A  (the divergence part, `fit_tidal`, h_z = 0.1 kpc). The K1 rule is unchanged.
 - The W part is not solved for disks. At each SPARC point it is estimated from the spherical identity g_W,r = (2/√6) r⁻³ (r³ w̃)′ and reported as an estimate, not a fit.
+
+## Amendment A1 (2026-10-16): the action form's r grid. Committed before any R(s) number for T
+**Finding.**  The action form's  Γ_r has a  sharp  feature  at 5–35 kAU: below 1 near 6–11 kAU, then above 1.2 near 14–22 kAU. The 18-point grid (Δ ln r = 0.447) under-resolves it. Γ_r was computed directly at the geometric midpoint of each interval from 4.57 to 42.77 kAU, for M = 0.8 and 1.4 M☉, q₁ = 0.5 and cos θ_e = −0.861 and +0.340. Linear interpolation in ln r misses those values by up to 0.072; at 8.94 kAU, M = 0.8, cos θ_e = −0.861, the direct value is 0.890 and the interpolated one is 0.962.
+
+**Change.**  For the action  form only, three  log-spaced  points  are added inside each original interval from 1.87 to 104.6 kAU (Δ ln r = 0.112), using the same solver, x*_A and all other axes (`tidal_screening_two_body.py refine`). The unscreened and divergence curves are smooth and stay on the original grid. Nothing else changes: not the model, not x*, and not the decision rules.

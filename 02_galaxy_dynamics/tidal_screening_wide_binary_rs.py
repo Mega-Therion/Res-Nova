@@ -26,19 +26,20 @@ MU = np.array(TAB["mu_e"])
 WMU = np.array(TAB["mu_e_weights"])
 LMAX = len(MU)
 PL = np.array([np.polynomial.legendre.Legendre.basis(l)(MU) for l in range(LMAX)])
-AXES = (np.log(TAB["M_sun"]), np.log(TAB["r_kau"]), np.array(TAB["q1"]))
-INTERP = {}
+AXES, INTERP = {}, {}
 for key in NEW:
     form, ge = key.split("|")
+    AXES[key] = (np.log(TAB["M_sun"]), np.log(TAB["forms"][form].get("r_kau", TAB["r_kau"])), np.array(TAB["q1"]))
     Gr = np.array(TAB["forms"][form][ge]["Gamma_r"])            # (M, r, q1, mu)
     cl = np.einsum("...k,lk,k->...l", Gr, PL, WMU) * (2 * np.arange(LMAX) + 1) / 2
-    INTERP[key] = [RegularGridInterpolator(AXES, cl[..., l]) for l in range(LMAX)]
+    INTERP[key] = [RegularGridInterpolator(AXES[key], cl[..., l]) for l in range(LMAX)]
 
 
 def boost_new(key, M, r_au, q1, mu):
-    pts = np.stack([np.clip(np.log(M), AXES[0][0], AXES[0][-1]),
-                    np.clip(np.log(r_au / 1e3), AXES[1][0], AXES[1][-1]),
-                    np.clip(q1, AXES[2][0], AXES[2][-1])], -1)
+    ax = AXES[key]
+    pts = np.stack([np.clip(np.log(M), ax[0][0], ax[0][-1]),
+                    np.clip(np.log(r_au / 1e3), ax[1][0], ax[1][-1]),
+                    np.clip(q1, ax[2][0], ax[2][-1])], -1)
     P = np.polynomial.legendre.legvander(mu, LMAX - 1)          # (n, L)
     return sum(INTERP[key][l](pts) * P[:, l] for l in range(LMAX))
 

@@ -22,8 +22,8 @@ partition of unity that hands the companion's neighbourhood to the companion's o
 of F integrates to zero on every shell, so g_ph is computed up to a uniform field, which cancels in the
 relative acceleration.
 
-Usage: tidal_screening_two_body.py gates | cassini | table | all
-Writes TIDAL_TWO_BODY_GATES.json, TIDAL_ACTION_CASSINI.json, TIDAL_TWO_BODY_TABLE.json.
+Usage: tidal_screening_two_body.py gates | cassini | table | refine | summary | all
+Writes TIDAL_TWO_BODY_GATES.json, TIDAL_ACTION_CASSINI.json, TIDAL_TWO_BODY_TABLE.json, TIDAL_TWO_BODY_SUMMARY.json.
 """
 import json
 import multiprocessing as mp
@@ -567,6 +567,80 @@ def table():
     return out
 
 
+def refine_r():
+    """PREREG amendment A1: the action form's r grid, 3 extra log-spaced points inside each original interval
+    from 1.87 to 104.6 kAU (dln r = 0.112), merged into TIDAL_TWO_BODY_TABLE.json under forms.action.r_kau."""
+    tab = json.load(open(HERE / "TIDAL_TWO_BODY_TABLE.json"))
+    r0 = np.array(tab["r_kau"])
+    lo, hi = int(np.argmin(abs(r0 - 1.87))), int(np.argmin(abs(r0 - 104.6)))
+    extra = [float(np.exp(np.log(r0[i]) + k / 4 * (np.log(r0[i + 1]) - np.log(r0[i])))) for i in range(lo, hi) for k in (1, 2, 3)]
+    xs = tab["x_star"]["action"]
+    jobs = [("action", xs, ge, M, rk, q1, float(mu)) for ge in GES for M in TAB_M for rk in extra for q1 in TAB_Q1 for mu in TAB_MU]
+    res = {}
+    with mp.get_context("fork").Pool(4) as pool:
+        for i, (a, gr, gt) in enumerate(pool.imap_unordered(_cell, jobs, chunksize=8)):
+            res[a] = (gr, gt)
+            if i % 500 == 0:
+                print(f"{i}/{len(jobs)}", flush=True)
+    rr = sorted(set(list(r0) + extra))
+    tab["forms"]["action"]["r_kau"] = rr
+    for ge in GES:
+        d = tab["forms"]["action"][f"{ge:.1e}"]
+        old_r, old_g, old_t = list(r0), np.array(d["Gamma_r"]), np.array(d["Gamma_t"])
+        Gr = np.empty((len(TAB_M), len(rr), len(TAB_Q1), len(TAB_MU)))
+        Gt = np.empty_like(Gr)
+        for j, rk in enumerate(rr):
+            if rk in old_r:
+                Gr[:, j], Gt[:, j] = old_g[:, old_r.index(rk)], old_t[:, old_r.index(rk)]
+            else:
+                for a, M in enumerate(TAB_M):
+                    for b, q1 in enumerate(TAB_Q1):
+                        for c, mu in enumerate(TAB_MU):
+                            Gr[a, j, b, c], Gt[a, j, b, c] = res[("action", xs, ge, M, rk, q1, float(mu))]
+        d["Gamma_r"], d["Gamma_t"] = np.round(Gr, 7).tolist(), np.round(Gt, 7).tolist()
+        d["Gamma_r_orientation_avg"] = np.round(0.5 * Gr @ TAB_MU_W, 7).tolist()
+    tab["amendment_A1"] = {"form": "action", "extra_r_kau": extra}
+    json.dump(tab, open(HERE / "TIDAL_TWO_BODY_TABLE.json", "w"))
+
+
+# ---------------------------------------------------------------------------------------------- summary
+def _crossings(r, g, lvl):
+    """Separations (kAU) where g - 1 crosses lvl, interpolating linearly in log r."""
+    h = g - 1 - lvl
+    out = []
+    for i in np.where(np.sign(h[:-1]) * np.sign(h[1:]) < 0)[0]:
+        t = h[i] / (h[i] - h[i + 1])
+        out.append(float(np.exp(np.log(r[i]) + t * (np.log(r[i + 1]) - np.log(r[i])))))
+    return out
+
+
+def summary():
+    """Reporting only (PREREG section 3): orientation-averaged Gamma_r against r for each M and q1, and where
+    Gamma_r - 1 crosses +-1%. Writes TIDAL_TWO_BODY_SUMMARY.json."""
+    tab = json.load(open(HERE / "TIDAL_TWO_BODY_TABLE.json"))
+    out = {"x_star": tab["x_star"], "forms": {}}
+    for f, per_ge in tab["forms"].items():
+        out["forms"][f] = {}
+        r = np.array(per_ge.get("r_kau", tab["r_kau"]))
+        out["forms"][f]["r_kau"] = r.tolist()
+        for ge, d in per_ge.items():
+            if ge == "r_kau":
+                continue
+            G = np.array(d["Gamma_r_orientation_avg"])           # (M, r, q1)
+            rows = {}
+            for iM, M in enumerate(tab["M_sun"]):
+                for iq, q1 in enumerate(tab["q1"]):
+                    g = G[iM, :, iq]
+                    rows[f"M={M}|q1={q1}"] = {"Gamma_r_avg": np.round(g, 5).tolist(),
+                                              "cross_plus_1pct_kau": _crossings(r, g, 0.01),
+                                              "cross_minus_1pct_kau": _crossings(r, g, -0.01),
+                                              "min": float(g.min()), "r_at_min_kau": float(r[int(np.argmin(g))]),
+                                              "max": float(g.max()), "r_at_max_kau": float(r[int(np.argmax(g))])}
+            out["forms"][f][ge] = rows
+    json.dump(out, open(HERE / "TIDAL_TWO_BODY_SUMMARY.json", "w"), indent=1)
+    return out
+
+
 if __name__ == "__main__":
     stage = sys.argv[1] if len(sys.argv) > 1 else "all"
     if stage in ("gates", "all"):
@@ -576,3 +650,7 @@ if __name__ == "__main__":
         cassini()
     if stage in ("table", "all"):
         table()
+    if stage in ("refine", "all"):
+        refine_r()
+    if stage in ("summary", "all"):
+        summary()
