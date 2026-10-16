@@ -29,13 +29,15 @@ Run as pre-registered in `639fa63`, at the live a₀ = 1.1607×10⁻¹⁰ m/s².
 
 ## 4. Predictions, stated and not tested
 
+The  wide-binary row is  a single-point proxy,  the  whole  binary's mass at distance s. It is not the prediction.
+
 | System | S |
 |---|---|
 | Wide binary, 1.5 M☉: 2,000 / 5,000 / 10,000 / 20,000 AU | 0.001 / 0.12 / 0.90 / 0.998 |
 | Dwarf spheroidal, ρ ~ 0.1 M☉/pc³ | 1.000 |
 | Globular-cluster core, 10³ / 10⁴ M☉/pc³ | 0.98 / 0.36 |
 
-At  1.5 M☉, S  = ½ at  about  7,000  AU, inside the binary's own MOND radius of about 9,000 AU; beyond 20,000 AU it is unscreened. The pre-registered wide-binary orientation test (Amendment A) was not touched.
+At  the midpoint of  two equal stars  the  tide  is 8 times the proxy's, which moves S = ½ from about 7,000 AU to about 14,000 AU and gives S = 0.90 at 20,000 AU. The test needs the screened two-body QUMOND computation, over the combined stellar and Galactic tidal field, pre-registered before any wide-binary data are looked at. The pre-registered wide-binary orientation test (Amendment A) was not touched.
 
 ## 5. Against the screening kill criteria pre-registered on 2026-10-14
 
@@ -43,7 +45,7 @@ At  1.5 M☉, S  = ½ at  about  7,000  AU, inside the binary's own MOND radius 
 |---|---|
 | K1, Cassini, SPARC, dwarfs | Cassini at the 2σ bound by calibration; SPARC Δχ² = −0.00; dwarfs not run |
 | K2, refined by RY on 2026-10-15: a constant fixed once by one system is allowed if it predicts the others without retuning, and stays `[O]` until derived | passes on those terms: x* = 2.84×10¹², fixed by Cassini, may not move |
-| K3, no new tension in wide binaries, Oort cloud, dwarfs | wide binaries are now the kill test: if the data force x* to move, the route is dead |
+| K3, no new tension in wide binaries, Oort cloud, dwarfs | wide binaries are now the kill test: if the data force x* to move, the route is dead. The two-body computation is not done (§4) |
 | K4, c_T = c | passes for Φ_N's Hessian with S2; fails for the curvature coordinate and for S1 |
 | K5, derived from an action | the quasistatic QUMOND action, yes; the covariant action is open |
 
