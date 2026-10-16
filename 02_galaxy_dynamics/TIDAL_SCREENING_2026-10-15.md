@@ -1,6 +1,6 @@
 # Screening on the tidal coordinate: GW speed, well-posedness, SPARC and Cassini
 
-**Tier:**  `[D]` for §1–§2.  `[E]` for §3  (SPARC,  Cassini).  `[X]` for the curvature-built coordinate, the linear-onset form S1, and the AeST single-scalar form. `[O]` for admitting the new constant x* (§5), which is a decision rather than a calculation.
+**Tier:**  `[D]` for §1–§2.  `[E]` for §3  (SPARC,  Cassini).  `[X]` for the curvature-built coordinate, the linear-onset form S1, and the AeST single-scalar form. `[O]` for the new constant x*, which RY admitted on 2026-10-15 under a refined rule (§5).
 
 **Date:**  2026-10-15. This follows  `06_foundations/SETA_EXTERNAL_FIELD_SCREENING.md` §5: a  gradient  cannot  tell a compact body's surroundings from a galactic disk, and the tidal tensor can.
 
@@ -42,9 +42,9 @@ At  1.5 M☉, S  = ½ at  about  7,000  AU, inside the binary's own MOND radius 
 | Criterion | Result |
 |---|---|
 | K1, Cassini, SPARC, dwarfs | Cassini at the 2σ bound by calibration; SPARC Δχ² = −0.00; dwarfs not run |
-| K2, no new scale fitted to the Solar System | **fails**: x* is exactly that |
-| K3, no new tension in wide binaries, Oort cloud, dwarfs | open: wide binaries are screened below ~7,000 AU |
+| K2, refined by RY on 2026-10-15: a constant fixed once by one system is allowed if it predicts the others without retuning, and stays `[O]` until derived | passes on those terms: x* = 2.84×10¹², fixed by Cassini, may not move |
+| K3, no new tension in wide binaries, Oort cloud, dwarfs | wide binaries are now the kill test: if the data force x* to move, the route is dead |
 | K4, c_T = c | passes for Φ_N's Hessian with S2; fails for the curvature coordinate and for S1 |
 | K5, derived from an action | the quasistatic QUMOND action, yes; the covariant action is open |
 
-The  tidal coordinate does  what the gradient  could  not.  It separates the Sun from galaxies by two decades, and the only form that survives GW170817 and well-posedness passes Cassini without touching SPARC. The price is a third constant, x*, set by the Solar System, alongside a₀ and the choice of μ. Whether to pay it is the open question. The same two checks, GW speed and well-posedness, apply to an a₀(x) built on the same coordinate.
+The  tidal coordinate does  what the gradient  could  not.  It separates the Sun from galaxies by two decades, and the only form that survives GW170817 and well-posedness passes Cassini without touching SPARC. The price is a third constant, x*, set by the Solar System, alongside a₀ and the choice of μ. RY accepted that price on 2026-10-15 under the refined K2: x* is fixed once by Cassini, stays `[O]` until derived, and must predict wide binaries without moving. The same two checks apply to an a₀(x) on this coordinate. A redo of the Legendre–Hadamard analysis for a₀(x) (Muse, 2026-10-15) finds the same split: well-posed only in the two-field form, with x taken from Φ_N.
