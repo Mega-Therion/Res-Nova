@@ -1,8 +1,10 @@
 # S(η) with η from an external field χ: tensor speed and the light cone
 
 **Tier:**  `[D]` for the  tensor speed and  the  light  cone in the live D9 frame (§3, §4). `[X]` for putting S into the `TensorSpeed.lean` disformal map. `[O]` for χ as one field across nested systems (§5).
-**Date:** 2026-10-15. This replaces the Antigravity draft of the same day; §6 lists what was struck.
-**Check:** `02_galaxy_dynamics/duality_screening_cone_check.py`, exit 0, writes `DUALITY_SCREENING_CONE_CHECK.json`. Four sabotaged copies exit 1. The SPARC number in §5 is from `02_galaxy_dynamics/duality_screening_own_field_sparc.py` (`DUALITY_SCREENING_OWN_FIELD_SPARC.json`).
+
+**Date:**  2026-10-15. This replaces  the Antigravity draft  of  the  same day; §6 lists what was struck.
+
+**Check:**  `02_galaxy_dynamics/duality_screening_cone_check.py`, exit 0,  writes `DUALITY_SCREENING_CONE_CHECK.json`. Four  sabotaged  copies  exit 1. The SPARC number in §5 is from `02_galaxy_dynamics/duality_screening_own_field_sparc.py` (`DUALITY_SCREENING_OWN_FIELD_SPARC.json`).
 
 ---
 
