@@ -1,0 +1,22 @@
+{
+ "n": 171,
+ "form": "S = 1/(1+eta^2), eta = g_N(r)/a0 (own field)",
+ "a0_cH0_over_2pi": {
+  "a0": 1.0422165280763669e-10,
+  "chi2_unscreened": 18269.5661723324,
+  "chi2_own_field": 22522.838543132817,
+  "dchi2_over_s": 698.4026881445675,
+  "t1_median_unscreened": 3.3602471378541354,
+  "t1_median_own_field": 3.5367279115131036,
+  "galaxies_worse": 106
+ },
+ "a0_live": {
+  "a0": 1.1607e-10,
+  "chi2_unscreened": 18123.52096145091,
+  "chi2_own_field": 22320.365961356136,
+  "dchi2_over_s": 689.1371100008579,
+  "t1_median_unscreened": 3.4064880224110143,
+  "t1_median_own_field": 3.482491505323871,
+  "galaxies_worse": 108
+ }
+}

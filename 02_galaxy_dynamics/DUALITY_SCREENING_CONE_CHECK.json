@@ -1,0 +1,81 @@
+{
+ "cone_general": "c^2 = (A - B)/A; luminal iff B = 0",
+ "teves_with_S": {
+  "c2_minus_1": "S (e^{4 phi} - 1)",
+  "luminal_iff": "phi = 0 (S > 0)",
+  "needed": {
+   "1e-06": {
+    "S_max": 1.499997000002e-09,
+    "eta_min": 25819.914775261706
+   },
+   "0.1": {
+    "S_max": 1.2199468690318416e-14,
+    "eta_min": 9053771.75216002
+   }
+  }
+ },
+ "chi_disformal": {
+  "c_parallel_sq": "1 / (1 + C eta^2 cos^2 theta)",
+  "gw170817_bound": {
+   "eta_0.01": {
+    "C_max_if_C_pos": 4.2e-11,
+    "absC_max_if_C_neg": 1.7999999999999997e-10
+   },
+   "eta_median_chae": {
+    "C_max_if_C_pos": 3.608268836088155e-12,
+    "absC_max_if_C_neg": 1.5464009297520663e-11
+   },
+   "eta_max_chae": {
+    "C_max_if_C_pos": 1.2094197483841184e-12,
+    "absC_max_if_C_neg": 5.183227493074792e-12
+   }
+  },
+  "conformal_source_dust": "-A'(chi) rho / 2",
+  "disformal_source_static_dust": 0
+ },
+ "graviton": {
+  "principal_symbol": "unchanged: S(X_chi) F(Q) contains no derivative of g",
+  "first_order_coupling": "dX_chi = -a0^2 eta^2 sin^2(alpha) h_+  (a source term)",
+  "m2_max_per_m2": 5.308222701932642e-52,
+  "dispersion_dv_at_100Hz_max": 6.042583489034699e-41
+ },
+ "eta": {
+  "a0": 1.1607e-10,
+  "sun": {
+   "1.9e-10": {
+    "eta": 1.636943223916602,
+    "S": 0.271769917363577
+   },
+   "2.4e-10": {
+    "eta": 2.067717756526234,
+    "S": 0.18955704746565563
+   }
+  },
+  "sparc_chae2020": {
+   "n": 148,
+   "min": 0.011372447660894286,
+   "median": 0.03411734298268286,
+   "max": 0.05892995606099767,
+   "S_min": 0.9965392784637921
+  },
+  "galaxy_environment_m31": {
+   "g": 3.437285753917558e-13,
+   "eta": 0.002961390328179166,
+   "S": 0.9999912302442334
+  }
+ },
+ "one_field": {
+  "eta_needed_sun": [
+   1.636943223916602,
+   2.067717756526234
+  ],
+  "eta_galaxy_environment": 0.002961390328179166,
+  "tidal_x_sun_mond_radius": 1773878185369.83,
+  "tidal_x_disk_R0": 38714207.76732995,
+  "r_mond_au": 7147.653836813058
+ },
+ "covariant_eta": {
+  "g_inverse": "eta^2 = -chidot^2/a0^2 for chi(t); S has a pole at chidot = a0",
+  "aether_projector": "eta^2 = q^{mn} d chi d chi / a0^2 >= 0; chi(t) gives eta = 0"
+ }
+}
