@@ -1,0 +1,137 @@
+{
+ "forms": {
+  "S1": "1/(1+x/x*)",
+  "S2": "1/(1+(x/x*)^2)"
+ },
+ "x_star": [
+  100000000000.0,
+  1000000000000.0
+ ],
+ "A_curvature": {
+  "E_TT": "c^2 R_0i0j = -hddot_ij / 2 (second time derivative of h)",
+  "ratio_hddot2_to_EH": {
+   "galaxy_disk|S1|x*=1e+11|LIGO_100Hz": 1.6830720193019362e+23,
+   "galaxy_disk|S1|x*=1e+11|PTA_10nHz": 1683.072019301936,
+   "galaxy_disk|S1|x*=1e+11|h_linear_max_LIGO": 2.96149891477076e-35,
+   "galaxy_disk|S1|x*=1e+12|LIGO_100Hz": 1.687807527047516e+22,
+   "galaxy_disk|S1|x*=1e+12|PTA_10nHz": 168.7807527047516,
+   "galaxy_disk|S1|x*=1e+12|h_linear_max_LIGO": 2.96149891477076e-35,
+   "galaxy_disk|S2|x*=1e+11|LIGO_100Hz": 5.2675988022139375e+20,
+   "galaxy_disk|S2|x*=1e+11|PTA_10nHz": 5.2675988022139375,
+   "galaxy_disk|S2|x*=1e+11|h_linear_max_LIGO": 2.96149891477076e-35,
+   "galaxy_disk|S2|x*=1e+12|LIGO_100Hz": 5.267602768164292e+18,
+   "galaxy_disk|S2|x*=1e+12|PTA_10nHz": 0.052676027681642916,
+   "galaxy_disk|S2|x*=1e+12|h_linear_max_LIGO": 2.96149891477076e-35,
+   "intergalactic_phidot0|S1|x*=1e+11|LIGO_100Hz": 1.9130455482596667e+31,
+   "intergalactic_phidot0|S1|x*=1e+11|PTA_10nHz": 191304554825.96667,
+   "intergalactic_phidot0|S1|x*=1e+11|h_linear_max_LIGO": 6.488958199430643e-42,
+   "intergalactic_phidot0|S1|x*=1e+12|LIGO_100Hz": 1.9130455494366924e+30,
+   "intergalactic_phidot0|S1|x*=1e+12|PTA_10nHz": 19130455494.36692,
+   "intergalactic_phidot0|S1|x*=1e+12|h_linear_max_LIGO": 6.488958199430643e-42,
+   "intergalactic_phidot0|S2|x*=1e+11|LIGO_100Hz": 1.3078059334632068e+22,
+   "intergalactic_phidot0|S2|x*=1e+11|PTA_10nHz": 130.78059334632067,
+   "intergalactic_phidot0|S2|x*=1e+11|h_linear_max_LIGO": 6.488958199430643e-42,
+   "intergalactic_phidot0|S2|x*=1e+12|LIGO_100Hz": 1.307805933463207e+20,
+   "intergalactic_phidot0|S2|x*=1e+12|PTA_10nHz": 1.3078059334632068,
+   "intergalactic_phidot0|S2|x*=1e+12|h_linear_max_LIGO": 6.488958199430643e-42,
+   "intergalactic_phidotH0|S1|x*=1e+11|LIGO_100Hz": 1.9130455482596667e+31,
+   "intergalactic_phidotH0|S1|x*=1e+11|PTA_10nHz": 191304554825.96667,
+   "intergalactic_phidotH0|S1|x*=1e+11|h_linear_max_LIGO": 6.488958199430643e-42,
+   "intergalactic_phidotH0|S1|x*=1e+12|LIGO_100Hz": 1.9130455494366924e+30,
+   "intergalactic_phidotH0|S1|x*=1e+12|PTA_10nHz": 19130455494.36692,
+   "intergalactic_phidotH0|S1|x*=1e+12|h_linear_max_LIGO": 6.488958199430643e-42,
+   "intergalactic_phidotH0|S2|x*=1e+11|LIGO_100Hz": 1.3078059334632068e+22,
+   "intergalactic_phidotH0|S2|x*=1e+11|PTA_10nHz": 130.78059334632067,
+   "intergalactic_phidotH0|S2|x*=1e+11|h_linear_max_LIGO": 6.488958199430643e-42,
+   "intergalactic_phidotH0|S2|x*=1e+12|LIGO_100Hz": 1.307805933463207e+20,
+   "intergalactic_phidotH0|S2|x*=1e+12|PTA_10nHz": 1.3078059334632068,
+   "intergalactic_phidotH0|S2|x*=1e+12|h_linear_max_LIGO": 6.488958199430643e-42
+  }
+ },
+ "B_scalar_hessian": {
+  "dH": "first derivatives of h only (Christoffels times grad Phi_s and Phi_s-dot)",
+  "fractional_change_of_tensor_kinetic_term": {
+   "galaxy_disk|S1|x*=1e+11|dcT2": 1.4371358396492322e-19,
+   "galaxy_disk|S1|x*=1e+12|dcT2": 1.4389341742998064e-20,
+   "galaxy_disk|S2|x*=1e+11|dcT2": 1.9999988577443705e-22,
+   "galaxy_disk|S2|x*=1e+12|dcT2": 1.9999999885774347e-24,
+   "intergalactic_phidot0|S1|x*=1e+11|dcT2": 1.8850635648328202e-14,
+   "intergalactic_phidot0|S1|x*=1e+12|dcT2": 1.8850635653494276e-15,
+   "intergalactic_phidot0|S2|x*=1e+11|dcT2": 5.740082212436472e-24,
+   "intergalactic_phidot0|S2|x*=1e+12|dcT2": 5.740082212436471e-26,
+   "intergalactic_phidotH0|S1|x*=1e+11|dcT2": 2.3334488129380516e-10,
+   "intergalactic_phidotH0|S1|x*=1e+12|dcT2": 2.333448814373671e-11,
+   "intergalactic_phidotH0|S2|x*=1e+11|dcT2": 1.5951326859022489e-19,
+   "intergalactic_phidotH0|S2|x*=1e+12|dcT2": 1.5951326859022487e-21
+  }
+ },
+ "C_legendre_hadamard": {
+  "aqual": {
+   "S1|x*=1e+11|x0=1e+07": {
+    "min_over_directions": -1.6662862204106794e-05,
+    "null_direction": -1.666333383326667e-05
+   },
+   "S1|x*=1e+11|x0=1e+10": {
+    "min_over_directions": -0.01377364403862292,
+    "null_direction": -0.013774104683195593
+   },
+   "S1|x*=1e+11|x0=1e+12": {
+    "min_over_directions": -0.013773006223060762,
+    "null_direction": -0.013774104683195591
+   },
+   "S1|x*=1e+11|x0=1e+13": {
+    "min_over_directions": -0.0016336889636639719,
+    "null_direction": -0.0016338267490115348
+   },
+   "S1|x*=1e+12|x0=1e+07": {
+    "min_over_directions": -1.6665861709159383e-06,
+    "null_direction": -1.6666333338333264e-06
+   },
+   "S1|x*=1e+12|x0=1e+10": {
+    "min_over_directions": -0.0016337795998726677,
+    "null_direction": -0.001633826749011535
+   },
+   "S1|x*=1e+12|x0=1e+12": {
+    "min_over_directions": -0.04166430852079658,
+    "null_direction": -0.041666666666666664
+   },
+   "S1|x*=1e+12|x0=1e+13": {
+    "min_over_directions": -0.013773006223060762,
+    "null_direction": -0.013774104683195591
+   },
+   "S2|x*=1e+11|x0=1e+07": {
+    "min_over_directions": -3.3333332666628953e-09,
+    "null_direction": -3.333333266666668e-09
+   },
+   "S2|x*=1e+11|x0=1e+10": {
+    "min_over_directions": -0.0032676498359540313,
+    "null_direction": -0.0032676534980230695
+   },
+   "S2|x*=1e+11|x0=1e+12": {
+    "min_over_directions": -0.003267287291119246,
+    "null_direction": -0.0032676534980230682
+   },
+   "S2|x*=1e+11|x0=1e+13": {
+    "min_over_directions": -3.3322895764824875e-05,
+    "null_direction": -3.3326667666533354e-05
+   },
+   "S2|x*=1e+12|x0=1e+07": {
+    "min_over_directions": -3.3333333326666285e-11,
+    "null_direction": -3.333333332666666e-11
+   },
+   "S2|x*=1e+12|x0=1e+10": {
+    "min_over_directions": -3.332666728934316e-05,
+    "null_direction": -3.3326667666533333e-05
+   },
+   "S2|x*=1e+12|x0=1e+12": {
+    "min_over_directions": -0.08332861704159315,
+    "null_direction": -0.08333333333333334
+   },
+   "S2|x*=1e+12|x0=1e+13": {
+    "min_over_directions": -0.0032672872911192474,
+    "null_direction": -0.0032676534980230695
+   }
+  },
+  "qumond": "Phi_N obeys Poisson (no S); Phi obeys a linear Poisson equation with a source from Phi_N"
+ }
+}

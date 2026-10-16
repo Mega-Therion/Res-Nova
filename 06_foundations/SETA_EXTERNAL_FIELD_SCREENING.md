@@ -45,7 +45,7 @@ The  patch action is  consistent because η  there  is  boundary data for one pa
 - If  ∇χ follows the  Galactic field, then  in  every  galaxy it follows that galaxy's own field. That is the substitution `DUALITY_SCREENING_ACTION.md` excludes. With η = g_N(r)/a₀ on SPARC, the total χ² rises from 18123.5 to 22320.4 at the live a₀, and 108 of 171 galaxies fit worse. Refitting a₀ does not help: over 1.0–1.6×10⁻¹⁰ both cases are best at 1.2×10⁻¹⁰, at 22302.0 against 18110.5 (+4191).
 - If ∇χ follows only the environment, then η_⊙ ≈ 3×10⁻³, S ≈ 1, and the Cassini factor is gone.
 
-A  field version therefore  needs a variable  that  tells  a compact body's surroundings from a galactic disk, and a gradient cannot. The tidal tensor can: x = c²‖∇∇Φ‖/a₀² is 1.8×10¹² at the Sun's MOND radius (7,150 AU) and 3.9×10⁷ in the disk at R₀.
+A  field version therefore  needs a variable  that  tells  a compact body's surroundings from a galactic disk, and a gradient cannot. The tidal tensor can: x = c²‖∇∇Φ‖/a₀² is 1.8×10¹² at the Sun's MOND radius (7,150 AU) and 3.9×10⁷ in the disk at R₀. `02_galaxy_dynamics/TIDAL_SCREENING_2026-10-15.md` takes that up. Only the QUMOND form built on Φ_N's Hessian survives GW170817 and well-posedness, and it needs a new constant fixed by the Solar System.
 
 Separately,  if χ is  dynamical, varying S(η)F(Q)  gives  it  a source ∝ (∂S/∂X_χ)F(Q)∇χ, so the MOND scalar sources it. Keeping ∇χ equal to the external field then needs a stiff χ. A fixed, non-dynamical χ would break diffeomorphism invariance.
 
