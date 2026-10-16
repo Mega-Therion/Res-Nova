@@ -1,0 +1,19 @@
+{
+ "O1_isolated_vs_test_point_max_abs": 7.64910846884348e-08,
+ "O2_unscreened_par_per_q2_monopole": [
+  6.695620107369564e-13,
+  -7.555814301466168e-13,
+  1.9016367268377737e-26,
+  -2.805336165187591e-13
+ ],
+ "O2_action_par_per_q2_monopole": [
+  2.5988490328545305e-13,
+  -1.2944067333676742e-13,
+  5.199999999872377e-27,
+  3.3451887063940146e-16
+ ],
+ "O2_quadrupole_vs_cassini_Q2_max_rel": 0.0019116442703253078,
+ "O3_dipole_p_over_GM_re": 0.12183741075068516,
+ "O3_far_field_eq36_plus_dipole_max_abs": 0.0003380640507287605,
+ "O4_resolution_max_rel_to_gN": 1.5805476469194952e-05
+}

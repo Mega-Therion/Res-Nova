@@ -267,38 +267,42 @@ def gates():
             want = 1 - T.test_point(GM, rk * KAU, form, xs=xs, use_V=(form == "action"))   # = g_z / gref there
             e1.append(abs(g[2] / (GM / (rk * KAU) ** 2) - want))
     check("O1_isolated_vs_test_point_max_abs", max(e1), max(e1) < 1e-6)
-    # O2: external field, r = 0.5 kAU: the quadrupole from cassini_Q2 (independent integral)
+    # O2: external field, r = 0.5 kAU: the quadrupole from cassini_Q2 (independent integral). par - perp removes the
+    # local phantom monopole (radial, odd under x -> -x like the quadrupole); antisymmetrizing removes the octupole.
     e2 = []
+    gN = newtonian_ext(1.9e-10, A0_LIVE)
+    gvec = np.array([0, 0, gN])
     for form, xs in (("unscreened", None), ("action", XS_A)):
-        gN = newtonian_ext(1.9e-10, A0_LIVE)
-        gvec = np.array([0, 0, gN])
-        gs = g_sun(gvec, form, xs, A0_LIVE)
         r = 0.5 * KAU
         par = (g_point(np.array([0, 0, r]), gvec, form, xs, A0_LIVE)[2] - g_point(np.array([0, 0, -r]), gvec, form, xs, A0_LIVE)[2]) / 2
         per = (g_point(np.array([r, 0, 0]), gvec, form, xs, A0_LIVE)[0] - g_point(np.array([-r, 0, 0]), gvec, form, xs, A0_LIVE)[0]) / 2
         q2 = T.cassini_Q2(1.9e-10, form, xs if xs else 1e30)
-        e2.append(max(abs(abs(par) / ((2 / 3) * abs(q2) * r) - 1), abs(per / par + 0.5)))
-        out[f"O2_{form}_par_per_q2"] = [float(par), float(per), float(q2)]
+        e2.append(abs(abs(par - per) / (abs(q2) * r) - 1))
+        out[f"O2_{form}_par_per_q2_monopole"] = [float(par), float(per), float(q2), float((par + 2 * per) / 3)]
     check("O2_quadrupole_vs_cassini_Q2_max_rel", max(e2), max(e2) < 0.03)
-    # O3: far field, unscreened, r = 100 r_e: Banik & Zhao QUMOND eq. 36
-    gN = newtonian_ext(1.9e-10, A0_LIVE)
-    gvec = np.array([0, 0, gN])
+    # O3: far field, unscreened: Banik & Zhao eq. 36 plus a dipole from the Sun's lopsided halo, ~ (r_e/r) GM/r^2,
+    # with radial 2 p cos(theta) and tangential p sin(theta); p fitted at mu = 0, 100 r_e, then tested elsewhere.
     yN = gN / A0_LIVE
     nue = T.nu(yN)
     Le = float(yN * (T.nu(yN * (1 + 1e-6)) - T.nu(yN * (1 - 1e-6))) / (2e-6 * yN) / nue)
     re = np.sqrt(GM / gN)
     gs = g_sun(gvec, "unscreened", None, A0_LIVE)
-    e3 = []
-    for mu in (1.0, 0.0, 0.6):
+
+    def err(f, mu):
         st = np.sqrt(1 - mu**2)
         n, th = np.array([st, 0, mu]), np.array([mu, 0, -st])
-        x = 100 * re * n
-        dg = g_point(x, gvec, "unscreened", None, A0_LIVE) - gs
-        gref = GM / (100 * re) ** 2
-        want_r = -(nue * (1 + 0.5 * Le * st**2) - 1)
-        want_t = nue * Le * st * mu
-        e3.append(max(abs(dg @ n / gref - want_r), abs(dg @ th / gref - want_t)))
-    check("O3_far_field_eq36_max_abs", max(e3), max(e3) < 2e-3)
+        dg = g_point(f * re * n, gvec, "unscreened", None, A0_LIVE) - gs
+        gref = GM / (f * re) ** 2
+        return dg @ n / gref + (nue * (1 + 0.5 * Le * st**2) - 1), dg @ th / gref - nue * Le * st * mu
+    pdip = err(100, 0.0)[1] * 100
+    e3 = []
+    for f in (30, 100):
+        for mu in (1.0, 0.0, 0.6):
+            er, et = err(f, mu)
+            st = np.sqrt(1 - mu**2)
+            e3.append(max(abs(er - 2 * pdip * mu / f), abs(et - pdip * st / f)))
+    out["O3_dipole_p_over_GM_re"] = float(pdip)
+    check("O3_far_field_eq36_plus_dipole_max_abs", max(e3), max(e3) < 1e-3)
     # O4: resolution
     e4 = []
     for form, xs in (("unscreened", None), ("action", XS_A)):

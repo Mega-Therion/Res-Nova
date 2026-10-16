@@ -43,3 +43,14 @@ This  rule is applied  per g_e for  the  action  form.
 - **Intermediate:** anything else. Inconclusive in this proxy.
 
 The  proxy cannot say  "passes". Only a  full  simulation  of the comet population against the observed binding energies can.
+
+## Amendment A1 (2026-10-16): gates O2 and O3. Committed before any torque number
+The  first gate run  (O1 7.6×10⁻⁸, O4  1.6×10⁻⁵)  failed  O2 and O3. Both failures were in the gate definitions, not the field.
+- **O2.** The antisymmetrized field along and across g_e also contains the local phantom monopole. That term is radial and odd under x → −x, like the quadrupole. At 0.5 kAU it is about 40% of the quadrupole term in the unscreened case.
+
+  The  gate now compares  par − perp,  where  the  monopole cancels, with Q₂r. That combination matches `cassini_Q2` to 0.4% (unscreened) and 0.1% (action form). The second is a check of the V-kernel W against the D4-kernel W.
+- **O3.** Eq. 36 is only the leading far-field term. The measured deviation scales as r_e/r: 2.15×10⁻², 7.8×10⁻³ and 2.4×10⁻³ of g_N at 10, 30 and 100 r_e. It is identical at both resolutions.
+
+  It  has a dipole's  pattern, 2p cos  θ  radial  and p sin θ tangential, with p = 0.122 GM r_e: the Sun's phantom halo is lopsided along g_e. The gate now fits p at μ = 0, 100 r_e and tests Eq. 36 plus that dipole elsewhere at 30 and 100 r_e, to 10⁻³. The dipole is physical, the map keeps it, and comets feel it.
+
+Nothing else changes.
