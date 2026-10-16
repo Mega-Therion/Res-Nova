@@ -6,8 +6,9 @@ Galactic field there (eta ~ 2). Applied the same way inside every galaxy, chi fo
 galaxy's own field, eta(r) = g(r) / a0. This runs that case on SPARC with
     nu_eff = 1 + S(eta) (nu_std - 1),  S = 1 / (1 + eta^2),  eta = g_N(r) / a0.
 g_N is used because the physical field is larger, so this is the least-screened version.
-Same fitter, priors and normalisation as environment_screening.py; a0 is held fixed.
-Writes DUALITY_SCREENING_OWN_FIELD_SPARC.json.
+Same fitter, priors and normalisation as environment_screening.py. a0 is held fixed at two values,
+then scanned over 1.0-1.6e-10 for both cases, since the own-field suppression could be partly
+absorbed by a larger a0. Writes DUALITY_SCREENING_OWN_FIELD_SPARC.json.
 """
 import json
 
@@ -57,4 +58,17 @@ if __name__ == "__main__":
         r = out[label]
         print(f"{label} a0={a0:.4e}: chi2 {cb:.1f} -> {co:.1f}  dchi2/s {r['dchi2_over_s']:+.1f}  "
               f"t1 median {r['t1_median_unscreened']:.3f} -> {r['t1_median_own_field']:.3f}  worse in {worse}/{len(gals)}")
+    scan = {"a0": [], "chi2_unscreened": [], "chi2_own_field": []}
+    for a0 in np.round(np.arange(1.0, 1.61, 0.1), 2) * 1e-10:
+        scan["a0"].append(float(a0))
+        scan["chi2_unscreened"].append(sum(E.fit1(g, a0, 0.0)[0] for g in gals))
+        scan["chi2_own_field"].append(sum(fit_own(g, a0)[0] for g in gals))
+        print(f"scan a0={a0:.2e}: unscreened {scan['chi2_unscreened'][-1]:.1f}  own field {scan['chi2_own_field'][-1]:.1f}")
+    iu, io = int(np.argmin(scan["chi2_unscreened"])), int(np.argmin(scan["chi2_own_field"]))
+    scan["best_unscreened"] = {"a0": scan["a0"][iu], "chi2": scan["chi2_unscreened"][iu]}
+    scan["best_own_field"] = {"a0": scan["a0"][io], "chi2": scan["chi2_own_field"][io]}
+    scan["dchi2_best_vs_best"] = scan["chi2_own_field"][io] - scan["chi2_unscreened"][iu]
+    out["a0_scan"] = scan
+    print(f"best unscreened {scan['chi2_unscreened'][iu]:.1f} at a0={scan['a0'][iu]:.2e}; best own field "
+          f"{scan['chi2_own_field'][io]:.1f} at a0={scan['a0'][io]:.2e}; difference {scan['dchi2_best_vs_best']:+.1f}")
     json.dump(out, open("DUALITY_SCREENING_OWN_FIELD_SPARC.json", "w"), indent=1)

@@ -40,7 +40,7 @@ GW170817  compares gravitons with  photons, so the  cone  that  matters is the p
 
 The  patch action is  consistent because η  there  is  boundary data for one patch. A single field has one gradient at each point, and at the Sun's position two systems need different values. Cassini needs ∇χ there to be the Galactic field, η = 1.64–2.07. The Milky Way, as a galaxy, needs its environment's field at the same place, η ≈ 3×10⁻³.
 
-- If  ∇χ follows the  Galactic field, then  in  every  galaxy it follows that galaxy's own field. That is the substitution `DUALITY_SCREENING_ACTION.md` excludes. With η = g_N(r)/a₀ on SPARC at fixed a₀, the total χ² rises from 18123.5 to 22320.4 at the live a₀, and from 18269.6 to 22522.8 at cH₀/2π. 108 and 106 of 171 galaxies fit worse.
+- If  ∇χ follows the  Galactic field, then  in  every  galaxy it follows that galaxy's own field. That is the substitution `DUALITY_SCREENING_ACTION.md` excludes. With η = g_N(r)/a₀ on SPARC, the total χ² rises from 18123.5 to 22320.4 at the live a₀, and 108 of 171 galaxies fit worse. Refitting a₀ does not help: over 1.0–1.6×10⁻¹⁰ both cases are best at 1.2×10⁻¹⁰, at 22302.0 against 18110.5 (+4191).
 - If ∇χ follows only the environment, then η_⊙ ≈ 3×10⁻³, S ≈ 1, and the Cassini factor is gone.
 
 A  field version therefore  needs a variable  that  tells  a compact body's surroundings from a galactic disk, and a gradient cannot. The tidal tensor can: x = c²‖∇∇Φ‖/a₀² is 1.8×10¹² at the Sun's MOND radius (7,150 AU) and 3.9×10⁷ in the disk at R₀.
