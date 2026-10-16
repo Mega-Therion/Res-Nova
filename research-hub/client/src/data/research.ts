@@ -12,8 +12,8 @@ export type StatusTone = "blue" | "amber" | "red" | "slate";
 export const releaseState = {
   version: "Public atlas v0.3",
   researchRelease: "Res Nova · correction cycle 2026-10-16",
-  commit: "ce5cb1760442c73684df111b1e6525350feb4a22",
-  note: "Aligned with main (ce5cb17) on 2026-10-16: the tidal screen survives its pre-registered wide-binary test without retuning; 73 Lean targets, all passing in CI, a₀ = 1.1607 × 10⁻¹⁰ m s⁻² under μ_std, unscreened μ_std fails Cassini, D7 stays open, and the retracted-claim list matches assurance/claims.json.",
+  commit: "221baedc24686a8337316e7bcec852121b1db7df",
+  note: "Aligned with main (221baed) on 2026-10-16: the tidal screen survives its pre-registered wide-binary test without retuning; 73 Lean targets, all passing in CI, a₀ = 1.1607 × 10⁻¹⁰ m s⁻² under μ_std, unscreened μ_std fails Cassini, D7 stays open, and the retracted-claim list matches assurance/claims.json.",
   links: {
     github: "https://github.com/Mega-Therion/Res-Nova",
     zenodo: "https://doi.org/10.5281/zenodo.21969121",
