@@ -45,7 +45,10 @@ def main() -> int:
     hub_claim_count = len(re.findall(r'id:\s*"CLM-', research_ts))
 
     try:
-        behind = int(git("rev-list", "--count", f"{pinned_commit}..{head_commit}"))
+        # Commits that touch only research-hub/ do not count. The commit that moves the pin is
+        # one of them, so counting it would report the hub as one commit behind right after a fold.
+        behind = int(git("rev-list", "--count", f"{pinned_commit}..{head_commit}",
+                         "--", ".", ":(exclude)research-hub"))
     except subprocess.CalledProcessError:
         print(f"::warning::could not count commits from hub pin {pinned_commit} to {head_commit[:7]}; drift not measured")
         return 0
