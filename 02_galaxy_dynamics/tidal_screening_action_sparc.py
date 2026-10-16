@@ -2,7 +2,8 @@
 """SPARC under the action form at the Cassini-calibrated x*_A. PREREG_TIDAL_WIDE_BINARY_2026-10-15.md, section 5.
 1. The divergence part: refit SPARC with S(x) at x*_A (fit_tidal, h_z = 0.1 kpc); K1 rule dchi2 <= 0 unchanged.
 2. The W part is not solved for disks. Estimate at each SPARC point from the spherical identity
-   g_W,r = (2/sqrt6) r^-3 (r^3 w~)',  w~ = -(c^2/2) S'(x) P(y) |H| / Hn,  reported as |g_W| / g_N. An estimate, not a fit.
+   g_W,r = (2/sqrt6) r^-3 (r^3 w~)',  w~ = -(c^2/2) S'(x) P(y) |H| / Hn,  reported as |g_W| / g_N at points with
+   g_N > 0.01 a0 (a few SPARC radii have g_N ~ 0, where the ratio is meaningless) and as |g_W| / g_obs. An estimate, not a fit.
 Writes TIDAL_ACTION_SPARC.json.
 """
 import json
@@ -35,12 +36,17 @@ def main():
         _, S1, _ = T.screen(x, xs, "action")
         wt = -(T.C**2 / 2) * S1 * T.P(y)
         gW = (2 / np.sqrt(6)) * np.gradient(r**3 * wt, r) / r**3
-        est.append(float(np.max(np.abs(gW) / gN)))
+        ok = gN > 0.01 * TS.A0
+        gobs = (g["vobs"] * KM_TO_M) ** 2 / r
+        est.append((float(np.max(np.abs(gW[ok]) / gN[ok])) if ok.any() else 0.0, float(np.max(np.abs(gW) / gobs)),
+                    float(np.max(np.abs(gW)))))
     out = {"x_star_action": xs, "n": len(gals), "chi2_unscreened": cb, "chi2_divergence_part_at_xA": ct,
            "dchi2": ct - cb, "verdict_K1_divergence_part": "PASS" if ct - cb <= 0 else "FAIL",
            "galaxies_worse": int(sum(f[0] > b[0] + 1e-6 for f, b in zip(fits, base))),
            "max_fractional_dg_divergence_part": max(f[2] for f in fits), "max_x": max(f[3] for f in fits),
-           "W_part_spherical_estimate_max_gW_over_gN": max(est),
+           "W_part_spherical_estimate_max_gW_over_gN_where_gN_gt_0.01a0": max(e[0] for e in est),
+           "W_part_spherical_estimate_max_gW_over_gobs": max(e[1] for e in est),
+           "W_part_spherical_estimate_max_abs_gW_m_s2": max(e[2] for e in est),
            "W_part_estimate_note": "spherical identity at the ledger-mean Upsilon; a disk solve is not done"}
     print(json.dumps({k: v for k, v in out.items() if k != "W_part_estimate_note"}, indent=1))
     json.dump(out, open("TIDAL_ACTION_SPARC.json", "w"), indent=1)

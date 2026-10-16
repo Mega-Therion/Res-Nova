@@ -22,31 +22,30 @@ The  screening term is  −F S(x). Here  F  >  0 is the MOND scalar sector, x = 
 
 ## 3. Cassini and SPARC `[E]`
 
-Run as pre-registered in `639fa63`, at the live a₀ = 1.1607×10⁻¹⁰ m/s².
+Run  as pre-registered in  `639fa63`, at the  live  a₀  = 1.1607×10⁻¹⁰ m/s². **Superseded for the model on 2026-10-16.** These runs solve the divergence form, which drops the term the action produces when x is varied (`TIDAL_WIDE_BINARY_2026-10-15.md` §1–§3). In the action form, Cassini sets x* = 7.04×10¹¹ and SPARC is again unchanged (Δχ² = −0.0004).
 
 - **Cassini.**  Calibrated on Cassini  alone, the least  screening  that  passes is x* = 2.84×10¹², about 1.6 times the Sun's MOND-radius x. Q₂ falls from 19.0 and 20.0 to 5.20 and 3.45 ×10⁻²⁷ s⁻² at g_e = 1.9 and 2.4 ×10⁻¹⁰, against the 2026 bound's 2σ value of 5.2. The screened integrator reproduces the unscreened Q₂ at cH₀/2π, and a constant S scales it exactly.
 - **SPARC.** At that x*, over 171 galaxies, the total χ² stays at 18123.5 (Δχ² = −0.00) for every thickness bracket: in-plane tides only, h_z = 0.3 kpc and 0.1 kpc. The largest change of g anywhere is 1.9×10⁻⁷. The largest galaxy x is 1.9×10¹⁰, two decades below x*. That is a pass under K1, but a weak test: it passes by construction once x* sits between galaxies and the Sun.
 
 ## 4. Predictions, stated and not tested
 
-The  wide-binary row is  a single-point proxy,  the  whole  binary's mass at distance s. It is not the prediction.
+S  at x*_A =  7.04×10¹¹ (action form).  The  wide-binary  prediction is the two-body computation in `TIDAL_WIDE_BINARY_2026-10-15.md` §4, which replaces the single-point proxy this table carried on 2026-10-15.
 
 | System | S |
 |---|---|
-| Wide binary, 1.5 M☉: 2,000 / 5,000 / 10,000 / 20,000 AU | 0.001 / 0.12 / 0.90 / 0.998 |
 | Dwarf spheroidal, ρ ~ 0.1 M☉/pc³ | 1.000 |
-| Globular-cluster core, 10³ / 10⁴ M☉/pc³ | 0.98 / 0.36 |
+| Globular-cluster core, 10³ / 10⁴ M☉/pc³ | 0.78 / 0.03 |
 
-At  the midpoint of  two equal stars  the  tide  is 8 times the proxy's, which moves S = ½ from about 7,000 AU to about 14,000 AU and gives S = 0.90 at 20,000 AU. The test needs the screened two-body QUMOND computation, over the combined stellar and Galactic tidal field, pre-registered before any wide-binary data are looked at. The pre-registered wide-binary orientation test (Amendment A) was not touched.
+x*_A  corresponds to the  tidal field of  about  2×10³  M☉/pc³, a globular-cluster core density, so the model predicts Newtonian cores and unscreened outskirts within one cluster. The pre-registered wide-binary orientation test (Amendment A) was not touched.
 
 ## 5. Against the screening kill criteria pre-registered on 2026-10-14
 
 | Criterion | Result |
 |---|---|
-| K1, Cassini, SPARC, dwarfs | Cassini at the 2σ bound by calibration; SPARC Δχ² = −0.00; dwarfs not run |
-| K2, refined by RY on 2026-10-15: a constant fixed once by one system is allowed if it predicts the others without retuning, and stays `[O]` until derived | passes on those terms: x* = 2.84×10¹², fixed by Cassini, may not move |
-| K3, no new tension in wide binaries, Oort cloud, dwarfs | wide binaries are now the kill test: if the data force x* to move, the route is dead. The two-body computation is not done (§4) |
+| K1, Cassini, SPARC, dwarfs | Cassini at the 2σ bound by calibration (action form, x* = 7.04×10¹¹); SPARC Δχ² = −0.0004; dwarfs not run |
+| K2, refined by RY on 2026-10-15: a constant fixed once by one system is allowed if it predicts the others without retuning, and stays `[O]` until derived | passes on those terms: x* = 7.04×10¹¹ (action form), fixed by Cassini, did not move in the wide-binary test |
+| K3, no new tension in wide binaries, Oort cloud, dwarfs | wide binaries: not excluded under C3 (strict χ² 2.25; the loose cut fails, as it does for Newton); separation from Newton in the strict cut Z = 3.0–3.5 (`TIDAL_WIDE_BINARY_2026-10-15.md`). Oort cloud and dwarfs not run |
 | K4, c_T = c | passes for Φ_N's Hessian with S2; fails for the curvature coordinate and for S1 |
-| K5, derived from an action | the quasistatic QUMOND action, yes; the covariant action is open |
+| K5, derived from an action | the quasistatic QUMOND action, yes, with its W term kept (the `639fa63` runs dropped it); the covariant action is open |
 
-The  tidal coordinate does  what the gradient  could  not.  It separates the Sun from galaxies by two decades, and the only form that survives GW170817 and well-posedness passes Cassini without touching SPARC. The price is a third constant, x*, set by the Solar System, alongside a₀ and the choice of μ. RY accepted that price on 2026-10-15 under the refined K2: x* is fixed once by Cassini, stays `[O]` until derived, and must predict wide binaries without moving. The same two checks apply to an a₀(x) on this coordinate. A redo of the Legendre–Hadamard analysis for a₀(x) (Muse, 2026-10-15) finds the same split: well-posed only in the two-field form, with x taken from Φ_N.
+The  tidal coordinate does  what the gradient  could  not.  It separates the Sun from galaxies by two decades, and the only form that survives GW170817 and well-posedness passes Cassini without touching SPARC. The price is a third constant, x*, set by the Solar System, alongside a₀ and the choice of μ. RY accepted that price on 2026-10-15 under the refined K2: x* is fixed once by Cassini, stays `[O]` until derived, and must predict wide binaries without moving. On 2026-10-16 the two-body test did not move it. The same two checks apply to an a₀(x) on this coordinate. A redo of the Legendre–Hadamard analysis for a₀(x) (Muse, 2026-10-15) finds the same split: well-posed only in the two-field form, with x taken from Φ_N.

@@ -1,0 +1,15 @@
+{
+ "x_star_action": 703588428133.2817,
+ "n": 171,
+ "chi2_unscreened": 18123.52096145091,
+ "chi2_divergence_part_at_xA": 18123.520524585212,
+ "dchi2": -0.00043686569915735163,
+ "verdict_K1_divergence_part": "PASS",
+ "galaxies_worse": 31,
+ "max_fractional_dg_divergence_part": 3.0438165451742022e-06,
+ "max_x": 19054105802.46713,
+ "W_part_spherical_estimate_max_gW_over_gN_where_gN_gt_0.01a0": 7.113722930459215e-06,
+ "W_part_spherical_estimate_max_gW_over_gobs": 7.161943857468297e-06,
+ "W_part_spherical_estimate_max_abs_gW_m_s2": 1.7428775230551012e-14,
+ "W_part_estimate_note": "spherical identity at the ledger-mean Upsilon; a disk solve is not done"
+}
