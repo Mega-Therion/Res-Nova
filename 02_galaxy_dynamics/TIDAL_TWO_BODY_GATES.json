@@ -1,0 +1,31 @@
+{
+ "G0_action_field_equation_1D_residual": "0",
+ "G1_unscreened_test_point_max_rel_err": 4.679240728222567e-08,
+ "G2a_divergence_test_point_max_rel_err": 1.1748254635790545e-07,
+ "G2b_V_pointwise_vs_spherical_identity": 5.217621046327281e-08,
+ "G2c_action_test_point_V_integral_max_rel_err": 2.6705579654340283e-06,
+ "G3_far_field_eq36_max_rel_err": 3.6907370666861006e-05,
+ "G4_deep_mond_two_body_max_rel_err": 5.131763285648461e-06,
+ "G5_divergence_form_momentum_imbalance": [
+  0.0007035950346027455,
+  0.0070513915487849695,
+  0.009357993389370845
+ ],
+ "G5_momentum_unscreened_and_action_max": 0.00010463744036663681,
+ "G6_action_W_vs_V_max_abs_dGamma": 5.3314665182657706e-06,
+ "G7_resolution_max_abs_dGamma": 8.974108015769033e-05,
+ "G8_zero_form_Gamma_minus_1": 0.0,
+ "G9_cassini_divergence_vs_q_eta_max_rel_err": 6.56107546864737e-05,
+ "G10_single_star_self_acceleration_over_gNe": [
+  0.05727763816518836,
+  0.05727763816518855
+ ],
+ "G10_beyond_free_fall_over_gNe": [
+  -8.837930387528559e-13,
+  -8.836056886174504e-13
+ ],
+ "G10_self_acceleration_mass_independence": 1.8735013540549517e-16,
+ "G11_lone_split_vs_direct_max_abs_dGamma": 2.0170313175249532e-06,
+ "L_e": -0.21369424905641093,
+ "nu_e": 1.1718329144982165
+}
