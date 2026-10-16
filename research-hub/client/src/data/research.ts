@@ -12,8 +12,8 @@ export type StatusTone = "blue" | "amber" | "red" | "slate";
 export const releaseState = {
   version: "Public atlas v0.3",
   researchRelease: "Res Nova · correction cycle 2026-10-16",
-  commit: "5450a64bc7a5b542e9635ed2f9930d57ef8fcb90",
-  note: "Aligned with main (5450a64) on 2026-10-16: the tidal screen survives its pre-registered wide-binary test without retuning; 73 Lean targets, all passing in CI, a₀ = 1.1607 × 10⁻¹⁰ m s⁻² under μ_std, unscreened μ_std fails Cassini, D7 stays open, and the retracted-claim list matches assurance/claims.json.",
+  commit: "ce5cb1760442c73684df111b1e6525350feb4a22",
+  note: "Aligned with main (ce5cb17) on 2026-10-16: the tidal screen survives its pre-registered wide-binary test without retuning; 73 Lean targets, all passing in CI, a₀ = 1.1607 × 10⁻¹⁰ m s⁻² under μ_std, unscreened μ_std fails Cassini, D7 stays open, and the retracted-claim list matches assurance/claims.json.",
   links: {
     github: "https://github.com/Mega-Therion/Res-Nova",
     zenodo: "https://doi.org/10.5281/zenodo.21969121",
@@ -176,7 +176,7 @@ export const claims = [
     domain: "solar system",
     title: "Unscreened μ_std fails the Cassini external-field test",
     summary:
-      "[E] At the live a₀, unscreened μ_std gives an external-field quadrupole of 19–20 × 10⁻²⁷ s⁻², +9.7σ to +10.2σ against the 2026 bound. A phenomenological screen S = 1/(1+η²) can pass. Taking η from an external field keeps the light cone luminal, but one field cannot give the Sun and the Milky Way their different η at the same point. A screen on the tidal coordinate passes Cassini and leaves SPARC unchanged in a QUMOND form, at the price of a third constant fixed by the Solar System (x* = 7.04 × 10¹¹ once the action's full field equation is solved). That constant is admitted as open. In the pre-registered wide-binary test of 2026-10-16 it was not excluded without retuning: strict-cut χ² 2.25 against Newton's 9.51, though only about 3σ from Newton.",
+      "[E] At the live a₀, unscreened μ_std gives an external-field quadrupole of 19–20 × 10⁻²⁷ s⁻², +9.7σ to +10.2σ against the 2026 bound. A phenomenological screen S = 1/(1+η²) can pass. Taking η from an external field keeps the light cone luminal, but one field cannot give the Sun and the Milky Way their different η at the same point. A screen on the tidal coordinate passes Cassini and leaves SPARC unchanged in a QUMOND form, at the price of a third constant fixed by the Solar System (x* = 7.04 × 10¹¹ once the action's full field equation is solved). That constant is admitted as open. In the pre-registered wide-binary test of 2026-10-16 it was not excluded without retuning. The strict cut's power to tell it from Newton is Z = 3.0–3.5, below the pre-registered 4, and the pipeline's velocity step is approximate for this force law.",
     source:
       "02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md; 06_foundations/SETA_EXTERNAL_FIELD_SCREENING.md; 02_galaxy_dynamics/TIDAL_SCREENING_2026-10-15.md",
     limitation:
