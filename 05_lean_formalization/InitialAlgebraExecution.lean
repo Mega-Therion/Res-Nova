@@ -123,7 +123,7 @@ structure FinalFCoalgebra {F : Type u → Type u} (endo : Endofunctor F) where
 /-- Given an algebra evaluation structure `eval : F νF → νF` on the final coalgebra
     (for example, the inverse to `out` from Lambek duality),
     there is a canonically induced algebra on νF. -/
-def finalAlgebraOnNu {F : Type u → Type u} (fin : FinalFCoalgebra endo)
+def finalAlgebraOnNu {F : Type u → Type u} {endo : Endofunctor F} (fin : FinalFCoalgebra endo)
     (eval : F fin.coalg.carrier → fin.coalg.carrier) : FAlgebra F where
   carrier := fin.coalg.carrier
   act := eval
