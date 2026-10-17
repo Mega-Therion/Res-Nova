@@ -1,0 +1,56 @@
+{
+ "prereg": "PREREG_DWARF_ML_WORKING_C_2026-10-16.md",
+ "C": 0.579124707982253,
+ "x_star": 703588428133.2817,
+ "a0": 1.1607e-10,
+ "V_mw_kms": 200.0,
+ "newton_control_informative": true,
+ "newton_control_max_rel": 3.1565473417384125e-07,
+ "verdict": "pass",
+ "rows": [
+  {
+   "name": "Crater II",
+   "sigma_obs": 2.34,
+   "sigma_minus": 0.3,
+   "ML_newton": 25.186409715995225,
+   "ML_newton_1sig_low": 19.14233352145588,
+   "published_newton_1sig_low": 19.142339563825985,
+   "ML_screen": 0.10374598994698302,
+   "ML_screen_1sig_low": 0.05992806593540015,
+   "g_W_at_decision_m_s2": -4.33551799326452e-31
+  },
+  {
+   "name": "Carina",
+   "sigma_obs": 6.6,
+   "sigma_minus": 1.2,
+   "ML_newton": 14.903190920851275,
+   "ML_newton_1sig_low": 9.976514330299588,
+   "published_newton_1sig_low": 9.976517470569219,
+   "ML_screen": 2.0598880853927315,
+   "ML_screen_1sig_low": 0.9285250901733111,
+   "g_W_at_decision_m_s2": -1.6794778457692988e-22
+  },
+  {
+   "name": "Leo II",
+   "sigma_obs": 7.53,
+   "sigma_minus": 0.36,
+   "ML_newton": 11.025848987957378,
+   "ML_newton_1sig_low": 9.996783322538983,
+   "published_newton_1sig_low": 9.996786415927863,
+   "ML_screen": 3.2071885424309707,
+   "ML_screen_1sig_low": 2.658722970684807,
+   "g_W_at_decision_m_s2": -8.026214435844347e-20
+  },
+  {
+   "name": "Sculptor",
+   "sigma_obs": 9.2,
+   "sigma_minus": 1.1,
+   "ML_newton": 7.583089462630591,
+   "ML_newton_1sig_low": 5.8781495623660955,
+   "published_newton_1sig_low": 5.878150472514205,
+   "ML_screen": 2.180731040160895,
+   "ML_screen_1sig_low": 1.3349906521752106,
+   "g_W_at_decision_m_s2": -1.6292896855800052e-20
+  }
+ ]
+}
