@@ -7,13 +7,13 @@
 \setlength{\parindent}{0pt}
 
 \title{A tidal screen with one constant fixed by the Oort cloud}
-\date{16 October 2026}
+\date{17 October 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-A two-field modification of Newtonian gravity can be weak in the solar system and strong in galaxies if the switch is the tide, not a single extra gradient. The field equation below has one free number, a constant \(C\) in the Lagrangian. Setting that constant to zero empties the Oort cloud. The value that puts the cloud back, \(C = 0.579125\) at the adopted Galactic field, is then held fixed. At that value the Cassini quadrupole does not move, the Gaia wide-binary sample prefers the model to Newton, 171 SPARC galaxies fit as they do without the extra shell term, and four dwarf galaxies need only stellar mass-to-light ratios. One scalar field cannot do this job: it has one gradient at the Sun, and the Sun needs two different external fields at once.
+A two-field modification of Newtonian gravity can be weak in the solar system and strong in galaxies if the switch is the tide, not a single extra gradient. The field equation below has one free number, a constant \(C\) in the Lagrangian. Setting that constant to zero puts the binding offset below the Oort peak. The value held fixed, \(C = 0.579125\) at the adopted Galactic field, puts the full-map offset back inside the peak. The torque jump that injects comets at a few thousand au does not move. At that value the Cassini quadrupole does not move, the Gaia wide-binary sample prefers the model to Newton, 171 SPARC galaxies fit as they do without the extra shell term, and four dwarf galaxies need only stellar mass-to-light ratios. One scalar field cannot do this job: it has one gradient at the Sun, and the Sun needs two different external fields at once.
 \end{abstract}
 
 \section{The equation}
@@ -63,7 +63,9 @@ C \in [0.208899,\ 0.696200],
 \]
 with the centre \(C = 0.579124707982253\) at 31{,}623 au. At \(g_e = 2.32\times 10^{-10}\,\mathrm{m\,s^{-2}}\) the window is \([0.384925,\ 0.872226]\) and the centre is \(0.755150\). These are \([D]\), and they match the stored solver to an error of 0 (Res-Nova \texttt{a223add}).
 
-The working value used in every test below is the centre at \(1.90\times 10^{-10}\). This centre is the \(W\)-only osculating orbit. A full integration of the comet map with the divergence piece included, at this nonzero \(C\), has not been run. That integration is open \([O]\).
+The working value used in every test below is the centre at \(1.90\times 10^{-10}\). This centre is the \(W\)-only osculating orbit.
+
+The full map, with the divergence of \(W\) included, was integrated after those tests, on the same rays as the \(C = 0\) proxy (pre-registration Res-Nova \texttt{65a7bd1}; result Res-Nova \texttt{8e5a92a}). At \(C = 0\) the offset is \(1.230972\times 10^{-4}\,\mathrm{au^{-1}}\), relative error 0 against the stored map. At the working \(C\) the mean offset is \(1.582166\times 10^{-5}\,\mathrm{au^{-1}}\). The weighted median original semi-major axis is 63{,}234 au, and the whole isotropic weight lies in \(10^{4}\)--\(10^{5}\) au. The torque jump does not move: \(a_J = 3.669\) kAU, the same stored value as at \(C = 0\). Under the bar frozen for that run, the binding offset is preserved and \(a_J\) is not the statistic. A catalog injection is not this number. \([D]\).
 
 \section{Five tests at fixed \(C\)}
 
