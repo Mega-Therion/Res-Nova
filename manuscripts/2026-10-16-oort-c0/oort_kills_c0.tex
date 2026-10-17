@@ -1,0 +1,69 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{pdftitle={The Oort cloud rules out the tidal screen at C = 0},pdfauthor={}}
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0pt}
+
+\title{The Oort cloud rules out the tidal screen at \(C = 0\)}
+\date{16 October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The tidal screen of the companion paper, with the Lagrangian constant set to zero, pushes the solar system the wrong way. A comet that falls in from rest arrives on an orbit whose Newtonian \(1/a\) is about \(1.2\times 10^{-4}\,\mathrm{au^{-1}}\), so every such comet has an original semimajor axis under about 8{,}100 au. The observed cloud of new comets peaks between \(10^{4}\) and \(10^{5}\) au. The push sits in a shell near 9 to 12 thousand au, where the net gravity on a test body points outward. Three independent evaluations of the same map agree at the percent level. The screen strength that would weaken the push is already forbidden by the Cassini flyby. This paper records that null. It does not introduce a new constant.
+\end{abstract}
+
+\section{What was frozen}
+
+The calculation was specified before the screened numbers were computed (Res-Nova, the Oort-torque pre-registration of 16 October 2026). The map uses radii from 0.05 to 300 kAU and twelve Gauss--Legendre nodes in the cosine of the angle from the external field. The external-field strengths are \(1.9\times 10^{-10}\) and \(2.32\times 10^{-10}\,\mathrm{m\,s^{-2}}\). The action-form screen is the one whose \(x^*\) was fixed by Cassini at \(7.04\times 10^{11}\). \(C = 0\) in equation~(1) of the companion paper: the shell stress is proportional to \(P(y)\), not to \(P(y)-C\).
+
+A comet falling from rest at infinity has an osculating Newtonian binding
+\[
+\frac{1}{a} = \frac{2\Phi(0)}{GM_\odot},
+\]
+with \(\Phi(0)\) the line integral of the anomalous acceleration. Energy conservation fixes this number. The torque along the orbit is a separate, weaker statement.
+
+\section{The binding offset}
+
+The result is derived from the map \([D]\), and checked against the catalogue of observed orbits only as a comparison \([E]\).
+
+At \(g_e = 1.9\times 10^{-10}\,\mathrm{m\,s^{-2}}\) the offset is \(+1.23\times 10^{-4}\,\mathrm{au^{-1}}\). At \(2.32\times 10^{-10}\) it is \(+1.61\times 10^{-4}\,\mathrm{au^{-1}}\). Bound comets would show a still larger \(1/a\). Every comet that the model places on a bound orbit therefore has an original semimajor axis of at most about 8{,}100 au. The observed peak of new comets lies at \(10^{4}\)--\(10^{5}\) au, so the model leaves that peak empty.
+
+Three evaluations of the same field agree:
+\begin{center}
+\begin{tabular}{lcc}
+\hline
+evaluation & \(1.9\times 10^{-10}\) & \(2.32\times 10^{-10}\) \\
+\hline
+line integral, 12 directions & \(+1.23\times 10^{-4}\) & \(+1.61\times 10^{-4}\) \\
+phantom-source potential at the Sun & \(+1.227\times 10^{-4}\) & \(+1.610\times 10^{-4}\) \\
+\hline
+\end{tabular}
+\end{center}
+The twelve directions agree with each other at the level of 0.1 percent, so the interpolated field is curl-free at that precision. The phantom-source split is a divergence piece of \(-1.9\times 10^{-5}\) and a shell piece of \(+1.42\times 10^{-4}\). The shell raises the potential inside itself, which is why the sign is positive. Res-Nova \texttt{8ac7316}, with the earlier runs \texttt{8902da9} and \texttt{d3501b0}. Hood record of the equation and the \(W\)-only solution: \texttt{051c2d58}.
+
+\section{Where the gravity points outward}
+
+The orientation-averaged anomalous acceleration, divided by the solar Newtonian acceleration, reaches \(+0.97\) at 8.7 kAU, \(+1.27\) at 10 kAU, and \(+0.99\) at 11.5 kAU. Between about 8.7 and 11.5 kAU the net radial gravity on a test body points outward. That is the same shell that produces the binding offset. A body placed there is not bound to the Sun in the usual sense: the force is away from the Sun.
+
+A separate \(W\)-only radial integral, without the divergence piece, gives a larger offset, \(1.386\times 10^{-4}\,\mathrm{au^{-1}}\) at \(1.9\times 10^{-10}\), and an edge at 7{,}216 au, with the outward region sampled from 8.77 to 11.16 kAU (Res-Nova \texttt{ba3f6f6}). The two calculations are the same shell. They are not the same integral. The number that kills \(C = 0\) in this paper is the full map, \(1.23\times 10^{-4}\,\mathrm{au^{-1}}\).
+
+\section{Why a larger screen radius is not available}
+
+The offset scales as \(1/x^*\). Cassini already sets the largest \(x^*\) the action form is allowed, \(7.04\times 10^{11}\). Moving \(x^*\) up to weaken the Oort push moves the Cassini quadrupole through its bound. There is no remaining \(x^*\) that keeps both. This paper does not retune \(a_0\) or the interpolating function.
+
+The torque proxy is consistent with the same shell but is not the kill. The jump semimajor axis is 3.67 kAU and 4.33 kAU at the two external fields, against 2.63 kAU with the screen removed and 26.9 kAU for Newton. Newton's jump falling between 15 and 40 kAU was the check that the integrator is the one that was pre-registered. The kill is the binding integral.
+
+\section{What remains open}
+
+A population synthesis of the comet catalogue, with planetary perturbations and the Galactic tide acting together, has not been run. The statement here is the energy integral on the screened field. Calling the observed peak empty is the comparison of that integral with the published range \(10^{4}\)--\(10^{5}\) au. The population synthesis is open \([O]\).
+
+The companion paper studies the same equation at the nonzero \(C\) that moves the \(W\)-only edge into the observed window. That nonzero value is a different model. This paper does not adopt it. It records that \(C = 0\) fails.
+
+\vspace{2em}
+\noindent R.~W.~Yett.
+
+\end{document}

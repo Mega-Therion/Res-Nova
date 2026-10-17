@@ -1,0 +1,91 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{pdftitle={A tidal screen with one constant fixed by the Oort cloud},pdfauthor={}}
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0pt}
+
+\title{A tidal screen with one constant fixed by the Oort cloud}
+\date{16 October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A two-field modification of Newtonian gravity can be weak in the solar system and strong in galaxies if the switch is the tide, not a single extra gradient. The field equation below has one free number, a constant \(C\) in the Lagrangian. Setting that constant to zero empties the Oort cloud. The value that puts the cloud back, \(C = 0.579125\) at the adopted Galactic field, is then held fixed. At that value the Cassini quadrupole does not move, the Gaia wide-binary sample prefers the model to Newton, 171 SPARC galaxies fit as they do without the extra shell term, and four dwarf galaxies need only stellar mass-to-light ratios. One scalar field cannot do this job: it has one gradient at the Sun, and the Sun needs two different external fields at once.
+\end{abstract}
+
+\section{The equation}
+
+The Newtonian potential \(\Phi_N\) is kept. A second potential obeys
+\begin{equation}
+Q_s = z + S(x)\bigl(Q(z) - z - C\bigr),
+\label{eq:qs}
+\end{equation}
+with \(z = |\nabla\Phi_N|/a_0\) and
+\[
+S(x) = \frac{1}{1+(x/x^*)^2}, \qquad
+x = \frac{c^2 \|\nabla\nabla\Phi_N\|}{a_0^2}.
+\]
+The effective interpolating function that multiplies the baryonic acceleration does not see \(C\),
+\begin{equation}
+\nu_{\rm eff} = 1 + S(x)\bigl(\nu_{\rm std}(y) - 1\bigr).
+\label{eq:nueff}
+\end{equation}
+\(C\) appears in the shell stress,
+\begin{equation}
+W_{ij} = -\frac{c^2}{2}\, S'(x)\, \bigl(P(y) - C\bigr)\, \frac{H_{ij}}{H_n},
+\label{eq:W}
+\end{equation}
+where \(P(y) = \int_0^y 2t\,(\nu_{\rm std}-1)\,dt\). For a spherical shell the outward piece is
+\[
+g_W = \frac{2}{\sqrt{6}}\, r^{-3}\frac{d}{dr}(r^3 \tilde w).
+\]
+The frozen constants are \(a_0 = 1.1607\times 10^{-10}\,\mathrm{m\,s^{-2}}\) and \(x^* = 7.035884281332817\times 10^{11}\). Neither is fitted in the tests below. The algebra and the numerical match are derived \([D]\) (\texttt{SCREENED\_C\_SOLUTIONS.json}, Res-Nova \texttt{ba3f6f6}; window check, Res-Nova \texttt{a223add}, Hood \texttt{67cc6c9}).
+
+In plain words: \(S\) turns the extra gravity off where the tide is strong and leaves it on where the tide is weak. \(C\) slides the shell of transition without changing the rotation-curve law.
+
+\section{Why one field is not enough}
+
+Call \(\eta = |\nabla\chi|/a_0\). A single scalar \(\chi\) has one value of \(\eta\) at one point. Cassini, read as a Galactic external field at the Sun, needs \(\eta\) between 1.637 and 2.068. The Milky Way, read as a galaxy sitting in the field of M31, needs \(\eta = 3.0\times 10^{-3}\) at that same point. Those differ by a factor of about 550 to 690. No single-valued \(\chi\) has both gradients. This is a no-solution statement, not a fit. The quantity that does take both values is the tide: \(x \approx 1.8\times 10^{12}\) at the Sun's MOND radius and \(x \approx 3.9\times 10^{7}\) in the disk at the solar circle, so \(S \approx 0.133\) and \(S \approx 1\) respectively.
+
+\section{The Oort window fixes \(C\)}
+
+For a uniform external field the binding offset of a comet that falls from rest is linear in \(C\),
+\begin{equation}
+\frac{1}{a}(C) = \frac{1}{a}(0)\,\frac{P(y_e)-C}{P(y_e)}.
+\label{eq:closed}
+\end{equation}
+At \(g_e = 1.90\times 10^{-10}\,\mathrm{m\,s^{-2}}\), \(P = 0.750345\) and \((1/a)(0) = 1.385818\times 10^{-4}\,\mathrm{au^{-1}}\). The edge sits at 7{,}216 au and the radial gravity points outward between 8.77 and 11.16 kAU. The observed Oort peak lies at \(10^{4}\)--\(10^{5}\) au. Equation~\eqref{eq:closed} puts that window at
+\[
+C \in [0.208899,\ 0.696200],
+\]
+with the centre \(C = 0.579124707982253\) at 31{,}623 au. At \(g_e = 2.32\times 10^{-10}\,\mathrm{m\,s^{-2}}\) the window is \([0.384925,\ 0.872226]\) and the centre is \(0.755150\). These are \([D]\), and they match the stored solver to an error of 0 (Res-Nova \texttt{a223add}).
+
+The working value used in every test below is the centre at \(1.90\times 10^{-10}\). This centre is the \(W\)-only osculating orbit. A full integration of the comet map with the divergence piece included, at this nonzero \(C\), has not been run. That integration is open \([O]\).
+
+\section{Five tests at fixed \(C\)}
+
+\paragraph{Cassini.}
+The action-form quadrupole at the same \(x^*\), in units of \(10^{-27}\,\mathrm{s^{-2}}\), is 5.200000 at \(g_e = 1.9\times 10^{-10}\) and 3.991075 at \(2.4\times 10^{-10}\), both at \(C = 0\) and at the working \(C\). Both sit inside the two-sided window \([-2.0,\ 5.2]\). The \(W\) parts differ by about \(2\times 10^{-15}\) relative. A constant \(C\) integrates to \(-2.3\times 10^{-42}\,\mathrm{s^{-2}}\) against a \(P(y)\) piece of \(4.44\times 10^{-27}\). The quadrupole is carried by the radial variation of \(P\) between \(2.8\times 10^{3}\) and \(1.25\times 10^{4}\) au. \([D]\). Res-Nova \texttt{a8e149d}, Hood \texttt{1159cf55}.
+
+\paragraph{Gaia wide binaries.}
+On one \(0.8\,M_\odot\) binary the shell shrinks toward Newton: the dip goes from 0.901 to 0.986 at 8.0 kAU, and the peak goes from 1.343 to 1.134 at 17.5 kAU (Res-Nova \texttt{464ff2b}, Hood \texttt{1e96fc8e}). The catalogue test uses the full mass grid at \(g_e = 1.9\times 10^{-10}\) only. The clean cut, 14{,}542 pairs, gives raw \(\chi^2 = 4.360\) and calibrated 2.995, against Newton 9.508 and an injection maximum of 20.431. The loose cut, 20{,}156 pairs, gives raw 39.605 and calibrated 18.171, under the bar of 18.5. The pre-registered exclusion does not fire. \([D]\). Res-Nova \texttt{1efb8fc}, Hood \texttt{d04f4f74}. The \(2.4\times 10^{-10}\) column was not rerun.
+
+\paragraph{SPARC.}
+One hundred seventy-one galaxies, disk thickness 0.1 kpc, the same mass-to-light and distance fit as the earlier tidal run. The screen total is 18123.519. Newton in that fitter, with the extra gravity switched off, is 293096.718. The difference is \(-274973\), so the screen is not worse than Newton. The unscreened \(\mu_{\rm std}\) total is 18123.52096145091, and the screen sits 0.002 below it. No galaxy is an outlier under the pre-registered rule. Pre-registration Res-Nova \texttt{cb660b6}. Result \([D]\), Res-Nova \texttt{cc53735}, Hood \texttt{d2d980f6}. The shell term \(g_W\) does not move the aggregate. A disk solution of \(W\), as opposed to the spherical estimate, is not in this number.
+
+\paragraph{Four dwarfs.}
+Crater II, Carina, Leo II, and Sculptor, at the measured dispersion minus its lower error, Milky Way speed 200 km~s\(^{-1}\). The decision mass-to-light ratios are 0.0599, 0.929, 2.659, and 1.335. All four are at or under 3, which is the pass line. The Newtonian control matches the published Newtonian ratios to a relative difference of \(3.2\times 10^{-7}\). Pre-registration Res-Nova \texttt{0c52fe8}. Result \([D]\), Res-Nova \texttt{b3a20b8}, Hood \texttt{a8016d1c}.
+
+Leo II is not brought down by \(W\). At the decision mass, \(g_W\) is \(-8.0\times 10^{-20}\,\mathrm{m\,s^{-2}}\). The ratio 2.659 is what the Wolf formula gives when the acceleration is \(\nu_{\rm eff} g_N\) and \(S\) is about 1. An earlier isolated-branch formula, used for a different interpolating function, gave 6.558 for the same galaxy. Those are different estimators. The pass belongs to the Wolf formula written in the pre-registration.
+
+\section{What this paper does not claim}
+
+\(C = 0\) fails the Oort test. That failure is a separate paper. An intermediate wide-binary cut, defined halfway between the clean and loose masks, is not a nested sample: 14{,}542, 18{,}053, and 20{,}156 pairs, with 35 clean pairs missing from the middle sample. Under the rule frozen for that cut, no exclusion is claimed and no model \(\chi^2\) was computed. \([D]\) for the counts, Res-Nova \texttt{d3ff415}, Hood \texttt{da07d02b}. The branch choice among relativistic completions is open \([O]\). \(x^*\) is the Cassini value, not a derived constant.
+
+\vspace{2em}
+\noindent R.~W.~Yett.
+
+\end{document}
