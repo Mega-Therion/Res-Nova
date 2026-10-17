@@ -1,0 +1,19 @@
+{
+ "prereg": "PREREG_NU6_WIDE_BINARY_INTERMEDIATE_2026-10-16.md",
+ "a0": 1.1607e-10,
+ "seed": 20261016,
+ "offset": 450000,
+ "cut": {
+  "rca": 0.03162277660168379,
+  "ruwe": 1.2999999999999998,
+  "sig": 0.14142135623730953
+ },
+ "n": {
+  "clean": 14542,
+  "intermediate": 18053,
+  "loose": 20156
+ },
+ "nested": false,
+ "verdict": "cut not intermediate",
+ "nu6_excluded": false
+}
