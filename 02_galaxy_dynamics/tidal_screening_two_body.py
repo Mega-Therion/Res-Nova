@@ -237,11 +237,11 @@ TH_LONE = [0, 2, 5, 10, 20, 40, 70, 110, 140, 160, 170, 175, 178, 180]
 _LONE = {}
 
 
-def lone_accel(GMa, gN, form, xs, want_V=False, nr=14, nth=14):
+def lone_accel(GMa, gN, form, xs, want_V=False, nr=14, nth=14, c_zero=0.0):
     """Shell-integrated phantom acceleration at a lone star in a uniform Newtonian field of size gN,
     as components along that field: (F part, W part, V part). Axisymmetric, so only this component survives.
     """
-    key = (GMa, gN, form, xs, want_V, nr, nth)
+    key = (GMa, gN, form, xs, want_V, nr, nth, float(c_zero))
     if key in _LONE:
         return _LONE[key]
     if gN == 0 or GMa == 0:
@@ -258,7 +258,13 @@ def lone_accel(GMa, gN, form, xs, want_V=False, nr=14, nth=14):
     X, wq, _ = sph_grid(np.zeros(3), ez, edges, nr, TH_LONE, nth, 8)
     use_W = form == "action"
     F, W, V = fields(
-        X, [(GMa, np.zeros(3))], gN * ez, xs, form, want_V=want_V and use_W
+        X,
+        [(GMa, np.zeros(3))],
+        gN * ez,
+        xs,
+        form,
+        want_V=want_V and use_W,
+        c_zero=c_zero,
     )
     k = kern(
         np.zeros(3), X, wq, F, W if use_W else None, V if (use_W and want_V) else None
@@ -272,7 +278,18 @@ def lone_accel(GMa, gN, form, xs, want_V=False, nr=14, nth=14):
 
 
 def solve_binary(
-    M, r, q1, mu_e, ge, form, xs=XSTAR_DIV, res=1, want_V=False, gNe=None, subtract=True
+    M,
+    r,
+    q1,
+    mu_e,
+    ge,
+    form,
+    xs=XSTAR_DIV,
+    res=1,
+    want_V=False,
+    gNe=None,
+    subtract=True,
+    c_zero=0.0,
 ):
     """Relative phantom acceleration of a binary. M in Msun, r in m. Returns Gamma_r, Gamma_t and
     the per-star phantom accelerations (for the momentum gate). gNe overrides the Newtonian field.
@@ -309,9 +326,9 @@ def solve_binary(
     accV = {1: np.zeros(3), 2: np.zeros(3)}
     for me, other, ce, co, axis in ((1, 2, x1, x2, x2 - x1), (2, 1, x2, x1, x1 - x2)):
         X, wq, rho = sph_grid(ce, axis, edges, p["nr"], TH_EDGES, p["nth"], p["nphi"])
-        Fb, Wb, Vb = fields(X, bodies, gvec, xs, form, want_V=wV)
+        Fb, Wb, Vb = fields(X, bodies, gvec, xs, form, want_V=wV, c_zero=c_zero)
         Fl, Wl, Vl = (
-            fields(X, [(mass[me], ce)], gvec, xs, form, want_V=wV)
+            fields(X, [(mass[me], ce)], gvec, xs, form, want_V=wV, c_zero=c_zero)
             if subtract
             else (0 * Fb, 0 * Wb, None if Vb is None else 0 * Vb)
         )
@@ -329,7 +346,9 @@ def solve_binary(
             accV[me] += k["F"] + k["V"]
         near = rho < R
         Fo, Wo, Vo = (
-            fields(X[near], [(mass[other], co)], gvec, xs, form, want_V=wV)
+            fields(
+                X[near], [(mass[other], co)], gvec, xs, form, want_V=wV, c_zero=c_zero
+            )
             if subtract
             else (0 * Fb[near], 0 * Wb[near], None if Vb is None else 0 * Vb[near])
         )
@@ -345,7 +364,7 @@ def solve_binary(
         if wV:
             accV[other] += k["F"] + k["V"]
     for a in (1, 2) if subtract else ():
-        lf, lw, lv = lone_accel(mass[a], gN, form, xs, want_V=wV)
+        lf, lw, lv = lone_accel(mass[a], gN, form, xs, want_V=wV, c_zero=c_zero)
         acc[a] = acc[a] + (lf + lw) * ghat
         accV[a] = accV[a] + (lf + lv) * ghat
     gref = GM / r**2
