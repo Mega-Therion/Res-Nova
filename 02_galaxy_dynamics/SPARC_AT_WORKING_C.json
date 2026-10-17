@@ -1,0 +1,1043 @@
+{
+ "prereg": "PREREG_SPARC_WORKING_C_2026-10-16.md",
+ "n": 171,
+ "C": 0.579124707982253,
+ "x_star": 703588428133.2817,
+ "a0": 1.1607e-10,
+ "h_z_kpc": 0.1,
+ "chi2_newton": 293096.71838861535,
+ "chi2_screen": 18123.518870836822,
+ "chi2_unscreened": 18123.52096145091,
+ "delta_screen_minus_newton": -274973.1995177785,
+ "excluded": false,
+ "verdict": "not excluded",
+ "outliers": [],
+ "galaxies": [
+  {
+   "name": "CamB",
+   "chi2_newton": 44.96792426386636,
+   "chi2_unscreened": 90.26575831084247,
+   "chi2_screen": 90.26575928197931
+  },
+  {
+   "name": "D564-8",
+   "chi2_newton": 143.71979920797463,
+   "chi2_unscreened": 19.800560345988178,
+   "chi2_screen": 19.80056040894789
+  },
+  {
+   "name": "D631-7",
+   "chi2_newton": 787.9757005636678,
+   "chi2_unscreened": 144.19406565192156,
+   "chi2_screen": 144.19406598361377
+  },
+  {
+   "name": "DDO064",
+   "chi2_newton": 96.03325445460175,
+   "chi2_unscreened": 3.8992105300073088,
+   "chi2_screen": 3.899209779177024
+  },
+  {
+   "name": "DDO154",
+   "chi2_newton": 12138.819640515314,
+   "chi2_unscreened": 31.982564458307486,
+   "chi2_screen": 31.982564477449095
+  },
+  {
+   "name": "DDO161",
+   "chi2_newton": 2371.1765131538386,
+   "chi2_unscreened": 36.65604703166737,
+   "chi2_screen": 36.65604704229657
+  },
+  {
+   "name": "DDO168",
+   "chi2_newton": 409.9517382409681,
+   "chi2_unscreened": 116.29635466402695,
+   "chi2_screen": 116.296355091109
+  },
+  {
+   "name": "DDO170",
+   "chi2_newton": 623.5730538259452,
+   "chi2_unscreened": 44.4977253082718,
+   "chi2_screen": 44.49772530643884
+  },
+  {
+   "name": "ESO079-G014",
+   "chi2_newton": 164.05671891033126,
+   "chi2_unscreened": 48.0958047340588,
+   "chi2_screen": 48.09580222650201
+  },
+  {
+   "name": "ESO116-G012",
+   "chi2_newton": 667.3389050206304,
+   "chi2_unscreened": 46.11419780153017,
+   "chi2_screen": 46.11419712853257
+  },
+  {
+   "name": "ESO444-G084",
+   "chi2_newton": 987.9185348822858,
+   "chi2_unscreened": 51.528435675576105,
+   "chi2_screen": 51.52843588851134
+  },
+  {
+   "name": "ESO563-G021",
+   "chi2_newton": 1057.5272345425715,
+   "chi2_unscreened": 495.6106465076945,
+   "chi2_screen": 495.61044608714104
+  },
+  {
+   "name": "F561-1",
+   "chi2_newton": 8.386929548590576,
+   "chi2_unscreened": 33.72242077325937,
+   "chi2_screen": 33.72242076545492
+  },
+  {
+   "name": "F563-1",
+   "chi2_newton": 348.16512454759487,
+   "chi2_unscreened": 32.92379772394599,
+   "chi2_screen": 32.92379775564874
+  },
+  {
+   "name": "F563-V1",
+   "chi2_newton": 3.9271483178249698,
+   "chi2_unscreened": 50.50601584557302,
+   "chi2_screen": 50.506015863223695
+  },
+  {
+   "name": "F563-V2",
+   "chi2_newton": 146.73692781478533,
+   "chi2_unscreened": 31.21557379004301,
+   "chi2_screen": 31.215574140730688
+  },
+  {
+   "name": "F565-V2",
+   "chi2_newton": 226.1633956473932,
+   "chi2_unscreened": 6.793000610628891,
+   "chi2_screen": 6.793000616999568
+  },
+  {
+   "name": "F567-2",
+   "chi2_newton": 33.59664222303868,
+   "chi2_unscreened": 11.487573882455917,
+   "chi2_screen": 11.487573887240446
+  },
+  {
+   "name": "F568-1",
+   "chi2_newton": 224.66602103021978,
+   "chi2_unscreened": 41.26042324171286,
+   "chi2_screen": 41.26042358074758
+  },
+  {
+   "name": "F568-3",
+   "chi2_newton": 144.37325654176595,
+   "chi2_unscreened": 46.85828593506899,
+   "chi2_screen": 46.85828639796971
+  },
+  {
+   "name": "F568-V1",
+   "chi2_newton": 253.9549640834202,
+   "chi2_unscreened": 51.2871433844424,
+   "chi2_screen": 51.28714350799204
+  },
+  {
+   "name": "F571-8",
+   "chi2_newton": 1590.3535751681459,
+   "chi2_unscreened": 423.7730524993025,
+   "chi2_screen": 423.77302966156424
+  },
+  {
+   "name": "F571-V1",
+   "chi2_newton": 154.376550739843,
+   "chi2_unscreened": 1.2442406918916877,
+   "chi2_screen": 1.244240698042758
+  },
+  {
+   "name": "F574-1",
+   "chi2_newton": 182.1894216795439,
+   "chi2_unscreened": 31.559713461282954,
+   "chi2_screen": 31.559714643371077
+  },
+  {
+   "name": "F574-2",
+   "chi2_newton": 0.34242987004765235,
+   "chi2_unscreened": 38.44197776420762,
+   "chi2_screen": 38.441977766498134
+  },
+  {
+   "name": "F579-V1",
+   "chi2_newton": 101.51404758870031,
+   "chi2_unscreened": 41.29195673832895,
+   "chi2_screen": 41.291956627518
+  },
+  {
+   "name": "F583-1",
+   "chi2_newton": 371.152776037501,
+   "chi2_unscreened": 56.336794782079004,
+   "chi2_screen": 56.3367950197687
+  },
+  {
+   "name": "F583-4",
+   "chi2_newton": 89.9485208490967,
+   "chi2_unscreened": 1.456052759717207,
+   "chi2_screen": 1.4560526240039162
+  },
+  {
+   "name": "IC2574",
+   "chi2_newton": 1026.1911402031246,
+   "chi2_unscreened": 48.93950445044101,
+   "chi2_screen": 48.9395046139452
+  },
+  {
+   "name": "IC4202",
+   "chi2_newton": 1003.8749055566302,
+   "chi2_unscreened": 970.4496715577216,
+   "chi2_screen": 970.4497728210871
+  },
+  {
+   "name": "KK98-251",
+   "chi2_newton": 102.30959221342813,
+   "chi2_unscreened": 34.39016530770145,
+   "chi2_screen": 34.390165534192015
+  },
+  {
+   "name": "NGC0024",
+   "chi2_newton": 482.73884950712056,
+   "chi2_unscreened": 51.891469589285016,
+   "chi2_screen": 51.89147426063553
+  },
+  {
+   "name": "NGC0055",
+   "chi2_newton": 301.4121468044922,
+   "chi2_unscreened": 22.828093497880356,
+   "chi2_screen": 22.82809350479224
+  },
+  {
+   "name": "NGC0100",
+   "chi2_newton": 233.37041899901598,
+   "chi2_unscreened": 24.732732173642834,
+   "chi2_screen": 24.73273305016175
+  },
+  {
+   "name": "NGC0247",
+   "chi2_newton": 153.53034434513228,
+   "chi2_unscreened": 81.75571253786434,
+   "chi2_screen": 81.75571332782242
+  },
+  {
+   "name": "NGC0289",
+   "chi2_newton": 817.8158749873982,
+   "chi2_unscreened": 93.09479763405692,
+   "chi2_screen": 93.09479796095701
+  },
+  {
+   "name": "NGC0300",
+   "chi2_newton": 737.3865985911478,
+   "chi2_unscreened": 23.80452895331038,
+   "chi2_screen": 23.804528962728376
+  },
+  {
+   "name": "NGC0801",
+   "chi2_newton": 555.8168996300957,
+   "chi2_unscreened": 109.77876338498257,
+   "chi2_screen": 109.77872980035625
+  },
+  {
+   "name": "NGC0891",
+   "chi2_newton": 1180.1560796240317,
+   "chi2_unscreened": 157.56577059191744,
+   "chi2_screen": 157.56576421978065
+  },
+  {
+   "name": "NGC1003",
+   "chi2_newton": 5498.702771610889,
+   "chi2_unscreened": 135.04268801500476,
+   "chi2_screen": 135.04268772604735
+  },
+  {
+   "name": "NGC1090",
+   "chi2_newton": 951.4912974556688,
+   "chi2_unscreened": 82.91230355133862,
+   "chi2_screen": 82.91227632439524
+  },
+  {
+   "name": "NGC1705",
+   "chi2_newton": 349.3365747281636,
+   "chi2_unscreened": 37.76908900305477,
+   "chi2_screen": 37.76909010779979
+  },
+  {
+   "name": "NGC2366",
+   "chi2_newton": 448.83196747963245,
+   "chi2_unscreened": 50.80711624715302,
+   "chi2_screen": 50.807116926746744
+  },
+  {
+   "name": "NGC2403",
+   "chi2_newton": 40799.274322979494,
+   "chi2_unscreened": 953.0279822707024,
+   "chi2_screen": 953.0278757155205
+  },
+  {
+   "name": "NGC2683",
+   "chi2_newton": 144.70961229018016,
+   "chi2_unscreened": 29.814716791699883,
+   "chi2_screen": 29.814716961781173
+  },
+  {
+   "name": "NGC2841",
+   "chi2_newton": 5809.369376002797,
+   "chi2_unscreened": 94.72751472662425,
+   "chi2_screen": 94.7275139665812
+  },
+  {
+   "name": "NGC2903",
+   "chi2_newton": 6385.345870765005,
+   "chi2_unscreened": 477.53109966730324,
+   "chi2_screen": 477.53100698120255
+  },
+  {
+   "name": "NGC2915",
+   "chi2_newton": 920.2476893598887,
+   "chi2_unscreened": 85.42076989044622,
+   "chi2_screen": 85.42076862225034
+  },
+  {
+   "name": "NGC2955",
+   "chi2_newton": 213.77446009275823,
+   "chi2_unscreened": 87.59634775691536,
+   "chi2_screen": 87.59636172071586
+  },
+  {
+   "name": "NGC2976",
+   "chi2_newton": 26.643649929386555,
+   "chi2_unscreened": 40.59900483423478,
+   "chi2_screen": 40.59900734960705
+  },
+  {
+   "name": "NGC2998",
+   "chi2_newton": 436.94646347747494,
+   "chi2_unscreened": 56.53759226908192,
+   "chi2_screen": 56.537638617781425
+  },
+  {
+   "name": "NGC3109",
+   "chi2_newton": 1147.0311368677744,
+   "chi2_unscreened": 82.34346129017928,
+   "chi2_screen": 82.34346133715417
+  },
+  {
+   "name": "NGC3198",
+   "chi2_newton": 7086.572922057107,
+   "chi2_unscreened": 126.44476956813786,
+   "chi2_screen": 126.44476235003356
+  },
+  {
+   "name": "NGC3521",
+   "chi2_newton": 316.4813976293725,
+   "chi2_unscreened": 23.75238369067151,
+   "chi2_screen": 23.752383920150294
+  },
+  {
+   "name": "NGC3726",
+   "chi2_newton": 178.87990419236772,
+   "chi2_unscreened": 27.397599106260834,
+   "chi2_screen": 27.39759803265661
+  },
+  {
+   "name": "NGC3741",
+   "chi2_newton": 1566.5202631454679,
+   "chi2_unscreened": 15.055819644074935,
+   "chi2_screen": 15.055819691141107
+  },
+  {
+   "name": "NGC3769",
+   "chi2_newton": 238.3569723340553,
+   "chi2_unscreened": 10.36383316437836,
+   "chi2_screen": 10.363832775291494
+  },
+  {
+   "name": "NGC3877",
+   "chi2_newton": 94.14956304092152,
+   "chi2_unscreened": 88.94333360019188,
+   "chi2_screen": 88.94334111497521
+  },
+  {
+   "name": "NGC3893",
+   "chi2_newton": 155.18181763697544,
+   "chi2_unscreened": 19.240328902767516,
+   "chi2_screen": 19.240323241046287
+  },
+  {
+   "name": "NGC3917",
+   "chi2_newton": 111.6939067141436,
+   "chi2_unscreened": 51.483813577593885,
+   "chi2_screen": 51.48381491760816
+  },
+  {
+   "name": "NGC3949",
+   "chi2_newton": 14.066833536354041,
+   "chi2_unscreened": 3.253315416208963,
+   "chi2_screen": 3.2533152677158093
+  },
+  {
+   "name": "NGC3953",
+   "chi2_newton": 10.24232546779595,
+   "chi2_unscreened": 14.372188815701492,
+   "chi2_screen": 14.37219417266255
+  },
+  {
+   "name": "NGC3972",
+   "chi2_newton": 68.59187297323221,
+   "chi2_unscreened": 14.906711276088455,
+   "chi2_screen": 14.90671058717043
+  },
+  {
+   "name": "NGC3992",
+   "chi2_newton": 188.50011168462876,
+   "chi2_unscreened": 35.262161671501175,
+   "chi2_screen": 35.262167348439526
+  },
+  {
+   "name": "NGC4010",
+   "chi2_newton": 111.64097753150784,
+   "chi2_unscreened": 23.67337141365496,
+   "chi2_screen": 23.673370179866144
+  },
+  {
+   "name": "NGC4013",
+   "chi2_newton": 1941.267684933481,
+   "chi2_unscreened": 46.87351579736168,
+   "chi2_screen": 46.87351722330252
+  },
+  {
+   "name": "NGC4051",
+   "chi2_newton": 10.197296821310102,
+   "chi2_unscreened": 10.696407781335429,
+   "chi2_screen": 10.696409690833677
+  },
+  {
+   "name": "NGC4068",
+   "chi2_newton": 30.181680498348015,
+   "chi2_unscreened": 13.98802314117261,
+   "chi2_screen": 13.988023442735177
+  },
+  {
+   "name": "NGC4085",
+   "chi2_newton": 55.49062697004939,
+   "chi2_unscreened": 27.6148964936139,
+   "chi2_screen": 27.614888838978914
+  },
+  {
+   "name": "NGC4088",
+   "chi2_newton": 105.88745875040956,
+   "chi2_unscreened": 7.692216188751896,
+   "chi2_screen": 7.6922175615928055
+  },
+  {
+   "name": "NGC4100",
+   "chi2_newton": 309.74571509383264,
+   "chi2_unscreened": 51.67714590990596,
+   "chi2_screen": 51.67715549561332
+  },
+  {
+   "name": "NGC4138",
+   "chi2_newton": 39.643236961828926,
+   "chi2_unscreened": 12.202208831581629,
+   "chi2_screen": 12.202208548184004
+  },
+  {
+   "name": "NGC4157",
+   "chi2_newton": 264.59931465728016,
+   "chi2_unscreened": 7.059696623023797,
+   "chi2_screen": 7.05969370490163
+  },
+  {
+   "name": "NGC4183",
+   "chi2_newton": 158.33125596699122,
+   "chi2_unscreened": 41.94460523379973,
+   "chi2_screen": 41.94460594005773
+  },
+  {
+   "name": "NGC4214",
+   "chi2_newton": 198.3262789516484,
+   "chi2_unscreened": 27.673033337537802,
+   "chi2_screen": 27.67303595845945
+  },
+  {
+   "name": "NGC4217",
+   "chi2_newton": 298.6709995524059,
+   "chi2_unscreened": 67.82550685544209,
+   "chi2_screen": 67.82550512539974
+  },
+  {
+   "name": "NGC4389",
+   "chi2_newton": 35.992060454137814,
+   "chi2_unscreened": 26.524133765989593,
+   "chi2_screen": 26.524133058779178
+  },
+  {
+   "name": "NGC4559",
+   "chi2_newton": 411.18738089486834,
+   "chi2_unscreened": 17.32710989855472,
+   "chi2_screen": 17.32710998482104
+  },
+  {
+   "name": "NGC5005",
+   "chi2_newton": 12.469034460743156,
+   "chi2_unscreened": 5.933195817249849,
+   "chi2_screen": 5.933193795358586
+  },
+  {
+   "name": "NGC5033",
+   "chi2_newton": 2130.616585572142,
+   "chi2_unscreened": 282.98928747380626,
+   "chi2_screen": 282.98928140829923
+  },
+  {
+   "name": "NGC5055",
+   "chi2_newton": 33632.60438322865,
+   "chi2_unscreened": 808.3678921716506,
+   "chi2_screen": 808.3677672064514
+  },
+  {
+   "name": "NGC5371",
+   "chi2_newton": 396.8693656906844,
+   "chi2_unscreened": 307.68721933535505,
+   "chi2_screen": 307.6873304301419
+  },
+  {
+   "name": "NGC5585",
+   "chi2_newton": 2593.545395707005,
+   "chi2_unscreened": 145.78251892265678,
+   "chi2_screen": 145.78252024025556
+  },
+  {
+   "name": "NGC5907",
+   "chi2_newton": 1481.8289053507833,
+   "chi2_unscreened": 161.43648625868735,
+   "chi2_screen": 161.43652219361
+  },
+  {
+   "name": "NGC5985",
+   "chi2_newton": 454.70589929554666,
+   "chi2_unscreened": 437.1645493729107,
+   "chi2_screen": 437.16460631051166
+  },
+  {
+   "name": "NGC6015",
+   "chi2_newton": 2487.5425816485267,
+   "chi2_unscreened": 414.60283956312,
+   "chi2_screen": 414.6029626541084
+  },
+  {
+   "name": "NGC6195",
+   "chi2_newton": 227.23432285985163,
+   "chi2_unscreened": 30.88328383602438,
+   "chi2_screen": 30.883283367544244
+  },
+  {
+   "name": "NGC6503",
+   "chi2_newton": 9017.75883483069,
+   "chi2_unscreened": 105.82288354774005,
+   "chi2_screen": 105.82287916387033
+  },
+  {
+   "name": "NGC6674",
+   "chi2_newton": 2580.9369319386096,
+   "chi2_unscreened": 153.6443431979334,
+   "chi2_screen": 153.64435480403938
+  },
+  {
+   "name": "NGC6946",
+   "chi2_newton": 974.43428569934,
+   "chi2_unscreened": 95.18209699023261,
+   "chi2_screen": 95.18207214903715
+  },
+  {
+   "name": "NGC7331",
+   "chi2_newton": 3277.0694539021724,
+   "chi2_unscreened": 53.43093036886139,
+   "chi2_screen": 53.43092237965948
+  },
+  {
+   "name": "NGC7793",
+   "chi2_newton": 116.0064035484198,
+   "chi2_unscreened": 39.89014458701679,
+   "chi2_screen": 39.89014079675203
+  },
+  {
+   "name": "NGC7814",
+   "chi2_newton": 776.0945647534252,
+   "chi2_unscreened": 57.91306377308281,
+   "chi2_screen": 57.913062045893184
+  },
+  {
+   "name": "PGC51017",
+   "chi2_newton": 7.600343045832298,
+   "chi2_unscreened": 102.27338279882993,
+   "chi2_screen": 102.27338263834515
+  },
+  {
+   "name": "UGC00128",
+   "chi2_newton": 4178.962428188183,
+   "chi2_unscreened": 431.00519461410204,
+   "chi2_screen": 431.0051968569791
+  },
+  {
+   "name": "UGC00191",
+   "chi2_newton": 403.83608371572075,
+   "chi2_unscreened": 58.1842794444003,
+   "chi2_screen": 58.18427964531652
+  },
+  {
+   "name": "UGC00731",
+   "chi2_newton": 900.9323083065835,
+   "chi2_unscreened": 142.2499958623668,
+   "chi2_screen": 142.2499954967283
+  },
+  {
+   "name": "UGC00891",
+   "chi2_newton": 994.8237519830931,
+   "chi2_unscreened": 40.24332645718495,
+   "chi2_screen": 40.24332647472412
+  },
+  {
+   "name": "UGC01230",
+   "chi2_newton": 128.56554516162583,
+   "chi2_unscreened": 34.74848255689263,
+   "chi2_screen": 34.74848266927527
+  },
+  {
+   "name": "UGC01281",
+   "chi2_newton": 228.86259577420486,
+   "chi2_unscreened": 7.648560904167409,
+   "chi2_screen": 7.647202049651058
+  },
+  {
+   "name": "UGC02023",
+   "chi2_newton": 11.20857655299982,
+   "chi2_unscreened": 5.0796527412235895,
+   "chi2_screen": 5.079652801000795
+  },
+  {
+   "name": "UGC02259",
+   "chi2_newton": 284.27833694377955,
+   "chi2_unscreened": 74.13417240267465,
+   "chi2_screen": 74.13417257243178
+  },
+  {
+   "name": "UGC02455",
+   "chi2_newton": 51.47740396855042,
+   "chi2_unscreened": 22.16759253819567,
+   "chi2_screen": 22.167592490180056
+  },
+  {
+   "name": "UGC02487",
+   "chi2_newton": 1914.4128207618019,
+   "chi2_unscreened": 188.7896951318831,
+   "chi2_screen": 188.7896951250695
+  },
+  {
+   "name": "UGC02885",
+   "chi2_newton": 406.33606574931866,
+   "chi2_unscreened": 16.366989128583327,
+   "chi2_screen": 16.366989061305382
+  },
+  {
+   "name": "UGC02916",
+   "chi2_newton": 542.7404031540754,
+   "chi2_unscreened": 525.6329474396354,
+   "chi2_screen": 525.6329568898212
+  },
+  {
+   "name": "UGC02953",
+   "chi2_newton": 41445.99937243899,
+   "chi2_unscreened": 860.6237786390122,
+   "chi2_screen": 860.623721685723
+  },
+  {
+   "name": "UGC03205",
+   "chi2_newton": 2292.291736167824,
+   "chi2_unscreened": 183.4912282224379,
+   "chi2_screen": 183.49125517923386
+  },
+  {
+   "name": "UGC03546",
+   "chi2_newton": 829.6508232052047,
+   "chi2_unscreened": 48.851767074941606,
+   "chi2_screen": 48.85176498508891
+  },
+  {
+   "name": "UGC03580",
+   "chi2_newton": 7421.6210992912065,
+   "chi2_unscreened": 99.0425957282202,
+   "chi2_screen": 99.04259611275678
+  },
+  {
+   "name": "UGC04278",
+   "chi2_newton": 287.89615790206835,
+   "chi2_unscreened": 56.89301218101159,
+   "chi2_screen": 56.893013689330424
+  },
+  {
+   "name": "UGC04305",
+   "chi2_newton": 37.571797861549605,
+   "chi2_unscreened": 153.84084075409024,
+   "chi2_screen": 153.840841085799
+  },
+  {
+   "name": "UGC04325",
+   "chi2_newton": 183.81858655004683,
+   "chi2_unscreened": 76.88782951827895,
+   "chi2_screen": 76.88783047448345
+  },
+  {
+   "name": "UGC04483",
+   "chi2_newton": 107.10232105492113,
+   "chi2_unscreened": 10.440626295026604,
+   "chi2_screen": 10.44062659005084
+  },
+  {
+   "name": "UGC04499",
+   "chi2_newton": 159.88852126423316,
+   "chi2_unscreened": 11.571749974328137,
+   "chi2_screen": 11.571750040146986
+  },
+  {
+   "name": "UGC05005",
+   "chi2_newton": 107.42762767686942,
+   "chi2_unscreened": 5.042881507623264,
+   "chi2_screen": 5.042881606657935
+  },
+  {
+   "name": "UGC05253",
+   "chi2_newton": 3428.6592933363663,
+   "chi2_unscreened": 416.1395247841014,
+   "chi2_screen": 416.13954396227643
+  },
+  {
+   "name": "UGC05414",
+   "chi2_newton": 73.74382760741125,
+   "chi2_unscreened": 4.449513013852332,
+   "chi2_screen": 4.449513192215397
+  },
+  {
+   "name": "UGC05716",
+   "chi2_newton": 2483.169220696984,
+   "chi2_unscreened": 112.40421864519288,
+   "chi2_screen": 112.40421869358164
+  },
+  {
+   "name": "UGC05721",
+   "chi2_newton": 655.8458419582304,
+   "chi2_unscreened": 72.3543041599923,
+   "chi2_screen": 72.35430007739735
+  },
+  {
+   "name": "UGC05750",
+   "chi2_newton": 74.52343469911179,
+   "chi2_unscreened": 10.754917229008756,
+   "chi2_screen": 10.75491842603321
+  },
+  {
+   "name": "UGC05764",
+   "chi2_newton": 2804.0787805415375,
+   "chi2_unscreened": 299.5957184406143,
+   "chi2_screen": 299.5957175184976
+  },
+  {
+   "name": "UGC05829",
+   "chi2_newton": 129.33674393183404,
+   "chi2_unscreened": 6.818362975604678,
+   "chi2_screen": 6.818362939687041
+  },
+  {
+   "name": "UGC05918",
+   "chi2_newton": 142.664111678653,
+   "chi2_unscreened": 5.632977800934971,
+   "chi2_screen": 5.632977753791728
+  },
+  {
+   "name": "UGC05986",
+   "chi2_newton": 531.8216914629713,
+   "chi2_unscreened": 72.55619755900571,
+   "chi2_screen": 72.55619401173757
+  },
+  {
+   "name": "UGC05999",
+   "chi2_newton": 167.4589408201767,
+   "chi2_unscreened": 11.107723745370173,
+   "chi2_screen": 11.107723750894529
+  },
+  {
+   "name": "UGC06399",
+   "chi2_newton": 130.23451126631528,
+   "chi2_unscreened": 5.430297778774484,
+   "chi2_screen": 5.430297866793401
+  },
+  {
+   "name": "UGC06446",
+   "chi2_newton": 333.57100647631194,
+   "chi2_unscreened": 34.55571030104679,
+   "chi2_screen": 34.555710308096096
+  },
+  {
+   "name": "UGC06614",
+   "chi2_newton": 180.68913966332775,
+   "chi2_unscreened": 6.6366153816966245,
+   "chi2_screen": 6.636615277118141
+  },
+  {
+   "name": "UGC06628",
+   "chi2_newton": 3.3932288000264306,
+   "chi2_unscreened": 31.08051182829724,
+   "chi2_screen": 31.08051181265425
+  },
+  {
+   "name": "UGC06667",
+   "chi2_newton": 813.4521352997383,
+   "chi2_unscreened": 71.58017022942049,
+   "chi2_screen": 71.58017001076915
+  },
+  {
+   "name": "UGC06786",
+   "chi2_newton": 8406.611826695438,
+   "chi2_unscreened": 159.07870828467952,
+   "chi2_screen": 159.07871773447403
+  },
+  {
+   "name": "UGC06787",
+   "chi2_newton": 11203.383285357164,
+   "chi2_unscreened": 1481.6980737788062,
+   "chi2_screen": 1481.6980554380166
+  },
+  {
+   "name": "UGC06818",
+   "chi2_newton": 104.40985442995591,
+   "chi2_unscreened": 25.286528762225217,
+   "chi2_screen": 25.286528820632352
+  },
+  {
+   "name": "UGC06917",
+   "chi2_newton": 144.91628073905673,
+   "chi2_unscreened": 11.935831428828543,
+   "chi2_screen": 11.935831324722939
+  },
+  {
+   "name": "UGC06923",
+   "chi2_newton": 50.03974203241268,
+   "chi2_unscreened": 4.1463777201691565,
+   "chi2_screen": 4.1463776837792405
+  },
+  {
+   "name": "UGC06930",
+   "chi2_newton": 88.77344170112889,
+   "chi2_unscreened": 12.667998336912,
+   "chi2_screen": 12.66799836954295
+  },
+  {
+   "name": "UGC06973",
+   "chi2_newton": 477.3983508438097,
+   "chi2_unscreened": 148.57328896103095,
+   "chi2_screen": 148.57327945787011
+  },
+  {
+   "name": "UGC06983",
+   "chi2_newton": 235.58430078752497,
+   "chi2_unscreened": 27.07936189985915,
+   "chi2_screen": 27.0793616760173
+  },
+  {
+   "name": "UGC07089",
+   "chi2_newton": 55.272042341049676,
+   "chi2_unscreened": 6.361697333937343,
+   "chi2_screen": 6.361697435339201
+  },
+  {
+   "name": "UGC07125",
+   "chi2_newton": 114.02517094703768,
+   "chi2_unscreened": 63.1298627123649,
+   "chi2_screen": 63.12986275042346
+  },
+  {
+   "name": "UGC07151",
+   "chi2_newton": 79.96827596547595,
+   "chi2_unscreened": 28.790137178552587,
+   "chi2_screen": 28.790137915207946
+  },
+  {
+   "name": "UGC07261",
+   "chi2_newton": 74.87376098438638,
+   "chi2_unscreened": 4.901369236380254,
+   "chi2_screen": 4.901369233953006
+  },
+  {
+   "name": "UGC07323",
+   "chi2_newton": 41.87787750552209,
+   "chi2_unscreened": 4.985348024934094,
+   "chi2_screen": 4.985348177368588
+  },
+  {
+   "name": "UGC07399",
+   "chi2_newton": 551.9642156917412,
+   "chi2_unscreened": 91.70300342736235,
+   "chi2_screen": 91.70300110950106
+  },
+  {
+   "name": "UGC07524",
+   "chi2_newton": 212.42374946546747,
+   "chi2_unscreened": 57.616413877136516,
+   "chi2_screen": 57.61641480732969
+  },
+  {
+   "name": "UGC07559",
+   "chi2_newton": 35.946406829558384,
+   "chi2_unscreened": 14.23295405026261,
+   "chi2_screen": 14.232954165446767
+  },
+  {
+   "name": "UGC07577",
+   "chi2_newton": 4.015423682350286,
+   "chi2_unscreened": 41.01985481099147,
+   "chi2_screen": 41.01945725804289
+  },
+  {
+   "name": "UGC07603",
+   "chi2_newton": 398.10065525786274,
+   "chi2_unscreened": 29.467799340937372,
+   "chi2_screen": 29.467800095938024
+  },
+  {
+   "name": "UGC07608",
+   "chi2_newton": 159.3437724928094,
+   "chi2_unscreened": 9.904530158466407,
+   "chi2_screen": 9.904530179949962
+  },
+  {
+   "name": "UGC07690",
+   "chi2_newton": 49.09816152608366,
+   "chi2_unscreened": 9.825496797024345,
+   "chi2_screen": 9.825496905083524
+  },
+  {
+   "name": "UGC07866",
+   "chi2_newton": 31.52174316444313,
+   "chi2_unscreened": 6.734746917400452,
+   "chi2_screen": 6.734746955173847
+  },
+  {
+   "name": "UGC08286",
+   "chi2_newton": 589.0581780466828,
+   "chi2_unscreened": 71.87113471126399,
+   "chi2_screen": 71.87113587873083
+  },
+  {
+   "name": "UGC08490",
+   "chi2_newton": 949.7599323258651,
+   "chi2_unscreened": 32.92988145853893,
+   "chi2_screen": 32.929882152001476
+  },
+  {
+   "name": "UGC08550",
+   "chi2_newton": 490.4124343937633,
+   "chi2_unscreened": 17.40428662233675,
+   "chi2_screen": 17.404286823345977
+  },
+  {
+   "name": "UGC08699",
+   "chi2_newton": 609.0896535620731,
+   "chi2_unscreened": 43.99872186811782,
+   "chi2_screen": 43.99872309937396
+  },
+  {
+   "name": "UGC08837",
+   "chi2_newton": 49.423564938544445,
+   "chi2_unscreened": 20.100216579300533,
+   "chi2_screen": 20.100216638641957
+  },
+  {
+   "name": "UGC09037",
+   "chi2_newton": 397.2312068463779,
+   "chi2_unscreened": 38.66295540841239,
+   "chi2_screen": 38.66295405196886
+  },
+  {
+   "name": "UGC09133",
+   "chi2_newton": 19673.539293991897,
+   "chi2_unscreened": 858.5654252535447,
+   "chi2_screen": 858.5654518522485
+  },
+  {
+   "name": "UGC09992",
+   "chi2_newton": 12.996149062879464,
+   "chi2_unscreened": 13.953361058899059,
+   "chi2_screen": 13.953361052652738
+  },
+  {
+   "name": "UGC10310",
+   "chi2_newton": 81.33949690422517,
+   "chi2_unscreened": 9.252476614002612,
+   "chi2_screen": 9.252476582159014
+  },
+  {
+   "name": "UGC11455",
+   "chi2_newton": 924.9480728639646,
+   "chi2_unscreened": 166.29251096655582,
+   "chi2_screen": 166.2923097962454
+  },
+  {
+   "name": "UGC11557",
+   "chi2_newton": 20.629373278270617,
+   "chi2_unscreened": 20.091338799786456,
+   "chi2_screen": 20.091339672781196
+  },
+  {
+   "name": "UGC11820",
+   "chi2_newton": 1265.6065368708846,
+   "chi2_unscreened": 35.378569787140975,
+   "chi2_screen": 35.378569413583705
+  },
+  {
+   "name": "UGC11914",
+   "chi2_newton": 539.4982432700107,
+   "chi2_unscreened": 247.7871440820515,
+   "chi2_screen": 247.78713676088427
+  },
+  {
+   "name": "UGC12506",
+   "chi2_newton": 155.50125149791506,
+   "chi2_unscreened": 105.83018100249942,
+   "chi2_screen": 105.83019483733499
+  },
+  {
+   "name": "UGC12632",
+   "chi2_newton": 239.83449268576294,
+   "chi2_unscreened": 44.299452429055265,
+   "chi2_screen": 44.29945233201403
+  },
+  {
+   "name": "UGC12732",
+   "chi2_newton": 455.7868675774968,
+   "chi2_unscreened": 26.174007931562592,
+   "chi2_screen": 26.174007884582515
+  },
+  {
+   "name": "UGCA281",
+   "chi2_newton": 59.19023118324085,
+   "chi2_unscreened": 1.774218226829628,
+   "chi2_screen": 1.7742188497673055
+  },
+  {
+   "name": "UGCA442",
+   "chi2_newton": 1666.8757824363283,
+   "chi2_unscreened": 26.556633723775644,
+   "chi2_screen": 26.556633870493588
+  },
+  {
+   "name": "UGCA444",
+   "chi2_newton": 257.17107377382985,
+   "chi2_unscreened": 10.71256028294489,
+   "chi2_screen": 10.712560182092234
+  }
+ ]
+}
