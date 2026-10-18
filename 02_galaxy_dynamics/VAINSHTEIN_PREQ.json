@@ -1,0 +1,19 @@
+{
+ "a0": 1.1607e-10,
+ "precession_arcsec_per_cy": 1.5782197894238303,
+ "precession_factor": 986.3873683898939,
+ "g_N_mercury": 0.039574739366926445,
+ "r_V_sun_pc": 2.3609412457165018,
+ "r_MOND_sun_AU": 7147.755572882184,
+ "p_req_precession": 1.8897265639931204,
+ "p_cubic": 1.5,
+ "cubic_ratio_at_mercury": 7.087050236984869e-10,
+ "precession_ratio_required": 2.973407407407408e-12,
+ "cubic_clears_precession": false,
+ "Q2_bare": 1.9017920212899443e-26,
+ "Q2_ceiling_2026": 3.4e-27,
+ "p_req_Q2_scaling": 0.40782607223834283,
+ "Q2_scaled_cubic": 3.381832484826877e-29,
+ "scaling_under_ceiling": true,
+ "scaling_is_not_a_cassini_pass": true
+}
