@@ -1,4 +1,4 @@
-\section*{Appendix A: Lean~4 Source Inventory and Verification Provenance}
+\section*{Appendix A: Lean~4 Source Inventory and\\ Verification Provenance}
 \label{app:lean_theorems}
 
 The tracked Lean~4 sources under \texttt{05\_lean\_formalization/} comprise \textbf{30 modules},
@@ -15,12 +15,22 @@ carried as typeclass fields, structure fields, or theorem hypotheses. The suite 
 global \texttt{axiom}; that is a statement about \texttt{axiom} declarations only. See
 \texttt{THEORY\_ASSUMPTION\_AUDIT.md}.
 
-\begin{table}[h!]
-\centering
 \small
-\begin{tabularx}{\textwidth}{@{}l X@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.36\linewidth}>{\raggedright\arraybackslash}p{0.60\linewidth}@{}}
+\caption{Headline declarations in the 22 tracked Lean~4 source modules, enumerated from
+\texttt{git ls-files}. Epistemic status per module is given in
+Table~\ref{tab:lean_modules}; this table lists declaration names only.}
+\label{tab:lean_declarations}\\
 \toprule
-\textbf{Module} & \textbf{Headline declarations} \\ \midrule
+\textbf{Module} & \textbf{Headline declarations} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Module} & \textbf{Headline declarations} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
 \multicolumn{2}{@{}l}{\emph{Proof modules}} \\ \midrule
 \texttt{CoshCosmology.lean} & \texttt{cosh\_curvature\_independent\_of\_Z0}, \texttt{cad\_sq\_early\_saturation}, \texttt{cad\_sq\_pos}, \texttt{late\_time\_equation\_of\_state}, \texttt{quadratic\_exceeds\_threshold}, \texttt{quadratic\_bounded\_by\_one} \\
 \texttt{CosmologicalSector.lean} & \texttt{log\_two\_pos}, \texttt{log\_two\_lt\_one}, \texttt{matter\_density\_bounds}, \texttt{spatial\_flatness\_sum} \\
@@ -43,11 +53,7 @@ global \texttt{axiom}; that is a statement about \texttt{axiom} declarations onl
 \multicolumn{2}{@{}l}{\emph{Diagnostic helpers --- no proof content}} \\ \midrule
 \texttt{PrintAxioms.lean} & \texttt{\#print axioms} for the \texttt{CovariantCompletion} results \\
 \texttt{PrintAxiomsD8.lean} & \texttt{\#print axioms} for the tensor-speed results \\ \bottomrule
-\end{tabularx}
-\caption{Headline declarations in the 22 tracked Lean~4 source modules, enumerated from
-\texttt{git ls-files}. Epistemic status per module is given in
-Table~\ref{tab:lean_modules}; this table lists declaration names only.}
-\end{table}
+\end{longtable}
 
 \paragraph{Scope note on \texttt{SovereignRegularity.lean}.}
 The module bounds pointwise vorticity by an assumed control field. It does not formalize an
@@ -62,7 +68,10 @@ restates the module's own hypothesis.
 For each galaxy $g$ with $N_g$ observed kinematic radii $R_i$, observed velocities
 $V_{\text{obs},i}$, and observational uncertainties $\sigma_{V,i}$, the model velocity is:
 \begin{equation}
-V_{\text{model}}(R_i) = V_{\text{bar}}(R_i) \cdot \left[ \frac{1}{2} + \sqrt{\frac{1}{4} + \frac{a_0}{g_{\text{bar}}(R_i)}} \right]^{1/2},
+\begin{aligned}
+V_{\text{model}}(R_i) &= V_{\text{bar}}(R_i) \\
+&\quad \times \left[ \frac{1}{2} + \sqrt{\frac{1}{4} + \frac{a_0}{g_{\text{bar}}(R_i)}} \right]^{1/2},
+\end{aligned}
 \end{equation}
 where $g_{\text{bar}}(R_i) = V_{\text{bar}}(R_i)^2 / R_i$, with
 $V_{\text{bar}}^2(R) = |V_{\text{gas}}|V_{\text{gas}} + \Upsilon_{\text{disk}} |V_{\text{disk}}|V_{\text{disk}} + \Upsilon_{\text{bulge}} |V_{\text{bulge}}|V_{\text{bulge}}$.
@@ -93,7 +102,7 @@ as current results.
 The parameter ledger, sample definition, systematic budget, and honest per-fold
 cross-validation are carried by the frozen artifacts on \texttt{main}:
 
-\begin{itemize}
+\begin{itemize}\raggedright
   \item \texttt{02\_galaxy\_dynamics/A0\_MEASUREMENT.json} --- working $a_0$ with the
         statistical and systematic budget (item D4.3).
   \item \texttt{02\_galaxy\_dynamics/PARAMETER\_LEDGER.json} --- tiered parameter counts and
@@ -140,7 +149,7 @@ pdflatex -interaction=nonstopmode final_manuscript.tex
 Earlier revisions printed a table of truncated SHA-256 prefixes, which cannot be verified. The
 full manifests are tracked in the repository and should be checked directly:
 
-\begin{itemize}
+\begin{itemize}\raggedright
   \item \texttt{VERIFICATION\_RUN\_001/02\_sparc\_strict\_135/RAW\_DATA\_MANIFEST.sha256} ---
         SHA-256 of each of the 175 \texttt{*\_rotmod.dat} inputs. Verify with
         \texttt{sha256sum -c} from the data directory.

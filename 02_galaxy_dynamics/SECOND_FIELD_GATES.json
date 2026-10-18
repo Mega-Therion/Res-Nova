@@ -1,0 +1,30 @@
+{
+ "a0": 1.1607e-10,
+ "nu": "mu_std inverse",
+ "cassini_window_2026": {
+  "center": 1.6e-27,
+  "sigma": 1.8e-27
+ },
+ "ge": {
+  "1.9e-10": {
+   "Q2": 1.9017920212899443e-26,
+   "minus_q": 0.11680108642795509,
+   "sigma_2026": 9.67662234049969,
+   "sigma_older_3pm3": 5.339306737633147
+  },
+  "2.4e-10": {
+   "Q2": 2.0008788928811452e-26,
+   "minus_q": 0.12288663843524004,
+   "sigma_2026": 10.227104960450806,
+   "sigma_older_3pm3": 5.669596309603817
+  }
+ },
+ "spherical_inverse_max_rel": 1.8189894035458566e-16,
+ "mercury_monopole_m_s2_float": 0.0,
+ "mercury_gN": 0.039574739366926445,
+ "mercury_monopole_expanded_m_s2": 1.7021268005190046e-19,
+ "mercury_bound_m_s2": 2e-16,
+ "free_fall": "acceleration is nu(|g_N|) g_N, independent of the test mass",
+ "cassini_verdict": "fail",
+ "sparc": "not run; Cassini failed, so the catalogue step stays closed"
+}

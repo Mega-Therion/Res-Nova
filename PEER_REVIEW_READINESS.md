@@ -1,5 +1,7 @@
 # Peer Review Readiness Assessment
 
+**Quote  this  score only  (2026-10-09,  under the  [P]  rule).**  2/12 [P]  (D2, D9); 1/12 [P] core with a [D] rebuild (D1); 2/12 [D] (D6, D8); 2/12 [D] with an [O] part (D3, D7); 1/12 [P/O] (D5); 1/12 [O]/[C] (O4); 1/12 [A] with an [O] part (O1); 2/12 [E] (O5, O6). Every "4/12" or "0 open" sentence below is the 2026-09-12 count. It is superseded. Do not quote it, and do not deposit from it. The same line is repeated in the 2026-09-27 update.
+
 **Date:** 2026-08-16 (revised)
 **Author:** R.W. Yett / Sovereign Architecture Group
 **Version:** v1.5.0+ (post-D2/D3/D5/D6/D7 push, post-O1/D2 rescore)
@@ -63,7 +65,9 @@
 | **O5** SPARC Automation | ✅ [E] | clean-clone walk closed 2026-09-09: 175/175 checksums, 0 drift (VERIFICATION_RUN_009). Tier relabelled 2026-10-09 from [P]: a reproducibility measurement, not a Lean theorem. | ✓ |
 | **O6** Clean Reproduction | ✅ [E] | 39/39 PASS at closure; 43/43 since #39 (SU(2) envelope rungs); 67/67 on the #142 merge tree (`f74a3e6`, local `verify_all_proofs.sh`, 2026-10-09). The lakefile on 2026-10-15 lists **73 roots**, not 69. Two of those roots were checked standalone that day: `BinaryPrefixBasis.lean` (Scott topology on binary-prefix ideals; `shadeSup`, `above_upper`, `above_inaccessible`, `above_nil`, `above_basis`) and `ListInitialAlgebra.lean` (List as initial F-algebra; `inn`/`out`/`fold`/`fold_unique`), both `lean` exit 0, 0 sorry, axioms ⊆ `{propext, Classical.choice, Quot.sound}`. The first push of those modules (`d736aa3`) failed the gate: three roots were not gate targets, and `InitialAlgebraExecution` needed an explicit binder under `autoImplicit false`. After the fix, CI verify run 38827607035 on `c4523cc` (fresh runner, `lake exe cache get`) measured **73/73**, `verify_all_proofs.sh` RESULT: PASS (2026-10-16). Tier relabelled 2026-10-09 from [P]: a gate measurement, not a Lean theorem. | ✓ |
 
-**Score: 4/12 fully peer-reviewable ([P]), 8/12 partially ready ([P/O]), 0/12 open ([O]) — rescored 2026-09-12 (D3 [O]→[P/O] on the §8 AeST PPN derivation: γ closed structurally, β scoped, α₁/α₂ open with a named obstruction, λ_s ≲ 2.7 derived; D5 [O]→[P/O] on the evening rebuild of the 𝒦(𝒬) sector), earlier after fixing the D7/D9 action mismatch, which voided D5's screening calculation and D3's just-derived PPN margins, and surfaced an apparent falsification of μ=x/(1+x) within two-derivative AeST. This is the most significant single-day rescore in the project's history. The drop is the correction working as intended, not new damage — every one of these was already false before today; today is when it got caught.**
+## Superseded count (2026-09-12) — do not quote
+
+**SUPERSEDED.  Do  not quote.**  Score  as printed  on  2026-09-12:  4/12 fully  peer-reviewable ([P]), 8/12 partially ready ([P/O]), 0/12 open ([O]) — rescored 2026-09-12 (D3 [O]→[P/O] on the §8 AeST PPN derivation: γ closed structurally, β scoped, α₁/α₂ open with a named obstruction, λ_s ≲ 2.7 derived; D5 [O]→[P/O] on the evening rebuild of the 𝒦(𝒬) sector), earlier after fixing the D7/D9 action mismatch, which voided D5's screening calculation and D3's just-derived PPN margins, and surfaced an apparent falsification of μ=x/(1+x) within two-derivative AeST. This is the most significant single-day rescore in the project's history. The drop is the correction working as intended, not new damage — every one of these was already false before today; today is when it got caught.**
 
 ---
 
@@ -159,7 +163,7 @@ Diff `f13cf75..4af94c4` confirms: the D-series pushes added **no new** "zero fre
 - **[P/O] (partially proved):** D2, D5, D6, D7, D9, O1, O4 = **7 targets**
 - **[O] (open):** none = **0 targets** (D3 moved to [P/O] 2026-09-12, `TARGET_D3` §8)
 
-**Score: 4/12 fully reviewable, 8/12 partially ready, 0/12 fully open** (D3 §8 added and D5 rebuilt, both 2026-09-12).
+**SUPERSEDED.  Do  not quote.**  Score  as printed  on  2026-09-12:  4/12 fully  reviewable, 8/12 partially ready, 0/12 fully open (D3 §8 added and D5 rebuilt, both 2026-09-12). The quotable score is the 2026-10-09 line at the top of this file.
 
 - Present D1, D8 as completed framework; D8 (c_T=c) is now stronger than before today's fix *(2026-09-12 advice. Since 2026-10-09, present D8 as a structural derivation [D] and D1 as a Lean-proved core [P] with a derived rebuild [D].)*
 - Present O5, O6 as completed empirical/CI infrastructure

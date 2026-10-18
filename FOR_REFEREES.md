@@ -1,6 +1,6 @@
 # For referees
 
-Read this first, then the ledger, then the manuscript.
+Read  this  first, then  the  ledger, then  the  manuscript.  The quotable  readiness score is the 2026-10-09 line at the top of `PEER_REVIEW_READINESS.md`. The in/out cut for a deposit is `publication/jewel_scope.tex`, printed before the title.
 
 **What this repository is:** a non-relativistic dual-channel interpolating function, Lean-checked identities, a Skordis–Złośnik embedding, and a SPARC measurement with a systematic budget.
 

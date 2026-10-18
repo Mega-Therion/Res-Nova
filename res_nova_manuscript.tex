@@ -15,7 +15,26 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{tcolorbox}
+\usepackage{xurl}
+\usepackage{longtable}
 \usepackage{hyperref}
+% Break a filename after "_" . Spaces and commands inside \texttt stay intact.
+\makeatletter
+\DeclareRobustCommand{\rntexttt}[1]{%
+  \ifmmode
+    \nfss@text{\ttfamily\hyphenchar\font=-1 #1}%
+  \else
+    \hmode@bgroup\ttfamily\hyphenchar\font=-1 #1\egroup
+  \fi}
+\AtBeginDocument{%
+  \emergencystretch=3em
+  \DeclareRobustCommand{\_}{%
+    \ifmmode\nfss@text{\textunderscore}\else\textunderscore\penalty\z@\fi}%
+  \let\texttt\rntexttt
+}
+\makeatother
+\emergencystretch=2em
+\Urlmuskip=0mu plus 1mu\relax
 
 \hypersetup{
     colorlinks=true,
@@ -48,6 +67,8 @@
 
 \begin{document}
 
+\input{publication/jewel_scope}
+
 \title{Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark}
 
 \author{R.W. Yett}
@@ -64,18 +85,14 @@ We investigate the dual-channel AQUAL potential $\mathcal{F}_{\text{dual}}(x) = 
 \maketitle
 
 \input{publication/canonical_citation}
-\canonicalcitation
-  {Res Nova: Geometrically Ordered Dynamics and Information Tension}%
-  {10.5281/zenodo.21539453}%
-  {10.5281/zenodo.22079177}%
-  {v1.9.0}%
-  {This text supersedes the deposited \texttt{v1.6.2} record, DOI
-   \href{https://doi.org/10.5281/zenodo.21969121}{10.5281/zenodo.21969121},
-   which is a GitHub release archive and remains unmodified as a historical
-   document; see the Note Added below. Earlier manuscript versions under the
-   concept DOI are 21660856 (5.0.0), 21623111 (4.0.0), 21583646, 21544746 and
-   21539454. Release archives are a separate lineage from the manuscript and
-   should not be cited as the paper.}
+\noindent\textbf{This deposit.} Version \texttt{v1.7.0} of concept
+\href{https://doi.org/10.5281/zenodo.21969120}{10.5281/zenodo.21969120}.
+The version DOI is the DOI Zenodo assigns to this record.
+The predecessor is \texttt{v1.6.2},
+\href{https://doi.org/10.5281/zenodo.21969121}{10.5281/zenodo.21969121},
+which stays unmodified. This paper is not concept
+\href{https://doi.org/10.5281/zenodo.21539453}{10.5281/zenodo.21539453}.
+See the Note Added below.
 
 \noindent\textbf{Artifacts.} Verified artifact references
 \texttt{VERIFICATION\_RUN\_003 / 005 / 006 / 007}.
@@ -136,10 +153,11 @@ In the AQUAL convention the interpolation function is recovered as the constitut
 The asymptotic limits are exact:
 \begin{align}
 \lim_{x \to 0} \mu(x) &= x + O(x^2) \quad \text{(deep-MOND / BTFR),} \quad \mathbf{[P]} \\
-\lim_{x \to \infty} \mu(x) &= 1 - \frac{1}{x} + O(x^{-2}) \quad \text{(Newtonian),} \quad \mathbf{[P]}
+\lim_{x \to \infty} \mu(x) &= 1 - \frac{1}{x} + O(x^{-2}) \\
+&\qquad \text{(Newtonian),} \quad \mathbf{[P]}
 \end{align}
 
-Both limits and the underlying algebraic identities are machine-certified in Lean~4 (\texttt{DualChannelDerivation.lean}, \texttt{PPNLimits.lean}). The Newtonian limit is additionally certified as a formal filter statement, \texttt{PPNLimits.mu\_newtonian\_limit} : $\mathrm{Filter.Tendsto}\,(\mu)\,\mathrm{atTop}\,(\mathrm{nhds}\,1)$, proved from \texttt{fractional\_deviation\_eq} in the 43-target gate (added 2026-09-09, D3.1; green cold in CI). \textbf{Scope note:} the Lean module certifies the channel-balance identity $x - \tfrac{x}{1+x} = \tfrac{x^2}{1+x}$ and the bounds $\mu(x)<x$, $\mu(x)<1$; it does not carry out symbolic differentiation of $\mathcal{F}_{\text{dual}}$. The step from Eq.~(\ref{eq:fdual}) to Eq.~(\ref{eq:fprime}) is elementary calculus verified by hand and by computer algebra, not by Lean.
+Both limits and the underlying algebraic identities are machine-certified in Lean~4 (\texttt{DualChannelDerivation.lean}, \texttt{PPNLimits.lean}). The Newtonian limit is additionally certified as a formal filter statement, \texttt{PPNLimits.mu\_newtonian\_limit}, proved from \texttt{fractional\_deviation\_eq} in the 43-target gate (added 2026-09-09, D3.1; green cold in CI). Its type is $\mathrm{Filter.Tendsto}\,(\mu)\,\mathrm{atTop}\,(\mathrm{nhds}\,1)$. \textbf{Scope note:} the Lean module certifies the channel-balance identity $x - \tfrac{x}{1+x} = \tfrac{x^2}{1+x}$ and the bounds $\mu(x)<x$, $\mu(x)<1$; it does not carry out symbolic differentiation of $\mathcal{F}_{\text{dual}}$. The step from Eq.~(\ref{eq:fdual}) to Eq.~(\ref{eq:fprime}) is elementary calculus verified by hand and by computer algebra, not by Lean.
 
 \subsection{Kinetic Convexity and Stability}
 
@@ -244,13 +262,13 @@ A pre-registered hypothesis test (\texttt{PREREG\_A0\_OF\_Z.md}, written before 
 \end{itemize}
 Both models share the same frozen $\mu(x) = x/(1+x)$ and zero NFW parameters. No parameters are re-fitted at the test stage. The pre-registered verdict threshold is $|\Delta\chi^2| \ge 9.0$ for $3\sigma$ exclusion.
 
-\textbf{Withdrawn 2026-09-27} $\mathbf{[X]}$\textbf{.} The 20-point intermediate-redshift test is withdrawn $\mathbf{[X]}$ (2026-09-27): its input table could not be traced to the primary MUSE literature (\nolinkurl{03_observer_jwst/O4_REAL_DATA_MUSE_DARK_III_2026-09-27.md}), rendering all numerical claims from that protocol void. The live status is in \S\ref{sec:open} (O4): on real data, no reading is excluded.
+\textbf{Withdrawn 2026-09-27} $\mathbf{[X]}$\textbf{.} The 20-point intermediate-redshift test is withdrawn $\mathbf{[X]}$ (2026-09-27): its input table could not be traced to the primary MUSE literature (\path{03_observer_jwst/O4_REAL_DATA_MUSE_DARK_III_2026-09-27.md}), rendering all numerical claims from that protocol void. The live status is in \S\ref{sec:open} (O4): on real data, no reading is excluded.
 
 \textbf{Withdrawal record.}\par\noindent On real high-redshift kinematics (the 100-galaxy RC100 sample at $z = 0.6$--$2.6$ and MUSE-DARK~III), the empirical situation is \textbf{inconclusive}: within $z \approx 0.6$--$2.6$ the kinematic shape favours a constant over $H(z)$ but this is not statistically established, and the step from $z=0$ is limited by calibration. Neither a constant $a_0$ nor a horizon-tied evolution is excluded, and the horizon interpretation is neither confirmed nor disfavoured by existing data.
 
 \textbf{Caveat:} Even before the withdrawal the sample was 20 galaxies with one kinematic point each. Neither run bears on MOND or on the horizon form, since the input table itself is withdrawn; a re-run needs a sourced, calibration-controlled high-$z$ sample.
 
-\section{SPARC Benchmark: Data, Methods, and Matched-Parameter Comparison}
+\section[SPARC Benchmark: Data, Methods, and Matched-Parameter Comparison]{SPARC Benchmark: Data, Methods, and\\ Matched-Parameter Comparison}
 \label{sec:sparc}
 
 \subsection{Observational Sample}
@@ -278,9 +296,10 @@ The matched benchmark below uses the 171 galaxies / 3,375 points with at least f
 \centering
 \footnotesize
 % BEGIN GENERATED: sparc-results-table (scripts/sparc_benchmark_tables.py; do not hand-edit)
-\begin{tabularx}{\textwidth}{@{}l c c c X@{}}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.30\linewidth} c c c >{\raggedright\arraybackslash}X@{}}
 \toprule
-\textbf{Specification} & \textbf{Free Params} & \textbf{Median $\chi^2_{\text{data}}/N_g$} & \textbf{Aggregate $\chi^2/\mathrm{dof}$} & \textbf{Role} \\
+\textbf{Specification} & \textbf{Free} & \textbf{Median $\chi^2/N$} & \textbf{Aggregate $\chi^2/\mathrm{dof}$} & \textbf{Role} \\
 \midrule
 GOD Tier 0 (prior-mean $M/L$, horizon $a_0$) $\mathbf{[D]}$ & 0 & 11.08 & 93.65 & Tests the $a_0$ source \\
 MOND Tier 0 (prior-mean $M/L$, literature $a_0$) $\mathbf{[D]}$ & 0 & 9.93 & 78.95 & Same, literature $a_0$ \\
@@ -290,7 +309,7 @@ NFW Free $c$ $\mathbf{[D]}$ & 716 & 1.92 & 4.58 & 97/171 railed at $c=1$; not $\
 \textbf{NFW Cosmological-$c$ Prior} $\mathbf{[D]}$ & 716 & 5.62 & --- & Fair $\Lambda$CDM-like row; 342 extra parameters vs GOD \\
 \bottomrule
 \end{tabularx}
-\caption{Matched-parameter SPARC benchmark on 171 galaxies under $\mu_{\text{std}}$ (\texttt{PARAMETER\_LEDGER.json}, \texttt{NFW\_CONSTRAINED.json}; generated by \texttt{scripts/sparc\_benchmark\_tables.py}). At Tier~0, MOND has the lower median. At Tier~1, GOD and MOND differ only in where $a_0$ comes from and neither leads. The fair cosmological NFW model uses 342 more parameters (716 total) for median 5.62.}
+\caption{Matched-parameter SPARC benchmark on 171 galaxies under $\mu_{\text{std}}$. At Tier~0, MOND has the lower median. At Tier~1, GOD and MOND differ only in where $a_0$ comes from and neither leads. The fair cosmological NFW model uses 342 more parameters (716 total) for median 5.62. The rows are read from the parameter ledger and the constrained-NFW file named in the data-availability note.}
 \label{tab:sparc_results}
 % END GENERATED: sparc-results-table
 \end{table*}
@@ -307,16 +326,19 @@ NFW Free $c$ $\mathbf{[D]}$ & 716 & 1.92 & 4.58 & 97/171 railed at $c=1$; not $\
 \end{enumerate}
 \end{tcolorbox}
 
-\section{4D Covariant Completion: Obstructions and Skordis--Z\l{}o\'snik Embedding}
+\section[4D Covariant Completion: Obstructions and Skordis--Z\l{}o\'snik Embedding]{4D Covariant Completion:\\ Obstructions and Skordis--Z\l{}o\'snik Embedding}
 \label{sec:covariant}
 
 \subsection{Pure RAQUAL Superluminality (Falsified)}
 
 In static galaxy halos with spacelike gradient ($x > 0$), the perturbation speed parallel to the gradient for any RAQUAL/k-essence action is:
 \begin{equation}
-c_\parallel^2 = 1 + \frac{2y\mathcal{F}''(y)}{\mathcal{F}'(y)}\bigg|_{y=x^2} = 1 + \frac{1}{1+x} > 1 \quad \forall\, x > 0. \quad \mathbf{[P]}
+\begin{aligned}
+c_\parallel^2 &= 1 + \frac{2y\mathcal{F}''(y)}{\mathcal{F}'(y)}\bigg|_{y=x^2} \\
+&= 1 + \frac{1}{1+x} > 1 \quad \forall\, x > 0. \quad \mathbf{[P]}
+\end{aligned}
 \end{equation}
-Pure RAQUAL is \textbf{falsified} on superluminality grounds. Machine-certified in \texttt{CovariantCompletion.lean}.
+Pure RAQUAL is \textbf{falsified} on superluminality grounds. Machine-certified in \texttt{Covariant\allowbreak{}Completion.lean}.
 
 \subsection{Disformal Completion (Falsified by GW170817)}
 
@@ -330,14 +352,18 @@ For deep-MOND halos ($\phi \sim 10^{-6}$) or cosmological backgrounds ($\phi \si
 
 The Skordis--Z\l{}o\'snik (2021) \cite{SkordisZlosnik2021} action admits a free kinetic function $\mathcal{J}(\mathcal{Y})$ on the spacelike projected gradient $\mathcal{Y} \equiv g^{\mu\nu}\hat\nabla_\mu\phi\,\hat\nabla_\nu\phi/a_0^2$. Setting:
 \begin{equation}
-\mathcal{J}(\mathcal{Y}) = \frac{1}{2}\mathcal{Y} - \sqrt{\mathcal{Y}} + \ln(1+\sqrt{\mathcal{Y}}) \equiv \mathcal{F}_{\text{dual}}(\sqrt{\mathcal{Y}})
+\begin{aligned}
+\mathcal{J}(\mathcal{Y}) &= \tfrac{1}{2}\mathcal{Y} - \sqrt{\mathcal{Y}} + \ln(1+\sqrt{\mathcal{Y}}) \\
+&\equiv \mathcal{F}_{\text{dual}}(\sqrt{\mathcal{Y}})
+\end{aligned}
 \end{equation}
 yields $2\mathcal{J}'(\mathcal{Y}) = \sqrt{\mathcal{Y}}/(1+\sqrt{\mathcal{Y}}) = \mu(\sqrt{\mathcal{Y}})$ $\mathbf{[P]}$.
 
-Consequences (all machine-certified in \texttt{SkordisZlosnikEmbedding.lean}, \texttt{TensorSpeed.lean}):
+Consequences (all machine-certified in \newline
+\texttt{Skordis\allowbreak{}Zlosnik\allowbreak{}Embedding.lean}, \texttt{TensorSpeed.lean}):
 \begin{itemize}
     \item \textbf{GW170817:} Matter and photons couple to $g_{\mu\nu}$ directly; $c_T = c_\gamma = c$, so $|c_T/c_\gamma - 1| = 0 \le 10^{-15}$ \textbf{identically} $\mathbf{[P]}$.
-    \item \textbf{Lensing / PPN:} Dynamical vector $A^\mu$ shear cancels scalar trace discrepancies, maintaining $\Phi = \Psi$ ($\gamma_{\text{PPN}} = 1$, proved in \texttt{CovariantCompletion.lean}) without disformal distortion $\mathbf{[P]}$.
+    \item \textbf{Lensing / PPN:} Dynamical vector $A^\mu$ shear cancels scalar trace discrepancies, maintaining $\Phi = \Psi$ ($\gamma_{\text{PPN}} = 1$, proved in \texttt{Covariant\allowbreak{}Completion.lean}) without disformal distortion $\mathbf{[P]}$.
     \item \textbf{Preferred-frame bound:} $\alpha_1 = -2K$; solar system constraint $|\alpha_1| \lesssim 10^{-4}$ places $|K| \lesssim 5\times 10^{-5}$ $\mathbf{[P]/[D]}$.
     \item \textbf{Ghost freedom:} $\mathcal{J}''(\mathcal{Y}) = \tfrac{1}{4\sqrt{\mathcal{Y}}(1+\sqrt{\mathcal{Y}})^2} > 0$ $\mathbf{[P]}$.
     \item \textbf{Cosmological decoupling:} On FLRW, $\hat\nabla_\mu\phi = 0 \implies \rho_\phi = 0$; the MOND kinetic sector contributes zero dynamical dark energy $\mathbf{[P]}$.
@@ -551,16 +577,23 @@ The Lean~4 suite (\texttt{05\_lean\_}\allowbreak\texttt{formalization/}) compris
 
 \textbf{Important provenance note:} O6 (fresh-clone reproduction) --- closed 2026-09-08. Cold-machine condition: \texttt{VERIFICATION\_RUN\_008} (2026-09-07, commit \texttt{d482823}; fresh container, no pre-existing \texttt{.lake/packages} or Mathlib host cache, genuine network fetch; 32/32 targets PASS, exit 0; artifacts in \texttt{VERIFICATION\_RUN\_008/01\_lean/}). CI-release-gate condition: the \texttt{lean-gate} workflow runs \texttt{verify\_all\_proofs.sh} on every push, on schedule, and on dispatch, and was 3/3 green including the cold scheduled run of 2026-09-08 at the then-declared 39 targets. The honest claim at closure was ``39/39 targets pass from a cold fetch, gated in CI on every push.'' The gate has since grown to 43 targets (SU(2) envelope rungs, merged 2026-09-09, independently verified at merge; CI green on every push), so current runs cover 43/43. Residual infrastructure caveat, not an open reproduction question: the Mathlib prebuilt-cache endpoint is sometimes-cold-fetchable, not reliably so, and the daily cron bounds the stall rate with data.
 
-\begin{table*}[t]
-\centering
 \footnotesize
-\begin{tabularx}{\textwidth}{@{}l X@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.34\linewidth}>{\raggedright\arraybackslash}p{0.62\linewidth}@{}}
+\caption{Source inventory of key Lean~4 modules (including \texttt{MuStdFoundations} and the canonical $\mu_{\text{std}}$ suite), enumerated from the tracked contents of \texttt{05\_lean\_formalization/}. Three entries are diagnostic or assumption-declaring files rather than physics results. Physical-theory selection is never certified; Lean certifies only that mathematical statements follow from their encoded definitions, and not that assumptions carried as typeclass or structure fields are justified (see \texttt{THEORY\_ASSUMPTION\_AUDIT.md}).}
+\label{tab:lean_modules}\\
 \toprule
 \textbf{Module} & \textbf{What is proved $\mathbf{[P]}$ / What is not $\mathbf{[O]}$} \\
 \midrule
+\endfirsthead
+\toprule
+\textbf{Module} & \textbf{What is proved $\mathbf{[P]}$ / What is not $\mathbf{[O]}$} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
 \texttt{AXIOMS\_V2.lean} & \emph{Assumption declarations.} States the five physical axioms A1--A5 as Lean typeclasses. Its two theorems are a field projection and the positivity of $\sqrt{g_{\text{bar}}a_0}$; neither derives an axiom $\mathbf{[O]}$. \\
 \texttt{CosmologicalSector.lean} & $0 < \ln 2 < 1$ and matter-density bounds $\mathbf{[P]}$. $\Omega_\Lambda + \Omega_m = 1$ holds by construction, $\Omega_m$ being defined as $1-\Omega_\Lambda$; it is not a flatness result. $\Omega_\Lambda = \ln 2$ is a definition, not a derivation $\mathbf{[O]}$. \\
-\texttt{CovariantCompletion.lean} & RAQUAL superluminality; $\gamma_{\text{PPN}} = 1$ (\texttt{disformal\_gamma\_ppn\_unity}); preferred-frame parameters zero; FLRW decoupling $\Rightarrow \rho_\phi = 0$ $\mathbf{[P]}$, conditional on the stated embedding. \\
+\texttt{Covariant\allowbreak{}Completion.lean} & RAQUAL superluminality; $\gamma_{\text{PPN}} = 1$ (\texttt{disformal\_gamma\_ppn\_unity}); preferred-frame parameters zero; FLRW decoupling $\Rightarrow \rho_\phi = 0$ $\mathbf{[P]}$, conditional on the stated embedding. \\
 \texttt{DeSitterExtremal.lean} & Horizon lapse vanishing at $r = 1/H$; flat limit; $cH/(2\pi) > 0$ $\mathbf{[P]}$. Does not derive $a_0 = cH_0/(2\pi)$ $\mathbf{[O]}$. \\
 \texttt{DualChannelDerivation.lean} & Channel-balance identity $x - \tfrac{x}{1+x} = \tfrac{x^2}{1+x}$, i.e. $\mathcal{F}_{\text{dual}}'(x) = x\,\mu(x)$; bounds $\mu(x) < x$ and $\mu(x) < 1$ $\mathbf{[P]}$. Does \emph{not} symbolically differentiate $\mathcal{F}_{\text{dual}}$; physical mechanism of channel balance $\mathbf{[O]}$. \\
 \texttt{GODActionKinematics.lean} & Dual-channel polynomial identity; AQUAL simple-$\mu$ ratio; BTFR algebraic scaling $\mathbf{[P]}$. \\
@@ -578,15 +611,11 @@ The Lean~4 suite (\texttt{05\_lean\_}\allowbreak\texttt{formalization/}) compris
 \texttt{PrintAxiomsD8.lean} & \emph{Diagnostic helper, not a physics module.} Re-declares a subset of \texttt{TensorSpeed} in the same namespace and prints its axiom footprint; not an independent result. \\
 \texttt{RelativisticStability.lean} & Kinetic convexity $\mathcal{F}'' > 0$ $\mathbf{[P]}$. \\
 \texttt{SOCasimirGenuine.lean} & $\mathfrak{so}(n)$ Casimir eigenvalue from explicit generators $\mathbf{[P]}$. Physical gauge symmetry $\mathbf{[O]}$. \\
-\texttt{SkordisZlosnikEmbedding.lean} & Exact $\mathcal{J}(\mathcal{Y})$ embedding; $c_T = c$; weak-field lensing $\Phi = \Psi$ $\mathbf{[P]}$. \\
+\texttt{Skordis\allowbreak{}Zlosnik\allowbreak{}Embedding.lean} & Exact $\mathcal{J}(\mathcal{Y})$ embedding; $c_T = c$; weak-field lensing $\Phi = \Psi$ $\mathbf{[P]}$. \\
 \texttt{SovereignRegularity.lean} & Pointwise vorticity bounded by an assumed control field; \texttt{sovereign\_regularity\_theorem} restates that hypothesis. No integral and no PDE are formalized, so this is not the Beale--Kato--Majda criterion \cite{BealeKatoMajda1984} $\mathbf{[O]}$. \\
 \texttt{TensorSpeed.lean} & $c_{13} = 0$ identity; disformal falsification; $\alpha_1 = -2K$ $\mathbf{[P]}$. \\
 \texttt{YettParadigm.lean} & Positivity of an \emph{assumed} spectral gap $\kappa^2 \le \lambda_1-\lambda_0$; bounded dissipative trajectories given assumed monotonicity $\mathbf{[P\text{-}cond]}$: no operator/domain construction, no continuum gap proof. \texttt{chiral\_phase\_stable} projects its own hypothesis: $\theta \ge 0.70$ is assumed, not proved $\mathbf{[O]}$. \\
-\bottomrule
-\end{tabularx}
-\caption{Source inventory of key Lean~4 modules (including \texttt{MuStdFoundations} and the canonical $\mu_{\text{std}}$ suite), enumerated from the tracked contents of \texttt{05\_lean\_formalization/}. Three entries are diagnostic or assumption-declaring files rather than physics results. Physical-theory selection is never certified; Lean certifies only that mathematical statements follow from their encoded definitions, and not that assumptions carried as typeclass or structure fields are justified (see \texttt{THEORY\_ASSUMPTION\_AUDIT.md}).}
-\label{tab:lean_modules}
-\end{table*}
+\end{longtable}
 
 \section{Open Problems}
 \label{sec:open}
@@ -597,12 +626,12 @@ The following items are quarantined $\mathbf{[O]}$ in \texttt{OPEN\_PROBLEMS\_AN
     \item \textbf{O1 --- $a_0$--Horizon Identity:} KMS thermal equilibrium formally yields $a = cH_0$ ($\xi = 1$) $\mathbf{[P]}$ (\texttt{HorizonScale.lean}). The $1/(2\pi)$ divisor remains unexplained $\mathbf{[O]}$. The pre-registered $a_0(z)$ test is withdrawn (untraceable input table) $\mathbf{[X]}$, and the real high-$z$ data are inconclusive (O4). The horizon-tied interpretation is neither supported nor killed.
     \item \textbf{O2 --- $\Omega_\Lambda = \ln 2$:} An asymptotic entropy boundary condition, not a dynamical prediction. A full curved-spacetime covariant derivation has not been written. A pre-registered consistency check against the Pantheon+ sample (1590 SNe after the official quality cut; \texttt{O3\_PANTHEONPLUS\_RESULT.json}) finds $\Omega_\Lambda = \ln 2$ within $1.37\sigma$ of the best-fit value: consistent, but consistency of a definition with data is not evidence for the derivation that remains unwritten $\mathbf{[D]}$.
     \item \textbf{O3 --- $\mu(x)$ Physical Mechanism:} The algebraic closure is proved; the physical origin of the dual-channel balance (bulk kinetic flux vs.\ horizon dissipation) is a motivated conjecture.
-    \item \textbf{O4 --- $a_0(z)$ Redshift Test:} \textbf{Inconclusive} $\mathbf{[O]/[C]}$. The pre-registered 20-point test is withdrawn $\mathbf{[X]}$ (2026-09-27): its table could not be traced to the cited MUSE papers, so all results from that protocol are void. On real data (RC100, 100 galaxies at $z = 0.6$--$2.6$; MUSE-DARK III), $a_0$ at $z\sim1$--$2$ is $\sim2$--$2.6\times$ local; the high-$z$ shape favours a constant over $H(z)$ (shape-only, not established) and the step from $z=0$ is calibration-limited. No reading is excluded (\nolinkurl{03_observer_jwst/O4_REAL_DATA_MUSE_DARK_III_2026-09-27.md}). (Note: O4 in the original numbering referred to CMB/structure growth; the redshift test was added as a pre-registered protocol and has been completed. The CMB/structure-growth frontier remains open.)
+    \item \textbf{O4 --- $a_0(z)$ Redshift Test:} \textbf{Inconclusive} $\mathbf{[O]/[C]}$. The pre-registered 20-point test is withdrawn $\mathbf{[X]}$ (2026-09-27): its table could not be traced to the cited MUSE papers, so all results from that protocol are void. On real data (RC100, 100 galaxies at $z = 0.6$--$2.6$; MUSE-DARK III), $a_0$ at $z\sim1$--$2$ is $\sim2$--$2.6\times$ local; the high-$z$ shape favours a constant over $H(z)$ (shape-only, not established) and the step from $z=0$ is calibration-limited. No reading is excluded (\path{03_observer_jwst/O4_REAL_DATA_MUSE_DARK_III_2026-09-27.md}). (Note: O4 in the original numbering referred to CMB/structure growth; the redshift test was added as a pre-registered protocol and has been completed. The CMB/structure-growth frontier remains open.)
     \item \textbf{O5 --- Cluster Lensing and Bullet Cluster:} MOND-family theories require additional physics for galaxy cluster mass budgets; applicability of this framework at cluster scales is untested.
     \item \textbf{O7 --- Necessity of the Pad\'e Constraint (D2):} The uniqueness theorem of \S\ref{sec:uniqueness} is conditional on Pad\'e $[1/1]$ minimality, which is assumed rather than derived. Whether it follows from a variational principle on the information geometry is open.
     \item \textbf{O8 --- Non-Linear Structure Formation (D5):} The $0.23\%$ linear result of \S\ref{sec:cosmo} does not extend to the non-linear regime without N-body simulation in the RMOND formulation \cite{Thomas2023}. Not run.
     \item \textbf{O9 --- Exact PPN Parameters (D3):} $\gamma$ and $\beta$ for specified $c_1,c_2,c_3$ require the post-Newtonian expansion of the RMOND metric. Framework complete; expansion not performed.
-    \item \textbf{O6 --- Clean-Worktree Lean Build:} Walked once in a clean worktree at 07185a6 (\texttt{lake exe cache get} + 17/17 PASS, \texttt{VERIFICATION\_RUN\_007}). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate.
+    \item \textbf{O6 --- Clean-Worktree Lean Build:} Walked once in a clean worktree at 07185a6 (\texttt{lake exe cache get} plus 17/17 PASS, \texttt{VERIFICATION\_RUN\_007}). Not yet demonstrated on a cold machine with empty host cache, and not yet a CI release gate.
 \end{enumerate}
 
 \section{Cosmological and Optical Extensions (Open Research Program)}
@@ -639,10 +668,25 @@ Three earlier results of this programme are withdrawn or narrowed, and we state 
 The open problems are of three kinds. \emph{Structural:} which AeST branch (held or dragged) a given system occupies, a covariant realization of the screening that the Cassini quadrupole requires, and the origin of the $1/(2\pi)$ normalisation. \emph{Computational:} non-linear structure formation, the $\mu_{\text{std}}$ screening ratio on FLRW backgrounds, and a Boltzmann calculation that does not rely on unpublished AeST initial conditions. \emph{Observational:} a calibration-controlled high-$z$ kinematic sample --- the pre-registered $a_0(z)$ test is withdrawn (untraceable input table), and the real RC100 and MUSE-DARK III data exclude neither a constant nor a horizon-tied $a_0$ --- and next-generation ranging. The Cassini quadrupole is the sharpest test the theory currently faces, and bare $\mu_{\text{std}}$ does not pass it.
 
 \section*{Data and Code Availability}
-All raw data, Python scripts, Lean~4 modules, and verification manifests are openly archived in the public repository at \url{https://github.com/Mega-Therion/Res-Nova} (release \texttt{v1.6.2}), with DOI \href{https://doi.org/10.5281/zenodo.21969121}{10.5281/zenodo.21969121}; verified artifact references \texttt{VERIFICATION\_RUN\_003}, \texttt{VERIFICATION\_RUN\_005}, \texttt{VERIFICATION\_RUN\_006}, and \texttt{VERIFICATION\_RUN\_007}. A permanent snapshot with a DOI is deposited on Zenodo.
+The public repository is \url{https://github.com/Mega-Therion/Res-Nova}. The deposited v1.6.2 text remains the historical snapshot at DOI \href{https://doi.org/10.5281/zenodo.21969121}{10.5281/zenodo.21969121} and is not this file. The numbers printed here are checked against these files:
+\begin{itemize}\raggedright
+\item \path{02_galaxy_dynamics/PARAMETER_LEDGER.json}
+\item \path{02_galaxy_dynamics/NFW_CONSTRAINED.json}
+\item \path{02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json}
+\item \path{02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md}
+\item \path{CURRENT_STATE_READ_THIS_FIRST.md}
+\item \path{05_lean_formalization/}, run by \path{verify_all_proofs.sh}
+\item \path{02_galaxy_dynamics/fetch_sparc.sh}
+\item \path{VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256}
+\end{itemize}
+SPARC rotation-curve tables are not in git. The fetch script downloads Lelli, McGaugh \& Schombert (2016), \path{Rotmod_LTG.zip}, and checks each table against the manifest above.
 
 \section*{Note Added (2026-09-09): Correction of the Linear Screening Ratio}
-This version corrects one published number in the deposited v1.6.2 record (Zenodo DOI 10.5281/zenodo.21969121). The linear screening ratio was previously quoted as $\mathcal{F}''/\mathcal{F}' \approx 0.004$, growth enhancement $0.4\%$, $\xi \approx 1.004$, suppression $\sim250\times$. The correct values are $\mathcal{F}''/\mathcal{F}' = 1/(2x_0^2(1+x_0)) \approx 0.00233$, growth enhancement $0.23\%$, $\xi \approx 1.0023$, suppression $\sim429\times$. The error was a missing chain-rule factor in the second derivative of $\mathcal{F}(\mathcal{K}) = \tfrac{1}{2}\mathcal{K} - \sqrt{\mathcal{K}} + \ln(1+\sqrt{\mathcal{K}})$ with respect to $\mathcal{K}$ (documented in \texttt{GHOSTFREE\_AND\_SCREENING\_CORRECTION\_2026-09-08.md}). The corrected screening is $1.7\times$ stronger than published, so the published figure was conservative against the theory: no claimed bound, verdict, or pass/fail status changes, and the ghost-freedom result is unaffected ($1/(4u(1+u)^2) > 0$ for $u > 0$, now machine-checked as \texttt{CovariantCompletion.F\_dual\_ghost\_free}). The deposited v1.6.2 record is left unmodified as a historical document; this note connects the two versions.
+This version corrects one published number in the deposited v1.6.2 record (Zenodo DOI 10.5281/zenodo.21969121). The linear screening ratio was previously quoted as $\mathcal{F}''/\mathcal{F}' \approx 0.004$, growth enhancement $0.4\%$, $\xi \approx 1.004$, suppression $\sim250\times$. The correct values are $\mathcal{F}''/\mathcal{F}' = 1/(2x_0^2(1+x_0)) \approx 0.00233$, growth enhancement $0.23\%$, $\xi \approx 1.0023$, suppression $\sim429\times$. The error was a missing chain-rule factor in the second derivative of $\mathcal{F}(\mathcal{K}) = \tfrac{1}{2}\mathcal{K} - \sqrt{\mathcal{K}} + \ln(1+\sqrt{\mathcal{K}})$ with respect to $\mathcal{K}$. The note is listed below.
+\begin{itemize}\raggedright
+\item \path{GHOSTFREE_AND_SCREENING_CORRECTION_2026-09-08.md}
+\end{itemize}
+The corrected screening is $1.7\times$ stronger than published, so the published figure was conservative against the theory: no claimed bound, verdict, or pass/fail status changes, and the ghost-freedom result is unaffected ($1/(4u(1+u)^2) > 0$ for $u > 0$, now machine-checked as \texttt{CovariantCompletion.F\_dual\_ghost\_free}). The deposited v1.6.2 record is left unmodified as a historical document; this note connects the two versions.
 
 \begin{acknowledgments}
 This work was carried out independently.
