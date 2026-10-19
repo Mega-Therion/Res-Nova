@@ -26,6 +26,8 @@ $$P(\ge 1 \text{ channel}) = 1 - (1 - \theta)^2 = 2\theta - \theta^2 = \sqrt{2} 
 The resulting sovereign black hole spin ceiling is:
 $$\chi_s = \sqrt{2\theta - \theta^2} = \sqrt{\sqrt{2} - \frac{1}{2}} \approx 0.9561451575849218559$$
 
+> Algebra only, CLM-11: **[P]** for \(\theta=1/\sqrt{2}\). Not the corpus \(\kappa\) (0.9539; the 0.9561 lock was rejected 2026-09-26). Physical spin identification is **[T]** against Cygnus X-1 and **not derived** (`two_channel_ceiling_results.json`).
+
 ---
 
 ## 2. Horizon Physics & Back-Reaction (`kerr_toroidal_bounce.py`, `thorne_equilibrium_fast.py`)
