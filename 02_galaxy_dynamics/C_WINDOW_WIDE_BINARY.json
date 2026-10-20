@@ -1,0 +1,43 @@
+{
+ "bar": "clean cut fails if chi2_calibrated > 18.5 and raw chi2 > injection maximum",
+ "centre_source": "WORKING_C_WIDE_BINARY_RS.json",
+ "centre": {
+  "C": 0.579124707982253,
+  "cut": "clean",
+  "chi2_raw": 4.359649243436078,
+  "chi2_calibrated": 2.9951588268345533,
+  "kappa": 1.4555652956953846,
+  "null_max": 20.430563141447966,
+  "fails": false
+ },
+ "edges": [
+  {
+   "C": 0.208899,
+   "cut": "clean",
+   "n": 14542,
+   "chi2_raw": 2.2481616812418976,
+   "chi2_N": 9.507998309933079,
+   "kappa": 1.5547652298401724,
+   "chi2_calibrated": 1.4459814498636592,
+   "null_max": 22.314558118928556,
+   "bar": 18.5,
+   "fails": false,
+   "reproduction_max_dchi2": 0.0,
+   "gamma_table": "C_WINDOW_GAMMA_0.json"
+  },
+  {
+   "C": 0.6962,
+   "cut": "clean",
+   "n": 14542,
+   "chi2_raw": 5.185638288883337,
+   "chi2_N": 9.507998309933079,
+   "kappa": 1.3370956797149962,
+   "chi2_calibrated": 3.8782851276497,
+   "null_max": 20.38702456282942,
+   "bar": 18.5,
+   "fails": false,
+   "reproduction_max_dchi2": 0.0,
+   "gamma_table": "C_WINDOW_GAMMA_1.json"
+  }
+ ]
+}

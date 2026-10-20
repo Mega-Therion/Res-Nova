@@ -1,0 +1,210 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{alien-smoky-quartz}[2026/10/18 v1.3 Sleek Minimalist Smoky Quartz Glassmorphic Codex]
+
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{family=quartz,prefix=quartz@}
+\DeclareBoolOption[true]{dark}
+\ProcessKeyvalOptions*
+
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins,breakable,listingsutf8}
+\RequirePackage{listings}
+\RequirePackage{textcase}
+\RequirePackage{booktabs}
+
+%% ---------------------------------------------------------------- Smoky Quartz Glassmorphic Palette
+% Deep obsidian-mineral base
+\definecolor{qz-void}{HTML}{0B0C0E}           % Rich deep obsidian base
+\definecolor{qz-glass-bg}{HTML}{14161C}       % Smoked quartz glass plate
+\definecolor{qz-glass-border}{HTML}{282C37}   % Subtle frosted rim highlight
+\definecolor{qz-glass-rim}{HTML}{454C5E}      % Frosted top specular reflection edge
+
+% Crisp typography colors for high legibility
+\definecolor{qz-bone}{HTML}{E2E8F0}           % Clean, readable starlight parchment
+\definecolor{qz-muted}{HTML}{838C9E}          % Smoky quartz secondary metadata
+\definecolor{qz-gold}{HTML}{D4AF37}           % Pale champagne / antique gold accent
+
+% Muted Epistemic Frosted Accents
+\definecolor{qz-sage}{HTML}{4EAA78}           % Frosted Jade / Sage (PROVED)
+\definecolor{qz-ice}{HTML}{4DA1B5}            % Muted Arctic Ice / Smoked Cyan (CITED / EMPIRICAL / DEF)
+\definecolor{qz-rose}{HTML}{CF6679}           % Dusty Garnet / Rose (DERIVED / KILLED)
+\definecolor{qz-amber}{HTML}{D4A347}          % Warm Topaz / Smoky Amber (CONDITIONAL / CONJECTURE)
+\definecolor{qz-violet}{HTML}{9D88B3}         % Smoked Amethyst / Lavender (AXIOM)
+
+% Override legacy manuscript box colors to prevent white-on-white
+\definecolor{boxbg}{HTML}{14161C}
+\definecolor{primary}{HTML}{282C37}
+\definecolor{sealgold}{HTML}{D4AF37}
+
+%% Page Setup
+\pagecolor{qz-void}
+\color{qz-bone}
+\global\let\default@color\current@color
+\setcounter{dbltopnumber}{1}
+
+\AtBeginDocument{%
+  \raggedbottom
+  \setcounter{dbltopnumber}{1}%
+  \definecolor{boxbg}{HTML}{14161C}%
+  \definecolor{primary}{HTML}{282C37}%
+  \color{qz-bone}\global\let\default@color\current@color
+  \def\normalcolor{\color{qz-bone}}%
+  \@ifundefined{frontmatter@title@format}{}{\g@addto@macro\frontmatter@title@format{\color{qz-bone}}}%
+  \@ifundefined{frontmatter@authorformat}{}{\g@addto@macro\frontmatter@authorformat{\color{qz-bone}}}%
+  \@ifundefined{frontmatter@affiliationfont}{}{\g@addto@macro\frontmatter@affiliationfont{\color{qz-muted}}}%
+  \@ifundefined{frontmatter@abstractfont}{}{\g@addto@macro\frontmatter@abstractfont{\color{qz-bone}}}%
+  \@ifundefined{frontmatter@setup}{}{\g@addto@macro\frontmatter@setup{\color{qz-bone}}}%
+  \let\quartz@maketitle\maketitle
+  \def\maketitle{\color{qz-bone}\quartz@maketitle\color{qz-bone}}%
+  \@ifundefined{@hangfrom@section}{}{%
+    \def\@hangfrom@section#1#2#3{\@hangfrom{\color{qz-ice}#1#2}{\color{qz-ice}\MakeTextUppercase{#3}}}%
+    \def\@hangfroms@section#1#2{{\color{qz-ice}#1\MakeTextUppercase{#2}}}}%
+  \@ifundefined{@hangfrom@subsection}{}{%
+    \def\@hangfrom@subsection#1#2#3{\@hangfrom{\color{qz-ice!85!qz-bone}#1#2}{\color{qz-ice!85!qz-bone}#3}}%
+    \def\@hangfroms@subsection#1#2{{\color{qz-ice!85!qz-bone}#1#2}}}%
+}
+
+\@ifpackageloaded{hyperref}{%
+  \hypersetup{colorlinks=true,pdfborder={0 0 0},linkcolor=qz-ice,citecolor=qz-sage,urlcolor=qz-ice}}{}
+
+%% Epistemic Mapping
+\expandafter\def\csname codex@colorP\endcsname{qz-sage}
+\expandafter\def\csname codex@labelP\endcsname{PROVED}
+
+\expandafter\def\csname codex@colorD\endcsname{qz-rose}
+\expandafter\def\csname codex@labelD\endcsname{DERIVED / COMPUTED}
+
+\expandafter\def\csname codex@colorA\endcsname{qz-violet}
+\expandafter\def\csname codex@labelA\endcsname{AXIOM}
+
+\expandafter\def\csname codex@colorC\endcsname{qz-ice}
+\expandafter\def\csname codex@labelC\endcsname{CITED}
+
+\expandafter\def\csname codex@colorconj\endcsname{qz-amber}
+\expandafter\def\csname codex@labelconj\endcsname{CONJECTURE}
+
+\expandafter\def\csname codex@colorE\endcsname{qz-ice}
+\expandafter\def\csname codex@labelE\endcsname{EMPIRICAL}
+
+\expandafter\def\csname codex@colorO\endcsname{qz-amber}
+\expandafter\def\csname codex@labelO\endcsname{OPEN / HYPOTHESIS}
+
+\expandafter\def\csname codex@colorX\endcsname{qz-rose}
+\expandafter\def\csname codex@labelX\endcsname{RETIRED / FALSIFIED}
+
+\expandafter\def\csname codex@colordef\endcsname{qz-ice}
+\expandafter\def\csname codex@labeldef\endcsname{SCOPE LEDGER}
+
+\expandafter\def\csname codex@colorP/O\endcsname{qz-amber}
+\expandafter\def\csname codex@labelP/O\endcsname{CONDITIONAL}
+
+\expandafter\def\csname codex@colorP/D\endcsname{qz-sage}
+\expandafter\def\csname codex@labelP/D\endcsname{PROVED / COMPUTED}
+
+\expandafter\def\csname codex@colorO/C\endcsname{qz-amber}
+\expandafter\def\csname codex@labelO/C\endcsname{OPEN / CITED}
+
+\expandafter\def\csname codex@colorP-cond\endcsname{qz-amber}
+\expandafter\def\csname codex@labelP-cond\endcsname{CONDITIONAL}
+
+\newcommand{\codex@col}[1]{\csname codex@color#1\endcsname}
+\newcommand{\codex@lab}[1]{\csname codex@label#1\endcsname}
+
+\newcommand{\epi}[1]{%
+  \mbox{\ifcsname codex@color#1\endcsname
+    {\color{\codex@col{#1}}\ttfamily\bfseries[#1]}%
+  \else{\color{qz-amber}\ttfamily\bfseries[#1]}\fi}}
+
+%% Frosted Glass Pill Badge
+\newcommand{\epibadge}[1]{%
+  \tcbox[on line, boxsep=0pt, left=4pt, right=4pt, top=2pt, bottom=2pt,
+         arc=2pt, boxrule=0.5pt, colframe=\codex@col{#1}!70!white,
+         colback=qz-void]%
+  {\color{\codex@col{#1}}\ttfamily\bfseries\scriptsize[#1]~\codex@lab{#1}}}
+
+%% Global fallback for any standard tcolorbox
+\tcbset{
+  enhanced,
+  colback=qz-glass-bg,
+  colframe=qz-glass-border,
+  coltext=qz-bone,
+  coltitle=qz-ice,
+  fonttitle=\ttfamily\bfseries\small,
+  boxrule=0.7pt,
+  arc=3.5pt,
+  borderline north={0.4pt}{0pt}{qz-glass-rim!60},
+  left=9pt, right=9pt, top=7pt, bottom=7pt
+}
+
+%% Frosted Glass Gate Box (Smoky Quartz Glassmorphism with Crisp Interior Text)
+\newtcolorbox{gate}[2]{%
+  enhanced,
+  colback=qz-glass-bg,
+  colframe=qz-glass-border,
+  coltext=qz-bone,
+  boxrule=0.7pt,
+  arc=3.5pt,
+  fuzzy shadow={0mm}{-0.6mm}{0mm}{0.2mm}{black!70},
+  borderline north={0.4pt}{0pt}{qz-glass-rim!60},  % Frosted glass top reflection
+  borderline west={2.5pt}{0pt}{\codex@col{#1}},    % Mineral accent stripe
+  left=8pt, right=8pt, top=5pt, bottom=5pt,
+  before skip=5pt, after skip=5pt,
+  title={\epibadge{#1}\par\smallskip{\color{\codex@col{#1}}\ttfamily\bfseries\small\MakeUppercase{#2}}},
+  attach title to upper, after title={\par\smallskip}}
+
+%% Smoked Glass Figure Frame
+\newtcolorbox{quartzfig}[1]{%
+  enhanced,
+  colback=qz-glass-bg,
+  colframe=qz-glass-border,
+  coltext=qz-bone,
+  boxrule=0.7pt,
+  arc=3.5pt,
+  borderline north={0.4pt}{0pt}{qz-glass-rim!60},
+  borderline west={2.0pt}{0pt}{qz-ice},
+  left=6pt, right=6pt, top=5pt, bottom=5pt,
+  before skip=4pt, after skip=4pt,
+  title={\color{qz-ice}\ttfamily\bfseries\footnotesize$\diamond$\ VISUAL TELEMETRY // \MakeUppercase{#1}},
+  attach title to upper, after title={\par\smallskip}}
+
+%% Smoked Glass Terminal Panel (Lean 4 Receipt)
+\lstdefinelanguage{Lean4}{%
+  morekeywords=[1]{theorem,lemma,def,structure,class,instance,namespace,end,open,variable,example,axiom,noncomputable,where,import,section,abbrev},
+  morekeywords=[2]{by,refine,exact,simp,linarith,nlinarith,ring,norm_num,intro,intros,apply,rw,cases,induction,constructor,use,have,show,calc,omega,positivity,field_simp,decide,aesop},
+  sensitive=true, morecomment=[l]{--}, morecomment=[n]{/-}{-/}, morestring=[b]"}
+\lstdefinestyle{quartzreceipt}{%
+  language=Lean4, basicstyle=\ttfamily\footnotesize\color{qz-bone},
+  keywordstyle=[1]\color{qz-rose}\bfseries, keywordstyle=[2]\color{qz-sage},
+  commentstyle=\color{qz-muted}\itshape, stringstyle=\color{qz-amber},
+  columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false,
+  inputencoding=utf8, extendedchars=true,
+  literate={γ}{{$\gamma$}}1 {λ}{{$\lambda$}}1 {Σ}{{$\Sigma$}}1 {σ}{{$\sigma$}}1
+           {α}{{$\alpha$}}1 {β}{{$\beta$}}1 {θ}{{$\theta$}}1 {χ}{{$\chi$}}1 {κ}{{$\kappa$}}1
+           {→}{{$\to$}}2 {←}{{$\leftarrow$}}2 {↦}{{$\mapsto$}}2 {∀}{{$\forall$}}1 {∃}{{$\exists$}}1
+           {≤}{{$\le$}}1 {≥}{{$\ge$}}1 {≠}{{$\ne$}}1 {¬}{{$\neg$}}1 {ℝ}{{$\mathbb{R}$}}1 {ℕ}{{$\mathbb{N}$}}1
+           {⟨}{{$\langle$}}1 {⟩}{{$\rangle$}}1 {∘}{{$\circ$}}1 {∈}{{$\in$}}1 {·}{{$\cdot$}}1 {•}{{$\bullet$}}1 {⊢}{{$\vdash$}}1 {√}{{$\surd$}}1 {₊}{{$_+$}}1 {≡}{{$\equiv$}}1 {²}{{$^2$}}1}
+
+\newtcblisting{receipt}[1]{%
+  enhanced, listing only,
+  listing options={style=quartzreceipt},
+  colback=qz-void!94!black,
+  colframe=qz-glass-border,
+  boxrule=0.6pt, arc=3.5pt,
+  borderline north={0.4pt}{0pt}{qz-glass-rim!60},
+  left=7pt, right=7pt, top=4pt, bottom=4pt,
+  before skip=5pt, after skip=5pt,
+  title={\color{qz-ice}\ttfamily\bfseries\footnotesize$\blacktriangleright$\ LEAN 4 KERNEL RECEIPT (#1)},
+  attach title to upper, after title={\par\smallskip}}
+
+\newcommand{\disclosure}[1]{%
+  \par\smallskip\noindent{\color{qz-glass-border}\rule{\linewidth}{0.4pt}}\par\nopagebreak
+  \noindent{\raggedright\color{qz-muted}\ttfamily\footnotesize *~Epistemic Disclosure: #1\par}\medskip}
+
+\newcommand{\codexmasthead}[3]{%
+  \par\noindent\vbox{\raggedright\ttfamily\footnotesize
+    {\color{qz-ice}#1}\\{\color{qz-muted}#2}\\{\color{qz-sage}\textbullet~#3}\par
+    \smallskip\noindent{\color{qz-glass-border}\rule{\linewidth}{0.5pt}}}\par\medskip}
+
+\endinput

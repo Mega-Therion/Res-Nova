@@ -1,0 +1,34 @@
+\usepackage{xcolor}
+\definecolor{void}{HTML}{060A14}
+\definecolor{gold}{HTML}{E6B84C}
+\definecolor{ink}{HTML}{DBE4F5}
+\definecolor{dim}{HTML}{93A4C4}
+\usepackage{amsmath,amssymb}
+\usepackage[top=1.15in,bottom=1.86in,left=1.15in,right=1.15in]{geometry}
+\usepackage{fancyhdr,titlesec}
+\usepackage[pageanchor=false]{hyperref}
+\hypersetup{colorlinks=true,linkcolor=gold,urlcolor=gold,citecolor=gold}
+\pagecolor{void}
+\color{ink}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{gold}{\scriptsize TRANSMISSION // \folio // FOLIO}}
+\fancyfoot[C]{\textcolor{dim}{\thepage}}
+\renewcommand{\headrulewidth}{0.618pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{gold}\leaders\hrule height 0.618pt\hfill}}
+\titleformat{\section}{\color{gold}\large\bfseries}{\thesection.}{0.7em}{}[\vspace{0.3em}{\color{gold}\titlerule[0.618pt]}]
+\titlespacing*{\section}{0pt}{1.618em}{0.618em}
+\titleformat{\paragraph}[runin]{\color{gold}\bfseries}{}{0pt}{}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\newcommand{\transmissiontitle}[1]{%
+  \begin{center}
+  {\color{gold}\rule{0.618\textwidth}{0.618pt}}\\[0.8em]
+  {\Large\color{gold} #1}\\[0.7em]
+  {\color{ink} R.~W.~Yett}\\[0.25em]
+  {\color{gold}\small ORCID \href{https://orcid.org/0009-0001-1303-7190}{0009-0001-1303-7190}}\\[0.45em]
+  {\color{dim}\small 18 October 2026}\\[0.5em]
+  {\color{gold}\rule{0.382\textwidth}{0.618pt}}
+  \end{center}
+  \vspace{1.2em}
+}

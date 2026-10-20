@@ -1,0 +1,484 @@
+{
+ "x_star": 703588428133.2817,
+ "g_e": 1.9e-10,
+ "q_target_au": 5.0,
+ "window_au": [
+  10000.0,
+  100000.0
+ ],
+ "fields": [
+  {
+   "C": 0.0,
+   "P_minus_C": 0.7503447911424689,
+   "phi0_term_au": -0.00013858101948569543,
+   "n": 13,
+   "n_reached_perihelion": 11,
+   "max_abs_osc_minus_energy": 1.2632537796413356e-06,
+   "max_abs_osc_minus_proxy_reached": 1.9139497862372687e-07,
+   "orbits": [
+    {
+     "a_start_au": 3000.0,
+     "reached": true,
+     "q_au": 4.9999981429990505,
+     "inv_a_osculating_au": 0.000665409338514093,
+     "inv_a_from_energy_au": 0.0006666725922937343,
+     "inv_a_proxy_au": 0.0006655633299531908
+    },
+    {
+     "a_start_au": 4403.397802866209,
+     "reached": true,
+     "q_au": 4.99999998190795,
+     "inv_a_osculating_au": 0.000453678121469043,
+     "inv_a_from_energy_au": 0.0004543795176372071,
+     "inv_a_proxy_au": 0.0004538643704873628
+    },
+    {
+     "a_start_au": 6463.304070095656,
+     "reached": true,
+     "q_au": 5.0000619091462815,
+     "inv_a_osculating_au": 0.000314145011253892,
+     "inv_a_from_energy_au": 0.0003145566828707684,
+     "inv_a_proxy_au": 0.00031431748628057965
+    },
+    {
+     "a_start_au": 9486.832980505142,
+     "reached": false,
+     "q_au": 9486.82882410016,
+     "inv_a_osculating_au": 0.0002107075503639163,
+     "inv_a_from_energy_au": 0.00021081862566933214,
+     "inv_a_proxy_au": 0.00021070757308807052
+    },
+    {
+     "a_start_au": 13924.766500838352,
+     "reached": false,
+     "q_au": 9683.2154900635,
+     "inv_a_osculating_au": 0.00020643634936475737,
+     "inv_a_from_energy_au": 0.00020648804865855665,
+     "inv_a_proxy_au": 0.0002064364939611657
+    },
+    {
+     "a_start_au": 20438.76207173883,
+     "reached": true,
+     "q_au": 5.001728731773595,
+     "inv_a_osculating_au": 0.00023596469803173603,
+     "inv_a_from_energy_au": 0.0002361454026680745,
+     "inv_a_proxy_au": 0.0002361214703594894
+    },
+    {
+     "a_start_au": 30000.00000000001,
+     "reached": true,
+     "q_au": 5.001731796419964,
+     "inv_a_osculating_au": 0.0002050571994786273,
+     "inv_a_from_energy_au": 0.00020523837770702,
+     "inv_a_proxy_au": 0.0002052272684474521
+    },
+    {
+     "a_start_au": 44033.978028662044,
+     "reached": true,
+     "q_au": 5.001731569079575,
+     "inv_a_osculating_au": 0.0001838125051273479,
+     "inv_a_from_energy_au": 0.0001840001958421418,
+     "inv_a_proxy_au": 0.00018399503910675603
+    },
+    {
+     "a_start_au": 64633.040700956495,
+     "reached": true,
+     "q_au": 5.001731547800842,
+     "inv_a_osculating_au": 0.00016934804204449212,
+     "inv_a_from_energy_au": 0.00016952493571534234,
+     "inv_a_proxy_au": 0.00016952254208419092
+    },
+    {
+     "a_start_au": 94868.32980505141,
+     "reached": true,
+     "q_au": 5.001731420043838,
+     "inv_a_osculating_au": 0.00015948387096960685,
+     "inv_a_from_energy_au": 0.00015966287025850909,
+     "inv_a_proxy_au": 0.00015966175920595555
+    },
+    {
+     "a_start_au": 139247.66500838322,
+     "reached": true,
+     "q_au": 5.001731252087448,
+     "inv_a_osculating_au": 0.00015275674669926152,
+     "inv_a_from_energy_au": 0.0001529439174099137,
+     "inv_a_proxy_au": 0.00015294340169633893
+    },
+    {
+     "a_start_au": 204387.62071738832,
+     "reached": true,
+     "q_au": 5.001731175063924,
+     "inv_a_osculating_au": 0.0001481764690360987,
+     "inv_a_from_energy_au": 0.00014836634793621463,
+     "inv_a_proxy_au": 0.0001483661085604383
+    },
+    {
+     "a_start_au": 300000.0,
+     "reached": true,
+     "q_au": 5.001731126075443,
+     "inv_a_osculating_au": 0.00014505618006447008,
+     "inv_a_from_energy_au": 0.0001452476861523531,
+     "inv_a_proxy_au": 0.0001452475750430938
+    }
+   ]
+  },
+  {
+   "C": 0.208899,
+   "P_minus_C": 0.5414457911424688,
+   "phi0_term_au": -9.999950771766669e-05,
+   "n": 13,
+   "n_reached_perihelion": 13,
+   "max_abs_osc_minus_energy": 1.2635295417171618e-06,
+   "max_abs_osc_minus_proxy_reached": 1.9890725417600176e-07,
+   "orbits": [
+    {
+     "a_start_au": 3000.0,
+     "reached": true,
+     "q_au": 4.999998118850219,
+     "inv_a_osculating_au": 0.0006654074130336698,
+     "inv_a_from_energy_au": 0.000666670942575387,
+     "inv_a_proxy_au": 0.0006655616802348434
+    },
+    {
+     "a_start_au": 4403.397802866209,
+     "reached": true,
+     "q_au": 4.99999932119871,
+     "inv_a_osculating_au": 0.0004536253846152458,
+     "inv_a_from_energy_au": 0.0004543280672027873,
+     "inv_a_proxy_au": 0.000453812920052943
+    },
+    {
+     "a_start_au": 6463.304070095656,
+     "reached": true,
+     "q_au": 5.0000441845744215,
+     "inv_a_osculating_au": 0.0003127292977843005,
+     "inv_a_from_energy_au": 0.00031313197058190014,
+     "inv_a_proxy_au": 0.0003128927739917114
+    },
+    {
+     "a_start_au": 9486.832980505142,
+     "reached": true,
+     "q_au": 5.000563791998027,
+     "inv_a_osculating_au": 0.0002557531380513081,
+     "inv_a_from_energy_au": 0.00025603442380806485,
+     "inv_a_proxy_au": 0.0002559233712268032
+    },
+    {
+     "a_start_au": 13924.766500838352,
+     "reached": true,
+     "q_au": 5.0011798450325005,
+     "inv_a_osculating_au": 0.00023785276225917672,
+     "inv_a_from_energy_au": 0.00023810322421074365,
+     "inv_a_proxy_au": 0.00023805166951335272
+    },
+    {
+     "a_start_au": 20438.76207173883,
+     "reached": true,
+     "q_au": 5.0012466529995,
+     "inv_a_osculating_au": 0.00019746311271172357,
+     "inv_a_from_energy_au": 0.0001976443221881178,
+     "inv_a_proxy_au": 0.00019762038987953273
+    },
+    {
+     "a_start_au": 30000.00000000001,
+     "reached": true,
+     "q_au": 5.001248986211372,
+     "inv_a_osculating_au": 0.00016649126581346925,
+     "inv_a_from_energy_au": 0.00016665945744751714,
+     "inv_a_proxy_au": 0.00016664834818794927
+    },
+    {
+     "a_start_au": 44033.978028662044,
+     "reached": true,
+     "q_au": 5.001248863109124,
+     "inv_a_osculating_au": 0.00014525079475137976,
+     "inv_a_from_energy_au": 0.0001454187661793774,
+     "inv_a_proxy_au": 0.00014541360944399166
+    },
+    {
+     "a_start_au": 64633.040700956495,
+     "reached": true,
+     "q_au": 5.001248664911874,
+     "inv_a_osculating_au": 0.0001307694019078576,
+     "inv_a_from_energy_au": 0.00013094342654420283,
+     "inv_a_proxy_au": 0.00013094103291305144
+    },
+    {
+     "a_start_au": 94868.32980505141,
+     "reached": true,
+     "q_au": 5.0012486261574605,
+     "inv_a_osculating_au": 0.00012091043629821748,
+     "inv_a_from_energy_au": 0.00012108135857260279,
+     "inv_a_proxy_au": 0.00012108024752004928
+    },
+    {
+     "a_start_au": 139247.66500838322,
+     "reached": true,
+     "q_au": 5.001248356242415,
+     "inv_a_osculating_au": 0.00011417386260647994,
+     "inv_a_from_energy_au": 0.00011436240564448187,
+     "inv_a_proxy_au": 0.00011436188993090711
+    },
+    {
+     "a_start_au": 204387.62071738832,
+     "reached": true,
+     "q_au": 5.001248528227253,
+     "inv_a_osculating_au": 0.00010961259902471932,
+     "inv_a_from_energy_au": 0.00010978483616826794,
+     "inv_a_proxy_au": 0.00010978459679249165
+    },
+    {
+     "a_start_au": 300000.0,
+     "reached": true,
+     "q_au": 5.00124846047301,
+     "inv_a_osculating_au": 0.00010649020730717588,
+     "inv_a_from_energy_au": 0.00010666617438432695,
+     "inv_a_proxy_au": 0.00010666606327506767
+    }
+   ]
+  },
+  {
+   "C": 0.579124707982253,
+   "P_minus_C": 0.17122008316021586,
+   "phi0_term_au": -3.162260065088265e-05,
+   "n": 13,
+   "n_reached_perihelion": 13,
+   "max_abs_osc_minus_energy": 1.2639927932400243e-06,
+   "max_abs_osc_minus_proxy_reached": 1.977301210825147e-07,
+   "orbits": [
+    {
+     "a_start_au": 3000.0,
+     "reached": true,
+     "q_au": 4.999998076371423,
+     "inv_a_osculating_au": 0.000665404026033622,
+     "inv_a_from_energy_au": 0.000666668018826862,
+     "inv_a_proxy_au": 0.0006655587564863184
+    },
+    {
+     "a_start_au": 4403.397802866209,
+     "reached": true,
+     "q_au": 4.999998335486714,
+     "inv_a_osculating_au": 0.00045354670646071283,
+     "inv_a_from_energy_au": 0.0004542368830730928,
+     "inv_a_proxy_au": 0.00045372173592324853
+    },
+    {
+     "a_start_au": 6463.304070095656,
+     "reached": true,
+     "q_au": 5.000012609031544,
+     "inv_a_osculating_au": 0.0003102072169358684,
+     "inv_a_from_energy_au": 0.0003106069938428192,
+     "inv_a_proxy_au": 0.00031036779725263043
+    },
+    {
+     "a_start_au": 9486.832980505142,
+     "reached": true,
+     "q_au": 5.000176922227116,
+     "inv_a_osculating_au": 0.00022484532392362953,
+     "inv_a_from_energy_au": 0.00022511702870677466,
+     "inv_a_proxy_au": 0.00022500597612551307
+    },
+    {
+     "a_start_au": 13924.766500838352,
+     "reached": true,
+     "q_au": 5.000371707542916,
+     "inv_a_osculating_au": 0.00017328826211711706,
+     "inv_a_from_energy_au": 0.00017350433958142762,
+     "inv_a_proxy_au": 0.00017345278488403666
+    },
+    {
+     "a_start_au": 20438.76207173883,
+     "reached": true,
+     "q_au": 5.000392785016612,
+     "inv_a_osculating_au": 0.00012923184861780376,
+     "inv_a_from_energy_au": 0.00012940996118699415,
+     "inv_a_proxy_au": 0.00012938602887840907
+    },
+    {
+     "a_start_au": 30000.00000000001,
+     "reached": true,
+     "q_au": 5.00039342528034,
+     "inv_a_osculating_au": 9.811413899740307e-05,
+     "inv_a_from_energy_au": 9.828714323698745e-05,
+     "inv_a_proxy_au": 9.82760339774196e-05
+    },
+    {
+     "a_start_au": 44033.978028662044,
+     "reached": true,
+     "q_au": 5.0003935253470315,
+     "inv_a_osculating_au": 7.688423935414094e-05,
+     "inv_a_from_energy_au": 7.704200462539882e-05,
+     "inv_a_proxy_au": 7.703684789001307e-05
+    },
+    {
+     "a_start_au": 64633.040700956495,
+     "reached": true,
+     "q_au": 5.000393266501559,
+     "inv_a_osculating_au": 6.239303688126689e-05,
+     "inv_a_from_energy_au": 6.25665240798106e-05,
+     "inv_a_proxy_au": 6.25641304486592e-05
+    },
+    {
+     "a_start_au": 94868.32980505141,
+     "reached": true,
+     "q_au": 5.000393370733832,
+     "inv_a_osculating_au": 5.2542130981717794e-05,
+     "inv_a_from_energy_au": 5.270445165136178e-05,
+     "inv_a_proxy_au": 5.270334059880828e-05
+    },
+    {
+     "a_start_au": 139247.66500838322,
+     "reached": true,
+     "q_au": 5.000393117151626,
+     "inv_a_osculating_au": 4.5804551417123805e-05,
+     "inv_a_from_energy_au": 4.598549858230006e-05,
+     "inv_a_proxy_au": 4.598498286872528e-05
+    },
+    {
+     "a_start_au": 204387.62071738832,
+     "reached": true,
+     "q_au": 5.000393137845909,
+     "inv_a_osculating_au": 4.1229633294841516e-05,
+     "inv_a_from_energy_au": 4.140792910162919e-05,
+     "inv_a_proxy_au": 4.1407689725852893e-05
+    },
+    {
+     "a_start_au": 300000.0,
+     "reached": true,
+     "q_au": 5.0003928857115225,
+     "inv_a_osculating_au": 3.809142608720547e-05,
+     "inv_a_from_energy_au": 3.828926731754727e-05,
+     "inv_a_proxy_au": 3.828915620828798e-05
+    }
+   ]
+  },
+  {
+   "C": 0.6962,
+   "P_minus_C": 0.05414479114246884,
+   "phi0_term_au": -9.999989931213739e-06,
+   "n": 13,
+   "n_reached_perihelion": 13,
+   "max_abs_osc_minus_energy": 1.2641380399537692e-06,
+   "max_abs_osc_minus_proxy_reached": 1.9952476518571145e-07,
+   "orbits": [
+    {
+     "a_start_au": 3000.0,
+     "reached": true,
+     "q_au": 4.999998062954114,
+     "inv_a_osculating_au": 0.0006654029562192592,
+     "inv_a_from_energy_au": 0.000666667094259213,
+     "inv_a_proxy_au": 0.0006655578319186696
+    },
+    {
+     "a_start_au": 4403.397802866209,
+     "reached": true,
+     "q_au": 4.9999978771607525,
+     "inv_a_osculating_au": 0.0004535101235015672,
+     "inv_a_from_energy_au": 0.00045420804820727666,
+     "inv_a_proxy_au": 0.00045369290105743234
+    },
+    {
+     "a_start_au": 6463.304070095656,
+     "reached": true,
+     "q_au": 5.000002640927518,
+     "inv_a_osculating_au": 0.0003094110063278389,
+     "inv_a_from_energy_au": 0.0003098085285210105,
+     "inv_a_proxy_au": 0.0003095693319308217
+    },
+    {
+     "a_start_au": 9486.832980505142,
+     "reached": true,
+     "q_au": 5.000054382915,
+     "inv_a_osculating_au": 0.0002150534131719763,
+     "inv_a_from_energy_au": 0.0002153401196972979,
+     "inv_a_proxy_au": 0.00021522906711603628
+    },
+    {
+     "a_start_au": 13924.766500838352,
+     "reached": true,
+     "q_au": 5.000115956980846,
+     "inv_a_osculating_au": 0.00015284689358287782,
+     "inv_a_from_energy_au": 0.0001530764408187613,
+     "inv_a_proxy_au": 0.00015302488612137038
+    },
+    {
+     "a_start_au": 20438.76207173883,
+     "reached": true,
+     "q_au": 5.000122677083813,
+     "inv_a_osculating_au": 0.00010763823696209363,
+     "inv_a_from_energy_au": 0.00010783242735394697,
+     "inv_a_proxy_au": 0.00010780849504536188
+    },
+    {
+     "a_start_au": 30000.00000000001,
+     "reached": true,
+     "q_au": 5.000123039450283,
+     "inv_a_osculating_au": 7.649494862850079e-05,
+     "inv_a_from_energy_au": 7.666598490156842e-05,
+     "inv_a_proxy_au": 7.665487564200059e-05
+    },
+    {
+     "a_start_au": 44033.978028662044,
+     "reached": true,
+     "q_au": 5.000122888609157,
+     "inv_a_osculating_au": 5.524268764712559e-05,
+     "inv_a_from_energy_au": 5.541943992077921e-05,
+     "inv_a_proxy_au": 5.541428318539346e-05
+    },
+    {
+     "a_start_au": 64633.040700956495,
+     "reached": true,
+     "q_au": 5.000122922929136,
+     "inv_a_osculating_au": 4.077336149282672e-05,
+     "inv_a_from_energy_au": 4.094391481554141e-05,
+     "inv_a_proxy_au": 4.094152118439002e-05
+    },
+    {
+     "a_start_au": 94868.32980505141,
+     "reached": true,
+     "q_au": 5.000123006427919,
+     "inv_a_osculating_au": 3.0919732899454274e-05,
+     "inv_a_from_energy_au": 3.108184097771755e-05,
+     "inv_a_proxy_au": 3.108072992516405e-05
+    },
+    {
+     "a_start_au": 139247.66500838322,
+     "reached": true,
+     "q_au": 5.000122839933571,
+     "inv_a_osculating_au": 2.4188388343156013e-05,
+     "inv_a_from_energy_au": 2.4362887864086588e-05,
+     "inv_a_proxy_au": 2.4362372150511818e-05
+    },
+    {
+     "a_start_au": 204387.62071738832,
+     "reached": true,
+     "q_au": 5.000122563347163,
+     "inv_a_osculating_au": 1.9589196842927905e-05,
+     "inv_a_from_energy_au": 1.97853183820063e-05,
+     "inv_a_proxy_au": 1.978507900623e-05
+    },
+    {
+     "a_start_au": 300000.0,
+     "reached": true,
+     "q_au": 5.000122515901133,
+     "inv_a_osculating_au": 1.6467020723434775e-05,
+     "inv_a_from_energy_au": 1.6666656597879775e-05,
+     "inv_a_proxy_au": 1.6666545488620487e-05
+    }
+   ]
+  }
+ ],
+ "shell": {
+  "r_peak_au": 11676.597740711231,
+  "r_half_lo_au": 8740.170197627473,
+  "r_half_hi_au": 17463.703799003088,
+  "fractional_width": 0.7470954977716187
+ },
+ "C_from_action": {
+  "volume_integral_S_minus_1_m3": -2.06066450192588e+46,
+  "action_fixes_C": false,
+  "Qs_at_zero_field": "-S(x)*C",
+  "zero_field_condition_forces": "C=0"
+ },
+ "tier": "[D] orbit integral and the action derivative. Not a VNT population run."
+}

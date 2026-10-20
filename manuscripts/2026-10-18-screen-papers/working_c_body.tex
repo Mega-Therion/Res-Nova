@@ -1,0 +1,125 @@
+\begin{abstract}
+A tidal screen adds one constant, \(C\), to a two-field Newtonian theory. The constant drops out of the rotation-curve law and remains in the shell stress. At \(C=0\) the shell pushes new comets below the observed Oort peak. The value used here is the centre of the window that puts that peak back, \(C=0.579125\) at a Galactic field \(1.9\times10^{-10}\,\mathrm{m\,s^{-2}}\). At that value the Cassini quadrupole is unchanged, a clean Gaia wide-binary cut prefers the model to Newton, 171 SPARC galaxies are unchanged at the level of the fit, and four dwarfs take stellar mass-to-light ratios. The same clean cut was repeated at the two edges of the window. All three pass. A radial integration of comet orbits agrees with the energy proxy to \(1.3\times10^{-6}\,\mathrm{au^{-1}}\). The non-relativistic action that produces the field equation is written down. The constant \(C\) is not fixed by that action. A relativistic completion in which the tide invariant is dynamical, a full comet population in the sense of Vokrouhlick\'y, Nesvorn\'y and Tremaine, and a cosmological sector are not in this paper.
+\end{abstract}
+
+\section{Field equation}
+
+The Newtonian potential is kept. A second potential obeys
+\begin{equation}
+Q_s = z + S(x)\bigl(Q(z)-z-C\bigr),
+\label{eq:qs}
+\end{equation}
+with \(z=|\nabla\Phi_N|/a_0\) and
+\[
+S(x)=\frac{1}{1+(x/x^*)^2},\qquad
+x=\frac{c^2\|\nabla\nabla\Phi_N\|}{a_0^2}.
+\]
+The interpolating function that multiplies baryonic acceleration does not contain \(C\),
+\begin{equation}
+\nu_{\rm eff}=1+S(x)\bigl(\nu_{\rm std}(y)-1\bigr).
+\label{eq:nueff}
+\end{equation}
+\(C\) remains in the shell stress,
+\begin{equation}
+W_{ij}=-\frac{c^2}{2}\,S'(x)\,\bigl(P(y)-C\bigr)\,\frac{H_{ij}}{H_n},
+\label{eq:W}
+\end{equation}
+where \(P(y)=\int_0^y 2t\,(\nu_{\rm std}-1)\,dt\). For a spherical shell the outward piece is
+\[
+g_W=\frac{2}{\sqrt{6}}\,r^{-3}\frac{d}{dr}(r^3\tilde w).
+\]
+The frozen constants are \(a_0=1.1607\times10^{-10}\,\mathrm{m\,s^{-2}}\) and \(x^*=7.035884281332817\times10^{11}\). Neither is fitted in the tests below.
+
+\section{Non-relativistic action}
+
+The action has two potentials. \(\Phi\) couples to matter. An auxiliary potential \(\hat\Phi\) carries the invariant
+\[
+x=\frac{c^2\|\nabla\nabla\hat\Phi\|}{a_0^2},
+\]
+which is computed from \(\hat\Phi\) and is not varied. The action is
+\begin{align}
+S&=-\frac{1}{8\pi G}\int d^3x\Big[
+2\nabla\Phi\cdot\nabla\hat\Phi
+-a_0^2 Q(|\nabla\hat\Phi|^2/a_0^2) \nonumber\\
+&\quad -a_0^2\bigl(S(x)-1\bigr)\bigl(Q(|\nabla\hat\Phi|^2/a_0^2)-|\nabla\hat\Phi|^2/a_0^2-C\bigr)
+\Big]
+-\int d^3x\,\rho\Phi,
+\label{eq:action}
+\end{align}
+with \(Q'=\nu_{\rm std}\). Variation with respect to \(\Phi\) gives \(\nabla^2\hat\Phi=4\pi G\rho\), so \(\hat\Phi=\Phi_N\). Variation with respect to \(\hat\Phi\), at fixed \(x\), gives \(\nabla\Phi=\nu_{\rm eff}\nabla\Phi_N\). Setting \(S=1\) recovers QUMOND. Setting \(S=0\) recovers Newton. The derivative of the action with respect to the constant \(C\) is proportional to \(\int(S-1)\,dV\). On the solar shell that integral is \(-2.06\times10^{46}\,\mathrm{m}^3\), which is not zero, so the field equation does not choose \(C\). A boundary condition that the screened source vanish at zero field forces \(C=0\). That value fails the Oort test and is the subject of the companion paper. The working value is fixed by the Oort window, once, and is then held fixed.
+
+With \(x\) not varied, the action has only first derivatives of the two potentials. The higher-derivative question appears when \(x\) is promoted to a dynamical field. That promotion is not carried out here. The shell on which \(S'\) would become that higher derivative peaks at \(1.17\times10^{4}\,\mathrm{au}\), with half-maximum from \(8.74\times10^{3}\) to \(1.75\times10^{4}\,\mathrm{au}\), a fractional width \(0.75\). It is not a thin correction.
+
+\section{One field is not enough}
+
+A single scalar has one gradient at one point. Read as a Galactic external field at the Sun, Cassini needs that gradient, in units of \(a_0\), between \(1.637\) and \(2.068\). Read as a galaxy in the field of M31, the Milky Way needs \(3.0\times10^{-3}\) at the same point. The ratio is about \(550\) to \(690\). The tide takes both values: \(x\approx1.8\times10^{12}\) at the Sun's MOND radius and \(x\approx3.9\times10^{7}\) in the disk at the solar circle, so \(S\approx0.133\) and \(S\approx1\).
+
+\section{The Oort window}
+
+For a uniform external field the binding offset of a comet that falls from rest is linear in \(C\),
+\begin{equation}
+\frac{1}{a}(C)=\frac{1}{a}(0)\,\frac{P(y_e)-C}{P(y_e)}.
+\label{eq:closed}
+\end{equation}
+At \(g_e=1.90\times10^{-10}\,\mathrm{m\,s^{-2}}\), \(P=0.750345\) and \((1/a)(0)=1.385818\times10^{-4}\,\mathrm{au^{-1}}\). The observed peak, \(10^{4}\) to \(10^{5}\,\mathrm{au}\), sits at
+\[
+C\in[0.208899,\ 0.696200],
+\]
+with the centre \(C=0.579124707982253\) at \(31{,}623\,\mathrm{au}\). At \(g_e=2.32\times10^{-10}\,\mathrm{m\,s^{-2}}\) the window is \([0.384925,\ 0.872226]\) and the centre is \(0.755150\). Every test below uses the centre at \(1.90\times10^{-10}\), except the wide-binary window scan, which uses all three.
+
+A full-map integral, including the divergence of \(W\), gives a mean offset \(1.582166\times10^{-5}\,\mathrm{au^{-1}}\) at the working \(C\). The weighted median original semimajor axis is \(63{,}234\,\mathrm{au}\). The torque jump is \(a_J=3.669\,\mathrm{kAU}\), the same value as at \(C=0\).
+
+\section{Five tests at the centre}
+
+\paragraph{Cassini.}
+The action-form quadrupole, in units of \(10^{-27}\,\mathrm{s^{-2}}\), is \(5.200000\) at \(g_e=1.9\times10^{-10}\) and \(3.991075\) at \(2.4\times10^{-10}\), both at \(C=0\) and at the working \(C\). Both sit inside \([-2.0,\ 5.2]\). A constant \(C\) integrates to \(-2.3\times10^{-42}\,\mathrm{s^{-2}}\) against a \(P(y)\) piece of \(4.44\times10^{-27}\). The quadrupole is carried by the radial variation of \(P\) between \(2.8\times10^{3}\) and \(1.25\times10^{4}\,\mathrm{au}\).
+
+\paragraph{Gaia wide binaries, centre.}
+The clean cut, \(14{,}542\) pairs, at \(g_e=1.9\times10^{-10}\), gives raw \(\chi^2=4.360\) and calibrated \(2.995\), against Newton \(9.508\) and an injection maximum of \(20.431\). The loose cut, \(20{,}156\) pairs, gives raw \(39.605\) and calibrated \(18.171\), under the bar of \(18.5\). The pre-registered exclusion does not fire. The \(2.4\times10^{-10}\) column was not rerun.
+
+\paragraph{SPARC.}
+One hundred seventy-one galaxies. The screen total is \(18123.519\). Newton in the same fitter is \(293096.718\). The unscreened \(\mu_{\rm std}\) total is \(18123.521\). The shell term does not move the aggregate. A disk solution of \(W\), as opposed to the spherical estimate, is not in this number.
+
+\paragraph{Four dwarfs.}
+Crater II, Carina, Leo II, and Sculptor, at the measured dispersion minus its lower error. The decision mass-to-light ratios are \(0.0599\), \(0.929\), \(2.659\), and \(1.335\). All four are at or under \(3\). The Newtonian control matches the published Newtonian ratios to a relative difference of \(3.2\times10^{-7}\). Leo II is not brought down by \(W\). At the decision mass, \(g_W=-8.0\times10^{-20}\,\mathrm{m\,s^{-2}}\). The ratio \(2.659\) is the Wolf formula at \(\nu_{\rm eff} g_N\) with \(S\) near \(1\).
+
+\section{The window on the clean wide-binary cut}
+
+The same clean cut and the same bar were run at the two edges. A model fails only if the calibrated \(\chi^2\) exceeds \(18.5\) and the raw \(\chi^2\) exceeds that model's injection maximum. Newton on this cut is raw \(\chi^2=9.508\).
+
+\begin{center}
+\begin{tabular}{lrrrr}
+\hline
+\(C\) & raw \(\chi^2\) & calibrated & \(\kappa\) & injection max \\
+\hline
+\(0.208899\) & \(2.248\) & \(1.446\) & \(1.555\) & \(22.315\) \\
+\(0.579125\) & \(4.360\) & \(2.995\) & \(1.456\) & \(20.431\) \\
+\(0.696200\) & \(5.186\) & \(3.878\) & \(1.337\) & \(20.387\) \\
+\hline
+\end{tabular}
+\end{center}
+
+None of the three fail. The loose cut was not repeated at the edges. The centre row is the earlier receipt. The edge rows are a separate run at the same \(x^*\) and the same \(g_e\).
+
+\section{Radial comet orbits}
+
+Thirteen aphelia from \(3\times10^{3}\) to \(3\times10^{5}\,\mathrm{au}\) were integrated in \(-\mathrm{GM}/r^2+g_W(r;C)\), with angular momentum aimed at a \(5\,\mathrm{au}\) perihelion. The Newtonian osculating \(1/a\) at perihelion matches the potential to \(1.26\times10^{-6}\,\mathrm{au^{-1}}\). Osculating semimajor axes for three starts inside or beside the observed window are:
+
+\begin{center}
+\begin{tabular}{lrrrr}
+\hline
+start (au) & \(C=0\) & \(0.209\) & \(0.579\) & \(0.696\) \\
+\hline
+\(13{,}925\) & turns at \(9{,}683\) & \(4{,}204\) & \(5{,}771\) & \(6{,}542\) \\
+\(30{,}000\) & \(4{,}877\) & \(6{,}006\) & \(10{,}192\) & \(13{,}073\) \\
+\(94{,}868\) & \(6{,}270\) & \(8{,}271\) & \(19{,}032\) & \(32{,}342\) \\
+\hline
+\end{tabular}
+\end{center}
+
+At \(C=0\), two starts in the shell never reach the inner system, and the ones that do land below \(10^{4}\,\mathrm{au}\). At the centre, a \(3\times10^{4}\,\mathrm{au}\) start lands at \(1.02\times10^{4}\,\mathrm{au}\) and a \(9.5\times10^{4}\,\mathrm{au}\) start lands at \(1.90\times10^{4}\,\mathrm{au}\). At the high edge the upper half of the window stays inside \(10^{4}\) to \(10^{5}\,\mathrm{au}\). This is a radial integral. It is not a population integration with stellar encounters and the Galactic tide of the kind run by Vokrouhlick\'y, Nesvorn\'y and Tremaine. That population remains open.
+
+\section{What is not claimed}
+
+There is no cosmological sector in this action. The branch in which \(x\) is a dynamical relativistic field is open. The constant \(C\) is fixed by the Oort window, not derived from a symmetry. The \(C=0\) failure is the companion paper. An intermediate wide-binary mask between the clean and loose cuts is not a nested sample, and no model \(\chi^2\) was computed on it. \(x^*\) is the Cassini value, not a derived constant.
+

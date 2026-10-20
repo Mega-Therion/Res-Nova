@@ -1,0 +1,10 @@
+def F_std_deriv_analytic (x : ℝ) : ℝ := x ^ 2 / Real.sqrt (1 + x ^ 2)
+
+theorem F_std_deriv_eq (x : ℝ) : F_std_deriv_analytic x = x * mu_std x := by
+  simp [F_std_deriv_analytic, mu_std, mul_div_assoc, sq]
+
+theorem F_std_deriv2_positivity {x : ℝ} (hx : 0 < x) : 0 < F_std_deriv2 x :=
+  F_std_deriv2_pos hx
+
+theorem F_std_strict_convexity : StrictConvexOn ℝ (Set.Ici (0 : ℝ)) F_std :=
+  F_std_strictConvexOn

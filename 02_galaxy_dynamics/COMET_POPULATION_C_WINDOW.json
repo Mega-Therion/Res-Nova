@@ -1,0 +1,98 @@
+{
+ "seed": 20261018,
+ "n": 640,
+ "max_orbits": 80,
+ "q_init_au": [
+  20,
+  80
+ ],
+ "encounter": {
+  "n_pc3": 0.1,
+  "M_sun": 0.5,
+  "v_km_s": 40.0,
+  "b_min_au": 500.0,
+  "b_max_au": 20000.0
+ },
+ "models": {
+  "tide:newton": {
+   "n_started": 640,
+   "n_reached_q10": 64,
+   "frac_reached": 0.1,
+   "frac_a_1e3_1e4": 0.0,
+   "frac_a_1e4_1e5": 1.0,
+   "frac_below_1e4": 0.0,
+   "median_a_au": 20455.302694048954,
+   "phi_term_au": 0.0
+  },
+  "tide:C0": {
+   "n_started": 640,
+   "n_reached_q10": 64,
+   "frac_reached": 0.1,
+   "frac_a_1e3_1e4": 1.0,
+   "frac_a_1e4_1e5": 0.0,
+   "frac_below_1e4": 1.0,
+   "median_a_au": 5334.207153070947,
+   "phi_term_au": -0.00013858101948569543
+  },
+  "tide:C_centre": {
+   "n_started": 640,
+   "n_reached_q10": 64,
+   "frac_reached": 0.1,
+   "frac_a_1e3_1e4": 0.25,
+   "frac_a_1e4_1e5": 0.75,
+   "frac_below_1e4": 0.25,
+   "median_a_au": 12420.769462209992,
+   "phi_term_au": -3.162260065088265e-05
+  },
+  "tide:C_high": {
+   "n_started": 640,
+   "n_reached_q10": 64,
+   "frac_reached": 0.1,
+   "frac_a_1e3_1e4": 0.09375,
+   "frac_a_1e4_1e5": 0.90625,
+   "frac_below_1e4": 0.09375,
+   "median_a_au": 16981.578291364178,
+   "phi_term_au": -9.999989931213739e-06
+  },
+  "stars:newton": {
+   "n_started": 640,
+   "n_reached_q10": 7,
+   "frac_reached": 0.0109375,
+   "frac_a_1e3_1e4": 0.0,
+   "frac_a_1e4_1e5": 1.0,
+   "frac_below_1e4": 0.0,
+   "median_a_au": 29865.75211525934,
+   "phi_term_au": 0.0
+  },
+  "stars:C0": {
+   "n_started": 640,
+   "n_reached_q10": 7,
+   "frac_reached": 0.0109375,
+   "frac_a_1e3_1e4": 1.0,
+   "frac_a_1e4_1e5": 0.0,
+   "frac_below_1e4": 1.0,
+   "median_a_au": 5811.784623756463,
+   "phi_term_au": -0.00013858101948569543
+  },
+  "stars:C_centre": {
+   "n_started": 640,
+   "n_reached_q10": 7,
+   "frac_reached": 0.0109375,
+   "frac_a_1e3_1e4": 0.0,
+   "frac_a_1e4_1e5": 1.0,
+   "frac_below_1e4": 0.0,
+   "median_a_au": 15359.62201842837,
+   "phi_term_au": -3.162260065088265e-05
+  },
+  "stars:C_high": {
+   "n_started": 640,
+   "n_reached_q10": 7,
+   "frac_reached": 0.0109375,
+   "frac_a_1e3_1e4": 0.0,
+   "frac_a_1e4_1e5": 1.0,
+   "frac_below_1e4": 0.0,
+   "median_a_au": 22997.409666827978,
+   "phi_term_au": -9.999989931213739e-06
+  }
+ }
+}

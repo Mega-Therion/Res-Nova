@@ -44,9 +44,9 @@ and
 
 $$\tfrac{1}{\sqrt2} = \cos 45^\circ \quad\text{exactly.}$$
 
-**Equipartition *is* the 45° split** — half aligned, half not. This is why $\theta$ is the
-same number in a cognitive gate and in a black hole: both are asking when a system is
-evenly divided between alignment and drift.
+**Equipartition *is* the 45° split** — half aligned, half not. That number is the floor
+$\chi = 1/\sqrt{2}$. The physics gate is a different input, $\theta = 0.7 = n/N$, the
+active-dimension fraction. The two are 1% apart and are not the same symbol.
 
 ## The ceiling is the two-channel union of that same alignment
 
@@ -95,10 +95,40 @@ local and only $\chi_s$ survives.
 
 ## Consequence for the corpus
 
-Stop presenting $\kappa_Y=\sqrt{\theta(2-\theta)}$ at $\theta=0.7$ as a derivation of
-0.9539. There is one derived ceiling, $\chi_s=0.956145$ at $\theta=1/\sqrt2$, and one
-measured ceiling, $\tau=0.9539$. Writing $\theta=0.7$ is the floor written short; it is not
-a second value of $\theta$.
+Keep the two inputs apart. The floor is $\chi=1/\sqrt{2}=0.70710678$. The gate is
+$\theta=0.7$. Rerun 2026-10-16:
+
+| input | ceiling $\sqrt{\theta(2-\theta)}$ | angle | distance to measured $\tau=0.9539$ |
+|---|---|---|---|
+| $\theta=0.7$ | $0.953939201$ | $17.458^\circ$ | $3.92\times10^{-5}$ ($0.0075^\circ$) |
+| $\theta=1/\sqrt{2}$ | $\chi_s=0.956145158$ | $17.031^\circ$ | $2.25\times10^{-3}$ ($0.434^\circ$) |
+
+The $\theta=0.7$ evaluation sits on the measured ceiling. The equipartition evaluation is
+57 times further from it. $\theta=0.7$ is not the floor written short. It is also not an
+output of the Data Processing Inequality: that inequality gives $\theta=I/H=n/N$, and the
+value is 0.7 when the active fraction is 0.7. The product of the floor and the
+$\theta=0.7$ ceiling is 0.6745, which is 2.7% under $\ln 2$.
 
 See `TWO_CHANNEL_CEILING_ANALYSIS.md`, `RECOVERED_MATERIAL.md` §4,
 `06_unification_and_spin/README.md`.
+
+## Physics, not the program
+
+The program stores these as cosines between vectors. On a lossless line the same algebra
+is a power split. Delivered power is $T = 1-|\Gamma|^2$. Rerun 2026-10-16, exact:
+
+| role | value in the program | as a wave | reflected fraction $\|\Gamma\|^2$ | $\|\Gamma\|$ |
+|---|---|---|---|---|
+| floor, two equal modes | $\chi=1/\sqrt{2}$ | half the power returns | $1/2$ | $1/\sqrt{2}=0.707106781$ |
+| gate, active-mode fraction | $\theta=n/N=0.7$ | 0.7 of the power stays in the forward channel | $0.3$ | $\sqrt{0.3}=0.547722558$ |
+| ceiling, two-channel union | $\kappa=\sqrt{0.91}$ | delivered power $\kappa^2=0.91$ | $0.09$ | $0.3$ exactly |
+
+The floor is the circle where the forward and backward waves carry the same power. The
+gate is a smaller circle, 30% of the power coming back. The ceiling is the circle where
+9% comes back. These are three radii on the reflection disk. They are not three names
+for $1/\sqrt{2}$.
+
+Reading $\theta=n/N$ as the delivered power $T$ is an identification, `[O]`. The equality
+$T=1-|\Gamma|^2$ and $\kappa^2=\theta(2-\theta)$ are algebra, `[D]`. Nothing in this table
+is a galaxy speed, a screening edge, or a Cassini bound. The software threshold is the
+implementation of the cosine. The wave is the object.
