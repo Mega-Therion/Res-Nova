@@ -77,3 +77,5 @@ book/chapters/ch13-171-galaxies.md::mu_dual interpolating function::ad5454973464
 book/chapters/ch13-171-galaxies.md::mu_dual interpolating function::f44be0697489
 docs/A0_CLOSURE_EVOLUTION.md::mu_dual interpolating function::c7980ab8d723
 publication/PAPER_OUTLINE_ONE_LAW_2026-09-27.md::mu_dual interpolating function::72e9fc11f568
+# 2026-10-21: figure plan compares Q2 under mu_std, RAR and the retired mu_dual branch; a comparison, not a live use.
+build_smoky_quartz/publication/PAPER_OUTLINE_ONE_LAW_2026-09-27.md::mu_dual interpolating function::72e9fc11f568
