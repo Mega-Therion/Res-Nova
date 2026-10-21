@@ -450,6 +450,22 @@ and is not computed in SZ's PRL either (they defer to Skordis et al. 2021). **[O
 > `𝒦_2 = 8πG̃ρ̄_0/(4𝒬_0²w_0) = 97.0` gives `μ⁻¹ = 0.9895 Mpc`, landing on SZ's own stated
 > requirement `μ⁻¹ ≳ 1 Mpc`.
 
+> ### ✗ SUPERSEDED 2026-10-21 — THE 0.83–1.06 SUPPORT ABOVE DOES NOT STAND
+>
+> `boltzmann_units_fixed.py:75` set `γ = Π/(1+w)`, dropping the `φ̄̇` factor that (S1) requires
+> (`γ = φ̄̇Π/(1+w)`). With only that fixed, k = 0.1 gives `δ_AeST/δ_CDM = 0.24` from `a_i = 10⁻²`
+> and `−111.6` from `a_i = 10⁻³`. The **0.83–1.06 band is an artefact [X as evidence of CDM-like
+> growth]**, and §3.3's CDM-like conclusion is back to **[O]**.
+>
+> At SZ's own Fig. 1 point (`K_B = 0.5`, `w_0 = 1.42×10⁻¹²`, `F_Y = 0`, which is SZ's linear system
+> since F_Y vanishes in the MOND limit) the published equations, re-derived from the action with
+> residual 0, give `δ_φ/δ_CDM = 1.00 / 0.61 / −1.67` at k = 0.01 / 0.05 / 0.1 Mpc⁻¹, r = 10⁻²,
+> stable to 3% across `a_i = 10⁻⁶, 10⁻⁷`. The driver is a k-independent growing mode in the
+> (E, α) vector sector, about 1.9 per e-fold against 0.7–0.8 for CDM, present while `K_Q` is large.
+> SZ's Minkowski stability proof does not cover it. **Physical or not: [O].** So the `+110/e-fold`
+> runaway is only partly retired: the units part is fixed, a 2–5 per e-fold mode survives.
+> Source: `05_Scripts_and_Tools/02_cosmology_cmb_and_chi_field/cmb_aest/SIGN_CONVENTION_REDERIVATION_2026-10-21.md`.
+
 
 §1.3 flagged that c²_ad is a background thermodynamic derivative, **not** a propagation
 speed, and deferred the real one to **[O]**. It is now derived.
@@ -503,7 +519,10 @@ to **[D]**, and it is *weaker* than the estimate suggested, not stronger.
 five-variable system numerically substituted c²_ad for c_s (having "cleared" the two as
 equivalent by comparing them only *asymptotically*, where the ratio is ≈1). That gave
 δ_φ/δ_CDM ≈ 0.001 above k = 0.05 — structure annihilated — in flat contradiction with SZ.
-The cause was a slaved reduction that eliminated E and α to cure numerical stiffness,
+*(Corrected 2026-10-21: the explanation below is wrong. The slaved closure is the exact
+large-F_Y limit, not a discarded sector; the 0.001 came from running it at the corpus point
+`w_0 = 1.23×10⁻⁸` instead of SZ's `1.42×10⁻¹²`. Swapping only `w_0` brings k = 0.05 back to 0.72.
+See the 2026-10-21 box in §3.5.)* The cause was a slaved reduction that eliminated E and α to cure numerical stiffness,
 thereby discarding the very sector that carries the gradient term and hence sets c_s.
 **SZ warn of exactly this**: "the system does not close under the fluid variables, but
 rather depends on the vector field perturbations α and E" (§3.2). Any reduction to

@@ -180,7 +180,9 @@ pinned by the cosmological background.
 
 **AeST is not MOND.** It carries a `𝒦(𝒬)` sector whose background energy density
 `8πG̃ρ̄ = 𝒬 dK/d𝒬 − 𝒦` evolves as `ρ̄ ∝ a⁻³` — **dust** — and D5's perturbation work
-(2026-09-24) now shows it tracks CDM in the matter era, `δ_AeST/δ_CDM = 0.83–1.06`.
+(2026-09-24) appeared to show it tracks CDM in the matter era, `δ_AeST/δ_CDM = 0.83–1.06`.
+**Withdrawn 2026-10-21:** that band came from a dropped `φ̄̇` factor in γ; at SZ's parameters
+the ratio is 0.61 at k = 0.05 and −1.67 at k = 0.1 (r = 10⁻²). Whether AeST tracks CDM is **[O]** (D5 §3.5).
 
 A component that behaves like CDM cosmologically may also **clump in halos**. If it does,
 it supplies exactly the kind of mass this test finds missing, and the factor of 2 could be

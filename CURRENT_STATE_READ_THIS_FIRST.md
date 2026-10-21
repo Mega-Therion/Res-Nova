@@ -236,6 +236,20 @@ Also settled the same day: the perturbation sound speed is
 c²_ad (which exceeds it by ~10⁶ at a = 10⁻²). Jeans cutoff k_J = 0.68 Mpc⁻¹, above the
 linear MPS window. **Never substitute c_ad for a propagation speed.**
 
+**Added 2026-10-21 (no tier change; AeST CMB stays reported-not-verified, now with a named
+obstruction).** SZ's linear equations (definitions of δ, θ, Π; eqs. 9–10; the vector equation)
+re-derive from the AeST action with residual 0 in SZ's own sign conventions, so sign conventions
+are ruled out as the cause of our mismatch `[D]`. Two of our own results are withdrawn: the
+matter-era `δ_AeST/δ_CDM = 0.83–1.06` came from a dropped `φ̄̇` factor in γ
+(`boltzmann_units_fixed.py:75`) `[X]`, and the old "0.001 annihilation" came from the corpus
+`w₀ = 1.23×10⁻⁸`, not SZ's `1.42×10⁻¹²`. At SZ's Fig. 1 point with F_Y = 0 (their linear system),
+`δ_φ/δ_CDM = 1.00 / 0.61 / −1.67` at k = 0.01 / 0.05 / 0.1 Mpc⁻¹ (r = 10⁻², stable to 3% in a_i),
+driven by a k-independent (E, α) vector-sector growing mode of ~1.9 per e-fold that SZ's
+Minkowski stability proof does not cover. Whether that mode is physical is `[O]`; an independent-code
+cross-check is in progress. Source:
+`Research_and_Data/05_Scripts_and_Tools/02_cosmology_cmb_and_chi_field/cmb_aest/SIGN_CONVENTION_REDERIVATION_2026-10-21.md`
+(Chyren `d0094073e`); `TARGET_D5` §3.5, D10 §6 and D11 carry matching corrections.
+
 ### 3. The covariant completion action is AeST, NOT generalized Einstein-aether
 
 - D7's action was rewritten 2026-09-12 to genuine AeST (Skordis-Złośnik arXiv:2007.00082):

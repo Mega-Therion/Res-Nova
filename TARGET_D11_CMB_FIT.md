@@ -117,8 +117,9 @@ removes P2 from the list of things that could ever have been falsified.
 1. **The real Planck likelihood** (`plik_lite` TTTEEE + lowl + lowE) with the covariance,
    rather than binned TT with independent errors. That turns §4's Δχ² into a defensible number.
 2. **Perturbations.** The whole of §1's exclusion. Needs the modified Boltzmann code; the
-   matter-era piece is working (`boltzmann_units_fixed.py`, `δ_AeST/δ_CDM = 0.83–1.06`) and
-   the radiation era is open.
+   matter-era piece is **not** yet working: the 0.83–1.06 from `boltzmann_units_fixed.py` was
+   withdrawn 2026-10-21 (dropped `φ̄̇` in γ), and SZ's own system shows a vector-sector growing
+   mode at k ≳ 0.1 (D5 §3.5). The radiation era is open.
 3. **`τ` freed**, with low-ℓ EE included, since fixing it is the largest methodological
    shortcut taken here.
 
