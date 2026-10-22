@@ -93,7 +93,7 @@ resolves to the newest version.
 | ORCID | [0009-0001-1303-7190](https://orcid.org/0009-0001-1303-7190) |
 | Repository | [Mega-Therion/Res-Nova](https://github.com/Mega-Therion/Res-Nova) |
 | Concept DOI (always latest) | [10.5281/zenodo.21539453](https://doi.org/10.5281/zenodo.21539453) |
-| Current version DOI | [10.5281/zenodo.22079177](https://doi.org/10.5281/zenodo.22079177) |
+| Current version DOI | [10.5281/zenodo.23130663](https://doi.org/10.5281/zenodo.23130663) |
 | Current repository tag | `v1.9.0` |
 
 ### Version history
@@ -104,7 +104,8 @@ errors. The version family under concept `10.5281/zenodo.21539453` is:
 
 | Version DOI | Version | Date |
 | :--- | :--- | :--- |
-| [22079177](https://doi.org/10.5281/zenodo.22079177) | current | 2026-08-24 |
+| [23130663](https://doi.org/10.5281/zenodo.23130663) | current | 2026-10-04 |
+| [22079177](https://doi.org/10.5281/zenodo.22079177) | superseded | 2026-08-24 |
 | [21660856](https://doi.org/10.5281/zenodo.21660856) | 5.0.0 | 2026-07-28 |
 | [21623111](https://doi.org/10.5281/zenodo.21623111) | 4.0.0 | 2026-07-27 |
 | [21583646](https://doi.org/10.5281/zenodo.21583646) | earlier | — |
