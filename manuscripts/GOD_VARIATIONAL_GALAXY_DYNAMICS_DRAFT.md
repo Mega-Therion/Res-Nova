@@ -63,17 +63,19 @@ These expressions should be retained as a mathematical appendix result and check
 
 ## 3. Galaxy-dynamics benchmark
 
-The canonical benchmark must use the current \(\mu_{\rm std}\) branch, pinned inputs, explicit data manifest, and matched evaluation rules across models. The current repository record reports the following benchmark summaries:
+The canonical benchmark uses the current \(\mu_{\rm std}\) interpolation function and compares two choices of \(a_0\), plus an NFW halo fit. **Both first rows are MOND-style \(\mu_{\rm std}\) runs; neither row is a separately identified G.O.D. implementation.** The values below are transcribed from the canonical `RESULTS.md` record and are not an independent rerun in this drafting pass.
 
-| Benchmark surface | MOND baseline | Current G.O.D. implementation | Current interpretation |
-|---|---:|---:|---|
-| Tier 0 | 9.93 | 11.08 | MOND baseline currently scores better |
-| Tier 1 | 3.36 | 3.41 | Near tie; MOND slightly better |
-| Aggregate | 6.09 | 6.03 | Small aggregate difference; definition and aggregation must be documented |
+| Model | \(a_0\) | Tier 0: median \(\chi^2_\nu\), no per-galaxy freedom | Tier 1: median \(\chi^2_\nu\), matched nuisance |
+|---|---:|---:|---:|
+| \(\mu_{\rm std}\), declared anchor \(cH_0/(2\pi)\) | \(1.042\times10^{-10}\,\mathrm{m/s^2}\) | 11.08 | 3.36 (374 parameters) |
+| \(\mu_{\rm std}\), fitted literature value | \(1.200\times10^{-10}\,\mathrm{m/s^2}\) | 9.93 | 3.41 (374 parameters) |
+| NFW halo | not applicable | not run | 1.92 (716 parameters) |
 
-**These values are provisional manuscript inputs, not independently reproduced results in this drafting pass.** The final paper must state the metric represented by each number, the exact sample and masking rules, whether lower is better, all parameter counts, the objective function, and the aggregation formula. The record specifies Tier 0 as using mass-to-light ratios at prior means, and reports a 374-parameter budget comprising 171 disk mass-to-light ratios, 32 bulge mass-to-light ratios, and 171 gas-distance factors. These definitions must be cross-checked against generated tables and the canonical parameter ledger before release.
+The data record states that 171 of 175 SPARC galaxies are retained (four with fewer than five points are dropped), for 3,375 data points. At Tier 0, the fitted \(a_0\) row scores better than the declared-anchor row. At Tier 1, the two \(\mu_{\rm std}\) rows are close, with the declared-anchor row slightly lower. NFW has a lower Tier-1 median but uses 342 more parameters. Lower median \(\chi^2_\nu\) is better for this reported metric; that fact alone does not establish model superiority or a new physical law.
 
-The earlier \(\mu_{\rm dual}\)-era values are superseded and must not be presented as current evidence. A clean-environment run should reproduce the generated tables from the pinned raw-data manifest and verify that the output agrees with the parameter ledger.
+The Tier-1 nuisance budget is reported as 374 parameters: 171 disk mass-to-light ratios, 32 bulge mass-to-light ratios, and 171 gas-distance factors. The final paper must verify the active parameter counts against the generated tables and parameter ledger. It must also state the metric, sample/masking rules, objective function, uncertainty treatment, and any aggregation formula. Do not label these two rows “MOND baseline versus current G.O.D. implementation” unless a separate, documented G.O.D. implementation and matched benchmark are added.
+
+The repository's `RESULTS.md` states that `./reproduce_core_results.sh` regenerates the core result files and runs `scripts/sparc_benchmark_tables.py --check`. Before submission, execute the pipeline from a clean clone, capture the commit SHA, environment, exit status, and logs, and verify the generated outputs. The source record reports a prior cold reproduction, but this drafting pass has not independently rerun it.
 
 ### 3.1 Required comparisons and reporting
 
@@ -81,13 +83,13 @@ The final reproducibility package must report:
 
 1. SPARC data version, source, licence, and SHA-256 manifest.
 2. Galaxy inclusion/exclusion masks and treatment of distance and inclination uncertainties.
-3. Exact MOND and G.O.D. equations, parameter bounds, priors, and fit procedure.
+3. Exact equations, parameter bounds, priors, and fit procedure for each model.
 4. NFW comparison on a clearly defined and matched protocol.
 5. Number of fitted parameters for each tier and model, with shared versus galaxy-specific parameters distinguished.
-6. Per-galaxy residuals, aggregate metric definition, uncertainty intervals, and sensitivity checks.
+6. Per-galaxy residuals, metric definition, uncertainty intervals, and sensitivity checks.
 7. Exact commands, dependency versions, commit SHA, exit status, and machine-readable outputs.
 
-No statement of superiority should be made unless the comparison is statistically and methodologically justified. A near tie in one aggregate is not evidence of a new physical law.
+No statement of superiority should be made unless the comparison is statistically and methodologically justified. The current two-row \(\mu_{\rm std}\) comparison tests sensitivity to the chosen acceleration scale; it is not a direct G.O.D.-versus-MOND test.
 
 ## 4. Relativistic completion and external-field constraints
 
