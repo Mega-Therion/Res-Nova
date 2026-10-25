@@ -147,6 +147,5 @@ G.O.D./Res Nova provides a structured programme for investigating a constitutive
 - [ ] Complete and independently reproduce C2/C3 own-theory solutions.
 - [ ] Run same-branch Cassini, GW170817, conservation, stability, and well-posedness gates.
 - [ ] Record all failed branches and parameter tuning explicitly.
-- [ ] Obtain independent critical review.
-- [ ] Confirm coauthor list, affiliations, data/code licensing, and target venue.
+- [ ] Confirm data and code licensing.
 - [ ] Replace every provisional statement/table with verified evidence or clearly label it as open.
