@@ -1,0 +1,70 @@
+# Branch tags for the 66 paths
+# mu_std plus mu_dual and/or Pade. Not a derivation review.
+
+path	tags
+A0_PREDICTION_AUDIT_2026-09-16.md	mu_std,mu_dual
+CHANGELOG.md	mu_std,mu_dual,pade
+CLAIM_EVIDENCE_LEDGER.md	mu_std,pade
+CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md	mu_std,mu_dual,pade
+CONSOLIDATION_AND_SALVAGE_PLAN.md	mu_std,mu_dual
+CORPUS_DEPENDENCY_MAP.md	mu_std,mu_dual
+CURRENT_STATE_READ_THIS_FIRST.md	mu_std,mu_dual
+FIG_TREE_MONOGRAPH.md	
+OPEN_PROBLEMS_AND_TESTS.md	mu_std,mu_dual
+Q3_AEST_COVARIANT_DERIVATION_2026-09-16.md	mu_std,mu_dual
+RELEASE_CHECKLIST.md	mu_std,mu_dual
+RES_NOVA_VERIFICATION_LEDGER.md	mu_std,mu_dual,pade
+TARGET_D1_SUPPLEMENT_MU_STD_REBUILD.md	mu_std,pade
+TARGET_D1_VARIATIONAL_DERIVATION.md	mu_std,mu_dual,pade
+TARGET_D2_PHYSICAL_ACTION_DERIVATION.md	mu_std,mu_dual,pade
+TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md	mu_std,mu_dual,pade
+TARGET_D3_PPN_AND_SOLAR_SYSTEM.md	mu_std,mu_dual
+TARGET_D6_RELATIVISTIC_STABILITY.md	mu_std,mu_dual
+TARGET_D7_COVARIANT_COMPLETION.md	pade
+TARGET_D7_SUPPLEMENT_COUPLING_OPTIMIZATION.md	
+TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md	mu_std,mu_dual,pade
+THEORY_CONSISTENCY_AUDIT.md	mu_std,mu_dual
+TTEY_COUPLING_AND_THRUST_ACCOUNTING.md	mu_std,pade
+res_nova_manuscript.tex	mu_std
+01_foundational_action/COVARIANT_STRESS_ENERGY_COMPLETION.md	pade
+01_foundational_action/PAPER_01_MU_DERIVATION_ACTION.tex	mu_std
+01_foundational_action/PAPER_09_ALGEBRAIC_EQUIVALENCE_OF_TAU_TENSION_AND_AQUAL_SIMPLE_MU.tex	
+02_galaxy_dynamics/cassini_sparc_joint.py	mu_std,mu_dual
+02_galaxy_dynamics/efe_quadrupole_q2.py	mu_std,mu_dual
+02_galaxy_dynamics/parameter_ledger.py	mu_std,mu_dual
+02_galaxy_dynamics/prereg_orientation_redteam_2026-10-08/council/checks_a.py	mu_std
+02_galaxy_dynamics/sparc_a0_reextract_3mu.py	mu_std,mu_dual
+02_galaxy_dynamics/sparc_a0_reextract_std.py	mu_std,mu_dual
+02_galaxy_dynamics/sparc_reproduce.py	mu_std,mu_dual
+03_observer_jwst/IO_OI_UNIFIED_TRANSMISSION_MONOGRAPH.tex	
+03_observer_jwst/PREREG_A0_OF_Z.md	mu_std
+03_observer_jwst/PREREG_A0_OF_Z_V2.md	mu_std,mu_dual
+03_observer_jwst/a0_of_z_v2.py	mu_std,mu_dual
+04_cosmology/TARGET_O1_A0_HORIZON_DERIVATION.md	mu_std,mu_dual
+05_lean_formalization/AXIOMS_V2.lean	mu_std,mu_dual
+05_lean_formalization/MuNDuality.lean	mu_std,mu_dual
+05_lean_formalization/MuStdDuality.lean	mu_std,mu_dual
+05_lean_formalization/MuStdSelection.lean	mu_std,mu_dual
+05_lean_formalization/MuStdUniqueness.lean	mu_std,mu_dual,pade
+05_lean_formalization/PPNLimits.lean	mu_std,mu_dual
+05_lean_formalization/PPNLimitsStd.lean	mu_std,mu_dual
+05_lean_formalization/SkordisZlosnikEmbedding.lean	mu_std,mu_dual
+SUBMISSION/COVER_LETTER_PRD.md	
+archive/legacy_root/THEORETICAL_PHYSICS_NOTATION_AND_PEER_REVIEW_REPORT.md	mu_std,mu_dual
+build_smoky_quartz/res_nova_manuscript.tex	mu_std
+build_smoky_quartz/res_nova_manuscript_smoky.tex	mu_std
+build_smoky_quartz/res_nova_smoky_clean.tex	mu_std
+build_smoky_quartz/res_nova_smoky_final.tex	mu_std
+build_smoky_quartz/res_nova_smoky_full.tex	mu_std
+docs/recovered/Canonical-Bridge-Next-Research-Rung.md	mu_std,mu_dual
+docs/recovered/Res-Nova-Rung-2-MuStdWeakField-plan.md	mu_std,mu_dual
+docs/recovered/Rung2-Independent-Derivation-Plan.md	mu_std,mu_dual
+docs/recovered/Rung2-Source-Normalization.md	mu_std,mu_dual
+docs/recovered/Rung2-WeakField-Quasistatic-Ansatz.md	mu_std,mu_dual
+scripts/a0_prediction_audit.py	mu_std,mu_dual
+scripts/falsifier_battery_mu_a0_map.py	mu_std,mu_dual
+scripts/postulate_r_isolation.py	mu_std,mu_dual
+scripts/q3_covariant_derivation.py	mu_std,mu_dual
+scripts/representation_audit_mu_std.py	mu_std,mu_dual
+scripts/verify_mu_std_cassini_and_limits.py	mu_std,mu_dual
+scripts/verify_ppn_gamma_symbolic.py	mu_std,mu_dual
