@@ -15,6 +15,8 @@ Technical manuscript, formal verification, and reproducibility package.
 
 ## For reviewers — start here
 
+A shorter map, including what the two `06_` directories are, is [`docs/WHERE_TO_START.md`](docs/WHERE_TO_START.md).
+
 | | |
 | :--- | :--- |
 | [`RESULTS.md`](RESULTS.md) | The core numbers. `./reproduce_core_results.sh` regenerates them and the other headline files from the official SPARC data and checks them against the commit: five files byte for byte, and three optimizer or bootstrap outputs to a stated tolerance (a₀ 10⁻¹², two fit outputs 10⁻⁸). It runs offline from a verified copy of the data. |
