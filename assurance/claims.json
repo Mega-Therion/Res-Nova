@@ -469,7 +469,7 @@
     },
     {
       "id": "CLM-16",
-      "wording": "Pillar IV: the GKSL generator on Matrix (Fin 2) (Fin 2) C has the stated analytical steady state with unit trace; mu(1) = 1/sqrt2; and the two-channel union is strictly monotone on [0,1], supporting a gate-type iff.",
+      "wording": "Pillar IV: the GKSL generator on Matrix (Fin 2) (Fin 2) C has the stated analytical steady state with unit trace; mu(1) = 1/sqrt2; and the two-channel union is strictly monotone on [0,1]. This monotonicity does not support the anti-drift gate-type iff, which is retracted (CLM-15).",
       "state": "formally-verified",
       "assurance_level": "formal-machine-checked",
       "formal_artifacts": [
