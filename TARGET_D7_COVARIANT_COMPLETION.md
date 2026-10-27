@@ -397,7 +397,7 @@ it moves from asserted to structural, and it is the reason D9 had to be ground t
 | ~~Higher-derivative screening could rescue $\mu=x/(1+x)$~~ — **run down in §11, closed** | **[X]** | §11.5 |
 | BDEF prove $f'>0,\,2sf''+f'>0\Rightarrow\varphi''(r)<0$ ⇒ constant $\approx a_0$ residual is forced by ghost-freedom itself, for *any* $\mathcal{J}$ | [C] | §11.1; arXiv:1106.2538 |
 | No AeST paper builds SZ's screening hatch (this search, 2026-09-12) | [C] | §11.1 |
-| Screening $\mathcal{F}_{\rm dual}$'s residual requires Vainshtein exponent $p\ge2.34$ (2.71 / 3.00 for dwarfs) | [D] | §11.3 |
+| Screening $\mathcal{F}_{\rm dual}$'s residual requires Vainshtein exponent $p\ge2.34$ (2.71 / 3.00 for dwarfs) — **stale: derived against the retracted factor; recomputed $p_{\rm req}=1.890$ (`02_galaxy_dynamics/VAINSHTEIN_PREQ.md`)** | [D] for the arithmetic, input retracted | §11.3 |
 | $c_T=c$-safe Horndeski ($G_2,G_3\Box\phi,G_4$ const) gives $\sup p=2^-$ ⇒ window empty | [D] | §11.3 |
 | Cubic Galileon at max allowed $r_V$: $g_\varphi=2.7\times10^{-11}$ m s⁻², only $4\times$ better than $\tilde a_0$, still $1.4\times10^5$ over bound | [D] | §11.3 |
 | BDEF's working $p=3$ term is Riemann-coupled ($G_4(X)/G_5$) ⇒ excluded by GW170817 | [D]+[C] | §11.2; arXiv:1710.05877/05901/06394 |
@@ -621,7 +621,7 @@ $\Lambda$ — it is empty once $p\le2$.** **[D]**
 ### 11.5 Verdict on branch B **[X]**
 
 Branch B is closed in the $c_T=c$ sector. Screening the $\mathcal{F}_{\rm dual}$ residual to
-solar-system precision requires a Vainshtein exponent $p\ge2.34$; the post-GW170817 Horndeski
+solar-system precision requires a Vainshtein exponent $p\ge2.34$ **[Recomputed 2026-10-27, #186: without the retracted 5.7×10⁵ factor, p_req = 1.890 (Mercury-precession factor 986 at a₀ = 1.1607×10⁻¹⁰); `02_galaxy_dynamics/VAINSHTEIN_PREQ.md`, `vainshtein_preq.py`, exit 0, JSON byte-identical on rerun. 1.890 is below the 2⁻ cap; whether a c_T=c-safe operator realizes it is not shown — `[O]`.]**; the post-GW170817 Horndeski
 sector supplies at most $p\to2^-$; the only construction that reaches $p=3$
 (arXiv:1106.2538) buys it with an explicit Riemann coupling that moves $c_T$ off $c$ — and
 $c_T=c$ is the strongest result this document holds (§6). **The trade is $c_T=c$ against

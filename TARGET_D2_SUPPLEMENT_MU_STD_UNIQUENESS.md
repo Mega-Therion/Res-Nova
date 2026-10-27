@@ -360,7 +360,7 @@ solar-system solution of the corrected AeST action discriminates between them, a
 elimination is strengthened by `TARGET_D7` §11's escape-route closure: BDEF
 (arXiv:1106.2538) proved the constant ≈a₀ residual follows for **any** free function in the
 two-derivative ghost-free sector, and every GW170817-safe screening route to p ≥ 2.34 is
-closed. So the presence reading is not merely disfavored — it is falsified *with its rescue
+closed (2.34 is stale; recomputed p_req = 1.890, `02_galaxy_dynamics/VAINSHTEIN_PREQ.md`, #186; whether that reopens the route is `[O]`). So the presence reading is not merely disfavored — it is falsified *with its rescue
 routes exhausted*, inside the sector both readings share.
 
 **The claim, stated exactly:** conditional on (i) the interpolation variable being a
@@ -380,7 +380,7 @@ logical structure; `[C]` for the empirical selection.
   disjunction now collapses to the right disjunct, on observational grounds rather than
   convenience.
 - **Conditional honesty:** if the one remaining `[O]` branch-B derivation materializes (a
-  non-Horndeski aether-projected operator reaching p ≥ 2.34 with `c_T=c`), the presence
+  non-Horndeski aether-projected operator reaching p ≥ 2.34 with `c_T=c`; recomputed bar p_req = 1.890, `02_galaxy_dynamics/VAINSHTEIN_PREQ.md`), the presence
   reading returns to live status and this section must be downgraded accordingly. The
   elimination is exactly as strong as D7 §11 is thorough.
 

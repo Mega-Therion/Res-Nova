@@ -7,8 +7,10 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against the physics:** 2026-10-21 (UTC). The audit-cycle state below supersedes
+**Last verified against the physics:** 2026-10-27 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
+
+The 2026-10-27 record (no tier change). Muse's ν₆ pass-1/pass-2 posts (BLK-684/685) are mirrored verbatim in `06_foundations/nu6_total_embedding/`. Their scripts and raw JSON are not on this machine or in The Hood, so the EFE gate numbers stay `[O]`. The closed-form numbers recompute: λ_s bound 2.5559100974, anchor φ^{1/6} = 1.0835058822 `[E]`. ν₆ stays candidate, not adopted. `02_galaxy_dynamics/vainshtein_preq.py` reruns with exit 0, and its JSON is byte-identical: p_req = 1.890 (precession), 0.408 (Q₂-scaling, from Q₂ = 1.9017920213×10⁻²⁶ at g_e = 1.9×10⁻¹⁰). The stale `p ≥ 2.34` citations in `TARGET_D7` §11.3/§11.5 and the D2 supplement now point there (#186, #187).
 
 The  2026-10-15 record (no  tier or number  change):  three  foundations modules joined the Lean gate, `InitialAlgebraExecution`, `ListInitialAlgebra` and `BinaryPrefixBasis`. They had been committed as lakefile roots without gate targets, which turned CI red on `d736aa3`. They are now gate targets and are scoped adjacent in `05_lean_formalization/ADJACENT_MODULES.txt`, as three separate developments, not one proof (BLK-391). Standalone `lean_check.py` on each: exit 0, no `sorry`, only the standard three axioms behind 4, 12 and 43 public theorems. None of them touches a D-target or the MOND manuscript, whose module count stays 30. CI's `lake build`, which applies the package's `autoImplicit false`, then failed on an unbound `endo` in `InitialAlgebraExecution.finalAlgebraOnNu`; the standalone checks had run without that option. The binder is now explicit, the same one auto-binding had inserted, and no theorem statement changed. `lake build` exit 0 (2026-10-16). CI verify run 38827607035 on `c4523cc` then passed all 73 targets.
 
