@@ -124,7 +124,7 @@
   },
   {
    "id": "CLM-16",
-   "wording": "Pillar IV: the GKSL generator on Matrix (Fin 2) (Fin 2) C has the stated analytical steady state with unit trace; mu(1) = 1/sqrt2; and the two-channel union is strictly monotone on [0,1], supporting a gate-type iff.",
+   "wording": "Pillar IV: the GKSL generator on Matrix (Fin 2) (Fin 2) C has the stated analytical steady state with unit trace; mu(1) = 1/sqrt2; and the two-channel union is strictly monotone on [0,1]. This monotonicity does not support the anti-drift gate-type iff, which is retracted (CLM-15).",
    "state": "formally-verified",
    "claim_type": "formal-proof",
    "limitations": "16 theorems close on [propext, Classical.choice, Quot.sound] only, and perturbing the constants (mu 1 -> mu 2, kappaBand 7/10 -> 8/10, 1/(2 sqrt2) -> 1/(3 sqrt2)) breaks the proofs, so the values are derived rather than assumed. The earlier anti-drift gate u >= gamma <=> chi >= theta is FALSE and retracted: the steady-state coherence is non-monotonic. Nothing here certifies that the modelled generator describes a physical system.",
