@@ -44,11 +44,13 @@ def nu_n(n):
     def nu_minus_1(y):
         """nu - 1 without cancellation at large y (needed near the Sun, where g_N ~ 1/r^2)."""
         y = np.maximum(np.asarray(y, dtype=float), 1e-300)
-        out = nu(y) - 1.0
+        scalar = y.ndim == 0
+        y = np.atleast_1d(y)
+        out = np.atleast_1d(nu(y) - 1.0).astype(float)
         big = y > 1e-2
         tb = 4.0 * y[big] ** (-float(n))
         out[big] = np.expm1(np.log1p(0.5 * tb / (np.sqrt(1.0 + tb) + 1.0)) / n)
-        return out
+        return out[0] if scalar else out
 
     nu.minus_1 = nu_minus_1
     return nu
