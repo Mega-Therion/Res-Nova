@@ -208,7 +208,7 @@ Nearly all MI work is by Milgrom. It is a set of non-relativistic models built a
 - **Park et al. 2026** state that Solar-System Q2 now constrains classical MG MOND more strongly than wide binaries do. — [arXiv:2602.17884](https://arxiv.org/abs/2602.17884)
 
 ### Inferences
-- **[computed here]** Milgrom's dominant-EFE formula G_eff = G/μ(θ(0)·a_ex/a0), with a_ex = 2a0 and the simple μ(x) = x/(1+x), gives these velocity boosts (1/μ)^{1/2}:
+- **[computed here]** Milgrom's dominant-EFE formula G_eff = G/μ(θ(0)·a_ex/a0), with a_ex = 2a0 and Milgrom's "simple" interpolating function, gives these velocity boosts (1/μ)^{1/2}:
 
   | θ(0) | velocity boost |
   |---|---|
