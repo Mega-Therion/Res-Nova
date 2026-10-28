@@ -2,28 +2,37 @@ r"""Exact mechanical second-order linear perturbation derivation of tensor gravi
 
 Derives mechanically from the complete unnormalized action:
   S = \int d^4x [ \frac{\sqrt{-g}}{16\pi G} R[g] + \frac{\sqrt{-\hat{g}}}{16\pi G} R[\hat{g}]
-                  - \frac{M^2}{2} \sqrt{-g} K(\mathcal{X}) g^{\mu\nu} C^\alpha_{\mu\beta} C^\beta_{\nu\alpha} ]
+                  + s \cdot C_{\mathrm{int}} \sqrt{-g} g^{\mu\nu} C^\alpha_{\mu\beta} C^\beta_{\nu\alpha} ]
+
+where s \in {+1, -1} is the interaction sign parameter:
+  - Stated action convention (negative interaction potential):
+      s = -1,  S_{\mathrm{int}} = - \frac{M^2}{2} \int d^4x \sqrt{-g} K_0 I_C,  with C_{\mathrm{int}} \equiv \frac{M^2 K_0}{2}.
+      Stability bound (no tensor ghost mode): C_{\mathrm{int}} < \frac{1}{32\pi G}.
+  - Positive interaction convention:
+      s = +1,  S_{\mathrm{int}} = + C_{\mathrm{int}} \int d^4x \sqrt{-g} I_C.
+      Ghost-free for all C_{\mathrm{int}} \ge 0.
 
 Derivation pipeline:
 1. Exact perturbed metrics g_{\mu\nu}, \hat{g}_{\mu\nu} and inverses in TT gauge.
 2. Exact mechanical calculation of Christoffel symbols \Gamma^\alpha_{\mu\nu}[g] and \hat{\Gamma}^\alpha_{\mu\nu}[\hat{g}] via index summation.
 3. Exact mechanical calculation of Riemann tensor, Ricci tensor, and Ricci scalars R[g], R[\hat{g}].
-4. Expansion of \sqrt{-g} R[g] and \sqrt{-\hat{g}} R[\hat{g}] to second order in perturbations, verified to reduce modulo total divergence to the canonical kinetic term:
-     \mathcal{L}_{\mathrm{EH}, g}^{(2)} = \frac{1}{2} [ (\partial_0 h)^2 - (\partial_3 h)^2 ].
-   Audits the exact boundary 4-divergence: raw - canonical = - (\partial_0 J^0 + \partial_3 J^3) with J^0 = 2h \partial_0 h, J^3 = -2h \partial_3 h.
+4. Non-tautological audit of boundary 4-divergence identity:
+     canonical \mathcal{L}_{\mathrm{EH}}^{(2)} = \frac{1}{2} [ (\partial_0 h)^2 - (\partial_3 h)^2 ]
+     raw \sqrt{-g} R[g] - canonical \mathcal{L}_{\mathrm{EH}}^{(2)} \equiv - \partial_\mu J^\mu
+     where J^0 = 2h \partial_0 h, J^3 = -2h \partial_3 h are defined independently of the raw expression.
 5. Exact mechanical calculation of C^\alpha_{\mu\nu} and the interaction contraction:
      I_C = g^{\mu\nu} C^\alpha_{\mu\beta} C^\beta_{\nu\alpha}.
-   Consistency test asserts mechanical expansion matches independent tensor formula:
+   Asserts mechanical expansion of \sqrt{-g} I_C matches independent tensor target:
      \mathcal{L}_{\mathrm{int}}^{(2)} = \frac{1}{2} [ (\partial_0(h - \hat{h}))^2 - (\partial_3(h - \hat{h}))^2 ].
-6. Full construction of the total second-order Lagrangian density with 100% symbolic physical parameters (G, M, K0, c):
-     \mathcal{L}^{(2)} = \frac{1}{16\pi G} \mathcal{L}_{\mathrm{EH}, g}^{(2)} + \frac{1}{16\pi G} \mathcal{L}_{\mathrm{EH}, \hat{g}}^{(2)} + C_{\mathrm{int}} \mathcal{L}_{\mathrm{int}}^{(2)}
-   where C_{\mathrm{int}} = \frac{M^2 K_0}{2} (or \frac{c^2 \mathcal{F}_0' \mathcal{S}_0}{8\pi G}).
+6. Full construction of the total second-order Lagrangian density with 100% symbolic physical parameters (G, C_int, s, c):
+     \mathcal{L}^{(2)} = \frac{1}{16\pi G} \mathcal{L}_{\mathrm{EH}, g}^{(2)} + \frac{1}{16\pi G} \mathcal{L}_{\mathrm{EH}, \hat{g}}^{(2)} + s \cdot C_{\mathrm{int}} \mathcal{L}_{\mathrm{int}}^{(2)}
+   with exact action prefactor (no ad-hoc / 2 on C_int).
 7. Mechanical extraction of time-derivative Hessian H_00 and spatial-derivative Hessian H_33 from \mathcal{L}^{(2)}.
 8. Mechanical proof that H_00 == - H_33 (exact Lorentz symmetry of the kinetic operator).
 9. Symbolic derivation of kinetic matrix eigenvalues and non-degeneracy condition:
-     \lambda_1 = \frac{1}{32\pi G}, \quad \lambda_2 = \frac{1 + 16\pi G C_{\mathrm{int}}}{32\pi G}.
+     \lambda_1 = \frac{1}{16\pi G}, \quad \lambda_2 = \frac{1 + 32\pi G s C_{\mathrm{int}}}{16\pi G}.
 10. Construction of the full Fourier-space characteristic matrix P_mat and its exact determinant:
-     \det P(\omega, k) = \frac{1 + 16\pi G C_{\mathrm{int}}}{256 \pi^2 G^2 c^4} (\omega - c k)^2 (\omega + c k)^2 = 0.
+     \det P(\omega, k) = \frac{1 + 32\pi G s C_{\mathrm{int}}}{256 \pi^2 G^2 c^4} (\omega - c k)^2 (\omega + c k)^2 = 0.
 11. Symbolic solution of dispersion roots: \omega = c k (c_T = c identically), without floating-point conversion.
 12. Strict epistemic separation between tensor luminality [P], tensor positivity [P], and scalar ghost-freedom [O].
 """
@@ -31,7 +40,15 @@ from __future__ import annotations
 import sympy as sp
 
 
-def derive_bimetric_tensor_perturbations() -> dict:
+def derive_bimetric_tensor_perturbations(interaction_sign: int = -1) -> dict:
+    r"""Derive quadratic tensor perturbations from the unnormalized bimetric action.
+    
+    Args:
+        interaction_sign: s \in {+1, -1}. Default is -1 matching the stated action
+                          S_int = - (M^2/2) \int \sqrt{-g} K_0 I_C.
+    """
+    assert interaction_sign in (+1, -1), f"interaction_sign must be +1 or -1, got {interaction_sign}"
+
     # Coordinate system (x^0 = c*t, x^1, x^2, x^3 = z)
     x0, x3 = sp.symbols("x0 x3", real=True)
     coords = [x0, sp.symbols("x1", real=True), sp.symbols("x2", real=True), x3]
@@ -42,10 +59,11 @@ def derive_bimetric_tensor_perturbations() -> dict:
 
     # Fully symbolic physical parameters from the action
     G = sp.symbols("G", positive=True)
-    C_int = sp.symbols("C_int", positive=True) # Physical coupling parameter: M^2 K_0 / 2
+    C_int = sp.symbols("C_int", positive=True)  # Physical coupling parameter: M^2 K_0 / 2
     c_sym = sp.symbols("c", positive=True)
     omega = sp.symbols("omega", positive=True)
     k_sym = sp.symbols("k", positive=True)
+    s = sp.Integer(interaction_sign)
 
     eta = sp.diag(-1, 1, 1, 1)
 
@@ -103,28 +121,27 @@ def derive_bimetric_tensor_perturbations() -> dict:
     raw_eh_quad_g = sp.series(eh_density_g, eps, 0, 3).removeO().coeff(eps, 2)
     raw_eh_quad_ghat = sp.series(eh_density_ghat, eps, 0, 3).removeO().coeff(eps, 2)
 
-    # 4. Audit boundary 4-divergence identity:
-    # J^0 = 2 h \partial_0 h, J^3 = -2 h \partial_3 h
+    # 4. Non-tautological audit of boundary 4-divergence identity:
+    # Independently defined canonical kinetic terms:
     dh_0 = sp.diff(h, x0)
     dh_3 = sp.diff(h, x3)
-    J0_g = 2 * h * dh_0
-    J3_g = - 2 * h * dh_3
-    div_g = sp.diff(J0_g, x0) + sp.diff(J3_g, x3)
-    reduced_eh_g = sp.simplify(raw_eh_quad_g + div_g)
-
-    # Check exact boundary identity: raw - reduced = - \partial_\mu J^\mu
-    assert sp.simplify((raw_eh_quad_g - reduced_eh_g) + div_g) == 0, "Boundary divergence identity failed for g!"
-    assert reduced_eh_g == sp.Rational(1, 2) * (dh_0**2 - dh_3**2), "Reduced EH kinetic density failed for g!"
+    canonical_eh_g = sp.Rational(1, 2) * (dh_0**2 - dh_3**2)
 
     dhhat_0 = sp.diff(h_hat, x0)
     dhhat_3 = sp.diff(h_hat, x3)
-    J0_ghat = 2 * h_hat * dhhat_0
-    J3_ghat = - 2 * h_hat * dhhat_3
-    div_ghat = sp.diff(J0_ghat, x0) + sp.diff(J3_ghat, x3)
-    reduced_eh_ghat = sp.simplify(raw_eh_quad_ghat + div_ghat)
+    canonical_eh_ghat = sp.Rational(1, 2) * (dhhat_0**2 - dhhat_3**2)
 
-    assert sp.simplify((raw_eh_quad_ghat - reduced_eh_ghat) + div_ghat) == 0, "Boundary divergence identity failed for ghat!"
-    assert reduced_eh_ghat == sp.Rational(1, 2) * (dhhat_0**2 - dhhat_3**2), "Reduced EH kinetic density failed for ghat!"
+    # Independently defined boundary currents:
+    # J^0 = 2 h \partial_0 h, J^3 = -2 h \partial_3 h
+    div_J_g = sp.diff(2 * h * dh_0, x0) + sp.diff(-2 * h * dh_3, x3)
+    div_J_ghat = sp.diff(2 * h_hat * dhhat_0, x0) + sp.diff(-2 * h_hat * dhhat_3, x3)
+
+    # Non-tautological verification: (raw - canonical) == - div_J
+    raw_diff_g = sp.simplify(raw_eh_quad_g - canonical_eh_g)
+    assert sp.simplify(raw_diff_g - (-div_J_g)) == 0, "Non-tautological boundary divergence identity failed for g!"
+
+    raw_diff_ghat = sp.simplify(raw_eh_quad_ghat - canonical_eh_ghat)
+    assert sp.simplify(raw_diff_ghat - (-div_J_ghat)) == 0, "Non-tautological boundary divergence identity failed for ghat!"
 
     # 5. Connection difference tensor C^\alpha_{\mu\nu}
     C = {}
@@ -159,10 +176,17 @@ def derive_bimetric_tensor_perturbations() -> dict:
     independent_target = sp.Rational(1, 2) * ((dh_0 - dhhat_0)**2 - (dh_3 - dhhat_3)**2)
     assert sp.simplify(L_int - independent_target) == 0, "Mechanical interaction expansion does not match tensor target!"
 
-    # 6. Combined action quadratic Lagrangian density with full symbolic parameters G and C_int:
-    # S = \int d^4x [ \frac{1}{16\pi G} \sqrt{-g} R[g] + \frac{1}{16\pi G} \sqrt{-\hat{g}} R[\hat{g}] + C_{\mathrm{int}} \sqrt{-g} I_C ]
-    L_2 = (sp.Rational(1, 16) / (sp.pi * G)) * reduced_eh_g + (sp.Rational(1, 16) / (sp.pi * G)) * reduced_eh_ghat + (C_int / 2) * L_int
+    # 6. Combined action quadratic Lagrangian density derived directly from unnormalized action:
+    # S = \int d^4x [ \frac{1}{16\pi G} \sqrt{-g} R[g] + \frac{1}{16\pi G} \sqrt{-\hat{g}} R[\hat{g}] + s * C_{\mathrm{int}} \sqrt{-g} I_C ]
+    # Modulo total divergence:
+    L_2 = (sp.Rational(1, 16) / (sp.pi * G)) * canonical_eh_g + (sp.Rational(1, 16) / (sp.pi * G)) * canonical_eh_ghat + s * C_int * L_int
     L_2 = sp.simplify(L_2)
+
+    # Regression test on interaction coefficient:
+    # In L_2, the coefficient multiplying L_int must be exactly s * C_int (no missing or extraneous factors)
+    # Since L_int contains cross terms - dh_0 * dhhat_0 and + dh_3 * dhhat_3:
+    assert sp.diff(L_2, dh_0, dhhat_0) == - s * C_int, "Interaction cross-term (time) coefficient mismatch!"
+    assert sp.diff(L_2, dh_3, dhhat_3) == s * C_int, "Interaction cross-term (space) coefficient mismatch!"
 
     # 7. Extract Hessian matrices mechanically by differentiating L_2:
     H_00 = sp.Matrix([
@@ -180,14 +204,12 @@ def derive_bimetric_tensor_perturbations() -> dict:
 
     # Eigenvalues of kinetic operator H_00:
     eigvals = H_00.eigenvals()
-    # Dimensionless non-degeneracy coupling: \kappa_{\mathrm{eff}} = 16\pi G C_{\mathrm{int}}
-    kappa_eff = 16 * sp.pi * G * C_int
-
+    
     # 8. Full Fourier-space characteristic matrix P(\omega, k)
     P_mat = - (omega**2 / c_sym**2) * H_00 - (k_sym**2) * H_33
     det_P = sp.factor(P_mat.det())
 
-    expected_det = (16 * sp.pi * G * C_int + 1) * (c_sym * k_sym - omega)**2 * (c_sym * k_sym + omega)**2 / (256 * sp.pi**2 * G**2 * c_sym**4)
+    expected_det = (32 * sp.pi * G * s * C_int + 1) * (c_sym * k_sym - omega)**2 * (c_sym * k_sym + omega)**2 / (256 * sp.pi**2 * G**2 * c_sym**4)
     assert sp.simplify(det_P - expected_det) == 0, "Characteristic determinant factorization mismatch!"
 
     # 9. Solve for exact symbolic dispersion roots
@@ -195,10 +217,17 @@ def derive_bimetric_tensor_perturbations() -> dict:
     # Both forward propagating roots must be c*k identically:
     assert roots[0] == c_sym * k_sym, f"Symbolic root differs from c*k: {roots[0]}"
 
+    # Stability / non-degeneracy condition:
+    # lambda_1 = 1 / (16*pi*G) > 0 always.
+    # lambda_2 = (1 + 32*pi*G*s*C_int) / (16*pi*G).
+    # For s = -1: requires C_int < 1 / (32*pi*G) for ghost freedom.
+    # For s = +1: requires C_int > -1 / (32*pi*G), satisfied for all C_int >= 0.
+    stability_factor = 32 * sp.pi * G * s * C_int + 1
+
     return {
         "L_2": L_2,
-        "reduced_eh_g": reduced_eh_g,
-        "reduced_eh_ghat": reduced_eh_ghat,
+        "canonical_eh_g": canonical_eh_g,
+        "canonical_eh_ghat": canonical_eh_ghat,
         "L_int": L_int,
         "H_00": H_00,
         "H_33": H_33,
@@ -206,23 +235,44 @@ def derive_bimetric_tensor_perturbations() -> dict:
         "P_mat": P_mat,
         "det_P": det_P,
         "symbolic_roots": roots,
-        "non_degeneracy_factor": 16 * sp.pi * G * C_int + 1,
-        "kappa_eff": kappa_eff,
-        "c_T_exact_symbolic": roots[0] / k_sym, # Returns c_sym identically
+        "interaction_sign": interaction_sign,
+        "stability_factor": stability_factor,
+        "c_T_exact_symbolic": roots[0] / k_sym,  # Returns c_sym identically
     }
 
 
+def verify_both_interaction_conventions() -> dict:
+    """Verify both s = -1 (stated action) and s = +1 (positive coupling) conventions."""
+    res_neg = derive_bimetric_tensor_perturbations(interaction_sign=-1)
+    res_pos = derive_bimetric_tensor_perturbations(interaction_sign=+1)
+    return {"negative_action": res_neg, "positive_action": res_pos}
+
+
 if __name__ == "__main__":
-    res = derive_bimetric_tensor_perturbations()
-    print("=" * 75)
+    print("=" * 80)
     print("  100% UNNORMALIZED ACTION-DERIVED BIMETRIC TENSOR PERTURBATION DERIVATION")
-    print("=" * 75)
-    print("Parameters: G (Newton's constant), C_int (interaction coupling), c (speed of light)")
-    print("Derived L_2:\n", res["L_2"])
-    print("Kinetic Hessian H_00:\n", res["H_00"])
-    print("Kinetic Eigenvalues:\n", res["eigenvalues"])
-    print("Characteristic Determinant det(P_mat):\n", res["det_P"])
-    print("Symbolic Dispersion Roots for omega:", res["symbolic_roots"])
-    print("Exact Symbolic Tensor Speed c_T:", res["c_T_exact_symbolic"])
-    print("Non-degeneracy / Kinetic Positivity Factor:", res["non_degeneracy_factor"], "> 0")
-    print("=" * 75)
+    print("=" * 80)
+    
+    both = verify_both_interaction_conventions()
+    
+    print("\n--- 1. STATED ACTION CONVENTION (s = -1, S_int = - C_int \\int \\sqrt{-g} I_C) ---")
+    neg = both["negative_action"]
+    print("Derived L_2:\n", neg["L_2"])
+    print("Kinetic Hessian H_00:\n", neg["H_00"])
+    print("Kinetic Eigenvalues:\n", neg["eigenvalues"])
+    print("Characteristic Determinant det(P_mat):\n", neg["det_P"])
+    print("Symbolic Dispersion Roots for omega:", neg["symbolic_roots"])
+    print("Exact Symbolic Tensor Speed c_T:", neg["c_T_exact_symbolic"])
+    print("Ghost-Freedom Stability Condition: C_int < 1 / (32*pi*G)")
+    
+    print("\n--- 2. POSITIVE ACTION CONVENTION (s = +1, S_int = + C_int \\int \\sqrt{-g} I_C) ---")
+    pos = both["positive_action"]
+    print("Derived L_2:\n", pos["L_2"])
+    print("Kinetic Hessian H_00:\n", pos["H_00"])
+    print("Kinetic Eigenvalues:\n", pos["eigenvalues"])
+    print("Characteristic Determinant det(P_mat):\n", pos["det_P"])
+    print("Symbolic Dispersion Roots for omega:", pos["symbolic_roots"])
+    print("Exact Symbolic Tensor Speed c_T:", pos["c_T_exact_symbolic"])
+    print("Ghost-Freedom Stability Condition: C_int >= 0 (holds globally)")
+    print("=" * 80)
+

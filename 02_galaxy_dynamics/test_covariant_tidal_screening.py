@@ -69,31 +69,42 @@ def test_tensor_speed_luminal():
     Calls derive_bimetric_tensor_perturbations() which:
     1. Mechanically constructs perturbed metrics g_{\mu\nu}, \hat{g}_{\mu\nu} and inverses in TT gauge.
     2. Sums Christoffel symbols and computes connection difference C^\alpha_{\mu\nu}.
-    3. Computes Ricci scalar densities and audits boundary divergence identity:
+    3. Computes Ricci scalar densities and audits non-tautological boundary divergence identity:
          \sqrt{-g} R[g] - \mathcal{L}_{\mathrm{EH},g}^{(2)} \equiv - \partial_\mu J^\mu.
     4. Expands interaction density \sqrt{-g} I_C to second order and audits against tensor target.
-    5. Combines unnormalized action terms with full symbolic Newton's constant G and coupling C_int:
-         \mathcal{L}^{(2)} = \frac{1}{16\pi G} \mathcal{L}_{\mathrm{EH},g}^{(2)} + \frac{1}{16\pi G} \mathcal{L}_{\mathrm{EH},\hat{g}}^{(2)} + \frac{C_{\mathrm{int}}}{2} \mathcal{L}_{\mathrm{int}}^{(2)}.
+    5. Combines unnormalized action terms with full symbolic Newton's constant G, coupling C_int, and sign s:
+         \mathcal{L}^{(2)} = \frac{1}{16\pi G} \mathcal{L}_{\mathrm{EH},g}^{(2)} + \frac{1}{16\pi G} \mathcal{L}_{\mathrm{EH},\hat{g}}^{(2)} + s \cdot C_{\mathrm{int}} \mathcal{L}_{\mathrm{int}}^{(2)}.
     6. Extracts Hessians H_00 and H_33, proving exact Lorentz symmetry: H_00 == - H_33.
     7. Evaluates symbolic characteristic determinant:
-         \det P(\omega, k) = \frac{1 + 16\pi G C_{\mathrm{int}}}{256 \pi^2 G^2 c^4} (\omega - c k)^2 (\omega + c k)^2 = 0.
+         \det P(\omega, k) = \frac{1 + 32\pi G s C_{\mathrm{int}}}{256 \pi^2 G^2 c^4} (\omega - c k)^2 (\omega + c k)^2 = 0.
     8. Solves for exact symbolic dispersion roots: \omega = c * k  ==>  c_T = c identically (GW170817 compliant).
-    9. Confirms tensor kinetic positivity: \lambda_1 = \frac{1}{16\pi G} > 0 and \lambda_2 = \frac{1 + 16\pi G C_{\mathrm{int}}}{16\pi G} > 0.
+    9. Confirms tensor kinetic positivity:
+         - s = -1 (stated action convention): \lambda_1 = 1/(16\pi G) > 0, \lambda_2 = (1 - 32\pi G C_int)/(16\pi G) > 0 for C_int < 1/(32\pi G).
+         - s = +1 (positive convention): \lambda_1 = 1/(16\pi G) > 0, \lambda_2 = (1 + 32\pi G C_int)/(16\pi G) > 0 for all C_int >= 0.
     """
     from derive_bimetric_gw_speed import derive_bimetric_tensor_perturbations
     import sympy as sp
     
-    res = derive_bimetric_tensor_perturbations()
-    
-    # 1. Exact symbolic tensor speed ratio (c_T / c = 1 symbolically)
     c_sym = sp.symbols("c", positive=True)
-    c_T_sym = res["c_T_exact_symbolic"]
-    assert c_T_sym == c_sym, f"Exact symbolic speed {c_T_sym} does not equal speed of light {c_sym}!"
+    G = sp.symbols("G", positive=True)
+    C_int = sp.symbols("C_int", positive=True)
+
+    # 1. Test stated action convention (s = -1)
+    res_neg = derive_bimetric_tensor_perturbations(interaction_sign=-1)
+    assert res_neg["c_T_exact_symbolic"] == c_sym, f"Exact symbolic speed {res_neg['c_T_exact_symbolic']} != {c_sym}"
     
-    # 2. Kinetic positivity for physical domain G > 0, C_int >= 0
-    G, C_int = sp.symbols("G C_int", positive=True)
-    for eig in res["eigenvalues"].keys():
-        # Both eigenvalues are strictly positive for positive G and non-negative coupling
+    # Common mode GR graviton is positive
+    eigvals_neg = list(res_neg["eigenvalues"].keys())
+    assert eigvals_neg[0] == 1 / (16 * sp.pi * G), f"Unexpected lambda_1: {eigvals_neg[0]}"
+    # Second mode is positive under stability bound C_int < 1 / (32*pi*G)
+    # e.g., substituting G = 1, C_int = 1 / (64*pi):
+    test_sub = [(G, 1.0), (C_int, 1.0 / (64.0 * float(np.pi)))]
+    assert eigvals_neg[1].subs(test_sub) > 0, f"Second mode not positive under stability bound: {eigvals_neg[1]}"
+
+    # 2. Test positive interaction convention (s = +1)
+    res_pos = derive_bimetric_tensor_perturbations(interaction_sign=+1)
+    assert res_pos["c_T_exact_symbolic"] == c_sym, f"Exact symbolic speed {res_pos['c_T_exact_symbolic']} != {c_sym}"
+    for eig in res_pos["eigenvalues"].keys():
         assert sp.simplify(eig > 0) == True or eig.subs([(G, 1.0), (C_int, 1.0)]) > 0, f"Non-positive eigenvalue: {eig}"
         
     return 1.0
