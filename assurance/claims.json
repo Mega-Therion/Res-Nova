@@ -201,7 +201,8 @@
         "02_galaxy_dynamics/parameter_ledger.py"
       ],
       "data_artifacts": [
-        "02_galaxy_dynamics/PARAMETER_LEDGER.json"
+        "02_galaxy_dynamics/PARAMETER_LEDGER.json",
+        "02_galaxy_dynamics/SPARC_175_summary.json"
       ],
       "assumptions": [
         "Fixed prescription Upsilon_disk = 0.5, Upsilon_bulge = 0.7 across 3391 data points."
@@ -647,7 +648,9 @@
       "computational_artifacts": [
         "TARGET_D3_PPN_AND_SOLAR_SYSTEM.md"
       ],
-      "data_artifacts": [],
+      "data_artifacts": [
+        "MU_DUAL_SOLAR_SYSTEM_RECONCILIATION_2026-09-12.md"
+      ],
       "assumptions": [],
       "verification_commands": [],
       "independent_witness": "TARGET_D3_PPN_AND_SOLAR_SYSTEM.md",
