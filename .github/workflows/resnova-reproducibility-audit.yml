@@ -1,0 +1,30 @@
+name: Res-Nova reproducibility audit
+
+on:
+  pull_request:
+    paths:
+      - "audits/reproducibility/**"
+      - "02_galaxy_dynamics/CASSINI_SPARC_JOINT_SCAN.json"
+      - "02_galaxy_dynamics/cassini_sparc_joint_scan.py"
+      - "02_galaxy_dynamics/sparc_paths.py"
+      - "02_galaxy_dynamics/SPARC_DATA.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  artifact-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify committed scan accounting
+        run: python audits/reproducibility/2026-10-28/verify_joint_scan_artifact.py 02_galaxy_dynamics/CASSINI_SPARC_JOINT_SCAN.json
+      - name: Verify cosmological factor algebra
+        run: python audits/reproducibility/2026-10-28/verify_cosmology_factor.py
