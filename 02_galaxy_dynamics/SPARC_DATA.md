@@ -12,7 +12,7 @@ All scripts in `02_galaxy_dynamics/` resolve the SPARC data directory dynamicall
 2. Environment variable `SPARC_DATA_DIR` (or `SPARC_DATA`)
 3. Repo-local `02_galaxy_dynamics/sparc_data/`
 4. Current working directory `./sparc_data/`
-5. Legacy fallback `/home/mega/Chyren/Research_and_Data/07_Domain_Tiers_and_Data/Datasets/data/sparc_data`
+5. No machine-specific fallback is used. If no valid directory is found, `FileNotFoundError` lists the searched locations.
 
 If no directory containing `*_rotmod.dat` is found, a clear `FileNotFoundError` is raised listing all tried paths.
 
