@@ -15,10 +15,12 @@ import time
 from multiprocessing import Pool
 from pathlib import Path
 
-os.environ.setdefault(
-    "SPARC_DATA_DIR",
-    "/home/mega/Chyren/3_research/Research_and_Data/07_Domain_Tiers_and_Data/Datasets/data/sparc_data",
-)
+# Keep data discovery portable. Preserve an explicit SPARC_DATA_DIR/SPARC_DATA
+# supplied by the caller; otherwise prefer the repository-local dataset populated
+# by 02_galaxy_dynamics/fetch_sparc.sh. sparc_paths.py also checks that location.
+_REPO_LOCAL_SPARC = Path(__file__).resolve().parent / "sparc_data"
+if not os.environ.get("SPARC_DATA_DIR") and not os.environ.get("SPARC_DATA") and _REPO_LOCAL_SPARC.is_dir():
+    os.environ["SPARC_DATA_DIR"] = str(_REPO_LOCAL_SPARC)
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
