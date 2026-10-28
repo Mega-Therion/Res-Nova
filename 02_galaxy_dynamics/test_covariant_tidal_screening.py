@@ -64,35 +64,31 @@ def test_galactic_disk_tidal():
     return x_gal, s_val, deviation
 
 def test_tensor_speed_luminal():
-    r"""Verify luminal tensor propagation speed (c_T = c) directly derived from the bimetric action.
+    r"""Verify luminal tensor propagation speed (c_T = c) mechanically derived from the bimetric action.
     
-    Calls derive_bimetric_tensor_perturbations() to compute the exact quadratic expansion:
-    1. Linearized Christoffel difference C^\alpha_{\mu\nu} component-by-component.
-    2. Full contracted invariant I_C = g^{\mu\nu} C^\alpha_{\mu\beta} C^\beta_{\nu\alpha}.
-    3. The coupled 2x2 kinetic operator matrix K_mat = [[1+kappa, -kappa], [-kappa, 1+kappa]].
-    4. Eigenmode decomposition: massless mode (eigenvalue 1) and relative mode (eigenvalue 2*kappa + 1).
-    5. Verifies both eigenmodes have identical dispersion P(\omega, k) = -(\omega/c)^2 + k^2 = 0 ==> c_T = c.
-    6. Verifies ghost-freedom: det(K_mat) = 2*kappa + 1 > 0 for all kappa >= 0.
+    Calls derive_bimetric_tensor_perturbations() which:
+    1. Mechanically constructs perturbed metrics g_{\mu\nu}, \hat{g}_{\mu\nu} and inverses in TT gauge.
+    2. Sums Christoffel symbols and computes connection difference C^\alpha_{\mu\nu}.
+    3. Expands full contraction I_C = g^{\mu\nu} C^\alpha_{\mu\beta} C^\beta_{\nu\alpha} to second order in perturbations.
+    4. Extracts time-derivative Hessian H_00 and spatial-derivative Hessian H_33 from the Lagrangian density.
+    5. Proves H_00 == - H_33 (exact Lorentz symmetry of kinetic operator).
+    6. Constructs the Fourier-space characteristic matrix P_mat and computes its exact determinant:
+         \det P(\omega, k) = \frac{2\kappa + 1}{4 c^4} (\omega - c k)^2 (\omega + c k)^2 = 0.
+    7. Solves for dispersion roots: \omega = c k  ==>  c_T = c identically.
+    8. Verifies non-degeneracy: 2\kappa + 1 > 0 for all physical screening couplings \kappa >= 0.
     """
     from derive_bimetric_gw_speed import derive_bimetric_tensor_perturbations
-    import sympy as sp
     
     res = derive_bimetric_tensor_perturbations()
     
-    # 1. Verify interaction tensor contracts exactly into the Minkowski wave operator:
-    assert res["ratio_to_box"] == -sp.Rational(1, 2), "Interaction does not preserve Lorentz covariance!"
-    
-    # 2. Verify kinetic matrix determinant is strictly positive for positive coupling:
-    det_val = res["det_K"].subs("kappa", 1.0)
-    assert det_val > 0, "Kinetic degeneracy or ghost mode present!"
-    
-    # 3. Verify dispersion relation for physical gravitational waves:
-    omega, k, c_sym = sp.symbols("omega k c", positive=True)
-    P_sym = - (omega**2 / c_sym**2) + k**2
-    c_T_calc = sp.solve(P_sym, omega)[0] / k
-    c_T_ratio = float(c_T_calc / c_sym)
-    
+    # 1. Verify exact mechanical propagation speed ratio
+    c_T_ratio = res["c_T_ratio"]
     assert c_T_ratio == 1.0, f"Tensor speed calculation non-luminal: {c_T_ratio}"
+    
+    # 2. Verify kinetic non-degeneracy
+    factor = res["ghost_freedom_factor"].subs("kappa", 1.0)
+    assert factor > 0, "Kinetic degeneracy or negative kinetic norm present!"
+    
     return c_T_ratio
 
 def run_all():
