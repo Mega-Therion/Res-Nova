@@ -43,3 +43,7 @@ Every shape has a single crossing: Cassini passes below the edge and fails above
 QUMOND level, these 12 shapes, a₀ ∈ [0.90, 1.30]. Three shapes prefer a₀ at the grid's upper edge, so their preferred a₀
 is a lower bound. The best-a₀-relative gate was chosen in the pre-registration; it is not the frozen Batch-1A gate.
 Not a statement about AeST, λ_s (#187) or shapes outside this list.
+
+## External comparison (added 2026-10-28)
+
+The Cassini band here is the 2σ interval of Q₂ = (1.6 ± 1.8)×10⁻²⁷ s⁻² (Park, Hees, Famaey, Desmond & Durakovic, arXiv:2602.17884 (v2 2026-07-28), Phys. Rev. D (2026), doi:10.1103/r7n8-kw38). Their abstract reports a 3–15σ tension between that bound and external galaxy rotation curves, depending on the mass modelling and the galaxy subset. That agrees with `NO_JOINT_REGION` and with the finding above that, shape by shape, SPARC prefers an a₀ at or above where Cassini fails. Only the galaxy side is an independent check; the Cassini side is their number.
