@@ -2,7 +2,7 @@
 
 Pre-registration: `CASSINI_SPARC_JOINT_SCAN_PREREG_2026-10-27.md` (commit `6be3885`, written before any number).
 Script: `cassini_sparc_joint_scan.py`. Output: `CASSINI_SPARC_JOINT_SCAN.json` (320 rows; per-row stream in `CASSINI_SPARC_JOINT_SCAN.partial.jsonl`).
-Cassini: `qumond_axisym_efe.py` (QUMOND, axisymmetric EFE; PR #194), band [−2, 5.2]×10⁻²⁷ s⁻², pass at both external fields.
+Cassini: `qumond_axisym_efe.py` (QUMOND, axisymmetric EFE; PR #194), band [−2, 5.2]×10⁻²⁷ s⁻², pass at both external fields. The band is the 2σ interval of Q₂ = (1.6 ± 1.8)×10⁻²⁷ s⁻² (1σ), Park, Hees, Famaey, Desmond & Durakovic, arXiv:2602.17884 (v2 2026-07-28), Phys. Rev. D (2026), doi:10.1103/r7n8-kw38.
 SPARC: the frozen Batch-1A gate (`FROZEN_BATCH1A.json`, |Δ reduced χ²| < 1 against the ν₂ baseline, tier 0 and tier 1, median and aggregate). Data, nuisance policy and gate unchanged.
 a₀: fitted 1.1607×10⁻¹⁰, derived 1.0422×10⁻¹⁰ m s⁻².
 
@@ -35,3 +35,7 @@ This is the only Cassini-passing point within a factor ~1.3 of the SPARC gate. T
 ## Fix made during the run
 
 The first two runs crashed: `nu_minus_1` in `qumond_axisym_efe.py` indexed its output as an array, so a scalar call from the tail-cut family raised `TypeError`, and `Pool.map` discarded the whole grid. `nu_minus_1` now accepts scalars (`test_qumond_axisym_efe.py`: 3 groups OK), and the scan streams rows to JSONL and records per-job errors instead of aborting. No pre-registered quantity changed. Runtime 2944 s.
+
+## External comparison (added 2026-10-28)
+
+The paper this scan takes its Cassini band from states in its abstract that the tighter Q₂ puts modified-gravity MOND in tension with external galaxy rotation curves "at the 3-15σ level", the range set by the mass modelling and the galaxy subset (Park, Hees, Famaey, Desmond & Durakovic, arXiv:2602.17884 (v2 2026-07-28), Phys. Rev. D (2026), doi:10.1103/r7n8-kw38). That agrees with `NO_JOINT_POINT` here, with one limit on how much it adds: the Cassini side is not independent, since it is their number. The galaxy side is independent: their mass models against this scan's frozen Batch-1A SPARC fits. The abstract names neither the formulation (QUMOND or AQUAL) nor the interpolating functions, so it says nothing about the three families scanned here. It also bounds the MOND boost to the galactic radial acceleration at the Sun's position at 2% (95% confidence).
