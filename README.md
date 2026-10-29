@@ -122,7 +122,7 @@ record the state of this repository at a tag, not the text of the paper:
 | | |
 | :--- | :--- |
 | Release concept DOI | [10.5281/zenodo.21969120](https://doi.org/10.5281/zenodo.21969120) |
-| Latest archived release | [10.5281/zenodo.21969121](https://doi.org/10.5281/zenodo.21969121) (`v1.6.2`) |
+| Latest archived release | [10.5281/zenodo.23444890](https://doi.org/10.5281/zenodo.23444890) (`v1.7.0`) |
 
 The repository is currently at `v1.9.0`, so the newest tags are not yet archived.
 Do not cite a release archive when you mean the paper.
