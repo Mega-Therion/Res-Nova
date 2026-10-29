@@ -1,6 +1,6 @@
 # Covariant Action Closure of Tidally Screened QUMOND (BIMOND-Tidal Formulation)
 
-**Tier:**  `[D]` for Euler-Lagrange variation, non-relativistic QUMOND  reduction  (§2), and  luminal  tensor speed $c_T = c$ (§3). `[E]` for Solar-System Cassini $Q_2$ and SPARC decoupling (§4). `[O]` for cosmological perturbation closure and bigravity tensor ghost-avoidance (§5).
+**Tier:**  `[D]` for Euler-Lagrange variation, non-relativistic QUMOND  reduction  (§2), and  luminal  tensor speed $c_T = c$ to $O(a_0^2/c^2\omega^2)$ (§4). **§5 is `[X]`:** it restates the tidal screen, which CURRENT_STATE moved to `[X]` on 2026-10-16 because it fails the Oort cloud (`02_galaxy_dynamics/OORT_TORQUE_2026-10-16.md`), and its $x_* = 7.04\times10^{11}$ is a tuned input, not derived. `[O]` for cosmological perturbation closure and bigravity tensor ghost-avoidance (§5).
 
 **Date:**  2026-10-28  
 **Author:** Antigravity CLI (Berthier layer)  
@@ -91,11 +91,14 @@ Under  a transverse-traceless perturbation $g_{\mu\nu} = \eta_{\mu\nu}  +  h_{\m
 4. The tidal screen $\mathcal{S}(\mathcal{X})$ is evaluated on the auxiliary metric $\hat{g}$, which contains no first-order metric derivatives of the physical wave $h_{\mu\nu}^{\text{TT}}$.
 5. Therefore:
    $$c_T^2 = c^2 \left(1 + O\left(\frac{a_0^2}{c^2 \omega^2}\right)\right)$$
+   So $c_T = c$ holds to leading order, not identically: the exact roots $\omega = ck$ from `derive_bimetric_gw_speed.py` are the leading-order dispersion relation.
    For LIGO/Virgo frequencies ($\omega \sim 100\text{ Hz}$), the dispersion correction is $\le 10^{-40}$, fully conforming to the GW170817 bound $|c_T - c| / c \le 10^{-15}$.
 
 ---
 
-## 5. Resolution of the Cassini vs. SPARC Tension `[E]`
+## 5. Cassini vs. SPARC under the tidal screen `[X]`
+
+> **Status:** the tidal screen as built is `[X]` since 2026-10-16: around a lone Sun in the Galactic field it fails the Oort-cloud test (`02_galaxy_dynamics/OORT_TORQUE_2026-10-16.md`). The numbers below are an order-of-magnitude restatement at 1 AU with a tuned $x_*$; they are not a measurement and do not revive the screen. The decisive Cassini quantity comes from the Sun's MOND radius ($\sim 8\times10^3$ au), not 1 AU.
 
 By  conditioning screening on the auxiliary Riemann  tidal  tensor $\mathcal{X}$:
 - **In  the  Solar System:** The Sun is a compact, high-density mass. At the Cassini measurement baseline ($r \sim 1.5 \times 10^8\text{ km} \approx 1\text{ AU}$), the tidal acceleration gradient is dominated by solar mass:
@@ -114,5 +117,6 @@ By  conditioning screening on the auxiliary Riemann  tidal  tensor $\mathcal{X}$
 
 ## 6. Epistemic Conclusion & Next Milestones
 
-1. **Established  (`[D]` / `[E]`):** Covariant bimetric action  variation  yields tidally  screened  QUMOND in the non-relativistic limit, satisfies $c_T = c$, passes Cassini $Q_2$, and preserves SPARC RAR without parameter contradiction.
+1. **Established (`[D]`):** the covariant bimetric action varies to tidally screened QUMOND in the non-relativistic limit, and its tensor modes travel at $c_T = c$ to $O(a_0^2/c^2\omega^2)$.
+   **Not established:** that the screen passes the Solar System. As built it fails the Oort cloud (`[X]`, 2026-10-16), and $x_*$ is tuned.
 2. **Open Horizon (`[O]`):** Linear cosmological perturbation analysis in the Hassan-Rosen bigravity ghost-free framework, verifying absence of Boulware-Deser ghost modes in the dynamic tensor sector.

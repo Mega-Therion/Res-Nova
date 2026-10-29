@@ -33,7 +33,7 @@ Derivation pipeline:
      \lambda_1 = \frac{1}{16\pi G}, \quad \lambda_2 = \frac{1 + 32\pi G s C_{\mathrm{int}}}{16\pi G}.
 10. Construction of the full Fourier-space characteristic matrix P_mat and its exact determinant:
      \det P(\omega, k) = \frac{1 + 32\pi G s C_{\mathrm{int}}}{256 \pi^2 G^2 c^4} (\omega - c k)^2 (\omega + c k)^2 = 0.
-11. Symbolic solution of dispersion roots: \omega = c k (c_T = c identically), without floating-point conversion.
+11. Symbolic solution of dispersion roots: \omega = c k (c_T = c at quadratic order), without floating-point conversion.
 12. Strict epistemic separation between tensor luminality [P], tensor positivity [P], and scalar ghost-freedom [O].
 """
 from __future__ import annotations
