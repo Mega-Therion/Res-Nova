@@ -9,6 +9,8 @@ The Atlas presents the corpus; it is not a source of physics claims. Where it an
 [`../CURRENT_STATE_READ_THIS_FIRST.md`](../CURRENT_STATE_READ_THIS_FIRST.md) disagree, the
 current-state file wins.
 
+The  only  Res Nova  web  project on  Vercel  is  `res-nova-atlas` (https://res-nova-atlas.vercel.app).  The observatory is the static `visualizer/` tree, copied into this build at `/observatory/` by `scripts/mount-observatory.mjs`. Do not deploy `visualizer/` as its own Vercel project.
+
 ## Run locally
 
 Node 20+ and pnpm:

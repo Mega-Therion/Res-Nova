@@ -300,6 +300,9 @@ function Layout({ children }: { children: React.ReactNode }) {
                 {item.label}
               </Link>
             ))}
+            <a href="/observatory/" onClick={close}>
+              Observatory
+            </a>
             <Link
               href="/open-problems"
               className={location === "/open-problems" ? "active" : ""}
@@ -1452,7 +1455,8 @@ function OpenProblems() {
         </div>
         <div className="problem-list" aria-label="Retracted claims">
           <span className="eyebrow">
-            Retracted claims ({retractedClaims.length}), from assurance/claims.json
+            Retracted claims ({retractedClaims.length}), from
+            assurance/claims.json
           </span>
           {retractedClaims.map(claim => (
             <article className="problem-row" key={claim.id}>
