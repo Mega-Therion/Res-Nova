@@ -683,8 +683,17 @@
       .grid-sidebar, .grid-reverse-sidebar { grid-template-columns: 1fr; }
       .grid-2col, .grid-3col { grid-template-columns: 1fr; }
       header { flex-direction: column; align-items: stretch; padding: 0.75rem 1rem; }
-      .nav-tabs { overflow-x: auto; scrollbar-width: none; }
+      .nav-tabs { overflow-x: auto; scrollbar-width: thin; max-width: 100%; }
       .viewport-3d { height: 420px; }
+    }
+    @media (max-width: 800px) {
+      .grid-sidebar { display: flex; flex-direction: column; }
+      .grid-sidebar > .glass-card:last-child { order: -1; }
+      .formula-card { overflow-x: auto; }
+      .toggle-group { display: grid !important; grid-template-columns: 1fr !important; }
+      .viewport-hud { max-width: calc(100% - 24px); }
+      .viewport-controls-bar { flex-wrap: wrap; }
+      .viewport-controls-bar > div { flex-wrap: wrap; }
     }
   </style>
 </head>

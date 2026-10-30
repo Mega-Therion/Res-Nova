@@ -342,7 +342,7 @@ function Layout({ children }: { children: React.ReactNode }) {
             <strong>Live state:</strong> corrected μstd / AeST branch
           </span>
           <span className="ribbon-separator">·</span>
-          <span>Research release {release.commit}</span>
+          <span>Unresolved work is labeled</span>
           <Link href="/timeline">
             Read the correction history{" "}
             <ArrowUpRight size={13} aria-hidden="true" />
