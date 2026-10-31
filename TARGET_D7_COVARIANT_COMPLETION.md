@@ -5,8 +5,10 @@
 action (free function of the *vector* kinetic scalar `K` + disformal matter coupling) is
 retracted **[X]**, and with it the cosmological-screening chain that rested on it.
 A new, sharper obstruction is derived in §4: the `x/(1+x)` interpolation tail leaves a
-**constant anomalous acceleration ≈ a₀** in the solar system.
-**Last updated:** 2026-09-12
+**constant anomalous acceleration ≈ a₀** if it is used in the solar system. That extension
+is not the live law. Outside galaxies the law is general relativity
+(`OUTSIDE_GALAXIES.md`). On galaxies `μ_std` is an axiom (`FRONT.md`).
+**Last updated:** 2026-10-31 (§4 domain)
 **Author:** R.W. Yett / Sovereign Architecture Group
 **Tags:** `[P]` proved · `[D]` derived here · `[C]` cited · `[O]` open · `[X]` killed
 
@@ -66,8 +68,9 @@ term enters **only** through $F_{\mu\nu}F^{\mu\nu}$, which is the structural rea
   $\mathcal{K}(\bar{\mathcal{Q}})\equiv-\tfrac12\mathcal{F}(0,\bar{\mathcal{Q}})$ is a
   shift-symmetric $k$-essence ("gravitational Higgs phase") with a minimum at
   $\mathcal{Q}_0\neq0$, giving dust + Λ. [C]
-- **Galaxies/solar system** are governed by $\mathcal{Y}$ through
-  $\mathcal{J}(\mathcal{Y})\equiv\mathcal{F}(\mathcal{Y},\mathcal{Q}_0)/(2-K_B)$. [C]
+- **Galaxies** are governed by $\mathcal{Y}$ through
+  $\mathcal{J}(\mathcal{Y})\equiv\mathcal{F}(\mathcal{Y},\mathcal{Q}_0)/(2-K_B)$. The solar
+  system is not this sector. See `OUTSIDE_GALAXIES.md`. [C]
 
 The two free functions are slices of one $\mathcal{F}(\mathcal{Y},\mathcal{Q})$ but are
 **observationally independent**: $\mathcal{J}$ does nothing on the FLRW background, and
@@ -168,7 +171,15 @@ From SZ's own text:
 
 ---
 
-## 4. The solar system: a constant anomalous acceleration $\approx a_0$ **[D]** **[X]** for the interpolation
+## 4. What the galaxy tails do if they are extended into the solar system **[D]** **[X]** for that extension
+
+This section computes the residual of using a galactic interpolating function at solar-system
+accelerations. It is not a prediction of the live theory. Outside galaxies the gravitational
+law is general relativity (`OUTSIDE_GALAXIES.md`). The unscreened case $S=1$ in
+`02_galaxy_dynamics/screen_mass_cassini.json` is why $\mu_{\rm std}$ stops at galaxies: the
+keys `unscreened_S_eq_1_sigma_2014` are `5.3666…` and `5.7`, and
+`unscreened_S_eq_1_sigma_2026` are `9.7222…` and `10.2777…`. $\lambda$ and $M$ are not fitted
+to move $S$.
 
 This replaces the old §4 ("screening") and old §6 ("$Q_2$ resolved by a 250× suppression").
 **Both are retracted.** The old suppression factors $\mathcal{F}''/\mathcal{F}'\approx0.00233$,
@@ -199,7 +210,9 @@ $$\boxed{\;g(r)=\frac{G_NM}{r^2}+\tilde a_0+\mathcal{O}\!\big(a_0^2/g\big),\qqua
 G_N=(1+1/\lambda_s)\hat G,\quad \tilde a_0=(1+\lambda_s)a_0\;}$$
 
 Deep-MOND check ($\hat g\ll\tilde a_0$): $g_\varphi\to\sqrt{\hat g\tilde a_0/\lambda_s}
-=\sqrt{G_NMa_0}/r$ ✓. The interpolation is correct; the problem is the **high-$x$ tail**.
+=\sqrt{G_NMa_0}/r$ ✓. The interpolation formula is algebraically consistent on that branch.
+The constant term is what appears when this $\mu$ is evaluated at solar-system accelerations.
+The live corpus does not put it there.
 
 **The anomaly is $r$-independent and $\ge a_0$.** It is not a post-Newtonian correction that
 decays, and it is not removable by choosing $\lambda_s$: $\tilde a_0=(1+\lambda_s)a_0>a_0$ for
@@ -275,10 +288,12 @@ starkly, `05_lean_formalization/AXIOMS_V2.lean:64` axiomatises the disjunction o
 ```
 weak_field_balance : ∀ (x : ℝ), x > 0 → μ x = x / (1 + x) ∨ μ x = x / Real.sqrt (1 + x^2)
 ```
-**§4.2 breaks that disjunction: the left branch is excluded by the solar system and the right
-is not.** Which one the dual-channel construction actually *derives*, and whether the
-rotation-curve/RAR fits survive the swap (Desmond arXiv:2401.04796 argues the trade is tight in
-both directions), is the open item this rewrite hands forward. **[O]**
+**§4.2 excludes the left branch from the solar system.** The $1/x^2$ tail removes that
+constant residual. It does not admit the right branch to the solar system. The isolated-Sun
+monopole being far below a bound is not the test in `screen_mass_cassini.json`, and that
+file's unscreened $S=1$ run fails. Neither branch is the gravitational law outside galaxies.
+$\mu_{\rm std}$ remains the galaxy axiom (`FRONT.md`). Deriving which branch a dual-channel
+construction produces is closed as a route (2026-10-31). It is not reopened here.
 
 **Branch B: keep $\mu=x/(1+x)$ and screen with higher derivatives.** SZ explicitly leave this
 door open — screening may occur "via higher-derivative terms absent from (2)", i.e. structure in
@@ -287,8 +302,9 @@ without altering the $\mathcal{J}'$ tail. Nothing in §4.2 excludes this branch;
 the *two-derivative AQUAL sector alone*. Constructing such a term and showing it leaves the
 galactic regime untouched is unattempted here. **[O]**
 
-The kill in §4.3 is therefore a kill of **$\mu=x/(1+x)$ within two-derivative AQUAL/AeST**, not
-of the dual-channel idea. Stating it wider than that would overclaim.
+The kill in §4.3 is a kill of **using $\mu=x/(1+x)$ at solar-system accelerations** within
+two-derivative AQUAL/AeST. It is not a license to use $\mu_{\rm std}$ there either. Stating
+either function as the solar-system law would overclaim.
 
 ---
 
