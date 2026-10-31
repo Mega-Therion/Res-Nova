@@ -20,4 +20,4 @@ What this note constrains:
 
 - Block 4, [`SEAM.md`](SEAM.md). This page does not set the mass in the null-seam yield. The seam does not identify its produced particle with a neutrino.
 - Block 3. This page does not select \(\mu(x)=x/\sqrt{1+x^2}\).
-- Block 2. The imported fields are available for minimal coupling to the general-relativistic metric outside galaxies. That coupling is part of the import. It is not a solved solar-system test.
+- Block 2, [`OUTSIDE_GALAXIES.md`](OUTSIDE_GALAXIES.md). The imported fields are available for minimal coupling to the general-relativistic metric outside galaxies. That coupling is part of the import. It is not a solved solar-system test.
