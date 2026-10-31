@@ -241,12 +241,13 @@ precedent exists to prevent.
    **ADDENDUM 2026-09-12 (see §8):** while still an input, the coordinate choice is no longer
    *free* — the presence reading is now empirically eliminated by the solar-system
    falsification of the μ it uniquely forces. Status: `[C]`-selected, not `[O]`-free. The
-   covariant question (item 4) is untouched.
+   covariant question (item 4) was closed as a derivation route on 2026-10-31. See `FRONT.md`.
 3. **`μ′(0)=1` remains an input**, exactly as in D2 Theorem 9.3. No gain in parsimony is
    claimed. `[O]`
-4. **No covariant argument yet.** D2's Q3 (does the Skordis–Złośnik/AeST embedding *force*
-   `μ`?) is untouched. That remains the only route that would make this physical rather than
-   chosen. `[O]`
+4. **No covariant argument.** D2's Q3 is closed as a derivation route (2026-10-31). The
+   Skordis–Złośnik/AeST embedding does not force `μ`. On galaxies
+   `μ_std(x)=x/√(1+x²)` is an axiom `[A]`. See `FRONT.md`. The Fisher argument in Theorem B
+   stays inside that axiom. It is not a covariant derivation.
 5. **`sinh ψ = 1 → μ = 1/√2 = θ`.** True algebraically (CLM-10). **Do not build on it.** The
    `u ≥ γ ⟺ χ ≥ θ` anti-drift gate is **retracted (2026-09-03)**; `Res-Nova/CLAUDE.md` and
    §VI record that θ is a **ceiling, not a gate**, and it names `μ(x)=x/√(1+x²)` in that same
@@ -264,7 +265,7 @@ therefore **not** results about the AQUAL action:
   1999 is **modified inertia**, a different slot from the AQUAL field action — do not merge
   them. What *does* survive normalization-independently is the statement
   `μ_std = x/γ(x) = a/(2πc·T(a)/T(0))·...`, i.e. **μ_std is the acceleration measured in units
-  of the de Sitter–Unruh temperature excess.** `[C]`, worth pursuing under Q3.
+  of the de Sitter–Unruh temperature excess.** `[C]`. It is not a derivation of the galaxy axiom. See `FRONT.md`.
 - **Score function:** `exp(−√(1+x²))` (the symmetric hyperbolic / Barndorff-Nielsen density)
   has score `−μ_std`. Also the `F′=μ` object. `[C]`, no weight placed on it.
 
@@ -339,7 +340,7 @@ Run: `python3` on the block above (sympy only). All outputs above are measured, 
 | D2 constraint 4 (additive Newton−correction split) | **[X]** dropped, unsatisfiable for `F_std` | §6 |
 | Postulate R / alphabet choice derived from the action | **[O]** | §6 |
 | `μ′(0)=1` derived | **[O]** | §6 |
-| AeST/Skordis–Złośnik embedding forces `μ` (D2 Q3) | **[O]** | §6 |
+| AeST/Skordis–Złośnik embedding forces `μ` (D2 Q3) | **[A]** closed as a derivation route 2026-10-31; galaxy law is an axiom. See `FRONT.md` | §6 |
 | Born–Infeld `γ−1` and Unruh–dS readings of `√(1+x²)−1` | **[X]** wrong normalization | §6.1 |
 | α ≈ 1/137.036 anywhere in the chain | **NEGATIVE — does not appear** | §6.2 |
 
@@ -373,8 +374,9 @@ logical structure; `[C]` for the empirical selection.
 
 **What this does and does not change:**
 
-- It does **not** derive μ_std from the action; D2's Q3 (covariant forcing) remains `[O]`
-  and remains the only route to a true derivation. Postulate R is demoted from
+- It does **not** derive μ_std from the action. D2's Q3 was closed as a derivation route
+  on 2026-10-31. On galaxies μ_std is an axiom `[A]`. See `FRONT.md`. There is no remaining
+  route in this file that turns the axiom into a theorem. Postulate R is demoted from
   *unconstrained choice* to *empirically selected among exactly two exhaustive readings*.
 - It supplies the argument `PEER_REVIEW_READINESS.md` item 1 anticipated: `AXIOMS_V2.lean:64`'s
   disjunction now collapses to the right disjunct, on observational grounds rather than

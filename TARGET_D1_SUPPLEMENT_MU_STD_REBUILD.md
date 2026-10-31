@@ -1,6 +1,6 @@
 # TARGET D1 SUPPLEMENT: Rebuild onto μ_std = x/√(1+x²)
 
-**Status:** §1/§3/§5 **RE-RUN COMPLETE 2026-09-12** (Vesper) under the corrected AQUAL convention $F'=x\mu$; §4 unaffected (μ unchanged); D2's uniqueness gap remains **[O]** and is now the load-bearing open problem. D6's ghost-free re-check is closed by §5. `TARGET_D7` §4/§11 concluded μ(x)=x/(1+x) is
+**Status:** §1/§3/§5 **RE-RUN COMPLETE 2026-09-12** (Vesper) under the corrected AQUAL convention $F'=x\mu$; §4 unaffected (μ unchanged); D2's uniqueness gap is closed as a derivation route (2026-10-31). On galaxies μ_std is an axiom `[A]`. See `FRONT.md`. D6's ghost-free re-check is closed by §5. `TARGET_D7` §4/§11 concluded μ(x)=x/(1+x) is
 falsified by its own solar-system solution and is not rescuable by any GW170817-safe
 (c_T=c) screening mechanism. This document rebuilds the core algebraic machinery for the
 surviving candidate, μ_std(x) = x/√(1+x²) — the "standard" interpolating function of the MOND literature
@@ -9,7 +9,7 @@ until 2026-10-09), already
 used inconsistently elsewhere in this corpus (`TARGET_D1`'s own "standard square-root
 interpolation" aside, `TARGET_D2`, `FIRST_PRINCIPLES_PHYSICS_MONOGRAPH.md` §64,
 `FIG_TREE_MONOGRAPH.md`, `MuProjection.lean`, and `AXIOMS_V2.lean:64`'s right disjunct).
-**Last updated:** 2026-09-12
+**Last updated:** 2026-10-31 (status line)
 **Tags:** `[P]` proved · `[D]` derived here · `[C]` cited · `[O]` open · `[X]` killed
 
 ---
@@ -81,8 +81,8 @@ literature's standard phenomenological choice (Famaey & Binney 2005, the most co
 interpolating function fit to SPARC rotation curves in the MOND literature generally) without
 a first-principles derivation from this corpus's own action-selection program. This is a real
 gap, not a formality — D2's whole point was deriving $\mu$ from structure rather than fitting
-it. **[O]** — this is now arguably the load-bearing open problem for D2, above and beyond the
-pre-existing Padé-necessity question.
+it. That gap is closed as a derivation route (2026-10-31): the receipts in `FRONT.md`
+did not force μ_std, so on galaxies the law is an axiom `[A]`, not an open derivation.
 
 ---
 
@@ -194,11 +194,10 @@ Both `TARGET_D7` §5 conditions hold **identically** (sympy; spot-checked numeri
 
 ## 7. Critical path
 
-1. **D2's uniqueness gap is now the central open problem**, not a secondary one. This repo's
-   entire "derive $\mu$ from first principles, don't fit it" program has no structural argument
-   for $\mu_{\rm std}$ — it is currently adopted because it survives the solar system, which is
-   a phenomenological selection, exactly the kind of reasoning this corpus's own
-   `feedback_two_irreducible_parameters`-style discipline was built to flag. **[O]**
+1. **D2's uniqueness gap is closed as a derivation route (2026-10-31).** The receipts in
+   `FRONT.md` did not force $\mu_{\rm std}$. On galaxies the law is an axiom `[A]`. It is not
+   a solar-system law: the external-field quadrupole excludes the unscreened case (correction
+   row above, and `screen_mass_cassini.json`). Do not reopen the derivation.
 2. ~~The Fisher-identity and Hamilgrangian-split machinery does not transfer.~~
    **RESOLVED 2026-09-12:** the Fisher identity is superseded by the chiral rapidity form
    (`TARGET_D2_SUPPLEMENT` §0, [C]); the Hamilgrangian split exists in the rapidity
