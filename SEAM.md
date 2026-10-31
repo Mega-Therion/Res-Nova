@@ -15,5 +15,5 @@ From that receipt, Job 3:
 What this note constrains:
 
 - Block 3. Nothing here selects \(\mu(x)=x/\sqrt{1+x^2}\). The galaxy law stays an axiom.
-- Block 1. Nothing here sets a neutrino mass. Calling the produced particle a right-handed neutrino is not part of the receipt.
+- Block 1, [`IMPORTED_STANDARD_MODEL.md`](IMPORTED_STANDARD_MODEL.md). Nothing here sets a neutrino mass. Calling the produced particle a right-handed neutrino is not part of the receipt.
 - Block 2. The seam is a general-relativistic calculation. It does not replace general relativity outside galaxies, and it does not move the Cassini boundary of the galaxy law.

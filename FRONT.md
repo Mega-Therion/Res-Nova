@@ -6,7 +6,7 @@ The picture this page follows is the checked drawing in BLK-939. Two passes, wou
 
 ## The four blocks
 
-1. **Standard Model, imported.** The gauge group, the fermion representations, the Higgs sector, and the measured couplings and mixing angles are taken from the textbook theory and tagged `[C]`. They are not a result of this repository. The anomaly check [`05_lean_formalization/sm_anomaly_cancellation.json`](05_lean_formalization/sm_anomaly_cancellation.json) records that the textbook generation cancels, that `corpus_proposal` is null, and that `derived_from_geometry` is false. A future geometric assignment has to pass that filter. Passing the textbook control does not create the assignment.
+1. **Standard Model, imported.** See [`IMPORTED_STANDARD_MODEL.md`](IMPORTED_STANDARD_MODEL.md). The gauge group, the fermion representations, the Higgs sector, and the measured couplings and mixing angles are taken from the textbook theory and tagged `[C]`. The anomaly check records that the textbook generation cancels, that `corpus_proposal` is null, and that `derived_from_geometry` is false. Passing that control does not create a geometric assignment, and it does not set the seam mass.
 
 2. **General relativity outside galaxies.** Unless a new screen is the explicit task, the solar system and the vacuum light cones stay on ordinary general relativity. The unscreened galaxy law is not promoted into those regimes.
 
