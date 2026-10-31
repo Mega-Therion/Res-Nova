@@ -12,7 +12,7 @@ The picture this page follows is the checked drawing in BLK-939. Two passes, wou
 
 3. **Galaxy law, an axiom.** On galaxies the interpolating function is \(\mu(x)=x/\sqrt{1+x^2}\), with one acceleration scale. Tag `[A]`. The action does not force it. It stays an axiom until a derivation exists outside the closed channels below. The Fisher identity that selects it is an input, not that derivation.
 
-4. **Null-seam yield, calculated.** A radiation cosmology through a null seam has a Bogoliubov yield \(I=1/(8\pi^{3/2})\) and \(|\beta|^2=\exp(-\pi k^2/(m C))\). The mass in that yield is symbolic. Those receipts live in `Chyren/state/` and in The Hood under BLK-936. They are not copied into this repository. Naming the produced particle a right-handed neutrino is not part of the receipt.
+4. **Null-seam yield, calculated.** See [`SEAM.md`](SEAM.md). A radiation cosmology through a null seam has \(|\beta|^2=\exp(-\pi k^2/\gamma)\) and direct yield \(I=1/(8\pi^{3/2})\). \(\gamma\) is not fixed, and the mass is symbolic. The receipts live in `Chyren/state/` and in The Hood under BLK-936. They are not copied into this repository. The yield does not select the galaxy axiom and does not set a neutrino mass.
 
 ## Where the galaxy law stops
 
