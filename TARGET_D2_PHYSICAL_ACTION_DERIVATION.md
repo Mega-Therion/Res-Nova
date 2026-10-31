@@ -20,14 +20,14 @@
 
 
 
-**Status:** SUPERSEDED-IN-PART 2026-09-12 — Padé theorems stand as ALGEBRA; the μ_dual they select is FALSIFIED as physics. Live structural argument: `TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md` (chiral channel, rapidity rectification, §8 empirical coordinate decision). Q3 (covariant forcing) still open.
-**Last updated:** 2026-09-12 (ledger sync)
+**Status:** SUPERSEDED-IN-PART 2026-09-12 — Padé theorems stand as ALGEBRA; the μ_dual they select is FALSIFIED as physics. Live structural argument: `TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md` (chiral channel, rapidity rectification, §8 empirical coordinate decision). Q3 is closed as a derivation route (2026-10-31). On galaxies μ_std is an axiom. See `FRONT.md`.
+**Last updated:** 2026-10-31 (Q3 paragraph)
 **Author:** R.W. Yett / Sovereign Architecture Group
 **Epistemic tag:** [P] (proved sections) / [O] (open sections) — see inline tags
 
 ---
 
-> **⚠️ SUPERSESSION BANNER 2026-09-12.** Theorems 4.1/5.1/6.1 below are `[P]` as algebra — μ_dual(x)=x/(1+x) IS the unique Padé[1/1] with μ(0)=0, μ(∞)=1, μ′(0)=1 — and that is now irrelevant: the function is **falsified** (`TARGET_D7` §4/§11). The same Fisher/rectification argument re-run on the ±1 chiral channel forces μ_std(x)=x/√(1+x²) uniquely (`TARGET_D2_SUPPLEMENT` Thm B/C), with the presence-vs-chirality coordinate choice decided empirically by Cassini Q₂ (§8, Dyson–Eddington shape). Constraint 4 (additive split) is DROPPED, not satisfied (supplement §6 item 0). Q3 — does the covariant AeST action force μ? — remains the load-bearing `[O]`.
+> **⚠️ SUPERSESSION BANNER 2026-09-12.** Theorems 4.1/5.1/6.1 below are `[P]` as algebra — μ_dual(x)=x/(1+x) IS the unique Padé[1/1] with μ(0)=0, μ(∞)=1, μ′(0)=1 — and that is now irrelevant: the function is **falsified** (`TARGET_D7` §4/§11). The same Fisher/rectification argument re-run on the ±1 chiral channel forces μ_std(x)=x/√(1+x²) uniquely (`TARGET_D2_SUPPLEMENT` Thm B/C), with the presence-vs-chirality coordinate choice decided empirically by Cassini Q₂ (§8, Dyson–Eddington shape). Constraint 4 (additive split) is DROPPED, not satisfied (supplement §6 item 0). Q3 — does the covariant AeST action force μ? — is closed as a derivation route (2026-10-31). On galaxies μ_std is an axiom `[A]`. See `FRONT.md`.
 
 ## 1. Problem Statement
 
@@ -251,14 +251,19 @@ question**:
 
 Restating this as "$\eta = \ln(p/(1-p))$ is the Bernoulli canonical parameter,
 and Bernoulli is maximum-entropy" is **circular** — that is true by definition of
-the exponential family and derives nothing. Q3 remains the one route that could
-make $n=1$ physical rather than chosen.
+the exponential family and derives nothing. Q3 is not a remaining route to make
+$n=1$ physical. The receipts in `FRONT.md` closed it: the action does not force
+μ_std, polynomial elimination does not produce arsinh, finite boost determinants
+do not, and the one-dimensional chiral determinant recovers arsinh only as the
+Maurer–Cartan identity and misses $F_{\mathrm{std}}$. On galaxies
+$\mu_{\mathrm{std}}(x)=x/\sqrt{1+x^2}$ is an axiom `[A]`.
+
+**Q3, closed 2026-10-31.** The covariant embedding does not force μ_std. On galaxies the law is an axiom. See `FRONT.md` and `q3_action_forces_mu.json`, `q3_algebraic_nogo.json`, `q3_det_ratio.json`, `q3_chiral_det.json`.
 
 The following questions remain open:
 
 - **Q1:** Can the Padé constraint be derived from an information-theoretic variational principle? (e.g., minimum Fisher information, maximum entropy on the Bernoulli manifold)
 - **Q2:** Is the odds-ratio connection (Theorem 6.1) a coincidence or a deep structural feature of the theory?
-- **Q3:** Does the Skordis–Złośnik embedding (D9) constrain $\mu$ to be the "simple" form? If the covariant theory requires a specific $\mu$ for consistency (e.g., to avoid ghosts or ensure $c_T = c$), then constraint 2 would be promoted from an aesthetic choice to a physical necessity.
 - **Q4:** The identity $\mathcal{F}_{\text{dual}}'(x)^2 \cdot \mathcal{I}(\mu(x)) = x^3$ (Theorem 7.1) suggests a variational principle of the form "minimize Fisher information subject to the MOND acceleration constraint." Can this be made rigorous?
 
 ---
