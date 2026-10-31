@@ -1,0 +1,146 @@
+{
+  "verdict": "determinant does not equal arsinh",
+  "declared_rational_factor": "1",
+  "inserted_example": {
+    "matrix": "[[1, -x], [1, s]]",
+    "det": "s + x"
+  },
+  "inserted_example_det": "s + x",
+  "operators": [
+    {
+      "name": "B(x) = [[s, x], [x, s]]",
+      "det_simplified": "1",
+      "ratio": "1",
+      "numerical_differences": {
+        "0.1": {
+          "ln_R": 0.0,
+          "arsinh_x_minus_arsinh_1": -0.7815395081203355,
+          "abs_difference": 0.7815395081203355
+        },
+        "1": {
+          "ln_R": 0.0,
+          "arsinh_x_minus_arsinh_1": 0.0,
+          "abs_difference": 0.0
+        },
+        "3.0": {
+          "ln_R": 0.0,
+          "arsinh_x_minus_arsinh_1": 0.9370728722125238,
+          "abs_difference": 0.9370728722125238
+        }
+      }
+    },
+    {
+      "name": "dB/dx = [[x/s, 1], [1, x/s]]",
+      "det_simplified": "-1/(x**2 + 1)",
+      "ratio": "2/(x**2 + 1)",
+      "numerical_differences": {
+        "0.1": {
+          "ln_R": 0.6831968497067772,
+          "arsinh_x_minus_arsinh_1": -0.7815395081203355,
+          "abs_difference": 1.4647363578271126
+        },
+        "1": {
+          "ln_R": 0.0,
+          "arsinh_x_minus_arsinh_1": 0.0,
+          "abs_difference": 0.0
+        },
+        "3.0": {
+          "ln_R": -1.6094379124341003,
+          "arsinh_x_minus_arsinh_1": 0.9370728722125238,
+          "abs_difference": 2.546510784646624
+        }
+      }
+    },
+    {
+      "name": "Companion(t^2 - 2*x*t - 1)",
+      "det_simplified": "-1",
+      "ratio": "1",
+      "numerical_differences": {
+        "0.1": {
+          "ln_R": 0.0,
+          "arsinh_x_minus_arsinh_1": -0.7815395081203355,
+          "abs_difference": 0.7815395081203355
+        },
+        "1": {
+          "ln_R": 0.0,
+          "arsinh_x_minus_arsinh_1": 0.0,
+          "abs_difference": 0.0
+        },
+        "3.0": {
+          "ln_R": 0.0,
+          "arsinh_x_minus_arsinh_1": 0.9370728722125238,
+          "abs_difference": 0.9370728722125238
+        }
+      },
+      "convention": "Frobenius companion matrix C = [[0, -c0], [1, -c1]] for monic t^2 + c1*t + c0 = 0 (c1 = -2*x, c0 = -1), giving C = [[0, 1], [1, 2*x]] with det(C) = +c0 = -1."
+    },
+    {
+      "name": "G(x) = B(x)^T B(x)",
+      "det_simplified": "1",
+      "ratio": "1",
+      "numerical_differences": {
+        "0.1": {
+          "ln_R": 0.0,
+          "arsinh_x_minus_arsinh_1": -0.7815395081203355,
+          "abs_difference": 0.7815395081203355
+        },
+        "1": {
+          "ln_R": 0.0,
+          "arsinh_x_minus_arsinh_1": 0.0,
+          "abs_difference": 0.0
+        },
+        "3.0": {
+          "ln_R": 0.0,
+          "arsinh_x_minus_arsinh_1": 0.9370728722125238,
+          "abs_difference": 0.9370728722125238
+        }
+      }
+    }
+  ],
+  "coefficient_solution_set": {
+    "basis": "a + b*x + c*s + d*x*s (on the x^2-vanishing locus e_x2 = 0 of span_Q{1, x, s}^{2x2})",
+    "x2_locus_condition": "bt11*bt22 - bt12*bt21 + gm11*gm22 - gm12*gm21 = 0",
+    "equals_t": [
+      {
+        "a": "0",
+        "b": "1",
+        "c": "1",
+        "d": "0"
+      }
+    ],
+    "equals_C_times_t": [
+      {
+        "a": "0",
+        "b": "C",
+        "c": "C",
+        "d": "0"
+      }
+    ],
+    "nonempty": true,
+    "changes_verdict": false
+  },
+  "extra_operator": {
+    "name": "M_MC(x) = B(x)^(-1) * (dB/dx)",
+    "definition": "The left-invariant Maurer-Cartan matrix B(x)^(-1) * (dB/dx) of B(x), built from the inverse of B(x) = (1/(s^2 - x^2)) * adj(B(x)) and dB/dx.",
+    "entries_simplified": "[[0, 1/s], [1/s, 0]]",
+    "det_simplified": "-1/(x**2 + 1)",
+    "ratio": "2/(x**2 + 1)",
+    "numerical_differences": {
+      "0.1": {
+        "ln_R": 0.6831968497067772,
+        "arsinh_x_minus_arsinh_1": -0.7815395081203355,
+        "abs_difference": 1.4647363578271126
+      },
+      "1": {
+        "ln_R": 0.0,
+        "arsinh_x_minus_arsinh_1": 0.0,
+        "abs_difference": 0.0
+      },
+      "3.0": {
+        "ln_R": -1.6094379124341003,
+        "arsinh_x_minus_arsinh_1": 0.9370728722125238,
+        "abs_difference": 2.546510784646624
+      }
+    }
+  }
+}

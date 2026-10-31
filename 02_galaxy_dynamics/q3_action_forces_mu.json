@@ -1,0 +1,181 @@
+{
+  "exit_code": 0,
+  "verdict": "Q3 remains [O]",
+  "does_covariant_action_force_mu_std": false,
+  "killing_step_from_action": null,
+  "general_allowed_mu": {
+    "aqual_variation_only": {
+      "action": "S = -(a0^2 / 8*pi*G) * int F_kin(Y) d^3x - int rho*Phi d^3x, Y = |grad Phi|^2 / a0^2 = x^2",
+      "d2_convention_relation": "F_kin(Y) = 2 * F_D2(sqrt(Y)), F_D2'(x) = x * mu(x)",
+      "euler_lagrange": "div[ (dF_kin/dY) * grad Phi ] = 4*pi*G*rho",
+      "literal_d2_line_100_without_factor_2": "div[ (F_D2'(x)/x) * grad Phi ] = 8*pi*G*rho (TARGET_D7_COVARIANT_COMPLETION.md:97-104)",
+      "most_general_mu": "mu(x) = dF_kin/dY |_{Y=x^2} = F_D2'(x) / x for arbitrary F_kin in C^2((0, oo))"
+    },
+    "aest_covariant_variation": {
+      "citation": "TARGET_D7_COVARIANT_COMPLETION.md:38-48, 70, 80-94, 103-107, 128-139",
+      "free_bivariate_function": "F_cov(Y, Q) in C^2, with quasistatic slice J(Y) := F_cov(Y, Q0) / (2 - K_B)",
+      "weak_field_metric_slip": "Phi = Psi identically for all F_cov(Y, Q) (gamma_PPN = 1)",
+      "quasistatic_euler_lagrange": [
+        "nabla^2 Phi_hat = 4*pi*G_hat*rho",
+        "div[ J'(Y) * grad varphi ] = 4*pi*G_hat*rho, Y = |grad varphi|^2, Phi = Phi_hat + varphi"
+      ],
+      "scalar_channel_mu": "mu_varphi(u) = J'(a0_tilde^2 * u^2) / lambda_s = F'(u) / u, u = |grad varphi| / a0_tilde",
+      "curl_free_total_mu_implicit": "g = g_hat + g_varphi, J'(g_varphi^2)*g_varphi = g_hat = (lambda_s/(1+lambda_s))*g_N, mu_tot(g/a0) = g_N / g"
+    },
+    "after_all_cited_action_and_boundary_conditions": {
+      "admissible_class": "mu(x) = F'(x)/x for ANY F in C^omega([0, oo)) cap C^2((0, oo)) with F(0)=0, F'(0)=0, F''(0)=0, F'''(0)=2 (so mu(0)=0, mu'(0)=1, F(x)/x^3 -> 1/3), F''(x) = d/dx[x*mu(x)] > 0 and F'(x) > 0 for all x > 0 (ghost-freedom / C2), and lim_{x->oo} F'(x)/x = 1 (so mu(oo)=1, F(x)/x^2 -> 1/2).",
+      "infinite_dimensional": true
+    }
+  },
+  "condition_by_condition_audit": [
+    {
+      "condition": "Covariant / quasistatic Euler-Lagrange variation",
+      "citation": "TARGET_D7_COVARIANT_COMPLETION.md:38-40, 84-90; TARGET_D2_PHYSICAL_ACTION_DERIVATION.md:86, 100-104",
+      "kills_rivals_to_mu_std": false,
+      "survivors": "All C^2 free functions F_cov(Y, Q) / J(Y) / F_D2(x)"
+    },
+    {
+      "condition": "Luminal gravitational-wave speed c_T = c",
+      "citation": "TARGET_D7_COVARIANT_COMPLETION.md:329-341, 410",
+      "measured_c_T_squared": "1",
+      "kills_rivals_to_mu_std": false,
+      "survivors": "Every F_cov(Y, Q) identically (Y=0, Q=Q0 on background carry zero TT spin-2 derivatives)"
+    },
+    {
+      "condition": "Weak-field lensing potential equality Phi = Psi (gamma_PPN = 1)",
+      "citation": "TARGET_D7_COVARIANT_COMPLETION.md:80-82, 349-352, 411",
+      "kills_rivals_to_mu_std": false,
+      "survivors": "Every F_cov(Y, Q) identically"
+    },
+    {
+      "condition": "Quasistatic scalar ghost-freedom J'(Y) > 0 and J'(Y) + 2*Y*J''(Y) > 0 (C2: F''(x) > 0)",
+      "citation": "TARGET_D7_COVARIANT_COMPLETION.md:300-308; TARGET_D2_PHYSICAL_ACTION_DERIVATION.md:53; TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md:71-74",
+      "kills_rivals_to_mu_std": false,
+      "survivors": "Infinite-dimensional open convex cone {mu(x) > 0, d/dx[x*mu(x)] > 0 on (0, oo)}"
+    },
+    {
+      "condition": "Boundary & regularity conditions C1, C3, C4, C5 and mu(0)=0, mu(oo)=1, mu'(0)=1 (plus x -> 1/x duality)",
+      "citation": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md:52-56, 70-78, 114-116; TARGET_D7_COVARIANT_COMPLETION.md:128-136; 05_lean_formalization/MuNDuality.lean:42-60",
+      "kills_rivals_to_mu_std": false,
+      "survivors": "Infinite-dimensional real-analytic convex family including mu_n(x) = x/(1+x^n)^(1/n) for all integers n >= 1, 1 - exp(-x), tanh(x)"
+    }
+  ],
+  "external_postulate_family_reductions_not_from_action": [
+    {
+      "condition": "Chiral Fisher identity F'(x)^2 * I_pm(mu) = x^k under Postulate R (I_pm(m) = 1/(1-m^2))",
+      "citation": "TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md:107-110, 145-167, 190-195, 234-249, 376",
+      "status": "External input postulate [O]/[C], NOT a consequence of the action",
+      "reduced_family": "mu_k(x) = x^((k-2)/2) / sqrt(1 + x^(k-2)); mu'(0)=1 selects k=4 -> x/sqrt(1+x^2)"
+    },
+    {
+      "condition": "Bernoulli Fisher identity F'(x)^2 * I(mu) = x^(n+2) / Pade [1/1] minimality",
+      "citation": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md:112-116, 230-255",
+      "status": "External input postulate [O], NOT a consequence of the action",
+      "reduced_family": "mu_n(x) = x^n / (1 + x^n); mu'(0)=1 selects n=1 -> x/(1+x)"
+    }
+  ],
+  "banned_moves_excluded": {
+    "wrong_normalization_sqrt_1_plus_x2_minus_1": {
+      "citation": "TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md:52-62",
+      "dF_dx_over_x": "1/sqrt(x**2 + 1)",
+      "C3_limit_F_over_x2_inf": "0",
+      "C4_limit_F_over_x3_zero": "oo",
+      "used_as_aqual_candidate": false
+    },
+    "milgrom_1999_modified_inertia_merged": false,
+    "retracted_sinh_psi_eq_1_gate_used": false,
+    "empirical_cassini_or_sparc_fit_used_to_select": false
+  },
+  "verified_surviving_witnesses": [
+    {
+      "name": "mu_1 (F_dual, n=1)",
+      "mu_x": "x/(x + 1)",
+      "F_double_prime_x": "x*(x + 2)/(x**2 + 2*x + 1)",
+      "mu_0": 0,
+      "mu_prime_0": 1,
+      "mu_inf": 1,
+      "C1_F0_eq_0": true,
+      "C2_ghost_free_Fpp_pos": true,
+      "C3_F_over_x2_inf": "1/2",
+      "C4_F_over_x3_zero": "1/3",
+      "C5_real_analytic_at_0": true,
+      "c_T_eq_c": true,
+      "Phi_eq_Psi": true
+    },
+    {
+      "name": "mu_2 (mu_std, n=2)",
+      "mu_x": "x/sqrt(x**2 + 1)",
+      "F_double_prime_x": "x*(x**2 + 2)/(x**2 + 1)**(3/2)",
+      "mu_0": 0,
+      "mu_prime_0": 1,
+      "mu_inf": 1,
+      "C1_F0_eq_0": true,
+      "C2_ghost_free_Fpp_pos": true,
+      "C3_F_over_x2_inf": "1/2",
+      "C4_F_over_x3_zero": "1/3",
+      "C5_real_analytic_at_0": true,
+      "c_T_eq_c": true,
+      "Phi_eq_Psi": true
+    },
+    {
+      "name": "mu_3 (l^3 member, n=3)",
+      "mu_x": "x/(x**3 + 1)**(1/3)",
+      "F_double_prime_x": "x*(x**3 + 2)/(x**3 + 1)**(4/3)",
+      "mu_0": 0,
+      "mu_prime_0": 1,
+      "mu_inf": 1,
+      "C1_F0_eq_0": true,
+      "C2_ghost_free_Fpp_pos": true,
+      "C3_F_over_x2_inf": "1/2",
+      "C4_F_over_x3_zero": "1/3",
+      "C5_real_analytic_at_0": true,
+      "c_T_eq_c": true,
+      "Phi_eq_Psi": true
+    },
+    {
+      "name": "mu_4 (l^4 member, n=4)",
+      "mu_x": "x/(x**4 + 1)**(1/4)",
+      "F_double_prime_x": "x*(x**4 + 2)/(x**4 + 1)**(5/4)",
+      "mu_0": 0,
+      "mu_prime_0": 1,
+      "mu_inf": 1,
+      "C1_F0_eq_0": true,
+      "C2_ghost_free_Fpp_pos": true,
+      "C3_F_over_x2_inf": "1/2",
+      "C4_F_over_x3_zero": "1/3",
+      "C5_real_analytic_at_0": true,
+      "c_T_eq_c": true,
+      "Phi_eq_Psi": true
+    },
+    {
+      "name": "mu_exp (non-l^n analytic)",
+      "mu_x": "1 - exp(-x)",
+      "F_double_prime_x": "(x + exp(x) - 1)*exp(-x)",
+      "mu_0": 0,
+      "mu_prime_0": 1,
+      "mu_inf": 1,
+      "C1_F0_eq_0": true,
+      "C2_ghost_free_Fpp_pos": true,
+      "C3_F_over_x2_inf": "1/2",
+      "C4_F_over_x3_zero": "1/3",
+      "C5_real_analytic_at_0": true,
+      "c_T_eq_c": true,
+      "Phi_eq_Psi": true
+    },
+    {
+      "name": "mu_tanh (non-l^n analytic)",
+      "mu_x": "tanh(x)",
+      "F_double_prime_x": "x/cosh(x)**2 + tanh(x)",
+      "mu_0": 0,
+      "mu_prime_0": 1,
+      "mu_inf": 1,
+      "C1_F0_eq_0": true,
+      "C2_ghost_free_Fpp_pos": true,
+      "C3_F_over_x2_inf": "1/2",
+      "C4_F_over_x3_zero": "1/3",
+      "C5_real_analytic_at_0": true,
+      "c_T_eq_c": true,
+      "Phi_eq_Psi": true
+    }
+  ]
+}

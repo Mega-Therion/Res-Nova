@@ -1,0 +1,247 @@
+{
+  "verdict": "chiral projection reproduces arsinh only as the Maurer-Cartan identity",
+  "A_simplified": [
+    [
+      "0",
+      "1/s"
+    ],
+    [
+      "1/s",
+      "0"
+    ]
+  ],
+  "step1_algebra": {
+    "tr_P_plus_A": "1/s",
+    "tr_P_minus_A": "-1/s",
+    "tr_P3_A": "0",
+    "tr_P_plus_sigma1": "1",
+    "commutator_A_u1_A_u2": [
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ]
+  },
+  "identity_not_derivation": true,
+  "ln_det_H": {
+    "H_matrix": [
+      [
+        "sqrt(x**2 + 1)",
+        "-x"
+      ],
+      [
+        "-x",
+        "sqrt(x**2 + 1)"
+      ]
+    ],
+    "det_H": "1",
+    "symbolic": "0",
+    "difference_from_arsinh": "-asinh(x)",
+    "difference_from_F_std": "-x*sqrt(x**2 + 1)/2 + asinh(x)/2",
+    "numerical_absolute_differences": {
+      "0.1": {
+        "value": 0.0,
+        "abs_diff_from_arsinh": 0.09983407889920756,
+        "abs_diff_from_F_std": 0.0003323386560006697,
+        "within_1e-10_of_arsinh": false,
+        "within_1e-10_of_F_std": false
+      },
+      "1": {
+        "value": 0.0,
+        "abs_diff_from_arsinh": 0.881373587019543,
+        "abs_diff_from_F_std": 0.266419987676776,
+        "within_1e-10_of_arsinh": false,
+        "within_1e-10_of_F_std": false
+      },
+      "3": {
+        "value": 0.0,
+        "abs_diff_from_arsinh": 1.8184464592320668,
+        "abs_diff_from_F_std": 3.8341932606365354,
+        "within_1e-10_of_arsinh": false,
+        "within_1e-10_of_F_std": false
+      }
+    }
+  },
+  "integrals": [
+    {
+      "name": "ln_det_H",
+      "symbolic": "0",
+      "difference_from_arsinh": "-asinh(x)",
+      "difference_from_F_std": "-x*sqrt(x**2 + 1)/2 + asinh(x)/2",
+      "numerical_absolute_differences": {
+        "0.1": {
+          "value": 0.0,
+          "abs_diff_from_arsinh": 0.09983407889920756,
+          "abs_diff_from_F_std": 0.0003323386560006697,
+          "within_1e-10_of_arsinh": false,
+          "within_1e-10_of_F_std": false
+        },
+        "1": {
+          "value": 0.0,
+          "abs_diff_from_arsinh": 0.881373587019543,
+          "abs_diff_from_F_std": 0.266419987676776,
+          "within_1e-10_of_arsinh": false,
+          "within_1e-10_of_F_std": false
+        },
+        "3": {
+          "value": 0.0,
+          "abs_diff_from_arsinh": 1.8184464592320668,
+          "abs_diff_from_F_std": 3.8341932606365354,
+          "within_1e-10_of_arsinh": false,
+          "within_1e-10_of_F_std": false
+        }
+      }
+    },
+    {
+      "name": "I_P+",
+      "symbolic": "asinh(x)",
+      "difference_from_arsinh": "0",
+      "difference_from_F_std": "-x*sqrt(x**2 + 1)/2 + 3*asinh(x)/2",
+      "numerical_absolute_differences": {
+        "0.1": {
+          "value": 0.09983407889920756,
+          "abs_diff_from_arsinh": 0.0,
+          "abs_diff_from_F_std": 0.09950174024320689,
+          "within_1e-10_of_arsinh": true,
+          "within_1e-10_of_F_std": false
+        },
+        "1": {
+          "value": 0.881373587019543,
+          "abs_diff_from_arsinh": 0.0,
+          "abs_diff_from_F_std": 0.614953599342767,
+          "within_1e-10_of_arsinh": true,
+          "within_1e-10_of_F_std": false
+        },
+        "3": {
+          "value": 1.8184464592320668,
+          "abs_diff_from_arsinh": 0.0,
+          "abs_diff_from_F_std": 2.0157468014044686,
+          "within_1e-10_of_arsinh": true,
+          "within_1e-10_of_F_std": false
+        }
+      }
+    },
+    {
+      "name": "I_P-",
+      "symbolic": "-asinh(x)",
+      "difference_from_arsinh": "-2*asinh(x)",
+      "difference_from_F_std": "-x*sqrt(x**2 + 1)/2 - asinh(x)/2",
+      "numerical_absolute_differences": {
+        "0.1": {
+          "value": -0.09983407889920756,
+          "abs_diff_from_arsinh": 0.19966815779841512,
+          "abs_diff_from_F_std": 0.10016641755520823,
+          "within_1e-10_of_arsinh": false,
+          "within_1e-10_of_F_std": false
+        },
+        "1": {
+          "value": -0.881373587019543,
+          "abs_diff_from_arsinh": 1.762747174039086,
+          "abs_diff_from_F_std": 1.147793574696319,
+          "within_1e-10_of_arsinh": false,
+          "within_1e-10_of_F_std": false
+        },
+        "3": {
+          "value": -1.8184464592320668,
+          "abs_diff_from_arsinh": 3.6368929184641337,
+          "abs_diff_from_F_std": 5.652639719868603,
+          "within_1e-10_of_arsinh": false,
+          "within_1e-10_of_F_std": false
+        }
+      }
+    },
+    {
+      "name": "I_P3",
+      "symbolic": "0",
+      "difference_from_arsinh": "-asinh(x)",
+      "difference_from_F_std": "-x*sqrt(x**2 + 1)/2 + asinh(x)/2",
+      "numerical_absolute_differences": {
+        "0.1": {
+          "value": 0.0,
+          "abs_diff_from_arsinh": 0.09983407889920756,
+          "abs_diff_from_F_std": 0.0003323386560006697,
+          "within_1e-10_of_arsinh": false,
+          "within_1e-10_of_F_std": false
+        },
+        "1": {
+          "value": 0.0,
+          "abs_diff_from_arsinh": 0.881373587019543,
+          "abs_diff_from_F_std": 0.266419987676776,
+          "within_1e-10_of_arsinh": false,
+          "within_1e-10_of_F_std": false
+        },
+        "3": {
+          "value": 0.0,
+          "abs_diff_from_arsinh": 1.8184464592320668,
+          "abs_diff_from_F_std": 3.8341932606365354,
+          "within_1e-10_of_arsinh": false,
+          "within_1e-10_of_F_std": false
+        }
+      }
+    }
+  ],
+  "gelfand_yaglom_ratio": {
+    "operator": "L = d/du + A(u), u in [0, x], Y(0) = I",
+    "convention": "Under the initial-value Cauchy Gelfand-Yaglom convention where Y(u) solves (d/du + A(u)) Y(u) = 0 with Y(0) = I and Y_free(u) solves (d/du) Y_free(u) = 0 with Y_free(0) = I on [0, x], the functional determinant ratio det(d/du + A) / det(d/du) equals det(H_free(x))^(-1) * det(H(x)).",
+    "H_free_matrix": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ],
+    "H_matrix": [
+      [
+        "sqrt(x**2 + 1)",
+        "-x"
+      ],
+      [
+        "-x",
+        "sqrt(x**2 + 1)"
+      ]
+    ],
+    "det_H_free": "1",
+    "det_H": "1",
+    "ratio": "1",
+    "ln_ratio": "0",
+    "ln_ratio_comparison": {
+      "name": "ln_gelfand_yaglom_ratio",
+      "symbolic": "0",
+      "difference_from_arsinh": "-asinh(x)",
+      "difference_from_F_std": "-x*sqrt(x**2 + 1)/2 + asinh(x)/2",
+      "numerical_absolute_differences": {
+        "0.1": {
+          "value": 0.0,
+          "abs_diff_from_arsinh": 0.09983407889920756,
+          "abs_diff_from_F_std": 0.0003323386560006697,
+          "within_1e-10_of_arsinh": false,
+          "within_1e-10_of_F_std": false
+        },
+        "1": {
+          "value": 0.0,
+          "abs_diff_from_arsinh": 0.881373587019543,
+          "abs_diff_from_F_std": 0.266419987676776,
+          "within_1e-10_of_arsinh": false,
+          "within_1e-10_of_F_std": false
+        },
+        "3": {
+          "value": 0.0,
+          "abs_diff_from_arsinh": 1.8184464592320668,
+          "abs_diff_from_F_std": 3.8341932606365354,
+          "within_1e-10_of_arsinh": false,
+          "within_1e-10_of_F_std": false
+        }
+      },
+      "matches_arsinh": false,
+      "matches_F_std": false
+    }
+  },
+  "matches_F_std": false
+}

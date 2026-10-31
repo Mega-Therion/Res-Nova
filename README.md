@@ -19,6 +19,7 @@ A shorter map, including what the two `06_` directories are, is [`docs/WHERE_TO_
 
 | | |
 | :--- | :--- |
+| [`FRONT.md`](FRONT.md) | The four blocks: imported Standard Model, general relativity outside galaxies, the galaxy law as an axiom, and the null-seam yield. Closed channels are listed there. The dated claim ledger remains [`CURRENT_STATE_READ_THIS_FIRST.md`](CURRENT_STATE_READ_THIS_FIRST.md). |
 | [`RESULTS.md`](RESULTS.md) | The core numbers. `./reproduce_core_results.sh` regenerates them and the other headline files from the official SPARC data and checks them against the commit: five files byte for byte, and three optimizer or bootstrap outputs to a stated tolerance (a₀ 10⁻¹², two fit outputs 10⁻⁸). It runs offline from a verified copy of the data. |
 | [`CHECKS.md`](CHECKS.md) | Every outside reproduction or critique, confirming or breaking. |
 | [`CURRENT_STATE_READ_THIS_FIRST.md`](CURRENT_STATE_READ_THIS_FIRST.md) | The current status of every physics claim. Its verification date is enforced by CI against the newest physics change. |

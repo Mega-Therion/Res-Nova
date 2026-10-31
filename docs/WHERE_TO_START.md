@@ -4,6 +4,7 @@ This page is a map. It does not delete the audit notes at the repository root, a
 
 ## The paper and the numbers
 
+- The four blocks and the closed channels: [`FRONT.md`](../FRONT.md). This map does not change a tier.
 - Claim status, with dates: [`CURRENT_STATE_READ_THIS_FIRST.md`](../CURRENT_STATE_READ_THIS_FIRST.md).
 - Headline numbers: [`RESULTS.md`](../RESULTS.md). `./reproduce_core_results.sh` regenerates them from the SPARC data in an offline copy.
 - What was checked or broken from outside: [`CHECKS.md`](../CHECKS.md).

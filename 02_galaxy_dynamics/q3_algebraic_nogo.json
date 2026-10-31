@@ -1,0 +1,195 @@
+{
+  "script": "/home/mega/Chyren/3_research/Res-Nova/02_galaxy_dynamics/q3_algebraic_nogo.py",
+  "verdict": "no-go: algebraic elimination cannot produce arsinh",
+  "exit_code": 0,
+  "class_definition": {
+    "name": "C_poly (classical polynomial auxiliary-field action class)",
+    "fields": [
+      "g_{mu nu}",
+      "A^mu",
+      "U^mu",
+      "phi",
+      "chi_1, ..., chi_N (finite set of auxiliary scalars or tensors)",
+      "lambda_1, ..., lambda_M (Lagrange multipliers for polynomial constraints)"
+    ],
+    "allowed_lagrangian_operations": "Polynomials over C in the fields, their first derivatives, and Lagrange multipliers enforcing polynomial constraints (unit timelike g_{mu nu} U^mu U^nu + 1 = 0, linear locks, quadratic normalizations).",
+    "forbidden_lagrangian_primitives": [
+      "arsinh",
+      "artanh",
+      "ln",
+      "exp",
+      "non-integer fractional powers in L"
+    ],
+    "allowed_onshell_elimination_outputs": "Algebraic branches (including radicals) solving polynomial stationary and constraint equations; transcendental logarithms are not inserted."
+  },
+  "target_function": {
+    "F_std_x": "1/2 * (x * sqrt(1 + x^2) - asinh(x))",
+    "arsinh_x": "log(x + sqrt(1 + x^2))",
+    "mu_std_x": "x / sqrt(1 + x^2)",
+    "F_std_prime_over_x_equals_mu_std": true,
+    "two_J_std_prime_Y_equals_mu_std_sqrt_Y": true,
+    "stationary_artanh_sigma_rewrite_counted_as_pass": false
+  },
+  "sympy_auxiliary_elimination": {
+    "general_onshell_kinetic_class": "W(Y) in AlgebraicClosure(C(Y)): all functions W(Y) satisfying a non-zero polynomial relation P(Y, W(Y)) = sum_{k=0}^d p_k(Y) W(Y)^k = 0 with p_k(Y) in C[Y], p_d(Y) != 0, d >= 1.",
+    "quadratic_auxiliary_eliminated_poly": "W_sym*m2 - Y_sym**2*b1**2/2 - Y_sym*c0*m2",
+    "radical_constraint_eliminated_poly": "W_sym**2 + 2*W_sym - Y_sym",
+    "algebraic_half_of_Fstd_eliminated_poly": "W_sym**2 - Y_sym**2/4 - Y_sym/4",
+    "converse_realization_L_P": "chi + lambda * P(Y, chi)",
+    "converse_variational_consistency_verified": true
+  },
+  "transcendence_obstruction": {
+    "algebraic_piece_A_alg": "1/2 * x * sqrt(1 + x^2)",
+    "A_alg_defining_polynomial": "4*A^2 - x^2*(1 + x^2) = 0",
+    "remainder_after_subtracting_A_alg": "-asinh(x)/2",
+    "fuchsian_ode": "(1 + x^2)*w''(x) + x*w'(x) = 0",
+    "power_series_recurrence": "c_{2n+1} = -((2n - 1)^2 / (2n*(2n + 1))) * c_{2n-1}, c_1 = 1",
+    "closed_form_coeff": "c_{2n+1} = (-1)^n * binomial(2n, n) / (4^n * (2n + 1))",
+    "eisenstein_obstruction": {
+      "A_alg_denom_primes_up_to_x55": [
+        2
+      ],
+      "arsinh_denom_primes_up_to_x55": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43,
+        47,
+        53
+      ],
+      "odd_primes_verified_v_p_eq_minus_1": [
+        {
+          "p": 3,
+          "c_p": "-1/6",
+          "denom": 6,
+          "p_divides_reduced_denom": true
+        },
+        {
+          "p": 5,
+          "c_p": "3/40",
+          "denom": 40,
+          "p_divides_reduced_denom": true
+        },
+        {
+          "p": 7,
+          "c_p": "-5/112",
+          "denom": 112,
+          "p_divides_reduced_denom": true
+        },
+        {
+          "p": 11,
+          "c_p": "-63/2816",
+          "denom": 2816,
+          "p_divides_reduced_denom": true
+        },
+        {
+          "p": 13,
+          "c_p": "231/13312",
+          "denom": 13312,
+          "p_divides_reduced_denom": true
+        },
+        {
+          "p": 17,
+          "c_p": "6435/557056",
+          "denom": 557056,
+          "p_divides_reduced_denom": true
+        },
+        {
+          "p": 19,
+          "c_p": "-12155/1245184",
+          "denom": 1245184,
+          "p_divides_reduced_denom": true
+        },
+        {
+          "p": 23,
+          "c_p": "-88179/12058624",
+          "denom": 12058624,
+          "p_divides_reduced_denom": true
+        },
+        {
+          "p": 29,
+          "c_p": "5014575/973078528",
+          "denom": 973078528,
+          "p_divides_reduced_denom": true
+        },
+        {
+          "p": 31,
+          "c_p": "-9694845/2080374784",
+          "denom": 2080374784,
+          "p_divides_reduced_denom": true
+        },
+        {
+          "p": 37,
+          "c_p": "2268783825/635655159808",
+          "denom": 635655159808,
+          "p_divides_reduced_denom": true
+        },
+        {
+          "p": 41,
+          "c_p": "34461632205/11269994184704",
+          "denom": 11269994184704,
+          "p_divides_reduced_denom": true
+        },
+        {
+          "p": 43,
+          "c_p": "-67282234305/23639499997184",
+          "denom": 23639499997184,
+          "p_divides_reduced_denom": true
+        },
+        {
+          "p": 47,
+          "c_p": "-514589420475/206708186021888",
+          "denom": 206708186021888,
+          "p_divides_reduced_denom": true
+        },
+        {
+          "p": 53,
+          "c_p": "61989816618513/29836347531329536",
+          "denom": 29836347531329536,
+          "p_divides_reduced_denom": true
+        }
+      ],
+      "infinite_prime_support_violates_eisenstein": true
+    },
+    "branch_and_puiseux_obstruction": {
+      "derivative": "1 / sqrt(1 + x^2)",
+      "branch_points": [
+        "I",
+        "-I"
+      ],
+      "period_around_cut": "2*I*pi",
+      "monodromy_sheet_count": "infinite (w + 2*pi*I*Z)",
+      "residue_of_dw_at_infinity_u_eq_0": -1,
+      "F_std_asymptotic_x_to_inf": "x**2/2 - log(x)/2 - log(2)/2 + 1/4 - 3/(16*x**2)",
+      "log_x_coefficient_at_infinity": "-1/2"
+    },
+    "liouville_minimal_polynomial_obstruction": {
+      "euler_uniformizer": "t = x + sqrt(1 + x^2), t^2 - 2*x*t - 1 = 0",
+      "required_rational_derivative": "r_{d-1}'(t) = -d/t (d >= 1)",
+      "residue_of_required_rhs_at_t0": "-d != 0",
+      "residue_of_any_rational_derivative_at_t0": 0
+    }
+  },
+  "two_vector_ansatz_audit": {
+    "unlocked_eliminated_poly_linear": "W_sym**2 - alpha_c**2 + beta_c**2*x**2",
+    "unlocked_eliminated_poly_quadratic_degree_in_W": 4,
+    "unlocked_u_par_squared": "beta_c**2*x**2/(alpha_c**2 - beta_c**2*x**2)",
+    "locked_kinematic_ratio_v_equals_mu_std": true,
+    "lock_verdict": "lock inserted, not derived",
+    "counted_as_derivation": false,
+    "locked_action_polynomial_ode": "2*y*(1 + y)*P3'(y) + (1 + 2*y)*P3(y) = y",
+    "locked_action_polynomial_solutions": [],
+    "uncancelled_derivative_remainder": "1/(2*sqrt(y_dim)*sqrt(y_dim + 1))"
+  },
+  "outside_class_note": "A one-loop functional determinant (Tr ln) defines a quantum effective action outside the classical polynomial auxiliary class and is not evaluated here."
+}

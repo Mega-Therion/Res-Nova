@@ -1,0 +1,64 @@
+{
+  "exit_code": 0,
+  "epistemic_status": "[O]",
+  "lambda_and_M_fixed_in_corpus": false,
+  "anchor_a0_m_s2": 1.163e-10,
+  "theta": 0.7,
+  "densities": {
+    "rho_sun_core_kg_m3": 150000.0,
+    "rho_sun_core_source": "Standard Solar Model core density (1.5e5 kg/m^3 = 150 g/cm^3); not fixed in PAPER_09",
+    "rho_sun_mean_kg_m3": 1408.2864052909663,
+    "rho_sun_mean_source": "Derived from GM_sun = 1.32712e20 m^3/s^2 (02_galaxy_dynamics/efe_quadrupole_q2.py:22), M_sun = 1.98847e30 kg (02_galaxy_dynamics/test_covariant_tidal_screening.py:19), and solar-limb g_N(R_sun) = 274 m/s^2 (01_foundational_action/PRD_Relativistic_Extension.tex:146)",
+    "L_sun_m": 695952846.7960337,
+    "rho_gal_anchor_kg_m3": 1.7943304859372512e-28,
+    "rho_gal_anchor_formula": "a0^2 / (4 * pi * G * c^2)",
+    "rho_gal_anchor_source": "Anchor acceleration a0 = 1.163e-10 m/s^2 and length l = c^2 / a0 (02_galaxy_dynamics/ASSEMBLY_GALAXY_ANCHOR_2026-10-04.md:9,15)",
+    "rho_gal_disk_kg_m3": 6.7697663777785676e-21,
+    "rho_gal_disk_source": "0.1 M_sun / pc^3 local galactic midplane density (02_galaxy_dynamics/duality_screening_cone_check.py:116)"
+  },
+  "symmetron_formulas_PAPER_09": {
+    "citation": "01_foundational_action/PAPER_09_ALGEBRAIC_EQUIVALENCE_OF_TAU_TENSION_AND_AQUAL_SIMPLE_MU.tex:695-708",
+    "V_eff": "lambda * (chi - theta)^2 + (rho / (2 * M^2)) * chi^2",
+    "m_eff_sq": "2*lambda + rho/M**2",
+    "m_eff_solar": "sqrt(2*lambda + rho_odot / M**2)",
+    "m_eff_galactic": "sqrt(2*lambda + rho_gal / M**2)",
+    "m_eff_L_odot": "L_odot * sqrt(2*lambda + rho_odot / M**2)",
+    "compton_wavelength_in_solar_radii": "1 / (L_odot * sqrt(2*lambda + rho_odot / M**2))",
+    "chi_min": "2*M**2*lambda*theta/(2*M**2*lambda + rho)",
+    "chi_min_at_theta_0p7": "7*M**2*lambda/(5*(2*M**2*lambda + rho))"
+  },
+  "suppression_factors": {
+    "S_yukawa": "exp(-r * sqrt(2*lambda + rho_odot / M**2))",
+    "S_yukawa_at_r_eq_L_odot": "exp(-L_odot * sqrt(2*lambda + rho_odot / M**2))",
+    "S_chi_min_ratio": "(2*M**2*lambda + rho_gal)/(2*M**2*lambda + rho_odot)",
+    "repaired_disformal_coupling_S": 1.0,
+    "repaired_disformal_note": "g_tilde_munu = g_munu + B d_mu chi d_nu chi (REPAIRED_COUPLING_CASSINI.md:8) contains neither V(chi) nor A(chi) and is unsourced by static dust (duality_screening_cone_check.py:69), leaving S = 1 unscreened."
+  },
+  "suppressed_Q2_and_residuals": [
+    {
+      "g_e_m_s2": 1.9e-10,
+      "Q2_unscreened_s_minus_2": 1.91e-26,
+      "Q2_suppressed_yukawa_formula": "1.91e-26 * exp(-r * sqrt(2*lambda + rho_odot/M^2))",
+      "Q2_suppressed_chi_ratio_formula": "1.91e-26 * (2*M^2*lambda + rho_gal) / (2*M^2*lambda + rho_odot)",
+      "residual_2014_sigma_window_centered": "(1.91e-26 * S - 3.00e-27) / 3.00e-27 = 6.366667 * S - 1.000000",
+      "residual_2014_sigma_raw_ratio": "(1.91e-26 * S) / 3.00e-27 = 6.366667 * S",
+      "residual_2026_sigma_window_centered": "(1.91e-26 * S - 1.60e-27) / 1.80e-27 = 10.611111 * S - 0.888889",
+      "residual_2026_sigma_raw_ratio": "(1.91e-26 * S) / 1.80e-27 = 10.611111 * S",
+      "unscreened_S_eq_1_sigma_2014": 5.366666666666666,
+      "unscreened_S_eq_1_sigma_2026": 9.722222222222221
+    },
+    {
+      "g_e_m_s2": 2.4e-10,
+      "Q2_unscreened_s_minus_2": 2.01e-26,
+      "Q2_suppressed_yukawa_formula": "2.01e-26 * exp(-r * sqrt(2*lambda + rho_odot/M^2))",
+      "Q2_suppressed_chi_ratio_formula": "2.01e-26 * (2*M^2*lambda + rho_gal) / (2*M^2*lambda + rho_odot)",
+      "residual_2014_sigma_window_centered": "(2.01e-26 * S - 3.00e-27) / 3.00e-27 = 6.700000 * S - 1.000000",
+      "residual_2014_sigma_raw_ratio": "(2.01e-26 * S) / 3.00e-27 = 6.700000 * S",
+      "residual_2026_sigma_window_centered": "(2.01e-26 * S - 1.60e-27) / 1.80e-27 = 11.166667 * S - 0.888889",
+      "residual_2026_sigma_raw_ratio": "(2.01e-26 * S) / 1.80e-27 = 11.166667 * S",
+      "unscreened_S_eq_1_sigma_2014": 5.7,
+      "unscreened_S_eq_1_sigma_2026": 10.277777777777779
+    }
+  ],
+  "required_check": "[O] lambda and M are not fixed in PAPER_09 or elsewhere in the Res-Nova corpus. The symmetron-suppressed Q2 and its 2014/2026 sigma residuals remain symbolic formulas in (lambda, M) [O]. In the repaired disformal coupling without free parameters (S = 1), Cassini FAILS both windows (+5.37 sigma / +5.70 sigma against 2014; +9.72 sigma / +10.28 sigma against 2026)."
+}
