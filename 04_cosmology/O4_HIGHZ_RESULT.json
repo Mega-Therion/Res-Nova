@@ -1,0 +1,37 @@
+{
+  "status": "completed",
+  "dataset": "RC100_NestorShachar2023",
+  "n_galaxies": 100,
+  "z_range": [
+    0.61,
+    2.52
+  ],
+  "chi2_const": 85.40884007223838,
+  "chi2_horizon": 17.78769400465041,
+  "delta_chi2": 67.62114606758797,
+  "sigma": 8.223207772371312,
+  "verdict": "CONFOUNDED",
+  "o4_status": "OPEN \u2014 mechanical Delta-chi2 favors H_horizon but the shape test rejects H(z) evolution; normalization offset, not evolution, drives the mechanical result",
+  "epistemic_tag": "[D]",
+  "frozen_inputs": {
+    "a0_const_SI": 1.116e-10,
+    "xi": 0.17,
+    "H0_km_s_Mpc": 67.36,
+    "Omega_m": 0.3153,
+    "route": "fdm",
+    "bins": [
+      0.6,
+      1.2,
+      2.61
+    ],
+    "protocol": "04_cosmology/PREREG_O4_HIGHZ_A0Z.md"
+  },
+  "shape_diagnostic": {
+    "shape_chi2_const": 0.6292219149316378,
+    "shape_chi2_horizon": 17.185160234390075,
+    "shape_delta_chi2": -16.555938319458438,
+    "shape_sigma": -4.0688989075004605,
+    "note": "Shape-only (normalization free): negative delta favors constant SHAPE. The H(z)-tracking shape is rejected; the mechanical verdict is driven by a flat ~2.5x normalization offset, not by evolution."
+  },
+  "run_seconds": 1.1
+}
