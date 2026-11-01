@@ -124,6 +124,7 @@ lean_lib «ResNovaFormal» where
     `TrialityG2,
     `TrialityFixedSubalgebra,
     `YettParadigm,
+    `MasterEquationCore,
     `RamanujanGapDerivation,
     `LeptonMassCollar,
     `NavierStokesCorticalBound,
