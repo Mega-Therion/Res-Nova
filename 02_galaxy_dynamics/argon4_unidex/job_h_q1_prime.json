@@ -1,0 +1,13 @@
+{
+  "job": "H",
+  "exit_code": 0,
+  "verdict": "input",
+  "q1_prime_status": "input",
+  "tier": "A",
+  "neighbor_constrained": "none",
+  "neighbor_forbidden": "derivation of μ_std, killed tail, solar system",
+  "free_symbols": [],
+  "numeric_outputs": {},
+  "statement": "μ′(0) = 1 is part of the galaxy axiom.",
+  "script": "job_h_q1_prime.py"
+}

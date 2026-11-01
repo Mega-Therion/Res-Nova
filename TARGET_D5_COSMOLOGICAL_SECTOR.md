@@ -16,7 +16,7 @@
 *vector* kinetic scalar 𝒦 and from a uniform MOND enhancement ξ; neither exists in the AeST
 action that `TARGET_D7` was corrected to tonight. On FLRW, 𝒴 ≡ 0 identically, so the MOND free
 function 𝒥(𝒴) — and therefore a₀ and μ(x) — **do not appear in linear cosmology at all**.
-This document constructs the sector that does govern it: 𝒦(𝒬) = −½ℱ(0,𝒬).
+This document constructs the AeST background sector: 𝒦(𝒬) = −½ℱ(0,𝒬). **2026-10-31.** That function is still a modelling choice (`TARGET_D7` §3). On this background \(\mathcal{Y}\equiv 0\), so the galaxy axiom does not enter linear cosmology. The calculated cosmological yield is a different object, the null seam (`SEAM.md`, `TARGET_D7` §3.2, `UNIDEX.md`). This file does not evaluate that yield, and the seam does not choose \(\mathcal{K}(\mathcal{Q})\).
 
 **Non-linear structure formation — separate, still open [O]:** a pre-registered N-body campaign
 (2026-09-11, before the AeST correction) tested the old ξ-based non-relativistic overgrowth

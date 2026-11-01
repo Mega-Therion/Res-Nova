@@ -1,0 +1,35 @@
+{
+  "job": "C",
+  "exit_code": 0,
+  "verdict": "mass_remains_symbolic",
+  "tier": "O",
+  "neighbor_constrained": "list of symbols still free",
+  "neighbor_forbidden": "numerical dark-matter mass, neutrino name, I itself (fixed equal to 1/(8 \u03c0^(3/2)))",
+  "free_symbols": [
+    "m",
+    "y",
+    "C",
+    "g_star",
+    "rho_dm0",
+    "s_0"
+  ],
+  "numeric_outputs": {},
+  "script": "job_c_symbolic_mass.py",
+  "exponent_status": "copied_not_derived",
+  "first_missing_relation": "identification_of_produced_species_with_dark_matter (rho_dm0 = m * n0)",
+  "identification_of_species_with_dark_matter": "recorded_as_assumption_not_result",
+  "identification_required_for_2_5": true,
+  "algebra_tier": "D",
+  "mass_tier": "O",
+  "algebraic_reduction": {
+    "phase_space_integral": "int (d^3k/(2pi)^3) exp(-pi k^2/gamma) = gamma^(3/2)/(8 pi^3)",
+    "comoving_particle_density_nc": "(I / pi^(3/2)) * (y * m * C)^(3/2)",
+    "unassisted_m_exponent_in_nc": "3/2",
+    "dark_matter_density_relation": "rho_dm0 = m * n0 = m * (nc / s_rad) * s_0",
+    "combined_m_exponent_before_inversion": "5/2",
+    "reduced_m_exponent": "2/5",
+    "rho_r0_cancellation": "rho_r0 cancels identically between C^(3/2) and s_rad",
+    "symbolic_mass_expression": "((rho_dm0 / s_0) * (pi^(3/2) * s_rad) / (I_sym * y^(3/2) * C^(3/2)))^(2/5)"
+  },
+  "summary": "Phase-space integration gives nc proportional to m^(3/2) [tier D]. Equating to observed dark matter density requires assuming rho_dm0 = m*n0 [tier O], which is not derived from seam inputs. Under this assumption, algebra yields exponent 2/5. Stopping at the first missing relation marks exponent copied_not_derived from pure seam. All symbols remain free; mass remains symbolic [tier O]."
+}

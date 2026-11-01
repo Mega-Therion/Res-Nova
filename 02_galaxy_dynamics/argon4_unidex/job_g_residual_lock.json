@@ -1,0 +1,22 @@
+{
+  "job": "G",
+  "exit_code": 0,
+  "verdict": "residual_of_the_axiom",
+  "tier": "D",
+  "neighbor_constrained": "galaxy axiom outer-disk residual",
+  "neighbor_forbidden": "different μ",
+  "free_symbols": [],
+  "numeric_outputs": {
+    "complete_bin_median": -6.48,
+    "complete_bin_count": 1084,
+    "star_dominated_median": -1.83,
+    "star_dominated_count": 598,
+    "gas_dominated_median": -13.79,
+    "gas_dominated_count": 486,
+    "pure_gas_median": -17.8,
+    "pure_gas_count": 163
+  },
+  "script": "job_g_residual_lock.py",
+  "citation": "02_galaxy_dynamics/SPARC_GAS_FRACTION_AUDIT_2026-10-26.md",
+  "audit_check_passed": true
+}

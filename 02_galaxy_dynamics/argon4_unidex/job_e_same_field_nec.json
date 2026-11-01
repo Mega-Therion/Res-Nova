@@ -1,0 +1,48 @@
+{
+  "job": "E",
+  "exit_code": 0,
+  "verdict": "double_well_required_by_galaxy_action_false",
+  "tier": "X",
+  "neighbor_constrained": "galaxy scalar null energy",
+  "neighbor_forbidden": "warp metric, fitted λ, solar system",
+  "free_symbols": [
+    "lambda"
+  ],
+  "numeric_outputs": {},
+  "script": "job_e_same_field_nec.py",
+  "case_1_citation": {
+    "source": "scripts/ttey_scalar_nec.py",
+    "action": "L = -(a0^2 / 8 pi G) F(X), X = g^{ab} d_a phi d_b phi / a0^2",
+    "stress_tensor": "T_{mn} = (1 / 4 pi G) F'(X) d_m phi d_n phi + g_{mn} L",
+    "null_contraction": "T_{mn} k^m k^n = (1 / 4 pi G) F'(X) (k^m d_m phi)^2",
+    "nec_status": "satisfied_when_Fprime_nonnegative",
+    "mu_std_eval": "F'_std(X) = mu_std(x) = x / sqrt(1 + x^2) >= 0 on x >= 0",
+    "measurement_type": "citation"
+  },
+  "case_2_same_field_contraction": {
+    "action": "S = int d^4x sqrt(-g) [ L_kin(g^{mn}, d_m T) - V(T) ]",
+    "potential": "V = lambda * (T^2 - chi^2)^2",
+    "chi": "1/sqrt(2)",
+    "stress_tensor": "T_{mn} = T_{mn}^{(kin)} - g_{mn} V(T)",
+    "null_condition": "g_{mn} k^m k^n = 0",
+    "potential_null_contraction": "0",
+    "v_enters_contraction": false,
+    "total_null_contraction": "T_{mn} k^m k^n = (1 / 4 pi G) * F'(X) * (k^m d_m T)^2",
+    "nec_satisfied_when_fprime_nonneg": true,
+    "f_std_prime_equals_x_mu_std": true,
+    "warp_bubble_status": "warp_metric_requires_nec_violation_not_realized",
+    "free_symbol_lambda_preserved": true
+  },
+  "case_3_action_audit": {
+    "d7_file": "TARGET_D7_COVARIANT_COMPLETION.md",
+    "reconciliation_file": "TTEY_FIELD_MODEL_RECONCILIATION_2026-10-14.md",
+    "found_line_requiring_v_in_galaxy_action": false,
+    "galaxy_action_line_ref": null,
+    "double_well_required_by_galaxy_action": false,
+    "d7_potential_note": "D7 line 649 confirms V(phi) breaks shift symmetry: different theory, not a repair.",
+    "reconciliation_note": "Reconciliation lines 11, 19 confirm Model 1 has no potential; Model 2 is separate postulated field.",
+    "galaxy_field_tier": "X",
+    "second_sector_existence_tier": "O"
+  },
+  "summary": "Varying S = int d^4x sqrt(-g) [L_kin - V(T)] yields T_mn = T_mn^(kin) - g_mn V. Along null k, g_mn k^m k^n = 0 implies V drops out identically. For F_std, F' = mu_std >= 0 ensures NEC holds. No line in D7 galaxy action requires V; double_well_required_by_galaxy_action is false."
+}

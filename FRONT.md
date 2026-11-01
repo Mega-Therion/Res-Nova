@@ -2,7 +2,7 @@
 
 Date: 2026-10-31. This page is the column the corpus hangs on. It does not replace [`CURRENT_STATE_READ_THIS_FIRST.md`](CURRENT_STATE_READ_THIS_FIRST.md), which remains the dated ledger of every claim. Where a number below and that ledger disagree, the ledger's cited file wins, and this page should be corrected.
 
-The picture this page follows is the checked drawing in BLK-939. Two passes, wound opposite ways, add to a column whose pieces bear on each other. They are not bars nailed to one theory-of-everything spine.
+The picture this page follows is the checked drawing in BLK-939. Two passes, wound opposite ways, add to a column whose pieces bear on each other. They are not bars nailed to one theory-of-everything spine. The index of that column, including the shadow reading and the withdrawn geometric constructions, is [`UNIDEX.md`](UNIDEX.md).
 
 ## The four blocks
 
@@ -24,7 +24,7 @@ Do not reopen these as ways to derive the galaxy law.
 
 | Channel | Receipt | Result |
 | :--- | :--- | :--- |
-| Variation of the action | `02_galaxy_dynamics/q3_action_forces_mu.json` | The action does not force \(\mu_{\mathrm{std}}\). Q3 stays open as a uniqueness claim. |
+| Variation of the action | `02_galaxy_dynamics/q3_action_forces_mu.json` | The action does not force \(\mu_{\mathrm{std}}\). That derivation route is closed (2026-10-31). The function remains the galaxy axiom. |
 | Polynomial auxiliaries | `02_galaxy_dynamics/q3_algebraic_nogo.json` | Algebraic elimination cannot produce \(\mathrm{arsinh}\). |
 | Finite boost determinants | `02_galaxy_dynamics/q3_det_ratio.json` | `determinant does not equal arsinh`. |
 | One-dimensional chiral determinant | `02_galaxy_dynamics/q3_chiral_det.json` | The plus projector recovers \(\mathrm{arsinh}\) only as the Maurer–Cartan identity. `matches_F_std` is false. |

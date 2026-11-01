@@ -1,0 +1,18 @@
+{
+  "job": "A",
+  "exit_code": 0,
+  "verdict": "seam_does_not_source_eta",
+  "tier": "X",
+  "neighbor_constrained": "the shadow reading",
+  "neighbor_forbidden": "a baryon-to-photon ratio, a cosmic baryon fraction, the seam mass",
+  "free_symbols": [
+    "gamma",
+    "k"
+  ],
+  "numeric_outputs": {},
+  "script": "job_a_seam_eta.py",
+  "stored_spectrum_parity": "even",
+  "odd_terms_found": [],
+  "term_breaking_equality": null,
+  "summary": "Stored mode equations and |beta|^2 depend only on even powers (tau^2, k^2). No odd terms break sheet reflection or charge conjugation; the seam does not source eta."
+}

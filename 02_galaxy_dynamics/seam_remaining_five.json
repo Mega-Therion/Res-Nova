@@ -1,0 +1,86 @@
+{
+  "construction": "seam_remaining_five",
+  "particle_name": null,
+  "species": {
+    "verdict": "species_list_is_the_later_bath",
+    "tier": "O",
+    "thermal_species_at_the_seam": [],
+    "later_bath": [
+      "photon helicity +",
+      "photon helicity -"
+    ],
+    "g_star": 2,
+    "graviton_included": false,
+    "produced_species": "unnamed massive field",
+    "gamma_identification": "m*C",
+    "yukawa": "closed",
+    "spin_chosen": false,
+    "standard_model_menu_attached": false,
+    "particle_name": null,
+    "sentence": "The seam has no thermal species list. The later bath is the photon gas, two helicities. The produced field is an unnamed massive field with gamma = m*C. Spin is not chosen. No Standard Model menu is attached."
+  },
+  "baryon": {
+    "verdict": "baryon_density_imported_seam_contribution_zero",
+    "tier": "C",
+    "derived_from_seam": false,
+    "source": "Planck 2018 results VI, arXiv:1807.06209, abstract, the combined sentence that also states Omega_c h^2 = 0.120 \u00b1 0.001",
+    "omega_b_h2": "0.0224",
+    "omega_b_h2_uncertainty": "0.0001",
+    "omega_b_h2_interval": "68%",
+    "temperature_K": "2.72548",
+    "temperature_role": "measured CMB, not the never-reheated bath",
+    "mean_mass_per_baryon": "proton mass",
+    "eta": "6.12465009463e-10",
+    "eta_over_omega_fractional_half_width": "0.00446429",
+    "omega_b_over_omega_c": "0.186667",
+    "seam_contribution": "0",
+    "added_to_omega_c": false,
+    "particle_name": null,
+    "sentence": "Omega_b h^2 = 0.0224 \u00b1 0.0001 is imported from the same Planck 2018 VI abstract sentence as Omega_c. Dividing that density by the proton mass and by the measured photon density gives eta. The seam contribution is 0. The never-reheated bath is not used."
+  },
+  "second_sector": {
+    "verdict": "second_sector_not_adopted",
+    "tier": "X",
+    "existence_established": false,
+    "required_by_galaxy_action": false,
+    "adopted_into_the_column": false,
+    "lambda": null,
+    "warp_note_deleted": false,
+    "sentence": "The galaxy action does not require the double-well. No equation fixes lambda. The second sector is not adopted into this column. The warp note still holds the postulate."
+  },
+  "k_of_q": {
+    "verdict": "cosh_adopted_parameters_free",
+    "tier": "D",
+    "source": "TARGET_D5_COSMOLOGICAL_SECTOR.md",
+    "function": "-2*Lambda + 2*K_2*Z_0**2*(cosh((Q-Q_0)/Z_0)-1)",
+    "quadratic_excluded_by": "TARGET_D5 \u00a71.3",
+    "background_integral": "sinh((Q-Q_0)/Z_0) = I_0/(2*K_2*Z_0*a**3)",
+    "free_parameters": [
+      "Lambda",
+      "K_2",
+      "Q_0",
+      "Z_0"
+    ],
+    "sz_published_point_adopted": false,
+    "seam_yield_changed": false,
+    "sentence": "TARGET_D5 adopts the Cosh function and excludes the quadratic. The background integral is sinh(Z) = I_0/(2*K_2*Z_0*a**3). Lambda, K_2, Q_0, and Z_0 stay free. The SZ published point is not adopted. The seam yield is unchanged."
+  },
+  "a0z": {
+    "verdict": "constant_survives_published_pressure_scale",
+    "tier": "D",
+    "stated_scale": "1",
+    "stated_scale_meaning": "published Burkert pressure correction",
+    "N": 95,
+    "n": -0.277,
+    "n_95ci": [
+      -0.719,
+      0.152
+    ],
+    "constant_inside": true,
+    "hubble_power_inside": false,
+    "refit": false,
+    "anchor_a0_cH0_over_2pi": "not a theorem",
+    "scales_3_and_4_contain_the_constant": false,
+    "sentence": "At the published pressure scale s = 1 the stored interval is n = -0.277 with 95% bounds [-0.719, 0.152], N = 95. The constant n = 0 is inside. The Hubble power n = 1 is outside. Scales 3 and 4 still exclude the constant. The anchor a0 = cH0/2\u03c0 is not a theorem."
+  }
+}

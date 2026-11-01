@@ -1,0 +1,31 @@
+{
+  "job": "D",
+  "exit_code": 0,
+  "verdict": "k_of_q_does_not_choose_I",
+  "tier": "D",
+  "neighbor_constrained": "AeST background does not replace seam",
+  "neighbor_forbidden": "seam yield, galaxy axiom",
+  "free_symbols": [
+    "Q",
+    "Q_0",
+    "K_2",
+    "Z_0",
+    "Lambda",
+    "I_0",
+    "a"
+  ],
+  "numeric_outputs": {
+    "I_direct_yield": 0.02244839026564582
+  },
+  "script": "job_d_k_of_q.py",
+  "background_statements": {
+    "Y_identically_zero": true,
+    "K_of_Q_relation": "K(Q) = -1/2 * F(0, Q)",
+    "source": "TARGET_D5_COSMOLOGICAL_SECTOR.md"
+  },
+  "mu_std_in_background": false,
+  "I_is_root_of_background": false,
+  "choice_of_K_tier": "O",
+  "separation_tier": "D",
+  "summary": "AeST FLRW background has Y=0 and K(Q)=-1/2*F(0,Q). mu_std does not appear in background equations, and seam yield I is not a root. Choice of K remains tier O; background does not replace seam."
+}

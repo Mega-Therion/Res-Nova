@@ -258,13 +258,14 @@ do not, and the one-dimensional chiral determinant recovers arsinh only as the
 Maurer–Cartan identity and misses $F_{\mathrm{std}}$. On galaxies
 $\mu_{\mathrm{std}}(x)=x/\sqrt{1+x^2}$ is an axiom `[A]`.
 
+**Q2, answered.** The odds-ratio connection is the Fisher identity. It is structural. It is not a coincidence, and it is not a derivation of the galaxy axiom.
+
 **Q3, closed 2026-10-31.** The covariant embedding does not force μ_std. On galaxies the law is an axiom. See `FRONT.md` and `q3_action_forces_mu.json`, `q3_algebraic_nogo.json`, `q3_det_ratio.json`, `q3_chiral_det.json`.
 
 The following questions remain open:
 
-- **Q1:** Can the Padé constraint be derived from an information-theoretic variational principle? (e.g., minimum Fisher information, maximum entropy on the Bernoulli manifold)
-- **Q2:** Is the odds-ratio connection (Theorem 6.1) a coincidence or a deep structural feature of the theory?
-- **Q4:** The identity $\mathcal{F}_{\text{dual}}'(x)^2 \cdot \mathcal{I}(\mu(x)) = x^3$ (Theorem 7.1) suggests a variational principle of the form "minimize Fisher information subject to the MOND acceleration constraint." Can this be made rigorous?
+- **Q1:** Can the Padé constraint be derived from an information-theoretic variational principle? (e.g., minimum Fisher information, maximum entropy on the Bernoulli manifold) The sharper form is Q1′ above. A yes would still be an input to the axiom, not a reopening of Q3.
+- **Q4:** The identity $\mathcal{F}_{\text{dual}}'(x)^2 \cdot \mathcal{I}(\mu(x)) = x^3$ (Theorem 7.1) is about the killed tail \(\mu=x/(1+x)\). Making that variational principle rigorous would not install \(\mu_{\rm std}\) and would not cross the seam.
 
 ---
 

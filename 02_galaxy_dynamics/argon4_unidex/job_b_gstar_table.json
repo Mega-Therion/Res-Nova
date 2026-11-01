@@ -1,0 +1,59 @@
+{
+  "job": "B",
+  "exit_code": 0,
+  "verdict": "gstar_conditional_table_evaluated",
+  "tier": "C",
+  "neighbor_constrained": "which species list is allowed to enter later count",
+  "neighbor_forbidden": "seam yield, seam mass, hypercharges",
+  "free_symbols": [
+    "g_star_seam",
+    "T_seam"
+  ],
+  "numeric_outputs": {
+    "row_1_bosonic_dof": 2,
+    "row_1_fermionic_dof": 10,
+    "row_1_g_star": 10.75,
+    "row_2_bosonic_dof": 28,
+    "row_2_fermionic_dof": 90,
+    "row_2_g_star": 106.75
+  },
+  "script": "job_b_gstar_table.py",
+  "rows": [
+    {
+      "row_id": 1,
+      "content": "Photons, 3 LH neutrino species, electrons and positrons",
+      "assumption": "Standard cosmology below muon threshold and above electron-positron annihilation",
+      "attached_to_seam": false,
+      "tier": "C",
+      "bosonic_dof": 2,
+      "fermionic_dof": 10,
+      "g_star": 10.75,
+      "g_star_fraction": "43/4",
+      "arithmetic_detail": "2 + (7/8) * 10 = 10.75"
+    },
+    {
+      "row_id": 2,
+      "content": "Imported 1-generation Weyl list copied 3 times, plus gluons, W, Z, photon, Higgs",
+      "assumption": "Hot early universe above electroweak scale (unbroken gauge symmetry), not a seam result",
+      "attached_to_seam": false,
+      "tier": "C",
+      "bosonic_dof": 28,
+      "fermionic_dof": 90,
+      "g_star": 106.75,
+      "g_star_fraction": "427/4",
+      "arithmetic_detail": "28 + (7/8) * 90 = 106.75"
+    },
+    {
+      "row_id": 3,
+      "content": "Blank seam row: seam relativistic degrees of freedom",
+      "assumption": "Seam has not fixed temperature relative to symbolic mass",
+      "attached_to_seam": true,
+      "tier": "O",
+      "bosonic_dof": null,
+      "fermionic_dof": null,
+      "g_star": null,
+      "g_star_seam": null,
+      "arithmetic_detail": "unfixed: temperature relative to symbolic mass is open"
+    }
+  ]
+}

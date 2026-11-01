@@ -169,6 +169,22 @@ From SZ's own text:
    Kopp et al. / Ilić et al. SZ state the Higgs phase therefore "cannot be extended too long
    in the past" and higher terms in $\mathcal{K}$ are needed (their Cosh / Exp examples).
 
+### 3.2 The calculated cosmology is the null seam
+
+The unmade choice of $\mathcal{K}(\mathcal{Q})$ is not the cosmology this corpus has calculated.
+The calculated object is the radiation cosmology through a null seam (`SEAM.md`, block 4 of
+`FRONT.md`; mode receipt `Chyren/state/cpt_mode_equation.json`, Hood BLK-936). From that
+receipt, $|\beta|^2=\exp(-\pi k^2/\gamma)$ and the direct yield is
+$I=1/(8\pi^{3/2})$, recorded as `0.02244839026564582`. $\gamma$ is unfixed, either $m C$ or
+$y\, m C$. The mass expression is symbolic. No numerical mass is a result. The half-angle
+integral near `0.01276` in the same receipt is a different assumption. It is not $I$.
+
+This yield does not select $\mu_{\rm std}$. It does not identify the produced particle with
+a neutrino. It does not move the boundary in `OUTSIDE_GALAXIES.md`. The species that may
+enter the open $g_\star$ are the imported Weyl multiplets, gauge bosons, and Higgs of
+`IMPORTED_STANDARD_MODEL.md`. The receipt does not evaluate $g_\star$. The textbook value
+$106.75$ is not a result of this file. The index of the neighboring strands is `UNIDEX.md`.
+
 ---
 
 ## 4. What the galaxy tails do if they are extended into the solar system **[D]** **[X]** for that extension
@@ -276,7 +292,7 @@ quadrupole tension.
 
 **Branch A: change the tail.** A $\mu$ whose approach to 1 is $\mathcal{O}(1/x^2)$ kills the
 residual: for $\mu_{\rm std}=x/\sqrt{1+x^2}$, $1-\mu\simeq1/(2x^2)$ and the residual force is
-$\simeq a_0^2/(2g)=1.6\times10^{-19}$ m s⁻² at Mercury — 9 orders below the bound.
+$\simeq a_0^2/(2g)=1.6\times10^{-19}$ m s⁻² at Mercury — 9 orders under that force scale. This figure is the isolated-Sun monopole. The external-field boundary is the paragraph below and `OUTSIDE_GALAXIES.md`.
 
 This is a live internal conflict, not a symbol collision: $\mu_{\rm std}=x/\sqrt{1+x^2}$ is used
 as *the MOND interpolation function* throughout this corpus —
@@ -420,7 +436,7 @@ it moves from asserted to structural, and it is the reason D9 had to be ground t
 | §6's $c_T=c$ argument does **not** cover second-derivative operators ($\nabla\nabla\phi$ carries $\partial h^{TT}$) | [D] | §11.2 |
 | Non-Horndeski ($q^{\mu\nu}\nabla_\mu\nabla_\nu\phi$, $A^\mu$) evasion at $p\ge2.34$ — the one surviving crack | [O] | §11.4 |
 | Conformal (chameleon/symmetron) screening survives GW170817 but breaks shift symmetry + MOND lensing | [O]/[C] | §11.4 |
-| Branch A ($\mu=x/\sqrt{1+x^2}$) is the live route; it renormalises $G$, it does **not** screen | [D] | §11.5 |
+| Branch A ($\mu=x/\sqrt{1+x^2}$) renormalises $G$ and does not screen. On galaxies it is the axiom `[A]`. The isolated-Sun monopole is not a solar-system pass | [D] for the transplant; boundary is unscreened $S=1$ | §11.5, §4.4, `OUTSIDE_GALAXIES.md` |
 | $\mathcal{J}$-sector ghost-free ($\mathcal{J}'>0$, $\mathcal{J}''>0$) | [D] | §5 |
 | Full AeST ghost-freedom ($K_B$, $\mathcal{K}_2$ conditions) | [O] | §5 |
 | $c_T=c$ exactly, all $\mathcal{F}$ | [D]+[C] | §6; arXiv:1905.09465 |
@@ -444,14 +460,15 @@ $10^{-3}$ bound, corroborated as a general AQUAL phenomenon by Milgrom (arXiv:12
 Desmond (arXiv:2401.04796). That kills $\mu(x)=x/(1+x)$ as a solar-system interpolation within
 two-derivative AQUAL/AeST, regardless of the covariant completion, and it points at the
 $\mu(x)=x/\sqrt{1+x^2}$ already used across this corpus — and axiomatised beside it as an
-unresolved disjunction in `AXIOMS_V2.lean:64` — whose $1/x^2$ tail passes by nine orders of
-magnitude. One escape remained open: SZ's higher-derivative screening (§4.4 branch B).
+unresolved disjunction in `AXIOMS_V2.lean:64`. The $1/x^2$ tail is the isolated-Sun monopole,
+about nine orders under that force scale. The boundary is the unscreened $S=1$ failure in
+`OUTSIDE_GALAXIES.md`. One escape remained open: SZ's higher-derivative screening (§4.4 branch B).
 **§11 closes that escape:** the only published construction that achieves the required
 suppression (Babichev–Deffayet–Esposito-Farèse, arXiv:1106.2538) needs a Vainshtein exponent
 $p=3$, which requires an explicit Riemann–$(\nabla\varphi)^2\nabla\nabla\varphi$ coupling —
 exactly the Horndeski $G_4(X)/G_5$ sector excluded by GW170817. The $c_T=c$-safe sector
 $G_2+G_3\Box\varphi$ caps at $p<2$, against a requirement of $p\ge2.34$. Branch B costs
-$c_T=c$; Branch A is the surviving route.
+$c_T=c$. Branch A remains the galaxy axiom. It is not a solar-system pass.
 
 ---
 
@@ -643,11 +660,11 @@ sector supplies at most $p\to2^-$; the only construction that reaches $p=3$
 $c_T=c$ is the strongest result this document holds (§6). **The trade is $c_T=c$ against
 $\mu=x/(1+x)$, and this corpus has already spent everything on $c_T=c$.**
 
-Consequently §4.4's disjunction resolves: **branch A is the live route.**
-`AXIOMS_V2.lean:64`'s $\mu=x/(1+x)\;\vee\;\mu=x/\sqrt{1+x^2}$ should collapse to the right
-disjunct, and the open question becomes whether the dual-channel construction *derives*
-$x/\sqrt{1+x^2}$ or merely tolerates it, and whether the RAR fit survives the swap
-(Desmond arXiv:2401.04796). **[O]**
+Consequently §4.4's disjunction does not install either function as the solar-system law.
+Branch B is closed in the $c_T=c$ sector. Branch A, $\mu=x/\sqrt{1+x^2}$, remains the galaxy
+axiom (`FRONT.md`). `AXIOMS_V2.lean:64`'s disjunction stays that axiom. The derivation route
+for the function is closed (2026-10-31). The RAR question under the axiom is separate
+(Desmond arXiv:2401.04796).
 
 Note what §11.1 does *not* let us keep: BDEF's $\varphi''<0$ theorem says that under §5's
 ghost conditions the scalar force in the solar system is bounded below by its MOND-scale value
@@ -656,12 +673,17 @@ scalar force is the *tracking* force $g_\varphi\simeq\hat g\gg a_0$ and the *res
 $g_\varphi-\hat g\simeq a_0^2/2\hat g$ is what is small. Branch A does not screen; it renormalises
 $G$ and leaves a decaying remainder. Any future claim that branch A "screens" would be wrong. **[D]**
 
-**Update 2026-09-12 — Branch A confirmed by exact solve.** `TARGET_D1_SUPPLEMENT_MU_STD_REBUILD.md`
+**Update 2026-09-12, domain marked 2026-10-31.** `TARGET_D1_SUPPLEMENT_MU_STD_REBUILD.md`
 solves $\mu_{\rm std}(g_\varphi/a_0)g_\varphi=\hat g$ exactly (50-digit `mpmath` Newton, not an
 asymptotic estimate) at Mercury: residual $=1.5735\ldots\times10^{-19}$ m/s², matching the
-analytic $a_0^2/(2\hat g)$ prediction to 10 significant figures, clearing the Cassini-equivalent
-bound by $\sim1300\times$. Ghost-free conditions ($\mathcal{J}'>0$, $\mathcal{J}'+2\mathcal{Y}
-\mathcal{J}''>0$) hold identically to §5's. **What does not transfer:** D2's Padé[1/1]
-uniqueness proof does not apply to $\mu_{\rm std}$ (not a rational function), and the
-Fisher-identity/Hamilgrangian-split machinery (CLM-12/13/14) has no analogue found. D2's
-uniqueness gap for $\mu_{\rm std}$ is now the program's central open problem.
+analytic $a_0^2/(2\hat g)$ prediction to 10 significant figures. That match is the isolated-Sun
+monopole. The $\sim1300\times$ figure is that monopole against the Cassini-equivalent force
+scale in `TARGET_D1_SUPPLEMENT` §4.1. The boundary is the unscreened run $S=1$ in
+`02_galaxy_dynamics/screen_mass_cassini.json`. The keys `unscreened_S_eq_1_sigma_2014` are
+`5.3666…` and `5.7`, and `unscreened_S_eq_1_sigma_2026` are `9.7222…` and `10.2777…`. The run
+fails. $\lambda$ and $M$ are not fitted. See `OUTSIDE_GALAXIES.md`. Ghost-free conditions
+($\mathcal{J}'>0$, $\mathcal{J}'+2\mathcal{Y}\mathcal{J}''>0$) hold identically to §5's.
+**What this solve does not settle:** D2's Padé[1/1] uniqueness proof does not apply to
+$\mu_{\rm std}$ (not a rational function). The derivation route is closed (2026-10-31). On
+galaxies $\mu_{\rm std}$ is an axiom `[A]` (`FRONT.md`). The Fisher identity and the
+Hamilgrangian split are the record in `TARGET_D1_SUPPLEMENT` §3.

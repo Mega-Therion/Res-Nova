@@ -36,7 +36,7 @@ $$F_{\rm std}''(x) = \frac{x\,(x^2+2)}{(1+x^2)^{3/2}} > 0 \quad \forall x>0 \qua
 
 - **C3 (Newtonian):** $\lim_{x\to\infty}F_{\rm std}(x)/x^2 = \tfrac12$ ✓ (symbolic limit)
 - **C4 (deep-MOND):** $\lim_{x\to 0}F_{\rm std}(x)/x^3 = \tfrac13$ ✓ (symbolic limit; Taylor: $F_{\rm std} = \tfrac{x^3}{3} - \tfrac{x^5}{10} + O(x^7)$)
-- Large $x$: $F_{\rm std}(x) = \tfrac{x^2}{2} - \tfrac12\ln(2x) + \tfrac14 + O(1/x)$ — verified via $\lim_{x\to\infty}\left[F_{\rm std} - \tfrac{x^2}{2} + \tfrac12\ln 2x\right] = \tfrac14$. $\mu_{\rm std}(x)\to 1-\tfrac{1}{2x^2}+O(x^{-4})$ — unchanged by the convention fix; the $1/x^2$ tail (the fact that killed $F_{\rm dual}$'s $1/x$ tail) is what makes §4's clearance survive.
+- Large $x$: $F_{\rm std}(x) = \tfrac{x^2}{2} - \tfrac12\ln(2x) + \tfrac14 + O(1/x)$ — verified via $\lim_{x\to\infty}\left[F_{\rm std} - \tfrac{x^2}{2} + \tfrac12\ln 2x\right] = \tfrac14$. $\mu_{\rm std}(x)\to 1-\tfrac{1}{2x^2}+O(x^{-4})$ — unchanged by the convention fix; the $1/x^2$ tail (the fact that killed $F_{\rm dual}$'s $1/x$ tail) is what makes §4's isolated-Sun residual fall as $1/x^2$. That residual is the monopole in §4.1. The external-field boundary is `OUTSIDE_GALAXIES.md`.
 
 The corrected action is the one $F_{\rm std}$ that satisfies C3/C4 **and** the AQUAL constitutive convention — the [X] version satisfied neither C3 nor C4.
 
@@ -117,9 +117,9 @@ print(sp.simplify(F.subs(x, sp.sinh(psi))))                # sinh(psi)cosh(psi)/
 print(sp.simplify(sp.diff(F.subs(x, sp.sinh(psi)), psi) - sp.sinh(psi)**2))  # 0: dF/dpsi = x^2
 ```
 
-## 4. Solar-system check — exact, not asymptotic [D]
+## 4. Isolated-Sun monopole — exact, not asymptotic [D]
 
-> **Scale note (2026-10-14).** This section and §5 write $a_0$ where `TARGET_D7` §2.1 and Paper I use $\tilde a_0=(1+\lambda_s)a_0$; the equation below is the $\lambda_s=1$ member with $a_0$ in $\tilde a_0$'s place. With the fitted $a_0$ in that slot the deep-MOND total is low by $1/\sqrt{1+\lambda_s}$. With $\tilde a_0$ the Newtonian-regime residual at a given $\lambda_s$ is $(1+\lambda_s)^3a_0^2/2g_N$, as `02_galaxy_dynamics/lambda_s_solar_system_check.py` computes; the margin quoted below is its $\lambda_s\to0$ value, and at the live $a_0$ Mercury clears the bound for $\lambda_s\le9.50$ (`LAMBDA_S_AT_LIVE_A0_2026-10-09.txt`). See `AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md`.
+> **Scale note (2026-10-14).** This section and §5 write $a_0$ where `TARGET_D7` §2.1 and Paper I use $\tilde a_0=(1+\lambda_s)a_0$; the equation below is the $\lambda_s=1$ member with $a_0$ in $\tilde a_0$'s place. With the fitted $a_0$ in that slot the deep-MOND total is low by $1/\sqrt{1+\lambda_s}$. With $\tilde a_0$ the Newtonian-regime residual at a given $\lambda_s$ is $(1+\lambda_s)^3a_0^2/2g_N$, as `02_galaxy_dynamics/lambda_s_solar_system_check.py` computes; the margin quoted below is its $\lambda_s\to0$ value, and at the live $a_0$ Mercury clears the bound for $\lambda_s\le9.50$ (`LAMBDA_S_AT_LIVE_A0_2026-10-09.txt`). See `AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md`. **Domain (2026-10-31).** That margin is the isolated-Sun monopole at the $a_0=1.116\times10^{-10}$ m/s² written in the solve below. The number is not retuned. The external-field boundary is `OUTSIDE_GALAXIES.md`.
 
 Transplanting into AeST exactly as `TARGET_D7` §2.1/§4.2 did for $F_{\rm dual}$: the
 spherical scalar-field equation integrates to (Gauss's law form)
@@ -141,15 +141,16 @@ predicted a0²/(2ĝ) = 1.5735492133662125504852613177406715293266622460667e-19 m
 **The residual matches the analytic $a_0^2/(2\hat g)$ prediction to 10 significant figures —
 this is an exact confirmation, not an asymptotic hand-wave.** [D]
 
-### 4.1 Comparison against the bounds `TARGET_D7` §4.3 used to kill $F_{\rm dual}$
+### 4.1 Isolated-Sun monopole against the force scale `TARGET_D7` §4.3 used on $F_{\rm dual}$
 
-| test | $\mu_{\rm std}$ residual force | bound | margin |
+Both rows are the isolated Sun. The $\sim1300\times$ figure is that monopole. It is not a solar-system pass.
+
+| test | $\mu_{\rm std}$ residual force | comparison scale | what the number is |
 |---|:-:|:-:|:-:|
-| Mercury, force units | $1.57\times10^{-19}$ m/s² | Cassini-equivalent $\sim2.0\times10^{-16}$ m/s² (from `TARGET_D7` §4.3's $Q_2/r$) | **$\mu_{\rm std}$ is $\sim1300\times$ *below* the bound** |
-| Scaling vs. the killed $\mu_{\rm dual}$ residual ($\tilde a_0\ge a_0\approx1.1\times10^{-10}$ m/s², constant) | — | — | **$\mu_{\rm std}$'s residual is $\sim9$ orders of magnitude smaller**, matching the earlier order-of-magnitude estimate in `TARGET_D7` §4.4 Branch A, now confirmed by exact solve rather than asserted |
+| Mercury, isolated Sun, force units | $1.57\times10^{-19}$ m/s² | Cassini-equivalent $\sim2.0\times10^{-16}$ m/s² (from `TARGET_D7` §4.3's $Q_2/r$) | **isolated monopole only: $\sim1300\times$ below this force scale** |
+| Scaling vs. the killed $\mu_{\rm dual}$ residual ($\tilde a_0\ge a_0\approx1.1\times10^{-10}$ m/s², constant) | — | — | the isolated residual is $\sim9$ orders of magnitude smaller than that constant. The exact solve confirms $a_0^2/(2\hat g)$. It does not clear the solar system. |
 
-$\mu_{\rm std}$ clears the solar-system bound comfortably. This is the numeric confirmation
-`TARGET_D7` §4.4 called for but did not itself perform.
+The boundary is the unscreened run $S=1$ in `02_galaxy_dynamics/screen_mass_cassini.json`. The keys `unscreened_S_eq_1_sigma_2014` are `5.3666…` and `5.7`, and `unscreened_S_eq_1_sigma_2026` are `9.7222…` and `10.2777…`, at the two external-field values stored beside those keys. The run fails. $\lambda$ and $M$ are not fitted. See `OUTSIDE_GALAXIES.md`. `DWARF_SCREENING_TEST_2026-09-27.md` is a different test. The live boundary remains this $S=1$ failure.
 
 ---
 
@@ -185,9 +186,9 @@ Both `TARGET_D7` §5 conditions hold **identically** (sympy; spot-checked numeri
 | Legendre dual | $\mathcal{H}\sim p^2/2$ (Newton), $p^{3/2}$ (MOND) | $p\in(0,\infty)$; $\mathcal H=\tfrac23p^{3/2}$ (deep) → $\tfrac{p^2}{2}+\tfrac12\ln2p$ (Newton); convex, verified | [D] both, different closed forms (RE-RUN) |
 | Fisher identity | $F'^2\cdot\mathcal{I}=x^3$ (Bernoulli) | **superseded**: chiral identity $F'^2\mathcal I_\pm(\mu)=x^4$ via rapidity rectification (`TARGET_D2_SUPPLEMENT` §0, postulate swap) | **[C]** resolved (RE-RUN) |
 | Hamilgrangian split | clean two-term split | **found in ψ, not x**: $\tfrac14\sinh2\psi$ (bulk) $-\psi/2$ (counter-term); reading [O] | **[D]** structure (RE-RUN) |
-| AeST transplant, $\mathcal{J}(\mathcal{Y})$ | tracking branch, constant residual $\ge a_0$ | $\mathcal J'=\lambda_s\mu_{\rm std}(\sqrt{\mathcal Y}/a_0)$; residual $\to0$ as $1/x^2$, exact solve confirms $a_0^2/(2\hat g)$ | **[D] survives** (RE-RUN) |
-| Solar-system bound | **violated by $5.7\times10^5$** | **cleared by $\sim1300\times$** at Mercury | **[D] $\mu_{\rm std}$ survives, $\mu_{\rm dual}$ does not** |
-| **↳ CORRECTION 2026-09-27** | — | the 1300× is the isolated-Sun **monopole** only; with the Milky Way external field, the Cassini EFE quadrupole excludes μ_std at the derived a0 (+8.7σ vs the 2026 bound) | see `02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md`; duality screening restores a pass (`DWARF_SCREENING_TEST_2026-09-27.md`) |
+| AeST transplant, $\mathcal{J}(\mathcal{Y})$ | tracking branch, constant residual $\ge a_0$ | $\mathcal J'=\lambda_s\mu_{\rm std}(\sqrt{\mathcal Y}/a_0)$; residual $\to0$ as $1/x^2$, exact solve confirms $a_0^2/(2\hat g)$ | **[D]** algebra of the transplant. The residual match is the isolated monopole |
+| Solar-system bound | **violated by $5.7\times10^5$** | isolated-Sun monopole only, $\sim1300\times$ below the force scale at Mercury | **unscreened $S=1$ fails** (`screen_mass_cassini.json`, `OUTSIDE_GALAXIES.md`). $\mu_{\rm std}$ stays on galaxies |
+| **↳ CORRECTION 2026-09-27, domain marked 2026-10-31** | — | the 1300× is the isolated-Sun **monopole** only. An earlier anchor, the Cassini EFE quadrupole, excludes μ_std at the derived a0 (+8.7σ vs the 2026 bound). That anchor is not replaced by the keys below | `02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md`. Live boundary: unscreened $S=1$, sigmas `5.3666…` / `5.7` (2014) and `9.7222…` / `10.2777…` (2026). `DWARF_SCREENING_TEST_2026-09-27.md` is a different test. The live boundary remains the $S=1$ failure |
 | Ghost-free in AeST | [D] | [D] **identically**: $\mathcal J'>0$, $\mathcal J''>0$, $\mathcal J'+2\mathcal Y\mathcal J''>0$ ∀𝒴>0 — **closes the D6 pending re-check** | [D] both (RE-RUN) |
 
 ---
@@ -202,9 +203,9 @@ Both `TARGET_D7` §5 conditions hold **identically** (sympy; spot-checked numeri
    **RESOLVED 2026-09-12:** the Fisher identity is superseded by the chiral rapidity form
    (`TARGET_D2_SUPPLEMENT` §0, [C]); the Hamilgrangian split exists in the rapidity
    coordinate (§3). CLM-12/13/14 should be re-pointed at these forms.
-3. D5 cosmology (`TARGET_D7` §3, void since the AeST rewrite) needs to be rebuilt on
-   $\mathcal{K}(\mathcal{Q})$ regardless of which $\mu$ wins — this is independent of the D1
-   rebuild and still fully open.
+3. AeST's $\mathcal{K}(\mathcal{Q})$ is still unmade (`TARGET_D7` §3). The calculated
+   cosmology is the null seam (`TARGET_D7` §3.2, `SEAM.md`). It does not depend on which
+   $\mu$ is the galaxy axiom, and it does not replace the unmade $\mathcal{K}(\mathcal{Q})$.
 4. Lean follow-up (not touched here, flagged only): `MuProjection.lean` already carries
    $\mu_{\rm std}$'s properties per the original `CLM-02` entry — check whether it needs
    updating now that $\mu_{\rm std}$ is the primary candidate rather than a secondary one, and

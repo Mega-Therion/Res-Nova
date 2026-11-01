@@ -7,21 +7,20 @@
 > - **The action.** AeST, `TARGET_D7`. The μ_std embedding is derived by calculus
 >   (`SZStdEmbedding.lean`, D9 [P]).
 > - **The choice is structurally motivated.** It is the unique chiral-coordinate result (this document,
->   §0–§5 [C]), and the presence reading is eliminated empirically (§8).
+>   §0–§5 [C]). The presence reading is falsified for solar-system use (§8). That kill does not select the chirality coordinate.
 > - **The choice is empirically selected.** Within the ℓⁿ family, galaxies select n ≈ 2 at
 >   Δχ²/s ≈ 700–1400 (`JOINT_N_LIKELIHOOD.json`). The x ↦ 1/x duality holds for every n
 >   (`MuNDuality.lean` [P]), so symmetry does not select n.
-> - **The choice is consistent.** It is ghost-free (D6 [P]). With duality screening it passes Cassini (D1).
+> - **The choice is consistent inside its domain.** It is ghost-free (D6 [P]). The ~1300× figure in §8 is the isolated-Sun monopole. The unscreened \(S=1\) run fails (`OUTSIDE_GALAXIES.md`). `DWARF_SCREENING_TEST_2026-09-27.md` is a different test.
 >
-> Whether a covariant argument *forces* μ (item 4 below) is kept as a research question
-> (`PAPER_OUTLINE` §12). It is not a gap in D2, because the accounting declares the functional choice
-> irreducible.
+> A covariant argument does not force μ (item 4). That route was closed on 2026-10-31. On
+> galaxies the functional choice is the axiom `[A]` (`FRONT.md`).
 
 
 **Status:** RESULT — a uniqueness theorem of the same *shape and rigor* as `TARGET_D2`
 Theorem 9.1/9.2 is established for μ_std. It is a **postulate swap, not a derivation from
 nothing** — exactly the trade `TARGET_D2` §9.2 confessed for μ_dual. Read §6 before citing.
-**Last updated:** 2026-09-12
+**Last updated:** 2026-10-31
 **Tags:** `[P]` proved · `[D]` derived here · `[C]` cited/conjectured · `[O]` open · `[X]` killed
 
 Answers `TARGET_D1_SUPPLEMENT_MU_STD_REBUILD.md` §2 and §7 item 1, and
@@ -238,10 +237,11 @@ precedent exists to prevent.
    D2 §9.2 performed (Padé minimality → `odds(μ)=x`). It is *smaller and better-motivated*
    than "μ is a Padé[1/1] function" — it is a statement about the channel's alphabet, which
    the substrate arguably fixes — but it is not derived from the action. `[O]`
-   **ADDENDUM 2026-09-12 (see §8):** while still an input, the coordinate choice is no longer
-   *free* — the presence reading is now empirically eliminated by the solar-system
-   falsification of the μ it uniquely forces. Status: `[C]`-selected, not `[O]`-free. The
-   covariant question (item 4) was closed as a derivation route on 2026-10-31. See `FRONT.md`.
+   **ADDENDUM 2026-09-12, domain marked 2026-10-31 (see §8):** the presence reading is
+   falsified for use at solar-system accelerations by the \(\mu\) it forces. That kill does
+   not select the chirality coordinate. The coordinate remains an input. On galaxies
+   \(\mu_{\rm std}\) is an axiom `[A]`. The covariant question (item 4) was closed as a
+   derivation route on 2026-10-31. See `FRONT.md`.
 3. **`μ′(0)=1` remains an input**, exactly as in D2 Theorem 9.3. No gain in parsimony is
    claimed. `[O]`
 4. **No covariant argument.** D2's Q3 is closed as a derivation route (2026-10-31). The
@@ -346,45 +346,49 @@ Run: `python3` on the block above (sympy only). All outputs above are measured, 
 
 ---
 
-## 8. ADDENDUM 2026-09-12 — the coordinate choice is now empirically decided `[C]`
+## 8. ADDENDUM 2026-09-12, domain marked 2026-10-31 — presence is falsified for solar-system use; the ~1300× row is the isolated monopole
 
 §5's table lists two readings of the *same* two-state family, each forcing its own μ
 uniquely under the same Fisher/rectification argument (`[D]`, this document's Theorem B/C):
 
-| reading | rectification | forced μ | solar-system fate (2026-09-12) |
+| reading | rectification | forced μ | boundary (domain marked 2026-10-31) |
 |---|---|---|---|
-| presence `p∈(0,1)` | odds | `x/(1+x)` | **falsified** — constant ≈a₀ residual, 5.7×10⁵ over the Cassini Q₂ bound (`TARGET_D7` §4/§11) |
-| chirality `m∈(−1,1)` | rapidity | `x/√(1+x²)` | **survives** — exact solve clears the bound by ~1300× (`TARGET_D1_SUPPLEMENT` §4) |
+| presence `p∈(0,1)` | odds | `x/(1+x)` | **falsified for solar-system use** — constant ≈a₀ residual, 5.7×10⁵ over the Cassini Q₂ scale (`TARGET_D7` §4/§11) |
+| chirality `m∈(−1,1)` | rapidity | `x/√(1+x²)` | **isolated-Sun monopole only**, ~1300× under the force scale (`TARGET_D1_SUPPLEMENT` §4.1). Unscreened \(S=1\) fails (`screen_mass_cassini.json`, `OUTSIDE_GALAXIES.md`). Stays the galaxy axiom |
 
-Until 2026-09-12 these were interchangeable postulates (§6 item 2). They no longer are. The
-solar-system solution of the corrected AeST action discriminates between them, and the
-elimination is strengthened by `TARGET_D7` §11's escape-route closure: BDEF
-(arXiv:1106.2538) proved the constant ≈a₀ residual follows for **any** free function in the
-two-derivative ghost-free sector, and every GW170817-safe screening route to p ≥ 2.34 is
-closed (2.34 is stale; recomputed p_req = 1.890, `02_galaxy_dynamics/VAINSHTEIN_PREQ.md`, #186; whether that reopens the route is `[O]`). So the presence reading is not merely disfavored — it is falsified *with its rescue
-routes exhausted*, inside the sector both readings share.
+Until 2026-09-12 these were interchangeable postulates (§6 item 2). The presence reading is
+falsified for use at solar-system accelerations. `TARGET_D7` §11's escape-route closure
+strengthens that kill: BDEF (arXiv:1106.2538) proved the constant ≈a₀ residual follows for
+**any** free function in the two-derivative ghost-free sector, and every GW170817-safe
+screening route to p ≥ 2.34 is closed (2.34 is stale; recomputed p_req = 1.890,
+`02_galaxy_dynamics/VAINSHTEIN_PREQ.md`, #186; whether that reopens the route is `[O]`).
+The presence reading is falsified with those rescue routes exhausted, inside the sector both
+readings share.
 
-**The claim, stated exactly:** conditional on (i) the interpolation variable being a
-polarization of the two-state family at all, (ii) `μ′(0)=1`, and (iii) the two-derivative
-AeST sector, the Cassini Q₂ bound selects the chirality coordinate over the presence
-coordinate. This is eliminative induction of the same logical shape as Dyson–Eddington
-(1919) selecting between the Newtonian half-shift and the relativistic full deflection:
-two exhaustive rival readings of one structure, one observation decides. `[D]` for the
-logical structure; `[C]` for the empirical selection.
+The chirality row is not the survivor of that kill. The exact solve in
+`TARGET_D1_SUPPLEMENT` §4 matches \(a_0^2/(2\hat g)\). That match is the isolated-Sun
+monopole, and the ~1300× figure is that monopole against the force scale. The boundary is
+the unscreened run \(S=1\) in `02_galaxy_dynamics/screen_mass_cassini.json`. The keys
+`unscreened_S_eq_1_sigma_2014` are `5.3666…` and `5.7`, and `unscreened_S_eq_1_sigma_2026`
+are `9.7222…` and `10.2777…`. The run fails. \(\lambda\) and \(M\) are not fitted. See
+`OUTSIDE_GALAXIES.md`. `DWARF_SCREENING_TEST_2026-09-27.md` is a different test.
+
+**The claim, stated exactly:** killing \(\mu=x/(1+x)\) at solar-system accelerations does
+not install \(\mu=x/\sqrt{1+x^2}\) there. The two readings remain two coordinates on one
+family (§0–§5). Cassini does not select the chirality coordinate. On galaxies that reading
+is the axiom `[A]` (`FRONT.md`).
 
 **What this does and does not change:**
 
 - It does **not** derive μ_std from the action. D2's Q3 was closed as a derivation route
   on 2026-10-31. On galaxies μ_std is an axiom `[A]`. See `FRONT.md`. There is no remaining
-  route in this file that turns the axiom into a theorem. Postulate R is demoted from
-  *unconstrained choice* to *empirically selected among exactly two exhaustive readings*.
-- It supplies the argument `PEER_REVIEW_READINESS.md` item 1 anticipated: `AXIOMS_V2.lean:64`'s
-  disjunction now collapses to the right disjunct, on observational grounds rather than
-  convenience.
+  route in this file that turns the axiom into a theorem. Postulate R stays an input.
+- It does **not** collapse `AXIOMS_V2.lean:64`'s disjunction into a solar-system law. The
+  right disjunct is the galaxy axiom.
 - **Conditional honesty:** if the one remaining `[O]` branch-B derivation materializes (a
   non-Horndeski aether-projected operator reaching p ≥ 2.34 with `c_T=c`; recomputed bar p_req = 1.890, `02_galaxy_dynamics/VAINSHTEIN_PREQ.md`), the presence
-  reading returns to live status and this section must be downgraded accordingly. The
-  elimination is exactly as strong as D7 §11 is thorough.
+  reading's solar-system status is reopened and this section's kill of that reading must be
+  reread. That reopening does not move the unscreened \(S=1\) boundary of the chirality extension.
 
 **Reproduce — the empirical halves of the table (the μ-selection halves are §7's):**
 
@@ -395,5 +399,5 @@ a0 = mp.mpf('1.116e-10'); g_hat = mp.mpf('3.957473936692645008596142895286363551
 # mu_dual: constant ~a0 residual vs Cassini-equivalent bound ~2.0e-16 m/s^2  (TARGET_D7 4.3)
 print("mu_dual residual/bound ~", mp.nstr(a0/mp.mpf('2.0e-16'), 3))            # ~5.7e5 OVER
 # mu_std: exact solve residual matches a0^2/(2 g_hat) (TARGET_D1_SUPPLEMENT 4)
-print("mu_std residual:", mp.nstr(a0**2/(2*g_hat), 6), "m/s^2;  margin ~", mp.nstr(mp.mpf('2.0e-16')/(a0**2/(2*g_hat)), 4))  # ~1300x BELOW
+print("mu_std residual:", mp.nstr(a0**2/(2*g_hat), 6), "m/s^2;  margin ~", mp.nstr(mp.mpf('2.0e-16')/(a0**2/(2*g_hat)), 4))  # isolated monopole, ~1300x under the force scale. Not a solar-system pass.
 ```

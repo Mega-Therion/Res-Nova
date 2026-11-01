@@ -1,0 +1,100 @@
+{
+  "construction": "seam_mass_symbols",
+  "status": "photon_ruler_dilution_one",
+  "gamma": "m*C",
+  "yukawa": "closed",
+  "I": "1/(8*pi**(3/2))",
+  "assumption_before_solve": "rho_dm0 = m * (n_c / s_rad) * s_0",
+  "assumption_tier": "O",
+  "entropy_import": "(4/3)*(pi**2*g_star/30)**(1/4)*rho_r0**(3/4)",
+  "entropy_tier": "C",
+  "entropy_unit_system": "hbar = c = k_B = 1, g_*S = g_*",
+  "constraint": "C**2 = 8*pi*G_N*rho_r0/3",
+  "n_c": "C**(3/2)*m**(3/2)/(8*pi**3)",
+  "m_expression": "2*3**(4/5)*5**(9/10)*pi**(11/10)*g_star**(1/10)*rho_dm0**(2/5)/(15*G_N**(3/10)*s_0**(2/5))",
+  "powers": {
+    "rho_dm0": "2/5",
+    "s_0": "-2/5",
+    "g_star": "1/10",
+    "G_N": "-3/10",
+    "rho_r0": "0",
+    "m_in_n_c": "3/2"
+  },
+  "free_symbols_before_declaration": [
+    "G_N",
+    "g_star",
+    "rho_dm0",
+    "s_0"
+  ],
+  "g_star_declaration": {
+    "adopted": true,
+    "date": "2026-10-31",
+    "tier": "O",
+    "value": 2,
+    "species": "photon, two helicities",
+    "graviton_included": false,
+    "seam_theorem": false,
+    "job_b_seam_row": "unchanged null",
+    "sentence": "The seam has no thermal epoch. g_* is the entropy weight of a later bath in which every relativistic species shares one temperature. The adopted bath is the photon gas."
+  },
+  "g_star_factor": "2**(1/10)",
+  "g_star_factor_numeric": "1.0717734625362931642",
+  "m_expression_photon_ruler": "2*2**(1/10)*3**(4/5)*5**(9/10)*pi**(11/10)*rho_dm0**(2/5)/(15*G_N**(3/10)*s_0**(2/5))",
+  "free_symbols": [
+    "G_N",
+    "rho_dm0",
+    "s_0"
+  ],
+  "dilution_declaration": {
+    "adopted": true,
+    "date": "2026-10-31",
+    "tier": "O",
+    "value": 1,
+    "power_on_m": "2/5",
+    "sentence": "Comoving photon entropy is conserved between the ruler and today. The dilution ratio is 1."
+  },
+  "prefactor": "2*2**(1/10)*3**(4/5)*5**(9/10)*pi**(11/10)/15",
+  "numeric_mass": {
+    "tier": "O",
+    "particle_name": null,
+    "dilution_ratio": 1,
+    "imports": {
+      "G_N": {
+        "value": "6.6743e-11",
+        "uncertainty": "1.5e-15",
+        "unit": "m^3 kg^-1 s^-2",
+        "source": "scipy.constants CODATA, scipy 1.17.1",
+        "tier": "C"
+      },
+      "T_CMB_K": {
+        "value": "2.72548",
+        "uncertainty": "0.00057",
+        "source": "Fixsen 2009 ApJ 707 916, arXiv:0911.1955, literature compilation",
+        "tier": "C"
+      },
+      "omega_c_h2": {
+        "value": "0.120",
+        "uncertainty": "0.001",
+        "interval": "68%",
+        "source": "Planck 2018 results VI, arXiv:1807.06209, abstract combined analysis",
+        "tier": "C",
+        "includes_baryons": false
+      }
+    },
+    "entropy": "photon gas, g_star = 2, s = (2*pi**2/45)*g_star*T**3",
+    "unit_paths_relative_difference": "0.0",
+    "m_GeV": "344685566.44462858219",
+    "omega_c_h2_band_GeV": [
+      "343533729.34105990781",
+      "345831658.6504514467"
+    ],
+    "T_CMB_band_GeV": [
+      "344599082.33851310478",
+      "344772090.35144847035"
+    ],
+    "G_N_band_GeV": [
+      "344680143.95940757066",
+      "344690989.13702639824"
+    ]
+  }
+}

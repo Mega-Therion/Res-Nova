@@ -1,0 +1,87 @@
+{
+  "construction": "seam_open_bridges_shot",
+  "particle_name": null,
+  "g_star": 2,
+  "dilution_ratio": 1,
+  "mode_receipt_edited": false,
+  "gamma": {
+    "verdict": "gamma_evaluated_under_stored_identification",
+    "tier": "O",
+    "identification": "gamma = m*C",
+    "yukawa": "closed",
+    "constraint": "C**2 = 8*pi*G*rho/3",
+    "bath": "never_reheated photon gas, g_star = 2, a_0 = 1",
+    "seam_theorem": false,
+    "particle_name": null,
+    "conditional_m_GeV": "516602109.72238893333",
+    "conditional_temperature_K": "1.945354563857973997",
+    "rho_GeV4": "5.1963107492933509001e-52",
+    "C_GeV": "5.4041858699103011838e-45",
+    "C_per_s": "8.2104036744403558537e-21",
+    "gamma_GeV2": "2.7918138217275852985e-36",
+    "k_rms_GeV": "1.1545531212381100331e-18",
+    "k_rms_over_m": "2.2348981924571359265e-27",
+    "unit_paths_relative_difference": "2.77218e-51",
+    "sentence": "gamma = m*C at the adopted mass and the never-reheated photon bath. C is the radiation constant of that bath with a_0 = 1. The mode receipt was not edited."
+  },
+  "seam_g_star": {
+    "verdict": "seam_row_remains_null",
+    "tier": "O",
+    "g_star_seam": null,
+    "g_star_later_bath": 2,
+    "g_star_changed": false,
+    "k_rms_over_m": "2.2348981924571359265e-27",
+    "relativistic_below_scale_factor": "2.2348981924571359265e-27",
+    "sentence": "k_rms/m is the comoving momentum of the stored spectrum over the adopted mass, at a_0 = 1. Physical momentum exceeds the mass only below that scale factor. That window does not name a species count. The seam g_star row stays null. 10.75 and 106.75 are not substituted."
+  },
+  "eta": {
+    "verdict": "seam_does_not_source_eta",
+    "tier": "X",
+    "stored_abs_beta_sq": "exp(-pi*k**2/gamma)",
+    "boson_equals_fermion": true,
+    "odd_in_k": false,
+    "odd_charge_integral": "0",
+    "holds_for_every_positive_gamma": true,
+    "eta_imported": false,
+    "particle_name": null,
+    "sentence": "The stored occupation is even in k for every positive gamma. Its odd charge integral is identically 0. The evaluated gamma does not produce eta. No baryon number is imported."
+  },
+  "double_well": {
+    "verdict": "lambda_remains_free",
+    "tier": "O",
+    "potential": "lambda*(T**2 - chi**2)**2",
+    "chi": "1/sqrt(2)",
+    "curvature_at_vacuum": "8*lambda*chi**2",
+    "curvature_at_vacuum_reduced": "4*lambda",
+    "lambda_value": null,
+    "existence": "open",
+    "null_contraction_depends_on_lambda": false,
+    "sentence": "At either vacuum the curvature is 8*lambda*chi**2, which is 4*lambda because chi**2 = 1/2. lambda is not fixed by the null contraction, the seam mass, or gamma. Existence of the second sector stays open."
+  },
+  "a0z": {
+    "verdict": "no_single_power_in_every_interval",
+    "tier": "D",
+    "source": "02_galaxy_dynamics/A0_HIGHZ_PRESSURE_SCALE_TEST.json",
+    "refit": false,
+    "intervals_are_stored_3_decimal_bounds": true,
+    "constant_n": 0.0,
+    "hubble_n": 1.0,
+    "constant_inside_scales": [
+      "0.0",
+      "0.5",
+      "1.0",
+      "1.5",
+      "2.0"
+    ],
+    "hubble_inside_scales": [
+      "3.0",
+      "4.0"
+    ],
+    "intersection_lower": 0.403,
+    "intersection_upper": 0.152,
+    "intersection_empty": true,
+    "shape_chosen": null,
+    "anchor_a0_cH0_over_2pi": "not a theorem",
+    "sentence": "The seven stored 95% intervals have an empty intersection. No single power n is inside every pressure scale. n = 0 is inside scales 0 through 2. n = 1 is inside scales 3 and 4. The test was not refit. a0(z) is not chosen."
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "construction": "seam_mass_bounds",
+  "status": "no_imported_limit_excludes_the_mass",
+  "mass_GeV": "344685566.44462858219",
+  "mass_changed": false,
+  "particle_name": null,
+  "statement": "The mass 344685566.44462858219 GeV is held fixed. No imported limit excludes the mass. No particle is named.",
+  "tier": "O",
+  "object": "cold relic, all of Omega_c, seam yield, no decay in the stack",
+  "velocity_today": "4.55854255325e-27",
+  "velocity_at_equality": "2.6378453112e-23",
+  "equality_scale_factor": "0.000172813111288",
+  "comoving_horizon_at_nonrelativistic_transition_Mpc": "2.74816749242e-21",
+  "nonrelativistic_transition_before_equality": true,
+  "schwarzschild_over_compton": "1.59412740125e-21",
+  "age_s_from_planck_abstract": "4.35376054401e+17",
+  "omega_fractional_half_width": "0.00833333333333",
+  "lifetime_to_stay_inside_omega_band_s": "5.22451265281e+19",
+  "local_density_GeV_per_cm3": "0.4",
+  "local_density_source": "Blanco and Hooper, arXiv:1811.05988, section 3.1",
+  "halo_speed_m_per_s": "220000",
+  "local_flux_per_m2_per_year": "8056817779.3",
+  "rows": [
+    {
+      "limit": "Griest and Kamionkowski, Phys. Rev. Lett. 64 615 (1990)",
+      "statement": "A stable elementary particle that was once in thermal equilibrium cannot exceed 340 TeV.",
+      "mass_over_limit": "1013.78107778",
+      "applies": false,
+      "reason": "The seam yield is a Bogoliubov occupation, and the massless limit has beta = 0. The particle was not placed in thermal equilibrium."
+    },
+    {
+      "limit": "Smirnov and Beacom, arXiv:1904.11503",
+      "statement": "For a thermal WIMP the unitarity ceiling falls below 100 TeV, or to 140 TeV in the self-conjugate case. The 340 TeV figure assumed Omega h^2 = 1.",
+      "applies": false,
+      "reason": "The premise is still thermal freeze-out."
+    },
+    {
+      "limit": "Blanco and Hooper, arXiv:1811.05988, introduction",
+      "statement": "CMB and large-scale structure require a lifetime no less than about 2e19 s even when the decay products are invisible.",
+      "imported_floor_s": "2e19",
+      "applies": false,
+      "reason": "The floor binds a particle that decays. This stack has no decay."
+    },
+    {
+      "limit": "Blanco and Hooper, arXiv:1811.05988, abstract and section 1",
+      "statement": "For Standard Model decay channels and masses from 10 GeV to 1 EeV, the lifetime is generally above (1-5)e28 s.",
+      "mass_inside_quoted_window": true,
+      "applies": false,
+      "reason": "The window contains this mass. The limit still needs a decay into a Standard Model state. This stack has none."
+    },
+    {
+      "limit": "Direct-detection cross section",
+      "statement": "Published nuclear-recoil limits at this mass constrain a nucleon cross section. The local flux is large enough that the exposure is not empty.",
+      "applies": false,
+      "reason": "The stack specifies no cross section. The mass by itself is not the excluded quantity."
+    },
+    {
+      "limit": "Thermal warm-dark-matter free-streaming bound",
+      "statement": "A thermal keV-scale spectrum is the object those bounds exclude.",
+      "applies": false,
+      "reason": "At photon-matter equality the seam spectrum has v = 2.63785e-23. A thermal keV spectrum is a different object."
+    }
+  ]
+}
