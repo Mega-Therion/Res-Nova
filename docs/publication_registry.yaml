@@ -2091,6 +2091,23 @@ works:
     has_versions: []
     is_new_version_of: []
 
+  - work_id: dual_channel_variational_closure_covariant_v170
+    title: "Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "JournalArticle"
+    canonical_doi: "10.5281/zenodo.23444890"
+    lineage: release
+    role: version
+    version: "v1.7.0"
+    status: live
+    publication_date: "2026-10-17"
+    repository: "Mega-Therion/Res-Nova"
+    concept_doi: "10.5281/zenodo.21969120"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: ["10.5281/zenodo.21969121"]
+
   - work_id: dual_channel_variational_closure_covariant_2
     title: "Correction: the interpolating function in the dual-channel abstract was withdrawn"
     author: "Yett, R.W."
@@ -2105,7 +2122,7 @@ works:
     repository: "Mega-Therion/Res-Nova"
     concept_doi: "10.5281/zenodo.21969120"
     is_latest: false
-    has_versions: ["10.5281/zenodo.21969121"]
+    has_versions: ["10.5281/zenodo.21969121", "10.5281/zenodo.23444890"]
     is_new_version_of: []
 
   - work_id: quasistatic_aether_scalar_tensor_gravity
