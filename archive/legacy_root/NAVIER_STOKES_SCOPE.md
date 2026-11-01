@@ -14,15 +14,15 @@ The appropriate present-tense description is:
 
 ### Current Lean artifact
 
-`05_lean_formalization/SovereignRegularity.lean` contains `sovereign_regularity_theorem`. At the baseline commit for this branch, the theorem has the form:
+`05_lean_formalization/SovereignRegularity.lean` contains `assumed_vorticity_bound_projection`. The declaration has the form:
 
 ```lean
-theorem sovereign_regularity_theorem (st : BKMVorticityState)
+theorem assumed_vorticity_bound_projection (st : BKMVorticityState)
     (T : ℝ) (hT : 0 ≤ T) : st.omega_sup T ≤ st.B :=
   st.h_controlled T hT
 ```
 
-This is a valid Lean theorem, but it is a direct projection of the `h_controlled` field already assumed in `BKMVorticityState`. It does not derive vorticity control from a Navier–Stokes solution, and it must not be presented as global regularity.
+This is a valid Lean theorem, but it is a direct projection of the `h_controlled` field already assumed in `BKMVorticityState`. It does not derive vorticity control from a Navier–Stokes solution, and it must not be presented as global regularity. The companion product bounds are named `pointwise_vorticity_product_bound` and `product_bound_below_threshold`; neither is a formal BKM time integral or continuation theorem.
 
 The repository's assumption audit identifies this theorem as a projection and notes that its object named as a BKM integral is a product in the present artifact rather than a formal time integral.
 
