@@ -74,6 +74,8 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 **Test path:** same files. No script, no claim.
 
+**Quarantine:** do not use JWST language in the abstract until O4 has a JSON.
+
 ---
 
 ## O5 — SPARC data not in the repo
