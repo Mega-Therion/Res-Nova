@@ -60,6 +60,7 @@ def load_rotmod(path: Path) -> dict | None:
         line = line.strip()
         if not line or line.startswith("#"):
             continue
+        # Preserve signed values (especially negative SPARC gas velocities) and exponents.
         nums = re.findall(r"[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][-+]?\d+)?", line)
         if len(nums) < 6:
             continue

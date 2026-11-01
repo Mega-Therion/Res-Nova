@@ -70,6 +70,8 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 **Closure path:** a frozen, pre-registered catalog, a statistic, and a public script that emits a JSON the ledger can cite.
 
+**Prereg frozen (2026-10-03, PR #204):** `04_cosmology/PREREG_O4_HIGHZ_A0Z.md`, SHA-256 `9b0456cf4145ff827e0b086b1f520f046c24b1336bb9c1e42b3e2c6ed22a49ca`. Catalog is RC100 (already in-tree and hash-pinned); the per-galaxy MUSE-DARK III table is unreleased, so it cannot be frozen. `xi = 0.170 +/- 0.025` is fixed from `A0_MEASUREMENT.json` and **not refit**. The protocol is frozen; the run and its JSON are a separate step. Status stays `[O]`.
+
 **Test path:** same files. No script, no claim.
 
 **Quarantine:** do not use JWST language in the abstract until O4 has a JSON.
