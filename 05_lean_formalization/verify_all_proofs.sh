@@ -76,6 +76,7 @@ TARGETS=(
   MuStdSelection.lean
   MuStdFoundations.lean
   MasterEquationCore.lean
+  AQUALWeakFormDraft.lean
   AeSTStealthSector.lean
   PPNLimitsStd.lean
   LambdaSBound.lean

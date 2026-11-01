@@ -125,6 +125,10 @@ lean_lib «ResNovaFormal» where
     `TrialityFixedSubalgebra,
     `YettParadigm,
     `MasterEquationCore,
+    -- ADDED 2026-11-01. The AQUAL weak-form contract draft (RN-AQUAL-FIELD-001).
+    -- Definitions and one inherited constitutive identity; it does not prove the
+    -- field equation, integrability, or that the weak form follows from an action.
+    `AQUALWeakFormDraft,
     `RamanujanGapDerivation,
     `LeptonMassCollar,
     `NavierStokesCorticalBound,

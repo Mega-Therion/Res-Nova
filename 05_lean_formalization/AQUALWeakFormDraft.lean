@@ -13,8 +13,9 @@ The setup is Euclidean and mathematical. `ℝ` does not encode SI units. The
 caller supplies the gradient fields and a test-admissibility proposition; this
 draft does NOT prove that these are gradients of sufficiently regular fields,
 that the integrals exist, or that this weak form follows by varying an action.
-It intentionally is not registered in `lakefile.lean` or the official verifier.
-Those gaps must be closed before promoting it to core.
+It is registered in `lakefile.lean` and the official verifier (2026-11-01) so the
+module inventory matches the gate; registration is a build-scope decision, not a
+promotion. Those gaps must be closed before it is treated as core.
 
 The selected constitutive normalization is `F_std' x = x * mu_std x`. The
 corresponding kinetic density is `a0^2 * F_std (|grad Phi| / a0)`; deriving its
