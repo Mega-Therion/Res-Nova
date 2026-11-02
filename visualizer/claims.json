@@ -465,6 +465,30 @@
    "claim_type": "structural-correction",
    "limitations": "Affected surfaces: the published records listed in published_in. Corrections reach Zenodo only as new versions. Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
    "source_locator": "docs/ERRATA.yaml#E-13"
+  },
+  {
+   "id": "CLM-17",
+   "wording": "H_RY gap bound (conditional on assumed h_gap)",
+   "state": "conditional",
+   "claim_type": "conditional-theorem",
+   "limitations": "Conditional on assumed h_gap hypothesis; does not prove continuum mass gap.",
+   "source_locator": "05_lean_formalization/YettParadigm.lean"
+  },
+  {
+   "id": "CLM-18",
+   "wording": "ADCCL trajectory bound (conditional on assumed h_monotone)",
+   "state": "conditional",
+   "claim_type": "conditional-theorem",
+   "limitations": "Conditional on assumed h_monotone hypothesis; does not derive trajectory bound from system ODEs.",
+   "source_locator": "05_lean_formalization/YettParadigm.lean"
+  },
+  {
+   "id": "CLM-19",
+   "wording": "mass-claim retraction (state retracted)",
+   "state": "retracted",
+   "claim_type": "structural-correction",
+   "limitations": "Mass predictions withdrawn 2026-10-03; the Lean mass modules (LeptonMassCollar, QuarkMassLadder) fit measured masses and do not predict them.",
+   "source_locator": "README.md#what-was-killed"
   }
  ]
 }

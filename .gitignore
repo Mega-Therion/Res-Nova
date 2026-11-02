@@ -57,3 +57,6 @@ exploration/d7_stage2/cache_branch/
 # Scratch and transient sweep files
 .remember/
 *.partial.jsonl
+
+# Package-manager stores (never commit a dependency store)
+.pnpm-store/

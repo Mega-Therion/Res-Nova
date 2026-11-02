@@ -1793,6 +1793,89 @@
         "10.5281/zenodo.21449900 claim 275",
         "10.5281/zenodo.21504896 claim 405"
       ]
+    },
+    {
+      "id": "CLM-17",
+      "wording": "H_RY gap bound (conditional on assumed h_gap)",
+      "state": "conditional",
+      "assurance_level": "formal-machine-checked",
+      "formal_artifacts": [
+        "05_lean_formalization/YettParadigm.lean"
+      ],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [
+        "Field h_gap is assumed."
+      ],
+      "verification_commands": [
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
+      ],
+      "independent_witness": "05_lean_formalization/YettParadigm.lean",
+      "limitations": "Conditional on assumed h_gap hypothesis; does not prove continuum mass gap.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "claim_type": "conditional-theorem",
+      "quotation_type": "paraphrase",
+      "source_locator": "05_lean_formalization/YettParadigm.lean",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "63dad5287d1d83d49c953760977675d45a0e961e"
+    },
+    {
+      "id": "CLM-18",
+      "wording": "ADCCL trajectory bound (conditional on assumed h_monotone)",
+      "state": "conditional",
+      "assurance_level": "formal-machine-checked",
+      "formal_artifacts": [
+        "05_lean_formalization/YettParadigm.lean"
+      ],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [
+        "Field h_monotone is assumed."
+      ],
+      "verification_commands": [
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
+      ],
+      "independent_witness": "05_lean_formalization/YettParadigm.lean",
+      "limitations": "Conditional on assumed h_monotone hypothesis; does not derive trajectory bound from system ODEs.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "claim_type": "conditional-theorem",
+      "quotation_type": "paraphrase",
+      "source_locator": "05_lean_formalization/YettParadigm.lean",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "63dad5287d1d83d49c953760977675d45a0e961e"
+    },
+    {
+      "id": "CLM-19",
+      "wording": "mass-claim retraction (state retracted)",
+      "state": "retracted",
+      "assurance_level": "governance-control",
+      "formal_artifacts": [],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [
+        "Historical lepton and quark mass predictions were post-hoc fits, not predictions."
+      ],
+      "verification_commands": [],
+      "independent_witness": "docs/grounding_ledger.yaml",
+      "limitations": "Mass predictions withdrawn 2026-10-03; the Lean mass modules (LeptonMassCollar, QuarkMassLadder) fit measured masses and do not predict them.",
+      "status_owner": "Res-Nova maintainers",
+      "claim_type": "structural-correction",
+      "quotation_type": "paraphrase",
+      "source_locator": "README.md#what-was-killed",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "63dad5287d1d83d49c953760977675d45a0e961e"
     }
   ]
 }

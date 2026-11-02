@@ -229,6 +229,7 @@ export const retractedClaims = [
   { id: "CLM-Z-R1", title: "κ = 0.9539 emerges from the theory", detail: "Retracted by the 2026-10-11 Zenodo audit: κ = √(θ(2 − θ)) at θ = 0.70 is an input relation, and ξ is tuned to it." },
   { id: "CLM-Z-R2", title: "The acceleration relation is derived, and the SPARC fits use no per-galaxy freedom", detail: "Retracted by the 2026-10-11 Zenodo audit: μ is an irreducible input and the live comparison is the μ_std parameter ledger." },
   { id: "CLM-Z-R3", title: "θ or χ equals 1/√2", detail: "Retracted by the 2026-10-11 Zenodo audit: θ = 0.70 is the settled input; 1/√2 is the band's lower wall." },
+  { id: "CLM-19", title: "The lepton and quark mass predictions", detail: "Withdrawn 2026-10-03: the Lean modules fit measured masses; they do not predict them." },
 ];
 
 export const workstreams = [
