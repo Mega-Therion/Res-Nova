@@ -4,10 +4,10 @@
  "claims": [
   {
    "id": "CLM-01",
-   "wording": "For x > 0, the dual-channel action F_dual(x) = x^2/2 - x + ln(1+x) has derivative F_dual'(x) = x^2/(1+x) = x * mu_dual(x), with mu_dual(x) = x/(1+x); the previously asserted identity F_dual'(x) = x/(1+x) is false.",
+   "wording": "F_dual'(x) = x^2/(1+x)",
    "state": "formally-verified",
    "claim_type": "mathematical-theorem",
-   "limitations": "Mathematics about a retired function. The x/(1+x) constitutive branch was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4); this record gives no physical support to it or to the live theory (mu_std), and does not establish physical uniqueness or empirical adequacy. Correction history: until PR #141 (2026-10-09) this record read 'F_dual has derivative x/(1+x)' as formally-verified. That wording was false, and the module then held no theorem about F_dual's derivative: dual_channel_flux_algebra is the field identity x - x/(1+x) = x^2/(1+x) (vacuity_screen 0.2: FIELD-ID).",
+   "limitations": "math on retired function; mu_dual falsified in PR #52",
    "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-01"
   },
   {
@@ -28,7 +28,7 @@
   },
   {
    "id": "CLM-04",
-   "wording": "The strict SPARC unit-M/L check (Y_disk = Y_bulge = 1, f_d = 1, a0 = cH0/2pi, mu_std) reports a median reduced chi-squared of 15.01 and an aggregate chi2/dof of 69.07 across 175 galaxies (3,391 points).",
+   "wording": "strict SPARC GOD median chi2_red = 15.0087 across 175 galaxies (PR #143 commit 433c0493ac856ae95c22d7af2e4ca1db8075a834, pre-fix 15.0982) with MOND 9.935 comparison noted",
    "state": "computed",
    "claim_type": "empirical-measurement",
    "limitations": "A poor absolute fit, and not the canonical comparison: Tier 0 in PARAMETER_LEDGER.json uses the 171-galaxy sample at prior-mean M/L. Correction history: until 2026-10-09 this record read 29.12, the 2026-08-14 VERIFICATION_RUN_001 value computed under the retired mu_dual (tau form); the artifacts it listed did not produce that number.",
@@ -465,6 +465,30 @@
    "claim_type": "structural-correction",
    "limitations": "Affected surfaces: the published records listed in published_in. Corrections reach Zenodo only as new versions. Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
    "source_locator": "docs/ERRATA.yaml#E-13"
+  },
+  {
+   "id": "CLM-17",
+   "wording": "H_RY gap bound (conditional on assumed h_gap)",
+   "state": "conditional",
+   "claim_type": "conditional-theorem",
+   "limitations": "Conditional on assumed h_gap hypothesis; does not prove continuum mass gap.",
+   "source_locator": "05_lean_formalization/YettParadigm.lean"
+  },
+  {
+   "id": "CLM-18",
+   "wording": "ADCCL trajectory bound (conditional on assumed h_monotone)",
+   "state": "conditional",
+   "claim_type": "conditional-theorem",
+   "limitations": "Conditional on assumed h_monotone hypothesis; does not derive trajectory bound from system ODEs.",
+   "source_locator": "05_lean_formalization/YettParadigm.lean"
+  },
+  {
+   "id": "CLM-19",
+   "wording": "mass-claim retraction (state retracted)",
+   "state": "retracted",
+   "claim_type": "structural-correction",
+   "limitations": "Mass predictions withdrawn 2026-10-03.",
+   "source_locator": "CURRENT_STATE_READ_THIS_FIRST.md"
   }
  ]
 }

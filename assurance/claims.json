@@ -4,7 +4,7 @@
   "claims": [
     {
       "id": "CLM-01",
-      "wording": "For x > 0, the dual-channel action F_dual(x) = x^2/2 - x + ln(1+x) has derivative F_dual'(x) = x^2/(1+x) = x * mu_dual(x), with mu_dual(x) = x/(1+x); the previously asserted identity F_dual'(x) = x/(1+x) is false.",
+      "wording": "F_dual'(x) = x^2/(1+x)",
       "state": "formally-verified",
       "assurance_level": "formal-machine-checked",
       "formal_artifacts": [
@@ -20,7 +20,7 @@
         "cd 05_lean_formalization && bash verify_all_proofs.sh"
       ],
       "independent_witness": "assurance/evidence/gate_66_targets_2026-10-09.log",
-      "limitations": "Mathematics about a retired function. The x/(1+x) constitutive branch was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4); this record gives no physical support to it or to the live theory (mu_std), and does not establish physical uniqueness or empirical adequacy. Correction history: until PR #141 (2026-10-09) this record read 'F_dual has derivative x/(1+x)' as formally-verified. That wording was false, and the module then held no theorem about F_dual's derivative: dual_channel_flux_algebra is the field identity x - x/(1+x) = x^2/(1+x) (vacuity_screen 0.2: FIELD-ID).",
+      "limitations": "math on retired function; mu_dual falsified in PR #52",
       "status_owner": "Res-Nova formalization maintainers",
       "claim_type": "mathematical-theorem",
       "quotation_type": "paraphrase",
@@ -30,7 +30,8 @@
         "scope": "F_dual(x) = x^2/2 - x + ln(1+x) for x > 0.",
         "result": "supported"
       },
-      "last_verified_commit": "5e1fa72af841c1478cab59e85629badf2a496877"
+      "last_verified_commit": "5e1fa72af841c1478cab59e85629badf2a496877",
+      "canonical_id": "CLM-001"
     },
     {
       "id": "CLM-02",
@@ -60,7 +61,8 @@
         "scope": null,
         "result": "not_run"
       },
-      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897",
+      "canonical_id": "CLM-001"
     },
     {
       "id": "CLM-03",
@@ -93,7 +95,7 @@
     },
     {
       "id": "CLM-04",
-      "wording": "The strict SPARC unit-M/L check (Y_disk = Y_bulge = 1, f_d = 1, a0 = cH0/2pi, mu_std) reports a median reduced chi-squared of 15.01 and an aggregate chi2/dof of 69.07 across 175 galaxies (3,391 points).",
+      "wording": "strict SPARC GOD median chi2_red = 15.0087 across 175 galaxies (PR #143 commit 433c0493ac856ae95c22d7af2e4ca1db8075a834, pre-fix 15.0982) with MOND 9.935 comparison noted",
       "state": "computed",
       "assurance_level": "reproducible-computation",
       "formal_artifacts": [],
@@ -126,7 +128,8 @@
         "scope": null,
         "result": "not_run"
       },
-      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+      "last_verified_commit": "433c0493ac856ae95c22d7af2e4ca1db8075a834",
+      "canonical_id": "CLM-003"
     },
     {
       "id": "CLM-05",
@@ -466,7 +469,8 @@
         "scope": "PillarIV_AntiDriftGate.lean",
         "result": "contradicted"
       },
-      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897",
+      "canonical_id": "CLM-004"
     },
     {
       "id": "CLM-16",
@@ -495,7 +499,8 @@
         "scope": null,
         "result": "not_run"
       },
-      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897",
+      "canonical_id": "CLM-004"
     },
     {
       "id": "CLM-D2-01",
@@ -1793,6 +1798,94 @@
         "10.5281/zenodo.21449900 claim 275",
         "10.5281/zenodo.21504896 claim 405"
       ]
+    },
+    {
+      "id": "CLM-17",
+      "canonical_id": "CLM-002",
+      "wording": "H_RY gap bound (conditional on assumed h_gap)",
+      "state": "conditional",
+      "assurance_level": "formal-machine-checked",
+      "formal_artifacts": [
+        "05_lean_formalization/YettParadigm.lean"
+      ],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [
+        "Field h_gap is assumed."
+      ],
+      "verification_commands": [
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
+      ],
+      "independent_witness": "05_lean_formalization/YettParadigm.lean",
+      "limitations": "Conditional on assumed h_gap hypothesis; does not prove continuum mass gap.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "claim_type": "conditional-theorem",
+      "quotation_type": "paraphrase",
+      "source_locator": "05_lean_formalization/YettParadigm.lean",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "63dad5287d1d83d49c953760977675d45a0e961e"
+    },
+    {
+      "id": "CLM-18",
+      "canonical_id": "CLM-004",
+      "wording": "ADCCL trajectory bound (conditional on assumed h_monotone)",
+      "state": "conditional",
+      "assurance_level": "formal-machine-checked",
+      "formal_artifacts": [
+        "05_lean_formalization/YettParadigm.lean"
+      ],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [
+        "Field h_monotone is assumed."
+      ],
+      "verification_commands": [
+        "cd 05_lean_formalization && bash verify_all_proofs.sh"
+      ],
+      "independent_witness": "05_lean_formalization/YettParadigm.lean",
+      "limitations": "Conditional on assumed h_monotone hypothesis; does not derive trajectory bound from system ODEs.",
+      "status_owner": "Res-Nova formalization maintainers",
+      "claim_type": "conditional-theorem",
+      "quotation_type": "paraphrase",
+      "source_locator": "05_lean_formalization/YettParadigm.lean",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "63dad5287d1d83d49c953760977675d45a0e961e"
+    },
+    {
+      "id": "CLM-19",
+      "canonical_id": "CLM-003",
+      "wording": "mass-claim retraction (state retracted)",
+      "state": "retracted",
+      "assurance_level": "formal-refutation",
+      "formal_artifacts": [
+        "05_lean_formalization/YettParadigm.lean"
+      ],
+      "computational_artifacts": [],
+      "data_artifacts": [],
+      "assumptions": [
+        "Historical lepton and quark mass predictions were post-hoc fits, not predictions."
+      ],
+      "verification_commands": [],
+      "independent_witness": "CURRENT_STATE_READ_THIS_FIRST.md",
+      "limitations": "Mass predictions withdrawn 2026-10-03.",
+      "status_owner": "Res-Nova maintainers",
+      "claim_type": "structural-correction",
+      "quotation_type": "paraphrase",
+      "source_locator": "CURRENT_STATE_READ_THIS_FIRST.md",
+      "falsifiability": {
+        "test": null,
+        "scope": null,
+        "result": "not_run"
+      },
+      "last_verified_commit": "63dad5287d1d83d49c953760977675d45a0e961e"
     }
   ]
 }
