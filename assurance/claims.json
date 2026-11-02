@@ -1864,12 +1864,12 @@
         "Historical lepton and quark mass predictions were post-hoc fits, not predictions."
       ],
       "verification_commands": [],
-      "independent_witness": "CURRENT_STATE_READ_THIS_FIRST.md",
-      "limitations": "Mass predictions withdrawn 2026-10-03.",
+      "independent_witness": "docs/grounding_ledger.yaml",
+      "limitations": "Mass predictions withdrawn 2026-10-03; the Lean mass modules (LeptonMassCollar, QuarkMassLadder) fit measured masses and do not predict them.",
       "status_owner": "Res-Nova maintainers",
       "claim_type": "structural-correction",
       "quotation_type": "paraphrase",
-      "source_locator": "CURRENT_STATE_READ_THIS_FIRST.md",
+      "source_locator": "README.md#what-was-killed",
       "falsifiability": {
         "test": null,
         "scope": null,

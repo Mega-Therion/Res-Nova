@@ -487,8 +487,8 @@
    "wording": "mass-claim retraction (state retracted)",
    "state": "retracted",
    "claim_type": "structural-correction",
-   "limitations": "Mass predictions withdrawn 2026-10-03.",
-   "source_locator": "CURRENT_STATE_READ_THIS_FIRST.md"
+   "limitations": "Mass predictions withdrawn 2026-10-03; the Lean mass modules (LeptonMassCollar, QuarkMassLadder) fit measured masses and do not predict them.",
+   "source_locator": "README.md#what-was-killed"
   }
  ]
 }
