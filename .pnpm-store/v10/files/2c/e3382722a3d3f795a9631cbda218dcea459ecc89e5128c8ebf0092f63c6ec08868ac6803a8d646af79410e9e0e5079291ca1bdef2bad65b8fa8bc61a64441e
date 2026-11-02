@@ -1,0 +1,2 @@
+import { a as createUseQueries, c as getQueryType, d as createReactDecoration, i as getClientArgs, l as TRPCContext, n as createRootHooks, o as createQueryUtilsProxy, s as createReactQueryUtils, t as getQueryClient, u as contextProps } from "../shared-DhkLzxq7.mjs";
+export { TRPCContext, contextProps, createQueryUtilsProxy, createReactDecoration, createReactQueryUtils, createRootHooks, createUseQueries, getClientArgs, getQueryClient, getQueryType };

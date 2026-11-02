@@ -1,0 +1,12 @@
+Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
+const require_shared = require("../shared-BhNi4Oqs.cjs");
+exports.TRPCContext = require_shared.TRPCContext;
+exports.contextProps = require_shared.contextProps;
+exports.createQueryUtilsProxy = require_shared.createQueryUtilsProxy;
+exports.createReactDecoration = require_shared.createReactDecoration;
+exports.createReactQueryUtils = require_shared.createReactQueryUtils;
+exports.createRootHooks = require_shared.createRootHooks;
+exports.createUseQueries = require_shared.createUseQueries;
+exports.getClientArgs = require_shared.getClientArgs;
+exports.getQueryClient = require_shared.getQueryClient;
+exports.getQueryType = require_shared.getQueryType;
