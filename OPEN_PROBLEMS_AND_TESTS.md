@@ -12,6 +12,8 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 
 **Terminal status (2026-10-16):** blocker, tier stays `[O]`. No stated action plus equilibrium produces the factor `1/(2π)` after the cancellations that already killed the earlier KMS attempts. The distance ladder still sets the floor. `screened_c_solutions.py` does not touch this row.
 
+**Parked (2026-11-02):** no active closure work is scheduled on this item; it stays `[O]` and stays out of the letter's core claims. A weekly quarantine watch audits that public text keeps the quarantine sentence (no JWST language, no derived-`a0` claim) and that this section is unchanged. Unparking requires a new, named closure attempt.
+
 **Closure path:** a derivation of the factor `1/(2\pi)` from a stated action plus a stated equilibrium condition, with the `2\pi` surviving after the same cancellations that already killed earlier KMS attempts (`CORPUS_DEPENDENCY_MAP.md` Root 2). Until that exists, do not say “derived.”
 
 **Test path:** `a_0(z) = \xi\, c\, H(z)` on independent high-`z` dynamical tracers (strong lenses, resolved high-`z` rotation, or spacecraft-equivalent kinematic maps). One universe at one epoch cannot tell “tied to the horizon” from “happens to be constant.” The preliminary intermediate-z analysis harness exists (`03_observer_jwst/a0_of_z_v2.py`); high-z resolved confirmation remains open.
@@ -47,6 +49,8 @@ Authority: `EPISTEMIC_BOUNDARY_v1.5.0.md`. Nothing in this file is a result unle
 **Status:** `[O]`. Homogeneous FLRW decoupling of the scalar (`\hat\nabla_\mu\phi=0 \Rightarrow \rho_\phi=0`) is `[P]` and cuts the dynamical-fluid version. The boundary-condition story is not a Friedmann-equation derivation.
 
 **Terminal status (2026-10-16):** blocker, the conjecture stays `[O]`. The Pantheon+ run below is a `[D]` test outcome and does not promote `Ω_Λ = ln 2`. The missing object is still a covariant action whose Friedmann constraint produces that value without inserting it.
+
+**Parked (2026-11-02):** no active closure work is scheduled on this item; it stays `[O]` and stays out of the letter's core claims. A weekly quarantine watch audits that the quarantine sentence holds ("conjectured horizon boundary condition, not a derived density"). Unparking requires a new, named closure attempt.
 
 **Closure path:** a covariant action whose on-shell Friedmann constraint produces `\Omega_\Lambda=\ln 2` without inserting it. Absent that, it stays in the motivational annex (`CORPUS_DEPENDENCY_MAP.md` quarantine 1).
 
