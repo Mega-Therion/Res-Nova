@@ -383,3 +383,26 @@ that the quasi-static limit is inapplicable at `r ∼ 15 r₅₀₀`. Each is a 
 none is a tuning knob.
 
 Script: `02_galaxy_dynamics/clusters/aest_cluster_compensated.py`.
+
+## 10. The first-order number is gauge-dependent — `0.81` is not an expansion parameter `[D]` — added 2026-11-02
+
+§8 computed `W = W₀ − μ²∫₀^r r′²Φ(r′) dr′` with `Φ` normalised to zero at the truncation edge `r₅₀₀`, and quoted `W/W₀ − 1 = 0.81` as a controlled expansion parameter. §9 then treated that figure as the most this sector can claim.
+
+`Φ` enters the correction as a **source**, not as a gradient: shifting `Φ → Φ + C` changes the integral by `C r³/3`. The Helmholtz equation fixes `Φ` only up to a boundary condition, and §9 shows that the physically motivated (compensated) condition makes the BVP ill-posed. The quoted correction therefore depends on a gauge the derivation never pinned down.
+
+`02_galaxy_dynamics/clusters/d10_gauge_test.py` evaluates the same source, the same `μ⁻¹ = 0.9895` Mpc, the same 12 clusters and the same sampling under the two natural gauges:
+
+| `Φ` gauge | median `W/W₀` | "expansion parameter" | median `R(+μ²)` |
+| --- | --- | --- | --- |
+| `Φ(r₅₀₀) = 0` — truncation, §8's choice | 1.81 | **0.81** | 1.13 |
+| `Φ(0) = 0` — forward integration, forced by any ODE solve | 4.12 | **3.12** | 0.66 |
+
+The parameter moves by a factor ≈ 4 from the gauge alone, and median `R` moves between 1.13 and 0.66 — one a marginal pass, the other a strong one. Neither is a prediction.
+
+**What survives:** the *sign* argument of §8 (`Φ < 0` ⇒ the `μ²Φ` term adds effective mass) is gauge-independent and stands. The *size* is not controlled at this order. The honest reading of §8 is therefore "right sign, undetermined size" rather than "right sign, roughly right size", and §9's structural ill-posedness is not rescued by the first-order route.
+
+### 10.1 Inside the SZ validity radius the gap also persists `[D]`
+
+A bounded quasi-static solve at `r_C = 0.54 r₅₀₀` — the radius §7 identifies as SZ's validity limit, where §9's resonance regime is not yet reached — gives median `R = 1.76` under `μ_std` and `2.17` in the pure-MOND limit, against `1.96` at `r₅₀₀` in §2. No closure of the gap where the equation *is* well posed. Caveat recorded: the outer condition there is vacuum (`Φ(r_C) = 0`), not compensated, so this is a bounded diagnostic and not the AeST prediction. Two of twelve clusters fail the cosmological-condition branch of the same solve and are excluded rather than tuned.
+
+**Scripts and data:** `02_galaxy_dynamics/clusters/d10_gauge_test.py` (the table above), `02_galaxy_dynamics/clusters/d10_nonlinear/d10_solve.py` and `d10_verify.py` (DOP853, `rtol = 1e-10`, 12 clusters), results in `d10_results.json`. The `R(μ_std)` column reproduces §2 (`2.86, 1.75, 4.70, 1.98, 2.16, …`) to two decimals — the check that the `R` definition matches.
