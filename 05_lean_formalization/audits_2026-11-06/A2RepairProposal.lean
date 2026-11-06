@@ -28,7 +28,7 @@ structure A2Strong (dist : M → M → Rat) : Prop where
 /-- The zero distance is now excluded: it violates identity of indiscernibles
 on any carrier with two distinct points. -/
 theorem zero_excluded (a b : M) (hne : a ≠ b) :
-    ¬ A2Strong (fun _ _ => (0 : Rat)) := by
+    ¬ A2Strong (M := M) (fun _ _ => (0 : Rat)) := by
   intro hs
   exact hne (hs.refl_zero a b rfl)
 
