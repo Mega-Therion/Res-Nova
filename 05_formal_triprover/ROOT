@@ -1,0 +1,4 @@
+session "MuDualScreening" = HOL +
+  options [document = false, timeout = 180]
+  theories
+    MuDualScreening

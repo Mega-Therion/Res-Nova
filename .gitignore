@@ -39,6 +39,13 @@ THE_ONE_PAGE_*_EXTRACTED.txt
 !assurance/evidence/*.log
 .claude/worktrees/
 
+# Coq / Isabelle build products (sources under 05_formal_triprover stay tracked)
+*.vo
+*.vos
+*.vok
+*.glob
+.nra.cache
+
 # arXiv source PDFs fetched for high-z transcription checks (not vendored)
 02_galaxy_dynamics/highz_data/_src/
 # regenerable sympy matrix pickles (aest_mond_bg_fast.py)
