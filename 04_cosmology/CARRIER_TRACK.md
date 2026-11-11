@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-04. Arithmetic **[D]**. High-z ratios **[C]** from `A0_HIGHZ_MEASUREMENT_2026-09-16.md`.
 
-Bob McGwier's account of the Vega balloons, Danny Jones, 22 May 2026: the gondola was a pendulum in a high wind, the oscillator was hot and jittery, and a linear receiver could not hold the signal. His nonlinear filter estimated that moving state. Once the carrier was tracked, the modulation stood still, because it had a fixed relationship to the carrier.
+ account of the Vega balloons, Danny Jones, 22 May 2026: the gondola was a pendulum in a high wind, the oscillator was hot and jittery, and a linear receiver could not hold the signal. His nonlinear filter estimated that moving state. Once the carrier was tracked, the modulation stood still, because it had a fixed relationship to the carrier.
 
 The same test, on the numbers we have. Two choices for the carrier.
 

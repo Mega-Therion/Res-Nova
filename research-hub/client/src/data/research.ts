@@ -11,9 +11,9 @@ export type StatusTone = "blue" | "amber" | "red" | "slate";
 
 export const releaseState = {
   version: "Public atlas v0.3",
-  researchRelease: "Res Nova · correction cycle 2026-10-21",
-  commit: "effd09ea8c122543d74b997b177ece8fa7c834bf",
-  note: "Aligned with main (effd09e) on 2026-10-21: the tidal screen fails the Oort cloud at C = 0, and RY adopted a tuned Lagrangian zero C = 0.579 at the Oort-window centre; at that C, Cassini, Gaia wide binaries, SPARC, four dwarfs and the comet cloud all pass their pre-registered tests. The late-time holographic-dark-energy edge does not survive a fixed CMB block, and DESI DR2 excludes the phantom window. 73 Lean targets, all passing in CI; a₀ = 1.1607 × 10⁻¹⁰ m s⁻² under μ_std; unscreened μ_std fails Cassini; D7 stays open; the retracted-claim list matches assurance/claims.json.",
+  researchRelease: "Res Nova · correction cycle 2026-11-06",
+  commit: "6254e4ef1207756d15da982b53a7ec78f02e2ecf",
+  note: "Aligned with origin/main (6254e4ef) on 2026-11-06. The four commits after effd09e are the axiom ledger, the SPARC catalogue pin, and the E.H.Y.E.H. salvage sketch. Measured physics is unchanged from the 2026-10-21 sentence and was not re-run for this pin: the tidal screen fails the Oort cloud at C = 0, and RY adopted a tuned Lagrangian zero C = 0.579 at the Oort-window centre; at that C, Cassini, Gaia wide binaries, SPARC, four dwarfs and the comet cloud all pass their pre-registered tests. The late-time holographic-dark-energy edge does not survive a fixed CMB block, and DESI DR2 excludes the phantom window. 73 Lean targets, all passing in CI; a₀ = 1.1607 × 10⁻¹⁰ m s⁻² under μ_std; unscreened μ_std fails Cassini; D7 stays open; the retracted-claim list matches assurance/claims.json.",
   links: {
     github: "https://github.com/Mega-Therion/Res-Nova",
     zenodo: "https://doi.org/10.5281/zenodo.21969121",
@@ -115,7 +115,8 @@ export const claims = [
     title: "AeST is the live covariant completion under review",
     summary:
       "The corrected program uses a scalar-sector AeST action with minimal matter coupling. Tensor-speed and selected weak-field claims are separated from unresolved post-Newtonian, screening, and nonlinear cosmology work. In the spherical quasistatic limit, the scalar function whose total law is μ_std is single-valued and meets both static ghost conditions for λ_s < 11.28. D9's function stays the one in use.",
-    source: "TARGET_D7_COVARIANT_COMPLETION.md; TARGET_D8_TENSOR_SPEED.md; AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md",
+    source:
+      "TARGET_D7_COVARIANT_COMPLETION.md; TARGET_D8_TENSOR_SPEED.md; AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md",
     limitation:
       "Downstream calculations inherited from the retired vector/disformal action are not current evidence. A stage-2 search proposed a no-go. That no-go was not adopted. D7 stays open.",
   },
@@ -214,22 +215,103 @@ export const claimRegistryState = {
 /** Claims the registry (assurance/claims.json) marks `retracted`, summarized by hand.
  *  A test (retracted-claims.test.ts) fails if this list and the registry disagree. */
 export const retractedClaims = [
-  { id: "CLM-05", title: "The 382-parameter SPARC fit is not the current fit", detail: "It is historical. The matched Tier 1 comparison uses 374 nuisance parameters." },
-  { id: "CLM-15", title: "The anti-drift gate u ≥ γ ⇔ χ ≥ θ is false", detail: "The steady-state coherence is not monotonic; θ is a ceiling on coherence, not a gate." },
-  { id: "CLM-D3-01", title: "\"1137× below Cassini\"", detail: "A category error: 1 − μ and γ − 1 are not comparable. The live figure is a MOND correction of about 2 × 10⁻⁸ at Earth." },
-  { id: "CLM-D3-03", title: "Vainshtein screening puts Q₂ 119× below the Cassini bound", detail: "Retracted 2026-09-30: computed with the retired F_dual action, and no GW170817-safe Vainshtein screen is available." },
-  { id: "CLM-D3-05", title: "γ = β = 1 with Cassini and MESSENGER margins", detail: "Void: derived for an Einstein-aether action that was not the AeST action." },
-  { id: "CLM-D6-03", title: "A strong-coupling scale of about 10⁻¹⁰ eV", detail: "A unit error. The correct scale is about 1.8 meV, a 110 μm range, which is lab-accessible." },
-  { id: "CLM-D7-01", title: "The RMOND action with F_dual is written and verified", detail: "Superseded 2026-09-12: written against a vector field, not the scalar AeST field." },
-  { id: "CLM-D7-02", title: "Background Friedmann equations are unmodified", detail: "Void 2026-09-12: the calculation it rested on does not apply under the corrected AeST action." },
-  { id: "CLM-D7-03", title: "Linear screening factor F″/F′ ≈ 0.00233", detail: "Void 2026-09-12: computed from a field the action does not contain." },
-  { id: "CLM-D7-05", title: "Natural O(1) couplings satisfy all constraints", detail: "Void 2026-09-12: those couplings do not exist in the corrected AeST action." },
-  { id: "CLM-D7-06", title: "Exact PPN γ, β for specific couplings", detail: "Superseded: γ = 1 follows from Ψ = Φ in the Skordis–Złośnik embedding, not from couplings." },
-  { id: "CLM-D9-01", title: "The D9 embedding normalization", detail: "Corrected 2026-09-12: a factor-of-2 prefactor disagreement, and ã₀ had been conflated with a₀." },
-  { id: "CLM-Z-R1", title: "κ = 0.9539 emerges from the theory", detail: "Retracted by the 2026-10-11 Zenodo audit: κ = √(θ(2 − θ)) at θ = 0.70 is an input relation, and ξ is tuned to it." },
-  { id: "CLM-Z-R2", title: "The acceleration relation is derived, and the SPARC fits use no per-galaxy freedom", detail: "Retracted by the 2026-10-11 Zenodo audit: μ is an irreducible input and the live comparison is the μ_std parameter ledger." },
-  { id: "CLM-Z-R3", title: "θ or χ equals 1/√2", detail: "Retracted by the 2026-10-11 Zenodo audit: θ = 0.70 is the settled input; 1/√2 is the band's lower wall." },
-  { id: "CLM-19", title: "The lepton and quark mass predictions", detail: "Withdrawn 2026-10-03: the Lean modules fit measured masses; they do not predict them." },
+  {
+    id: "CLM-05",
+    title: "The 382-parameter SPARC fit is not the current fit",
+    detail:
+      "It is historical. The matched Tier 1 comparison uses 374 nuisance parameters.",
+  },
+  {
+    id: "CLM-15",
+    title: "The anti-drift gate u ≥ γ ⇔ χ ≥ θ is false",
+    detail:
+      "The steady-state coherence is not monotonic; θ is a ceiling on coherence, not a gate.",
+  },
+  {
+    id: "CLM-D3-01",
+    title: '"1137× below Cassini"',
+    detail:
+      "A category error: 1 − μ and γ − 1 are not comparable. The live figure is a MOND correction of about 2 × 10⁻⁸ at Earth.",
+  },
+  {
+    id: "CLM-D3-03",
+    title: "Vainshtein screening puts Q₂ 119× below the Cassini bound",
+    detail:
+      "Retracted 2026-09-30: computed with the retired F_dual action, and no GW170817-safe Vainshtein screen is available.",
+  },
+  {
+    id: "CLM-D3-05",
+    title: "γ = β = 1 with Cassini and MESSENGER margins",
+    detail:
+      "Void: derived for an Einstein-aether action that was not the AeST action.",
+  },
+  {
+    id: "CLM-D6-03",
+    title: "A strong-coupling scale of about 10⁻¹⁰ eV",
+    detail:
+      "A unit error. The correct scale is about 1.8 meV, a 110 μm range, which is lab-accessible.",
+  },
+  {
+    id: "CLM-D7-01",
+    title: "The RMOND action with F_dual is written and verified",
+    detail:
+      "Superseded 2026-09-12: written against a vector field, not the scalar AeST field.",
+  },
+  {
+    id: "CLM-D7-02",
+    title: "Background Friedmann equations are unmodified",
+    detail:
+      "Void 2026-09-12: the calculation it rested on does not apply under the corrected AeST action.",
+  },
+  {
+    id: "CLM-D7-03",
+    title: "Linear screening factor F″/F′ ≈ 0.00233",
+    detail:
+      "Void 2026-09-12: computed from a field the action does not contain.",
+  },
+  {
+    id: "CLM-D7-05",
+    title: "Natural O(1) couplings satisfy all constraints",
+    detail:
+      "Void 2026-09-12: those couplings do not exist in the corrected AeST action.",
+  },
+  {
+    id: "CLM-D7-06",
+    title: "Exact PPN γ, β for specific couplings",
+    detail:
+      "Superseded: γ = 1 follows from Ψ = Φ in the Skordis–Złośnik embedding, not from couplings.",
+  },
+  {
+    id: "CLM-D9-01",
+    title: "The D9 embedding normalization",
+    detail:
+      "Corrected 2026-09-12: a factor-of-2 prefactor disagreement, and ã₀ had been conflated with a₀.",
+  },
+  {
+    id: "CLM-Z-R1",
+    title: "κ = 0.9539 emerges from the theory",
+    detail:
+      "Retracted by the 2026-10-11 Zenodo audit: κ = √(θ(2 − θ)) at θ = 0.70 is an input relation, and ξ is tuned to it.",
+  },
+  {
+    id: "CLM-Z-R2",
+    title:
+      "The acceleration relation is derived, and the SPARC fits use no per-galaxy freedom",
+    detail:
+      "Retracted by the 2026-10-11 Zenodo audit: μ is an irreducible input and the live comparison is the μ_std parameter ledger.",
+  },
+  {
+    id: "CLM-Z-R3",
+    title: "θ or χ equals 1/√2",
+    detail:
+      "Retracted by the 2026-10-11 Zenodo audit: θ = 0.70 is the settled input; 1/√2 is the band's lower wall.",
+  },
+  {
+    id: "CLM-19",
+    title: "The lepton and quark mass predictions",
+    detail:
+      "Withdrawn 2026-10-03: the Lean modules fit measured masses; they do not predict them.",
+  },
 ];
 
 export const workstreams = [

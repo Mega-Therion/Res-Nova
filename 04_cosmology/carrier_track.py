@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Track the moving frame. See which relationship stands still.
 
-Bob McGwier, Danny Jones interview, 22 May 2026, on the Vega balloon
+, Danny Jones interview, 22 May 2026, on the Vega balloon
 signal: the gondola was a pendulum, the oscillator was hot and jittery,
 and a linear receiver could not follow it. His nonlinear filter estimated
 the state. After the carrier was tracked, the modulation stood still

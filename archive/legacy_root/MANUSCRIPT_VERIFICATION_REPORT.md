@@ -13,7 +13,7 @@
 | :--- | :--- | :--- |
 | **BibTeX Citations** | **PASS (100%)** | 12 citations in `.tex`, 47 in `references.bib`, 0 missing / unresolved |
 | **Internal References (`\ref`, `\eqref`)** | **PASS (100%)** | 30 labels defined, 14 cross-references invoked, 0 unresolved `?` marks |
-| **Quarantine Compliance** | **PASS (100%)** | 0 occurrences of Bob McGwier or contaminated tokens in `.tex` or `.bib` |
+| **Quarantine Compliance** | **PASS (100%)** | 0 occurrences of or contaminated tokens in `.tex` or `.bib` |
 | **Submission Packaging** | **PASS (100%)** | Clean `SUBMISSION/` structure, `.zenodo.json`, and `zenodo_metadata.json` valid |
 | **Compiled Artifact** | **PASS (100%)** | `res_nova_manuscript.pdf` (428,021 bytes) matched and verified |
 
@@ -42,7 +42,7 @@
 ## 3. Epistemic Boundary & Quarantine Compliance
 
 An automated scan of `res_nova_manuscript.tex` and `references.bib` confirms:
-- **0 occurrences** of Bob McGwier.
+- **0 occurrences** of.
 - Full compliance with the protocol establishing the independent derivation of the dual-channel variational action $F(x) = \frac{x^2}{2} - x + \ln(1+x)$ and the Mercury perihelion precession boundary reconciliation (commit `df2232784eefd928bcce320de246dd700513aaa2`).
 
 ---

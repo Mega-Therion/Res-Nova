@@ -32,7 +32,7 @@ A shorter map, including what the two `06_` directories are, is [`docs/WHERE_TO_
 
 ## Where this stands
 
-The galaxies measure a scale. Around that scale the turnover is \(\mu(x)=x/\sqrt{1+x^2}\). That is the standard MOND function, and the information-tension derivative lands on the same function when the measured scale is the input. The horizon formula does not track the galaxies, so it is not where the scale comes from. The dual-channel force law leaves a shove the planets do not have, so it is not the solar-system law. A screen that would make one formula true up close is not in either action. Until that screen is written and passes Cassini, this theory's domain is the galaxy regime, and ordinary gravity keeps the solar system.
+The theory starts in Geometrically Ordered Dynamics and Information Tension: a constitutional Stiefel subspace, and a balanced trit carried by holonomy. Res-Nova keeps the downstream galactic record of that geometry. Around one measured scale the turnover is \(\mu(x)=x/\sqrt{1+x^2}\). That function is the record. It is not the source, and writing its integral as a kinetic density does not derive it. The horizon formula does not track the galaxies, so it is not where the scale comes from. The dual-channel force law leaves a shove the planets do not have, so it is not a solar-system law. A screen that would make one formula hold up close is not in either action. Those are limits on the galactic record. They are not the identity of the theory.
 
 ## What this repository is — and is not
 
