@@ -22,7 +22,7 @@
 ## A4 — Variational closure
 **Lean:** `ChyrenAxioms.Axiom_A4_VariationalClosure`
 **Condition:** mu is an interpolation function and satisfies one of two branches: x/(1+x) or x/sqrt(1+x^2).
-**Status:** the disjunction is collapsed inside the formal system by `MuStdSelection.screening_selects_mu_std` (`ScreenedTail` holds for mu_std via `mu_std_screened`; fails for mu_dual for every constant via `mu_dual_not_screened`). The branch is therefore not free.
+**Status:** the disjunction is collapsed inside the formal system by `MuStdSelection.screening_selects_mu_std` (`ScreenedTail` holds for mu_std via `mu_std_screened`; fails for the falsified mu_dual for every constant via `mu_dual_not_screened`). The branch is therefore not free.
 **Kill criterion:** an observation showing a non-screening tail, or a proof that no interpolation function in this family follows from the action.
 
 ## A5 — Recovery
@@ -32,7 +32,7 @@
 
 ## Derived, not axiomatic (named for the record)
 - `MasterEquationCore.canonical_constitutive_identity`: F_std'(x) = x mu_std(x).
-- `MuStdSelection.mu_std_screened`, `mu_dual_not_screened`, `screening_selects_mu_std`.
+- `MuStdSelection.mu_std_screened`, `mu_dual_not_screened` (the falsified branch), `screening_selects_mu_std`.
 - `AXIOMS_V2.derived_simple_mu_bounds`, `deep_mond_baryonic_scaling`.
 - `MuStdUniqueness.*`: structural uniqueness under the chiral channel (postulate swap; read its creation frame).
 
