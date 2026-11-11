@@ -42,7 +42,7 @@
 - Error propagation for logarithmic acceleration uncertainty $\sigma_{\log_{10} g}$ to linear acceleration $\sigma_g = g_{\text{obs}} \ln(10) \sigma_{\log_{10} g}$ is mathematically exact (line 98).
 
 ### C. Pre-Registration Discrepancy & Evolution
-1. **V1 Interpolator ($\mu_{\text{dual}}$):**
+1. **V1 Interpolator (historical; $\mu_{\text{dual}}$, the falsified function, retired 2026-09-12):**
    - Implemented in `a0_of_z.py`: $g = g_{\text{bar}} [1/2 + \sqrt{1/4 + a_0/g_{\text{bar}}}]$.
    - Execution yields $\chi^2(H_{\text{const}}) = 5.37$, $\chi^2(H_{\text{horizon}}) = 40.49$, $\Delta \chi^2 = -35.11$ ($5.93\sigma$ in favor of $H_{\text{const}}$).
    - **Audit Notice:** Because $\mu_{\text{dual}}$ was falsified locally against SPARC on 2026-09-12, this 5.9σ headline is an artifact of the incorrect interpolating function.
