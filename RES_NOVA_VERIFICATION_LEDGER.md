@@ -153,7 +153,7 @@ not $a_0 = \frac{cH_0}{2\pi}$. The additional $1/(2\pi)$ divisor is an open boun
 
 | Lean 4 File | Headline Theorems / Scope Verified on Disk | Axiom Footprint | Role / Status |
 |---|---|---|---|
-| [`AXIOMS_V2.lean`](05_lean_formalization/AXIOMS_V2.lean) | `derived_simple_mu_bounds`, `deep_mond_baryonic_scaling` | `[propext, Classical.choice, Quot.sound]` | **ASSUMPTIONS `[O]`** (Typeclass declarations) |
+| [`AXIOMS_V2.lean`](05_lean_formalization/AXIOMS_V2.lean) | `derived_simple_mu_bounds`, `deep_mond_baryonic_scaling`, `a2_excludes_zero`, `a2_excludes_asymmetric`, `a2_of_metricSpace` | `[propext, Classical.choice, Quot.sound]` | **ASSUMPTIONS `[O]`** (Typeclass declarations) |
 | [`CosmologicalSector.lean`](05_lean_formalization/CosmologicalSector.lean) | `log_two_pos`, `log_two_lt_one`, `matter_density_bounds`, `spatial_flatness_sum` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
 | [`CovariantCompletion.lean`](05_lean_formalization/CovariantCompletion.lean) | `raqual_superluminal_obstruction`, `disformal_gamma_ppn_unity`, `preferred_frame_parameters_zero`, `no_dynamical_dark_energy_density` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |
 | [`DeSitterExtremal.lean`](05_lean_formalization/DeSitterExtremal.lean) | `desitter_lapse_horizon`, `expr_cH_over_2pi_pos`, `desitter_flat_limit` | `[propext, Classical.choice, Quot.sound]` | **VERIFIED `[P]`** |

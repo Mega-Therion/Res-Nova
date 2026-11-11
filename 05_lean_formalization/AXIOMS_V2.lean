@@ -50,9 +50,46 @@ def IsInterpolationFunction (μ : ℝ → ℝ) : Prop :=
 class Axiom_A1_Substrate (Q : Type*) [NormedAddCommGroup Q] [InnerProductSpace ℂ Q] : Prop where
   substrate_exists : ∃ (ψ : Q), ‖ψ‖ = 1
 
-/-- Axiom A2 (Entanglement Geometry): Spacetime distance is a monotone functional of quantum relative entropy. -/
-class Axiom_A2_EntanglementGeometry (M : Type*) [MetricSpace M] (Q : Type*) [NormedAddCommGroup Q] [InnerProductSpace ℂ Q] : Prop where
-  geometric_emergence : ∃ (dist : M → M → ℝ), ∀ x y : M, dist x y ≥ 0
+/-- The content of A2: a distance function that is non-negative, vanishes only between
+identical points, and is symmetric. Adopted 2026-11-11 from
+`audits_2026-11-06/A2RepairProposal.lean` (there stated over `Rat`, here over `ℝ`). -/
+structure A2Strong {M : Type*} (dist : M → M → ℝ) : Prop where
+  nonneg : ∀ x y, dist x y ≥ 0
+  refl_zero : ∀ x y, dist x y = 0 → x = y
+  symm : ∀ x y, dist x y = dist y x
+
+/-- Axiom A2 (Metric Structure): the derived spacetime distance `dist` satisfies `A2Strong`.
+
+This replaces `Axiom_A2_EntanglementGeometry` (RY, 2026-11-11). The old class asked only for
+`∃ dist, ∀ x y, dist x y ≥ 0`, which `dist ≡ 0` and any asymmetric non-negative function
+satisfy (`audits_2026-11-06/A2ContentAudit.lean`). This one takes the distance as an argument,
+so it constrains that function and cannot be met by choosing a different one.
+
+It is a metric axiom, not an entanglement axiom. The physics reading, that distance is a
+monotone functional of quantum relative entropy, is `[O]` and is NOT formalized here: that
+needs a relative entropy on the substrate and a monotonicity theorem. Do not cite A2 as
+entanglement geometry. -/
+class Axiom_A2_MetricStructure {M : Type*} (dist : M → M → ℝ) : Prop where
+  strong : A2Strong dist
+
+/-- A2 is not vacuous: the zero distance fails it on any carrier with two distinct points. -/
+theorem a2_excludes_zero {M : Type*} (a b : M) (hne : a ≠ b) :
+    ¬ A2Strong (fun _ _ : M => (0 : ℝ)) := by
+  intro hs
+  exact hne (hs.refl_zero a b rfl)
+
+/-- A2 excludes asymmetric distances. -/
+theorem a2_excludes_asymmetric {M : Type*} (dist : M → M → ℝ) (a b : M)
+    (hab : dist a b ≠ dist b a) : ¬ A2Strong dist := by
+  intro hs
+  exact hab (hs.symm a b)
+
+/-- A2 is satisfiable: the distance of any metric space meets it. -/
+theorem a2_of_metricSpace (M : Type*) [MetricSpace M] :
+    A2Strong (fun x y : M => dist x y) where
+  nonneg := fun _ _ => dist_nonneg
+  refl_zero := fun _ _ h => eq_of_dist_eq_zero h
+  symm := fun x y => dist_comm x y
 
 /-- Axiom A3 (Equilibrium): The vacuum state locally extremizes entanglement entropy at fixed boundary volume. -/
 class Axiom_A3_Equilibrium (Q : Type*) [NormedAddCommGroup Q] [InnerProductSpace ℂ Q] : Prop where

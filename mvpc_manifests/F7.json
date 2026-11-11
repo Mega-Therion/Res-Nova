@@ -10,7 +10,7 @@
   "artifacts": [
     {
       "path": "05_lean_formalization/AXIOMS_V2.lean",
-      "sha256": "33ec99bf6f4f05fcb0da220632580a13ebd29175572cacdcee34577b107a686f",
+      "sha256": "84d8e280a97e5ae7f113ae3f4981251b8d87da91169bca935bc1386f2e48ce49",
       "role": "assumptions"
     },
     {

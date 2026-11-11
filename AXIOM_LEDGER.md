@@ -9,10 +9,13 @@
 **Consumed by:** `QuantumSubstrate`; Pillar II modules.
 **Kill criterion:** no physical sector requires Hilbert-space structure, or a constructed sector needs a non-Hilbert primitive.
 
-## A2 — Entanglement geometry
-**Lean:** `ChyrenAxioms.Axiom_A2_EntanglementGeometry`
-**Condition:** spacetime M carries a non-negative distance functional; in prose, distance is a monotone functional of relative entropy. Note: the formalized content is only `dist x y ≥ 0`, so it proves almost nothing. Strengthen before citing as geometry.
-**Kill criterion:** a measured metric that cannot be written as a monotone functional of entanglement entropy at the relevant scale.
+## A2 — Metric structure
+**Lean:** `ChyrenAxioms.Axiom_A2_MetricStructure`, content in `ChyrenAxioms.A2Strong` (adopted 2026-11-11; replaces `Axiom_A2_EntanglementGeometry`).
+**Condition:** the derived spacetime distance is non-negative, vanishes only between identical points, and is symmetric. The axiom takes the distance as an argument, so it constrains that function.
+**Not claimed:** that distance is a monotone functional of relative entropy. That reading is `[O]` and unformalized; it needs a relative entropy on the substrate and a monotonicity theorem. Do not cite A2 as entanglement geometry.
+**Kill criterion:** a derived distance that is asymmetric or that vanishes between distinct events. For the `[O]` reading: no monotone functional of relative entropy on the A1 substrate satisfies `A2Strong`.
+**Lean consumers:** `a2_excludes_zero`, `a2_excludes_asymmetric`, `a2_of_metricSpace` (all in `AXIOMS_V2.lean`). No physics theorem depends on A2.
+**Record:** `05_lean_formalization/audits_2026-11-06/A2_AUDIT_2026-11-06.md`.
 
 ## A3 — Equilibrium
 **Lean:** `ChyrenAxioms.Axiom_A3_Equilibrium`
