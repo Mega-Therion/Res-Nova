@@ -12,7 +12,7 @@
 
 | Audit Dimension | Requirement / Invariant | Measured Status | Verdict |
 | :--- | :--- | :--- | :--- |
-| **Parameter Freezing** | Zero parameter re-fitting at test stage | No fitting optimizers (`scipy.optimize`, gradient descent, or regression) invoked. All values of $a_0(0)$ and $\xi$ are frozen constants. | **PASS (100% Compliant)** |
+| **Frozen Parameters** | No parameter re-fitting at test stage | No fitting optimizers (`scipy.optimize`, gradient descent, or regression) invoked. All values of $a_0(0)$ and $\xi$ are frozen constants. | **PASS (100% Compliant)** |
 | **Cosmology Invariant** | Planck 2018 Flat $\Lambda$CDM ($H_0 = 67.4$, $\Omega_m = 0.315$, $\Omega_\Lambda = 0.685$) | Identical constants across `a0_of_z.py` and `a0_of_z_v2.py`. | **PASS** |
 | **$\mu(x)$ Interpolator Consistency** | Agreement with canonical baseline | V1 used $\mu_{\text{dual}}(x) = x/(1+x)$ (falsified locally 2026-09-12). V2 uses $\mu_{\text{std}}(x) = x/\sqrt{1+x^2}$. | **FLAGGED / RESOLVED in V2** |
 | **Data Provenance & Traceability** | Raw observations trace to verified published papers | The hardcoded 20-point mock table in V1 failed traceability to Bouché+2021 / Mercier+2022 and was formally **WITHDRAWN** on 2026-09-27. Replaced by Ciocan+2026 (MUSE-DARK III). | **FLAGGED / DATA WITHDRAWN** |
@@ -22,7 +22,7 @@
 
 ## 2. Detailed Verification Findings
 
-### A. Parameter Freezing (Zero Re-fitting Check)
+### A. Frozen Parameters (No Re-fitting Check)
 - **Code Inspection:** In `03_observer_jwst/a0_of_z.py` (lines 27–42):
   ```python
   C_LIGHT = 2.99792458e8
@@ -59,4 +59,4 @@
 
 ## 3. Conclusion & Sign-Off
 
-The script `03_observer_jwst/a0_of_z.py` adheres strictly to the zero-parameter-refitting invariant. The transition to `a0_of_z_v2.py` correctly handles the interpolating function update, and the inconclusive verdict under $\mu_{\text{std}}$ ($2.06\sigma$) is properly recorded without unearned confirmation claims.
+The script `03_observer_jwst/a0_of_z.py` adheres strictly to the no-refitting invariant: $a_0(0)$ and the interpolating function are fixed inputs at the test stage, never fitted to the high-$z$ points. The transition to `a0_of_z_v2.py` correctly handles the interpolating function update, and the inconclusive verdict under $\mu_{\text{std}}$ ($2.06\sigma$) is properly recorded without unearned confirmation claims.
