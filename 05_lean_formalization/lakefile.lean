@@ -98,8 +98,6 @@ lean_lib «ResNovaFormal» where
     `MuNDuality,
     -- ADDED 2026-09-27. D9 on the live branch by calculus: J_std(Y)=F_std(sqrt Y) differentiates to mu_std/2.
     `SZStdEmbedding,
-    -- ADDED 2026-10-14. D7/D9: the scalar-channel function whose TOTAL law is mu_std, and its 11.2788 bound.
-    `AeSTTotalScalarCorrespondence,
     `GateHolonomySusceptibility,
     `MuStdSelection,
     `MuStdFoundations,
@@ -124,11 +122,6 @@ lean_lib «ResNovaFormal» where
     `TrialityG2,
     `TrialityFixedSubalgebra,
     `YettParadigm,
-    `MasterEquationCore,
-    -- ADDED 2026-11-01. The AQUAL weak-form contract draft (RN-AQUAL-FIELD-001).
-    -- Definitions and one inherited constitutive identity; it does not prove the
-    -- field equation, integrability, or that the weak form follows from an action.
-    `AQUALWeakFormDraft,
     `RamanujanGapDerivation,
     `LeptonMassCollar,
     `NavierStokesCorticalBound,
@@ -136,7 +129,7 @@ lean_lib «ResNovaFormal» where
     `RiemannSpectralExpander,
     `StiefelLaplaceEigenvalue,
     `QuarkMassLadder,
-    `InitialAlgebraExecution,
-    `ListInitialAlgebra,
-    `BinaryPrefixBasis
+    -- ADDED 2026-11-11. The E8 root system: 240 roots on the doubled integer
+    -- lattice, classification, root-system axioms, simple roots + Cartan matrix.
+    `E8Roots
   ]
