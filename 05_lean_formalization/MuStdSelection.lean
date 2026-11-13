@@ -152,6 +152,10 @@ theorem screening_selects_mu_std
 end ResNova.MuStdSelection
 
 
+namespace ResNova.MuStdSelection
+
+open ResNova.MuStdUniqueness
+
 -- ---------------------------------------------------------------------------
 -- Continuity closes the pointwise branch-switching gap (2026-11-13).
 --
@@ -312,3 +316,6 @@ theorem screening_selects_mu_std_of_continuity
 
 #print axioms continuous_branch_disjunction_is_uniform
 #print axioms screening_selects_mu_std_of_continuity
+
+
+end ResNova.MuStdSelection
