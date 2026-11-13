@@ -81,17 +81,17 @@ This supplement should be read alongside that existing review; it does not repla
 
 The following parts are consistent with the source and protocol definitions:
 
-1. **Flat-ΛCDM background:** (H(z)=H_0sqrt{Omega_m(1+z)^3+Omega_Lambda}), with (H_0=67.4) km s⁻¹ Mpc⁻¹, (Omega_m=0.315), and (Omega_Lambda=0.685), is implemented consistently. The numeric (H(z)/H_0) values at z = 0.5, 1.0, 1.5, and 2.0 are approximately 1.3222, 1.7903, 2.3679, and 3.0315.
+1. **Flat-ΛCDM background:** `H(z) = H0 * sqrt(Ωm * (1 + z)^3 + ΩΛ)`, with `H0 = 67.4 km s⁻¹ Mpc⁻¹`, `Ωm = 0.315`, and `ΩΛ = 0.685`, is implemented consistently. The numeric `H(z)/H0` values at z = 0.5, 1.0, 1.5, and 2.0 are approximately 1.3222, 1.7903, 2.3679, and 3.0315.
 
-2. **Frozen V1/V2 ξ:** using (c=2.99792458×10^8) m/s and the stated H₀ conversion gives (H_0=2.18428524×10^{-18}) s⁻¹ and (ξ=1.11603513×10^{-10}/(cH_0)=0.17043069), matching the V1/V2 value to the displayed precision. This is the old μ_dual-extracted a₀ baseline; it is not the V3 baseline.
+2. **Frozen V1/V2 ξ:** using `c = 2.99792458×10^8 m/s` and the stated H₀ conversion gives `H0 = 2.18428524×10^-18 s^-1` and `ξ = 1.11603513×10^-10 / (c * H0) = 0.17043069`, matching the V1/V2 value to the displayed precision. This is the old μ_dual-extracted a₀ baseline; it is not the V3 baseline.
 
-3. **V2 μ_std inversion:** solving (g,μ_{std}(g/a₀)=g_{bar}), with (μ_{std}(x)=x/√(1+x²)), yields (g=√{[g_{bar}²+√(g_{bar}^4+4g_{bar}²a₀²)]/2}), matching the code. Substitution checks at representative positive (g_{bar}) and a₀ values recover (g_{bar}) to floating-point precision.
+3. **V2 μ_std inversion:** solving `g * μ_std(g/a0) = gbar`, with `μ_std(x) = x / sqrt(1 + x^2)`, yields `g = sqrt(0.5 * (gbar^2 + sqrt(gbar^4 + 4*gbar^2*a0^2)))`, matching the code. Substitution checks at representative positive `gbar` and `a0` values recover `gbar` to floating-point precision.
 
-4. **χ² and decision sign:** (χ²=Σ[(g_{obs}-g_{pred})/σ_g]^2), (Δχ²=χ²_{const}-χ²_{horizon}), and the mapping (Δχ²≥+9) → horizon favoured, (Δχ²≤-9) → constant favoured, otherwise inconclusive, agree with the V1 preregistration.
+4. **χ² and decision sign:** `χ² = Σ[(gobs - gpred)/σg]^2`, `Δχ² = χ²_const - χ²_horizon`, and the mapping `Δχ² ≥ +9` → horizon favoured, `Δχ² ≤ -9` → constant favoured, otherwise inconclusive, agree with the V1 preregistration.
 
-5. **No test-stage parameter refit found:** the reviewed `evaluate_hypotheses()` / `evaluate()` functions use frozen (a₀), ξ, and cosmological inputs in forward predictions. I found no optimizer or fit step in those primary hypothesis-evaluation paths. V2's optional `--scan` varies a₀ and co-scales ξ as an explicitly exploratory sensitivity analysis; it is not a fit to the test data. The sensitivity scan should remain labelled exploratory and separate from the registered result.
+5. **No test-stage parameter refit found:** the reviewed `evaluate_hypotheses()` / `evaluate()` functions use frozen `a0`, `ξ`, and cosmological inputs in forward predictions. I found no optimizer or fit step in those primary hypothesis-evaluation paths. V2's optional `--scan` varies `a0` and co-scales `ξ` as an explicitly exploratory sensitivity analysis; it is not a fit to the test data. The sensitivity scan should remain labelled exploratory and separate from the registered result.
 
-For V3's central (a₀=1.1562×10^{-10}), the corresponding definition (ξ=a₀/(cH₀)) gives approximately 0.17656. The V3 protocol says ξ is co-scaled by definition, but the missing executable/report means the exact V3 code path and recorded frozen value could not be checked directly.
+For V3's central `a0 = 1.1562×10^-10 m/s²`, the corresponding definition `ξ = a0 / (c * H0)` gives approximately `0.17656`. The V3 protocol says ξ is co-scaled by definition, but the missing executable/report means the exact V3 code path and recorded frozen value could not be checked directly.
 
 ## 4. Required next steps, in order
 
