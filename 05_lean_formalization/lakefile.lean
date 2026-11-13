@@ -98,6 +98,14 @@ lean_lib «ResNovaFormal» where
     `MuNDuality,
     -- ADDED 2026-09-27. D9 on the live branch by calculus: J_std(Y)=F_std(sqrt Y) differentiates to mu_std/2.
     `SZStdEmbedding,
+    -- Added 2026-11-13: modules already checked by verify_all_proofs.sh are
+    -- now explicit library roots as required by the target-inventory invariant.
+    `AeSTTotalScalarCorrespondence,
+    `MasterEquationCore,
+    `AQUALWeakFormDraft,
+    `InitialAlgebraExecution,
+    `ListInitialAlgebra,
+    `BinaryPrefixBasis,
     `GateHolonomySusceptibility,
     `MuStdSelection,
     `MuStdFoundations,
