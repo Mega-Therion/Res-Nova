@@ -1,5 +1,6 @@
 import MuStdUniqueness
 import Mathlib.Tactic
+import Mathlib.Topology.Order.IntermediateValue
 
 /-!
 # Selecting `mu_std` from the A4 disjunction
@@ -171,9 +172,11 @@ lemma mu_std_gt_mu_dual {x : ℝ} (hx : 0 < x) :
       Real.sqrt (1 + x ^ 2) < Real.sqrt ((1 + x) ^ 2) :=
         Real.sqrt_lt_sqrt (by positivity) harg
       _ = 1 + x := Real.sqrt_sq (by linarith)
+  have hcross' : x * Real.sqrt (1 + x ^ 2) < x * (1 + x) :=
+    mul_lt_mul_of_pos_left hroot hx
   have hcross : x / (1 + x) < x / Real.sqrt (1 + x ^ 2) := by
     apply (div_lt_div_iff₀ (by positivity) (sqrt_one_add_sq_pos x)).2
-    nlinarith
+    exact hcross'
   simpa [mu_std, mu_dual] using hcross
 
 /-- Signed separation from the midpoint: the gap is negative on the dual
