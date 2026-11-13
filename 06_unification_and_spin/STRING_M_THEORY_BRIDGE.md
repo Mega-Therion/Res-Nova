@@ -45,9 +45,29 @@ The dashed arrows are deliberately limited: the Lean root count shares E8×E8 ro
 
 [`E8Roots.lean`](../05_lean_formalization/E8Roots.lean) defines the doubled-coordinate E8 root subtype and proves that it has 240 elements. [`StringTheoryBridge.lean`](../05_lean_formalization/StringTheoryBridge.lean) tags each root with a left or right factor and proves that the resulting product has 480 elements. It separately records the rank bookkeeping `8 + 8 = 16` and proves the arithmetic `480 + 16 = 496`.
 
-The rank value is an explicit bookkeeping constant in the new module; it is not derived there from the root subtype. The module also does not construct an E8 Lie algebra, prove a gauge-algebra dimension theorem, or formalize heterotic string theory. In particular, the number 496 here is only the stated root-count-plus-rank sum. It is not evidence for a connection to `a₀` or to the galaxy sector.
+The current Lean bridge uses the pinned Mathlib `LieAlgebra.e₈`, which is a Serre-algebra quotient/free-Lie-algebra construction. It forms an `E8 × E8` product with componentwise bracket, and verifies Cartan/Gram matrix alignment under the node permutation `[7,6,5,4,3,2,0,1]`. The relevant pinned Mathlib sources are [`SerreConstruction.lean`](https://github.com/leanprover-community/mathlib4/blob/5eec30bc56ed5a23be2e27c544a949ba0bceddeb/Mathlib/Algebra/Lie/SerreConstruction.lean) and, for the Cartan matrix definitions, [`Cartan.lean`](https://github.com/leanprover-community/mathlib4/blob/5eec30bc56ed5a23be2e27c544a949ba0bceddeb/Mathlib/LinearAlgebra/Matrix/Cartan.lean).
+
+The module does **not** prove the E8 root-space identification or decomposition, dimension 248, simplicity, an E8 Lie-algebra isomorphism, or any physical derivation. NumPy 2.4.6 and SymPy 1.14.0 provide exact matrix verification; Coq and Isabelle provide finite-data spot-checks only. Those checks cover finite matrix, index, and arithmetic data, not the Lie algebra. The number 496 remains strictly `480 roots + 16 rank bookkeeping`; it is not a Lie-algebra dimension or a physical result, and is not evidence for a connection to `a₀` or to the galaxy sector.
+
+## Reproducing the bounded checks
+
+From the repository root, with the pinned Python packages and Isabelle available:
+
+```sh
+python3 05_lean_formalization/check_target_inventory.py
+python3 05_lean_formalization/verify_e8_cartan_bridge.py
+tmp_coq="$(mktemp -d)"
+cp 05_lean_formalization/independent_checks/coq/E8CartanBridge.v "$tmp_coq/"
+(cd "$tmp_coq" && coqc -q -o E8CartanBridge.vo E8CartanBridge.v)
+isabelle build -D 05_lean_formalization/independent_checks/isabelle E8_Cartan_Bridge
+(cd 05_lean_formalization && ./verify_all_proofs.sh)
+```
+
+The Python check uses NumPy 2.4.6 and SymPy 1.14.0; the Coq check was compiled with Coq 8.18.0. These commands check finite matrices, indices, arithmetic, and Lean elaboration only; they do not prove an E8 root-space identification or a physical connection.
 
 ## What remains open for Res-Nova
+
+The longer-range research objective is for the bottom-up Res-Nova construction and the top-down E8/string route to meet within a complete CFT. This is an open objective, not a result of this note or PR; the intended CFT setting and its precise mathematical content have not yet been specified.
 
 A physical connection would require a concrete model and a chain of calculations that can be checked independently:
 

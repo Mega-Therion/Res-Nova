@@ -1,0 +1,3 @@
+session E8_Cartan_Bridge = HOL +
+  theories
+    E8CartanBridge
