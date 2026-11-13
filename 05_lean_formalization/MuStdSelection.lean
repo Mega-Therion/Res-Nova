@@ -185,7 +185,7 @@ lemma mu_std_gt_mu_dual {x : ℝ} (hx : 0 < x) :
 
 /-- Signed separation from the midpoint: the gap is negative on the dual
 branch and positive on the standard branch. -/
-def branchGap (mu : ℝ → ℝ) (x : ℝ) : ℝ :=
+noncomputable def branchGap (mu : ℝ → ℝ) (x : ℝ) : ℝ :=
   mu x - (mu_std x + mu_dual x) / 2
 
 lemma branchGap_dual {mu : ℝ → ℝ} {x : ℝ}
@@ -203,21 +203,21 @@ lemma branchGap_std {mu : ℝ → ℝ} {x : ℝ}
   nlinarith [mu_std_gt_mu_dual hx]
 
 lemma branchGap_continuousOn (mu : ℝ → ℝ)
-    (hmu : ContinuousOn mu (Ioi (0 : ℝ))) :
-    ContinuousOn (branchGap mu) (Ioi (0 : ℝ)) := by
+    (hmu : ContinuousOn mu (Set.Ioi (0 : ℝ))) :
+    ContinuousOn (branchGap mu) (Set.Ioi (0 : ℝ)) := by
   have hsqrt : Continuous (fun x : ℝ => Real.sqrt (1 + x ^ 2)) := by
     fun_prop
-  have hstd : ContinuousOn mu_std (Ioi (0 : ℝ)) := by
+  have hstd : ContinuousOn mu_std (Set.Ioi (0 : ℝ)) := by
     have hden : ∀ x : ℝ, Real.sqrt (1 + x ^ 2) ≠ 0 := by
       intro x
       exact (sqrt_one_add_sq_pos x).ne'
     have hcont : Continuous (fun x : ℝ => x / Real.sqrt (1 + x ^ 2)) :=
       continuous_id.div hsqrt hden
     exact hcont.continuousOn
-  have hden : ContinuousOn (fun x : ℝ => 1 + x) (Ioi (0 : ℝ)) :=
+  have hden : ContinuousOn (fun x : ℝ => 1 + x) (Set.Ioi (0 : ℝ)) :=
     continuousOn_const.add continuousOn_id
-  have hdual : ContinuousOn mu_dual (Ioi (0 : ℝ)) := by
-    change ContinuousOn (fun x : ℝ => x / (1 + x)) (Ioi (0 : ℝ))
+  have hdual : ContinuousOn mu_dual (Set.Ioi (0 : ℝ)) := by
+    change ContinuousOn (fun x : ℝ => x / (1 + x)) (Set.Ioi (0 : ℝ))
     exact continuousOn_id.div hden (by
       intro x hx
       linarith)
@@ -230,7 +230,7 @@ without assuming the global huniform disjunction. -/
 theorem continuous_branch_disjunction_is_uniform
     (mu : ℝ → ℝ)
     (hA4 : ∀ x > (0 : ℝ), mu x = mu_dual x ∨ mu x = mu_std x)
-    (hcont : ContinuousOn mu (Ioi (0 : ℝ))) :
+    (hcont : ContinuousOn mu (Set.Ioi (0 : ℝ))) :
     (∀ x > (0 : ℝ), mu x = mu_dual x) ∨
       (∀ x > (0 : ℝ), mu x = mu_std x) := by
   by_contra hnot
@@ -301,7 +301,7 @@ theorem screening_selects_mu_std_of_continuity
     (mu : ℝ → ℝ)
     (hA4 : ∀ x > (0 : ℝ), mu x = mu_dual x ∨ mu x = mu_std x)
     (hscr : ScreenedTail mu)
-    (hcont : ContinuousOn mu (Ioi (0 : ℝ))) :
+    (hcont : ContinuousOn mu (Set.Ioi (0 : ℝ))) :
     ∀ x > (0 : ℝ), mu x = mu_std x := by
   rcases continuous_branch_disjunction_is_uniform mu hA4 hcont with hdual | hstd
   · obtain ⟨C, hC, hbound⟩ := hscr
