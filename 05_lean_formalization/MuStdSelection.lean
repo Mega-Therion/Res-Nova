@@ -149,3 +149,163 @@ theorem screening_selects_mu_std
   · exact hs
 
 end ResNova.MuStdSelection
+
+
+-- ---------------------------------------------------------------------------
+-- Continuity closes the pointwise branch-switching gap (2026-11-13).
+--
+-- A4 is pointwise. The older global theorem assumed a separate huniform
+-- disjunction. Here continuity plus connectedness of (0,∞) proves that a
+-- function which takes only the two distinct branches cannot switch between
+-- them. The physical content remains conditional on continuity and on the
+-- independent ScreenedTail premise; the action must justify the former and
+-- the observational field equations must justify the latter.
+-- ---------------------------------------------------------------------------
+
+/-- On x>0, the standard branch is strictly above the dual branch. -/
+lemma mu_std_gt_mu_dual {x : ℝ} (hx : 0 < x) :
+    mu_std x > mu_dual x := by
+  have harg : 1 + x ^ 2 < (1 + x) ^ 2 := by nlinarith
+  have hroot : Real.sqrt (1 + x ^ 2) < 1 + x := by
+    calc
+      Real.sqrt (1 + x ^ 2) < Real.sqrt ((1 + x) ^ 2) :=
+        Real.sqrt_lt_sqrt (by positivity) harg
+      _ = 1 + x := Real.sqrt_sq (by linarith)
+  have hcross : x / (1 + x) < x / Real.sqrt (1 + x ^ 2) := by
+    apply (div_lt_div_iff₀ (by positivity) (sqrt_one_add_sq_pos x)).2
+    nlinarith
+  simpa [mu_std, mu_dual] using hcross
+
+/-- Signed separation from the midpoint: the gap is negative on the dual
+branch and positive on the standard branch. -/
+def branchGap (mu : ℝ → ℝ) (x : ℝ) : ℝ :=
+  mu x - (mu_std x + mu_dual x) / 2
+
+lemma branchGap_dual {mu : ℝ → ℝ} {x : ℝ}
+    (hx : 0 < x) (hbranch : mu x = mu_dual x) :
+    branchGap mu x < 0 := by
+  unfold branchGap
+  rw [hbranch]
+  nlinarith [mu_std_gt_mu_dual hx]
+
+lemma branchGap_std {mu : ℝ → ℝ} {x : ℝ}
+    (hx : 0 < x) (hbranch : mu x = mu_std x) :
+    0 < branchGap mu x := by
+  unfold branchGap
+  rw [hbranch]
+  nlinarith [mu_std_gt_mu_dual hx]
+
+lemma branchGap_continuousOn (mu : ℝ → ℝ)
+    (hmu : ContinuousOn mu (Ioi (0 : ℝ))) :
+    ContinuousOn (branchGap mu) (Ioi (0 : ℝ)) := by
+  have hsqrt : Continuous (fun x : ℝ => Real.sqrt (1 + x ^ 2)) := by
+    fun_prop
+  have hstd : ContinuousOn mu_std (Ioi (0 : ℝ)) := by
+    have hden : ∀ x : ℝ, Real.sqrt (1 + x ^ 2) ≠ 0 := by
+      intro x
+      exact (sqrt_one_add_sq_pos x).ne'
+    have hcont : Continuous (fun x : ℝ => x / Real.sqrt (1 + x ^ 2)) :=
+      continuous_id.div hsqrt hden
+    exact hcont.continuousOn
+  have hden : ContinuousOn (fun x : ℝ => 1 + x) (Ioi (0 : ℝ)) :=
+    continuousOn_const.add continuousOn_id
+  have hdual : ContinuousOn mu_dual (Ioi (0 : ℝ)) := by
+    change ContinuousOn (fun x : ℝ => x / (1 + x)) (Ioi (0 : ℝ))
+    exact continuousOn_id.div hden (by
+      intro x hx
+      linarith)
+  unfold branchGap
+  exact hmu.sub ((hstd.add hdual).div_const 2)
+
+/-- A continuous function satisfying the pointwise A4 branch disjunction must
+use one branch on all of (0,∞). This eliminates arbitrary pointwise switching
+without assuming the global huniform disjunction. -/
+theorem continuous_branch_disjunction_is_uniform
+    (mu : ℝ → ℝ)
+    (hA4 : ∀ x > (0 : ℝ), mu x = mu_dual x ∨ mu x = mu_std x)
+    (hcont : ContinuousOn mu (Ioi (0 : ℝ))) :
+    (∀ x > (0 : ℝ), mu x = mu_dual x) ∨
+      (∀ x > (0 : ℝ), mu x = mu_std x) := by
+  by_contra hnot
+  have hnotDual : ¬ (∀ x > (0 : ℝ), mu x = mu_dual x) := by
+    intro h
+    exact hnot (Or.inl h)
+  have hnotStd : ¬ (∀ x > (0 : ℝ), mu x = mu_std x) := by
+    intro h
+    exact hnot (Or.inr h)
+  have hstdExists : ∃ x, 0 < x ∧ mu x = mu_std x := by
+    by_contra h
+    apply hnotDual
+    intro x hx
+    rcases hA4 x hx with hdual | hstd
+    · exact hdual
+    · exact False.elim (h ⟨x, hx, hstd⟩)
+  have hdualExists : ∃ x, 0 < x ∧ mu x = mu_dual x := by
+    by_contra h
+    apply hnotStd
+    intro x hx
+    rcases hA4 x hx with hdual | hstd
+    · exact False.elim (h ⟨x, hx, hdual⟩)
+    · exact hstd
+  obtain ⟨xStd, hxStd, hStd⟩ := hstdExists
+  obtain ⟨xDual, hxDual, hDual⟩ := hdualExists
+  have hgapCont := branchGap_continuousOn mu hcont
+  rcases le_total xDual xStd with hDualStd | hStdDual
+  · have hcontIcc : ContinuousOn (branchGap mu) (Set.Icc xDual xStd) :=
+      hgapCont.mono (by
+        intro x hx
+        exact lt_of_lt_of_le hxDual hx.1)
+    have hmem : (0 : ℝ) ∈ branchGap mu '' Set.Icc xDual xStd :=
+      (intermediate_value_Icc hDualStd hcontIcc)
+        ⟨le_of_lt (branchGap_dual hxDual hDual),
+          le_of_lt (branchGap_std hxStd hStd)⟩
+    rcases hmem with ⟨y, hy, hzero⟩
+    have hypos : 0 < y := lt_of_lt_of_le hxDual hy.1
+    rcases hA4 y hypos with hdual | hstd
+    · have hneg := branchGap_dual hypos hdual
+      rw [hzero] at hneg
+      norm_num at hneg
+    · have hpos := branchGap_std hypos hstd
+      rw [hzero] at hpos
+      norm_num at hpos
+  · have hcontIcc : ContinuousOn (branchGap mu) (Set.Icc xStd xDual) :=
+      hgapCont.mono (by
+        intro x hx
+        exact lt_of_lt_of_le hxStd hx.1)
+    have hmem : (0 : ℝ) ∈ branchGap mu '' Set.Icc xStd xDual :=
+      (intermediate_value_Icc' hStdDual hcontIcc)
+        ⟨le_of_lt (branchGap_dual hxDual hDual),
+          le_of_lt (branchGap_std hxStd hStd)⟩
+    rcases hmem with ⟨y, hy, hzero⟩
+    have hypos : 0 < y := lt_of_lt_of_le hxStd hy.1
+    rcases hA4 y hypos with hdual | hstd
+    · have hneg := branchGap_dual hypos hdual
+      rw [hzero] at hneg
+      norm_num at hneg
+    · have hpos := branchGap_std hypos hstd
+      rw [hzero] at hpos
+      norm_num at hpos
+
+/-- The inverse-square screening condition plus continuity now selects the
+standard branch globally from A4's pointwise disjunction. The proof no longer
+assumes a global branch choice, but continuity is an explicit extra premise;
+it must ultimately follow from the differentiable physical action. -/
+theorem screening_selects_mu_std_of_continuity
+    (mu : ℝ → ℝ)
+    (hA4 : ∀ x > (0 : ℝ), mu x = mu_dual x ∨ mu x = mu_std x)
+    (hscr : ScreenedTail mu)
+    (hcont : ContinuousOn mu (Ioi (0 : ℝ))) :
+    ∀ x > (0 : ℝ), mu x = mu_std x := by
+  rcases continuous_branch_disjunction_is_uniform mu hA4 hcont with hdual | hstd
+  · obtain ⟨C, hC, hbound⟩ := hscr
+    have hdualScreened : ScreenedTail mu_dual := by
+      refine ⟨C, hC, ?_⟩
+      intro x hx
+      have hxpos : 0 < x := by linarith
+      rw [← hdual x hxpos]
+      exact hbound x hx
+    exact False.elim (mu_dual_not_screened hdualScreened)
+  · exact hstd
+
+#print axioms continuous_branch_disjunction_is_uniform
+#print axioms screening_selects_mu_std_of_continuity
