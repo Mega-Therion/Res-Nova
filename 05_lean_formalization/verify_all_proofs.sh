@@ -108,6 +108,8 @@ TARGETS=(
   InitialAlgebraExecution.lean
   ListInitialAlgebra.lean
   BinaryPrefixBasis.lean
+  E8Roots.lean
+  StringTheoryBridge.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------

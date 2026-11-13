@@ -47,6 +47,8 @@ $$\chi_s = \sqrt{2\theta - \theta^2} = \sqrt{\sqrt{2} - \frac{1}{2}} \approx 0.9
 - **$E_8$ Root Partition**: 240 roots decompose into 128 half-integer (balanced ternary $\{\pm 1\}^8$) and 112 coordinate roots ($\{\pm 2, 0\}^8$).
 - **$S_3$ Triality Action**: 176 of 240 roots ($11/15 \approx 0.7333$) are fixed under $Z_2$ transposition. Burnside average orbit ratio $165.3/240 \approx 0.6889$ closely tracks the $\ln 2 \approx 0.6931$ Morse anchor.
 
+**Scope note:** [The string/M-theory bridge note](STRING_M_THEORY_BRIDGE.md) separates the established E8×E8 heterotic/M-theory relationship from the repository’s mathematical root count and from unproved physical interpretations. It does not validate the substrate or numerical interpretations in this section, or derive a connection to the modified-gravity sector.
+
 ---
 
 ## 4. Execution & Verification

@@ -7,8 +7,10 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against the physics:** 2026-11-11 (UTC). The audit-cycle state below supersedes
+**Last verified against the physics:** 2026-11-13 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
+
+The 2026-11-13 freshness review is scope-limited: `PEER_REVIEW_READINESS.md` was re-read and no peer-review claim depends on the E8 root formalization. Commit `95f4578b` (2026-11-12 UTC) adds finite E8 root data; the adjacent string/M-theory bridge records only tagged-root counting and rank arithmetic. Neither changes a Res-Nova physics result, derives a Lie algebra or gauge sector, or connects the modified-gravity model to string/M-theory. No physics tier or number is changed by this review.
 
 Also 2026-11-11 (axiom change, RY's decision; supersedes the "not adopted" sentence in the record below). A2 is now `Axiom_A2_MetricStructure` in `05_lean_formalization/AXIOMS_V2.lean`, replacing `Axiom_A2_EntanglementGeometry`. Its content is `A2Strong`: the derived distance is non-negative, vanishes only between identical points, and is symmetric. The class takes the distance as an argument, so it constrains that function; the old form (`∃ dist, ∀ x y, dist x y ≥ 0`) could be met by `dist ≡ 0`. Three theorems in the same file fix what it means: `a2_excludes_zero`, `a2_excludes_asymmetric`, and `a2_of_metricSpace` (any metric space's distance satisfies it, so it is consistent). A2 is a metric axiom, not an entanglement axiom: the reading "distance is a monotone functional of quantum relative entropy" stays `[O]`, is not formalized, and must not be cited as established. No physics theorem consumed A2 before or consumes it now, so no tier or number below moves. The A4 disjunction is now at `AXIOMS_V2.lean:111` (older records cite `:64`). `mvpc_manifests/F7.json` is re-pinned to the new file hash. Checked 2026-11-11: the new declarations elaborate against the pinned Mathlib (`5eec30bc`) with only `propext`, `Classical.choice`, `Quot.sound`; the full-file build is the `lean-gate` run on this push.
 
