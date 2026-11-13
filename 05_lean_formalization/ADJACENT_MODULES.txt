@@ -466,3 +466,11 @@ ListInitialAlgebra.lean          # List as a constructed initial algebra of one
 BinaryPrefixBasis.lean           # Countable basis of finite binary prefixes, its ideal
                                  # completion (Shade), directed suprema, and the Scott
                                  # basis `above p`.
+
+# --- Heterotic E8xE8 / M-theory root-data bookkeeping ---
+E8Roots.lean                      # E8 root subtype, classification, and 240-root count;
+                                  # mathematical root data only, not a Lie-algebra build.
+StringTheoryBridge.lean           # Two tagged E8 root copies (480), rank bookkeeping (16),
+                                  # and their sum (496). Does not construct the E8 Lie
+                                  # algebra, heterotic gauge theory, compactification, or
+                                  # a bridge to Res-Nova modified gravity or a0.

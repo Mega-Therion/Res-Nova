@@ -129,7 +129,15 @@ lean_lib «ResNovaFormal» where
     `RiemannSpectralExpander,
     `StiefelLaplaceEigenvalue,
     `QuarkMassLadder,
+    `AQUALWeakFormDraft,
+    `AeSTTotalScalarCorrespondence,
+    `BinaryPrefixBasis,
+    `InitialAlgebraExecution,
+    `ListInitialAlgebra,
+    `MasterEquationCore,
     -- ADDED 2026-11-11. The E8 root system: 240 roots on the doubled integer
     -- lattice, classification, root-system axioms, simple roots + Cartan matrix.
-    `E8Roots
+    `E8Roots,
+    -- Adjacent root-data bookkeeping only; not a physical unification result.
+    `StringTheoryBridge
   ]
