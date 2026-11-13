@@ -220,6 +220,7 @@ lemma branchGap_continuousOn (mu : ℝ → ℝ)
     change ContinuousOn (fun x : ℝ => x / (1 + x)) (Set.Ioi (0 : ℝ))
     exact continuousOn_id.div hden (by
       intro x hx
+      have hxpos : 0 < x := by simpa using hx
       linarith)
   unfold branchGap
   exact hmu.sub ((hstd.add hdual).div_const 2)
