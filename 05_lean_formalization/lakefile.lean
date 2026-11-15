@@ -131,5 +131,9 @@ lean_lib «ResNovaFormal» where
     `QuarkMassLadder,
     -- ADDED 2026-11-11. The E8 root system: 240 roots on the doubled integer
     -- lattice, classification, root-system axioms, simple roots + Cartan matrix.
-    `E8Roots
+    `E8Roots,
+    -- ADDED 2026-11-15. The E8 → SO(10) branching at the weight level:
+    -- 248 = (8,1) ⊕ (1,78) ⊕ (3,27) ⊕ (3̄,27̄) under E6 × SU(3), then
+    -- E6 ⊃ SO(10) × U(1). Builds on E8Roots.
+    `E8Branching
   ]
