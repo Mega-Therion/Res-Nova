@@ -207,6 +207,14 @@ def main():
             f"| 2026 residual: {r_row['residual_2026_sigma_window_centered']} (raw Q2_supp/sigma_2026 = {r_row['residual_2026_sigma_raw_ratio']})"
         )
     print(f"Required check: {receipt['required_check']}")
+    # Viable (lambda, M) window for simultaneous Cassini survival and SPARC galaxy preservation (S_gal >= 0.99)
+    q2_worst = max(r["Q2_unscreened"] for r in unscreened_rows)
+    s_max_2sig = (1.60e-27 + 2.0 * sigma_2026) / q2_worst
+    s_max_3sig = (1.60e-27 + 3.0 * sigma_2026) / q2_worst
+    lam_m2_min_gal = 99.0 * rho_gal_disk
+    lam_m2_max_2sig_mean = s_max_2sig * rho_sun_mean / (1.0 - s_max_2sig)
+    lam_m2_max_3sig_mean = s_max_3sig * rho_sun_mean / (1.0 - s_max_3sig)
+    print(f"Viable window (2*M^2*lambda): [{lam_m2_min_gal:.3e}, {lam_m2_max_2sig_mean:.3e}] kg/m^3 (2-sigma, S_max={s_max_2sig:.4f}) | up to {lam_m2_max_3sig_mean:.3e} kg/m^3 (3-sigma, S_max={s_max_3sig:.4f})")
 
 
 if __name__ == "__main__":
