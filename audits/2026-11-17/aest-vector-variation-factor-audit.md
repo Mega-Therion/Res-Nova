@@ -1,8 +1,8 @@
 # AeST covariant variation audit: vector-sector coefficient discrepancy
 
 **Date:** 2026-11-17  
-**Scope:** Independent bulk variation of the live Skordis–Złośnik AeST action in one declared field basis; scalar, vector, multiplier, metric-variation structure, boundary terms, and the diffeomorphism identity.  
-**Status:** Partial independent derivation. The scalar and multiplier equations are derived directly. A factor-of-two discrepancy is isolated between the action and the published vector equation. The metric equation is expressed as a compact Palatini variation formula; its fully expanded term-by-term match and the complete boundary prescription remain open.  
+**Scope:** Independent bulk variation of the live Skordis–Złośnik AeST action in one declared field basis; scalar, vector, multiplier, expanded metric variation, a sufficient strong-Dirichlet boundary prescription, and the diffeomorphism identity.  
+**Status:** Scalar, multiplier, and expanded metric variations derived directly in the declared \((g^{\mu\nu}, A_\mu, \phi, \lambda)\) basis (**[D]**); sufficient strong-Dirichlet + GHY boundary prescription exhibited in §7 (**[D]**). A factor-of-two discrepancy on \(B^\nu\) is isolated between the action-derived vector equation (\(b B^\nu\)) and Fu et al. (2024) Eq. (4) (\(2b B^\nu\)) (**[O]**); induced-metric-only or Neumann/mixed boundary alternatives and full canonical vector-equation evolution remain open (**[O]**).  
 **No branch or physical model choice is promoted.**
 
 ## 1. Pinned action and conventions
@@ -248,7 +248,7 @@ B^\mu F_{0\mu}-A_0\nabla_\mu B^\mu
 B^\mu F_{1\mu}-A_1\nabla_\mu B^\mu
 =\epsilon^2\cosh(2\epsilon t).
 \]
-The candidate-equation residual is consequently nonzero for generic \(b\epsilon\ne0\). This is an off-shell Noether-identity test, not a claim that this field configuration solves the equations or that the theory has no solutions. It shows that the printed vector equation cannot simply be substituted as though it were the Euler derivative of the printed action.
+The candidate-equation residual is consequently nonzero for generic \(b\epsilon\ne0\). This is an off-shell Noether-identity test, not a claim that this field configuration solves the equations or that the theory has no solutions. It shows that the printed vector equation cannot simply be substituted as though it were the Euler derivative of the printed action, and any \(\nabla_\mu T^{\mu\nu}=0\) matter-conservation check is conditional on the matter equations and the complete gravitational Euler system rather than an independent proof that an inconsistent subset satisfies the identity.
 
 ## 7. Boundary data and a sufficient Dirichlet variational principle [D]
 
@@ -280,25 +280,10 @@ A sufficient (not asserted minimal or unique) well-posed boundary prescription o
 
 This is a deliberately strong Dirichlet choice. If only the induced metric is fixed (rather than all metric components), or if Neumann/mixed data are desired for \(A_\mu\) or \(\phi\), the boundary variational problem must be re-derived with the corresponding boundary terms; this report does not claim that the displayed GHY term alone handles those alternative choices.
 
-## 6. Diffeomorphism identity and Bianchi gate [D] [O]
-
-For independent fields \((g^{\mu\nu},A_\mu,\phi,\lambda)\), define \(E_A^\mu=(\sqrt{-g})^{-1}\delta S/\delta A_\mu\), \(E_\phi=(\sqrt{-g})^{-1}\delta S/\delta\phi\), \(E_\lambda=(\sqrt{-g})^{-1}\delta S/\delta\lambda\), and \(E_{\mu\nu}\) as the coefficient of \(\delta g^{\mu\nu}\). Diffeomorphism invariance gives
-\[
-2\nabla^\mu E_{\mu\nu}
-+E_A^\mu F_{\nu\mu}
--A_\nu\nabla_\mu E_A^\mu
-+E_\phi\nabla_\nu\phi
-+E_\lambda\nabla_\nu\lambda=0.
-\]
-Thus a candidate vector equation substituted into this identity must be the Euler derivative of the *same* action used for the metric equation. The mismatch in the *normalized* vector equation is \(bB^\mu\); because the full Euler derivative is twice that normalized equation, the full Euler-derivative mismatch is \(\Delta E_A^\mu=2bB^\mu\). It shifts the identity by
-\[
-2b\left(B^\mu F_{\nu\mu}-A_\nu\nabla_\mu B^\mu\right).
-\]
-That residual must be explicitly checked; it cannot be assumed to vanish. The matter conservation statement \(\nabla_\mu T^{\mu\nu}=0\) is conditional on the matter equations and the complete gravitational Euler system; it is not an independent proof that an inconsistent subset of printed equations satisfies the identity.
 ## 8. Cross-checks and boundaries
 
 - The scalar equation and unit constraint agree with the published equations.
-- The 2024 printed metric equation supplies a target for simplifying the compact metric variation; the \(A_\mu\)-fixed versus \(A^\mu\)-fixed convention must still be declared.
+- The expanded metric variation in §5 explicitly declares the \(A_\mu\)-fixed convention and agrees term by term with Fu et al. (2024), Eq. (3), on \(A^\mu A_\mu = -1\) after matching the \(\kappa = 1\) normalization; changing independent variables from \(A_\mu\) to \(A^\mu\) shifts the off-shell metric Euler derivative by \(-E_{A(\mu}A_{\nu)}\) (`AeSTWeakFieldCondensate.lean`).
 - The 2024 printed vector equation differs from the direct variation of the action by \(bB^\nu\).
 - The 2021 and 2022 papers print the same covariant action interaction and Maxwell normalization. The 2022 paper's stability calculation is an action-level perturbative benchmark, not an independent printed covariant vector equation. The 2024 Hamiltonian paper independently repeats the same action and reports four first-class/four second-class constraints and six nonlinear physical degrees of freedom; this does not by itself resolve the isolated 2024 Eq. (4) coefficient.
 - The published Hamiltonian analysis reports four first-class and four second-class constraints and six nonlinear physical degrees of freedom. These counts should be reproduced only after the exact action/equation pair is pinned.
@@ -307,7 +292,7 @@ That residual must be explicitly checked; it cannot be assumed to vanish. The ma
 ## 9. Remaining gates and next sequence
 
 1. **Publication reconciliation [O]:** obtain an author/journal response or erratum confirming whether Fu et al. (2024), Eq. (4), contains a coefficient typo or uses an unstated convention. No such confirmation was found in the public sources checked. Until it is obtained, preserve both the printed equation and the action-derived equation as distinct records; do not promote either as a corrected publication.
-2. **Hamiltonian cross-check [O]:** reproduce the 2024 Hamiltonian formalism from the pinned action and verify whether its canonical vector equations/constraint propagation encode the action-derived coefficient. The published paper's four first-class/four second-class constraints and six nonlinear physical degrees of freedom are reference targets, not yet independently reproduced in this audit.
+2. **Hamiltonian cross-check [O] (partially advanced via BSZ reconstruction):** Muse's 2026-11-17 BSZ reconstruction (`BLK-1430`, `The-Hood` commit `fafa94b7`) reconstructs the 4 first-class / 4 second-class constraints and 6 DOF from BSZ (2024) eqs. (1)–(88), and `05_lean_formalization/AeSTHamiltonianLegendre.lean` / `scripts/verify_aest_hamiltonian_legendre.py` close the `U(ν, μ)` and `C^{AB}` invertibility gate for the live `μ_std` constitutive function; verifying explicitly that Hamilton's equations (BSZ eqs. 77a–h) reproduce the action-derived \(b B^\nu\) vector coefficient (rather than Fu et al. Eq. (4)'s \(2b B^\nu\)) remains **[O]**.
 3. **Boundary alternatives [O]:** if the intended physical problem uses induced-metric-only Dirichlet data, Neumann data, or mixed scalar/vector data, derive the corresponding boundary functional. The strong full-Dirichlet prescription in §7 is sufficient but not minimal.
 4. **Only after gates 1–2:** proceed to the selected AeST constitutive branch's metric/Newtonian limit, full K(Q) cosmological branch, and perturbative stability. Do not use the published Eq. (4) as the vector Euler derivative in these calculations unless the coefficient issue is resolved.
 
