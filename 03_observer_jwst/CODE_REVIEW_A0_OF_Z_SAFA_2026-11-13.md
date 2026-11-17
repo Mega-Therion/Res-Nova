@@ -83,7 +83,7 @@ The following parts are consistent with the source and protocol definitions:
 
 1. **Flat-ΛCDM background:** `H(z) = H0 * sqrt(Ωm * (1 + z)^3 + ΩΛ)`, with `H0 = 67.4 km s⁻¹ Mpc⁻¹`, `Ωm = 0.315`, and `ΩΛ = 0.685`, is implemented consistently. The numeric `H(z)/H0` values at z = 0.5, 1.0, 1.5, and 2.0 are approximately 1.3222, 1.7903, 2.3679, and 3.0315.
 
-2. **Frozen V1/V2 ξ:** using `c = 2.99792458×10^8 m/s` and the stated H₀ conversion gives `H0 = 2.18428524×10^-18 s^-1` and `ξ = 1.11603513×10^-10 / (c * H0) = 0.17043069`, matching the V1/V2 value to the displayed precision. This is the old μ_dual-extracted a₀ baseline; it is not the V3 baseline.
+2. **Frozen V1/V2 ξ:** using `c = 2.99792458×10^8 m/s` and the stated H₀ conversion gives `H0 = 2.18428524×10^-18 s^-1` and `ξ = 1.11603513×10^-10 / (c * H0) = 0.17043069`, matching the V1/V2 value to the displayed precision. This is the old a₀ baseline extracted with the retired x/(1+x) interpolation; it is not the V3 baseline.
 
 3. **V2 μ_std inversion:** solving `g * μ_std(g/a0) = gbar`, with `μ_std(x) = x / sqrt(1 + x^2)`, yields `g = sqrt(0.5 * (gbar^2 + sqrt(gbar^4 + 4*gbar^2*a0^2)))`, matching the code. Substitution checks at representative positive `gbar` and `a0` values recover `gbar` to floating-point precision.
 
