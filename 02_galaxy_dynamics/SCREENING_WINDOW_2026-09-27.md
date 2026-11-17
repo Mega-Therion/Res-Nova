@@ -5,7 +5,7 @@
 item was screening: suppress the MOND boost near stars, leave it alone in galaxies. Does a
 screening scale exist that satisfies both, at the **derived a0 = cH0/2π**?
 
-**Answer: yes, over roughly a decade in scale.** This is phenomenology, not a covariant theory.
+**Answer: conditionally, over roughly a decade in scale --- and only because the screening scale r☉ is a free input rather than a derived quantity.** This is phenomenology, not a covariant theory. The window is a statement about what a screening mechanism would have to do, not a prediction made by this one.
 
 ## Model — `screening_window.py` → `SCREENING_WINDOW.json`
 
@@ -17,8 +17,22 @@ screening scale exist that satisfies both, at the **derived a0 = cH0/2π**?
   Q₂ = −(3/4π)∫(ν_eff − 1)∇Φ_N·∇(P₂/r³)d³x. **Validated unscreened against Milgrom's formula to
   ratio 1.0000.** PASS means Q₂ lies within 2σ of the 2026 bound (1.6 ± 1.8)×10⁻²⁷ at both
   g_e = 1.9 and 2.4×10⁻¹⁰.
-- **SPARC:** the ledger's tier-1 nuisance treatment. Each galaxy's screening radius comes from
+- **SPARC:** the tier-1 nuisance treatment. Each galaxy's screening radius comes from
   its baryonic mass (M^{1/4} from the Sun's r_☉), applied radially from the centre.
+
+## Parameter status --- read this before the PASS column
+
+The table below is neither a fit nor a prediction, and three separate things need stating.
+
+1. **r☉ is free.** The MOND boost is suppressed by ν_eff = 1 + (ν − 1)·s(r/r_scr) with r_scr(M) = r☉ (M/M☉)^{1/4}. Nothing in the AeST or disformal action used here fixes r☉. It is a new scale, so it is a new parameter. The window r☉ ∈ [0.1, 1.0] pc is the range in which the mechanism is *not already excluded*, not a value the theory supplies.
+
+2. **Unscreened, the theory fails Cassini.** With S = 1 the same quadrupole integrator gives Q₂ = 1.91×10⁻²⁶ s⁻² at g_e = 1.9×10⁻¹⁰ m s⁻² and 2.01×10⁻²⁶ s⁻² at 2.4×10⁻¹⁰ m s⁻²: +5.4σ and +5.7σ against the 2014 bound, +9.7σ and +10.3σ against the 2026 bound (see `REPAIRED_COUPLING_CASSINI.md`). Every PASS below depends on the screening factor being present.
+
+3. **The screening factor is phenomenological.** s(u) = uᵖ/(1 + uᵖ) is put in by hand, with p = 2 or 4 chosen by hand. No action produces it here. The covariant routes that could are the ones listed further down as unbuilt.
+
+**What this means for a referee.** The symmetron-type parameters (λ, M) --- equivalently the single scale r☉ --- have to be *derived* from the underlying AeST/disformal action. Until they are, the honest statement is that r☉ is a free parameter constrained to [0.1, 1.0] pc, and the Cassini comparison is a constraint on it, not a success of the theory. Tuning (λ, M) until the quadrupole drops under the bound and then reporting the drop as a prediction is precisely the failure mode this document exists to avoid.
+
+**Reconciliation flag.** `COVARIANT_DUALITY_SCREENING_ACTION.md` quotes +4.55σ and +5.14σ for the same unscreened quadrupole, from a different a₀ anchor (Planck versus SH0ES) and a different bound convention. Those two sets must be reduced to one baseline before submission; a referee who finds both numbers in the same repository will stop reading there.
 
 ## Result (derived a0)
 
@@ -36,7 +50,7 @@ screening scale exist that satisfies both, at the **derived a0 = cH0/2π**?
 passes Cassini and leaves SPARC unchanged, or slightly improved. Above ~3 pc the screening
 reaches into galaxy disks and SPARC degrades fast. That upper wall is set by the galaxies.
 
-## Consistency with the other small-scale tests (not computed here, [C])
+## Consistency with the other small-scale tests (not computed here)
 - **Gaia wide binaries** (separations ~0.01–0.1 pc): recent 2026 analyses report no MOND signal
   (arXiv:2602.24035, 2603.11015). A solar-mass screening radius ≳ 0.1 pc screens them, so the
   window is consistent with a Newtonian wide-binary result.
@@ -52,7 +66,7 @@ reaches into galaxy disks and SPARC degrades fast. That upper wall is set by the
   shows its screening term carries a Riemann-coupled G₄(X)/G₅ operator, which GW170817 (c_T = c)
   excludes. §11.3 shows the c_T-safe Galileon sector caps the Vainshtein exponent at p → 2⁻. The
   M^{1/4} scaling was borrowed here purely as a phenomenological profile.
-- The covariant routes still open are those in `TARGET_D7` §11.4, both unbuilt `[O]`:
+- The covariant routes still open are those in `TARGET_D7` §11.4, both unbuilt (open):
   (i) aether-projected operators built from q^{μν}∇_μ∇_νφ and A^μ, which lie outside Horndeski so
   the c_T theorem does not formally apply; (ii) conformal (chameleon/symmetron-type) screening, which
   is c_T-safe but breaks AeST's shift symmetry — a different theory, not a repair.

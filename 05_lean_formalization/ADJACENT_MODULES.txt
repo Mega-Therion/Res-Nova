@@ -53,6 +53,41 @@ DiagonalConeIndex.lean            # ADDED 2026-09-09, ported from
                                  # IS proven isolated) produces an isolated
                                  # tear. [conj], not established here or
                                  # anywhere in this corpus.
+E8Roots.lean                     # GUT/E8 programme: the 240-root system and
+                                 # Cartan matrix. Not cited by the manuscript.
+                                 # Scoped here 2026-11-17 (the module count
+                                 # gate had been failing since 2026-11-11).
+E8Branching.lean                 # GUT/E8 programme: E8 -> E6 x SU(3) ->
+                                 # SO(10) weight-level branching. Builds on
+                                 # E8Roots. Scoped here 2026-11-17.
+OctonionHopfShells.lean          # GUT/E8 programme (Safa BLK-1408/1411): octonion
+                                 # composition, Hopf-equivariant C^4 -> O isometry,
+                                 # CP2 family of quaternion S3 shells, Z3 <= SU(3)
+                                 # <= G2 fixed shell H(e1, e2+e4+e6). A Z3 fixed
+                                 # point, not a physical selection principle.
+
+# --- AeST Block-post extensions (not manuscript results) ---
+AeSTWeakFieldCondensate.lean     # Safa BLK-1412/1416/1417/1418/1420 checks: the
+                                 # off-shell A_a vs A^a metric-variation identity,
+                                 # static spherical reduction, weak-field
+                                 # condensate/Helmholtz reduction, benchmark
+                                 # rationals. Supports TARGET_D7 bookkeeping; the
+                                 # manuscript does not cite it.
+AeSTHamiltonianLegendre.lean     # BSZ (2024) auxiliary potential U(nu, mu) and
+                                 # C^{AB} invertibility for live mu_std AeST
+                                 # (closes BLK-1430 Sec. 9 item 2 open gate;
+                                 # supports TARGET_D7 / BSZ Hamiltonian mapping,
+                                 # not cited by the manuscript).
+AeSTVectorNoetherResidual.lean   # PR #215 / BLK-1429 / BLK-1436 #5: Fu et al.
+                                 # (2024) Eq. (4) J^mu bracket discrepancy
+                                 # (b vs 2b) and nonzero Minkowski/hyperbolic
+                                 # Noether residual R_0, R_1 != 0. Supports D7
+                                 # variation audit, not cited by the manuscript.
+CassiniSymmetronWindow.lean      # 2026-11-15 screening-window bookkeeping for
+                                 # 02_galaxy_dynamics/screen_mass_cassini.py:
+                                 # integer-cleared bounds and witnesses, not a
+                                 # derivation of the screening mechanism. Not
+                                 # cited by the manuscript.
 
 # --- Millennium-problem correspondence sketches ---
 RamanujanModularBounds.lean      # modular bounds, RH leg

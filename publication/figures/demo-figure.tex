@@ -1,5 +1,7 @@
 % Self-contained research figure. Postulate R isolation, version 0.2.
 % mu_std(x) = x/sqrt(1+x^2). Witnesses are drawn, not fitted.
+% Legend names corrected 2026-11-17: x/(1+x) is the Famaey & McGaugh (2012) simple
+% function (the repo's retired branch); x/(1+sqrt(1+x^2)) is not the simple function.
 \documentclass[tikz,border=6pt]{standalone}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
@@ -20,9 +22,9 @@
 \addplot[black, thick] {x/sqrt(1+x^2)};
 \addlegendentry{$\mu_{\mathrm{std}}=x/\sqrt{1+x^{2}}$}
 \addplot[blue, dashed] {x/(1+x)};
-\addlegendentry{$W_1:\ \mu_{\mathrm{dual}}=x/(1+x)$}
+\addlegendentry{$W_1:\ x/(1+x)$ (simple; retired branch)}
 \addplot[red, dotted, thick] {x/(1+sqrt(1+x^2))};
-\addlegendentry{$W_2:\ \mu_{\mathrm{simple}}=x/(1+\sqrt{1+x^{2}})$}
+\addlegendentry{$W_2:\ x/(1+\sqrt{1+x^{2}})$}
 \end{axis}
 \end{tikzpicture}
 \end{document}
