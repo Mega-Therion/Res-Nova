@@ -79,7 +79,7 @@ The scalar boundary contribution is
 \delta_\lambda S=0\quad\Longrightarrow\quad A^\mu A_\mu=-1.
 \]
 
-## 4. Vector variation — direct derivation and discrepancy [D/O]
+## 4. Vector variation — direct derivation and discrepancy [D] [O]
 
 Keep \(g_{\mu\nu}\) fixed and vary the covector \(A_\nu\). Then
 \[
@@ -151,7 +151,7 @@ The vector boundary contribution is
 \left[-2K_BF^{\mu\nu}+2bA^\mu p^\nu\right]\delta A_\nu.
 \]
 
-## 5. Metric variation — expanded and matched [D/C]
+## 5. Metric variation — expanded and matched [D] [C]
 
 Use the declared independent-field convention \((g^{\mu\nu},A_\mu,\phi,\lambda)\), holding the covector \(A_\mu\) fixed in the metric variation. The identity
 \[
@@ -214,7 +214,7 @@ A^\sigma p_{(\mu}\nabla_\sigma A_{\nu)}
 \]
 On the multiplier constraint \(A^\mu A_\mu=-1\), this agrees term by term with the published \(G_{\mu\nu}+\mathcal H_{\mu\nu}=8\pi\widetilde G T_{\mu\nu}\) form after matching the paper's \(\kappa=1\) normalization. The metric variation is therefore closed for this action and field basis. The vector equation discrepancy in §4 remains separate.
 
-## 6. Diffeomorphism identity and Bianchi gate [D/O]
+## 6. Diffeomorphism identity and Bianchi gate [D] [O]
 
 For independent fields \((g^{\mu\nu},A_\mu,\phi,\lambda)\), define \(E_A^\mu=(\sqrt{-g})^{-1}\delta S/\delta A_\mu\), \(E_\phi=(\sqrt{-g})^{-1}\delta S/\delta\phi\), \(E_\lambda=(\sqrt{-g})^{-1}\delta S/\delta\lambda\), and \(E_{\mu\nu}\) as the coefficient of \(\delta g^{\mu\nu}\). Diffeomorphism invariance gives
 \[
@@ -280,7 +280,7 @@ A sufficient (not asserted minimal or unique) well-posed boundary prescription o
 
 This is a deliberately strong Dirichlet choice. If only the induced metric is fixed (rather than all metric components), or if Neumann/mixed data are desired for \(A_\mu\) or \(\phi\), the boundary variational problem must be re-derived with the corresponding boundary terms; this report does not claim that the displayed GHY term alone handles those alternative choices.
 
-## 6. Diffeomorphism identity and Bianchi gate [D/O]
+## 6. Diffeomorphism identity and Bianchi gate [D] [O]
 
 For independent fields \((g^{\mu\nu},A_\mu,\phi,\lambda)\), define \(E_A^\mu=(\sqrt{-g})^{-1}\delta S/\delta A_\mu\), \(E_\phi=(\sqrt{-g})^{-1}\delta S/\delta\phi\), \(E_\lambda=(\sqrt{-g})^{-1}\delta S/\delta\lambda\), and \(E_{\mu\nu}\) as the coefficient of \(\delta g^{\mu\nu}\). Diffeomorphism invariance gives
 \[
