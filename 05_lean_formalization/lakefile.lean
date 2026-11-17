@@ -158,5 +158,8 @@ lean_lib «ResNovaFormal» where
     `AeSTHamiltonianLegendre,
     -- ADDED 2026-11-17. Cassini-SPARC symmetron screening window (2026-11-15 work):
     -- galaxy lower bound, scale upper bound => Cassini 2-sigma, integer witnesses.
-    `CassiniSymmetronWindow
+    `CassiniSymmetronWindow,
+    -- ADDED 2026-11-17. Fu et al. (2024) Eq. (4) vector-variation discrepancy (b vs 2b)
+    -- and nonzero constrained Noether/Bianchi residual in 1+1 Minkowski space (PR #215 / BLK-1436 #5).
+    `AeSTVectorNoetherResidual
   ]

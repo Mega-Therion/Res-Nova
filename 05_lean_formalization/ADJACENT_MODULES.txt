@@ -78,6 +78,11 @@ AeSTHamiltonianLegendre.lean     # BSZ (2024) auxiliary potential U(nu, mu) and
                                  # (closes BLK-1430 Sec. 9 item 2 open gate;
                                  # supports TARGET_D7 / BSZ Hamiltonian mapping,
                                  # not cited by the manuscript).
+AeSTVectorNoetherResidual.lean   # PR #215 / BLK-1429 / BLK-1436 #5: Fu et al.
+                                 # (2024) Eq. (4) J^mu bracket discrepancy
+                                 # (b vs 2b) and nonzero Minkowski/hyperbolic
+                                 # Noether residual R_0, R_1 != 0. Supports D7
+                                 # variation audit, not cited by the manuscript.
 CassiniSymmetronWindow.lean      # 2026-11-15 screening-window bookkeeping for
                                  # 02_galaxy_dynamics/screen_mass_cassini.py:
                                  # integer-cleared bounds and witnesses, not a
