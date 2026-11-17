@@ -132,6 +132,8 @@ E^\nu_{A,\mathrm{published}}-E^\nu_{A,\mathrm{action}}=b\,B^\nu.
 \]
 This is not the ordinary overall factor-of-two convention: the discrepancy is isolated to the \(J^\mu\nabla_\mu\phi\) contribution. It is also not resolved by choosing \(A_\mu\) versus \(A^\mu\) as the independent vector, because those are related by an invertible metric-dependent field reparametrization at fixed metric and give the same vector equation up to index placement.
 
+An exact SymPy component regression is also committed as \`verify_aest_j_vector_variation.py\`. It isolates the \(J^\mu\nabla_\mu\phi\) term on the same constrained Minkowski background and returns the full covector Euler coefficient \(2b\), \(B^0=1\), action-normalized coefficient \(b\), and printed Eq. (4) coefficient \(2b\). The script was executed successfully with exact symbolic arithmetic. It is a focused component check, not a full tensor derivation.
+
 A simple admissible field configuration proves that the bracket is not an algebraic identity: in Minkowski spacetime take \(A^\mu=(1,0,0,0)\) and \(\phi=t^2/2\). Then \(A^\mu A_\mu=-1\), \(p_0=t\), \(p^0=-t\), and
 \[
 B^0=p_\mu\partial^0 A^\mu-\partial_\mu(A^\mu p^0)
