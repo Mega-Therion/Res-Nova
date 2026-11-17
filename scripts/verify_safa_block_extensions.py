@@ -463,7 +463,8 @@ if __name__ == "__main__":
     res_a = verify_track_a_octonion_hopf()
     res_b1 = verify_track_b_symbolic()
     res_b2 = verify_track_b_bvp_extensions()
-    out_path = Path("/home/mega/Chyren/3_research/Res-Nova/benchmarks/safa_block_extensions_2026-11-17.json")
+    # Repo-relative, so the receipt lands in benchmarks/ from any checkout.
+    out_path = Path(__file__).resolve().parents[1] / "benchmarks" / "safa_block_extensions_2026-11-17.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(
         json.dumps(
