@@ -132,6 +132,13 @@ E^\nu_{A,\mathrm{published}}-E^\nu_{A,\mathrm{action}}=b\,B^\nu.
 \]
 This is not the ordinary overall factor-of-two convention: the discrepancy is isolated to the \(J^\mu\nabla_\mu\phi\) contribution. It is also not resolved by choosing \(A_\mu\) versus \(A^\mu\) as the independent vector, because those are related by an invertible metric-dependent field reparametrization at fixed metric and give the same vector equation up to index placement.
 
+A simple admissible field configuration proves that the bracket is not an algebraic identity: in Minkowski spacetime take \(A^\mu=(1,0,0,0)\) and \(\phi=t^2/2\). Then \(A^\mu A_\mu=-1\), \(p_0=t\), \(p^0=-t\), and
+\[
+B^0=p_\mu\partial^0 A^\mu-\partial_\mu(A^\mu p^0)
+=0-\partial_t(-t)=1.
+\]
+This is not asserted to be a solution; it is a counterexample to the claim that \(B^\nu\) vanishes identically from the unit constraint or definitions alone.
+
 **Disposition:** [O] A source/action-versus-vector-equation inconsistency is identified. The next check must compare the original 2021 derivation, the 2022 stability paper, and an independent symbolic component variation. Do not silently edit the published equation or the pinned action. The discrepancy may be a typographical error in the printed vector equation, a mismatch in the action normalization as transcribed, or a convention not yet located. The action and Eq. (4) cannot both be accepted unchanged unless \(bB^\nu=0\) is independently established in the intended field domain; it is not an identity for arbitrary fields.
 
 The vector boundary contribution is
