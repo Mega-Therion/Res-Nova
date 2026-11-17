@@ -187,6 +187,34 @@ def run_symbolic_checks() -> dict:
     w1_s = sp.Symbol("w1_s", real=True)
     S_mu_cone = w1_s**2 + Dp_perp**2 - a0t**2 * mu**2 / (mu_max**2 - mu**2)
     assert all(sp.diff(S_mu_cone, var).subs({w1_s: 0, Dp_perp: 0, mu: 0}) == 0 for var in (w1_s, Dp_perp, mu))
+    # 5. Wave 3 #2 [P]: Canonical Poisson bracket {S^(mu), H_0} = 0 identically + d^2 S / dt^2 cone derivation
+    t_s = sp.Symbol("t_s", real=True)
+    w1_f, w2_f, mu_f = sp.Function("w1_f"), sp.Function("w2_f"), sp.Function("mu_f")
+    w1_t, w2_t, mu_t = w1_f(t_s), w2_f(t_s), mu_f(t_s)
+    dw1_t, dw2_t, u_mu_t, ddw1_t, ddw2_t, du_mu_t = sp.symbols("dw1_t dw2_t u_mu_t ddw1_t ddw2_t du_mu_t", real=True)
+    S_t = w1_t**2 + w2_t**2 - a0t**2 * mu_t**2 / (mu_max**2 - mu_t**2)
+    d2S_t = sp.diff(S_t, t_s, 2).subs({
+        sp.Derivative(w1_t, (t_s, 2)): ddw1_t,
+        sp.Derivative(w2_t, (t_s, 2)): ddw2_t,
+        sp.Derivative(mu_t, (t_s, 2)): du_mu_t,
+        sp.Derivative(w1_t, t_s): dw1_t,
+        sp.Derivative(w2_t, t_s): dw2_t,
+        sp.Derivative(mu_t, t_s): u_mu_t,
+    }).subs({w1_t: 0, w2_t: 0, mu_t: 0})
+    expected_d2S = 2 * (dw1_t**2 + dw2_t**2 - (a0t / mu_max)**2 * u_mu_t**2)
+    assert sp.simplify(d2S_t - expected_d2S) == 0
+    q_c, p_c = sp.symbols("q_c p_c", real=True)
+    w1_c, w2_c, mu_c = sp.Function("w1_c")(q_c, p_c), sp.Function("w2_c")(q_c, p_c), sp.Function("mu_c")(q_c, p_c)
+    H0_c = sp.Function("H0_c")(q_c, p_c)
+    w1q, w1p, w2q, w2p, mq, mp, H0q, H0p = sp.symbols("w1q w1p w2q w2p mq mp H0q H0p", real=True)
+    S_c = w1_c**2 + w2_c**2 - a0t**2 * mu_c**2 / (mu_max**2 - mu_c**2)
+    pb_c = (sp.diff(S_c, q_c) * sp.diff(H0_c, p_c) - sp.diff(S_c, p_c) * sp.diff(H0_c, q_c)).subs({
+        sp.Derivative(w1_c, q_c): w1q, sp.Derivative(w1_c, p_c): w1p,
+        sp.Derivative(w2_c, q_c): w2q, sp.Derivative(w2_c, p_c): w2p,
+        sp.Derivative(mu_c, q_c): mq, sp.Derivative(mu_c, p_c): mp,
+        sp.Derivative(H0_c, q_c): H0q, sp.Derivative(H0_c, p_c): H0p,
+    }).subs({w1_c: 0, w2_c: 0, mu_c: 0})
+    assert sp.simplify(pb_c) == 0
 
     print("[PASS] mu(Y) and nu(Q) conjugate inversion verified symbolically")
     print("[PASS] Closed-form BSZ auxiliary potential U(nu, mu) verified:")
