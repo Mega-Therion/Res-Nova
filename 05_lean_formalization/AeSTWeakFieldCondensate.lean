@@ -196,4 +196,83 @@ theorem benchmark_delta_band :
     (1 + (5 / 100 : ℝ)) ^ 2 = 11025 / 10000 := by
   constructor <;> norm_num
 
+/-! ## 5. Non-Spherical Weak-Field `curl A` Sector & Helmholtz Decomposition (`BLK-1418` / `BLK-1436` #4) -/
+
+/-- **3D Lagrange Identity for BSZ Eq. (17) `Y`:**
+With `χ² = 1 + |A|²`, the kinetic norm-square `|σ A + χ Dφ|²` differs from BSZ Eq. (17)
+`Y = |A|² σ² + 2 χ σ (A · Dφ) + |Dφ|² + (A · Dφ)²` by the exact cross-product magnitude
+`|A × Dφ|²`, which vanishes in spherical symmetry (`A × Dφ = 0`) and is non-negative for general
+non-spherical fields. -/
+theorem Y_canonical_lagrange_identity (sigma chi A1 A2 A3 D1 D2 D3 : ℝ)
+    (hchi : chi ^ 2 = 1 + A1 ^ 2 + A2 ^ 2 + A3 ^ 2) :
+    let Y_bsz := (A1 ^ 2 + A2 ^ 2 + A3 ^ 2) * sigma ^ 2 +
+      2 * chi * sigma * (A1 * D1 + A2 * D2 + A3 * D3) +
+      (D1 ^ 2 + D2 ^ 2 + D3 ^ 2) + (A1 * D1 + A2 * D2 + A3 * D3) ^ 2
+    let kin_sq := (sigma * A1 + chi * D1) ^ 2 + (sigma * A2 + chi * D2) ^ 2 + (sigma * A3 + chi * D3) ^ 2
+    kin_sq - Y_bsz =
+      (A2 * D3 - A3 * D2) ^ 2 + (A3 * D1 - A1 * D3) ^ 2 + (A1 * D2 - A2 * D1) ^ 2 := by
+  intro Y_bsz kin_sq
+  dsimp only [Y_bsz, kin_sq]
+  have hdiff : chi ^ 2 * (D1 ^ 2 + D2 ^ 2 + D3 ^ 2) =
+      (1 + A1 ^ 2 + A2 ^ 2 + A3 ^ 2) * (D1 ^ 2 + D2 ^ 2 + D3 ^ 2) := by
+    rw [hchi]
+  linarith [hdiff, show
+    (sigma * A1 + chi * D1) ^ 2 + (sigma * A2 + chi * D2) ^ 2 + (sigma * A3 + chi * D3) ^ 2 -
+    ((A1 ^ 2 + A2 ^ 2 + A3 ^ 2) * sigma ^ 2 +
+      2 * chi * sigma * (A1 * D1 + A2 * D2 + A3 * D3) +
+      (D1 ^ 2 + D2 ^ 2 + D3 ^ 2) + (A1 * D1 + A2 * D2 + A3 * D3) ^ 2) =
+      (chi ^ 2 * (D1 ^ 2 + D2 ^ 2 + D3 ^ 2) -
+        (1 + A1 ^ 2 + A2 ^ 2 + A3 ^ 2) * (D1 ^ 2 + D2 ^ 2 + D3 ^ 2)) +
+      ((A2 * D3 - A3 * D2) ^ 2 + (A3 * D1 - A1 * D3) ^ 2 + (A1 * D2 - A2 * D1) ^ 2) by ring]
+
+/-- **Helmholtz Longitudinal Absorption & Transverse Curl Residual:**
+Under `A = ∇α + A_T` (`curl A_T = curl A`, `div A_T = 0`) and `φ̃ = φ + Q₀ α`, the physical
+combination `∇φ + Q₀ A` equals `∇φ̃ + Q₀ A_T`, reducing cleanly to `∇φ̃` whenever `A_T = 0`
+(purely longitudinal / `curl A = 0`). -/
+theorem helmholtz_longitudinal_absorption (dphi Q0 dalpha AT : ℝ) :
+    dphi + Q0 * (dalpha + AT) = (dphi + Q0 * dalpha) + Q0 * AT := by
+  ring
+
+theorem helmholtz_pure_longitudinal_reduction (dphi Q0 dalpha : ℝ) :
+    dphi + Q0 * (dalpha + 0) = dphi + Q0 * dalpha := by
+  ring
+
+/-- **Non-Spherical Curl-Source Obstruction (`BLK-1418` / `BLK-1436` #4):**
+The curl source `∇(𝒥'(Y)) × ∇φ̃ = (2 𝒥''(Y)) (∇Y × ∇φ̃)` sourcing `∇ × (∇ × A_T)` in the
+non-spherical vector equation vanishes identically in the large-gradient Helmholtz limit (`∇𝒥' = 0`),
+and is strictly nonzero whenever `𝒥'' ≠ 0` and `(∇Y × ∇φ̃)₁ ≠ 0`. -/
+theorem non_spherical_curl_source_const_Jp (dtp1 dtp2 dtp3 : ℝ) :
+    (0 * dtp3 - 0 * dtp2) ^ 2 + (0 * dtp1 - 0 * dtp3) ^ 2 + (0 * dtp2 - 0 * dtp1) ^ 2 = 0 := by
+  ring
+
+theorem non_spherical_curl_source_obstructs_zero_AT
+    {Jpp _dY1 dY2 dY3 _dtp1 dtp2 dtp3 : ℝ}
+    (hJpp : Jpp ≠ 0) (hcross : dY2 * dtp3 - dY3 * dtp2 ≠ 0) :
+    (2 * Jpp * dY2) * dtp3 - (2 * Jpp * dY3) * dtp2 ≠ 0 := by
+  have hfac : (2 * Jpp * dY2) * dtp3 - (2 * Jpp * dY3) * dtp2 =
+      2 * Jpp * (dY2 * dtp3 - dY3 * dtp2) := by ring
+  rw [hfac]
+  exact mul_ne_zero (mul_ne_zero (by norm_num) hJpp) hcross
+
+#print axioms symVectorTerm_comm
+#print axioms metricEuler_eq_on_vector_shell
+#print axioms metricEuler_off_shell_diff
+#print axioms spherical_unit_aether_constraint
+#print axioms spherical_projector_tt_zero
+#print axioms spherical_maxwell_scalar
+#print axioms sphericalScalarFlux_decomp
+#print axioms fG_eq_inv_one_add_beta0
+#print axioms inv_fG_eq_one_add_beta0
+#print axioms weak_field_condensate_source_eq
+#print axioms tracking_channel_harmony
+#print axioms helmholtz_equation_derived
+#print axioms benchmark_fG_and_beta0
+#print axioms benchmark_K2_and_mSq
+#print axioms benchmark_delta_band
+#print axioms Y_canonical_lagrange_identity
+#print axioms helmholtz_longitudinal_absorption
+#print axioms helmholtz_pure_longitudinal_reduction
+#print axioms non_spherical_curl_source_const_Jp
+#print axioms non_spherical_curl_source_obstructs_zero_AT
+
 end ResNova.AeSTWeakFieldCondensate

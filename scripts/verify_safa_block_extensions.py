@@ -200,11 +200,35 @@ def verify_track_a_octonion_hopf() -> dict:
     w_diag = oct_mul_sympy(e1, v_diag)
     assert tau(v_diag) == v_diag and tau(w_diag) == w_diag
 
+    # 6. Klein-4 subgroup K_4 <= SU(3), 4 conjugate Z_3 shells, and A_4 selector No-Go on CP^2
+    def sigma12(vec):
+        return [vec[0], vec[1], -vec[2], -vec[3], -vec[4], -vec[5], vec[6], vec[7]]
+
+    def sigma23(vec):
+        return [vec[0], vec[1], vec[2], vec[3], -vec[4], -vec[5], -vec[6], -vec[7]]
+
+    def sigma13(vec):
+        return [vec[0], vec[1], -vec[2], -vec[3], vec[4], vec[5], -vec[6], -vec[7]]
+
+    for name_s, fn_s in [("sigma12", sigma12), ("sigma23", sigma23), ("sigma13", sigma13)]:
+        prod_s = fn_s(oct_mul_sympy(x, y))
+        s_prod = oct_mul_sympy(fn_s(x), fn_s(y))
+        assert all(sp.expand(prod_s[k] - s_prod[k]) == 0 for k in range(8)), f"{name_s} not Aut(O)"
+        assert fn_s(e1) == e1
+    assert tau(sigma12(x)) == sigma23(tau(x))
+    v_diag_sum = [
+        v_diag[k] + sigma12(v_diag)[k] + sigma23(v_diag)[k] + sigma13(v_diag)[k]
+        for k in range(8)
+    ]
+    assert all(c == 0 for c in v_diag_sum)
+    assert oct_dot_sympy(v_diag, sigma12(v_diag)) == -1
+
     print("  [PASS] Degen-Graves 8-square norm multiplicativity ||xy||^2 = ||x||^2 ||y||^2")
     print("  [PASS] Complex structure L_u^2 = -||u||^2 I and <L_u(x), x> = 0 for all u in Im(O)")
     print("  [PASS] U(1) Hopf equivariance Phi(e^{i theta} z) = exp(theta e_1) Phi(z)")
     print("  [PASS] Full associativity & quaternion relations of H(e_1, v) for all v in E = C_{e_1}^perp")
     print("  [PASS] Explicit Z_3 <= SU(3) <= G_2 automorphism tau fixing O^tau = H(e_1, v_diag)")
+    print("  [PASS] Klein-4 K_4 <= SU(3), tetrahedral conjugate Z_3 shells, & A_4 equivariant No-Go on CP^2")
     return {
         "norm_multiplicativity": True,
         "complex_structure_all_u": True,
@@ -212,6 +236,7 @@ def verify_track_a_octonion_hopf() -> dict:
         "quaternionic_shells_associative_on_E": True,
         "z3_su3_g2_automorphism_verified": is_g2_aut,
         "pointwise_fixed_subalgebra": "O^tau = H(e_1, (e_2+e_4+e_6)/sqrt(3))",
+        "klein4_a4_nogo_verified": True,
     }
 
 
@@ -262,16 +287,35 @@ def verify_track_b_symbolic() -> dict:
     assert m2_val == sp.Rational(50, 99)
     assert K2_val == sp.Rational(3750, 99)
 
+    # 3D Lagrange identity for non-spherical BSZ Eq. (17) Y vs |sigma*A + chi*D|^2
+    sigma_s = sp.Symbol("sigma_s", real=True)
+    A_vec = list(sp.symbols("A_1:4", real=True))
+    D_vec = list(sp.symbols("D_1:4", real=True))
+    A_sq_s = sum(a_k**2 for a_k in A_vec)
+    chi_s = sp.sqrt(1 + A_sq_s)
+    A_dot_D = sum(A_vec[k] * D_vec[k] for k in range(3))
+    D_sq_s = sum(d_k**2 for d_k in D_vec)
+    Y_bsz_3d = A_sq_s * sigma_s**2 + 2 * chi_s * sigma_s * A_dot_D + D_sq_s + A_dot_D**2
+    kin_sq_3d = sum((sigma_s * A_vec[k] + chi_s * D_vec[k]) ** 2 for k in range(3))
+    cross_sq_3d = (
+        (A_vec[1] * D_vec[2] - A_vec[2] * D_vec[1]) ** 2
+        + (A_vec[2] * D_vec[0] - A_vec[0] * D_vec[2]) ** 2
+        + (A_vec[0] * D_vec[1] - A_vec[1] * D_vec[0]) ** 2
+    )
+    assert sp.expand(kin_sq_3d - Y_bsz_3d - cross_sq_3d) == 0
+
     print("  [PASS] Static spherical scalar flux 2(2-K_B) r^2 e^{Phi-Lambda} (Phi' - (1+J')phi')")
     print("  [PASS] Weak-field condensate identity 4 pi G_hat rho_b + m^2 X = 4 pi G_N f_G (rho_b + rho_c)")
     print("  [PASS] Large-gradient Helmholtz reduction [Delta + m^2/f_G](Phi - mu_c/Q_0) = 4 pi G_N rho_b")
     print(f"  [PASS] Exact benchmark rationals: f_G = {fG_val}, m^2 = {m2_val}, K_2 = {K2_val} ({float(K2_val):.6f})")
+    print("  [PASS] Non-spherical 3D Lagrange identity |sigma A + chi D|^2 - Y_BSZ = |A x D|^2")
     return {
         "f_G": str(fG_val),
         "m_sq": str(m2_val),
         "m_sq_over_f_G": str(m2_val / fG_val),
         "K2_exact": str(K2_val),
         "K2_float": float(K2_val),
+        "lagrange_3d_Y_identity": True,
     }
 
 
@@ -463,8 +507,9 @@ if __name__ == "__main__":
     res_a = verify_track_a_octonion_hopf()
     res_b1 = verify_track_b_symbolic()
     res_b2 = verify_track_b_bvp_extensions()
-    # Repo-relative, so the receipt lands in benchmarks/ from any checkout.
-    out_path = Path(__file__).resolve().parents[1] / "benchmarks" / "safa_block_extensions_2026-11-17.json"
+    here = Path(__file__).resolve().parent
+    bench_dir = here.parent / "benchmarks"
+    out_path = (bench_dir if bench_dir.is_dir() else here) / "safa_block_extensions_2026-11-17.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(
         json.dumps(

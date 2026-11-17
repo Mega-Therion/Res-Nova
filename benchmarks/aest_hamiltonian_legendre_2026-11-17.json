@@ -10,6 +10,8 @@
     "d2U_dnu2_symbolic": "Q_0**2/(K_2*(1 - nu/(2*K_2))**3)",
     "det_Hess_U_symbolic": "-16*K_2**2*Q_0**2*a_tilde**2*lam_s**2*mu*(K_B - 2)**2/((2*K_2 - nu)**3*(K_B*lam_s - 2*lam_s - mu)**2*(K_B*lam_s - 2*lam_s + mu)**2)",
     "A_zero_S_nu_nu_symbolic": "2*Q_0**2/(nu*(1 - nu/(2*K_2))**3)",
+    "nonspherical_universal_nu_cancellation": "A_norm**2*(2*K_2 - mu - (4 - 2*K_B)/K_B) + 2*K_2",
+    "d2U_dmu2_at_zero": 0,
     "canonical_rank1_correction_verified": true
   },
   "numerical": {
@@ -22,6 +24,7 @@
     },
     "max_U_mu_error": 3.552713678800501e-15,
     "max_inverse_hessian_error": 1.8207657603852567e-14,
+    "max_nonspherical_factorization_error": 8.881784197001252e-16,
     "samples": [
       {
         "u": 0.05,
@@ -77,6 +80,50 @@
         "d2U_dnu2": 0.0002647928,
         "det_Hess_U": -14.334645194127,
         "det_C_AB_A0": -14348.979839323
+      }
+    ],
+    "nonspherical_samples": [
+      {
+        "A_sq": 0.0025,
+        "v_mu": 0.0,
+        "Xi": 0.05821945,
+        "det_C_AB": -5.2094430587,
+        "factorization_err": 8.881784197001252e-16
+      },
+      {
+        "A_sq": 0.0025,
+        "v_mu": 0.05,
+        "Xi": 0.05821945,
+        "det_C_AB": -5.2094203177,
+        "factorization_err": 8.881784197001252e-16
+      },
+      {
+        "A_sq": 0.0625,
+        "v_mu": 0.0,
+        "Xi": -0.36087925,
+        "det_C_AB": 0.8860443366,
+        "factorization_err": 1.1102230246251565e-16
+      },
+      {
+        "A_sq": 0.0625,
+        "v_mu": 0.05,
+        "Xi": -0.36087925,
+        "det_C_AB": 0.8860406678,
+        "factorization_err": 1.1102230246251565e-16
+      },
+      {
+        "A_sq": 0.25,
+        "v_mu": 0.0,
+        "Xi": -1.67056268,
+        "det_C_AB": 0.2222037979,
+        "factorization_err": 0.0
+      },
+      {
+        "A_sq": 0.25,
+        "v_mu": 0.05,
+        "Xi": -1.67056268,
+        "det_C_AB": 0.2222030054,
+        "factorization_err": 2.7755575615628914e-17
       }
     ]
   }

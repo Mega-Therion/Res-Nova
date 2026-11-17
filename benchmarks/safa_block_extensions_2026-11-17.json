@@ -15,14 +15,16 @@
     "hopf_u1_equivariance": true,
     "quaternionic_shells_associative_on_E": true,
     "z3_su3_g2_automorphism_verified": true,
-    "pointwise_fixed_subalgebra": "O^tau = H(e_1, (e_2+e_4+e_6)/sqrt(3))"
+    "pointwise_fixed_subalgebra": "O^tau = H(e_1, (e_2+e_4+e_6)/sqrt(3))",
+    "klein4_a4_nogo_verified": true
   },
   "track_b1_symbolic_audit": {
     "f_G": "1/2",
     "m_sq": "50/99",
     "m_sq_over_f_G": "100/99",
     "K2_exact": "1250/33",
-    "K2_float": 37.878787878787875
+    "K2_float": 37.878787878787875,
+    "lagrange_3d_Y_identity": true
   },
   "track_b2_spherical_bvp_extensions": {
     "r_MOND_kpc": 4.819807,

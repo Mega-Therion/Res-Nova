@@ -157,14 +157,31 @@ def run_symbolic_checks() -> dict:
     det_lemma = Um_s * Un_s * (1 + (2 / Xi_s) * (vm_s**2 / Um_s + vn_s**2 / Un_s))
     assert sp.simplify(det_direct - det_lemma) == 0
 
+    # Universal nu-cancellation in the general non-spherical sector (A_i != 0, B = curl A != 0):
+    Xi_gen = (1 + A_norm**2) * nu - (2 * b / KB + mu) * A_norm**2
+    v_nu_sq_gen = (1 + A_norm**2) * Q_of_nu**2
+    shift_expected = 2 * K2 + (2 * K2 - 2 * b / KB - mu) * A_norm**2
+    assert sp.simplify(Xi_gen + 2 * v_nu_sq_gen / d2U_dnu2_expected - shift_expected) == 0
+
+    # Curl terms K_B |B|^2 + 2(2 - K_B)(A x B).Dphi carry zero (mu, nu) partial derivatives:
+    B1, B2, B3, A1s, A2s, A3s, D1s, D2s, D3s = sp.symbols("B1 B2 B3 A1s A2s A3s D1s D2s D3s", real=True)
+    H_curl = KB * (B1**2 + B2**2 + B3**2) + 2 * b * (
+        (A2s * B3 - A3s * B2) * D1s + (A3s * B1 - A1s * B3) * D2s + (A1s * B2 - A2s * B1) * D3s
+    )
+    assert sp.diff(H_curl, mu) == 0 and sp.diff(H_curl, nu) == 0
+
+    # BLK-1440 Minkowski boundary degeneration: d2U/dmu2(mu=0) = 0
+    assert d2U_dmu2_expected.subs(mu, 0) == 0
+
     print("[PASS] mu(Y) and nu(Q) conjugate inversion verified symbolically")
     print("[PASS] Closed-form BSZ auxiliary potential U(nu, mu) verified:")
     print(f"       U_nu(nu) = {U_nu}")
     print(f"       U_mu(mu) = {U_mu}")
     print("[PASS] Secondary constraint recovery dU/dmu = -Y(mu), dU/dnu = Q(nu)^2 verified")
-    print("[PASS] Potential Hessian det(d^2 U) < 0 strictly on 0 < mu < mu_max, nu < 2*K2")
+    print("[PASS] Potential Hessian det(d^2 U) < 0 strictly on 0 < mu < mu_max, nu < 2*K2 (and U_mumu(0)=0, BLK-1440)")
     print("[PASS] Full canonical kinetic Hessian = (2/Xi) v v^T (exact rank-1) verified")
     print("[PASS] A_i = 0 canonical S^(nu)_nu = 2 Q_0^2 / [nu (1 - nu/(2*K_2))^3] verified")
+    print("[PASS] General A_i != 0, curl A != 0 universal nu-cancellation and curl-independence verified")
 
     return {
         "U_nu_symbolic": str(U_nu),
@@ -175,6 +192,8 @@ def run_symbolic_checks() -> dict:
         "d2U_dnu2_symbolic": str(d2U_dnu2_expected),
         "det_Hess_U_symbolic": str(det_U),
         "A_zero_S_nu_nu_symbolic": str(M_11_A0_expected),
+        "nonspherical_universal_nu_cancellation": str(shift_expected),
+        "d2U_dmu2_at_zero": 0,
         "canonical_rank1_correction_verified": True,
     }
 
@@ -234,7 +253,41 @@ def run_numerical_checks() -> dict:
 
     assert max_U_err < 1e-12, f"Numerical U_mu error too large: {max_U_err}"
     assert max_det_err < 1e-12, f"Inverse Hessian check failed: {max_det_err}"
-    print(f"[PASS] Numerical benchmark checks passed (max |Delta U_mu| = {max_U_err:.2e}, max |U_mumu*dmu/dY + 1| = {max_det_err:.2e})")
+
+    # Non-spherical A_i != 0 numerical spot-checks (transverse v_mu = 0 and general v_mu = 0.05)
+    nonspherical_samples = []
+    u_ref = 1.0
+    mu_ref = mu_max * u_ref / math.sqrt(1.0 + u_ref**2)
+    Q_ref = Q_0 * 1.001
+    nu_ref = 2.0 * K_2 * (1.0 - Q_0 / Q_ref)
+    d2U_mm = -2.0 * (a_t**2) * (mu_max**2) * mu_ref / (mu_max**2 - mu_ref**2) ** 2
+    d2U_nn = (Q_0**2) / (K_2 * (1.0 - nu_ref / (2.0 * K_2)) ** 3)
+    max_ns_err = 0.0
+    for A_sq_val in [0.0025, 0.0625, 0.25]:
+        Xi_v = (1.0 + A_sq_val) * nu_ref - (2.0 * b / K_B + mu_ref) * A_sq_val
+        vn_sq_v = (1.0 + A_sq_val) * (Q_0 / (1.0 - nu_ref / (2.0 * K_2))) ** 2
+        for vm_val in [0.0, 0.05]:
+            det_dir = (d2U_mm + 2.0 * vm_val**2 / Xi_v) * (d2U_nn + 2.0 * vn_sq_v / Xi_v) - (
+                2.0 * vm_val * math.sqrt(vn_sq_v) / Xi_v
+            ) ** 2
+            det_fac = (d2U_mm * d2U_nn / Xi_v) * (
+                2.0 * K_2 + (2.0 * K_2 - 2.0 * b / K_B - mu_ref) * A_sq_val + 2.0 * vm_val**2 / d2U_mm
+            )
+            ns_err = abs(det_dir - det_fac)
+            max_ns_err = max(max_ns_err, ns_err)
+            assert abs(det_fac) > 1e-8
+            nonspherical_samples.append(
+                {
+                    "A_sq": A_sq_val,
+                    "v_mu": vm_val,
+                    "Xi": round(Xi_v, 8),
+                    "det_C_AB": round(det_fac, 10),
+                    "factorization_err": ns_err,
+                }
+            )
+    assert max_ns_err < 1e-11, f"Non-spherical factorization error: {max_ns_err}"
+
+    print(f"[PASS] Numerical benchmark checks passed (max |Delta U_mu| = {max_U_err:.2e}, max |U_mumu*dmu/dY + 1| = {max_det_err:.2e}, max non-spherical err = {max_ns_err:.2e})")
     return {
         "benchmark_params": {
             "K_B": K_B,
@@ -245,15 +298,18 @@ def run_numerical_checks() -> dict:
         },
         "max_U_mu_error": max_U_err,
         "max_inverse_hessian_error": max_det_err,
+        "max_nonspherical_factorization_error": max_ns_err,
         "samples": samples,
+        "nonspherical_samples": nonspherical_samples,
     }
 
 
 def main() -> None:
     sym_res = run_symbolic_checks()
     num_res = run_numerical_checks()
-    repo_root = Path(__file__).resolve().parent.parent
-    out_path = repo_root / "benchmarks" / "aest_hamiltonian_legendre_2026-11-17.json"
+    here = Path(__file__).resolve().parent
+    bench_dir = here.parent / "benchmarks"
+    out_path = (bench_dir if bench_dir.is_dir() else here) / "aest_hamiltonian_legendre_2026-11-17.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "date": "2026-11-17",
@@ -262,7 +318,7 @@ def main() -> None:
         "numerical": num_res,
     }
     out_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-    print(f"[SAVED] Receipt written to {out_path.relative_to(repo_root)}")
+    print(f"[SAVED] Receipt written to {out_path}")
 
 
 if __name__ == "__main__":

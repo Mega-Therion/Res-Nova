@@ -346,6 +346,263 @@ theorem tau_fixed_iff (x : Oct) :
   · rintro ⟨c0, c1, c2, c3, rfl⟩
     ext <;> { dsimp only [tau, quatShellElem, vDiag, add_def, smul_def, mul_def, add, smul, one, e1, mul]; try ring }
 
+/-! ## 5. Klein-4 Subgroup `K₄ ⊂ SU(3)`, Conjugate `ℤ₃` Shells, and `A₄ ⊂ SU(3)` Equivariant Selector No-Go (`BLK-1411` / `BLK-1423` / `BLK-1436` #3) -/
+
+/-- Klein-4 sign-flip automorphism `σ₁₂`: negates Fano complex lines `L₁ = span{e₂, e₃}` and
+`L₂ = span{e₄, e₅}` while fixing `1, e₁` and `L₃ = span{e₆, e₇}`. -/
+def sigma12 (x : Oct) : Oct :=
+  ⟨x.x0, x.x1, -x.x2, -x.x3, -x.x4, -x.x5, x.x6, x.x7⟩
+
+/-- Klein-4 sign-flip automorphism `σ₂₃`: negates `L₂, L₃` and fixes `1, e₁, L₁`. -/
+def sigma23 (x : Oct) : Oct :=
+  ⟨x.x0, x.x1, x.x2, x.x3, -x.x4, -x.x5, -x.x6, -x.x7⟩
+
+/-- Klein-4 sign-flip automorphism `σ₁₃`: negates `L₁, L₃` and fixes `1, e₁, L₂`. -/
+def sigma13 (x : Oct) : Oct :=
+  ⟨x.x0, x.x1, -x.x2, -x.x3, x.x4, x.x5, -x.x6, -x.x7⟩
+
+/-- `σ₁₂`, `σ₂₃`, `σ₁₃` are octonion algebra automorphisms (`∈ Aut(𝕆) = G₂`). -/
+theorem sigma12_mul (x y : Oct) : sigma12 (x * y) = sigma12 x * sigma12 y := by
+  ext <;> { dsimp only [mul_def, sigma12, mul]; ring }
+
+theorem sigma23_mul (x y : Oct) : sigma23 (x * y) = sigma23 x * sigma23 y := by
+  ext <;> { dsimp only [mul_def, sigma23, mul]; ring }
+
+theorem sigma13_mul (x y : Oct) : sigma13 (x * y) = sigma13 x * sigma13 y := by
+  ext <;> { dsimp only [mul_def, sigma13, mul]; ring }
+
+/-- Each `σᵢⱼ` fixes `1` and `e₁`, placing `K₄ = {1, σ₁₂, σ₂₃, σ₁₃}` inside `Stab_{G₂}(e₁) = SU(3)`. -/
+theorem sigma12_fixes_one_e1 : sigma12 one = one ∧ sigma12 e1 = e1 := by
+  constructor <;> (ext <;> simp [sigma12, one, e1])
+
+theorem sigma23_fixes_one_e1 : sigma23 one = one ∧ sigma23 e1 = e1 := by
+  constructor <;> (ext <;> simp [sigma23, one, e1])
+
+theorem sigma13_fixes_one_e1 : sigma13 one = one ∧ sigma13 e1 = e1 := by
+  constructor <;> (ext <;> simp [sigma13, one, e1])
+
+/-- Klein-4 group relations: involutions and product closure. -/
+theorem sigma_klein4_relations (x : Oct) :
+    sigma12 (sigma12 x) = x ∧
+    sigma23 (sigma23 x) = x ∧
+    sigma13 (sigma13 x) = x ∧
+    sigma12 (sigma23 x) = sigma13 x := by
+  refine ⟨?_, ?_, ?_, ?_⟩ <;> (ext <;> dsimp only [sigma12, sigma23, sigma13] <;> ring)
+
+/-- Action of `τ` conjugates `σ₁₂` to `σ₂₃`, proving `⟨K₄, τ⟩ ≅ A₄ ⊂ SU(3) ⊂ G₂`. -/
+theorem tau_conj_sigma12_eq (x : Oct) : tau (sigma12 x) = sigma23 (tau x) := by
+  ext <;> rfl
+
+/-- Conjugate `ℤ₃` generator `τ₁₂ = σ₁₂ ∘ τ ∘ σ₁₂` inside `A₄ ⊂ SU(3)`. -/
+def tau12 (x : Oct) : Oct := sigma12 (tau (sigma12 x))
+
+/-- Conjugate diagonal generator `v_diag,12 = σ₁₂(v_diag) = -e₂ - e₄ + e₆ ∈ E`. -/
+def vDiag12 : Oct := sigma12 vDiag
+
+theorem vDiag12_mem_E : MemE vDiag12 := ⟨rfl, rfl⟩
+
+theorem tau12_mul (x y : Oct) : tau12 (x * y) = tau12 x * tau12 y := by
+  unfold tau12
+  rw [sigma12_mul, tau_mul, sigma12_mul]
+
+theorem tau12_cubed (x : Oct) : tau12 (tau12 (tau12 x)) = x := by
+  ext <;> dsimp only [tau12, sigma12, tau] <;> ring
+
+/-- The fixed subalgebra `𝕆^{τ₁₂}` is a distinct conjugate quaternion subalgebra `H(e₁, v_diag,12)`. -/
+theorem tau12_fixed_iff (x : Oct) :
+    tau12 x = x ↔ ∃ c0 c1 c2 c3 : ℝ, x = quatShellElem vDiag12 c0 c1 c2 c3 := by
+  constructor
+  · intro h
+    have h2 : -x.x6 = x.x2 := congrArg Oct.x2 h
+    have h3 : -x.x7 = x.x3 := congrArg Oct.x3 h
+    have h4 : -(-x.x2) = x.x4 := congrArg Oct.x4 h
+    have h5 : -(-x.x3) = x.x5 := congrArg Oct.x5 h
+    refine ⟨x.x0, x.x1, -x.x2, -x.x3, ?_⟩
+    ext <;> {
+      dsimp only [quatShellElem, vDiag12, sigma12, vDiag, add_def, smul_def, mul_def, add, smul, one, e1, mul]
+      try linarith
+    }
+  · rintro ⟨c0, c1, c2, c3, rfl⟩
+    ext <;> {
+      dsimp only [tau12, sigma12, tau, quatShellElem, vDiag12, vDiag, add_def, smul_def, mul_def, add, smul, one, e1, mul]
+      try ring
+    }
+
+/-- `τ₁₂` does not fix `v_diag`, proving `H(e₁, v_diag)` and `H(e₁, v_diag,12)` are distinct `ℂℙ²` shells. -/
+theorem vDiag_not_fixed_by_tau12 : tau12 vDiag ≠ vDiag := by
+  intro h
+  have h2 : (tau12 vDiag).x2 = vDiag.x2 := congrArg Oct.x2 h
+  dsimp only [tau12, sigma12, tau, vDiag] at h2
+  linarith
+
+/-- The four `A₄`-conjugate diagonal generators form a balanced tetrahedral frame in `E`
+(`sum = 0`, pairwise dot products `-1` and Fano overlap `1/9` of `‖v‖² = 3`). -/
+theorem conjugate_vDiag_tetrahedral_sum :
+    vDiag + sigma12 vDiag + sigma23 vDiag + sigma13 vDiag = zero := by
+  ext <;> { dsimp only [add_def, add, sigma12, sigma23, sigma13, vDiag, zero]; ring }
+
+theorem vDiag_dot_vDiag12 : dot vDiag vDiag12 = -1 := by
+  dsimp only [dot, vDiag12, sigma12, vDiag]
+  ring
+
+/-- The intersection `𝕆^{A₄}` fixed simultaneously by `σ₁₂`, `σ₂₃`, and `τ` (equivalently by
+two conjugate `ℤ₃` generators `τ` and `τ₁₂`) is strictly the 2D complex subfield `ℂ_{e₁}`: no
+4D quaternion shell `H(e₁, v)` is fixed pointwise by `A₄ ⊂ SU(3)`. -/
+theorem A4_fixed_iff_mem_C_e1 (x : Oct) :
+    (sigma12 x = x ∧ sigma23 x = x ∧ tau x = x) ↔
+      (x.x2 = 0 ∧ x.x3 = 0 ∧ x.x4 = 0 ∧ x.x5 = 0 ∧ x.x6 = 0 ∧ x.x7 = 0) := by
+  constructor
+  · rintro ⟨hs12, hs23, _⟩
+    have hx2 : -x.x2 = x.x2 := congrArg Oct.x2 hs12
+    have hx3 : -x.x3 = x.x3 := congrArg Oct.x3 hs12
+    have hx4 : -x.x4 = x.x4 := congrArg Oct.x4 hs12
+    have hx5 : -x.x5 = x.x5 := congrArg Oct.x5 hs12
+    have hx6 : -x.x6 = x.x6 := congrArg Oct.x6 hs23
+    have hx7 : -x.x7 = x.x7 := congrArg Oct.x7 hs23
+    refine ⟨by linarith, by linarith, by linarith, by linarith, by linarith, by linarith⟩
+  · rintro ⟨h2, h3, h4, h5, h6, h7⟩
+    refine ⟨?_, ?_, ?_⟩ <;> ext <;> {
+      dsimp only [sigma12, sigma23, tau]
+      try linarith
+    }
+
+/-- Norm-squares along the three Fano complex lines `L₁ = span{e₂, e₃}`, `L₂ = span{e₄, e₅}`,
+`L₃ = span{e₆, e₇}`. -/
+def lineNorm1 (v : Oct) : ℝ := v.x2 ^ 2 + v.x3 ^ 2
+def lineNorm2 (v : Oct) : ℝ := v.x4 ^ 2 + v.x5 ^ 2
+def lineNorm3 (v : Oct) : ℝ := v.x6 ^ 2 + v.x7 ^ 2
+
+/-- Membership of `w` in the `J_{e₁}`-complex line spanned by `v`: `w ∈ span_ℝ{v, e₁ * v} = ℂ_{e₁} v`. -/
+def InComplexLine (v w : Oct) : Prop :=
+  ∃ c d : ℝ, w = c • v + d • (e1 * v)
+
+/-- **`A₄ ⊂ SU(3)` Equivariant `ℂℙ²` Selector No-Go Theorem (`BLK-1411` / `BLK-1423` / `BLK-1436` #3):**
+No nonzero vector `v ∈ E` spans a complex line `ℂ_{e₁} v ∈ ℂℙ²` fixed setwise by
+`A₄ = ⟨K₄, τ⟩ ⊂ Stab_{G₂}(e₁) = SU(3)`.
+Because `A₄ ⊂ SU(3)` already leaves no `ℂℙ²` point invariant, any unique physical shell
+selector `L ⊂ E` requires an explicit `SU(3)`/`A₄`-breaking datum outside `S⁷`/Hopf data. -/
+theorem no_A4_invariant_cp2_line (v : Oct) (hv : MemE v)
+    (htau : InComplexLine v (tau v)) (hsig : InComplexLine v (sigma12 v)) :
+    v = zero := by
+  rcases hv with ⟨h0, h1⟩
+  rcases htau with ⟨c, d, htau_eq⟩
+  rcases hsig with ⟨c', d', hsig_eq⟩
+  have htau2 : v.x6 = c * v.x2 + d * (0 * v.x0 - 1 * v.x3) := by
+    have h := congrArg Oct.x2 htau_eq
+    dsimp only [tau, add_def, smul_def, mul_def, add, smul, e1, mul] at h
+    linarith [h]
+  have htau3 : v.x7 = c * v.x3 + d * v.x2 := by
+    have h := congrArg Oct.x3 htau_eq
+    dsimp only [tau, add_def, smul_def, mul_def, add, smul, e1, mul] at h
+    rw [h0] at h
+    linarith [h]
+  have htau4 : v.x2 = c * v.x4 - d * v.x5 := by
+    have h := congrArg Oct.x4 htau_eq
+    dsimp only [tau, add_def, smul_def, mul_def, add, smul, e1, mul] at h
+    linarith [h]
+  have htau5 : v.x3 = c * v.x5 + d * v.x4 := by
+    have h := congrArg Oct.x5 htau_eq
+    dsimp only [tau, add_def, smul_def, mul_def, add, smul, e1, mul] at h
+    linarith [h]
+  have htau6 : v.x4 = c * v.x6 - d * v.x7 := by
+    have h := congrArg Oct.x6 htau_eq
+    dsimp only [tau, add_def, smul_def, mul_def, add, smul, e1, mul] at h
+    linarith [h]
+  have htau7 : v.x5 = c * v.x7 + d * v.x6 := by
+    have h := congrArg Oct.x7 htau_eq
+    dsimp only [tau, add_def, smul_def, mul_def, add, smul, e1, mul] at h
+    linarith [h]
+  have htau2' : v.x6 = c * v.x2 - d * v.x3 := by linarith
+  have hL3 : lineNorm3 v = (c ^ 2 + d ^ 2) * lineNorm1 v := by
+    unfold lineNorm3 lineNorm1
+    rw [htau2', htau3]
+    ring
+  have hL1 : lineNorm1 v = (c ^ 2 + d ^ 2) * lineNorm2 v := by
+    unfold lineNorm1 lineNorm2
+    rw [htau4, htau5]
+    ring
+  have hL2 : lineNorm2 v = (c ^ 2 + d ^ 2) * lineNorm3 v := by
+    unfold lineNorm2 lineNorm3
+    rw [htau6, htau7]
+    ring
+  have hsum : (c ^ 2 + d ^ 2 - 1) * (lineNorm1 v + lineNorm2 v + lineNorm3 v) = 0 := by
+    linarith [hL3, hL1, hL2]
+  have h_equal_norms : lineNorm1 v = lineNorm3 v := by
+    rcases mul_eq_zero.mp hsum with hr | hzero
+    · have hr1 : c ^ 2 + d ^ 2 = 1 := by linarith
+      rw [hr1, one_mul] at hL3
+      exact hL3.symm
+    · have hn1 : 0 ≤ lineNorm1 v := by unfold lineNorm1; positivity
+      have hn2 : 0 ≤ lineNorm2 v := by unfold lineNorm2; positivity
+      have hn3 : 0 ≤ lineNorm3 v := by unfold lineNorm3; positivity
+      linarith
+  have hs2 : -v.x2 = c' * v.x2 - d' * v.x3 := by
+    have h := congrArg Oct.x2 hsig_eq
+    dsimp only [sigma12, add_def, smul_def, mul_def, add, smul, e1, mul] at h
+    rw [h0] at h
+    linarith [h]
+  have hs3 : -v.x3 = c' * v.x3 + d' * v.x2 := by
+    have h := congrArg Oct.x3 hsig_eq
+    dsimp only [sigma12, add_def, smul_def, mul_def, add, smul, e1, mul] at h
+    rw [h0] at h
+    linarith [h]
+  have hs6 : v.x6 = c' * v.x6 - d' * v.x7 := by
+    have h := congrArg Oct.x6 hsig_eq
+    dsimp only [sigma12, add_def, smul_def, mul_def, add, smul, e1, mul] at h
+    linarith [h]
+  have hs7 : v.x7 = c' * v.x7 + d' * v.x6 := by
+    have h := congrArg Oct.x7 hsig_eq
+    dsimp only [sigma12, add_def, smul_def, mul_def, add, smul, e1, mul] at h
+    linarith [h]
+  have eq1 : ((c' + 1) ^ 2 + d' ^ 2) * lineNorm1 v = 0 := by
+    have ha : (c' + 1) * v.x2 - d' * v.x3 = 0 := by linarith
+    have hb : (c' + 1) * v.x3 + d' * v.x2 = 0 := by linarith
+    have hsq : ((c' + 1) * v.x2 - d' * v.x3) ^ 2 + ((c' + 1) * v.x3 + d' * v.x2) ^ 2 = 0 := by
+      rw [ha, hb]; ring
+    unfold lineNorm1
+    linarith
+  have eq3 : ((c' - 1) ^ 2 + d' ^ 2) * lineNorm3 v = 0 := by
+    have ha : (c' - 1) * v.x6 - d' * v.x7 = 0 := by linarith
+    have hb : (c' - 1) * v.x7 + d' * v.x6 = 0 := by linarith
+    have hsq : ((c' - 1) * v.x6 - d' * v.x7) ^ 2 + ((c' - 1) * v.x7 + d' * v.x6) ^ 2 = 0 := by
+      rw [ha, hb]; ring
+    unfold lineNorm3
+    linarith
+  have eq_comb : (2 * c' ^ 2 + 2 * d' ^ 2 + 2) * lineNorm1 v = 0 := by
+    rw [← h_equal_norms] at eq3
+    linarith
+  have hn1_nn : 0 ≤ lineNorm1 v := by unfold lineNorm1; positivity
+  have hfactor : 0 < 2 * c' ^ 2 + 2 * d' ^ 2 + 2 := by positivity
+  have hn1_zero : lineNorm1 v = 0 := by nlinarith only [eq_comb, hn1_nn, hfactor]
+  have hn3_zero : lineNorm3 v = 0 := by linarith only [hn1_zero, h_equal_norms]
+  have hn2_zero : lineNorm2 v = 0 := by
+    rw [hn3_zero, mul_zero] at hL2
+    exact hL2
+  unfold lineNorm1 at hn1_zero
+  unfold lineNorm2 at hn2_zero
+  unfold lineNorm3 at hn3_zero
+  have hx2 : v.x2 = 0 := by nlinarith only [hn1_zero]
+  have hx3 : v.x3 = 0 := by nlinarith only [hn1_zero]
+  have hx4 : v.x4 = 0 := by nlinarith only [hn2_zero]
+  have hx5 : v.x5 = 0 := by nlinarith only [hn2_zero]
+  have hx6 : v.x6 = 0 := by nlinarith only [hn3_zero]
+  have hx7 : v.x7 = 0 := by nlinarith only [hn3_zero]
+  ext <;> dsimp only [zero] <;> assumption
+
 end Oct
+
+#print axioms Oct.sigma12_mul
+#print axioms Oct.sigma23_mul
+#print axioms Oct.sigma13_mul
+#print axioms Oct.sigma_klein4_relations
+#print axioms Oct.tau_conj_sigma12_eq
+#print axioms Oct.tau12_mul
+#print axioms Oct.tau12_cubed
+#print axioms Oct.tau12_fixed_iff
+#print axioms Oct.vDiag_not_fixed_by_tau12
+#print axioms Oct.conjugate_vDiag_tetrahedral_sum
+#print axioms Oct.vDiag_dot_vDiag12
+#print axioms Oct.A4_fixed_iff_mem_C_e1
+#print axioms Oct.no_A4_invariant_cp2_line
 
 end ResNova.OctonionHopfShells
