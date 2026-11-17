@@ -112,6 +112,7 @@ TARGETS=(
   E8Branching.lean
   OctonionHopfShells.lean
   AeSTWeakFieldCondensate.lean
+  AeSTHamiltonianLegendre.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------

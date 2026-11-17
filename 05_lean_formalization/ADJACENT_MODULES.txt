@@ -73,6 +73,11 @@ AeSTWeakFieldCondensate.lean     # Safa BLK-1412/1416/1417/1418/1420 checks: the
                                  # condensate/Helmholtz reduction, benchmark
                                  # rationals. Supports TARGET_D7 bookkeeping; the
                                  # manuscript does not cite it.
+AeSTHamiltonianLegendre.lean     # BSZ (2024) auxiliary potential U(nu, mu) and
+                                 # C^{AB} invertibility for live mu_std AeST
+                                 # (closes BLK-1430 Sec. 9 item 2 open gate;
+                                 # supports TARGET_D7 / BSZ Hamiltonian mapping,
+                                 # not cited by the manuscript).
 
 # --- Millennium-problem correspondence sketches ---
 RamanujanModularBounds.lean      # modular bounds, RH leg

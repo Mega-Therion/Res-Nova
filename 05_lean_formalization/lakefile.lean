@@ -152,5 +152,8 @@ lean_lib «ResNovaFormal» where
     `OctonionHopfShells,
     -- ADDED 2026-11-17. AeST off-shell metric variation chain rule, static spherical
     -- reduction, weak-field condensate/Helmholtz equation, and BLK-1420 benchmark.
-    `AeSTWeakFieldCondensate
+    `AeSTWeakFieldCondensate,
+    -- ADDED 2026-11-17. Closed-form BSZ auxiliary potential U(nu, mu), secondary
+    -- constraints S^(mu)/S^(nu), and C^{AB} invertibility for live mu_std AeST (BLK-1430).
+    `AeSTHamiltonianLegendre
   ]
