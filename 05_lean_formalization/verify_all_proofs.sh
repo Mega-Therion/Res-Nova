@@ -104,7 +104,6 @@ TARGETS=(
   YangMillsCasimirBound.lean \
   RiemannSpectralExpander.lean \
   StiefelLaplaceEigenvalue.lean
-  E8Roots.lean
   QuarkMassLadder.lean
   InitialAlgebraExecution.lean
   ListInitialAlgebra.lean
