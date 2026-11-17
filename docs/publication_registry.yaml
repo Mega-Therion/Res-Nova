@@ -2584,3 +2584,20 @@ works:
     is_latest: true
     has_versions: []
     is_new_version_of: []
+
+  - work_id: the_shadow_ladder_euclid_dr1
+    title: "The Shadow Ladder: pinch-point predictions for Euclid DR1"
+    author: "Yett, R.W."
+    orcid: "0009-0001-1303-7190"
+    resource_type: "Preprint"
+    canonical_doi: "10.5281/zenodo.24109539"
+    lineage: manuscript
+    role: version
+    version: ""
+    status: live
+    publication_date: "2026-11-10"
+    repository: "Mega-Therion/Chyren"
+    concept_doi: "10.5281/zenodo.24109538"
+    is_latest: true
+    has_versions: []
+    is_new_version_of: []
