@@ -118,6 +118,7 @@ TARGETS=(
   AeSTParameterizedNormalization.lean
   AeSTDiffeomorphismNoether.lean
   StringTheoryBridge.lean
+  Wave3BBNAndSpinCCP2Bounds.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------

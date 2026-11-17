@@ -169,7 +169,11 @@ lean_lib «ResNovaFormal» where
     -- diffeomorphism Noether identity, minimal-coupling matter conservation, and C^2
     -- 1+1D curved-metric fderiv verification of div(sqrt(-g) V) and div T = E_chi d chi.
     `AeSTDiffeomorphismNoether,
-    -- ADDED 2026-11-13 (PR #210). Adjacent root-data bookkeeping only; not a physical
+    -- ADDED 2026-11-17 (PR #210). Adjacent root-data bookkeeping only; not a physical
     -- unification result.
-    `StringTheoryBridge
+    `StringTheoryBridge,
+    -- ADDED 2026-11-17 (Wave 3 #1 BBN bounds + BLK-1450/BLK-1461 E8 x CP2 Spin^c Gate 2).
+    -- Pure algebraic/arithmetic bounds on G_cosmo vs J_tot non-folding, zero-sum SU(3) twists,
+    -- O(-1)^3/O(-4)^3 uniqueness, and E8 248 vs (27,3) chiral Spin^c charge-locking.
+    `Wave3BBNAndSpinCCP2Bounds
   ]
