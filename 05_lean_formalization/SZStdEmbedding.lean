@@ -88,6 +88,57 @@ theorem hasDerivAt_Jstd {Y : ℝ} (hY : 0 < Y) :
   field_simp
   rw [hYsq]
 
+/-- The D7-scaled scalar potential, represented as a rescaling of the proved `Jstd`. -/
+def Jscaled (lambdaS aT Y : ℝ) : ℝ :=
+  2 * lambdaS * aT ^ 2 * Jstd (Y / aT ^ 2)
+
+/-- For positive scale, `Jscaled` is the stated `Fstd` normalization. -/
+theorem Jscaled_eq_scaled_Fstd {lambdaS aT Y : ℝ} (ha : 0 < aT) :
+    Jscaled lambdaS aT Y =
+      2 * lambdaS * aT ^ 2 * Fstd (Real.sqrt Y / aT) := by
+  unfold Jscaled Jstd
+  by_cases hY : 0 ≤ Y
+  · rw [Real.sqrt_div hY, Real.sqrt_sq_eq_abs, abs_of_pos ha]
+  · have hYneg : Y ≤ 0 := le_of_lt (lt_of_not_ge hY)
+    have harg : Y / aT ^ 2 ≤ 0 :=
+      div_nonpos_of_nonpos_of_nonneg hYneg (sq_nonneg aT)
+    rw [Real.sqrt_eq_zero_of_nonpos harg, Real.sqrt_eq_zero_of_nonpos hYneg]
+    simp [Fstd]
+
+/-- Derivative of the scaled potential, reusing the established `Jstd` derivative. -/
+theorem hasDerivAt_Jscaled {lambdaS aT Y : ℝ} (hY : 0 < Y) (ha : 0 < aT) :
+    HasDerivAt (fun y : ℝ => Jscaled lambdaS aT y)
+      (lambdaS * muStd (Real.sqrt Y / aT)) Y := by
+  have ha2 : 0 < aT ^ 2 := pow_pos ha 2
+  have harg : 0 < Y / aT ^ 2 := div_pos hY ha2
+  have hJ := hasDerivAt_Jstd harg
+  have hscale : HasDerivAt (fun y : ℝ => y / aT ^ 2) (1 / aT ^ 2) Y := by
+    simpa using (hasDerivAt_id Y).div_const (aT ^ 2)
+  have hcomp := hJ.comp Y hscale
+  have hsqrt : Real.sqrt (Y / aT ^ 2) = Real.sqrt Y / aT := by
+    rw [Real.sqrt_div hY.le, Real.sqrt_sq_eq_abs, abs_of_pos ha]
+  have hderiv :
+      (2 * lambdaS * aT ^ 2) *
+          ((muStd (Real.sqrt (Y / aT ^ 2)) / 2) * (1 / aT ^ 2)) =
+        lambdaS * muStd (Real.sqrt Y / aT) := by
+    rw [hsqrt]
+    field_simp [ne_of_gt ha]
+  have hscaled := (hcomp.const_mul (2 * lambdaS * aT ^ 2)).congr_deriv hderiv
+  simpa [Jscaled] using hscaled
+
+/-- The requested D7-scaled derivative. `Y > 0` and `aT > 0` suffice; `lambdaS` is arbitrary. -/
+theorem hasDerivAt_scaled_Fstd {lambdaS aT Y : ℝ} (hY : 0 < Y) (ha : 0 < aT) :
+    HasDerivAt (fun y : ℝ =>
+      2 * lambdaS * aT ^ 2 * Fstd (Real.sqrt y / aT))
+      (lambdaS * muStd (Real.sqrt Y / aT)) Y := by
+  have hscaled := hasDerivAt_Jscaled (lambdaS := lambdaS) (aT := aT) (Y := Y) hY ha
+  have hEq :
+      (fun y : ℝ => 2 * lambdaS * aT ^ 2 * Fstd (Real.sqrt y / aT)) =ᶠ[nhds Y]
+        (fun y : ℝ => Jscaled lambdaS aT y) :=
+    Filter.Eventually.of_forall (fun y =>
+      (Jscaled_eq_scaled_Fstd (lambdaS := lambdaS) (aT := aT) (Y := y) ha).symm)
+  exact hscaled.congr_of_eventuallyEq hEq
+
 /-- First ghost condition on the derived derivative: `J_std′(𝒴) > 0` for `𝒴 > 0`. -/
 theorem Jstd_deriv_pos {Y : ℝ} (hY : 0 < Y) : 0 < muStd (Real.sqrt Y) / 2 := by
   unfold muStd
