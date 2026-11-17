@@ -12,6 +12,7 @@
     "A_zero_S_nu_nu_symbolic": "2*Q_0**2/(nu*(1 - nu/(2*K_2))**3)",
     "nonspherical_universal_nu_cancellation": "A_norm**2*(2*K_2 - mu - (4 - 2*K_B)/K_B) + 2*K_2",
     "d2U_dmu2_at_zero": 0,
+    "mu_zero_dirac_degeneracy": "irregular quadratic cone (dS^(mu)|_{mu=0,S^(mu)=0}=0, C^{AB} rank-1, no linear tertiary constraint)",
     "canonical_rank1_correction_verified": true
   },
   "numerical": {
