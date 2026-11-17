@@ -151,65 +151,134 @@ The vector boundary contribution is
 \left[-2K_BF^{\mu\nu}+2bA^\mu p^\nu\right]\delta A_\nu.
 \]
 
-## 5. Metric variation — compact independent formula [D/O]
+## 5. Metric variation — expanded and matched [D/C]
 
-For the declared \(A_\mu\)-fixed convention, set
+Use the declared independent-field convention \((g^{\mu\nu},A_\mu,\phi,\lambda)\), holding the covector \(A_\mu\) fixed in the metric variation. The identity
 \[
-B_\nu:=A^\alpha\nabla_\alpha A_\nu,\qquad
-L_{\rm nd}:=-\frac{K_B}{2}F^2+2bJ^\alpha p_\alpha-b\mathcal Y
--\mathcal F-\lambda(A^2+1).
+J^\alpha p_\alpha=A^\alpha p^\nu\nabla_\alpha A_\nu
 \]
-The direct inverse-metric variations are
+has two direct inverse-metric variations, because both raised vectors depend on \(g^{\mu\nu}\):
 \[
-\delta\mathcal Q=A_{(\mu}p_{\nu)}\delta g^{\mu\nu},
+\delta_g(J^\alpha p_\alpha)=
+\left[p_{(\mu}B_{\nu)}+A_{(\mu}p^\rho\nabla_{\nu)}A_\rho\right]\delta g^{\mu\nu}
+-A^\alpha p^\nu A_\rho\,\delta\Gamma^\rho_{\alpha\nu}.
 \]
+The second direct term \(A_{(\mu}p^\rho\nabla_{\nu)}A_\rho\) was omitted in the earlier compact draft; that omission is corrected here.
+
+For the connection part of the full \(2bJ^\alpha p_\alpha\) term, define
 \[
-\delta\mathcal Y=
-\left[p_\mu p_\nu+2\mathcal Q A_{(\mu}p_{\nu)}\right]\delta g^{\mu\nu},
-\qquad
-\delta(A^2)=A_\mu A_\nu\delta g^{\mu\nu},
+P_\rho{}^{\alpha\nu}=-2bA_\rho A^{(\alpha}p^{\nu)},\qquad
+P^{\sigma\alpha\nu}=g^{\sigma\rho}P_\rho{}^{\alpha\nu}.
 \]
+Using the Levi-Civita variation and integrating by parts gives the coefficient of \(\delta g_{\mu\nu}\)
 \[
-\delta(J^\alpha p_\alpha)
-=\left[p_{(\mu}B_{\nu)}\right]\delta g^{\mu\nu}
--p^\nu A^\alpha A_\rho\,\delta\Gamma^\rho_{\alpha\nu}.
+C^{\mu\nu}=-\nabla_\alpha P^{(\mu|\alpha|\nu)}
++\frac12\nabla_\rho P^{\rho\mu\nu}
+=b\nabla_\rho(A^\mu A^\nu p^\rho).
 \]
-The connection term can be packaged as
+Thus its contribution to the coefficient of \(\delta g^{\mu\nu}\) is
 \[
-P_\rho{}^{\alpha\nu}:=-2b\,A_\rho A^{(\alpha}p^{\nu)},\qquad
-P^{\sigma\alpha\nu}:=g^{\sigma\rho}P_\rho{}^{\alpha\nu},
+E^{\rm conn}_{\mu\nu}=-b\nabla_\rho(A_\mu A_\nu p^\rho).
 \]
-\[
-C^{\alpha\nu}:=-\nabla_\mu P^{(\alpha|\mu|\nu)}
-+\frac12\nabla_\sigma P^{\sigma\alpha\nu}.
-\]
-After integration by parts, the contribution of this connection variation to the coefficient of \(\delta g^{\mu\nu}\) is
-\[
-E^{\rm conn}_{\mu\nu}=-g_{\mu\alpha}g_{\nu\beta}C^{\alpha\beta}.
-\]
-Consequently, before matter is added, the metric Euler tensor can be written compactly as
+Combining this with both direct terms, and using \(F_{\mu\nu}=2\nabla_{[\mu}A_{\nu]}\), yields
 \[
 \begin{aligned}
-E_{\mu\nu}={}&G_{\mu\nu}-\frac12g_{\mu\nu}L_{\rm nd}
--K_BF_{\mu\rho}F_\nu{}^\rho
-+2b\,p_{(\mu}B_{\nu)}\\
-&-(b+\mathcal F_{\mathcal Y})
-  (p_\mu p_\nu+2\mathcal Q A_{(\mu}p_{\nu)})
--\mathcal F_{\mathcal Q}A_{(\mu}p_{\nu)}
--\lambda A_\mu A_\nu+E^{\rm conn}_{\mu\nu}.
+\left.\delta_g(2bJ^\alpha p_\alpha)\right|_{\rm bulk}
+=2b\bigg[&
+A^\sigma p_{(\mu}\nabla_\sigma A_{\nu)}
++p_\sigma A_{(\mu}F_{\nu)}{}^\sigma
+-\frac12A_\mu A_\nu\Box\phi
+\bigg]\delta g^{\mu\nu}.
 \end{aligned}
 \]
-With \(T_{\mu\nu}:=-2(\sqrt{-g})^{-1}\delta S_m/\delta g^{\mu\nu}\), the metric equation is
+This is the derivative structure printed in Fu et al. (2024), Eq. (3).
+
+The remaining metric terms follow directly:
 \[
-E_{\mu\nu}=8\pi\widetilde G\,T_{\mu\nu}.
+\begin{aligned}
+E_{\mu\nu}={}&G_{\mu\nu}
+-K_B\left(F_{\mu}{}^{\rho}F_{\nu\rho}
+-\frac14g_{\mu\nu}F_{\rho\sigma}F^{\rho\sigma}\right)
+-\lambda A_\mu A_\nu
+-b g_{\mu\nu}J^\alpha p_\alpha\\
+&+2b\left[
+A^\sigma p_{(\mu}\nabla_\sigma A_{\nu)}
++p_\sigma A_{(\mu}F_{\nu)}{}^\sigma
+-\frac12A_\mu A_\nu\Box\phi
+\right]
++\frac12g_{\mu\nu}(b\mathcal Y+\mathcal F)\\
+&-(b+\mathcal F_{\mathcal Y})p_\mu p_\nu
+-\left[2\mathcal Q(b+\mathcal F_{\mathcal Y})+\mathcal F_{\mathcal Q}\right]
+ A_{(\mu}p_{\nu)}.
+\end{aligned}
 \]
-This is a compact Palatini-form result, not yet a line-by-line expanded equivalence proof against the printed \(\mathcal H_{\mu\nu}\). The explicit connection boundary term before imposing boundary conditions is
+On the multiplier constraint \(A^\mu A_\mu=-1\), this agrees term by term with the published \(G_{\mu\nu}+\mathcal H_{\mu\nu}=8\pi\widetilde G T_{\mu\nu}\) form after matching the paper's \(\kappa=1\) normalization. The metric variation is therefore closed for this action and field basis. The vector equation discrepancy in §4 remains separate.
+
+## 6. Diffeomorphism identity and Bianchi gate [D/O]
+
+For independent fields \((g^{\mu\nu},A_\mu,\phi,\lambda)\), define \(E_A^\mu=(\sqrt{-g})^{-1}\delta S/\delta A_\mu\), \(E_\phi=(\sqrt{-g})^{-1}\delta S/\delta\phi\), \(E_\lambda=(\sqrt{-g})^{-1}\delta S/\delta\lambda\), and \(E_{\mu\nu}\) as the coefficient of \(\delta g^{\mu\nu}\). Diffeomorphism invariance gives
 \[
-\int_{\partial M}d\Sigma_\mu
-\left(P^{\sigma\mu\nu}\delta g_{\sigma\nu}
--\frac12P^{\mu\sigma\nu}\delta g_{\sigma\nu}\right),
+2\nabla^\mu E_{\mu\nu}
++E_A^\mu F_{\nu\mu}
+-A_\nu\nabla_\mu E_A^\mu
++E_\phi\nabla_\nu\phi
++E_\lambda\nabla_\nu\lambda=0.
 \]
-with indices in the first term understood exactly as in the unintegrated Palatini expression. A fully normalized boundary functional \(S_\partial\), including the Einstein–Hilbert/Gibbons–Hawking–York part and the appropriate boundary data for the vector/metric sector, remains [O].
+The identity is exact for the Euler derivatives of the same action. Replacing the action-derived normalized vector equation by the printed 2024 Eq. (4) changes the full vector Euler derivative by \(\Delta E_A^\mu=2bB^\mu\), and hence shifts the identity by
+\[
+\Delta\mathcal N_\nu=
+2b\left(B^\mu F_{\nu\mu}-A_\nu\nabla_\mu B^\mu\right).
+\]
+
+This residual is not identically zero even on the unit-vector constraint. An exact constrained Minkowski test in 1+1 dimensions (embedded in 3+1) is
+\[
+A^\mu=(\cosh(\epsilon t),\sinh(\epsilon t),0,0),\qquad
+\phi=t+x.
+\]
+It obeys \(A^\mu A_\mu=-1\). Direct evaluation gives
+\[
+B^\mu=(-\epsilon\cosh(\epsilon t),-\epsilon\sinh(\epsilon t),0,0),
+\quad F_{01}=\epsilon\cosh(\epsilon t),
+\quad \nabla_\mu B^\mu=-\epsilon^2\sinh(\epsilon t),
+\]
+and therefore
+\[
+B^\mu F_{0\mu}-A_0\nabla_\mu B^\mu
+=-\epsilon^2\sinh(2\epsilon t),\qquad
+B^\mu F_{1\mu}-A_1\nabla_\mu B^\mu
+=\epsilon^2\cosh(2\epsilon t).
+\]
+The candidate-equation residual is consequently nonzero for generic \(b\epsilon\ne0\). This is an off-shell Noether-identity test, not a claim that this field configuration solves the equations or that the theory has no solutions. It shows that the printed vector equation cannot simply be substituted as though it were the Euler derivative of the printed action.
+
+## 7. Boundary data and a sufficient Dirichlet variational principle [D]
+
+The scalar and vector integrations by parts give
+\[
+\delta S_{\phi,\partial}=
+\frac{1}{16\pi\widetilde G}\int_{\partial M}d\Sigma_\mu
+\left[2bJ^\mu-2(b+\mathcal F_{\mathcal Y})q^{\mu\nu}p_\nu
+-\mathcal F_{\mathcal Q}A^\mu\right]\delta\phi,
+\]
+\[
+\delta S_{A,\partial}=
+\frac{1}{16\pi\widetilde G}\int_{\partial M}d\Sigma_\mu
+\left[-2K_BF^{\mu\nu}+2bA^\mu p^\nu\right]\delta A_\nu.
+\]
+The metric-connection contribution from the \(Jp\) term is
+\[
+\frac{1}{16\pi\widetilde G}\int_{\partial M}d\Sigma_\alpha
+\left[P^{\sigma\alpha\nu}\delta g_{\sigma\nu}
+-\frac12P^{\alpha\sigma\nu}\delta g_{\sigma\nu}\right],
+\]
+where \(P^{\sigma\alpha\nu}=-2bA^\sigma A^{(\alpha}p^{\nu)}\). This surface term vanishes under full metric Dirichlet data.
+
+A sufficient (not asserted minimal or unique) well-posed boundary prescription on a smooth non-null boundary is:
+- add the standard Gibbons–Hawking–York term \(S_{\rm GHY}=(8\pi\widetilde G)^{-1}\int_{\partial M}\epsilon\sqrt{|h|}K\), with the sign convention for the chosen outward normal and extrinsic curvature;
+- fix all components of \(g_{\mu\nu}\), \(A_\mu\), and \(\phi\) on the boundary, so \(\delta g_{\mu\nu}=\delta A_\mu=\delta\phi=0\) there;
+- leave \(\lambda\) free, since it carries no derivatives and produces no boundary flux;
+- impose the matter-sector boundary conditions appropriate to \(S_m\), and include the usual joint terms if the boundary is piecewise smooth.
+
+This is a deliberately strong Dirichlet choice. If only the induced metric is fixed (rather than all metric components), or if Neumann/mixed data are desired for \(A_\mu\) or \(\phi\), the boundary variational problem must be re-derived with the corresponding boundary terms; this report does not claim that the displayed GHY term alone handles those alternative choices.
 
 ## 6. Diffeomorphism identity and Bianchi gate [D/O]
 
@@ -226,16 +295,16 @@ Thus a candidate vector equation substituted into this identity must be the Eule
 2b\left(B^\mu F_{\nu\mu}-A_\nu\nabla_\mu B^\mu\right).
 \]
 That residual must be explicitly checked; it cannot be assumed to vanish. The matter conservation statement \(\nabla_\mu T^{\mu\nu}=0\) is conditional on the matter equations and the complete gravitational Euler system; it is not an independent proof that an inconsistent subset of printed equations satisfies the identity.
-## 7. Cross-checks and boundaries
+## 8. Cross-checks and boundaries
 
 - The scalar equation and unit constraint agree with the published equations.
 - The 2024 printed metric equation supplies a target for simplifying the compact metric variation; the \(A_\mu\)-fixed versus \(A^\mu\)-fixed convention must still be declared.
 - The 2024 printed vector equation differs from the direct variation of the action by \(bB^\nu\).
-- The 2021 paper's second-order perturbative stability result and the 2024 Hamiltonian analysis are external benchmarks for the published AeST model. They do not certify the Res-Nova constitutive slice or resolve the vector-equation discrepancy.
+- The 2021 and 2022 papers print the same covariant action interaction and Maxwell normalization. The 2022 paper's stability calculation is an action-level perturbative benchmark, not an independent printed covariant vector equation. The 2024 Hamiltonian paper independently repeats the same action and reports four first-class/four second-class constraints and six nonlinear physical degrees of freedom; this does not by itself resolve the isolated 2024 Eq. (4) coefficient.
 - The published Hamiltonian analysis reports four first-class and four second-class constraints and six nonlinear physical degrees of freedom. These counts should be reproduced only after the exact action/equation pair is pinned.
 - No spectrum, branch fit, or physical stability claim is advanced here.
 
-## 8. Next required computations
+## 9. Next required computations
 
 1. Independently derive the vector Euler derivative in explicit components from the exact action (including a simple nontrivial field configuration with \(B^\nu\ne0\)).
 2. Compare the 2021 action and the 2022 stability expansion with the 2024 Eqs. (1)–(5), term by term, to locate whether the discrepancy is transcription, convention, or publication error.
