@@ -155,5 +155,8 @@ lean_lib «ResNovaFormal» where
     `AeSTWeakFieldCondensate,
     -- ADDED 2026-11-17. Closed-form BSZ auxiliary potential U(nu, mu), secondary
     -- constraints S^(mu)/S^(nu), and C^{AB} invertibility for live mu_std AeST (BLK-1430).
-    `AeSTHamiltonianLegendre
+    `AeSTHamiltonianLegendre,
+    -- ADDED 2026-11-17. Cassini-SPARC symmetron screening window (2026-11-15 work):
+    -- galaxy lower bound, scale upper bound => Cassini 2-sigma, integer witnesses.
+    `CassiniSymmetronWindow
   ]

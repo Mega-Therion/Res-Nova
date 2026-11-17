@@ -78,6 +78,11 @@ AeSTHamiltonianLegendre.lean     # BSZ (2024) auxiliary potential U(nu, mu) and
                                  # (closes BLK-1430 Sec. 9 item 2 open gate;
                                  # supports TARGET_D7 / BSZ Hamiltonian mapping,
                                  # not cited by the manuscript).
+CassiniSymmetronWindow.lean      # 2026-11-15 screening-window bookkeeping for
+                                 # 02_galaxy_dynamics/screen_mass_cassini.py:
+                                 # integer-cleared bounds and witnesses, not a
+                                 # derivation of the screening mechanism. Not
+                                 # cited by the manuscript.
 
 # --- Millennium-problem correspondence sketches ---
 RamanujanModularBounds.lean      # modular bounds, RH leg

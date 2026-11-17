@@ -113,6 +113,7 @@ TARGETS=(
   OctonionHopfShells.lean
   AeSTWeakFieldCondensate.lean
   AeSTHamiltonianLegendre.lean
+  CassiniSymmetronWindow.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------

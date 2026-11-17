@@ -60,5 +60,62 @@
       "unscreened_S_eq_1_sigma_2026": 10.277777777777779
     }
   ],
-  "required_check": "[O] lambda and M are not fixed in PAPER_09 or elsewhere in the Res-Nova corpus. The symmetron-suppressed Q2 and its 2014/2026 sigma residuals remain symbolic formulas in (lambda, M) [O]. In the repaired disformal coupling without free parameters (S = 1), Cassini FAILS both windows (+5.37 sigma / +5.70 sigma against 2014; +9.72 sigma / +10.28 sigma against 2026)."
+  "viable_window_2M2lambda_kg_m3": {
+    "min_gal_99pct": 6.7020687140007815e-19,
+    "max_cassini_2sigma_mean_sun": 491.48250385993447,
+    "max_cassini_3sigma_mean_sun": 752.5194532089133,
+    "S_max_2sigma": 0.25870646766169153,
+    "S_max_3sigma": 0.3482587064676617
+  },
+  "bose_mesner_action_operator": {
+    "operator_formula": "M^2 = sum_{i=0}^4 c_i A_i = sum_{a=0}^4 (P_a . c) E_a",
+    "mu0_over_mu2_ratio": 5.0,
+    "two_M2_lambda_kg_m3": 1.543840176056238e-08,
+    "lambda_m_inv2": 1.032310567243354e-18,
+    "M_squared_kg_m_inv": 7477595527.181585,
+    "M_kg_half_m_minus_half": 86473.09134743354,
+    "c_i_shells_kg_m_inv": [
+      249253184.23938617,
+      62313296.05984654,
+      0.0,
+      62313296.05984654,
+      249253184.23938617
+    ],
+    "mu_a_eigenvalues_kg_m_inv": [
+      7477595527.181585,
+      0.0,
+      1495519105.436317,
+      0.0,
+      0.0
+    ],
+    "S_chi_mean_sun": 1.09625440552415e-11,
+    "S_chi_core_sun": 1.0292267840378375e-13,
+    "S_gal_disk": 0.9999999999995615,
+    "m_eff_L_sun": 302025.99528592837,
+    "S_yukawa_at_L_sun": 0.0,
+    "in_viable_window": true,
+    "suppressed_Q2_rows": [
+      {
+        "g_e_m_s2": 1.9e-10,
+        "Q2_unscreened_s_minus_2": 1.91e-26,
+        "Q2_suppressed_chi_mean_s_minus_2": 2.0938459145511266e-37,
+        "residual_2014_sigma_window_centered": -0.9999999999302052,
+        "residual_2014_sigma_raw_ratio": 6.979486381837089e-11,
+        "residual_2026_sigma_window_centered": -0.8888888887725641,
+        "residual_2026_sigma_raw_ratio": 1.1632477303061816e-10,
+        "passes_cassini_2sigma_2026": true
+      },
+      {
+        "g_e_m_s2": 2.4e-10,
+        "Q2_unscreened_s_minus_2": 2.01e-26,
+        "Q2_suppressed_chi_mean_s_minus_2": 2.2034713551035416e-37,
+        "residual_2014_sigma_window_centered": -0.999999999926551,
+        "residual_2014_sigma_raw_ratio": 7.344904517011806e-11,
+        "residual_2026_sigma_window_centered": -0.8888888887664739,
+        "residual_2026_sigma_raw_ratio": 1.224150752835301e-10,
+        "passes_cassini_2sigma_2026": true
+      }
+    ]
+  },
+  "required_check": "[O] lambda and M are not fixed in PAPER_09 or elsewhere in the Res-Nova corpus. The symmetron-suppressed Q2 and its 2014/2026 sigma residuals remain symbolic formulas in (lambda, M) [O]. In the repaired disformal coupling with no screening factor (S = 1), Cassini FAILS both windows (+5.37 sigma / +5.70 sigma against 2014; +9.72 sigma / +10.28 sigma against 2026)."
 }

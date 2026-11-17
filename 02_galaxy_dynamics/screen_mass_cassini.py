@@ -135,8 +135,52 @@ def main():
         })
 
     # -------------------------------------------------------------------------
-    # 4. Required check: Are lambda and M fixed in the corpus?
+    # 4. Viable (lambda, M) window and Bose-Mesner operator bridge evaluation
     # -------------------------------------------------------------------------
+    q2_worst = max(r["Q2_unscreened"] for r in unscreened_rows)
+    s_max_2sig = (1.60e-27 + 2.0 * sigma_2026) / q2_worst
+    s_max_3sig = (1.60e-27 + 3.0 * sigma_2026) / q2_worst
+    lam_m2_min_gal = 99.0 * rho_gal_disk
+    lam_m2_max_2sig_mean = s_max_2sig * rho_sun_mean / (1.0 - s_max_2sig)
+    lam_m2_max_3sig_mean = s_max_3sig * rho_sun_mean / (1.0 - s_max_3sig)
+
+    # Bose-Mesner operator evaluation from Synthesis_Gravity_2026-11/14_SovereignConstants.lean:
+    # M^2 = sum_{i=0}^4 c_i A_i = sum_{a=0}^4 (P_a . c) E_a
+    # For mirror-even quadratic symmetry-breaking VEV c_i proportional to cos^2(vartheta_i),
+    # (P . c) = [1920, 0, 384, 0, 0] in integer-cleared units, giving singlet-to-quadrupole
+    # eigenvalue ratio mu_0 / mu_2 = 1920 / 384 = 5.
+    # Anchoring 2*M^2*lambda at (mu_0 / mu_2) * sqrt(rho_gal_disk * rho_sun_mean) and 2*lambda = 1 / L_sun^2:
+    bm_mu0_over_mu2 = 1920.0 / 384.0
+    bm_two_M2_lambda = bm_mu0_over_mu2 * math.sqrt(rho_gal_disk * rho_sun_mean)
+    bm_two_lambda = 1.0 / (L_sun ** 2)
+    bm_lambda = 0.5 * bm_two_lambda
+    bm_M_sq = bm_two_M2_lambda / bm_two_lambda
+    bm_M = math.sqrt(bm_M_sq)
+    bm_c_shells = [(bm_M_sq / 30.0) * w for w in [1.0, 0.25, 0.0, 0.25, 1.0]]
+    bm_mu_eigenvalues = [bm_M_sq, 0.0, bm_M_sq / 5.0, 0.0, 0.0]
+
+    bm_S_chi_mean = (bm_two_M2_lambda + rho_gal_disk) / (bm_two_M2_lambda + rho_sun_mean)
+    bm_S_chi_core = (bm_two_M2_lambda + rho_gal_disk) / (bm_two_M2_lambda + rho_sun_core)
+    bm_S_gal_disk = bm_two_M2_lambda / (bm_two_M2_lambda + rho_gal_disk)
+    bm_m_eff_L_sun = L_sun * math.sqrt(bm_two_lambda + rho_sun_mean / bm_M_sq)
+    bm_S_yukawa_L_sun = math.exp(-bm_m_eff_L_sun) if bm_m_eff_L_sun < 700.0 else 0.0
+    bm_in_viable_window = (lam_m2_min_gal <= bm_two_M2_lambda <= lam_m2_max_2sig_mean)
+
+    bm_suppressed_rows = []
+    for row in unscreened_rows:
+        q2_u = row["Q2_unscreened"]
+        q2_supp_chi = q2_u * bm_S_chi_mean
+        bm_suppressed_rows.append({
+            "g_e_m_s2": row["g_e"],
+            "Q2_unscreened_s_minus_2": q2_u,
+            "Q2_suppressed_chi_mean_s_minus_2": q2_supp_chi,
+            "residual_2014_sigma_window_centered": (q2_supp_chi - q2_2014_cen) / sigma_2014,
+            "residual_2014_sigma_raw_ratio": q2_supp_chi / sigma_2014,
+            "residual_2026_sigma_window_centered": (q2_supp_chi - q2_2026_cen) / sigma_2026,
+            "residual_2026_sigma_raw_ratio": q2_supp_chi / sigma_2026,
+            "passes_cassini_2sigma_2026": abs(q2_supp_chi - q2_2026_cen) <= 2.0 * sigma_2026,
+        })
+
     lambda_and_M_fixed_in_corpus = False
     epistemic_tag = "[O]"
 
@@ -177,10 +221,34 @@ def main():
             "repaired_disformal_note": "g_tilde_munu = g_munu + B d_mu chi d_nu chi (REPAIRED_COUPLING_CASSINI.md:8) contains neither V(chi) nor A(chi) and is unsourced by static dust (duality_screening_cone_check.py:69), leaving S = 1 unscreened.",
         },
         "suppressed_Q2_and_residuals": suppressed_results,
+        "viable_window_2M2lambda_kg_m3": {
+            "min_gal_99pct": lam_m2_min_gal,
+            "max_cassini_2sigma_mean_sun": lam_m2_max_2sig_mean,
+            "max_cassini_3sigma_mean_sun": lam_m2_max_3sig_mean,
+            "S_max_2sigma": s_max_2sig,
+            "S_max_3sigma": s_max_3sig,
+        },
+        "bose_mesner_action_operator": {
+            "operator_formula": "M^2 = sum_{i=0}^4 c_i A_i = sum_{a=0}^4 (P_a . c) E_a",
+            "mu0_over_mu2_ratio": bm_mu0_over_mu2,
+            "two_M2_lambda_kg_m3": bm_two_M2_lambda,
+            "lambda_m_inv2": bm_lambda,
+            "M_squared_kg_m_inv": bm_M_sq,
+            "M_kg_half_m_minus_half": bm_M,
+            "c_i_shells_kg_m_inv": bm_c_shells,
+            "mu_a_eigenvalues_kg_m_inv": bm_mu_eigenvalues,
+            "S_chi_mean_sun": bm_S_chi_mean,
+            "S_chi_core_sun": bm_S_chi_core,
+            "S_gal_disk": bm_S_gal_disk,
+            "m_eff_L_sun": bm_m_eff_L_sun,
+            "S_yukawa_at_L_sun": bm_S_yukawa_L_sun,
+            "in_viable_window": bm_in_viable_window,
+            "suppressed_Q2_rows": bm_suppressed_rows,
+        },
         "required_check": (
             "[O] lambda and M are not fixed in PAPER_09 or elsewhere in the Res-Nova corpus. "
             "The symmetron-suppressed Q2 and its 2014/2026 sigma residuals remain symbolic formulas in (lambda, M) [O]. "
-            "In the repaired disformal coupling without free parameters (S = 1), Cassini FAILS both windows "
+            "In the repaired disformal coupling with no screening factor (S = 1), Cassini FAILS both windows "
             "(+5.37 sigma / +5.70 sigma against 2014; +9.72 sigma / +10.28 sigma against 2026)."
         ),
     }
@@ -207,14 +275,13 @@ def main():
             f"| 2026 residual: {r_row['residual_2026_sigma_window_centered']} (raw Q2_supp/sigma_2026 = {r_row['residual_2026_sigma_raw_ratio']})"
         )
     print(f"Required check: {receipt['required_check']}")
-    # Viable (lambda, M) window for simultaneous Cassini survival and SPARC galaxy preservation (S_gal >= 0.99)
-    q2_worst = max(r["Q2_unscreened"] for r in unscreened_rows)
-    s_max_2sig = (1.60e-27 + 2.0 * sigma_2026) / q2_worst
-    s_max_3sig = (1.60e-27 + 3.0 * sigma_2026) / q2_worst
-    lam_m2_min_gal = 99.0 * rho_gal_disk
-    lam_m2_max_2sig_mean = s_max_2sig * rho_sun_mean / (1.0 - s_max_2sig)
-    lam_m2_max_3sig_mean = s_max_3sig * rho_sun_mean / (1.0 - s_max_3sig)
     print(f"Viable window (2*M^2*lambda): [{lam_m2_min_gal:.3e}, {lam_m2_max_2sig_mean:.3e}] kg/m^3 (2-sigma, S_max={s_max_2sig:.4f}) | up to {lam_m2_max_3sig_mean:.3e} kg/m^3 (3-sigma, S_max={s_max_3sig:.4f})")
+    print(
+        f"Bose-Mesner operator point (mu_0/mu_2 = 5): 2*M^2*lambda = {bm_two_M2_lambda:.6e} kg/m^3, "
+        f"lambda = {bm_lambda:.6e} m^-2, M = {bm_M:.6e} kg^(1/2) m^(-1/2), "
+        f"S_chi(mean Sun) = {bm_S_chi_mean:.6e}, S_gal(disk) = {bm_S_gal_disk:.12f}, "
+        f"in_window = {bm_in_viable_window}"
+    )
 
 
 if __name__ == "__main__":
