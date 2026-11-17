@@ -80,6 +80,12 @@ $\mathcal{K}$ does nothing in the quasistatic limit beyond the mass term $\mu^2\
 
 ## 2. Quasistatic reduction and the corrected normalisation [D]
 
+> **BRANCH SYNCHRONIZATION NOTICE (2026-11-17):**
+> 1. **Live scalar-channel branch (`μ_std`):** As recorded in the top header of `TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md` and formalized in `05_lean_formalization/SZStdEmbedding.lean`, the live scalar-channel constitutive potential replaces $\mathcal{F}_{\rm dual}$ below with $F_{\rm std}(u) = \tfrac12\big[u\sqrt{1+u^2} - \operatorname{arsinh} u\big]$:
+>    $$\mathcal{J}_{\rm std}(\mathcal{Y}) = 2\lambda_s\,\tilde a_0^{\,2}\,F_{\rm std}\!\big(\sqrt{\mathcal{Y}}/\tilde a_0\big), \qquad \mathcal{J}'_{\rm std}(\mathcal{Y}) = \lambda_s\,\mu_{\rm std}(\tilde x) = \lambda_s\,\frac{\tilde x}{\sqrt{1+\tilde x^2}}, \qquad \tilde x \equiv \frac{|\vec\nabla\varphi|}{\tilde a_0},\quad \tilde a_0 = (1+\lambda_s)a_0.$$
+> 2. **Finite-$\lambda_s$ total-law branch (`[O]` model choice):** Because $\Phi = \hat\Phi + \varphi$ is a two-channel sum, setting $\mathcal{J}' = \lambda_s\mu_{\rm std}(\tilde x)$ reproduces the total RAR $x\mu_{\rm std}(x)=y$ only as $\lambda_s\to 0$. The parametric scalar function whose *total* spherical acceleration obeys $x\mu_{\rm std}(x)=y$ at finite $\lambda_s < (27+12\sqrt{6})/5 \approx 11.2788$ is $\mathcal{J}'_{\rm tot}(\mathcal{Y}(x)) = \eta\mu_{\rm std}(x)/(1-\eta\mu_{\rm std}(x))$ with $\eta = \lambda_s/(1+\lambda_s)$, derived in `AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md` and `05_lean_formalization/AeSTTotalScalarCorrespondence.lean`.
+> 3. **Historical $\mathcal{F}_{\rm dual}$ derivation below:** Subsections §2.1–§2.2 retain the $\mathcal{F}_{\rm dual}(u) = \tfrac12 u^2 - u + \ln(1+u)$ algebra because it fixes the factor-of-2 convention ($\mu_\varphi = \mathcal{J}'$, not $2\mathcal{J}'$) and the tracking scale $\tilde a_0 = (1+\lambda_s)a_0$, and feeds directly into the §4 solar-system exclusion of $\mu_{\rm dual}(x) = x/(1+x)$ **[X]**.
+
 SZ's eq. (6): with $g_{00}=-1-2\Psi$, $g_{ij}=(1-2\Phi)\gamma_{ij}$, $A^0=1-\Psi$, $A^i=0$,
 $\phi=\bar\phi+\varphi$, $\mathcal{Q}=(1-\Psi)\mathcal{Q}_0$, the action reduces to eq. (2)
 after $\Phi=\hat\Phi+\varphi$ and $\tilde G=(1-\tfrac{K_B}{2})\hat G$:

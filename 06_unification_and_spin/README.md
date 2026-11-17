@@ -47,6 +47,16 @@ $$\chi_s = \sqrt{2\theta - \theta^2} = \sqrt{\sqrt{2} - \frac{1}{2}} \approx 0.9
 - **$E_8$ Root Partition**: 240 roots decompose into 128 half-integer (balanced ternary $\{\pm 1\}^8$) and 112 coordinate roots ($\{\pm 2, 0\}^8$).
 - **$S_3$ Triality Action**: 176 of 240 roots ($11/15 \approx 0.7333$) are fixed under $Z_2$ transposition. Burnside average orbit ratio $165.3/240 \approx 0.6889$ closely tracks the $\ln 2 \approx 0.6931$ Morse anchor.
 
+**Scope note:** [The string/M-theory bridge note](STRING_M_THEORY_BRIDGE.md) separates the established E8×E8 heterotic/M-theory relationship from the repository’s mathematical root count and from unproved physical interpretations. It does not validate the substrate or numerical interpretations in this section, or derive a connection to the modified-gravity sector.
+
+### 3.1 Current E8 implementation boundary
+
+The Lean bridge uses the pinned Mathlib `LieAlgebra.e₈`, a Serre-algebra quotient/free-Lie-algebra construction. It forms an `E8 × E8` product with componentwise bracket and checks Cartan/Gram matrix alignment under node permutation `[7,6,5,4,3,2,0,1]`. See the pinned [`SerreConstruction.lean`](https://github.com/leanprover-community/mathlib4/blob/5eec30bc56ed5a23be2e27c544a949ba0bceddeb/Mathlib/Algebra/Lie/SerreConstruction.lean) source and, for Cartan matrices, [`Cartan.lean`](https://github.com/leanprover-community/mathlib4/blob/5eec30bc56ed5a23be2e27c544a949ba0bceddeb/Mathlib/LinearAlgebra/Matrix/Cartan.lean).
+
+NumPy 2.4.6 and SymPy 1.14.0 verify the matrices exactly. Coq and Isabelle provide finite-data spot-checks of matrix, index, and arithmetic data only; they do not check the Lie algebra. The implementation does not prove E8 root-space identification/decomposition, dimension 248, simplicity, an E8 Lie-algebra isomorphism, or a physical derivation. The 496 statement is strictly `480 roots + 16 rank bookkeeping`, not a Lie-algebra dimension or physical result.
+
+The longer-range research objective is for the bottom-up Res-Nova construction and the top-down E8/string route to meet within a complete CFT. That objective remains open; this PR does not construct the CFT, and the intended setting and mathematical content have not yet been specified.
+
 ---
 
 ## 4. Execution & Verification

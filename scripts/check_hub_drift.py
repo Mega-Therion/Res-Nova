@@ -6,7 +6,7 @@ content reflects: releaseState.commit in research-hub/client/src/data/research.t
 When main moves past that commit, this script emits a GitHub Actions warning
 with the claim-registry summary. It never rewrites the hub's curated narrative
 content -- it only reports, so a human/curator decides how to fold new state
-into the public prose. See CLAUDE.md: no auto-rewrite of curated public content.
+into the public prose. Curated public content is never rewritten automatically.
 
 Before the merge this script sent a repository_dispatch to the separate hub
 repository. That repository is archived, so the notice is now a warning and
