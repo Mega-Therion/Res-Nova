@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-17",
+  "closes_gate": "BLK-1430 Sec. 9 item 2: U(nu, mu) and C^{AB} invertibility for live mu_std AeST",
+  "symbolic": {
+    "U_nu_symbolic": "Q_0**2*nu/(1 - nu/(2*K_2))",
+    "U_mu_symbolic": "a_tilde**2*(-lam_s*(2 - K_B)*atanh(mu/(lam_s*(2 - K_B))) + mu)",
+    "dU_dmu_symbolic": "-a_tilde**2*mu**2/(lam_s**2*(K_B - 2)**2 - mu**2)",
+    "dU_dnu_symbolic": "4*K_2**2*Q_0**2/(2*K_2 - nu)**2",
+    "d2U_dmu2_symbolic": "-2*a_tilde**2*lam_s**2*mu*(2 - K_B)**2/(lam_s**2*(2 - K_B)**2 - mu**2)**2",
+    "d2U_dnu2_symbolic": "Q_0**2/(K_2*(1 - nu/(2*K_2))**3)",
+    "det_Hess_U_symbolic": "-16*K_2**2*Q_0**2*a_tilde**2*lam_s**2*mu*(K_B - 2)**2/((2*K_2 - nu)**3*(K_B*lam_s - 2*lam_s - mu)**2*(K_B*lam_s - 2*lam_s + mu)**2)",
+    "A_zero_S_nu_nu_symbolic": "2*Q_0**2/(nu*(1 - nu/(2*K_2))**3)",
+    "canonical_rank1_correction_verified": true
+  },
+  "numerical": {
+    "benchmark_params": {
+      "K_B": 0.5,
+      "lam_s": 1.0,
+      "mu_max": 1.5,
+      "Q_0_Mpc_inv": 0.1,
+      "K_2": 37.878787878787875
+    },
+    "max_U_mu_error": 3.552713678800501e-15,
+    "max_inverse_hessian_error": 1.8207657603852567e-14,
+    "samples": [
+      {
+        "u": 0.05,
+        "mu": 0.07490643,
+        "nu": 0.07568189,
+        "U_mu": -0.0002494388,
+        "abs_U_err": 5.681219383824043e-17,
+        "d2U_dmu2": -0.26766729,
+        "d2U_dnu2": 0.0002647928,
+        "det_Hess_U": -7.0876369e-05,
+        "det_C_AB_A0": -0.0709472459
+      },
+      {
+        "u": 0.25,
+        "mu": 0.36380344,
+        "nu": 0.07568189,
+        "U_mu": -0.0295850191,
+        "abs_U_err": 1.3877787807814457e-17,
+        "d2U_dmu2": -1.46026658,
+        "d2U_dnu2": 0.0002647928,
+        "det_Hess_U": -0.000386668064,
+        "det_C_AB_A0": -0.3870547321
+      },
+      {
+        "u": 1.0,
+        "mu": 1.06066017,
+        "nu": 0.07568189,
+        "U_mu": -1.045600835,
+        "abs_U_err": 0.0,
+        "d2U_dmu2": -15.08494467,
+        "d2U_dnu2": 0.0002647928,
+        "det_Hess_U": -0.003994384619,
+        "det_C_AB_A0": -3.9983790037
+      },
+      {
+        "u": 3.0,
+        "mu": 1.42302495,
+        "nu": 0.07568189,
+        "U_mu": -5.2185789671,
+        "abs_U_err": 3.552713678800501e-15,
+        "d2U_dmu2": -505.96442563,
+        "d2U_dnu2": 0.0002647928,
+        "det_Hess_U": -0.133975733048,
+        "det_C_AB_A0": -134.1097087811
+      },
+      {
+        "u": 10.0,
+        "mu": 1.49255579,
+        "nu": 0.07568189,
+        "U_mu": -12.0191145605,
+        "abs_U_err": 3.552713678800501e-15,
+        "d2U_dmu2": -54135.33001244,
+        "d2U_dnu2": 0.0002647928,
+        "det_Hess_U": -14.334645194127,
+        "det_C_AB_A0": -14348.979839323
+      }
+    ]
+  }
+}
