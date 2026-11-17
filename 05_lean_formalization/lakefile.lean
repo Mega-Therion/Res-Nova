@@ -161,5 +161,8 @@ lean_lib «ResNovaFormal» where
     `CassiniSymmetronWindow,
     -- ADDED 2026-11-17. Fu et al. (2024) Eq. (4) vector-variation discrepancy (b vs 2b)
     -- and nonzero constrained Noether/Bianchi residual in 1+1 Minkowski space (PR #215 / BLK-1436 #5).
-    `AeSTVectorNoetherResidual
+    `AeSTVectorNoetherResidual,
+    -- ADDED 2026-11-13 (PR #210). Adjacent root-data bookkeeping only; not a physical
+    -- unification result.
+    `StringTheoryBridge
   ]
