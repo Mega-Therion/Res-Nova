@@ -79,13 +79,20 @@ AeSTHamiltonianLegendre.lean     # BSZ (2024) auxiliary potential U(nu, mu) and
                                  # supports TARGET_D7 / BSZ Hamiltonian mapping,
                                  # not cited by the manuscript).
 AeSTVectorNoetherResidual.lean   # PR #215 / BLK-1429 / BLK-1436 #5: Fu et al.
-AeSTParameterizedNormalization.lean # Issue #217 parameterized live scalar-channel derivative;
-                                      # supplemental D7 normalization proof. Built and gated,
-                                      # but not currently cited as a main-manuscript result.
                                  # (2024) Eq. (4) J^mu bracket discrepancy
                                  # (b vs 2b) and nonzero Minkowski/hyperbolic
                                  # Noether residual R_0, R_1 != 0. Supports D7
                                  # variation audit, not cited by the manuscript.
+AeSTParameterizedNormalization.lean  # Issue #217 / BLK-1443 (Muse): arbitrary-lam
+                                 # and a_tilde > 0 scalar-channel calculus
+                                 # derivative J'(Y) = lam mu_std(sqrt Y / a).
+                                 # Calculus/normalization only; not cited by the manuscript.
+AeSTDiffeomorphismNoether.lean   # Issue #217 obligations 3-4: arbitrary-dim
+                                 # diffeomorphism Noether identity, minimal-
+                                 # coupling matter conservation, Levi-Civita C1,
+                                 # and C^2 1+1D curved-metric fderiv proofs of
+                                 # density divergence and div T = E_chi d chi.
+                                 # Supports D7 covariant audit; not cited by the manuscript.
 CassiniSymmetronWindow.lean      # 2026-11-15 screening-window bookkeeping for
                                  # 02_galaxy_dynamics/screen_mass_cassini.py:
                                  # integer-cleared bounds and witnesses, not a

@@ -170,8 +170,23 @@ def run_symbolic_checks() -> dict:
     )
     assert sp.diff(H_curl, mu) == 0 and sp.diff(H_curl, nu) == 0
 
-    # BLK-1440 Minkowski boundary degeneration: d2U/dmu2(mu=0) = 0
+    # BLK-1440 Minkowski boundary degeneration & BLK-1446 #2 tertiary-constraint analysis at mu = 0:
     assert d2U_dmu2_expected.subs(mu, 0) == 0
+    w1_expr = A_norm * sig + chi_expr * Dp_par
+    # 1. Exact sum-of-squares decomposition Y_can == w1^2 + Dp_perp^2
+    assert sp.simplify(Y_can - (w1_expr**2 + Dp_perp**2)) == 0
+    # 2. On S^(mu)|_{mu=0} = Y_can = 0: w1 = 0, Dp_perp = 0 => v_mu = A_norm * w1 = 0
+    #    Also note (w1 * Xi) is completely independent of mu for ALL A_norm, so dw1/dmu = A_norm^2 * w1 / Xi!
+    assert sp.simplify(sp.diff(w1_expr * Xi, mu)) == 0
+    assert sp.simplify(sp.diff(w1_expr, mu) - A_norm**2 * w1_expr / Xi) == 0
+    # 3. Division-free determinant det(C^{AB}) = U_mumu*U_nunu + (2/Xi)*(U_mumu*v_nu^2 + U_nunu*v_mu^2)
+    det_no_div = Um_s * Un_s + (2 / Xi_s) * (Um_s * vn_s**2 + Un_s * vm_s**2)
+    assert sp.simplify(det_direct - det_no_div) == 0
+    assert sp.simplify(det_no_div.subs({Um_s: 0, vm_s: 0})) == 0
+    # 4. Dirac irregularity / no linear tertiary constraint: all first partials of S^(mu) vanish at (w1=0, Dp_perp=0, mu=0)
+    w1_s = sp.Symbol("w1_s", real=True)
+    S_mu_cone = w1_s**2 + Dp_perp**2 - a0t**2 * mu**2 / (mu_max**2 - mu**2)
+    assert all(sp.diff(S_mu_cone, var).subs({w1_s: 0, Dp_perp: 0, mu: 0}) == 0 for var in (w1_s, Dp_perp, mu))
 
     print("[PASS] mu(Y) and nu(Q) conjugate inversion verified symbolically")
     print("[PASS] Closed-form BSZ auxiliary potential U(nu, mu) verified:")
@@ -182,6 +197,7 @@ def run_symbolic_checks() -> dict:
     print("[PASS] Full canonical kinetic Hessian = (2/Xi) v v^T (exact rank-1) verified")
     print("[PASS] A_i = 0 canonical S^(nu)_nu = 2 Q_0^2 / [nu (1 - nu/(2*K_2))^3] verified")
     print("[PASS] General A_i != 0, curl A != 0 universal nu-cancellation and curl-independence verified")
+    print("[PASS] BLK-1446 #2 (mu=0): Y_can=w1^2+D_perp^2, v_mu=0 on S^(mu)=0, dS^(mu)|_0=0 (no linear tertiary constraint)")
 
     return {
         "U_nu_symbolic": str(U_nu),
@@ -194,6 +210,7 @@ def run_symbolic_checks() -> dict:
         "A_zero_S_nu_nu_symbolic": str(M_11_A0_expected),
         "nonspherical_universal_nu_cancellation": str(shift_expected),
         "d2U_dmu2_at_zero": 0,
+        "mu_zero_dirac_degeneracy": "irregular quadratic cone (dS^(mu)|_{mu=0,S^(mu)=0}=0, C^{AB} rank-1, no linear tertiary constraint)",
         "canonical_rank1_correction_verified": True,
     }
 

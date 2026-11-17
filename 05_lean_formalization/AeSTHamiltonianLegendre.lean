@@ -375,7 +375,132 @@ theorem d2U_dmu2_at_zero (a0t muMax : ℝ) : d2U_dmu2_expr a0t muMax 0 = 0 := by
   unfold d2U_dmu2_expr
   ring
 
+/-! ## 6. Dirac Constraint Classification & Absence of Linear Tertiary Constraints at `μ = 0` (`BLK-1446` #2) -/
+
+/-- Exact canonical `Y_can` sum-of-squares decomposition (valid for all `A_i`, `B = curl A`,
+and `χ² = 1 + |A|²`): `Y_can = w₁² + |D_⊥ φ|²` where `w₁ := |A| σ + χ D_∥`. -/
+theorem Y_can_eq_sum_of_squares {A_norm sig chi Dp_par Dp_perp : ℝ}
+    (hchi : chi ^ 2 = 1 + A_norm ^ 2) :
+    A_norm ^ 2 * sig ^ 2 + 2 * chi * sig * A_norm * Dp_par +
+      Dp_par ^ 2 + Dp_perp ^ 2 + (A_norm * Dp_par) ^ 2 =
+      (A_norm * sig + chi * Dp_par) ^ 2 + Dp_perp ^ 2 := by
+  have h : (A_norm * sig + chi * Dp_par) ^ 2 + Dp_perp ^ 2 =
+      A_norm ^ 2 * sig ^ 2 + 2 * chi * sig * A_norm * Dp_par +
+        chi ^ 2 * Dp_par ^ 2 + Dp_perp ^ 2 := by ring
+  rw [h, hchi]
+  ring
+
+/-- **Secondary Constraint Shell at `μ = 0` Forces `v_μ = 0` (`BLK-1446` #2):**
+Because `Y(0) = 0`, the secondary constraint `S^(μ)|_{μ=0} = w₁² + |D_⊥ φ|² = 0` forces both
+`w₁ = 0` and `D_⊥ φ = 0`, which forces `v_μ = |A| w₁ = 0` identically even when `A_i ≠ 0`. -/
+theorem mu_zero_shell_forces_v_mu_zero {a0t muMax A_norm w1 Dp_perp : ℝ}
+    (_hmMax : muMax ≠ 0)
+    (hS : w1 ^ 2 + Dp_perp ^ 2 - yOfMu a0t muMax 0 = 0) :
+    w1 = 0 ∧ Dp_perp = 0 ∧ A_norm * w1 = 0 := by
+  have hy0 : yOfMu a0t muMax 0 = 0 := by
+    unfold yOfMu
+    simp
+  rw [hy0, sub_zero] at hS
+  have hw1 : w1 ^ 2 = 0 := by nlinarith [sq_nonneg w1, sq_nonneg Dp_perp]
+  have hdp : Dp_perp ^ 2 = 0 := by nlinarith [sq_nonneg w1, sq_nonneg Dp_perp]
+  have hw : w1 = 0 := sq_eq_zero_iff.mp hw1
+  have hd : Dp_perp = 0 := sq_eq_zero_iff.mp hdp
+  exact ⟨hw, hd, by rw [hw, mul_zero]⟩
+
+/-- Division-free determinant identity for `C^{AB} = Hess(U) + (2/Ξ) v vᵀ`, valid across `U_{μμ} = 0`. -/
+theorem det_C_AB_no_div (Xi Um Un vm vn : ℝ) (hXi : Xi ≠ 0) :
+    (Um + 2 * vm ^ 2 / Xi) * (Un + 2 * vn ^ 2 / Xi) - (2 * vm * vn / Xi) ^ 2 =
+      Um * Un + (2 / Xi) * (Um * vn ^ 2 + Un * vm ^ 2) := by
+  field_simp
+  ring
+
+/-- Off-shell at `μ = 0`, `det C^{AB}|_{μ=0} = (2 / Ξ) U_{νν} v_μ²`; on the `S^(μ)|_{μ=0} = 0`
+shell (`v_μ = 0`), the entire `μ`-row and `μ`-column `(C^{μμ}, C^{μν})` vanish identically `(0, 0)`,
+so `det C^{AB} = 0` and `rank(C^{AB}) ≤ 1`. -/
+theorem C_AB_mu_zero_shell_rank_drop {a0t muMax Xi Un vn : ℝ}
+    {w1 Dp_perp A_norm : ℝ} (hmMax : muMax ≠ 0) (hXi : Xi ≠ 0)
+    (hS : w1 ^ 2 + Dp_perp ^ 2 - yOfMu a0t muMax 0 = 0) :
+    let Um := d2U_dmu2_expr a0t muMax 0
+    let vm := A_norm * w1
+    Um + 2 * vm ^ 2 / Xi = 0 ∧
+    2 * vm * vn / Xi = 0 ∧
+    (Um + 2 * vm ^ 2 / Xi) * (Un + 2 * vn ^ 2 / Xi) - (2 * vm * vn / Xi) ^ 2 = 0 := by
+  intro Um vm
+  obtain ⟨_, _, hvm⟩ := mu_zero_shell_forces_v_mu_zero hmMax hS
+  have hUm : Um = 0 := d2U_dmu2_at_zero a0t muMax
+  have hvm0 : vm = 0 := hvm
+  refine ⟨?_, ?_, ?_⟩
+  · rw [hUm, hvm0]; ring
+  · rw [hvm0]; ring
+  · rw [det_C_AB_no_div Xi Um Un vm vn hXi, hUm, hvm0]; ring
+
+/-- Scalar secondary constraint functional `S^(μ)(w₁, w₂, μ) = w₁² + w₂² - Y(μ)`. -/
+def S_mu_func (a0t muMax w1 w2 mu : ℝ) : ℝ := w1 ^ 2 + w2 ^ 2 - yOfMu a0t muMax mu
+
+/-- **Dirac Irregularity & No Linear Tertiary Constraint at `μ = 0` (`BLK-1446` #2):**
+All partial derivatives of `S^(μ)(w₁, w₂, μ)` vanish identically at `(w₁ = 0, w₂ = 0, μ = 0)`.
+Because `dS^(μ) = 0` everywhere on the `μ = 0` constraint locus, the Poisson bracket
+`{S^(μ), H₀}` vanishes identically at `μ = 0`: no new linear functional tertiary constraint is
+generated in the Poisson consistency condition `{S^(μ), H_T} = 0`; instead `S^(μ) = 0` fails
+Dirac's regularity condition (`rank dS^(μ) = 0`) as a quadratic cone. -/
+theorem S_mu_all_partials_vanish_at_zero (a0t muMax : ℝ) (hmMax : muMax ≠ 0) :
+    HasDerivAt (fun w1 => S_mu_func a0t muMax w1 0 0) 0 0 ∧
+    HasDerivAt (fun w2 => S_mu_func a0t muMax 0 w2 0) 0 0 ∧
+    HasDerivAt (fun mu => S_mu_func a0t muMax 0 0 mu) 0 0 := by
+  have hm2 : muMax ^ 2 - 0 ^ 2 ≠ 0 := by simp [pow_ne_zero 2 hmMax]
+  refine ⟨?_, ?_, ?_⟩
+  · have h1 : HasDerivAt (fun w1 : ℝ => w1 ^ 2 + (0 : ℝ) ^ 2 - yOfMu a0t muMax 0) 0 0 := by
+      have hsq : HasDerivAt (fun w1 : ℝ => w1 ^ 2) ((2 : ℕ) * (0 : ℝ) ^ (2 - 1)) 0 :=
+        hasDerivAt_pow 2 (0 : ℝ)
+      have ha : HasDerivAt (fun w1 : ℝ => w1 ^ 2 + (0 : ℝ) ^ 2) ((2 : ℕ) * (0 : ℝ) ^ (2 - 1)) 0 :=
+        hsq.add_const ((0 : ℝ) ^ 2)
+      simpa using ha.sub_const (yOfMu a0t muMax 0)
+    simpa [S_mu_func] using h1
+  · have h2 : HasDerivAt (fun w2 : ℝ => (0 : ℝ) ^ 2 + w2 ^ 2 - yOfMu a0t muMax 0) 0 0 := by
+      have hsq : HasDerivAt (fun w2 : ℝ => w2 ^ 2) ((2 : ℕ) * (0 : ℝ) ^ (2 - 1)) 0 :=
+        hasDerivAt_pow 2 (0 : ℝ)
+      have ha : HasDerivAt (fun w2 : ℝ => (0 : ℝ) ^ 2 + w2 ^ 2) ((2 : ℕ) * (0 : ℝ) ^ (2 - 1)) 0 :=
+        hsq.const_add ((0 : ℝ) ^ 2)
+      simpa using ha.sub_const (yOfMu a0t muMax 0)
+    simpa [S_mu_func] using h2
+  · have hnum : HasDerivAt (fun m : ℝ => a0t ^ 2 * m ^ 2) (a0t ^ 2 * (2 * 0)) 0 := by
+      simpa using ((hasDerivAt_pow 2 (0 : ℝ)).const_mul (a0t ^ 2))
+    have hden : HasDerivAt (fun m : ℝ => muMax ^ 2 - m ^ 2) (-(2 * 0)) 0 := by
+      simpa using ((hasDerivAt_pow 2 (0 : ℝ)).const_sub (muMax ^ 2))
+    have hy : HasDerivAt (yOfMu a0t muMax) 0 0 := by
+      have hdiv := hnum.div hden hm2
+      refine hdiv.congr_deriv ?_
+      simp
+    have h3 : HasDerivAt (fun mu : ℝ => (0 : ℝ) ^ 2 + (0 : ℝ) ^ 2 - yOfMu a0t muMax mu) (0 - 0) 0 :=
+      (hasDerivAt_const (0 : ℝ) ((0 : ℝ) ^ 2 + (0 : ℝ) ^ 2)).sub hy
+    simpa [S_mu_func, sub_zero] using h3
+
+/-- **Quadratic-Cone Multiplier Law at `μ = 0` (`½ d²/dt² S^(μ)|₀ = 0`):**
+While `{S^(μ), H₀} = 0` imposes no new spatial constraint on `H₀`, differentiating `S^(μ) = 0`
+twice along any trajectory passing through `(w₁ = 0, w₂ = 0, μ = 0)` gives the quadratic slope
+relation `ẇ₁² + ẇ₂² = (ã₀ / μ_max)² μ̇²`, fixing `u_μ = μ̇ = 0` on the static Minkowski vacuum and
+driving `μ` into the strictly invertible `μ > 0` interior whenever gradients evolve (`ẇ₁² + ẇ₂² > 0`). -/
+theorem mu_zero_second_time_deriv_slope {a0t muMax dw1 dw2 u_mu : ℝ}
+    (ha : 0 < a0t) (hmMax : 0 < muMax)
+    (hcone : dw1 ^ 2 + dw2 ^ 2 = (a0t / muMax) ^ 2 * u_mu ^ 2) :
+    (dw1 = 0 ∧ dw2 = 0 → u_mu = 0) ∧ (0 < dw1 ^ 2 + dw2 ^ 2 → u_mu ≠ 0) := by
+  refine ⟨?_, ?_⟩
+  · rintro ⟨h1, h2⟩
+    have hcpos : 0 < (a0t / muMax) ^ 2 := pow_pos (div_pos ha hmMax) 2
+    have hsq0 : (a0t / muMax) ^ 2 * u_mu ^ 2 = 0 := by rw [h1, h2] at hcone; linarith
+    have hu2 : u_mu ^ 2 = 0 := (mul_eq_zero.mp hsq0).resolve_left hcpos.ne'
+    exact sq_eq_zero_iff.mp hu2
+  · intro hpos hu0
+    rw [hu0] at hcone
+    linarith
+
 #print axioms d2U_dmu2_at_zero
+#print axioms Y_can_eq_sum_of_squares
+#print axioms mu_zero_shell_forces_v_mu_zero
+#print axioms det_C_AB_no_div
+#print axioms C_AB_mu_zero_shell_rank_drop
+#print axioms S_mu_all_partials_vanish_at_zero
+#print axioms mu_zero_second_time_deriv_slope
 
 #print axioms Q_of_nu_inverts_nu
 #print axioms U_nu_legendre_identity
