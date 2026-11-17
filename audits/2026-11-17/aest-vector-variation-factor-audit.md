@@ -304,14 +304,14 @@ That residual must be explicitly checked; it cannot be assumed to vanish. The ma
 - The published Hamiltonian analysis reports four first-class and four second-class constraints and six nonlinear physical degrees of freedom. These counts should be reproduced only after the exact action/equation pair is pinned.
 - No spectrum, branch fit, or physical stability claim is advanced here.
 
-## 9. Next required computations
+## 9. Remaining gates and next sequence
 
-1. Independently derive the vector Euler derivative in explicit components from the exact action (including a simple nontrivial field configuration with \(B^\nu\ne0\)).
-2. Compare the 2021 action and the 2022 stability expansion with the 2024 Eqs. (1)–(5), term by term, to locate whether the discrepancy is transcription, convention, or publication error.
-3. Expand \(E^{\rm conn}_{\mu\nu}\) and compare each term to the published \(\mathcal H_{\mu\nu}\).
-4. Write the exact diffeomorphism Noether identity in the declared field basis and test it against both candidate vector equations.
-5. Specify boundary data and derive the complete boundary action before claiming a well-posed variational principle.
-6. Only after these gates, derive the metric-half/Newtonian limit, full \(K(\mathcal Q)\) cosmological branch and perturbative stability for the chosen \(\mathcal F(\mathcal Y,\mathcal Q)\).
+1. **Publication reconciliation [O]:** obtain an author/journal response or erratum confirming whether Fu et al. (2024), Eq. (4), contains a coefficient typo or uses an unstated convention. No such confirmation was found in the public sources checked. Until it is obtained, preserve both the printed equation and the action-derived equation as distinct records; do not promote either as a corrected publication.
+2. **Hamiltonian cross-check [O]:** reproduce the 2024 Hamiltonian formalism from the pinned action and verify whether its canonical vector equations/constraint propagation encode the action-derived coefficient. The published paper's four first-class/four second-class constraints and six nonlinear physical degrees of freedom are reference targets, not yet independently reproduced in this audit.
+3. **Boundary alternatives [O]:** if the intended physical problem uses induced-metric-only Dirichlet data, Neumann data, or mixed scalar/vector data, derive the corresponding boundary functional. The strong full-Dirichlet prescription in §7 is sufficient but not minimal.
+4. **Only after gates 1–2:** proceed to the selected AeST constitutive branch's metric/Newtonian limit, full K(Q) cosmological branch, and perturbative stability. Do not use the published Eq. (4) as the vector Euler derivative in these calculations unless the coefficient issue is resolved.
+
+The vector component regression and the nonzero Noether residual regression both pass exact SymPy assertions in the committed verification script. This is a focused component regression, not a full 4D formal proof.
 
 ## Sources
 
