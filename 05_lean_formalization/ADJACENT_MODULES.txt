@@ -79,6 +79,9 @@ AeSTHamiltonianLegendre.lean     # BSZ (2024) auxiliary potential U(nu, mu) and
                                  # supports TARGET_D7 / BSZ Hamiltonian mapping,
                                  # not cited by the manuscript).
 AeSTVectorNoetherResidual.lean   # PR #215 / BLK-1429 / BLK-1436 #5: Fu et al.
+AeSTParameterizedNormalization.lean # Issue #217 parameterized live scalar-channel derivative;
+                                      # supplemental D7 normalization proof. Built and gated,
+                                      # but not currently cited as a main-manuscript result.
                                  # (2024) Eq. (4) J^mu bracket discrepancy
                                  # (b vs 2b) and nonzero Minkowski/hyperbolic
                                  # Noether residual R_0, R_1 != 0. Supports D7
