@@ -19,8 +19,16 @@ There is not yet one frozen full master equation. The following source identitie
    `mu_std(x) = x / sqrt(1 + x^2)` and `F_std'(x) = x * mu_std(x)`, hence `F_std(x) = 1/2 * (x * sqrt(1+x^2) - asinh(x))`. Domain and variational normalization must be declared per use. The derivative convention is explicitly **not** `F' = mu`.
 2. **`RN-AQUAL-FIELD-001` — non-relativistic AQUAL field equation.**
    Candidate divergence-form target: `div(mu_std(|grad Phi|/a0) grad Phi) = 4*pi*G*rho`. This spec records it as a target correspondence, not a newly derived theorem. Sign, normalization, boundary conditions, and exact `F_std` argument convention must be reconciled against the chosen action before it can be promoted to canonical.
-3. **`RN-COV-ACTION-001` — covariant completion.**
-   The candidate `S = integral sqrt(-g) [M_Pl^2 R/2 + L_T(A, chi)] + S_m[tilde(g), psi]` is an ansatz recorded in `COVARIANT_STRESS_ENERGY_COMPLETION.md`. Its complete variation, matter coupling, dimensions, constraints, and stability/causality status are not thereby established.
+3. **`RN-COV-ACTION-001` — live covariant completion (Skordis–Złośnik AeST, `TARGET_D7` §1).**
+   The live covariant candidate is the Skordis–Złośnik AeST action (`TARGET_D7_COVARIANT_COMPLETION.md` §1, arXiv:2007.00082 eq. 5) in the declared independent field basis `(g_munu, A_mu, phi, lambda)` with minimal matter coupling:
+   `S = integral d^4x (sqrt(-g) / (16*pi*tilde(G))) [R - (K_B/2) F_{munu} F^{munu} + 2(2-K_B) J^mu ∇_mu phi - (2-K_B) Y - F(Y, Q) - lambda (g^{munu} A_mu A_nu + 1)] + S_m[g_munu, psi]`.
+   Off-shell metric variations must specify whether `A_alpha` or `A^alpha` is held fixed (`05_lean_formalization/AeSTWeakFieldCondensate.lean`):
+   `(1/sqrt(-g)) delta S / delta g^{munu}|_{A^alpha} = (1/sqrt(-g)) delta S / delta g^{munu}|_{A_alpha} - E_{A(mu} A_{nu)}`,
+   so the two conventions coincide on the vector shell `E_A = 0` (`metricEuler_eq_on_vector_shell`) and differ off shell by `-E_{A(mu} A_{nu)}`.
+   In the quasistatic two-potential sector (`Phi = hat(Phi) + varphi`), two distinct constitutive choices are tracked explicitly:
+   - **Live scalar-channel choice (`SZStdEmbedding.lean`):** `J'_std(Y) = lambda_s * mu_std(sqrt(Y) / tilde(a0))` with `tilde(a0) = (1 + lambda_s) a0`.
+   - **Finite-`lambda_s` total-law candidate (`AeSTTotalScalarCorrespondence.lean`, `[O]`):** `J'_tot(Y(x)) = eta * mu_std(x) / (1 - eta * mu_std(x))` with `eta = lambda_s / (1 + lambda_s)`, single-valued for `lambda_s < (27 + 12*sqrt(6))/5 ≈ 11.2788`.
+   The older generalized-Einstein-aether / disformal-matter ansatz `S = integral sqrt(-g) [M_Pl^2 R/2 + L_T(A, chi)] + S_m[tilde(g), psi]` in `COVARIANT_STRESS_ENERGY_COMPLETION.md` is retired **[X]** (`RN-GEA-RETIRED-001`) per the 2026-09-12 / 2026-09-20 branch notices.
 4. **`RN-DUAL-CHANNEL-001` — older dual/Pade branch.**
    `F_dual(x) = 1/2*x^2 - x + ln(1+x)` is a distinct branch. Its algebraic Legendre results do not establish equivalence to the live `mu_std` AQUAL branch or a covariant field theory.
 5. **`CHY-LINDBLAD-001` — separate source framework.**
@@ -99,7 +107,13 @@ This audit therefore finds the core consistent with its intentionally narrow con
 
 ## Primary sources in repository
 
-- `01_foundational_action/COVARIANT_STRESS_ENERGY_COMPLETION.md`
+- `TARGET_D7_COVARIANT_COMPLETION.md` (live AeST covariant action, §1–§2)
+- `TARGET_D9_SKORDIS_ZLOSNIK_EMBEDDING.md` (live `mu_std` AeST embedding)
+- `AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md` (finite-`lambda_s` total-law scalar correspondence)
+- `05_lean_formalization/SZStdEmbedding.lean`
+- `05_lean_formalization/AeSTTotalScalarCorrespondence.lean`
+- `05_lean_formalization/AeSTWeakFieldCondensate.lean`
+- `01_foundational_action/COVARIANT_STRESS_ENERGY_COMPLETION.md` (retired GEA/disformal branch `[X]`)
 - `01_foundational_action/PAPER_01_MU_DERIVATION_ACTION.tex`
 - `01_foundational_action/PRD_supplementary/lean_proofs/MASTER_EQUATION.md` (separate Chyren/Lindblad source)
 - `05_lean_formalization/MuStdUniqueness.lean`
