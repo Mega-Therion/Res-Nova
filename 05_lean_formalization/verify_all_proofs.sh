@@ -113,6 +113,7 @@ TARGETS=(
   OctonionHopfShells.lean
   AeSTWeakFieldCondensate.lean
   AeSTHamiltonianLegendre.lean
+  AeSTParameterizedNormalization.lean
   CassiniSymmetronWindow.lean
   AeSTVectorNoetherResidual.lean
   StringTheoryBridge.lean
