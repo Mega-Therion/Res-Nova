@@ -29,12 +29,13 @@ step() {
   fi
 }
 
-step "py_compile" bash -c 'python3 -m py_compile 02_galaxy_dynamics/*.py scripts/check_claim_consistency.py 05_lean_formalization/check_manuscript_inventory.py scripts/render_mvpc_fixtures.py scripts/run_mvpc_adapter.py 03_observer_jwst/gate2_inference.py'
+step "py_compile" bash -c 'python3 -m py_compile 02_galaxy_dynamics/*.py scripts/check_claim_consistency.py 05_lean_formalization/check_manuscript_inventory.py 05_lean_formalization/verify_e8_cartan_bridge.py scripts/render_mvpc_fixtures.py scripts/run_mvpc_adapter.py 03_observer_jwst/gate2_inference.py'
 step "claim consistency" python3 scripts/check_claim_consistency.py
 step "claim registry" python3 scripts/validate_claim_registry.py
 step "claim registry fixtures" python3 scripts/test_claim_registry_fixtures.py
 step "gate2 inference self-test" python3 03_observer_jwst/gate2_inference.py --self-test
 step "lean target inventory" python3 05_lean_formalization/check_target_inventory.py
+step "E8 NumPy/SymPy Cartan check" python3 05_lean_formalization/verify_e8_cartan_bridge.py
 step "lean manuscript inventory" python3 05_lean_formalization/check_manuscript_inventory.py
 step "mvpc fixture manifests" python3 scripts/render_mvpc_fixtures.py --check
 # Publication identity. Offline by default so the gate stays fast and works

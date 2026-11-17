@@ -129,7 +129,40 @@ lean_lib «ResNovaFormal» where
     `RiemannSpectralExpander,
     `StiefelLaplaceEigenvalue,
     `QuarkMassLadder,
+    -- ADDED 2026-10-14. D7/D9: the scalar-channel function whose TOTAL law is mu_std, and its 11.2788 bound.
+    `AeSTTotalScalarCorrespondence,
+    `MasterEquationCore,
+    -- ADDED 2026-11-01. The AQUAL weak-form contract draft (RN-AQUAL-FIELD-001).
+    -- Definitions and one inherited constitutive identity; it does not prove the
+    -- field equation, integrability, or that the weak form follows from an action.
+    `AQUALWeakFormDraft,
+    `InitialAlgebraExecution,
+    `ListInitialAlgebra,
+    `BinaryPrefixBasis,
+    -- RESTORED 2026-11-17: the six roots above were dropped by 95f4578b (E8Roots).
     -- ADDED 2026-11-11. The E8 root system: 240 roots on the doubled integer
     -- lattice, classification, root-system axioms, simple roots + Cartan matrix.
-    `E8Roots
+    `E8Roots,
+    -- ADDED 2026-11-15. The E8 → SO(10) branching at the weight level:
+    -- 248 = (8,1) ⊕ (1,78) ⊕ (3,27) ⊕ (3̄,27̄) under E6 × SU(3), then
+    -- E6 ⊃ SO(10) × U(1). Builds on E8Roots.
+    `E8Branching,
+    -- ADDED 2026-11-17. Octonionic Complex-Hopf S7 isometry, CP2 quaternionic S3
+    -- shells, and Z3 <= SU(3) <= G2 diagonal subalgebra selection (BLK-1408, BLK-1411).
+    `OctonionHopfShells,
+    -- ADDED 2026-11-17. AeST off-shell metric variation chain rule, static spherical
+    -- reduction, weak-field condensate/Helmholtz equation, and BLK-1420 benchmark.
+    `AeSTWeakFieldCondensate,
+    -- ADDED 2026-11-17. Closed-form BSZ auxiliary potential U(nu, mu), secondary
+    -- constraints S^(mu)/S^(nu), and C^{AB} invertibility for live mu_std AeST (BLK-1430).
+    `AeSTHamiltonianLegendre,
+    -- ADDED 2026-11-17. Cassini-SPARC symmetron screening window (2026-11-15 work):
+    -- galaxy lower bound, scale upper bound => Cassini 2-sigma, integer witnesses.
+    `CassiniSymmetronWindow,
+    -- ADDED 2026-11-17. Fu et al. (2024) Eq. (4) vector-variation discrepancy (b vs 2b)
+    -- and nonzero constrained Noether/Bianchi residual in 1+1 Minkowski space (PR #215 / BLK-1436 #5).
+    `AeSTVectorNoetherResidual,
+    -- ADDED 2026-11-13 (PR #210). Adjacent root-data bookkeeping only; not a physical
+    -- unification result.
+    `StringTheoryBridge
   ]

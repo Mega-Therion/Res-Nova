@@ -108,6 +108,14 @@ TARGETS=(
   InitialAlgebraExecution.lean
   ListInitialAlgebra.lean
   BinaryPrefixBasis.lean
+  E8Roots.lean
+  E8Branching.lean
+  OctonionHopfShells.lean
+  AeSTWeakFieldCondensate.lean
+  AeSTHamiltonianLegendre.lean
+  CassiniSymmetronWindow.lean
+  AeSTVectorNoetherResidual.lean
+  StringTheoryBridge.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------

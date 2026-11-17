@@ -67,6 +67,8 @@ def fit1(g, a0, r_sun, p):
 
 
 if __name__ == "__main__":
+    from pathlib import Path
+    here = Path(__file__).resolve().parent
     a0 = A0_DERIVED
     v0 = Q2_screened(nu_std, a0, 1.9e-10, None, 2); m0 = Q2_milgrom(nu_std, a0, 1.9e-10)[0]
     print(f"validation (no screening): direct {v0:.4e}  Milgrom {m0:.4e}  ratio {v0/m0:.4f}")
@@ -74,9 +76,10 @@ if __name__ == "__main__":
     base = [fit1(g, a0, None, 2) for g in gals]; chi_base = sum(c for c, _ in base)
     red0 = np.median([c / max(len(g["r"]) - k, 1) for (c, k), g in zip(base, gals)])
     print(f"SPARC mu_std unscreened: total chi2 {chi_base:.1f}, tier-1 median {red0:.3f}")
-    out = {"validation": [v0, m0], "rows": []}
+    r_sun_bm = 384.0 / 1920.0  # 0.20 pc from Bose-Mesner quadrupole/singlet ratio mu_2 / mu_0 = 6 / 30 = 1/5
+    out = {"validation": [v0, m0], "bose_mesner_r_sun_pc": r_sun_bm, "bose_mesner_results": {}, "rows": []}
     for p in (2, 4):
-        for r_sun in (0.003, 0.01, 0.03, 0.1, 0.3, 1.0, 3.0, 10.0, 30.0):   # pc
+        for r_sun in (0.003, 0.01, 0.03, 0.1, r_sun_bm, 0.3, 1.0, 3.0, 10.0, 30.0):   # pc
             rs_m = r_sun * PC
             q19 = Q2_screened(nu_std, a0, 1.9e-10, rs_m, p); q24 = Q2_screened(nu_std, a0, 2.4e-10, rs_m, p)
             fits = [fit1(g, a0, r_sun, p) for g in gals]
@@ -85,5 +88,7 @@ if __name__ == "__main__":
             row = {"p": p, "r_scr_sun_pc": r_sun, "r_scr_1e10_pc": r_sun * 1e10 ** 0.25, "Q2_19": q19, "Q2_24": q24,
                    "cassini_pass": bool(max(q19, q24) <= UP2 and min(q19, q24) >= 1.6e-27 - 2 * 1.8e-27), "sparc_dchi2": chi - chi_base, "sparc_dchi2_over_s": (chi - chi_base) / 6.09, "t1_median": float(med)}
             out["rows"].append(row)
+            if abs(r_sun - r_sun_bm) < 1e-12:
+                out["bose_mesner_results"][f"p_{p}"] = row
             print(f"p={p} r_sun={r_sun:6.3f} pc (1e10 Msun galaxy: {row['r_scr_1e10_pc']:7.1f} pc)  Q2 {q19*1e27:6.2f}/{q24*1e27:6.2f} {'PASS' if row['cassini_pass'] else 'FAIL'}  SPARC dchi2/s {row['sparc_dchi2_over_s']:+8.1f}  t1 med {med:.3f}", flush=True)
-    json.dump(out, open("SCREENING_WINDOW.json", "w"), indent=1)
+    json.dump(out, open(here / "SCREENING_WINDOW.json", "w"), indent=1)
