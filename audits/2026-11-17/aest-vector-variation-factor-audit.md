@@ -211,8 +211,19 @@ with indices in the first term understood exactly as in the unintegrated Palatin
 
 ## 6. Diffeomorphism identity and Bianchi gate [D/O]
 
-For independent fields \((g^{\mu\nu},A_\mu,\phi,\lambda)\), diffeomorphism invariance imposes a Noether identity linking the divergence of the metric Euler tensor to the vector, scalar, and multiplier Euler derivatives. In particular, a candidate vector equation substituted into that identity must be the Euler derivative of the *same* action used for the metric equation. The mismatch \(bB^\nu\) above therefore has to be resolved before a term-by-term Bianchi/conservation check can be considered closed. The matter conservation statement \(\nabla_\mu T^{\mu\nu}=0\) is conditional on the matter equations and the complete gravitational Euler system; it is not an independent proof that an inconsistent subset of printed equations satisfies the identity.
-
+For independent fields \((g^{\mu\nu},A_\mu,\phi,\lambda)\), define \(E_A^\mu=(\sqrt{-g})^{-1}\delta S/\delta A_\mu\), \(E_\phi=(\sqrt{-g})^{-1}\delta S/\delta\phi\), \(E_\lambda=(\sqrt{-g})^{-1}\delta S/\delta\lambda\), and \(E_{\mu\nu}\) as the coefficient of \(\delta g^{\mu\nu}\). Diffeomorphism invariance gives
+\[
+2\nabla^\mu E_{\mu\nu}
++E_A^\mu F_{\nu\mu}
+-A_\nu\nabla_\mu E_A^\mu
++E_\phi\nabla_\nu\phi
++E_\lambda\nabla_\nu\lambda=0.
+\]
+Thus a candidate vector equation substituted into this identity must be the Euler derivative of the *same* action used for the metric equation. The mismatch \(\Delta E_A^\mu=bB^\mu\) shifts the identity by
+\[
+b\left(B^\mu F_{\nu\mu}-A_\nu\nabla_\mu B^\mu\right).
+\]
+That residual must be explicitly checked; it cannot be assumed to vanish. The matter conservation statement \(\nabla_\mu T^{\mu\nu}=0\) is conditional on the matter equations and the complete gravitational Euler system; it is not an independent proof that an inconsistent subset of printed equations satisfies the identity.
 ## 7. Cross-checks and boundaries
 
 - The scalar equation and unit constraint agree with the published equations.
