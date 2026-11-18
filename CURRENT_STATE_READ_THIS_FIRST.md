@@ -7,8 +7,10 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against the physics:** 2026-11-17 (UTC). The audit-cycle state below supersedes
+**Last verified against the physics:** 2026-11-18 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
+
+Also 2026-11-18 (no tier change, no axiom change). `PEER_REVIEW_READINESS.md` was re-read: its quotable score is still the 2026-10-09 line (2/12 [P] for D2 and D9, D1 [P] core with a [D] rebuild, and the open parts named there). Nothing in that file depends on the Wave 3 module. `05_lean_formalization/Wave3BBNAndSpinCCP2Bounds.lean` (0 `sorry` / `admit` in the source; not lake-built on this commit, and `lean-gate` skipped on the pull request) records the BBN × caustic-folding window and the E8 × CP² Spin^c index arithmetic. `scripts/verify_wave3_bbn_spinc_bounds.py` exits 0 and writes `benchmarks/wave3_bbn_spinc_2026-11-17.json` (`lam_max_Jtot` 11.278775382679628, `lam_min_BBN_5pct` 19, `max_KB_at_10pct_BBN` 0.04040820577345752). Those three numbers are a numeric check. Do not cite the Lean theorems as [P] until `lake build` of `ResNova.Wave3BBNAndSpinCCP2Bounds` exits 0. No a₀, tier, or axiom moves.
 
 Also 2026-11-17 (no tier change, no axiom change): Issue `#217` obligations are closed across adjacent modules — Muse's `AeSTParameterizedNormalization.lean` (landed via PR `#218` / `4fa048f5`, 4 theorems, `0 sorry`, standard axioms only; verified from Hood `4405cdb08`) and `AeSTDiffeomorphismNoether.lean` (18 `#print axioms`, `0 sorry`, standard axioms only: arbitrary-dimension off-shell diffeomorphism Noether decomposition, minimal-coupling matter conservation, Levi-Civita metric-divergence identity, and $C^2$ 1+1D curved-metric `fderiv` proofs of `∂_μ(√-g V^μ) = √-g ∇_μ V^μ` and `∇^μ T_{μν} = E_χ ∂_ν χ`); `AeSTHamiltonianLegendre.lean` adds §6 (`BLK-1446` #2 `μ = 0` Dirac irregularity / absence of linear tertiary constraints, 27 `#print axioms`, `0 sorry`, standard axioms only); and `res_nova_manuscript.tex` stale module counts (`30` / `18`) are corrected to `32` (`BLK-1442` (c)) to match `reproducibility_appendix.tex` (`disk_modules() = 32`).
 
