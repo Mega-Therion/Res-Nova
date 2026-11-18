@@ -80,4 +80,8 @@ jobs:
           use-mathlib-cache: true
       - name: Run the full proof verification gate
         run: cd 05_lean_formalization && bash verify_all_proofs.sh
+      # Each ModelIdentity field must be load-bearing: mutate it in a throwaway copy
+      # and require ModelIdentityBindings to stop compiling (added 2026-11-17).
+      - name: ModelIdentity sabotage gate
+        run: cd 05_lean_formalization && bash sabotage_model_identity.sh
 
