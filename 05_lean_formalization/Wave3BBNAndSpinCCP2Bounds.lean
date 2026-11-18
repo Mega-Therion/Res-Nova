@@ -24,17 +24,43 @@
      a strict lower bound `≥ 9` (`≥ 10` when non-trivial) for ANY zero-sum `SU(3)` twist,
      and uniqueness `q ∈ {-1, -4}` for symmetric compensating bundles yielding `∑ ind = 3`.
 
-  3. Safa `BLK-1450` Gate 2 `E8 → E6 × SU(3)_f → SO(10) × U(1)_ψ` Charge-Locking Proofs:
+  3. Safa `BLK-1450` Gate 2 `E8 → E6 × SU(3)_f → SO(10) × U(1)_ψ` Charge-Locking Proofs
+     (extended per `BLK-1477` precision & Gate 2 audit):
      - `spinC_chiral_excess_linear`: `ind(Q₀ + x) - ind(Q₀ - x) = (2*Q₀ + 3)*x` is strictly
        linear in any `U(1)` gauge charge `x`.
-     - `e8_248_total_chiral_excess_zero` & `su5_248_chiral_10_excess_zero`: Across the full
-       self-conjugate `248` (`(16,3)_{+1} ⊕ (16,1)_{-3}`, and `SU(5)` `10`-plets), ANY
-       `Spin^c × U(1)_ψ × U(1)_χ × SU(3)_f` line-bundle twist yields total net chiral index `0`
-       identically (`248` self-conjugacy obstruction; requires projecting/decoupling `(78,1)`).
-     - `matter_27_chiral_excess_formula`, `matter_27_three_gen_forces_Q0_and_kpsi`, and
-       `matter_27_unique_solution_retains_symmetric_exotic_10`: Even restricted to `(27,3)` alone,
-       exact 3 chiral `16` generations forces `(Q₀ ∈ {-1, -2}) ∧ (k_ψ ∈ {1, -1})`, which
-       retains nonzero exotic `(10, 3)_{-2}` index (`Q_10 ∈ {-4, -3, 0, +1}`, none in `{-1, -2}`).
+     - `e8_248_chiral_excess_formula`, `su5_248_chiral_10_excess_formula`, and
+       `e8_248_chiral_excess_zero_iff_traceless`: Across the full self-conjugate `248`
+       (`(16,3)_{+1} ⊕ (16,1)_{-3}`, and `SU(5)` `10`-plets), total net chiral index equals
+       `2*(2*Q₀ + 3)*(q₁ + q₂ + q₃)` (in `twiceInd`), vanishing **if and only if** the
+       `SU(3)_f` twist is traceless (`q₁ + q₂ + q₃ = 0`). Under traceless twists, the
+       `(78,1)`-derived `(16,1)_{-3}` cancels the `(27,3)` contribution identically; obtaining
+       nonzero net generations then requires decoupling/projecting `(78,1)`, breaking `248`
+       self-conjugacy, or adding a traceful external `U(1)` twist (`q₁ + q₂ + q₃ ≠ 0`).
+     - `matter_27_chiral_excess_formula`, `matter_27_three_gen_forces_Q0_and_kpsi`,
+       `matter_27_three_gen_locus_iff`, and `matter_27_three_gen_retains_exotic_10_values`:
+       Restricted to `(27,3)` with traceless `SU(3)_f`, net `±3` chiral `16` generations
+       holds iff `(Q₀, k_ψ, Q₀ - 2 k_ψ) ∈ {(-2,-1,0), (-2,1,-4), (-1,-1,1), (-1,1,-3)}`,
+       which unconditionally yields `twiceInd (Q₀ - 2 k_ψ) ∈ {2, 6}` (`ind ≥ 1` per color,
+       i.e. `≥ 3` colored light `10`-plets in the traceless symmetric `(27,3)` branch).
+     - **Traceful & Asymmetric `SU(3)_f` Extension (`BLK-1477` `Q_10` vs `248` check):**
+       `traceless_distinct_weights_retain_exotic_10` proves NO traceless `SU(3)_f` twist
+       (even with distinct weights `q₁, q₂, q₃`) cancels all three `(10,3)_{-2}` colors at
+       `Q₀ ∈ {-1,-2}, k_ψ ∈ {1,-1}` (`∑ twiceInd ≥ 6`). `traceful_Gate2_locus_cancel_10_forces_violation`
+       and `traceful_27_three_gen_and_10_cancel_iff` prove that allowing traceful `q₁+q₂+q₃ ≠ 0`
+       at `Q₀ ∈ {-1,-2}, k_ψ ∈ {1,-1}` can cancel all three `(10,3)` colors ONLY by forcing
+       `|tr| ≥ 3`, `|net_16| ≥ 6` (breaking `±3`), and `|net_248| ≥ 3`; over all `ℤ⁵`,
+       simultaneous `(27,3)` `net = ±3` and full `(10,3)` cancellation occurs iff `k_ψ = 0` and
+       `(Q₀, q₁, q₂, q₃) ∈ {(-2, 1, 1, 1), (-1, -1, -1, -1)}` (`tr = ±3`, `net_248 = -3 ≠ 0`).
+       Moreover `exotic_10_net_chiral_excess_never_zero_when_three_gen` shows the net chiral
+       `(10,3)_{-2}` excess never vanishes when `(27,3)` has `net_16 = ±3`.
+     - **Single-Multiplet Dolan `Q = 1` vs Gate 2 `Q₀` (`L1/L2` Boundary `[P]`):**
+       `twiceInd_shift_expansion`, `single_multiplet_three_gen_iff`,
+       `canonical_Q0_zero_triplet_chiral_excess_no_three_gen`, and
+       `gate2_locus_disjoint_from_single_multiplet_Q1` prove that `BLK-1450`'s `Q = 1`
+       (`ind(1) = 3`) is a single-operator twist (`twiceInd Q = 6 ↔ Q ∈ {1,-4}`, giving `9`
+       families in the unshifted `Q₀ = 0` triplet chiral-excess sum), whereas Gate 2's 4-point
+       locus forces `Q₀ ∈ {-1,-2}` and individual charges `Q₀ ± k_ψ ∈ {-3,-2,-1,0}`
+       (`ind ∈ {0,1}`, disjoint from `{1,-4}`), summing `3 × (±1) = ±3` across `SU(3)_f` colors.
 
   Epistemic Scope: Pure algebraic / arithmetic invariants over `ℝ` and `ℤ`; BBN compatibility rests
   on the imported `TARGET_D7` `G_cosmo` formula and `AeSTTotalScalarCorrespondence` `11.2788` bound;
@@ -171,10 +197,6 @@ theorem twiceInd_triplet_identity (q₁ q₂ q₃ : ℤ) :
   unfold twiceInd
   ring
 
-private lemma int_sq_ge_one {x : ℤ} (hx : x ≠ 0) : 1 ≤ x ^ 2 := by
-  have h : x ≤ -1 ∨ 1 ≤ x := by omega
-  rcases h with hle | hge <;> nlinarith
-
 /-- **Zero-Sum `SU(3)` Twist No-Go (`[P]`):** Any traceless `SU(3)` twist `(q₁ + q₂ + q₃ = 0)` on the
 `(3, 16)(1)` triplet gives at least `9` zero modes (`twiceInd ≥ 18`), and strictly `≥ 10` (`twiceInd ≥ 20`)
 whenever any `q_i ≠ 0`. -/
@@ -186,6 +208,10 @@ theorem no_zero_sum_twist_below_nine {q₁ q₂ q₃ : ℤ} (hsum : q₁ + q₂ 
 theorem nontrivial_zero_sum_twist_strictly_above_nine {q₁ q₂ q₃ : ℤ} (hsum : q₁ + q₂ + q₃ = 0)
     (hne : q₁ ≠ 0 ∨ q₂ ≠ 0 ∨ q₃ ≠ 0) :
     20 ≤ twiceInd (1 + q₁) + twiceInd (1 + q₂) + twiceInd (1 + q₃) := by
+  have int_sq_ge_one : ∀ {x : ℤ}, x ≠ 0 → 1 ≤ x ^ 2 := by
+    intro x hx
+    have h : x ≤ -1 ∨ 1 ≤ x := by omega
+    rcases h with hle | hge <;> nlinarith
   rw [twiceInd_triplet_identity q₁ q₂ q₃, hsum]
   have hq12 : q₁ ≠ 0 ∨ q₂ ≠ 0 := by
     rcases hne with h | h | h
@@ -348,9 +374,379 @@ theorem matter_27_unique_solution_retains_symmetric_exotic_10 {Q0 k_psi : ℤ}
   unfold twiceInd
   rcases hQ with rfl | rfl <;> rcases hk with rfl | rfl <;> norm_num
 
+/-- **Exact 4-Solution Locus (`[P]` — `BLK-1477` Promotion):** Under any traceless `SU(3)_f` twist
+`(q₁ + q₂ + q₃ = 0)`, `(27, 3)` yields exact `±3` net chiral `16` generations (`twiceInd` sum `= ±6`)
+**if and only if** `(Q₀, k_ψ, Q₀ - 2 k_ψ)` belongs to `{(-2, -1, 0), (-2, 1, -4), (-1, -1, 1), (-1, 1, -3)}`. -/
+theorem matter_27_three_gen_locus_iff (Q0 k_psi q1 q2 q3 : ℤ) (hsum : q1 + q2 + q3 = 0) :
+    ((twiceInd (Q0 + (k_psi + q1)) - twiceInd (Q0 - (k_psi + q1))) +
+     (twiceInd (Q0 + (k_psi + q2)) - twiceInd (Q0 - (k_psi + q2))) +
+     (twiceInd (Q0 + (k_psi + q3)) - twiceInd (Q0 - (k_psi + q3))) = 6 ∨
+     (twiceInd (Q0 + (k_psi + q1)) - twiceInd (Q0 - (k_psi + q1))) +
+     (twiceInd (Q0 + (k_psi + q2)) - twiceInd (Q0 - (k_psi + q2))) +
+     (twiceInd (Q0 + (k_psi + q3)) - twiceInd (Q0 - (k_psi + q3))) = -6) ↔
+      ((Q0, k_psi, Q0 - 2 * k_psi) = (-2, -1, 0) ∨
+       (Q0, k_psi, Q0 - 2 * k_psi) = (-2, 1, -4) ∨
+       (Q0, k_psi, Q0 - 2 * k_psi) = (-1, -1, 1) ∨
+       (Q0, k_psi, Q0 - 2 * k_psi) = (-1, 1, -3)) := by
+  constructor
+  · intro hnet
+    have hQk := matter_27_three_gen_forces_Q0_and_kpsi hsum hnet
+    rcases hQk with ⟨rfl | rfl, rfl | rfl⟩
+    · right; right; right; rfl
+    · right; right; left; rfl
+    · right; left; rfl
+    · left; rfl
+  · intro hloc
+    rw [matter_27_chiral_excess_formula Q0 k_psi q1 q2 q3 hsum]
+    rcases hloc with h | h | h | h <;>
+      (simp only [Prod.mk.injEq] at h
+       rcases h with ⟨rfl, rfl, _⟩
+       norm_num)
+
+/-- **Unconditional `≥ 3` Colored Light `10`-plets in Symmetric `(27, 3)` (`[P]`):** On the entire
+traceless `net = ±3` locus, `twiceInd (Q₀ - 2 k_ψ) ∈ {2, 6}` (`ind ≥ 1` per color), so the 3-color
+symmetric `(10, 3)_{-2}` multiplet satisfies `6 ≤ 3 * twiceInd (Q₀ - 2 k_ψ)` (`≥ 3` light `10`-plets). -/
+theorem matter_27_three_gen_retains_exotic_10_values {Q0 k_psi q1 q2 q3 : ℤ}
+    (hsum : q1 + q2 + q3 = 0)
+    (hnet :
+      (twiceInd (Q0 + (k_psi + q1)) - twiceInd (Q0 - (k_psi + q1))) +
+      (twiceInd (Q0 + (k_psi + q2)) - twiceInd (Q0 - (k_psi + q2))) +
+      (twiceInd (Q0 + (k_psi + q3)) - twiceInd (Q0 - (k_psi + q3))) = 6 ∨
+      (twiceInd (Q0 + (k_psi + q1)) - twiceInd (Q0 - (k_psi + q1))) +
+      (twiceInd (Q0 + (k_psi + q2)) - twiceInd (Q0 - (k_psi + q2))) +
+      (twiceInd (Q0 + (k_psi + q3)) - twiceInd (Q0 - (k_psi + q3))) = -6) :
+    (twiceInd (Q0 - 2 * k_psi) = 2 ∨ twiceInd (Q0 - 2 * k_psi) = 6) ∧
+    2 ≤ twiceInd (Q0 - 2 * k_psi) ∧
+    6 ≤ 3 * twiceInd (Q0 - 2 * k_psi) := by
+  have hloc := (matter_27_three_gen_locus_iff Q0 k_psi q1 q2 q3 hsum).mp hnet
+  unfold twiceInd
+  rcases hloc with h | h | h | h <;>
+    (simp only [Prod.mk.injEq] at h
+     rcases h with ⟨rfl, rfl, _⟩
+     norm_num)
+
+/-- **General `248` Chiral `16` Formula Without Tracelessness (`[P]` — `BLK-1477` Precision Fix):**
+Without imposing `q₁ + q₂ + q₃ = 0`, twice the net `16` excess over the full `248` equals
+`2 * (2 Q₀ + 3) * (q₁ + q₂ + q₃)` identically (`k_ψ` cancels identically). -/
+theorem e8_248_chiral_excess_formula (Q0 k_psi q1 q2 q3 : ℤ) :
+    (twiceInd (Q0 + k_psi + q1) - twiceInd (Q0 - k_psi - q1)) +
+    (twiceInd (Q0 + k_psi + q2) - twiceInd (Q0 - k_psi - q2)) +
+    (twiceInd (Q0 + k_psi + q3) - twiceInd (Q0 - k_psi - q3)) +
+    (twiceInd (Q0 - 3 * k_psi) - twiceInd (Q0 + 3 * k_psi)) =
+      2 * (2 * Q0 + 3) * (q1 + q2 + q3) := by
+  rw [show Q0 + k_psi + q1 = Q0 + (k_psi + q1) by ring,
+      show Q0 - k_psi - q1 = Q0 - (k_psi + q1) by ring,
+      show Q0 + k_psi + q2 = Q0 + (k_psi + q2) by ring,
+      show Q0 - k_psi - q2 = Q0 - (k_psi + q2) by ring,
+      show Q0 + k_psi + q3 = Q0 + (k_psi + q3) by ring,
+      show Q0 - k_psi - q3 = Q0 - (k_psi + q3) by ring,
+      show Q0 - 3 * k_psi = Q0 + (-3 * k_psi) by ring,
+      show Q0 + 3 * k_psi = Q0 - (-3 * k_psi) by ring]
+  simp only [spinC_chiral_excess_linear]
+  ring
+
+/-- **General `SU(5)` `10`-plet Formula in `248` Without Tracelessness (`[P]`):**
+Without imposing `q₁ + q₂ + q₃ = 0`, twice the net `SU(5)` `10` excess over `248` equals
+`2 * (2 Q₀ + 3) * (q₁ + q₂ + q₃)` identically (`k_ψ` and `k_χ` cancel identically). -/
+theorem su5_248_chiral_10_excess_formula (Q0 k_psi k_chi q1 q2 q3 : ℤ) :
+    (twiceInd (Q0 + (k_psi - k_chi + q1)) - twiceInd (Q0 - (k_psi - k_chi + q1))) +
+    (twiceInd (Q0 + (k_psi - k_chi + q2)) - twiceInd (Q0 - (k_psi - k_chi + q2))) +
+    (twiceInd (Q0 + (k_psi - k_chi + q3)) - twiceInd (Q0 - (k_psi - k_chi + q3))) +
+    (twiceInd (Q0 + (-3 * k_psi - k_chi)) - twiceInd (Q0 - (-3 * k_psi - k_chi))) +
+    (twiceInd (Q0 + 4 * k_chi) - twiceInd (Q0 - 4 * k_chi)) =
+      2 * (2 * Q0 + 3) * (q1 + q2 + q3) := by
+  simp only [spinC_chiral_excess_linear]
+  ring
+
+/-- **Exact `248` Vanishing Criterion (`[P]`):** Over `ℤ`, `2 Q₀ + 3 ≠ 0` is always odd, so the
+full-`248` chiral excess vanishes **if and only if** `q₁ + q₂ + q₃ = 0` (`trace T = 0`). -/
+theorem e8_248_chiral_excess_zero_iff_traceless (Q0 k_psi q1 q2 q3 : ℤ) :
+    (twiceInd (Q0 + k_psi + q1) - twiceInd (Q0 - k_psi - q1)) +
+    (twiceInd (Q0 + k_psi + q2) - twiceInd (Q0 - k_psi - q2)) +
+    (twiceInd (Q0 + k_psi + q3) - twiceInd (Q0 - k_psi - q3)) +
+    (twiceInd (Q0 - 3 * k_psi) - twiceInd (Q0 + 3 * k_psi)) = 0 ↔
+      q1 + q2 + q3 = 0 := by
+  rw [e8_248_chiral_excess_formula]
+  constructor
+  · intro hz
+    rcases mul_eq_zero.mp hz with h2 | htr
+    · exfalso; omega
+    · exact htr
+  · intro hsum
+    rw [hsum, mul_zero]
+
+/-- **Traceful `248` `±3`-Generation Criterion (`[P]`):** Obtaining `net = ±3` (`twiceInd = ±6`)
+from the full `248` requires breaking `SU(3)_f` tracelessness (`q₁ + q₂ + q₃ ≠ 0`): specifically
+`(2 Q₀ + 3) * (q₁ + q₂ + q₃) = ±3` (so `|q₁ + q₂ + q₃| ∈ {1, 3}`). -/
+theorem e8_248_traceful_three_gen_iff (Q0 k_psi q1 q2 q3 : ℤ) :
+    ((twiceInd (Q0 + k_psi + q1) - twiceInd (Q0 - k_psi - q1)) +
+     (twiceInd (Q0 + k_psi + q2) - twiceInd (Q0 - k_psi - q2)) +
+     (twiceInd (Q0 + k_psi + q3) - twiceInd (Q0 - k_psi - q3)) +
+     (twiceInd (Q0 - 3 * k_psi) - twiceInd (Q0 + 3 * k_psi)) = 6 ∨
+     (twiceInd (Q0 + k_psi + q1) - twiceInd (Q0 - k_psi - q1)) +
+     (twiceInd (Q0 + k_psi + q2) - twiceInd (Q0 - k_psi - q2)) +
+     (twiceInd (Q0 + k_psi + q3) - twiceInd (Q0 - k_psi - q3)) +
+     (twiceInd (Q0 - 3 * k_psi) - twiceInd (Q0 + 3 * k_psi)) = -6) ↔
+      ((2 * Q0 + 3) * (q1 + q2 + q3) = 3 ∨
+       (2 * Q0 + 3) * (q1 + q2 + q3) = -3) := by
+  rw [e8_248_chiral_excess_formula, mul_assoc]
+  constructor <;> intro h <;> rcases h with h | h <;> [left; right; left; right] <;> linarith
+
+/-- **Traceful Matter-Sector `(27, 3)` Exact Chiral Excess (`[P]`):** Without assuming
+`q₁ + q₂ + q₃ = 0`, twice the net chiral `16` excess in `(27, 3)` equals
+`2 * (2 Q₀ + 3) * (3 k_ψ + q₁ + q₂ + q₃)`. -/
+theorem matter_27_traceful_chiral_excess_formula (Q0 k_psi q1 q2 q3 : ℤ) :
+    (twiceInd (Q0 + (k_psi + q1)) - twiceInd (Q0 - (k_psi + q1))) +
+    (twiceInd (Q0 + (k_psi + q2)) - twiceInd (Q0 - (k_psi + q2))) +
+    (twiceInd (Q0 + (k_psi + q3)) - twiceInd (Q0 - (k_psi + q3))) =
+      2 * (2 * Q0 + 3) * (3 * k_psi + (q1 + q2 + q3)) := by
+  simp only [spinC_chiral_excess_linear]
+  ring
+
+/-- **Shifted Triplet Quadratic Identity (`[P]`):** Generalizes `twiceInd_triplet_identity` to any
+base charge `Q : ℤ`: `∑ twiceInd (Q + q_i) = 3 * twiceInd Q + (2 Q + 3)(q₁ + q₂ + q₃) + ∑ q_i²`. -/
+theorem twiceInd_shifted_triplet_identity (Q q1 q2 q3 : ℤ) :
+    twiceInd (Q + q1) + twiceInd (Q + q2) + twiceInd (Q + q3) =
+      3 * twiceInd Q + (2 * Q + 3) * (q1 + q2 + q3) + (q1 ^ 2 + q2 ^ 2 + q3 ^ 2) := by
+  unfold twiceInd
+  ring
+
+/-- **Distinct-Weight Traceless `SU(3)_f` Retention of `(10, 3)_{-2}` (`[P]`):** Even allowing
+arbitrary distinct traceless `SU(3)_f` weights (`q₁ + q₂ + q₃ = 0`), any solution on the Gate 2
+locus `Q₀ ∈ {-1, -2}, k_ψ ∈ {1, -1}` satisfies `∑_i twiceInd (Q₀ - 2 k_ψ + q_i) ≥ 6`. Hence
+NO traceless `SU(3)_f` twist cancels all three `(10, 3)` colors. -/
+theorem traceless_distinct_weights_retain_exotic_10 {Q0 k_psi q1 q2 q3 : ℤ}
+    (hQ : Q0 = -1 ∨ Q0 = -2) (hk : k_psi = 1 ∨ k_psi = -1) (hsum : q1 + q2 + q3 = 0) :
+    6 ≤ twiceInd (Q0 - 2 * k_psi + q1) + twiceInd (Q0 - 2 * k_psi + q2) +
+        twiceInd (Q0 - 2 * k_psi + q3) ∧
+    ¬ (twiceInd (Q0 - 2 * k_psi + q1) = 0 ∧
+       twiceInd (Q0 - 2 * k_psi + q2) = 0 ∧
+       twiceInd (Q0 - 2 * k_psi + q3) = 0) := by
+  have hbase : 2 ≤ twiceInd (Q0 - 2 * k_psi) := by
+    unfold twiceInd
+    rcases hQ with rfl | rfl <;> rcases hk with rfl | rfl <;> norm_num
+  have hsum_ge :
+      6 ≤ twiceInd (Q0 - 2 * k_psi + q1) + twiceInd (Q0 - 2 * k_psi + q2) +
+          twiceInd (Q0 - 2 * k_psi + q3) := by
+    rw [twiceInd_shifted_triplet_identity (Q0 - 2 * k_psi) q1 q2 q3, hsum]
+    nlinarith [sq_nonneg q1, sq_nonneg q2, sq_nonneg q3]
+  refine ⟨hsum_ge, ?_⟩
+  rintro ⟨h1, h2, h3⟩
+  omega
+
+/-- **Traceful Twist Cancellation vs `248` & `net_16 = ±3` Obstruction (`[P]` — `BLK-1477` `Q_10` vs `248`):**
+At `Q₀ ∈ {-1, -2}` and `k_ψ ∈ {1, -1}`, if an arbitrary (possibly traceful) twist `(q₁, q₂, q₃)`
+cancels ALL three `(10, 3)_{-2}` colors (`twiceInd (Q₀ - 2 k_ψ + q_i) = 0` for `i = 1, 2, 3`), then:
+1. `|q₁ + q₂ + q₃| ≥ 3` (necessarily traceful: `trace T ≠ 0`),
+2. the full-`248` chiral `16` excess satisfies `|248_excess| ≥ 6` (`|net_248| ≥ 3 ≠ 0`), AND
+3. the `(27, 3)` chiral `16` excess satisfies `|net_16_twice| ≥ 12` (`|net_16| ≥ 6`, destroying `±3`). -/
+theorem traceful_Gate2_locus_cancel_10_forces_violation {Q0 k_psi q1 q2 q3 : ℤ}
+    (hQ : Q0 = -1 ∨ Q0 = -2) (hk : k_psi = 1 ∨ k_psi = -1)
+    (h10 : twiceInd (Q0 - 2 * k_psi + q1) = 0 ∧
+           twiceInd (Q0 - 2 * k_psi + q2) = 0 ∧
+           twiceInd (Q0 - 2 * k_psi + q3) = 0) :
+    (3 ≤ q1 + q2 + q3 ∨ q1 + q2 + q3 ≤ -3) ∧
+    (6 ≤ 2 * (2 * Q0 + 3) * (q1 + q2 + q3) ∨
+         2 * (2 * Q0 + 3) * (q1 + q2 + q3) ≤ -6) ∧
+    (12 ≤ 2 * (2 * Q0 + 3) * (3 * k_psi + (q1 + q2 + q3)) ∨
+          2 * (2 * Q0 + 3) * (3 * k_psi + (q1 + q2 + q3)) ≤ -12) := by
+  have zero_root : ∀ x : ℤ, twiceInd x = 0 → -2 ≤ x ∧ x ≤ -1 := by
+    intro x hx
+    unfold twiceInd at hx
+    rcases mul_eq_zero.mp hx with h | h <;> omega
+  have hb1 := zero_root _ h10.1
+  have hb2 := zero_root _ h10.2.1
+  have hb3 := zero_root _ h10.2.2
+  rcases hQ with rfl | rfl <;> rcases hk with rfl | rfl <;>
+    exact ⟨by omega, by omega, by omega⟩
+
+/-- **Complete `ℤ⁵` Traceful `(27, 3)` `net = ±3` + Full `(10, 3)_{-2}` Cancellation Theorem (`[P]`):**
+Over ALL `(Q₀, k_ψ, q₁, q₂, q₃) : ℤ⁵` (without tracelessness or parameter restrictions), `(27, 3)`
+yields `net_16 = ±3` (`twiceInd` sum `= ±6`) AND all three `(10, 3)_{-2}` colors vanish
+**if and only if** `k_ψ = 0` and `(Q₀, q₁, q₂, q₃) ∈ {(-2, 1, 1, 1), (-1, -1, -1, -1)}` — both
+requiring traceful `q₁ + q₂ + q₃ = ±3 ≠ 0` (`net_248 = -3 ≠ 0`) and `k_ψ = 0 ∉ {1, -1}`.
+Consequently, NO twist with `k_ψ ∈ {1, -1}` (or any `k_ψ ≠ 0`) achieves both `net_16 = ±3` and
+all-color `(10, 3)` cancellation. -/
+theorem traceful_27_three_gen_and_10_cancel_iff (Q0 k_psi q1 q2 q3 : ℤ) :
+    ((2 * (2 * Q0 + 3) * (3 * k_psi + (q1 + q2 + q3)) = 6 ∨
+      2 * (2 * Q0 + 3) * (3 * k_psi + (q1 + q2 + q3)) = -6) ∧
+     twiceInd (Q0 - 2 * k_psi + q1) = 0 ∧
+     twiceInd (Q0 - 2 * k_psi + q2) = 0 ∧
+     twiceInd (Q0 - 2 * k_psi + q3) = 0) ↔
+      (k_psi = 0 ∧
+       ((Q0 = -2 ∧ q1 = 1 ∧ q2 = 1 ∧ q3 = 1) ∨
+        (Q0 = -1 ∧ q1 = -1 ∧ q2 = -1 ∧ q3 = -1))) := by
+  constructor
+  · rintro ⟨hnet, h1, h2, h3⟩
+    have zero_root : ∀ x : ℤ, twiceInd x = 0 → -2 ≤ x ∧ x ≤ -1 := by
+      intro x hx
+      unfold twiceInd at hx
+      rcases mul_eq_zero.mp hx with h | h <;> omega
+    have hb1 := zero_root _ h1
+    have hb2 := zero_root _ h2
+    have hb3 := zero_root _ h3
+    have hprod : (2 * Q0 + 3) * (3 * k_psi + (q1 + q2 + q3)) = 3 ∨
+        (2 * Q0 + 3) * (3 * k_psi + (q1 + q2 + q3)) = -3 := by
+      rw [mul_assoc] at hnet
+      rcases hnet with h | h <;> [left; right] <;> linarith
+    have hQsplit : Q0 ≤ -4 ∨ Q0 = -3 ∨ Q0 = -2 ∨ Q0 = -1 ∨ Q0 = 0 ∨ 1 ≤ Q0 := by omega
+    have hSsplit :
+        3 * k_psi + (q1 + q2 + q3) ≤ -1 ∨
+        3 * k_psi + (q1 + q2 + q3) = 0 ∨
+        1 ≤ 3 * k_psi + (q1 + q2 + q3) := by omega
+    rcases hQsplit with hlo | rfl | rfl | rfl | rfl | hhi
+    · exfalso
+      rcases hSsplit with hs | hs | hs <;> rcases hprod with hp | hp <;> nlinarith
+    · exfalso
+      have hsum3 : 3 * k_psi + (q1 + q2 + q3) = -1 ∨ 3 * k_psi + (q1 + q2 + q3) = 1 := by
+        rcases hprod with hp | hp <;> [left; right] <;> linarith
+      omega
+    · have hk0 : k_psi = 0 := by
+        rcases hprod with hp | hp <;> omega
+      subst hk0
+      have hq : q1 = 1 ∧ q2 = 1 ∧ q3 = 1 := by
+        rcases hprod with hp | hp <;> omega
+      exact ⟨rfl, Or.inl ⟨rfl, hq⟩⟩
+    · have hk0 : k_psi = 0 := by
+        rcases hprod with hp | hp <;> omega
+      subst hk0
+      have hq : q1 = -1 ∧ q2 = -1 ∧ q3 = -1 := by
+        rcases hprod with hp | hp <;> omega
+      exact ⟨rfl, Or.inr ⟨rfl, hq⟩⟩
+    · exfalso
+      have hsum3 : 3 * k_psi + (q1 + q2 + q3) = 1 ∨ 3 * k_psi + (q1 + q2 + q3) = -1 := by
+        rcases hprod with hp | hp <;> [left; right] <;> linarith
+      omega
+    · exfalso
+      rcases hSsplit with hs | hs | hs <;> rcases hprod with hp | hp <;> nlinarith
+  · rintro ⟨rfl, ⟨rfl, rfl, rfl, rfl⟩ | ⟨rfl, rfl, rfl, rfl⟩⟩ <;> norm_num [twiceInd]
+
+/-- **Universal Net Chiral `(10, 3)_{-2}` Persistence Under `(27, 3)` `net_16 = ±3` (`[P]`):**
+Even for arbitrary traceful twists `(q₁, q₂, q₃) : ℤ³`, the net chiral `(10, 3)_{-2}` excess
+`∑_i (twiceInd (Q₀ - 2 k_ψ + q_i) - twiceInd (Q₀ + 2 k_ψ - q_i))` equals
+`2 * (2 Q₀ + 3) * (-6 k_ψ + q₁ + q₂ + q₃)`, and can NEVER vanish whenever `(27, 3)` gives
+`net_16 = ±3` (`twiceInd` sum `= ±6`, because vanishing forces `q₁ + q₂ + q₃ = 6 k_ψ`, making
+the `16` excess a multiple of `18`). -/
+theorem exotic_10_net_chiral_excess_never_zero_when_three_gen (Q0 k_psi q1 q2 q3 : ℤ)
+    (hnet :
+      (twiceInd (Q0 + (k_psi + q1)) - twiceInd (Q0 - (k_psi + q1))) +
+      (twiceInd (Q0 + (k_psi + q2)) - twiceInd (Q0 - (k_psi + q2))) +
+      (twiceInd (Q0 + (k_psi + q3)) - twiceInd (Q0 - (k_psi + q3))) = 6 ∨
+      (twiceInd (Q0 + (k_psi + q1)) - twiceInd (Q0 - (k_psi + q1))) +
+      (twiceInd (Q0 + (k_psi + q2)) - twiceInd (Q0 - (k_psi + q2))) +
+      (twiceInd (Q0 + (k_psi + q3)) - twiceInd (Q0 - (k_psi + q3))) = -6) :
+    (twiceInd (Q0 - 2 * k_psi + q1) - twiceInd (Q0 + 2 * k_psi - q1)) +
+    (twiceInd (Q0 - 2 * k_psi + q2) - twiceInd (Q0 + 2 * k_psi - q2)) +
+    (twiceInd (Q0 - 2 * k_psi + q3) - twiceInd (Q0 + 2 * k_psi - q3)) =
+      2 * (2 * Q0 + 3) * (-6 * k_psi + (q1 + q2 + q3)) ∧
+    (twiceInd (Q0 - 2 * k_psi + q1) - twiceInd (Q0 + 2 * k_psi - q1)) +
+    (twiceInd (Q0 - 2 * k_psi + q2) - twiceInd (Q0 + 2 * k_psi - q2)) +
+    (twiceInd (Q0 - 2 * k_psi + q3) - twiceInd (Q0 + 2 * k_psi - q3)) ≠ 0 := by
+  have h10_eq :
+      (twiceInd (Q0 - 2 * k_psi + q1) - twiceInd (Q0 + 2 * k_psi - q1)) +
+      (twiceInd (Q0 - 2 * k_psi + q2) - twiceInd (Q0 + 2 * k_psi - q2)) +
+      (twiceInd (Q0 - 2 * k_psi + q3) - twiceInd (Q0 + 2 * k_psi - q3)) =
+        2 * (2 * Q0 + 3) * (-6 * k_psi + (q1 + q2 + q3)) := by
+    rw [show Q0 - 2 * k_psi + q1 = Q0 + (-2 * k_psi + q1) by ring,
+        show Q0 + 2 * k_psi - q1 = Q0 - (-2 * k_psi + q1) by ring,
+        show Q0 - 2 * k_psi + q2 = Q0 + (-2 * k_psi + q2) by ring,
+        show Q0 + 2 * k_psi - q2 = Q0 - (-2 * k_psi + q2) by ring,
+        show Q0 - 2 * k_psi + q3 = Q0 + (-2 * k_psi + q3) by ring,
+        show Q0 + 2 * k_psi - q3 = Q0 - (-2 * k_psi + q3) by ring]
+    simp only [spinC_chiral_excess_linear]
+    ring
+  refine ⟨h10_eq, ?_⟩
+  rw [h10_eq]
+  intro hz
+  rcases mul_eq_zero.mp hz with h2 | htr
+  · omega
+  · rw [matter_27_traceful_chiral_excess_formula] at hnet
+    have htr_eq : q1 + q2 + q3 = 6 * k_psi := by omega
+    rw [htr_eq] at hnet
+    have hmul18 : 2 * (2 * Q0 + 3) * (3 * k_psi + 6 * k_psi) = 18 * ((2 * Q0 + 3) * k_psi) := by ring
+    rw [hmul18] at hnet
+    rcases hnet with h | h <;> omega
+
+/-- **Single-Multiplet Expansion vs Chiral-Excess Linearization (`[P]`):**
+A single `Spin^c` operator at shifted charge `Q₀ + x` obeys
+`twiceInd (Q₀ + x) = twiceInd Q₀ + (2 Q₀ + 3) * x + x²`, retaining both the base-shift index
+`twiceInd Q₀` and quadratic `x²`; subtracting the conjugate `Q₀ - x` in `spinC_chiral_excess_linear`
+cancels both terms, leaving `2 * (2 Q₀ + 3) * x`. -/
+theorem twiceInd_shift_expansion (Q0 x : ℤ) :
+    twiceInd (Q0 + x) = twiceInd Q0 + (2 * Q0 + 3) * x + x ^ 2 := by
+  unfold twiceInd
+  ring
+
+/-- **Dolan / `BLK-1450` Single-Multiplet `ind(Q) = 3` Classification (`[P]`):**
+Over `ℤ`, a single `Spin^c` Dirac operator yields `3` zero modes (`twiceInd Q = 6`) **iff**
+`Q = 1 ∨ Q = -4`. At unshifted `Q₀ = 0, k_ψ = 1`, `Q = 1` gives `ind = 3` (`twiceInd = 6`),
+`(10, 3)_{-2}` at `Q_10 = -2` has `0` modes, and `(1, 16)_{+3}` has `10` surplus modes (`twiceInd = 20`). -/
+theorem single_multiplet_three_gen_iff (Q : ℤ) :
+    twiceInd Q = 6 ↔ Q = 1 ∨ Q = -4 := by
+  constructor
+  · intro h
+    unfold twiceInd at h
+    have hsplit : Q ≤ -5 ∨ Q = -4 ∨ Q = -3 ∨ Q = -2 ∨ Q = -1 ∨ Q = 0 ∨ Q = 1 ∨ 2 ≤ Q := by omega
+    rcases hsplit with hle | rfl | rfl | rfl | rfl | rfl | rfl | hge
+    · exfalso; nlinarith
+    · exact Or.inr rfl
+    · exfalso; omega
+    · exfalso; omega
+    · exfalso; omega
+    · exfalso; omega
+    · exact Or.inl rfl
+    · exfalso; nlinarith
+  · rintro (rfl | rfl) <;> norm_num [twiceInd]
+
+theorem single_multiplet_Q1_sector_counts :
+    twiceInd (0 + 1) = 6 ∧ twiceInd (0 - 2 * 1) = 0 ∧ twiceInd (0 + 3 * 1) = 20 := by
+  unfold twiceInd
+  norm_num
+
+/-- **Unshifted `Q₀ = 0` Triplet Exclusion in Gate 2 (`[P]`):**
+At `Q₀ = 0` (where a single `+1` charge matches Dolan's `Q = 1`) and traceless `q₁ + q₂ + q₃ = 0`,
+the Gate 2 `(27, 3)` net chiral excess equals `18 * k_ψ` (`9 * k_ψ` net generations — e.g. `9` at
+`k_ψ = 1`, NOT `3`!), and can NEVER equal `±6` (`±3` generations). Thus `BLK-1450`'s `Q = 1`
+requires `(L1)` (identifying the `3` zero modes with the `3` of `SU(3)_f`) plus `(L2)`. -/
+theorem canonical_Q0_zero_triplet_chiral_excess_no_three_gen (k_psi q1 q2 q3 : ℤ)
+    (hsum : q1 + q2 + q3 = 0) :
+    (twiceInd (0 + (k_psi + q1)) - twiceInd (0 - (k_psi + q1))) +
+    (twiceInd (0 + (k_psi + q2)) - twiceInd (0 - (k_psi + q2))) +
+    (twiceInd (0 + (k_psi + q3)) - twiceInd (0 - (k_psi + q3))) = 18 * k_psi ∧
+    18 * k_psi ≠ 6 ∧ 18 * k_psi ≠ -6 := by
+  rw [matter_27_chiral_excess_formula 0 k_psi q1 q2 q3 hsum]
+  refine ⟨by ring, ?_, ?_⟩ <;> omega
+
+/-- **`L1/L2` Boundary Separation (`[P]` — `BLK-1477` Synthesis):**
+On the entire Gate 2 traceless `(27, 3)` `net = ±3` locus, `Q₀ ≠ 0`, both symmetric `16` charges
+`Q₀ ± k_ψ` avoid `{1, -4}` completely, and each color contributes `±1` net family from
+`(ind(Q₀+k_ψ), ind(Q₀-k_ψ)) ∈ {(1, 0), (0, 1)}` (`twiceInd ∈ {(2, 0), (0, 2)}`), summing `3 × (±1) = ±3`
+across colors — strictly distinct from `BLK-1450`'s single-operator `Q = 1` (`twiceInd 1 = 6`, `ind = 3`). -/
+theorem gate2_locus_disjoint_from_single_multiplet_Q1 {Q0 k_psi q1 q2 q3 : ℤ}
+    (hsum : q1 + q2 + q3 = 0)
+    (hnet :
+      (twiceInd (Q0 + (k_psi + q1)) - twiceInd (Q0 - (k_psi + q1))) +
+      (twiceInd (Q0 + (k_psi + q2)) - twiceInd (Q0 - (k_psi + q2))) +
+      (twiceInd (Q0 + (k_psi + q3)) - twiceInd (Q0 - (k_psi + q3))) = 6 ∨
+      (twiceInd (Q0 + (k_psi + q1)) - twiceInd (Q0 - (k_psi + q1))) +
+      (twiceInd (Q0 + (k_psi + q2)) - twiceInd (Q0 - (k_psi + q2))) +
+      (twiceInd (Q0 + (k_psi + q3)) - twiceInd (Q0 - (k_psi + q3))) = -6) :
+    Q0 ≠ 0 ∧
+    Q0 + k_psi ≠ 1 ∧ Q0 + k_psi ≠ -4 ∧
+    Q0 - k_psi ≠ 1 ∧ Q0 - k_psi ≠ -4 ∧
+    ((twiceInd (Q0 + k_psi) = 2 ∧ twiceInd (Q0 - k_psi) = 0) ∨
+     (twiceInd (Q0 + k_psi) = 0 ∧ twiceInd (Q0 - k_psi) = 2)) := by
+  have hloc := (matter_27_three_gen_locus_iff Q0 k_psi q1 q2 q3 hsum).mp hnet
+  unfold twiceInd
+  rcases hloc with h | h | h | h <;>
+    (simp only [Prod.mk.injEq] at h
+     rcases h with ⟨rfl, rfl, _⟩
+     norm_num)
+
 end E8SpinCChargeLocking
 
 #print axioms GCosmoRatio_lt_eta
+#print axioms GCosmoRatio_le_eta
 #print axioms bbn_lower_bound_forces_lambda_s
 #print axioms jtot_nonfolding_iff_poly
 #print axioms jtot_nonfolding_lt_eleven_point_three
@@ -369,5 +765,22 @@ end E8SpinCChargeLocking
 #print axioms matter_27_chiral_excess_formula
 #print axioms matter_27_three_gen_forces_Q0_and_kpsi
 #print axioms matter_27_unique_solution_retains_symmetric_exotic_10
+#print axioms matter_27_three_gen_locus_iff
+#print axioms matter_27_three_gen_retains_exotic_10_values
+#print axioms e8_248_chiral_excess_formula
+#print axioms su5_248_chiral_10_excess_formula
+#print axioms e8_248_chiral_excess_zero_iff_traceless
+#print axioms e8_248_traceful_three_gen_iff
+#print axioms matter_27_traceful_chiral_excess_formula
+#print axioms twiceInd_shifted_triplet_identity
+#print axioms traceless_distinct_weights_retain_exotic_10
+#print axioms traceful_Gate2_locus_cancel_10_forces_violation
+#print axioms traceful_27_three_gen_and_10_cancel_iff
+#print axioms exotic_10_net_chiral_excess_never_zero_when_three_gen
+#print axioms twiceInd_shift_expansion
+#print axioms single_multiplet_three_gen_iff
+#print axioms single_multiplet_Q1_sector_counts
+#print axioms canonical_Q0_zero_triplet_chiral_excess_no_three_gen
+#print axioms gate2_locus_disjoint_from_single_multiplet_Q1
 
 end ResNova.Wave3BBNAndSpinCCP2Bounds
