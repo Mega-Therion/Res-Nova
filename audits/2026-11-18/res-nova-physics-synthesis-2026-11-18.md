@@ -213,6 +213,14 @@ This is the most important physical finding the audit produces, and it is a **ne
 
 This matters because it is a second, structurally different failure. The first failure (Section 2.5.2) is a *shape* failure inside the AeST constitutive sector: no `mu` function satisfies both datasets. This one is a *coupling* failure in a conformal-scalar sector: a light scalar with a non-minimal coupling large enough to do galactic work is excluded at the Sun. Two different actions, two different mechanisms, the same conclusion. **Any relativistic completion in this corpus needs a screening mechanism, and no such mechanism currently exists.** That is the sharpest single statement the audit can make about the physics, and it is a negative one.
 
+**A third exclusion, and it is a machine-checked no-go.** Res-Nova's `Wave3BBNAndSpinCCP2Bounds.lean` (registered in `lakefile.lean`, verifier `scripts/verify_wave3_bbn_spinc_bounds.py` exit 0) proves `jtot_bbn_5pct_impossible`:
+
+> for `lambda_s > 0`, `K_B >= 0`, a 5 percent BBN gravity bound `G_cosmo/G_N >= 19/20`, and the non-folding condition `32 (lambda_s/(1+lambda_s))^2 < 27`, we obtain `False`.
+
+`[P]`. The physics is a comparison of two Newton constants in the same theory. Friedmann uses `G_cosmo = (1 - K_B/2) G_hat` while Cavendish uses `G_N = (1 + 1/lambda_s) G_hat`, so their ratio is bounded by `lambda_s/(1+lambda_s)`. A 5 percent BBN bound then forces `lambda_s >= 19`, which is outside the non-folding window that caps `lambda_s` below `11.2788`. At a relaxed 10 percent bound the same algebra forces `K_B < 0.041` (`jtot_bbn_10pct_KB_ceiling`, sharp maximum `0.04040820577` from the verifier's benchmark record).
+
+The consequence is sharp: **the BBN window and the stability window do not overlap.** Either the scalar correspondence folds (so `J_tot` is not the free function the galaxy law uses), or `K_B` is squeezed to a few percent, or the 5 percent BBN premise fails. That is a real fork with three named prongs, and it is the strongest statement in the corpus because it is a no-go rather than a fit.
+
 This is also the precise physical meaning of "Postulate R is not forced by convexity alone". Convexity plus the AQUAL normalization plus the two asymptotic tails leaves a one-parameter family; galaxies select one member; and galaxies plus Cassini prove that the selection is incomplete as a mechanism. `[D]`
 
 ### 2.5.3 Where the approximation breaks
@@ -246,12 +254,14 @@ Each row names the observable, the prediction, the current status, and what woul
 | 3 | `a_0(z)` at `z > 1.5` | Either `a_0(z) = xi c H(z)` (rising by ~2 to 2.6) or constant | `[O]`, fail-closed preregistration exists, catalog not in tree | A measured high-`z` `a_0` that is constant to within the error kills the horizon reading; one that rises kills the constant reading. The two are mutually exclusive |
 | 4 | `Omega_Lambda` | `ln 2 = 0.693147` from `H(1/2,1/2)` | `[O]` identification; Planck 2018 gives `0.6889 +- 0.0056`, i.e. `+0.76 sigma` (auditor arithmetic) | A `sigma(Omega_Lambda) ~ 0.002` measurement (CMB-S4 class) would put the identification at ~2 sigma and kill it if `Omega_Lambda` settles away from `ln 2` |
 | 5 | Euclid DR1 weak lensing | Auroboryai's frozen record: `12.34 percent` dipole asymmetry, forecast `123.9 sigma` at DR1 footprint (provisional); 10 caustic vertex targets; dodecahedron residual `6.48 deg` against hexagonal-prism `8.71 deg` | **One gate already FAILED**: dipole-removed null gives `p = 0.023` against a pre-registered `p < 0.01` (`p ~ 0.28` after look-elsewhere). Decisive test waits on full-DR1 shear maps (2027) | A shear map isotropic at the forecast sensitivity kills `P1`. The shape fits are a straight contest: whichever residual DR1 reproduces worse is dead |
-| 6 | BBN / CMB spin bounds | Encoded in `Wave3BBNAndSpinCCP2Bounds.lean` | `[P]` module exists; numeric content extracted in Section 1.3 | Noted below |
+| 6 | BBN gravity ratio `G_cosmo/G_N` | 5 percent bound is **incompatible** with `lambda_s < 11.2788` (`jtot_bbn_5pct_impossible`, `[P]`); 10 percent bound forces `K_B < 0.041` | `[P]` proved, verifier exit 0, `lam_max_Jtot = 11.278775382679628` | A BBN determination of `G_cosmo/G_N` at the few-percent level settles which prong of the fork holds. If it lands near 1, the non-folding correspondence is dead |
 | 7 | Laboratory | A new light scale at `Lambda_SC ~ 1.8 meV`, unscreened range `110` to `118 micrometre` | `[D]` estimate, "not excluded" is not a proof | A fifth-force search in that range at the stated coupling |
 
 **A warning about row 5, and it is the same warning the corpus makes about itself.** The `12.34 percent` dipole and its `123.9 sigma` forecast are marked provisional in the source, and the pre-registered null test has already failed. A failed pre-registered gate is not repaired by a later favorable dataset; it is a datum. `[D]`
 
-**On row 6.** The audit brief's Euclid description does not match the repository (Section 1.4, near-collision 2), and the brief's `T_1` shear estimator does not exist. The BBN and spin bounds are a real module in Res-Nova and their numbers are extracted in the Auroboryai/Res-Nova tables; they are not restated here to avoid asserting numbers this document has not verified line by line.
+**On row 6.** The BBN numbers above were read from the module's own docstring and theorem statements and reproduced by its verifier, which also writes `lam_max_Jtot = 11.278775382679628` and `max_KB_at_10pct_BBN = 0.04040820577`. The same module's `Spin^c CP^2` section proves `e8_248_chiral_excess_zero_iff_traceless`: the net chiral index across the self-conjugate `248` vanishes **if and only if** the `SU(3)_f` twist is traceless. That is the formal statement behind Section 2.4.5's warning, and it is the reason the generation claim stays `[O]`: a nonzero net count requires breaking `248` self-conjugacy or adding a traceful external twist, neither of which the corpus derives.
+
+**On the Euclid runner.** The `a_0(z)` pipeline is present and registered (`03_observer_jwst/a0_of_z.py`, `PREREG_A0_OF_Z_V3.md`, `A0_OF_Z_REPORT_V2.json`). An `euclid_dr1_protocol_runner.py` is **not** present in Res-Nova at either `c4a0f42` or the PR #221 merge commit `8781f11e`, despite BLK-1521 recording a 5/5 PASS receipt for it. Its location is unresolved and is logged as an open item rather than assumed.
 
 ## 2.7 What this synthesis does not establish
 
@@ -264,3 +274,6 @@ Stated as a list, because the discipline is the point.
 5. **No three-generation derivation.** The arithmetic is exact; the index is not computed. `[X]` for the derivation claim
 6. **No covariant completion of the constitutive law.** The action is imported AeST; a separately postulated `mu_std` cannot simply be attached to an unrelated scalar action, and the November audit's closure order puts "one covariant action" before any of the phenomenology. `[O]`
 7. **No quantum or information-theoretic sector.** The GKSL, spectral-action and complexity material is either assumed model or exact algebra about an assumed model. Nothing in it is a physical result. `[O]`
+
+
+---
