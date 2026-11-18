@@ -527,3 +527,13 @@ StringTheoryBridge.lean           # Two tagged E8 root copies (480), rank bookke
                                   # and their sum (496). Does not construct the E8 Lie
                                   # algebra, heterotic gauge theory, compactification, or
                                   # a bridge to Res-Nova modified gravity or a0.
+
+# --- Foundations audit 2026-11-13, Sec. 6 step 1 (canonical model identity) ---
+ModelIdentity.lean               # The versioned model-identity manifest as one Lean
+                                 # record (spacetime, fields, matter coupling, gauge
+                                 # group, substrate, units, mu choice, a0, the two
+                                 # irreducible inputs). Sec. 7 questions are open
+                                 # slots. Data and bookkeeping; proves no physics.
+ModelIdentityBindings.lean       # Wave 3 / AeST theorems restated with literals read
+                                 # from ModelIdentity.canonical; gated by
+                                 # sabotage_model_identity.sh. Not cited by the manuscript.

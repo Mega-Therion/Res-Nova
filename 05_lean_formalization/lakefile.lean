@@ -175,5 +175,12 @@ lean_lib «ResNovaFormal» where
     -- ADDED 2026-11-17 (Wave 3 #1 BBN bounds + BLK-1450/BLK-1461 E8 x CP2 Spin^c Gate 2).
     -- Pure algebraic/arithmetic bounds on G_cosmo vs J_tot non-folding, zero-sum SU(3) twists,
     -- O(-1)^3/O(-4)^3 uniqueness, and E8 248 vs (27,3) chiral Spin^c charge-locking.
-    `Wave3BBNAndSpinCCP2Bounds
+    `Wave3BBNAndSpinCCP2Bounds,
+    -- ADDED 2026-11-17 (foundations audit 2026-11-13 Sec. 6 step 1). The canonical
+    -- model-identity manifest as one Lean record, with open Sec. 7 questions stored as
+    -- open slots. Data plus bookkeeping checks; proves no physics.
+    `ModelIdentity,
+    -- ADDED 2026-11-17. Wave/AeST theorems restated with their physics literals read
+    -- from ModelIdentity.canonical; sabotage_model_identity.sh mutates each field.
+    `ModelIdentityBindings
   ]

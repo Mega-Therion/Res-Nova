@@ -119,6 +119,8 @@ TARGETS=(
   AeSTDiffeomorphismNoether.lean
   StringTheoryBridge.lean
   Wave3BBNAndSpinCCP2Bounds.lean
+  ModelIdentity.lean
+  ModelIdentityBindings.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------
