@@ -10,6 +10,11 @@ are the only current physics.**
 **Last verified against the physics:** 2026-11-19 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
+Also 2026-11-19 (no tier change): **5D bulk solve, P0: the envelope's brane equations hold in form on the asymmetric dark-bubble wall** (`exploration/bulk5d/`, pre-registered in `971f68cc`).
+- `[D]` 4G = −8πG₄τ − E_eff + F_eff, with E_eff = (k₋E⁺ − k₊E⁻)/(k₋ − k₊). All controls pass: the exact Gauss identity with E from the bulk Weyl tensor, the Randall–Sundrum limit, the dark-bubble limit of 1807.01570, and BCMU's κ₄.
+- `[D]` The drag's anti-gravitating sign is what gives the envelope's (1 + x₀a²) factor. The Weyl fluid gains what the wall gains (ρ̇_W + 4Hρ_W = +Q₄), the dark-bubble sign `FLUX_CODAZZI` used. The envelope's π_E is π_eff = (k₋π⁺ − k₊π⁻)/(k₋ − k₊).
+- `[O]` +G₄ matter is carried by bulk terms (strings, or the bulk response to wall matter). That it perturbs like 4D fluids is verified only in the Newtonian limit. The drag's perturbation law is a modeling choice. For a near-symmetric bubble, π_eff ≈ 0 needs π± to cancel to about (k₋ − k₊)/k.
+
 Also 2026-11-19 (no tier change): **5D bulk solve, Phase 1: the drag-momentum law from a 5D-covariant drag** (`exploration/bulk5d/`, pre-registered in `00975315` before any derivation).
 - `[D]` The covariant velocity-dependent tension σ(X), X = (ξ·n)² = ȧ², reproduces the drag background exactly in the dark-bubble junction condition (x₀ = 4πG₄ρ_b/3). Its wall stress is −σh_μν: w = −1 and zero momentum. That is not Law C.
 - `[X]` under `PREREG_FLUX.md`'s single-channel rule: as the flux-fed branch it needs Q₄ = 2HΔΣ(−q), which changes sign at z ≈ 0.73. The kill comes from that pre-registered modeling rule, not from the 5D NEC. If the rule were relaxed, (a) would be an untested third law (w = −1, x₀ = |κ|/4 ≈ 0.56), and `drag_gcosmo`'s x₀ ≥ |κ| floor holds only while (a) stays excluded.

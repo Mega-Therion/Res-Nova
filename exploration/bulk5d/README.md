@@ -32,7 +32,39 @@ Pre-registered before any derivation. Analytic (SymPy), plus one numerical check
 
 **Not claimed.** A3's statement that X has no h-dependence at fixed embedding is an argument, not a SymPy check: varying the bulk metric gives a normal-normal term, which acts as the ram-pressure force in the wall's equation of motion, not as tangential stress. No Phase 2 numerics were run.
 
-## Phase 2 (scoped in `PREREG_PHASE1.md`; not started)
+## Phase 2 / P0: effective 4D equations on the asymmetric wall (`PREREG_P0.md` 971f68cc, `p0_asymmetric_wall.py` → `P0_ASYMMETRIC_WALL.json`)
+Pre-registered before any derivation. Self-contained SymPy at linear order and leading order in H/k±. Cross-checked against BCMU (hep-th/0105091) and the dark-bubble papers, all read from their TeX source.
+
+**Controls (all pass).**
+- **C1.** On an exact Friedmann wall in planar AdS-Schwarzschild, the Gauss equation 4G = 3k²h − E + KK − K·K − ½h(K² − K·K) holds identically. E_μν is computed from the bulk Weyl tensor: E^τ_τ = 3μ/a⁴, E^x_x = −μ/a⁴.
+- **C2.** The Randall–Sundrum limit gives G₄ = kG₅ and Weyl fluid = mean of E±, matching the Shiromizu–Maeda–Sasaki linear terms.
+- **C3.** The dark-bubble limit gives G₄ = 2k₊k₋G₅/(k₋ − k₊), Λ₄ = σ_ext − σ, and dark radiation (G₄/2G₅)(μ₊/k₊ − μ₋/k₋)/a⁴, matching 1807.01570 and the exact junction expansion of Phase 1.
+- **C4.** BCMU's κ₄, with the two-Λ force term, equals −8πG₄: the same sign and magnitude.
+
+**Result: 4G_μν = −8πG₄ τ_μν − E_eff,μν + F_eff,μν.**
+- E_eff = (k₋E⁺ − k₊E⁻)/(k₋ − k₊).
+- F_eff = (k₋F⁺ − k₊F⁻)/(k₋ − k₊), with F = (2κ₅/3)[T_μν + (T_nn − T/4)h_μν] for bulk matter.
+
+**Pre-registered decision: CONFIRMED (in form).**
+1. **Drag sign.** The envelope's only wall-localized term is the drag, and it enters with the anti-gravitating sign. That sign is exactly what gives its 3(1 + x₀a²)(Ψ′ + Φ); a positively gravitating drag would give 3(1 − x₀a²).
+2. **The envelope's π_E is π_eff = (k₋π⁺ − k₊π⁻)/(k₋ − k₊).**
+   - E_eff is traceless.
+   - It is Bianchi-sourced with the dark-bubble relative sign: the Weyl fluid gains what the wall gains, ρ̇_W + 4Hρ_W = +Q₄ (SymPy). Randall–Sundrum has the opposite sign. `FLUX_CODAZZI` uses the dark-bubble sign.
+3. **The drag perturbation law δΔΣ = −2Ω_d(Ψ′ + Φ), i.e. ΔΣ ∝ local H², is a modeling choice for the w_d = 0 branch `[O]`.**
+
+**Matter sector (output 4, `[O]`).**
+- Wall-localized stress has explicit coupling −8πG₄. Its net gravity also depends on the bulk response it induces.
+- Ordinary +G₄ matter is therefore carried by bulk terms. Either it is bulk-sourced (string endpoints, through F_eff), or it sits on the wall and its own bulk response overcompensates its −8πG₄ term (arXiv:2310.15032 §4.2; 1807.01570 propagator; 2001.07433 bending).
+- That this response perturbs like the envelope's 4D fluids is verified only in the Newtonian 1/p² limit.
+- The envelope's "free" Weyl fluid, closed with Hu parameters, is E_eff minus that matter-induced response.
+
+**Size of the neglected pieces.**
+- The bulk null dust projects with F^τ_τ = 0 exactly (nullness), leaving a pure pressure.
+- Relative to the Weyl pressure growth per Hubble time it is (H/k)(1 + H/k): negligible at this order.
+
+**Consequence for Phase 2.** E_eff = E⁺ + (k₊/(k₋ − k₊))(E⁺ − E⁻). A near-symmetric bubble (k₋ − k₊ ≪ k) amplifies the jump between the two sides, so π_eff ≈ 0 needs π⁺ and π⁻ to cancel to about (k₋ − k₊)/k. The bulk solve must supply both sides.
+
+## Phase 2 (scoped in `PREREG_PHASE1.md`; P0 done; bulk PDE not started)
 - **P0.** Effective 4D scalar equations on an asymmetric wall (hep-th/0105091). The dark bubble does not localize gravity (arXiv:2212.14004), so the Randall–Sundrum-style Weyl-fluid equations in `weyl_causal_envelope.py` must be confirmed or replaced first.
 - **Bulk.** Vaidya null dust carries its own perturbations, so a vacuum master-variable reduction does not apply unmodified.
 - **Controls before any dark-bubble scalar output is trusted:**

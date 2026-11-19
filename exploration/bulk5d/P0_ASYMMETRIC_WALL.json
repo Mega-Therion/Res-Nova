@@ -1,0 +1,27 @@
+{
+ "C1": {
+  "C1_bulk": "R = -20 k^2, R_AB = -4 k^2 g_AB (planar AdS-Schwarzschild, f = k^2 r^2 - mu/r^2)",
+  "C1_K_x_x": "sqrt(f + adot^2)/a",
+  "C1_E_tau_tau": "3*mu/a(tau)**4",
+  "C1_E_x_x": "-mu/a(tau)**4",
+  "C1_gauss_identity_exact": true,
+  "C1_form": "4G_mn = 3k^2 h_mn - E_mn + K K_mn - K_m^a K_an - (1/2) h_mn (K^2 - K.K), E_mn = C_AmBn n^A n^B"
+ },
+ "C2_RS": "4G = (k kappa5) tau - <E> + <F>:  8 pi G4 = k * 8 pi G5, G4 = k G5; Weyl fluid = mean of E+- (SMS linear terms)",
+ "C3_dark_bubble": "4G = -8 pi G4 tau - E_eff + F_eff, G4 = 2 k+ k- G5/(k- - k+); E_eff = (k- E+ - k+ E-)/(k- - k+), F_eff = (k- F+ - k+ F-)/(k- - k+)",
+ "C3_Lambda4": "tau = -(sigma - sigma_ext) h  =>  H^2 = (8 pi G4/3)(sigma_ext - sigma): Lambda4 = sigma_ext - sigma > 0 for sub-extremal tension (1807.01570)",
+ "C3_dark_radiation": "H^2 \u2283 (k+ k-/(k- - k+)) (mu+/k+ - mu-/k-)/a^4 = (G4/2G5)(mu+/k+ - mu-/k-)/a^4: matches the exact junction expansion",
+ "C4_BCMU": "kappa4(BCMU) = -kappa5 * 2 k+ k-/(k- - k+) = -8 pi G4: agrees in sign and magnitude (wall-localized stress anti-gravitates)",
+ "O1_wall_stress_coupling": "The explicit coupling of wall-localized stress tau_mn is -8 pi G4 (C3; BCMU C4 agrees in sign). Its NET 4D gravity also depends on the bulk response it induces, which sits in E_eff/F_eff and is free data in this identity. With no induced bulk response it anti-gravitates; dark-bubble papers show the response can overcompensate to +G4 (arXiv:2310.15032 sec. 4.2: worldvolume EM fields and brane-deposited mass; 1807.01570 propagator; 2001.07433 bending). The drag is a tension modification with no bulk field of its own, so it anti-gravitates: that is the (1 + x0 a^2) factor.",
+ "O2_weyl_fluid": "The Weyl fluid is E_eff = (k- E+ - k+ E-)/(k- - k+): traceless (each E+- is), and by the 4D Bianchi identity div E_eff = -8 pi G4 div tau + div F_eff, i.e. Bianchi-sourced by the wall's energy-momentum exchange, with the dark-bubble relative sign (O2_bianchi_check). Its anisotropic stress is pi_eff = (k- pi+ - k+ pi-)/(k- - k+), so a bulk solve must supply BOTH sides' pi+-.",
+ "O3_drag_factor": "The envelope's 3(1 + x0 a^2)(Psi' + Phi) follows exactly from an anti-gravitating wall-localized drag with Delta Sigma proportional to the local H^2 (delta Delta Sigma = -2 Omega_d (Psi' + Phi)). A positively gravitating drag would give 3(1 - x0 a^2). The perturbation law itself is not fixed by a 5D action for the w_d = 0 branch [O]; for the covariant sigma(X) it would be delta X, which involves the wall bending (Phase 2).",
+ "O3_check": {
+  "anti_gravitating_gives": "3(1 + x0 a^2)(Psi'+Phi)",
+  "positive_would_give": "-3*(Phi + Psi_p)*(a**2*x0 - 1)"
+ },
+ "O4_matter_sector": "Ordinary 4D matter gravitates with +G4 only through bulk terms: either it is bulk-sourced (string endpoints, F_eff = (k- F+ - k+ F-)/(k- - k+), F = (2 kappa5/3)[T_mn + (T_nn - T/4) h_mn]), or it sits on the wall and its induced bulk response (part of E_eff/F_eff) overcompensates its -8 pi G4 term. Either way the envelope's +G4 matter fluids assume that this bulk response tracks 4D perfect-fluid perturbations. That is verified only in the Newtonian 1/p^2 limit (1807.01570, 2001.07433) [O]. It also means the 'free' Weyl fluid the envelope closes with Hu parameters is E_eff minus the matter-induced response.",
+ "O5_null_dust_projection": "F^tau_tau = 0 exactly (nullness forces (l.u)^2 = (l.n)^2); the null dust projects as a pure pressure F^x_x = (2 kappa5/3) psi (l.n)^2. Ratio to the Weyl pressure growth per Hubble time: eps*(eps + 1) (eps = H/k), i.e. O(H/k): negligible at the envelope's order.",
+ "O2_bianchi_check": "Background: 3H^2 = 8 pi G4 (rho_W - rho_tau) and the Raychaudhuri equation imply rho_W' + 4H rho_W = rho_tau' + 3H(rho_tau + p_tau) = Q4: the Weyl fluid GAINS what the wall gains, the dark-bubble relative sign (Randall-Sundrum has the opposite: rho_W' + 4H rho_W = -Q). FLUX_CODAZZI uses the dark-bubble sign.",
+ "O2_amplification": "E_eff = E+ + (k+/(k- - k+))(E+ - E-), and likewise pi_eff. For k- - k+ << k, the jump between the two sides is amplified by k/(k- - k+): pi_eff ~ 0 needs pi+ and pi- to cancel to about (k- - k+)/k.",
+ "preregistered_decision": "CONFIRMED (in form). Outputs 1-3 match the envelope's structure at linear order and leading order in H/k: (1) the only wall-localized term in the envelope, the drag, enters with the anti-gravitating sign that gives 3(1 + x0 a^2)(Psi'+Phi); (2) the Weyl fluid is E_eff = (k- E+ - k+ E-)/(k- - k+), traceless and Bianchi-sourced with the dark-bubble sign, so the envelope's pi_E stands for pi_eff = (k- pi+ - k+ pi-)/(k- - k+); (3) the drag factor follows exactly for Delta Sigma ~ local H^2, which is a modeling choice for the w_d = 0 branch [O]. Output 4 [O]: +G4 matter is carried by bulk terms (strings, or the overcompensating bulk response to wall matter); that it perturbs like 4D fluids is verified only in the Newtonian limit, and the envelope's 'free' Weyl fluid is E_eff minus that response."
+}
