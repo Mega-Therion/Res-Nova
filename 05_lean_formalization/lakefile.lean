@@ -191,6 +191,7 @@ lean_lib «ResNovaFormal» where
     `NoetherScoping,
     -- ADDED 2026-11-19. Postulate R analytic induced-metric brane no-go (even on x >= 0),
     -- J_std''(y) blowup at y -> 0+, and exact analytic auxiliary-susceptibility supremum
-    -- F_std(x) = sup_{s in [0,1)} [s x^2/2 - (artanh s - s)/2].
+    -- F_std(x) = sup over s in 0..1 of (s x^2/2 - (artanh s - s)/2).
+    -- (No square brackets in comments here: verify_all_proofs.sh ends the roots range at the first one.)
     `PostulateRAnalyticNoGo
   ]
