@@ -2109,14 +2109,14 @@ works:
     is_new_version_of: ["10.5281/zenodo.21969121"]
 
   - work_id: dual_channel_variational_closure_covariant_2
-    title: "Correction: the interpolating function in the dual-channel abstract was withdrawn"
+    title: "Dual-Channel Variational Closure, Covariant Completion, and a Reproducible SPARC Benchmark"
     author: "Yett, R.W."
     orcid: "0009-0001-1303-7190"
     resource_type: "JournalArticle"
     canonical_doi: "10.5281/zenodo.21969120"
     lineage: release
     role: concept
-    version: "v1.6.2"
+    version: "v1.7.0"
     status: live
     publication_date: "2026-08-16"
     repository: "Mega-Therion/Res-Nova"
