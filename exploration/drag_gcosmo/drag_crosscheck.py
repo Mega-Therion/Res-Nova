@@ -4,7 +4,8 @@
 import json, sys
 import numpy as np
 from scipy.optimize import minimize
-exec(open("drag_fit.py").read().split("out = {}")[0])
+import drag_fit
+from drag_fit import E, ORH2, chi2_bg, fit
 prof = [(float(x), fit(fix_x0=x)[0]) for x in np.linspace(0.0, 2.0, 21)]
 cbest = min(c for _, c in prof)
 ORH2_ = ORH2
@@ -14,11 +15,10 @@ def E_cpl(z, h, Om, w0, wa):
     return np.sqrt(Om / a**3 + Or / a**4 + de)
 def chi2_cpl(q):
     h, Om, w0, wa = q
-    global E
-    E0 = E
-    E = lambda z, h_, Om_, x0_: E_cpl(z, h_, Om_, w0, wa)
+    E0 = drag_fit.E
+    drag_fit.E = lambda z, h_, Om_, x0_: E_cpl(z, h_, Om_, w0, wa)
     try: v = chi2_bg((h, Om, 0.0))
-    finally: E = E0
+    finally: drag_fit.E = E0
     return v
 best = None
 for s in ([0.68, 0.31, -0.9, -0.5], [0.68, 0.31, -1.0, 0.0], [0.68, 0.31, -0.7, -1.0]):
