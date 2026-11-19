@@ -5,7 +5,8 @@
     c_s^2 = -4/3 - (1/3) a adddot/(adot addot)."""
 import json, math
 import numpy as np
-exec(open("drag_fit.py").read().split("out = {}")[0])
+import drag_fit
+from drag_fit import E, ORH2, chi2_bg, fit
 res = {}
 for label, wf in (("+fs8_anchored", True), ("+fs8_free_amp", False)):
     cd = fit(with_fs=wf)[0]

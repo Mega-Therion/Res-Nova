@@ -73,18 +73,22 @@ def fit(fix_x0=None, with_fs=None):
         if best is None or r.fun < best.fun: best = r
     p = (best.x[0], best.x[1], best.x[2] if fix_x0 is None else fix_x0)
     return float(best.fun), [float(v) for v in p]
-out = {}
-for label, wf in (("BAO+SN+CMB", None), ("+fs8_anchored", True), ("+fs8_free_amp", False)):
-    cl, pl = fit(fix_x0=0.0, with_fs=wf); cd, pd = fit(with_fs=wf)
-    prof = []
-    for x in np.linspace(-0.3, 0.6, 19):
-        prof.append((float(x), fit(fix_x0=x, with_fs=wf)[0]))
-    px = np.array(prof); within = px[px[:, 1] <= cd + 4.0, 0]
-    out[label] = {"chi2_LCDM": cl, "params_LCDM": pl, "chi2_drag": cd, "params_drag": pd, "dchi2": cd - cl,
-                  "x0_2sigma": [float(within.min()), float(within.max())] if len(within) else None,
-                  "Gcosmo_over_GN_today_best": 1 / (1 + pd[2]),
-                  "Gcosmo_over_GN_today_2sigma": [1 / (1 + float(within.max())), 1 / (1 + float(within.min()))] if len(within) else None}
-    if wf is not None:
-        out[label]["fs8_chi2_LCDM"] = chi2_fs(pl, wf); out[label]["fs8_chi2_drag"] = chi2_fs(pd, wf)
-    print(label, json.dumps(out[label]), flush=True)
-json.dump(out, open("DRAG_FIT.json", "w"), indent=1)
+def main():
+    out = {}
+    for label, wf in (("BAO+SN+CMB", None), ("+fs8_anchored", True), ("+fs8_free_amp", False)):
+        cl, pl = fit(fix_x0=0.0, with_fs=wf); cd, pd = fit(with_fs=wf)
+        prof = []
+        for x in np.linspace(-0.3, 0.6, 19):
+            prof.append((float(x), fit(fix_x0=x, with_fs=wf)[0]))
+        px = np.array(prof); within = px[px[:, 1] <= cd + 4.0, 0]
+        out[label] = {"chi2_LCDM": cl, "params_LCDM": pl, "chi2_drag": cd, "params_drag": pd, "dchi2": cd - cl,
+                      "x0_2sigma": [float(within.min()), float(within.max())] if len(within) else None,
+                      "Gcosmo_over_GN_today_best": 1 / (1 + pd[2]),
+                      "Gcosmo_over_GN_today_2sigma": [1 / (1 + float(within.max())), 1 / (1 + float(within.min()))] if len(within) else None}
+        if wf is not None:
+            out[label]["fs8_chi2_LCDM"] = chi2_fs(pl, wf); out[label]["fs8_chi2_drag"] = chi2_fs(pd, wf)
+        print(label, json.dumps(out[label]), flush=True)
+    json.dump(out, open("DRAG_FIT.json", "w"), indent=1)
+
+if __name__ == "__main__":
+    main()
