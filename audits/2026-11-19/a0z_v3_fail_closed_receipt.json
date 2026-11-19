@@ -1,0 +1,56 @@
+{
+  "runner": "a0_z_v3_fail_closed.py",
+  "prereg": "03_observer_jwst/PREREG_A0_OF_Z_V3.md",
+  "sparc_provenance": {
+    "ok": true,
+    "checked": 175,
+    "mismatched": [],
+    "missing": [],
+    "manifest": "VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256"
+  },
+  "extraction_run": {
+    "ok": true,
+    "harness_tail": [
+      "[dual] a0 = 9.2850e-11, bootstrap 68% [8.4872e-11, 1.0054e-10]",
+      "[std] a0 = 1.1562e-10, bootstrap 68% [1.0615e-10, 1.2342e-10]"
+    ]
+  },
+  "extraction_reproduction": {
+    "ok": true,
+    "detail": {
+      "std": {
+        "recorded": 1.1562e-10,
+        "reproduced": 1.1562458234075675e-10,
+        "rel_diff": 3.9632769042998956e-05,
+        "ci_rel_diff": [
+          1.5122908395113113e-05,
+          2.601210378811206e-05
+        ],
+        "match": true
+      },
+      "dual": {
+        "recorded": 9.285e-11,
+        "reproduced": 9.284950291642375e-11,
+        "rel_diff": 5.353619561058818e-06,
+        "ci_rel_diff": [
+          3.920173569172094e-06,
+          3.903727250822239e-05
+        ],
+        "match": true
+      }
+    }
+  },
+  "discrimination_provenance": {
+    "usable": false,
+    "reason": "the 20-point high-z table is WITHDRAWN [X] (2026-09-27) and the V3 execution predates the withdrawal",
+    "evidence": [
+      "03_observer_jwst/O4_REAL_DATA_MUSE_DARK_III_2026-09-27.md",
+      "a0_of_z.py / a0_of_z_v2.py carry a DATA WITHDRAWN header"
+    ],
+    "consequence": "PREREG_A0_OF_Z_V3.md's INCONCLUSIVE verdict cannot be re-issued from this table. It is retained as a record of what was computed, not as current evidence. a0(z) stays [O].",
+    "route_forward": "03_observer_jwst/PREREG_A0_OF_Z_V3.md already requires a JWST-era z>1.5 dataset; the current live attempt is audits/2026-11-18/a0z_zgt15_manifest.py (RC100, [U] INCONCLUSIVE)"
+  },
+  "verdict": "EXTRACTION_VERIFIED_NO_VERDICT",
+  "reason": "the 20-point high-z table is WITHDRAWN [X] (2026-09-27) and the V3 execution predates the withdrawal",
+  "tier_effect": "none; a0(z) remains [O]; no [P]/[D] upgrade is implied"
+}
