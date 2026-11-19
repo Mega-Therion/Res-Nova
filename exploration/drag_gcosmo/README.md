@@ -29,3 +29,8 @@ Pre-registered in `PREREG.md` (commit 7c5908a, before any number). Fits: `drag_f
 **Status.**
 - **Phenomenology:** the drag G_cosmo(a) fits as well as w₀w_a per parameter [E].
 - **Physical realisation:** a closed (zero-flux) wall is unstable [X]; a flux-fed wall is [O].
+
+## Post-hoc SN-sample check: DES-Dovekie in place of Pantheon+ (`dovekie_rerun.py` → `DOVEKIE_RERUN.json`)
+- 1820 SNe, full inverse STAT+SYS covariance. Drag: Δχ² = **−8.72**, x₀ = 0.35 (2σ 0.10–0.72), G_cosmo/G_N today = 0.74. CPL: Δχ² = −12.46, w₀ = −0.81, w_a = −0.69.
+- The drag preference **strengthens** with DES-Dovekie (Pantheon+ gave −6.54), as DESI's own dynamical-DE preference does across SN samples. The result does not hinge on the SN sample.
+- DESI DR2's abstract (arXiv:2503.14738) confirms the favoured quadrant w₀ > −1, w_a < 0, which both of our CPL fits occupy. The exact table values were not re-fetched.

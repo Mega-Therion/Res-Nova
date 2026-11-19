@@ -3,9 +3,17 @@
   "buildCommand": "node scripts/mount-observatory.mjs && pnpm exec vite build",
   "outputDirectory": "dist/public",
   "redirects": [
-    { "source": "/observatory", "destination": "/observatory/", "permanent": false }
+    {
+      "source": "/observatory",
+      "destination": "/observatory/",
+      "permanent": false
+    }
   ],
   "rewrites": [
-    { "source": "/((?!assets/|observatory(?:/|$)).*)", "destination": "/index.html" }
-  ]
+    {
+      "source": "/((?!assets/|observatory(?:/|$)).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "ignoreCommand": "git diff --quiet \"${VERCEL_GIT_PREVIOUS_SHA:-HEAD^}\" HEAD -- . ../visualizer"
 }
