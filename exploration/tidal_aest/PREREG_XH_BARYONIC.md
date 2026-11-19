@@ -12,3 +12,13 @@
 - Apply S_lin(x_H,bar) to the MOND boost in the X-COP solve: g = u + S·(g_mond(u) − u). The AeST μ² dust term stays unscreened, since it is AeST's own sector.
 - Use x_H,low = 154, or the Test-A-allowed value if A fails.
 - Supply-capped. Same decision rule at R₅₀₀ and R₂₀₀: median ∈ [0.8, 1.25] and ≥ 9/12 in [0.7, 1.4].
+
+## Addendum C (written after A and B, before running C)
+A failed narrowly (1.9% > 1%) and B failed decisively (R₅₀₀ = 2.11) for x_H built on the **baryonic** Φ_N.
+
+The other self-consistent definition builds x_H on the **full metric potential** Φ = Φ_N + φ (what Ψ = Φ couples to). Under it, SPARC's x_H is the observed-field value: 0% of points with S < 0.99 at 154, as in `xh_screen.py`.
+
+**Test C.**
+- X-COP solve with S_lin(x_H,full) and x_H,low = 154, where x_H,full is computed from the solved total field (iterated to self-consistency: 6 fixed-point passes, reporting the last change).
+- Same decision rule at R₅₀₀ and R₂₀₀.
+- Also check linear growth: unchanged, since linear modes have x_H ≲ 1 under either definition.
