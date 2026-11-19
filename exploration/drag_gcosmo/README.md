@@ -103,3 +103,40 @@ A full CMB lensing/ISW calculation needs the perturbations of the Weyl dark radi
 So any Boltzmann run that closes the Weyl sector on the brane, for example by setting its anisotropic stress to zero, imposes an assumption, not a prediction. The decisive test therefore needs the 5D bulk perturbations solved for this flux-fed AdS-Vaidya geometry. That is a research step [O], and the lensing/ISW proxies above are the most that brane-only data can claim.
 
 Because Ω_Weyl here is O(1) and not a small correction, the undetermined anisotropic stress is expected to matter at leading order. This item should be treated as the flux branch's main vulnerability.
+
+## Causal Weyl anisotropic-stress envelope (`PREREG_WEYL_ENVELOPE.md` 7ea3f668, `weyl_causal_envelope.py` → `WEYL_CAUSAL_ENVELOPE.json`)
+Pre-registered before any numerical output. Rather than waiting on a full 1+1D 5D AdS-Vaidya bulk perturbation solver if all causal brane closures already fail, this brackets Hu (1998) causal Generalized Dark Matter closures ($c_s^2 = 1/3$, $c_{\mathrm{vis}}^2 \in \{0.0, 0.1, 1/3, 0.6, 1.0\}$) plus the exact Ma–Bertschinger (1995) $\ell_{\max} = 8$ free-streaming Boltzmann hierarchy (`mb95_l8` with Eq. 51 spherical-Bessel truncation) coupled to the exact linearized 4D Einstein + perturbed drag + Weyl-flux system across $k \in [10^{-4}, 0.2]\,\mathrm{Mpc}^{-1}$ (25 modes, $a_i = 10^{-3} \to 1$), computing exact Limber CMB lensing $A_{\phi\phi,\mathrm{eff}}(L)$ ($L \in \{40, 80, 120, 200, 300, 400\}$, Planck 2018 $3\sigma$ gate $|A - 1| \le 0.08$) and exact spherical-Bessel late-ISW $C_\ell^{\mathrm{ISW}}/C_\ell^{\mathrm{ISW}}(\Lambda\mathrm{CDM})$ ($\ell \in \{2, 5, 10, 20, 30\}$, $z \in [0, 5]$, gate $[0.4, 1.6]$).
+
+1. **SymPy & numerical controls (`[D]`):**
+   - Exact Conformal Newtonian gauge + contracted Bianchi identities verified symbolically (`S1`): exact $2 E^2 E'$, exact $\Lambda$CDM control ($\kappa = 0$, $k = 0.2$: $\Phi - \Psi = 0.0$, $E_{03}$ residual `1.21e-10`, late growth match `9.70e-6`, `REF_D1` match `1.15e-3`), and numerical `E33` consistency `4.31e-9` (`Pantheon+`, $k=0.05$).
+   - **Bifurcation between the two exact covariant realizations of $\delta\theta = -3H(\Psi'+\Phi)$:**
+     - **Formulation I (`Law C`, geometric zero-momentum wall drag $F_d \equiv 0 \implies Q_i = -K^2 \Omega_d \Phi$):** satisfies $d(E_{03})/dN = E_{33}$ identically in SymPy; the $-K^2 \Omega_d \Phi$ term cancels part of the Weyl photon pressure gradient and keeps free-streaming shear bounded.
+     - **Formulation II (`Law A`, free-falling pressureless drag fluid with $\nabla_\mu T_d^\mu{}_i = Q_i = q_4 u_F$):** satisfies $d(E_{00})/dN = 0$ and $\mathrm{div}_3(T_d) = q_4 u_F$ identically in SymPy; without the $-K^2 \Omega_d \Phi$ counter-term, bulk inflow pumps $O(500)$ Weyl shear whenever $c_{\mathrm{vis}}^2 > 0$.
+
+2. **Causal envelope results at $w_d = 0$, $x_0 = |\kappa|$ (2σ floor `(h, Ω_m)` refitted via `fit_coupled`):**
+
+| Realization & Background | Closure ($c_{\mathrm{vis}}^2$) | $A_{\phi\phi,\mathrm{eff}}$ mean [min, max] | ISW ratio [min, max] | Pre-reg. Verdict (`±8%`, `[0.4,1.6]`) |
+|---|---|---|---:|---|
+| `Law C` ($F_d=0$), `Pantheon+` (`κ = -2.2445`) | `0.0` | `1.0485` [1.0418, 1.0544] | [0.898, 1.593] | **PASS** |
+| `Law C` ($F_d=0$), `Pantheon+` (`κ = -2.2445`) | `0.1` | `1.0487` [1.0424, 1.0544] | [0.887, 1.398] | **PASS** |
+| `Law C` ($F_d=0$), `Pantheon+` (`κ = -2.2445`) | `1/3` | `1.0488` [1.0429, 1.0544] | [0.880, 1.169] | **PASS** |
+| `Law C` ($F_d=0$), `Pantheon+` (`κ = -2.2445`) | `mb95_l8` | `1.0488` [1.0426, 1.0544] | [0.881, 1.190] | **PASS** |
+| `Law C` ($F_d=0$), `Pantheon+` (`κ = -2.2445`) | `1.0` | `1.0489` [1.0432, 1.0544] | [0.877, 0.949] | **PASS** |
+| `Law C` ($F_d=0$), `DES-Dovekie` (`κ = -2.4966`) | `0.0` | `1.0543` [1.0466, 1.0609] | [0.890, 1.663] | FAILS ($\ell=2$ ISW `1.663`) |
+| `Law C` ($F_d=0$), `DES-Dovekie` (`κ = -2.4966`) | `1/3` / `mb95_l8` | `1.0546` / `1.0545` | [0.87, 1.19] / [0.87, 1.21] | **PASS** (all $c_{\mathrm{vis}}^2 \ge 0.1$) |
+| `Law C` ($F_d=0$), 2σ floor (`κ = -0.8317`) | all `0.0..1.0`, `mb95` | `1.0182–1.0183` | [0.943, 1.212] | **PASS** |
+| `Law A` ($Q_i = q_4 u_F$), `Pantheon+` (`bulk_rest`) | `0.0` | `1.0485` [1.0418, 1.0544] | [0.898, 1.593] | **PASS** |
+| `Law A` ($Q_i = q_4 u_F$), `Pantheon+` (`bulk_rest`) | `0.1` / `1/3` / `mb95_l8` | `0.992` / `0.955` / `0.987` | `[2.52,2.63]` / `[3.57,4.07]` / `[3.17,3.23]` | **FAILS** (ISW `2.5–4.1×`) |
+| `Law A` (`matter_comoving`), `Pantheon+` (`1/3`) | `1/3` | `0.8321` [0.7197, 0.9014] | [12.85, 15.65] | **FAILS** (ISW `13–16×`, $L=40$ `0.72`) |
+| `Law A` (`bulk_rest`), 2σ floor (`κ = -0.8317`) | `0.0` / `0.1` / `1/3` | `1.018` / `0.997` / `0.983` | `[0.95,1.21]` / `[1.52,1.53]` / `[1.84,1.94]` | `0.0, 0.1` PASS; $\ge 1/3$ FAILS |
+
+**Pre-registered verdict: `SURVIVES ENVELOPE` (`5D PDE justified`) `[D]`/`[O]`:**
+- Because causal closures pass on `Pantheon+_best` (and for `Law C`, across all $c_{\mathrm{vis}}^2 \ge 0.1$ and `mb95_l8` on both `Pantheon+` and `DES-Dovekie`, insensitive to `ic_W = unperturbed`), the flux-fed wall is **not** eliminated model-independently and the 1+1D 5D AdS-Vaidya bulk perturbation solve remains justified `[O]`.
+- Even better, the causal bracket pinpoints the exact 5D question: under geometric zero-momentum drag (`Law C`, $F_d=0$), free-streaming Weyl radiation ($c_{\mathrm{vis}}^2 = 1/3$, `mb95_l8`) passes cleanly at $+4.9\%$ (`Pantheon+`) / $+5.5\%$ (`Dovekie`) CMB lensing (`~1.9–2.1σ` of Planck `1.000 ± 0.026`); whereas if 5D junction dynamics yields free-falling drag (`Law A`, $Q_i = q_4 u_F$), every free-streaming/viscous shear closure ($c_{\mathrm{vis}}^2 \ge 0.1$) is ruled out `[X]` by $2.5\text{–}20\times$ late-ISW excess at best fit unless the bulk enforces near-zero anisotropic stress ($c_{\mathrm{vis}}^2 = 0$).
+
+### Independent verification (Claude Code CLI, 2026-11-19)
+- **Reproduction.** `weyl_causal_envelope.py` reruns byte-identical to `WEYL_CAUSAL_ENVELOPE.json` (only `elapsed_seconds` differs).
+- **ℓ sampling.** The script samples ISW only at ℓ ∈ {2, 5, 10, 20, 30}, but the pre-registration says ℓ ∈ [2, 30]. Rerun at every integer ℓ in [2, 30], the reported ranges hold: the c_vis² = 0 maximum is at ℓ = 2, and the Law A c_vis² ≥ 0.1 maxima fall at ℓ = 18–30 and match the reported brackets to the third decimal.
+- **Knife edge.** Under the pre-registration's primary convention (bulk-rest flux), free-falling drag (Law A) passes at a best fit only for c_vis² = 0. That closure has zero Weyl anisotropic stress, and Law A and Law C give identical numbers there. Its ℓ = 2 ISW ratio is 1.5934 with 25 k-modes and 1.5944 with 50, against the 1.6 gate: a numerically stable pass, 0.4% inside the gate.
+- **Law C is post-hoc.** The pre-registration names the flux-frame conventions but not the drag-momentum law. Law C (F_d = 0) was introduced in the run. Its robust passes for free-streaming closures (c_vis² = 1/3, `mb95_l8`) are a post-hoc result: they sharpen the 5D junction question but do not carry the pre-registered verdict.
+- **Verdict wording.** SURVIVES ENVELOPE under the pre-registered rule, narrowly: only through the zero-stress closure, 0.4% inside the ISW gate. Robustly only under the post-hoc Law C. The 5D bulk-perturbation solve stays justified `[O]`, and its first job is to decide which drag-momentum law the junction gives.
