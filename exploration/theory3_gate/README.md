@@ -22,3 +22,8 @@ Open door left: a DHOST/beyond-Horndeski quartic with c_T=c (p=2) plus a scaling
 - Dust validity (Q−Q₀)/Q₀ = ρ/(μ²(2−K_B)) — **Q₀ cancels** (SymPy-asserted). Only μ = √(2K₂/(2−K_B))·Q₀ matters.
 - Need μ ≳ 7.6 Mpc⁻¹ (dust by z_rec) to 41 Mpc⁻¹ (by z_eq). Q₀ ≤ 2×10⁻⁵ Mpc⁻¹ just needs K₂ ≈ 7×10¹⁰–2×10¹² (2.5×10⁷ × SZ's).
 - **Door stays OPEN.** New flags: (a) strong-coupling scale of Q fluctuations at K₂~10¹¹; (b) 1/μ ≲ 25–130 kpc caps MOND's reach (inherited from SZ21, not new to this door).
+
+## SPARC reach vs 1/μ (`sparc_mu_reach.py` → `SPARC_MU_REACH.json`) — [O]
+- Largest SPARC radius is 108.3 kpc. With 1/μ = 132.7 kpc (dust by recombination), 0/175 galaxies and 0/2350 low-acceleration points lie beyond: **passes**.
+- With 1/μ = 24.5 kpc (dust by equality), 45 galaxies and 357/2350 (15%) low-acceleration points lie beyond: **fails**.
+- So the open door is pinned to μ ≈ 7.6–9 Mpc⁻¹, a ~20% band. Deciding question: must the condensate already be dust at z_eq (CMB peak heights), or is z_rec enough? (g_bar uses Υ=1 here; counting only.)
