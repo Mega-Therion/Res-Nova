@@ -161,9 +161,6 @@ lean_lib «ResNovaFormal» where
     `CassiniSymmetronWindow,
     -- ADDED 2026-11-17. Fu et al. (2024) Eq. (4) vector-variation discrepancy (b vs 2b)
     -- and nonzero constrained Noether/Bianchi residual in 1+1 Minkowski space (PR #215 / BLK-1436 #5).
-    -- ADDED 2026-11-17 (issue #217). Parameterized scalar-channel constitutive derivative.
-    -- Calculus/normalization only; no covariant field equation or branch selection.
-    `AeSTParameterizedNormalization,
     `AeSTVectorNoetherResidual,
     -- ADDED 2026-11-17 (Issue #217 / BLK-1443, Muse). Parameterized scalar-channel
     -- calculus normalization J(Y) = 2 lam a^2 F_std(sqrt Y / a); calculus only.
