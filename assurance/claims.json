@@ -1548,7 +1548,7 @@
     },
     {
       "id": "CLM-Z-03",
-      "wording": "On AeST's held branch, the Milky Way external field gives mu_std a solar-system quadrupole Q2 = 1.67-1.72e-26 s^-2 at the anchor a0, excluded by Cassini at +4.6/+4.7 sigma against Hees et al. 2014; sharper interpolating functions are excluded more strongly, and SPARC's total chi2 prefers the smooth mu_std transition. The isolated-Sun monopole term is negligible.",
+      "wording": "On AeST's held branch, the Milky Way external field gives mu_std a solar-system quadrupole Q2 = 1.67-1.72e-26 s^-2 at the anchor a0. Against the authoritative Park et al. (2026) bound Q2 = (1.6 +- 1.8)e-27 s^-2 (arXiv:2602.17884, PRD 2026, DE440 + full Cassini tracking through Aug 2017) this is an exclusion at +8.4 to +8.7 sigma (8.73 sigma at Q2 = 1.731e-26, i.e. (17.31-1.6)/1.8 = 8.728). The superseded Hees et al. (2014) bound Q2 = (3 +- 3)e-27 s^-2 gave +4.6/+4.7 sigma and must not be cited as the current constraint. Sharper interpolating functions are excluded more strongly, and SPARC's total chi2 prefers the smooth mu_std transition. The isolated-Sun monopole term is negligible.",
       "state": "computed",
       "assurance_level": "computation",
       "formal_artifacts": [],
@@ -1559,23 +1559,24 @@
         "02_galaxy_dynamics/EFE_QUADRUPOLE_Q2.json"
       ],
       "assumptions": [
-        "Held (MOND) branch in the solar system; QUMOND Q2 validated against Hees et al. Table 2."
+        "Held (MOND) branch in the solar system; QUMOND Q2 validated against Hees et al. Table 2.",
+        "Cassini bound is the Park et al. (2026) Q2; Hees et al. (2014) is superseded."
       ],
       "verification_commands": [
         "python3 02_galaxy_dynamics/efe_quadrupole_q2.py"
       ],
       "independent_witness": "02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md",
-      "limitations": "Applies to the held branch only. On the dragged branch the solar system is exactly GR (CLM-D3-10), so this does not exclude AeST; branch selection stays [O]. Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
+      "limitations": "Applies to the held branch only. On the dragged branch the solar system is exactly GR (CLM-D3-10), so this does not exclude AeST; branch selection stays [O]. The sigma scales with the bound, not with the model: same computed Q2, two measurements. Hees et al. (2014) is superseded by Park et al. (2026) and the +4.6/+4.7 sigma figures are historical only. Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
       "status_owner": "Res-Nova maintainers",
       "claim_type": "computed-result",
       "quotation_type": "paraphrase",
       "source_locator": "02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md",
       "falsifiability": {
-        "test": "Cassini Q2 bound (Hees et al. 2014)",
+        "test": "Cassini Q2 bound (Park et al. 2026, arXiv:2602.17884)",
         "scope": "held branch, mu_std, anchor a0",
         "result": "supported"
       },
-      "last_verified_commit": "223c385779ee2f43dd83560a8e9ca2e0b1594cb7",
+      "last_verified_commit": "da34485f1439d840cd86959f07a1b404278feca6",
       "published_in": [
         "10.5281/zenodo.23101840 claim 449",
         "10.5281/zenodo.23101840 claim 450",

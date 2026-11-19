@@ -2,7 +2,7 @@
 
 **Generated** from `assurance/claims.json` by `scripts/build_quarantine_ledger.py`. Do not edit by hand; edit the registry and regenerate.
 
-**Registry digest:** `c61529c4855e5c6c`  |  **schema:** 1.1  |  **records:** 62 (38 live, 24 retracted)
+**Registry digest:** `1e3c0900c8151fcf`  |  **schema:** 1.1  |  **records:** 62 (38 live, 24 retracted)
 
 
 This is the red-team record of the program. Every entry below was killed by our own verification stack, and each carries the exact margin by which it failed. It is published before the surviving theory because a reader who can see what we killed can judge what is left.
