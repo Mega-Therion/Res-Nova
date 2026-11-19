@@ -1,5 +1,13 @@
 # Cassini external-field quadrupole at the derived a0 — 2026-09-27
 
+> **SUPERSEDED BOUND (2026-11-18).** This document was computed against the Hees et al. (2014)
+> bound `Q₂ = (3 ± 3)×10⁻²⁷ s⁻²`. The authoritative measurement is now **Park et al. (2026)**,
+> `Q₂ = (1.6 ± 1.8)×10⁻²⁷ s⁻²` (arXiv:2602.17884, Phys. Rev. D 2026; DE440 + full Cassini
+> tracking through Aug 2017). The computed `Q₂` values below are unchanged and remain valid;
+> only the sigma scales. Against Park the exclusion is **+8.4σ to +8.7σ** (8.73σ at
+> `Q₂ = 1.731×10⁻²⁶ s⁻²`, since `(17.31 − 1.6)/1.8 = 8.728`), versus **+4.6/+4.7σ** against
+> Hees (`(17.2 − 3)/3 = 4.733`). **Cite Park et al. (2026); cite Hees only as superseded.**
+
 **Question (RY):** push the RAR shape, which won the tier-0 SPARC median with derived a0 (8.97;
 see `GAMMA_FRACTIONAL_RESULTS_2026-09-27.md`), through the solar-system checks.
 
@@ -7,7 +15,8 @@ see `GAMMA_FRACTIONAL_RESULTS_2026-09-27.md`), through the solar-system checks.
 (Desmond, arXiv:2401.04796) but never computed: the **external-field-effect (EFE) quadrupole**.
 In MOND the Milky Way's field (g_e ≈ 1.9–2.4×10⁻¹⁰ m/s²) distorts the Sun's field. The result
 is an anomalous tidal potential −(Q₂/2) xⁱxʲ(eᵢeⱼ − δᵢⱼ/3). Cassini ranging bounds
-**Q₂ = (3 ± 3)×10⁻²⁷ s⁻²** (Hees et al. 2014).
+**Q₂ = (1.6 ± 1.8)×10⁻²⁷ s⁻²** (Park et al. 2026, arXiv:2602.17884). The Hees et al. (2014)
+value `(3 ± 3)×10⁻²⁷ s⁻²` is superseded; against it the same computed `Q₂` gave +4.6/+4.7σ.
 
 The earlier "μ_std clears the solar-system bound by ~1300×"
 (`TARGET_D1_SUPPLEMENT_MU_STD_REBUILD.md` §4.1) is correct for what it tested: the **isolated-Sun
@@ -79,8 +88,9 @@ decides the shape. That narrows parameter 2 without deriving it.
   this repo's covariant completion, was not computed. Its quasistatic sector is AQUAL-like, so the
   EFE is expected to carry over, but that remains unverified here **[O]**.
 - g_e bracketed at 1.9–2.4×10⁻¹⁰ m/s², following Hees.
-- Cassini bound from Hees et al. 2014. A newer Cassini analysis exists (Phys. Rev. D, "Improved
-  constraints on modified Newtonian gravity from Cassini radio tracking data") and was not used here.
+- Cassini bound: **Park et al. (2026)** is used (see the banner). Hees et al. (2014) is superseded.
+  Because the bound tightened by a factor ~1.7 while the central value dropped, the exclusion
+  roughly doubled from +4.6σ to +8.7σ without any change to the model.
 - Higher-derivative screening (SZ's open door, `TARGET_D7` §4.4 Branch B) could in principle
   suppress the EFE quadrupole. Unbuilt.
 

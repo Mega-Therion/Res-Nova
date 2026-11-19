@@ -112,7 +112,22 @@ def main():
     ap.add_argument("--out", type=str, default="A0_OF_Z_REPORT_V2.json")
     ap.add_argument("--validate", action="store_true")
     ap.add_argument("--scan", action="store_true")
+    ap.add_argument(
+        "--allow-withdrawn-archive",
+        action="store_true",
+        help="Explicitly override the Layer 3 fail-closed quarantine on the withdrawn 20-row table (forensic audit only).",
+    )
     args = ap.parse_args()
+    if not args.allow_withdrawn_archive:
+        import sys
+        print(
+            "REFUSED (exit 2 — Layer 3 fail-closed quarantine): The built-in 20-point "
+            "Bouché+2021 / Mercier+2022 table was WITHDRAWN on 2026-09-27 (untraceable sources). "
+            "Use audits/2026-11-18/a0z_zgt15_manifest.py for provenance-checked high-z data, "
+            "or pass --allow-withdrawn-archive explicitly for historical forensic reproduction.",
+            file=sys.stderr,
+        )
+        sys.exit(2)
     points = load_muse_dark_published_sample()
 
     v1 = evaluate(points, dual_channel_g_pred)
