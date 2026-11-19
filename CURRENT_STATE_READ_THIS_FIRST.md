@@ -10,6 +10,12 @@ are the only current physics.**
 **Last verified against the physics:** 2026-11-19 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
+Also 2026-11-19 (exploration record, no tier change): **drag variable-G cosmology** (`exploration/drag_gcosmo/`, pre-registered).
+- Model: G_cosmo/G_N = 1/(1 + x₀a²).
+- On DESI DR2 BAO + Pantheon+ + compressed CMB + fσ₈: Δχ² ≈ −6 against ΛCDM, x₀ ≈ 0.31, G_cosmo/G_N today ≈ 0.76 (2σ 0.59–0.95). Favoured by the pre-registered rule `[E]`.
+- But it is the known DESI evolving-dark-energy signal absorbed by one parameter. CPL in the same pipeline gives w₀ = −0.85, w_a = −0.57 and Δχ² = −9.2. Growth is neutral.
+- **A zero-flux wall is `[X]`:** the Codazzi sound speed c_s² < 0 over most of z < 10. Only a wall fed by bulk energy flux survives `[O]`.
+
 Also 2026-11-19 (exploration record, no tier change): **Dark Bubble wall acceleration as the origin of a₀ is `[X]`** (`exploration/dark_bubble_a0/`, pre-registered).
 - The wall's AdS₅ excess acceleration is a_w² = c²H₀²[Ω_Λ − 2Ω_m(1+z)³] `[D]`. That gives 1.54×10⁻¹⁰ today, and a₀ = 1.1607 needs Ω_m = 0.323.
 - But a_w vanishes for z > 0.028, so a₀ would run across SPARC's own volume. Δχ² is +4758 against a constant a₀ (threshold 25).
