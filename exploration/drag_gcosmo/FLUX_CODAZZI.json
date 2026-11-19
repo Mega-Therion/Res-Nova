@@ -1,0 +1,582 @@
+{
+ "S1_S2_symbolic": {
+  "S1_AdS5_Ricci_scalar": "-20*k**2",
+  "S1_only_Evv_nonzero": true,
+  "S1_Evv_exact": "3*eps*Derivative(mu(v), v)/(2*r**3)",
+  "S1_NEC_outer_ingoing": "d(mu_+)/dv >= 0  (increases rho_Weyl)",
+  "S1_NEC_inner_outgoing": "d(mu_-)/du <= 0  (increases rho_Weyl)",
+  "S2_bianchi_weyl_identity_verified": true,
+  "S2_net_evolution_law": "d/dt (a^4 rho_net) = (3 w_d - 1) a^4 H dSig",
+  "S2_conformal_cancellation_at_wd_1_over_3": true,
+  "S2_integrating_factor_y1_y5_verified": true
+ },
+ "ode_verification_max_rel_err": {
+  "kappa=-0.5": 2.330443422193436e-13,
+  "kappa=+0.5": 1.9475334115258886e-14
+ },
+ "F1_nec_and_early_on_drag_trajectories": {
+  "pantheon_plus": {
+   "label": "Pantheon+ best fit",
+   "params_h_Om_x0": [
+    0.6689715428994802,
+    0.3150641353021789,
+    0.3224054994954423
+   ],
+   "q_z0": -0.39905646928197613,
+   "q_max_z_le_10": 0.5010357264202734,
+   "by_wd": {
+    "wd=0.0000": {
+     "min_s_NEC_z_le_10": 0.9989642735797266,
+     "max_s_NEC_z_le_10": 1.8990564692819762,
+     "NEC_strictly_positive_all_z": true,
+     "Q4_dimless_z0": 1.2245324990978133,
+     "Q4_dimless_z1": 1.287634701157165,
+     "Omega_Weyl_over_Omega_r_CMB": 6.939201651847517e-07,
+     "Delta_Neff_CMB": 5.167748979250305e-06,
+     "Delta_Neff_BBN": 1.2005060316603162e-18,
+     "early_radiation_safe": true
+    },
+    "wd=0.1667": {
+     "min_s_NEC_z_le_10": 1.2489642735797266,
+     "max_s_NEC_z_le_10": 2.1490564692819762,
+     "NEC_strictly_positive_all_z": true,
+     "Q4_dimless_z0": 1.3857352488455343,
+     "Q4_dimless_z1": 1.5255042393710136,
+     "Omega_Weyl_over_Omega_r_CMB": 9.012646026968593e-07,
+     "Delta_Neff_CMB": 6.711880507725401e-06,
+     "Delta_Neff_BBN": 1.8007590474904743e-18,
+     "early_radiation_safe": true
+    },
+    "wd=0.3333": {
+     "min_s_NEC_z_le_10": 1.4989642735797266,
+     "max_s_NEC_z_le_10": 2.3990564692819762,
+     "NEC_strictly_positive_all_z": true,
+     "Q4_dimless_z0": 1.5469379985932554,
+     "Q4_dimless_z1": 1.7633737775848626,
+     "Omega_Weyl_over_Omega_r_CMB": 1.1086090523137152e-06,
+     "Delta_Neff_CMB": 8.25601212634675e-06,
+     "Delta_Neff_BBN": 2.4010120633206324e-18,
+     "early_radiation_safe": true
+    },
+    "wd=0.6667": {
+     "min_s_NEC_z_le_10": 1.9989642735797266,
+     "max_s_NEC_z_le_10": 2.8990564692819762,
+     "NEC_strictly_positive_all_z": true,
+     "Q4_dimless_z0": 1.8693434980886978,
+     "Q4_dimless_z1": 2.23911285401256,
+     "Omega_Weyl_over_Omega_r_CMB": 1.5232979879728179e-06,
+     "Delta_Neff_CMB": 1.1344275634855918e-05,
+     "Delta_Neff_BBN": 3.6015180949809485e-18,
+     "early_radiation_safe": true
+    },
+    "wd=1.0000": {
+     "min_s_NEC_z_le_10": 2.498964273579727,
+     "max_s_NEC_z_le_10": 3.3990564692819762,
+     "NEC_strictly_positive_all_z": true,
+     "Q4_dimless_z0": 2.19174899758414,
+     "Q4_dimless_z1": 2.7148519304402576,
+     "Omega_Weyl_over_Omega_r_CMB": 1.9379869722733075e-06,
+     "Delta_Neff_CMB": 1.4432539505606293e-05,
+     "Delta_Neff_BBN": 4.802024126641265e-18,
+     "early_radiation_safe": true
+    }
+   }
+  },
+  "des_dovekie": {
+   "label": "DES-Dovekie best fit",
+   "params_h_Om_x0": [
+    0.6681430422828463,
+    0.31587302095015846,
+    0.35318356394646666
+   ],
+   "q_z0": -0.3891872640984394,
+   "q_max_z_le_10": 0.5011916073384024,
+   "by_wd": {
+    "wd=0.0000": {
+     "min_s_NEC_z_le_10": 0.9988083926615976,
+     "max_s_NEC_z_le_10": 1.8891872640984393,
+     "NEC_strictly_positive_all_z": true,
+     "Q4_dimless_z0": 1.3344597817931227,
+     "Q4_dimless_z1": 1.4190675713350565,
+     "Omega_Weyl_over_Omega_r_CMB": 7.602168072578898e-07,
+     "Delta_Neff_CMB": 5.6614720638215185e-06,
+     "Delta_Neff_BBN": 1.315110937823857e-18,
+     "early_radiation_safe": true
+    },
+    "wd=0.1667": {
+     "min_s_NEC_z_le_10": 1.2488083926615976,
+     "max_s_NEC_z_le_10": 2.1391872640984393,
+     "NEC_strictly_positive_all_z": true,
+     "Q4_dimless_z0": 1.511051563766356,
+     "Q4_dimless_z1": 1.6808901373758833,
+     "Omega_Weyl_over_Omega_r_CMB": 9.873682365494993e-07,
+     "Delta_Neff_CMB": 7.353109842562868e-06,
+     "Delta_Neff_BBN": 1.9726664067357856e-18,
+     "early_radiation_safe": true
+    },
+    "wd=0.3333": {
+     "min_s_NEC_z_le_10": 1.4988083926615976,
+     "max_s_NEC_z_le_10": 2.3891872640984393,
+     "NEC_strictly_positive_all_z": true,
+     "Q4_dimless_z0": 1.6876433457395892,
+     "Q4_dimless_z1": 1.9427127034167102,
+     "Omega_Weyl_over_Omega_r_CMB": 1.2145196804567492e-06,
+     "Delta_Neff_CMB": 9.044747730149533e-06,
+     "Delta_Neff_BBN": 2.630221875647714e-18,
+     "early_radiation_safe": true
+    },
+    "wd=0.6667": {
+     "min_s_NEC_z_le_10": 1.9988083926615976,
+     "max_s_NEC_z_le_10": 2.8891872640984393,
+     "NEC_strictly_positive_all_z": true,
+     "Q4_dimless_z0": 2.040826909686056,
+     "Q4_dimless_z1": 2.4663578354983637,
+     "Omega_Weyl_over_Omega_r_CMB": 1.6688226118962807e-06,
+     "Delta_Neff_CMB": 1.2428023830206365e-05,
+     "Delta_Neff_BBN": 3.945332813471571e-18,
+     "early_radiation_safe": true
+    },
+    "wd=1.0000": {
+     "min_s_NEC_z_le_10": 2.498808392661598,
+     "max_s_NEC_z_le_10": 3.3891872640984393,
+     "NEC_strictly_positive_all_z": true,
+     "Q4_dimless_z0": 2.3940104736325223,
+     "Q4_dimless_z1": 2.9900029675800175,
+     "Omega_Weyl_over_Omega_r_CMB": 2.1231256015767723e-06,
+     "Delta_Neff_CMB": 1.5811300363994163e-05,
+     "Delta_Neff_BBN": 5.260443751295428e-18,
+     "early_radiation_safe": true
+    }
+   }
+  }
+ },
+ "F2_self_consistent_coupled_refit": {
+  "Pantheon+_BAO_CMB": {
+   "chi2_LCDM": 1423.3068601484474,
+   "params_LCDM_h_Om": [
+    0.6810363151866539,
+    0.30360698573080336
+   ],
+   "chi2_coupled_best": 1412.9231658336666,
+   "params_coupled_h_Om_kappa": [
+    0.6803247862228956,
+    0.30865546826192025,
+    -2.2444519783747996
+   ],
+   "dchi2_coupled": -10.383694314780769,
+   "kappa_2sigma_crossings": [
+    -3.7471412374193696,
+    -0.8317241771601472
+   ],
+   "kappa_0_outside_2sigma": true,
+   "OL_bare_at_best": 1.1882384273575992,
+   "Omega_DE_eff_min_z_le_10": -1.358363378740969,
+   "w_eff_at_z0": -0.8790708478957401,
+   "w_eff_at_z0p5": -1.0373261717095845,
+   "w_eff_at_z1": -1.154016835521008,
+   "by_wd": {
+    "wd=0.0000": {
+     "regime": "SUB_CONFORMAL_DRAG_SURVIVES",
+     "x0_best": 2.2444519783747996,
+     "x0_2sigma": [
+      0.8317241771601472,
+      3.7471412374193696
+     ],
+     "dchi2": -10.383694314780769,
+     "Omega_Lambda_bare": 1.1882384273575992,
+     "Delta_Sigma_drag_today": 2.2444519783747996,
+     "Omega_Weyl_today": 1.7474677711225186,
+     "Omega_Weyl_min_z_le_10": 1.2395906377349544,
+     "Omega_net_today": -0.49698420725228043,
+     "min_s_NEC_z_le_10": 0.9958718223846521,
+     "NEC_satisfied": true,
+     "Delta_Neff_CMB": 3.6357661216088506e-05,
+     "Gcosmo_over_GN_bare_drag_today": 0.3082184623675388
+    },
+    "wd=0.1000": {
+     "regime": "SUB_CONFORMAL_DRAG_SURVIVES",
+     "x0_best": 3.206359969106857,
+     "x0_2sigma": [
+      1.1881773959430675,
+      5.3530589105991
+     ],
+     "dchi2": -10.383694314780769,
+     "Omega_Lambda_bare": 1.1882384273575992,
+     "Delta_Sigma_drag_today": 3.206359969106857,
+     "Omega_Weyl_today": 2.7093757618545755,
+     "Omega_Weyl_min_z_le_10": 1.9835384122029598,
+     "Omega_net_today": -0.49698420725228043,
+     "min_s_NEC_z_le_10": 1.1458718223846522,
+     "NEC_satisfied": true,
+     "Delta_Neff_CMB": 6.123530462466138e-05,
+     "Gcosmo_over_GN_bare_drag_today": 0.23773524076502933
+    },
+    "wd=0.2000": {
+     "regime": "SUB_CONFORMAL_DRAG_SURVIVES",
+     "x0_best": 5.611129945937,
+     "x0_2sigma": [
+      2.0793104429003684,
+      9.367853093548426
+     ],
+     "dchi2": -10.383694314780769,
+     "Omega_Lambda_bare": 1.1882384273575992,
+     "Delta_Sigma_drag_today": 5.611129945937,
+     "Omega_Weyl_today": 5.1141457386847184,
+     "Omega_Weyl_min_z_le_10": 3.838632892045425,
+     "Omega_net_today": -0.49698420725228043,
+     "min_s_NEC_z_le_10": 1.295871822384652,
+     "NEC_satisfied": true,
+     "Delta_Neff_CMB": 0.0001234294131460936,
+     "Gcosmo_over_GN_bare_drag_today": 0.15126007326698665
+    },
+    "wd=0.3333": {
+     "regime": "CONFORMAL_CANCELLATION",
+     "kappa": 0.0,
+     "dchi2": 0.0,
+     "note": "rho_Weyl cancels Delta Sigma_drag identically at all z -> pure LCDM"
+    },
+    "wd=0.5000": {
+     "regime": "SUPER_CONFORMAL_SIGN_REVERSED_ANTI_DRAG",
+     "kappa_best_ge_0": 6.2641206588814895e-06,
+     "x0_best_ge_0": 1.2528241317762979e-05,
+     "dchi2_with_x0_ge_0": 0.00026122097210645734,
+     "note": "Weyl dark radiation overpowers drag (3 w_d - 1 > 0), flipping sign to anti-drag; best fit sits at x0 = 0 (LCDM)."
+    },
+    "wd=1.0000": {
+     "regime": "SUPER_CONFORMAL_SIGN_REVERSED_ANTI_DRAG",
+     "kappa_best_ge_0": 6.2641206588814895e-06,
+     "x0_best_ge_0": 3.1320603294407447e-06,
+     "dchi2_with_x0_ge_0": 0.00026122097210645734,
+     "note": "Weyl dark radiation overpowers drag (3 w_d - 1 > 0), flipping sign to anti-drag; best fit sits at x0 = 0 (LCDM)."
+    }
+   }
+  },
+  "Pantheon+_BAO_CMB+fs8_anchored": {
+   "chi2_LCDM": 1438.695402403338,
+   "params_LCDM_h_Om": [
+    0.6818725445752754,
+    0.30235712605512205
+   ],
+   "chi2_coupled_best": 1430.1460077292893,
+   "params_coupled_h_Om_kappa": [
+    0.6813300683105898,
+    0.3066098135378196,
+    -1.996487847866998
+   ],
+   "dchi2_coupled": -8.549394674048699,
+   "kappa_2sigma_crossings": [
+    -3.45815726143398,
+    -0.6171019909638071
+   ],
+   "kappa_0_outside_2sigma": true,
+   "OL_bare_at_best": 1.1340779532726275,
+   "Omega_DE_eff_min_z_le_10": -1.116999952695263,
+   "w_eff_at_z0": -0.890334482320603,
+   "w_eff_at_z0p5": -1.033611439190155,
+   "w_eff_at_z1": -1.135709685142686,
+   "by_wd": {
+    "wd=0.0000": {
+     "regime": "SUB_CONFORMAL_DRAG_SURVIVES",
+     "x0_best": 1.996487847866998,
+     "x0_2sigma": [
+      0.6171019909638071,
+      3.45815726143398
+     ],
+     "dchi2": -8.549394674048699,
+     "Omega_Lambda_bare": 1.1340779532726275,
+     "Delta_Sigma_drag_today": 1.996487847866998,
+     "Omega_Weyl_today": 1.5557100357313929,
+     "Omega_Weyl_min_z_le_10": 1.098081719972476,
+     "Omega_net_today": -0.44077781213560474,
+     "min_s_NEC_z_le_10": 0.9963764685607881,
+     "NEC_satisfied": true,
+     "Delta_Neff_CMB": 3.2244636611374766e-05,
+     "Gcosmo_over_GN_bare_drag_today": 0.33372402985442906
+    },
+    "wd=0.1000": {
+     "regime": "SUB_CONFORMAL_DRAG_SURVIVES",
+     "x0_best": 2.8521254969528544,
+     "x0_2sigma": [
+      0.8815742728054389,
+      4.940224659191401
+     ],
+     "dchi2": -8.549394674048699,
+     "Omega_Lambda_bare": 1.1340779532726275,
+     "Delta_Sigma_drag_today": 2.8521254969528544,
+     "Omega_Weyl_today": 2.4113476848172493,
+     "Omega_Weyl_min_z_le_10": 1.756939898808395,
+     "Omega_net_today": -0.44077781213560474,
+     "min_s_NEC_z_le_10": 1.1463764685607882,
+     "NEC_satisfied": true,
+     "Delta_Neff_CMB": 5.4311937360232154e-05,
+     "Gcosmo_over_GN_bare_drag_today": 0.2595969422052915
+    },
+    "wd=0.2000": {
+     "regime": "SUB_CONFORMAL_DRAG_SURVIVES",
+     "x0_best": 4.991219619667496,
+     "x0_2sigma": [
+      1.5427549774095182,
+      8.645393153584953
+     ],
+     "dchi2": -8.549394674048699,
+     "Omega_Lambda_bare": 1.1340779532726275,
+     "Delta_Sigma_drag_today": 4.991219619667496,
+     "Omega_Weyl_today": 4.55044180753189,
+     "Omega_Weyl_min_z_le_10": 3.3999512638486262,
+     "Omega_net_today": -0.44077781213560474,
+     "min_s_NEC_z_le_10": 1.296376468560788,
+     "NEC_satisfied": true,
+     "Delta_Neff_CMB": 0.00010948018923237561,
+     "Gcosmo_over_GN_bare_drag_today": 0.16691092356509182
+    },
+    "wd=0.3333": {
+     "regime": "CONFORMAL_CANCELLATION",
+     "kappa": 0.0,
+     "dchi2": 0.0,
+     "note": "rho_Weyl cancels Delta Sigma_drag identically at all z -> pure LCDM"
+    },
+    "wd=0.5000": {
+     "regime": "SUPER_CONFORMAL_SIGN_REVERSED_ANTI_DRAG",
+     "kappa_best_ge_0": 1.103367189716078e-06,
+     "x0_best_ge_0": 2.206734379432156e-06,
+     "dchi2_with_x0_ge_0": 4.1523710251567536e-05,
+     "note": "Weyl dark radiation overpowers drag (3 w_d - 1 > 0), flipping sign to anti-drag; best fit sits at x0 = 0 (LCDM)."
+    },
+    "wd=1.0000": {
+     "regime": "SUPER_CONFORMAL_SIGN_REVERSED_ANTI_DRAG",
+     "kappa_best_ge_0": 1.103367189716078e-06,
+     "x0_best_ge_0": 5.51683594858039e-07,
+     "dchi2_with_x0_ge_0": 4.1523710251567536e-05,
+     "note": "Weyl dark radiation overpowers drag (3 w_d - 1 > 0), flipping sign to anti-drag; best fit sits at x0 = 0 (LCDM)."
+    }
+   },
+   "fs8_chi2_LCDM": [
+    15.254060246952244,
+    1.0
+   ],
+   "fs8_chi2_coupled": [
+    16.89155534524851,
+    1.0
+   ]
+  },
+  "Pantheon+_BAO_CMB+fs8_free_amp": {
+   "chi2_LCDM": 1435.91548543899,
+   "params_LCDM_h_Om": [
+    0.6811445342703268,
+    0.3034479852979861
+   ],
+   "chi2_coupled_best": 1425.5200392345344,
+   "params_coupled_h_Om_kappa": [
+    0.6804025087005507,
+    0.30851643457818473,
+    -2.2395293518713832
+   ],
+   "dchi2_coupled": -10.395446204455538,
+   "kappa_2sigma_crossings": [
+    -3.738172862539987,
+    -0.8306186004514061
+   ],
+   "kappa_0_outside_2sigma": true,
+   "OL_bare_at_best": 1.187229935740534,
+   "Omega_DE_eff_min_z_le_10": -1.3526638509068964,
+   "w_eff_at_z0": -0.8792515852402751,
+   "w_eff_at_z0p5": -1.0371801355168087,
+   "w_eff_at_z1": -1.1535200203766844,
+   "by_wd": {
+    "wd=0.0000": {
+     "regime": "SUB_CONFORMAL_DRAG_SURVIVES",
+     "x0_best": 2.2395293518713832,
+     "x0_2sigma": [
+      0.8306186004514061,
+      3.738172862539987
+     ],
+     "dchi2": -10.395446204455538,
+     "Omega_Lambda_bare": 1.187229935740534,
+     "Delta_Sigma_drag_today": 2.2395293518713832,
+     "Omega_Weyl_today": 1.743692690551347,
+     "Omega_Weyl_min_z_le_10": 1.2365890714548093,
+     "Omega_net_today": -0.49583666132003623,
+     "min_s_NEC_z_le_10": 0.9958832446873114,
+     "NEC_satisfied": true,
+     "Delta_Neff_CMB": 3.627142049822371e-05,
+     "Gcosmo_over_GN_bare_drag_today": 0.3086868157012773
+    },
+    "wd=0.1000": {
+     "regime": "SUB_CONFORMAL_DRAG_SURVIVES",
+     "x0_best": 3.1993276455305475,
+     "x0_2sigma": [
+      1.186598000644866,
+      5.3402469464856965
+     ],
+     "dchi2": -10.395446204455538,
+     "Omega_Lambda_bare": 1.187229935740534,
+     "Delta_Sigma_drag_today": 3.1993276455305475,
+     "Omega_Weyl_today": 2.7034909842105113,
+     "Omega_Weyl_min_z_le_10": 1.978732940738249,
+     "Omega_net_today": -0.49583666132003623,
+     "min_s_NEC_z_le_10": 1.1458832446873115,
+     "NEC_satisfied": true,
+     "Delta_Neff_CMB": 6.109032291305991e-05,
+     "Gcosmo_over_GN_bare_drag_today": 0.2381333595306205
+    },
+    "wd=0.2000": {
+     "regime": "SUB_CONFORMAL_DRAG_SURVIVES",
+     "x0_best": 5.59882337967846,
+     "x0_2sigma": [
+      2.0765465011285156,
+      9.34543215634997
+     ],
+     "dchi2": -10.395446204455538,
+     "Omega_Lambda_bare": 1.187229935740534,
+     "Delta_Sigma_drag_today": 5.59882337967846,
+     "Omega_Weyl_today": 5.102986718358423,
+     "Omega_Weyl_min_z_le_10": 3.829326806391099,
+     "Omega_net_today": -0.49583666132003623,
+     "min_s_NEC_z_le_10": 1.2958832446873112,
+     "NEC_satisfied": true,
+     "Delta_Neff_CMB": 0.00012313757895015043,
+     "Gcosmo_over_GN_bare_drag_today": 0.15154216781730667
+    },
+    "wd=0.3333": {
+     "regime": "CONFORMAL_CANCELLATION",
+     "kappa": 0.0,
+     "dchi2": 0.0,
+     "note": "rho_Weyl cancels Delta Sigma_drag identically at all z -> pure LCDM"
+    },
+    "wd=0.5000": {
+     "regime": "SUPER_CONFORMAL_SIGN_REVERSED_ANTI_DRAG",
+     "kappa_best_ge_0": 1.9752941975263992e-07,
+     "x0_best_ge_0": 3.9505883950527984e-07,
+     "dchi2_with_x0_ge_0": 3.281248473285814e-05,
+     "note": "Weyl dark radiation overpowers drag (3 w_d - 1 > 0), flipping sign to anti-drag; best fit sits at x0 = 0 (LCDM)."
+    },
+    "wd=1.0000": {
+     "regime": "SUPER_CONFORMAL_SIGN_REVERSED_ANTI_DRAG",
+     "kappa_best_ge_0": 1.9752941975263992e-07,
+     "x0_best_ge_0": 9.876470987631996e-08,
+     "dchi2_with_x0_ge_0": 3.281248473285814e-05,
+     "note": "Weyl dark radiation overpowers drag (3 w_d - 1 > 0), flipping sign to anti-drag; best fit sits at x0 = 0 (LCDM)."
+    }
+   },
+   "fs8_chi2_LCDM": [
+    12.60640144241102,
+    0.9429951978306754
+   ],
+   "fs8_chi2_coupled": [
+    12.595177089090788,
+    0.9267116811542827
+   ]
+  },
+  "DES-Dovekie_BAO_CMB": {
+   "chi2_LCDM": 1652.518179167561,
+   "params_LCDM_h_Om": [
+    0.6807884735828569,
+    0.3039786283394862
+   ],
+   "chi2_coupled_best": 1639.7790886533155,
+   "params_coupled_h_Om_kappa": [
+    0.6801065733422411,
+    0.3093795670685889,
+    -2.496571182856366
+   ],
+   "dchi2_coupled": -12.73909051424539,
+   "kappa_2sigma_crossings": [
+    -3.994291558238387,
+    -1.0769112707902941
+   ],
+   "kappa_0_outside_2sigma": true,
+   "OL_bare_at_best": 1.2445281507873969,
+   "Omega_DE_eff_min_z_le_10": -1.5937573222363393,
+   "w_eff_at_z0": -0.8675368935540098,
+   "w_eff_at_z0p5": -1.0399074515586122,
+   "w_eff_at_z1": -1.1709522387605442,
+   "by_wd": {
+    "wd=0.0000": {
+     "regime": "SUB_CONFORMAL_DRAG_SURVIVES",
+     "x0_best": 2.496571182856366,
+     "x0_2sigma": [
+      1.0769112707902941,
+      3.994291558238387
+     ],
+     "dchi2": -12.73909051424539,
+     "Omega_Lambda_bare": 1.2445281507873969,
+     "Delta_Sigma_drag_today": 2.496571182856366,
+     "Omega_Weyl_today": 1.942573095405165,
+     "Omega_Weyl_min_z_le_10": 1.381825697966702,
+     "Omega_net_today": -0.5539980874512008,
+     "min_s_NEC_z_le_10": 0.9953776467004118,
+     "NEC_satisfied": true,
+     "Delta_Neff_CMB": 4.0497283723367976e-05,
+     "Gcosmo_over_GN_bare_drag_today": 0.2859944636342553
+    },
+    "wd=0.1000": {
+     "regime": "SUB_CONFORMAL_DRAG_SURVIVES",
+     "x0_best": 3.56653026122338,
+     "x0_2sigma": [
+      1.5384446725575631,
+      5.706130797483411
+     ],
+     "dchi2": -12.73909051424539,
+     "Omega_Lambda_bare": 1.2445281507873969,
+     "Delta_Sigma_drag_today": 3.56653026122338,
+     "Omega_Weyl_today": 3.012532173772179,
+     "Omega_Weyl_min_z_le_10": 2.2113129947843153,
+     "Omega_net_today": -0.5539980874512008,
+     "min_s_NEC_z_le_10": 1.145377646700412,
+     "NEC_satisfied": true,
+     "Delta_Neff_CMB": 6.820515441922879e-05,
+     "Gcosmo_over_GN_bare_drag_today": 0.2189846432183937
+    },
+    "wd=0.2000": {
+     "regime": "SUB_CONFORMAL_DRAG_SURVIVES",
+     "x0_best": 6.241427957140917,
+     "x0_2sigma": [
+      2.692278176975736,
+      9.98572889559597
+     ],
+     "dchi2": -12.73909051424539,
+     "Omega_Lambda_bare": 1.2445281507873969,
+     "Delta_Sigma_drag_today": 6.241427957140917,
+     "Omega_Weyl_today": 5.687429869689716,
+     "Omega_Weyl_min_z_le_10": 4.27967512861726,
+     "Omega_net_today": -0.5539980874512008,
+     "min_s_NEC_z_le_10": 1.2953776467004117,
+     "NEC_satisfied": true,
+     "Delta_Neff_CMB": 0.00013747483115888088,
+     "Gcosmo_over_GN_bare_drag_today": 0.13809431039272857
+    },
+    "wd=0.3333": {
+     "regime": "CONFORMAL_CANCELLATION",
+     "kappa": 0.0,
+     "dchi2": 0.0,
+     "note": "rho_Weyl cancels Delta Sigma_drag identically at all z -> pure LCDM"
+    },
+    "wd=0.5000": {
+     "regime": "SUPER_CONFORMAL_SIGN_REVERSED_ANTI_DRAG",
+     "kappa_best_ge_0": 6.195608799437259e-06,
+     "x0_best_ge_0": 1.2391217598874517e-05,
+     "dchi2_with_x0_ge_0": 0.00012479828365030698,
+     "note": "Weyl dark radiation overpowers drag (3 w_d - 1 > 0), flipping sign to anti-drag; best fit sits at x0 = 0 (LCDM)."
+    },
+    "wd=1.0000": {
+     "regime": "SUPER_CONFORMAL_SIGN_REVERSED_ANTI_DRAG",
+     "kappa_best_ge_0": 6.195608799437259e-06,
+     "x0_best_ge_0": 3.0978043997186293e-06,
+     "dchi2_with_x0_ge_0": 0.00012479828365030698,
+     "note": "Weyl dark radiation overpowers drag (3 w_d - 1 > 0), flipping sign to anti-drag; best fit sits at x0 = 0 (LCDM)."
+    }
+   }
+  }
+ },
+ "preregistered_verdict": "SURVIVES (flux-fed sub-conformal 0 <= w_d < 1/3 viable)",
+ "key_findings": {
+  "conformal_cancellation_wd_eq_1_3": true,
+  "super_conformal_wd_gt_1_3_sign_reversed": true,
+  "sub_conformal_wd_in_0_to_1_3_dchi2_pantheon_bg": -10.383694314780769,
+  "sub_conformal_wd_in_0_to_1_3_dchi2_pantheon_fs8_anch": -8.549394674048699,
+  "sub_conformal_wd_in_0_to_1_3_dchi2_pantheon_fs8_free": -10.395446204455538,
+  "sub_conformal_wd_in_0_to_1_3_dchi2_dovekie_bg": -12.73909051424539,
+  "x0_needed_at_wd_0_pantheon_bg": 2.2444519783747996,
+  "x0_needed_at_wd_0_dovekie_bg": 2.496571182856366
+ }
+}

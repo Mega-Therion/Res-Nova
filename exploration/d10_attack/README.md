@@ -55,6 +55,27 @@ Pre-registered in `PREREG.md` (3ff68c6, before any number). Script `d10_attack.p
 - A 2 eV active neutrino is excluded on all three.
 - A 2 eV sterile species would itself be hot dark matter. It needs ΔN_eff ≈ 1 thermalised, and is constrained by the same CMB+BAO Σm limits unless its abundance is suppressed. Not a route the corpus pursues; recorded as closed.
 
+## Addendum 2: Tidal-QUMOND dust coupling, free-boundary n=1 polytrope, 4th quadrant (BK screen + dust), splashback pole, and ICM outer slope (`PREREG_POLYTROPE_4QUAD.md` a4db5e0b, `polytrope_4quad.py` → `POLYTROPE_4QUAD.json`)
+
+**Symbolic `[D]` (SymPy Euler–Lagrange on `tidal_aest/normalization_kb.py` + $\mathcal{K}_2(\mathcal{Q}-Q_0)^2$):**
+- Adding AeST's $\mathcal{K}_2(\mathcal{Q}-Q_0)^2$ dust sector with stationary shift-symmetry chemical potential $\Phi_0 = \mu_c/Q_0$ preserves $\Psi = \Phi$ ($\gamma = 1$, lensing = dynamics) identically.
+- The dust source $\mu^2(\Phi_0 - \Phi)$ enters the auxiliary shadow potential equation ($\nabla\cdot\mathbf{g}_\psi = 4\pi G_N\rho_b + \mu^2(\Phi_0 - \Phi)$), breaking triangularity and feeding AeST dust directly into the MOND operator.
+- In the weak-field regime ($\delta Q \ll Q_0$), $\mathcal{K}(\mathcal{Q}) = \mathcal{K}_2(\mathcal{Q}-Q_0)^2$ is an exact $n = 1$ Lane–Emden polytrope: $P(\rho) = (2\pi G_N/\mu^2)\rho^2$, $w(\rho) = 2\pi G_N\rho/\mu^2$, and exact local sound speed $c_s^2(\rho) = \delta Q/(Q_0 + \delta Q) \approx 4\pi G_N\rho/\mu^2$.
+- **Sound-speed regime audit:** Inside collapsed cores ($\rho \sim \rho_{500}$), $c_{s,\mathrm{core}}$ has median **2072 km/s** (matching `accretion.py`'s core acoustic equilibration check), whereas at the cosmic background dark-matter density $\bar{\rho}_c(z)$ exterior to clusters, $c_{s,\mathrm{bg}}(z)$ has median **56.7 km/s** ($42.0\,\mathrm{km/s}$ at $z = 0$), giving median infall Mach number **$\mathcal{M} = 29.2$** (hypersonic cold-dust infall onto a pressure-supported $n = 1$ polytrope core).
+
+**Pre-registered numerical tests (12 Corasaniti+2021 clusters, fixed universal $\mu = 1/0.9895\,\mathrm{Mpc}$, zero tuned parameters):**
+1. **T1 (MOND ON + fixed-$\mu$ free-boundary $n = 1$ polytrope, baseline $\beta = 2/3$):** Fixing universal $\mu$ and adjusting only the chemical potential $\Phi_0$ (free edge $R_{\mathrm{edge}} \le r_v$ where $\rho_{\mathrm{dust}} \to 0$) to cap dust at $5.36\,M_b(r_v)$ gives median $R = \mathbf{0.835}$, **7/12** in $[0.7, 1.4]$, max budget ratio $1.000$ — **FAILS** (slightly worse than `accretion.py`'s per-cluster $\mu$-rescaling because keeping $\mu$ fixed compresses the capped supply inside $R_{\mathrm{edge}} < r_v$).
+2. **T2 (Untested 4th quadrant — BK cluster screen `MOND OFF` + AeST $n = 1$ polytrope dust): `[X]` (FAILS).**
+   - Uncapped (T2a) and capped (T2b) coincide identically (`0/12` capped): median $R = \mathbf{3.114}$, **1/12** in $[0.7, 1.4]$, median dust share only **$0.228\times$** cosmic budget (max $0.84\times$), unchanged across $\beta \in \{2/3, 0.85, 1.0\}$ ($R = 3.11\text{--}3.14$, `1/12`).
+   - **Mechanism:** Without MOND deepening $\Phi(r)$, the Newtonian baryon well is $3\text{--}5\times$ shallower, so hydrostatic AeST dust pulls in only ~23% of the cosmic share. This completes the 2×2 matrix `{MOND ON/OFF} × {dust ON/OFF}`: turning off MOND in clusters fails both without dust ($R = 6.83$) and with static AeST dust ($R = 3.11$).
+3. **T3 (Splashback boundary & Lane–Emden pole $R_{\mathrm{LE}} = \pi/\mu = 3.109\,\mathrm{Mpc}$): `[D]` structurally unstable.**
+   - Replacing $r_v$ ($\max \mu r_v/\pi = 0.90$) by the splashback boundary breaks **5/12** clusters at $1.4\,r_{200}$ and **11/12** clusters at $1.8\,r_{200}$, in exact 1-to-1 correspondence with crossing $\mu R_{\mathrm{out}} \ge \pi$. The uncapped Dirichlet gauge $\Phi(R_{\mathrm{out}}) = 0$ is only well-posed at $r_v$ because $r_v < R_{\mathrm{LE}}$ for these 12 clusters; by contrast, the free-boundary polytrope (`T1`) truncates dust at $R_{\mathrm{edge}} < R_{\mathrm{LE}}$ independently of the outer box.
+4. **T4 (ICM outer-slope sensitivity, $\rho_b \propto (1+(r/r_c)^2)^{-3\beta/2}$, identically normalized to $f_{\mathrm{bar}} M_{500}$ inside $r_{500}$):**
+   - $\beta = 2/3$ ($M_b(r_v)/M_b(r_{500}) = 1.69$, $r^{-2}$ tail): T1 median $R = 0.835$, **7/12** in $[0.7, 1.4]$ (`FAILS`).
+   - $\beta = 0.85$ ($M_b(r_v)/M_b(r_{500}) = 1.39$): T1 median $R = 0.860$, **8/12** in $[0.7, 1.4]$ (`FAILS`).
+   - $\beta = 1.00$ ($M_b(r_v)/M_b(r_{500}) = 1.23$, realistic $r^{-3}$ outer ICM slope): T1 median $R = \mathbf{0.875}$, **10/12** in $[0.7, 1.4]$ (**`CLOSES`** with zero cosmic-budget violations).
+   - **Honest verdict:** D10 stays **`[O]`** (T1 fails on the repo's baseline $\beta = 2/3$ profile), but T4 proves quantitatively that the entire gap between `FAILS (7/12)` and `CLOSES (10/12)` lies inside the unmodeled outer ICM gas slope ($M_b(r_v)/M_b(r_{500})$ shifting $+37\%$ between $\beta = 1.0$ and $\beta = 2/3$). Real deprojected X-ray gas profiles out to $r_v$ are the decisive next input.
+
 ## Addendum: measured ACCEPT gas profiles (`PREREG_ACCEPT.md` 50d1ced, `accept_rerun.py` → `ACCEPT_RERUN.json`)
 - **Data.** 11/12 clusters have deprojected n_e(r) in ACCEPT (Cavagnolo et al. 2009); the subset with provenance is in `02_galaxy_dynamics/clusters/accept_d10_subset.dat`. Pure MOND on the measured gas gives median R = 2.15, reproducing the classic ~2× gap.
 - **Result.** Static median R = 0.69 (4/11 in band). Supply-capped median R = 0.80 (6/11 in band). **Both FAIL** the pre-registered criterion (≥ 9/11).

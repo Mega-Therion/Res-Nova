@@ -1,0 +1,1172 @@
+{
+ "S1_symbolic_tidal_qumond_dust": {
+  "gamma_eq_1_with_dust": true,
+  "lensing_eq_dynamics_with_dust": true,
+  "dust_enters_shadow_psi_equation": true,
+  "triangularity_broken_with_dust": true,
+  "psi_equation_rhs": "4*pi*G_N*rho_b + mu^2*(Phi_0 - Phi)",
+  "exact_cs2_formula": "dQ/(Q_0 + dQ)",
+  "polytrope_index_n": 1,
+  "polytrope_K_exact": "2*pi*G_N / mu^2",
+  "polytrope_cs2_exact": "4*pi*G_N*rho / mu^2",
+  "polytrope_w_exact": "2*pi*G_N*rho / mu^2"
+ },
+ "T1_MOND_ON_free_boundary_polytrope": {
+  "summary": {
+   "median_R": 0.8347897281322293,
+   "min_R": 0.5432333671125974,
+   "max_R": 1.91801650084657,
+   "n_in_0.7_1.4": 7,
+   "verdict": "FAILS",
+   "n_capped": 8,
+   "max_dust_over_budget_final": 1.0000000279883434,
+   "median_R_edge_over_rv": 0.986422875631707
+  },
+  "rows": [
+   {
+    "capped": true,
+    "R": 0.6537988428009749,
+    "R_uncapped": 0.5660524101791369,
+    "dust_over_budget_uncapped": 1.3962974927426821,
+    "dust_over_budget_final": 0.9999999999800783,
+    "Mdust_r500_over_Mb_r500": 5.603527566594725,
+    "R_edge_over_rv": 0.9513313687662698,
+    "R_edge_Mpc": 2.412205872568714,
+    "Mb_rv_over_Mb_r500": 1.6085594428499816,
+    "uE_positive": true,
+    "name": "ABELL-1689"
+   },
+   {
+    "capped": true,
+    "R": 0.5432333671125974,
+    "R_uncapped": 0.39806722904263264,
+    "dust_over_budget_uncapped": 1.854808151975563,
+    "dust_over_budget_final": 0.999999999855062,
+    "Mdust_r500_over_Mb_r500": 5.582731111875206,
+    "R_edge_over_rv": 0.9237877130408805,
+    "R_edge_Mpc": 2.5382098293694453,
+    "Mb_rv_over_Mb_r500": 1.7480770341136374,
+    "uE_positive": true,
+    "name": "ABELL-1763"
+   },
+   {
+    "capped": true,
+    "R": 0.8933847205203441,
+    "R_uncapped": 0.8539536919867947,
+    "dust_over_budget_uncapped": 1.1649803873312934,
+    "dust_over_budget_final": 1.0000000279883434,
+    "Mdust_r500_over_Mb_r500": 4.995567142667163,
+    "R_edge_over_rv": 0.973345529710993,
+    "R_edge_Mpc": 1.907378399334439,
+    "Mb_rv_over_Mb_r500": 1.7443250120902634,
+    "uE_positive": true,
+    "name": "ABELL-2034"
+   },
+   {
+    "capped": true,
+    "R": 0.6944082005541458,
+    "R_uncapped": 0.6518279756204111,
+    "dust_over_budget_uncapped": 1.1932994385381577,
+    "dust_over_budget_final": 1.0000000219943448,
+    "Mdust_r500_over_Mb_r500": 4.993228950630116,
+    "R_edge_over_rv": 0.9717464127194392,
+    "R_edge_Mpc": 2.2825321697558763,
+    "Mb_rv_over_Mb_r500": 1.7583229056804088,
+    "uE_positive": true,
+    "name": "ABELL-209"
+   },
+   {
+    "capped": true,
+    "R": 0.6387273129615054,
+    "R_uncapped": 0.6278825175650428,
+    "dust_over_budget_uncapped": 1.0500188461971627,
+    "dust_over_budget_final": 0.999999999687031,
+    "Mdust_r500_over_Mb_r500": 4.973646074498938,
+    "R_edge_over_rv": 0.991946479119083,
+    "R_edge_Mpc": 2.261552700006216,
+    "Mb_rv_over_Mb_r500": 1.6829912888732765,
+    "uE_positive": true,
+    "name": "ABELL-2142"
+   },
+   {
+    "capped": false,
+    "R": 0.8830546664031138,
+    "R_uncapped": 0.8830546664031138,
+    "dust_over_budget_uncapped": 0.6553769659847984,
+    "dust_over_budget_final": 0.6553769659847984,
+    "Mdust_r500_over_Mb_r500": 3.252713761647671,
+    "R_edge_over_rv": 1.0,
+    "R_edge_Mpc": 1.9000554046111282,
+    "Mb_rv_over_Mb_r500": 1.6558901285106855,
+    "uE_positive": true,
+    "name": "ABELL-383"
+   },
+   {
+    "capped": true,
+    "R": 0.7865247898613448,
+    "R_uncapped": 0.7553654166964805,
+    "dust_over_budget_uncapped": 1.1226386029354436,
+    "dust_over_budget_final": 1.0000000029733027,
+    "Mdust_r500_over_Mb_r500": 5.144221576954757,
+    "R_edge_over_rv": 0.9808992721443311,
+    "R_edge_Mpc": 2.2170798529929914,
+    "Mb_rv_over_Mb_r500": 1.659964157146248,
+    "uE_positive": true,
+    "name": "ABELL-773"
+   },
+   {
+    "capped": false,
+    "R": 1.91801650084657,
+    "R_uncapped": 1.91801650084657,
+    "dust_over_budget_uncapped": 0.8627223491533768,
+    "dust_over_budget_final": 0.8627223493502103,
+    "Mdust_r500_over_Mb_r500": 4.1901353785010444,
+    "R_edge_over_rv": 1.0,
+    "R_edge_Mpc": 2.0255512409723386,
+    "Mb_rv_over_Mb_r500": 1.6947820750967206,
+    "uE_positive": true,
+    "name": "CL-J1226.9+3332"
+   },
+   {
+    "capped": true,
+    "R": 0.7582627180677223,
+    "R_uncapped": 0.7530278049090107,
+    "dust_over_budget_uncapped": 1.0178825958410864,
+    "dust_over_budget_final": 1.000000001661061,
+    "Mdust_r500_over_Mb_r500": 4.557665609180743,
+    "R_edge_over_rv": 0.9973058492659594,
+    "R_edge_Mpc": 2.4630160524469713,
+    "Mb_rv_over_Mb_r500": 1.8322470845069123,
+    "uE_positive": true,
+    "name": "MACS-J0717.5+3745"
+   },
+   {
+    "capped": false,
+    "R": 1.0705514236495322,
+    "R_uncapped": 1.0705514236495322,
+    "dust_over_budget_uncapped": 0.3755848568399438,
+    "dust_over_budget_final": 0.3755848568399438,
+    "Mdust_r500_over_Mb_r500": 1.9266426206318066,
+    "R_edge_over_rv": 1.0,
+    "R_edge_Mpc": 1.6152549668591267,
+    "Mb_rv_over_Mb_r500": 1.5955535449160883,
+    "uE_positive": true,
+    "name": "RXC-J0232.2-4420"
+   },
+   {
+    "capped": false,
+    "R": 0.8959924576795735,
+    "R_uncapped": 0.8959924576795735,
+    "dust_over_budget_uncapped": 0.5890327889739564,
+    "dust_over_budget_final": 0.589032789036114,
+    "Mdust_r500_over_Mb_r500": 2.8897852823252395,
+    "R_edge_over_rv": 1.0,
+    "R_edge_Mpc": 1.9346628614700339,
+    "Mb_rv_over_Mb_r500": 1.6813071142342448,
+    "uE_positive": true,
+    "name": "RXC-J0532.9-3701"
+   },
+   {
+    "capped": true,
+    "R": 0.8966466248353671,
+    "R_uncapped": 0.5354610323097475,
+    "dust_over_budget_uncapped": 2.7931159477154557,
+    "dust_over_budget_final": 0.9999999096628941,
+    "Mdust_r500_over_Mb_r500": 6.217724680285644,
+    "R_edge_over_rv": 0.8750723479378476,
+    "R_edge_Mpc": 2.441054039803694,
+    "Mb_rv_over_Mb_r500": 1.732338939331547,
+    "uE_positive": true,
+    "name": "RX-J1347.5-1145"
+   }
+  ]
+ },
+ "T2_4th_quadrant_MOND_OFF_plus_dust": {
+  "T2a_uncapped_summary": {
+   "median_R": 3.114121606522783,
+   "min_R": 0.9760792548637353,
+   "max_R": 10.387321765994038,
+   "n_in_0.7_1.4": 1,
+   "verdict": "FAILS",
+   "median_dust_over_budget": 0.22839948562725199,
+   "n_exceeds_budget": 0,
+   "max_dust_over_budget": 0.8413675902557767
+  },
+  "T2b_free_boundary_capped_summary": {
+   "median_R": 3.114121606522783,
+   "min_R": 0.9760792548637353,
+   "max_R": 10.387321765994038,
+   "n_in_0.7_1.4": 1,
+   "verdict": "FAILS",
+   "n_capped": 0,
+   "max_dust_over_budget_final": 0.841367592624849,
+   "median_R_edge_over_rv": 1.0,
+   "median_Mdust_r500_over_Mb_r500": 1.1712140569983127
+  },
+  "rows": [
+   {
+    "capped": false,
+    "R": 1.8935613337687047,
+    "R_uncapped": 1.8935613337687047,
+    "dust_over_budget_uncapped": 0.39946585583933963,
+    "dust_over_budget_final": 0.3994658558800885,
+    "Mdust_r500_over_Mb_r500": 2.088335778770495,
+    "R_edge_over_rv": 1.0,
+    "R_edge_Mpc": 2.5356105682681034,
+    "Mb_rv_over_Mb_r500": 1.6085594428499816,
+    "uE_positive": true,
+    "name": "ABELL-1689"
+   },
+   {
+    "capped": false,
+    "R": 0.9760792548637353,
+    "R_uncapped": 0.9760792548637353,
+    "dust_over_budget_uncapped": 0.7258182925805172,
+    "dust_over_budget_final": 0.7258182949398646,
+    "Mdust_r500_over_Mb_r500": 3.5132465644168738,
+    "R_edge_over_rv": 1.0,
+    "R_edge_Mpc": 2.747611592510023,
+    "Mb_rv_over_Mb_r500": 1.7480770341136374,
+    "uE_positive": true,
+    "name": "ABELL-1763"
+   },
+   {
+    "capped": false,
+    "R": 6.856405171492909,
+    "R_uncapped": 6.856405171492909,
+    "dust_over_budget_uncapped": 0.13112098465299918,
+    "dust_over_budget_final": 0.13112098465299918,
+    "Mdust_r500_over_Mb_r500": 0.6573752687316835,
+    "R_edge_over_rv": 1.0,
+    "R_edge_Mpc": 1.9596107868300174,
+    "Mb_rv_over_Mb_r500": 1.7443250120902634,
+    "uE_positive": true,
+    "name": "ABELL-2034"
+   },
+   {
+    "capped": false,
+    "R": 2.68632820317414,
+    "R_uncapped": 2.68632820317414,
+    "dust_over_budget_uncapped": 0.2671496055737676,
+    "dust_over_budget_final": 0.26714960572860935,
+    "Mdust_r500_over_Mb_r500": 1.3121449258823001,
+    "R_edge_over_rv": 1.0,
+    "R_edge_Mpc": 2.348896934302226,
+    "Mb_rv_over_Mb_r500": 1.7583229056804088,
+    "uE_positive": true,
+    "name": "ABELL-209"
+   },
+   {
+    "capped": false,
+    "R": 2.6427906623348267,
+    "R_uncapped": 2.6427906623348267,
+    "dust_over_budget_uncapped": 0.23277180063869413,
+    "dust_over_budget_final": 0.23277180065732456,
+    "Mdust_r500_over_Mb_r500": 1.1872132754179192,
+    "R_edge_over_rv": 1.0,
+    "R_edge_Mpc": 2.2799140352961698,
+    "Mb_rv_over_Mb_r500": 1.6829912888732765,
+    "uE_positive": true,
+    "name": "ABELL-2142"
+   },
+   {
+    "capped": false,
+    "R": 4.548636730969891,
+    "R_uncapped": 4.548636730969891,
+    "dust_over_budget_uncapped": 0.1181668669675219,
+    "dust_over_budget_final": 0.1181668669675219,
+    "Mdust_r500_over_Mb_r500": 0.6165153674302638,
+    "R_edge_over_rv": 1.0,
+    "R_edge_Mpc": 1.9000554046111282,
+    "Mb_rv_over_Mb_r500": 1.6558901285106855,
+    "uE_positive": true,
+    "name": "ABELL-383"
+   },
+   {
+    "capped": false,
+    "R": 3.5419150098714267,
+    "R_uncapped": 3.5419150098714267,
+    "dust_over_budget_uncapped": 0.22402717061580982,
+    "dust_over_budget_final": 0.22402717062028343,
+    "Mdust_r500_over_Mb_r500": 1.155214838578706,
+    "R_edge_over_rv": 1.0,
+    "R_edge_Mpc": 2.2602523173926534,
+    "Mb_rv_over_Mb_r500": 1.659964157146248,
+    "uE_positive": true,
+    "name": "ABELL-773"
+   },
+   {
+    "capped": false,
+    "R": 10.387321765994038,
+    "R_uncapped": 10.387321765994038,
+    "dust_over_budget_uncapped": 0.14671987992544722,
+    "dust_over_budget_final": 0.1467198799254475,
+    "Mdust_r500_over_Mb_r500": 0.7503855749748436,
+    "R_edge_over_rv": 1.0,
+    "R_edge_Mpc": 2.0255512409723386,
+    "Mb_rv_over_Mb_r500": 1.6947820750967206,
+    "uE_positive": true,
+    "name": "CL-J1226.9+3332"
+   },
+   {
+    "capped": false,
+    "R": 2.057752336435502,
+    "R_uncapped": 2.057752336435502,
+    "dust_over_budget_uncapped": 0.3454173909552951,
+    "dust_over_budget_final": 0.34541739103403607,
+    "Mdust_r500_over_Mb_r500": 1.6268493587371184,
+    "R_edge_over_rv": 1.0,
+    "R_edge_Mpc": 2.4696697149222673,
+    "Mb_rv_over_Mb_r500": 1.8322470845069123,
+    "uE_positive": true,
+    "name": "MACS-J0717.5+3745"
+   },
+   {
+    "capped": false,
+    "R": 5.208560104134498,
+    "R_uncapped": 5.208560104134498,
+    "dust_over_budget_uncapped": 0.07279595156968081,
+    "dust_over_budget_final": 0.07279595156968081,
+    "Mdust_r500_over_Mb_r500": 0.39124377308079983,
+    "R_edge_over_rv": 1.0,
+    "R_edge_Mpc": 1.6152549668591267,
+    "Mb_rv_over_Mb_r500": 1.5955535449160883,
+    "uE_positive": true,
+    "name": "RXC-J0232.2-4420"
+   },
+   {
+    "capped": false,
+    "R": 3.892411887438574,
+    "R_uncapped": 3.892411887438574,
+    "dust_over_budget_uncapped": 0.1254305233270907,
+    "dust_over_budget_final": 0.1254305233270907,
+    "Mdust_r500_over_Mb_r500": 0.6468597352051354,
+    "R_edge_over_rv": 1.0,
+    "R_edge_Mpc": 1.9346628614700339,
+    "Mb_rv_over_Mb_r500": 1.6813071142342448,
+    "uE_positive": true,
+    "name": "RXC-J0532.9-3701"
+   },
+   {
+    "capped": false,
+    "R": 1.7064046672244038,
+    "R_uncapped": 1.7064046672244038,
+    "dust_over_budget_uncapped": 0.8413675902557767,
+    "dust_over_budget_final": 0.841367592624849,
+    "Mdust_r500_over_Mb_r500": 4.095890992877545,
+    "R_edge_over_rv": 1.0,
+    "R_edge_Mpc": 2.789545396510542,
+    "Mb_rv_over_Mb_r500": 1.732338939331547,
+    "uE_positive": true,
+    "name": "RX-J1347.5-1145"
+   }
+  ]
+ },
+ "T3_splashback_pole": {
+  "summary": {
+   "R_Lane_Emden_Mpc": 3.1086059307271006,
+   "at_1.4_r200": {
+    "n_cross_pole_muR_ge_pi": 5,
+    "n_illposed_or_neg_dust": 5,
+    "verdict": "STABLE"
+   },
+   "at_1.8_r200": {
+    "n_cross_pole_muR_ge_pi": 11,
+    "n_illposed_or_neg_dust": 11,
+    "verdict": "UNSTABLE TO BOUNDARY"
+   }
+  },
+  "rows": [
+   {
+    "name": "ABELL-1689",
+    "rv_Mpc": 2.5356105682681034,
+    "mu_rv_over_pi": 0.8156744935743677,
+    "r_sp_1.4_Mpc": 3.413326579138277,
+    "sp_1.4": {
+     "converged": false,
+     "mu_rout_over_pi": 1.0980248559005685
+    },
+    "r_sp_1.8_Mpc": 4.388562744606356,
+    "sp_1.8": {
+     "converged": false,
+     "mu_rout_over_pi": 1.4117462433007313
+    }
+   },
+   {
+    "name": "ABELL-1763",
+    "rv_Mpc": 2.747611592510023,
+    "mu_rv_over_pi": 0.8838725955423237,
+    "r_sp_1.4_Mpc": 3.6987129629565705,
+    "sp_1.4": {
+     "converged": false,
+     "mu_rout_over_pi": 1.1898301185095677
+    },
+    "r_sp_1.8_Mpc": 4.755488095229876,
+    "sp_1.8": {
+     "converged": false,
+     "mu_rout_over_pi": 1.5297815809408726
+    }
+   },
+   {
+    "name": "ABELL-2034",
+    "rv_Mpc": 1.9596107868300174,
+    "mu_rv_over_pi": 0.6303825027997891,
+    "r_sp_1.4_Mpc": 2.6379411993150086,
+    "sp_1.4": {
+     "converged": true,
+     "mu_rout_over_pi": 0.8485929893011548,
+     "uE_positive_throughout": true,
+     "dust_nonneg_throughout": true,
+     "R": 0.4259805830553316
+    },
+    "r_sp_1.8_Mpc": 3.3916386848335827,
+    "sp_1.8": {
+     "converged": false,
+     "mu_rout_over_pi": 1.0910481291014849
+    }
+   },
+   {
+    "name": "ABELL-209",
+    "rv_Mpc": 2.348896934302226,
+    "mu_rv_over_pi": 0.7556110316474952,
+    "r_sp_1.4_Mpc": 3.161980959476134,
+    "sp_1.4": {
+     "converged": false,
+     "mu_rout_over_pi": 1.0171700852209817
+    },
+    "r_sp_1.8_Mpc": 4.06540409075503,
+    "sp_1.8": {
+     "converged": false,
+     "mu_rout_over_pi": 1.307790109569834
+    }
+   },
+   {
+    "name": "ABELL-2142",
+    "rv_Mpc": 2.2799140352961698,
+    "mu_rv_over_pi": 0.7334200880080352,
+    "r_sp_1.4_Mpc": 3.0691192378734318,
+    "sp_1.4": {
+     "converged": true,
+     "mu_rout_over_pi": 0.9872976203051789,
+     "uE_positive_throughout": true,
+     "dust_nonneg_throughout": true,
+     "R": 0.09322415555604044
+    },
+    "r_sp_1.8_Mpc": 3.946010448694412,
+    "sp_1.8": {
+     "converged": false,
+     "mu_rout_over_pi": 1.269382654678087
+    }
+   },
+   {
+    "name": "ABELL-383",
+    "rv_Mpc": 1.9000554046111282,
+    "mu_rv_over_pi": 0.6112242744665635,
+    "r_sp_1.4_Mpc": 2.5577703830222993,
+    "sp_1.4": {
+     "converged": true,
+     "mu_rout_over_pi": 0.8228030313330964,
+     "uE_positive_throughout": true,
+     "dust_nonneg_throughout": true,
+     "R": 0.48522442849600883
+    },
+    "r_sp_1.8_Mpc": 3.2885619210286707,
+    "sp_1.8": {
+     "converged": false,
+     "mu_rout_over_pi": 1.057889611713981
+    }
+   },
+   {
+    "name": "ABELL-773",
+    "rv_Mpc": 2.2602523173926534,
+    "mu_rv_over_pi": 0.7270951570448758,
+    "r_sp_1.4_Mpc": 3.042651504558441,
+    "sp_1.4": {
+     "converged": true,
+     "mu_rout_over_pi": 0.9787832785375815,
+     "uE_positive_throughout": true,
+     "dust_nonneg_throughout": true,
+     "R": 0.1517857547507247
+    },
+    "r_sp_1.8_Mpc": 3.911980505860853,
+    "sp_1.8": {
+     "converged": false,
+     "mu_rout_over_pi": 1.2584356438340332
+    }
+   },
+   {
+    "name": "CL-J1226.9+3332",
+    "rv_Mpc": 2.0255512409723386,
+    "mu_rv_over_pi": 0.6515947296345035,
+    "r_sp_1.4_Mpc": 2.7267073164708333,
+    "sp_1.4": {
+     "converged": true,
+     "mu_rout_over_pi": 0.8771479490271251,
+     "uE_positive_throughout": true,
+     "dust_nonneg_throughout": true,
+     "R": 0.9114409190223933
+    },
+    "r_sp_1.8_Mpc": 3.5057665497482144,
+    "sp_1.8": {
+     "converged": false,
+     "mu_rout_over_pi": 1.1277616487491608
+    }
+   },
+   {
+    "name": "MACS-J0717.5+3745",
+    "rv_Mpc": 2.4696697149222673,
+    "mu_rv_over_pi": 0.7944621383208305,
+    "r_sp_1.4_Mpc": 3.324559924592372,
+    "sp_1.4": {
+     "converged": false,
+     "mu_rout_over_pi": 1.0694697233028698
+    },
+    "r_sp_1.8_Mpc": 4.274434188761621,
+    "sp_1.8": {
+     "converged": false,
+     "mu_rout_over_pi": 1.375032501389404
+    }
+   },
+   {
+    "name": "RXC-J0232.2-4420",
+    "rv_Mpc": 1.6152549668591267,
+    "mu_rv_over_pi": 0.5196075034449027,
+    "r_sp_1.4_Mpc": 2.1743846549082586,
+    "sp_1.4": {
+     "converged": true,
+     "mu_rout_over_pi": 0.6994725942633945,
+     "uE_positive_throughout": true,
+     "dust_nonneg_throughout": true,
+     "R": 0.7169470596101655
+    },
+    "r_sp_1.8_Mpc": 2.7956374134534756,
+    "sp_1.8": {
+     "converged": true,
+     "mu_rout_over_pi": 0.8993219069100786,
+     "uE_positive_throughout": true,
+     "dust_nonneg_throughout": true,
+     "R": 0.35968519748493993
+    }
+   },
+   {
+    "name": "RXC-J0532.9-3701",
+    "rv_Mpc": 1.9346628614700339,
+    "mu_rv_over_pi": 0.6223570644148896,
+    "r_sp_1.4_Mpc": 2.6043574077851623,
+    "sp_1.4": {
+     "converged": true,
+     "mu_rout_over_pi": 0.8377894998019275,
+     "uE_positive_throughout": true,
+     "dust_nonneg_throughout": true,
+     "R": 0.4883339271300705
+    },
+    "r_sp_1.8_Mpc": 3.348459524295209,
+    "sp_1.8": {
+     "converged": false,
+     "mu_rout_over_pi": 1.077157928316764
+    }
+   },
+   {
+    "name": "RX-J1347.5-1145",
+    "rv_Mpc": 2.789545396510542,
+    "mu_rv_over_pi": 0.8973621805637068,
+    "r_sp_1.4_Mpc": 3.755162391567807,
+    "sp_1.4": {
+     "converged": false,
+     "mu_rout_over_pi": 1.2079892000622536
+    },
+    "r_sp_1.8_Mpc": 4.828065932015752,
+    "sp_1.8": {
+     "converged": false,
+     "mu_rout_over_pi": 1.5531289715086118
+    }
+   }
+  ]
+ },
+ "T4_beta_profile_sensitivity": {
+  "beta=0.6667": {
+   "median_Mb_rv_over_Mb_r500": 1.6888866819849986,
+   "T1_MOND_ON_free_boundary": {
+    "median_R": 0.8347897281322293,
+    "min_R": 0.5432333671125974,
+    "max_R": 1.91801650084657,
+    "n_in_0.7_1.4": 7,
+    "verdict": "FAILS"
+   },
+   "T2a_MOND_OFF_uncapped": {
+    "median_R": 3.114121606522783,
+    "min_R": 0.9760792548637353,
+    "max_R": 10.387321765994038,
+    "n_in_0.7_1.4": 1,
+    "verdict": "FAILS"
+   },
+   "T2b_MOND_OFF_free_boundary": {
+    "median_R": 3.114121606522783,
+    "min_R": 0.9760792548637353,
+    "max_R": 10.387321765994038,
+    "n_in_0.7_1.4": 1,
+    "verdict": "FAILS"
+   },
+   "T1_rows": [
+    {
+     "name": "ABELL-1689",
+     "R": 0.6537988428009749,
+     "R_edge_over_rv": 0.9513313687662698
+    },
+    {
+     "name": "ABELL-1763",
+     "R": 0.5432333671125974,
+     "R_edge_over_rv": 0.9237877130408805
+    },
+    {
+     "name": "ABELL-2034",
+     "R": 0.8933847205203441,
+     "R_edge_over_rv": 0.973345529710993
+    },
+    {
+     "name": "ABELL-209",
+     "R": 0.6944082005541458,
+     "R_edge_over_rv": 0.9717464127194392
+    },
+    {
+     "name": "ABELL-2142",
+     "R": 0.6387273129615054,
+     "R_edge_over_rv": 0.991946479119083
+    },
+    {
+     "name": "ABELL-383",
+     "R": 0.8830546664031138,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-773",
+     "R": 0.7865247898613448,
+     "R_edge_over_rv": 0.9808992721443311
+    },
+    {
+     "name": "CL-J1226.9+3332",
+     "R": 1.91801650084657,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "MACS-J0717.5+3745",
+     "R": 0.7582627180677223,
+     "R_edge_over_rv": 0.9973058492659594
+    },
+    {
+     "name": "RXC-J0232.2-4420",
+     "R": 1.0705514236495322,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "RXC-J0532.9-3701",
+     "R": 0.8959924576795735,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "RX-J1347.5-1145",
+     "R": 0.8966466248353671,
+     "R_edge_over_rv": 0.8750723479378476
+    }
+   ],
+   "T2b_rows": [
+    {
+     "name": "ABELL-1689",
+     "R": 1.8935613337687047,
+     "R_uncapped": 1.8935613337687047,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-1763",
+     "R": 0.9760792548637353,
+     "R_uncapped": 0.9760792548637353,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-2034",
+     "R": 6.856405171492909,
+     "R_uncapped": 6.856405171492909,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-209",
+     "R": 2.68632820317414,
+     "R_uncapped": 2.68632820317414,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-2142",
+     "R": 2.6427906623348267,
+     "R_uncapped": 2.6427906623348267,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-383",
+     "R": 4.548636730969891,
+     "R_uncapped": 4.548636730969891,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-773",
+     "R": 3.5419150098714267,
+     "R_uncapped": 3.5419150098714267,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "CL-J1226.9+3332",
+     "R": 10.387321765994038,
+     "R_uncapped": 10.387321765994038,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "MACS-J0717.5+3745",
+     "R": 2.057752336435502,
+     "R_uncapped": 2.057752336435502,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "RXC-J0232.2-4420",
+     "R": 5.208560104134498,
+     "R_uncapped": 5.208560104134498,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "RXC-J0532.9-3701",
+     "R": 3.892411887438574,
+     "R_uncapped": 3.892411887438574,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "RX-J1347.5-1145",
+     "R": 1.7064046672244038,
+     "R_uncapped": 1.7064046672244038,
+     "R_edge_over_rv": 1.0
+    }
+   ]
+  },
+  "beta=0.8500": {
+   "median_Mb_rv_over_Mb_r500": 1.3925529964080523,
+   "T1_MOND_ON_free_boundary": {
+    "median_R": 0.859846573408702,
+    "min_R": 0.592550036950324,
+    "max_R": 1.941677232246314,
+    "n_in_0.7_1.4": 8,
+    "verdict": "FAILS"
+   },
+   "T2a_MOND_OFF_uncapped": {
+    "median_R": 3.1348297885438594,
+    "min_R": 0.9945290783441849,
+    "max_R": 10.427261827426952,
+    "n_in_0.7_1.4": 1,
+    "verdict": "FAILS"
+   },
+   "T2b_MOND_OFF_free_boundary": {
+    "median_R": 3.1348297885438594,
+    "min_R": 0.9945290783441849,
+    "max_R": 10.427261827426952,
+    "n_in_0.7_1.4": 1,
+    "verdict": "FAILS"
+   },
+   "T1_rows": [
+    {
+     "name": "ABELL-1689",
+     "R": 0.6992133800702703,
+     "R_edge_over_rv": 0.9249560217084185
+    },
+    {
+     "name": "ABELL-1763",
+     "R": 0.592550036950324,
+     "R_edge_over_rv": 0.896122009568936
+    },
+    {
+     "name": "ABELL-2034",
+     "R": 0.9465897714432594,
+     "R_edge_over_rv": 0.9388962038540623
+    },
+    {
+     "name": "ABELL-209",
+     "R": 0.7442480853322757,
+     "R_edge_over_rv": 0.9393903244093659
+    },
+    {
+     "name": "ABELL-2142",
+     "R": 0.6804759036546055,
+     "R_edge_over_rv": 0.9612231354909867
+    },
+    {
+     "name": "ABELL-383",
+     "R": 0.8837319910814788,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-773",
+     "R": 0.835961155735925,
+     "R_edge_over_rv": 0.9507241212174611
+    },
+    {
+     "name": "CL-J1226.9+3332",
+     "R": 1.941677232246314,
+     "R_edge_over_rv": 0.9932580152216078
+    },
+    {
+     "name": "MACS-J0717.5+3745",
+     "R": 0.8235270601538467,
+     "R_edge_over_rv": 0.9650861378834426
+    },
+    {
+     "name": "RXC-J0232.2-4420",
+     "R": 1.0705691270567965,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "RXC-J0532.9-3701",
+     "R": 0.8971536481949106,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "RX-J1347.5-1145",
+     "R": 0.972910955801973,
+     "R_edge_over_rv": 0.847138948175663
+    }
+   ],
+   "T2b_rows": [
+    {
+     "name": "ABELL-1689",
+     "R": 1.889843790967657,
+     "R_uncapped": 1.889843790967657,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-1763",
+     "R": 0.9945290783441849,
+     "R_uncapped": 0.9945290783441849,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-2034",
+     "R": 6.8997860558267545,
+     "R_uncapped": 6.8997860558267545,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-209",
+     "R": 2.7188081958085033,
+     "R_uncapped": 2.7188081958085033,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-2142",
+     "R": 2.655125573323878,
+     "R_uncapped": 2.655125573323878,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-383",
+     "R": 4.552914635675317,
+     "R_uncapped": 4.552914635675317,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-773",
+     "R": 3.550851381279216,
+     "R_uncapped": 3.550851381279216,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "CL-J1226.9+3332",
+     "R": 10.427261827426952,
+     "R_uncapped": 10.427261827426952,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "MACS-J0717.5+3745",
+     "R": 2.1017949882459286,
+     "R_uncapped": 2.1017949882459286,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "RXC-J0232.2-4420",
+     "R": 5.197689411750588,
+     "R_uncapped": 5.197689411750588,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "RXC-J0532.9-3701",
+     "R": 3.9023012113459816,
+     "R_uncapped": 3.9023012113459816,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "RX-J1347.5-1145",
+     "R": 1.7365126080980788,
+     "R_uncapped": 1.7365126080980788,
+     "R_edge_over_rv": 1.0
+    }
+   ]
+  },
+  "beta=1.0000": {
+   "median_Mb_rv_over_Mb_r500": 1.2296370664000633,
+   "T1_MOND_ON_free_boundary": {
+    "median_R": 0.8754656911871967,
+    "min_R": 0.6240756266037624,
+    "max_R": 2.0102379198694513,
+    "n_in_0.7_1.4": 10,
+    "verdict": "CLOSES"
+   },
+   "T2a_MOND_OFF_uncapped": {
+    "median_R": 3.126237555831487,
+    "min_R": 0.9963945015766855,
+    "max_R": 10.396725953556064,
+    "n_in_0.7_1.4": 1,
+    "verdict": "FAILS"
+   },
+   "T2b_MOND_OFF_free_boundary": {
+    "median_R": 3.126237555831487,
+    "min_R": 0.9963945015766855,
+    "max_R": 10.396725953556064,
+    "n_in_0.7_1.4": 1,
+    "verdict": "FAILS"
+   },
+   "T1_rows": [
+    {
+     "name": "ABELL-1689",
+     "R": 0.7284090739648191,
+     "R_edge_over_rv": 0.9068573349238302
+    },
+    {
+     "name": "ABELL-1763",
+     "R": 0.6240756266037624,
+     "R_edge_over_rv": 0.8768765174884178
+    },
+    {
+     "name": "ABELL-2034",
+     "R": 0.9810806986490882,
+     "R_edge_over_rv": 0.9162616741442846
+    },
+    {
+     "name": "ABELL-209",
+     "R": 0.7761407036921886,
+     "R_edge_over_rv": 0.9176818551409206
+    },
+    {
+     "name": "ABELL-2142",
+     "R": 0.7072027259691355,
+     "R_edge_over_rv": 0.9405636710752565
+    },
+    {
+     "name": "ABELL-383",
+     "R": 0.8831791502268858,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-773",
+     "R": 0.8677522321475079,
+     "R_edge_over_rv": 0.9304797513743415
+    },
+    {
+     "name": "CL-J1226.9+3332",
+     "R": 2.0102379198694513,
+     "R_edge_over_rv": 0.9712507829069199
+    },
+    {
+     "name": "MACS-J0717.5+3745",
+     "R": 0.864630777733055,
+     "R_edge_over_rv": 0.9430019388370225
+    },
+    {
+     "name": "RXC-J0232.2-4420",
+     "R": 1.0694876571774676,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "RXC-J0532.9-3701",
+     "R": 0.8967911104615601,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "RX-J1347.5-1145",
+     "R": 1.022392974085895,
+     "R_edge_over_rv": 0.8280330850941181
+    }
+   ],
+   "T2b_rows": [
+    {
+     "name": "ABELL-1689",
+     "R": 1.8713229538054699,
+     "R_uncapped": 1.8713229538054699,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-1763",
+     "R": 0.9963945015766855,
+     "R_uncapped": 0.9963945015766855,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-2034",
+     "R": 6.892910587458453,
+     "R_uncapped": 6.892910587458453,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-209",
+     "R": 2.719842972531887,
+     "R_uncapped": 2.719842972531887,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-2142",
+     "R": 2.6448181649962277,
+     "R_uncapped": 2.6448181649962277,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-383",
+     "R": 4.5340977191177325,
+     "R_uncapped": 4.5340977191177325,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "ABELL-773",
+     "R": 3.532632139131088,
+     "R_uncapped": 3.532632139131088,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "CL-J1226.9+3332",
+     "R": 10.396725953556064,
+     "R_uncapped": 10.396725953556064,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "MACS-J0717.5+3745",
+     "R": 2.1131442481191094,
+     "R_uncapped": 2.1131442481191094,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "RXC-J0232.2-4420",
+     "R": 5.172878674445618,
+     "R_uncapped": 5.172878674445618,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "RXC-J0532.9-3701",
+     "R": 3.889498103365715,
+     "R_uncapped": 3.889498103365715,
+     "R_edge_over_rv": 1.0
+    },
+    {
+     "name": "RX-J1347.5-1145",
+     "R": 1.8652797372866878,
+     "R_uncapped": 1.737846214130075,
+     "R_edge_over_rv": 0.9892512382644648
+    }
+   ]
+  }
+ },
+ "sound_speed_regime_audit": {
+  "cs_cosmic_bg_z0_kms": 41.968484606890925,
+  "median_cs_core_kms": 2071.526622435842,
+  "median_cs_cosmic_bg_z_kms": 56.728315291913425,
+  "median_infall_Mach": 29.17011508607956,
+  "rows": [
+   {
+    "name": "ABELL-1689",
+    "z": 0.183,
+    "cs_core_kms": 2027.583791459743,
+    "cs_cosmic_bg_z_kms": 54.00082626275224,
+    "v_circ_500_kms": 1970.355632067992,
+    "infall_Mach_number": 36.48750895922994
+   },
+   {
+    "name": "ABELL-1763",
+    "z": 0.228,
+    "cs_core_kms": 2077.7775847331254,
+    "cs_cosmic_bg_z_kms": 57.11114118488192,
+    "v_circ_500_kms": 2028.7513354168393,
+    "infall_Mach_number": 35.522864599208475
+   },
+   {
+    "name": "ABELL-2034",
+    "z": 0.113,
+    "cs_core_kms": 1954.5704342398851,
+    "cs_cosmic_bg_z_kms": 49.279470702613274,
+    "v_circ_500_kms": 1363.7852171352135,
+    "infall_Mach_number": 27.674510251241244
+   },
+   {
+    "name": "ABELL-209",
+    "z": 0.206,
+    "cs_core_kms": 2052.923605963481,
+    "cs_cosmic_bg_z_kms": 55.583290058656054,
+    "v_circ_500_kms": 1704.5016052218853,
+    "infall_Mach_number": 30.665719920917873
+   },
+   {
+    "name": "ABELL-2142",
+    "z": 0.091,
+    "cs_core_kms": 1932.9165713677526,
+    "cs_cosmic_bg_z_kms": 47.82559853672901,
+    "v_circ_500_kms": 1621.06799273257,
+    "infall_Mach_number": 33.8954041837579
+   },
+   {
+    "name": "ABELL-383",
+    "z": 0.187,
+    "cs_core_kms": 2031.9431813428619,
+    "cs_cosmic_bg_z_kms": 54.27494180593427,
+    "v_circ_500_kms": 1441.2807167653657,
+    "infall_Mach_number": 26.555177560923337
+   },
+   {
+    "name": "ABELL-773",
+    "z": 0.217,
+    "cs_core_kms": 2065.2756601385586,
+    "cs_cosmic_bg_z_kms": 56.34548939894493,
+    "v_circ_500_kms": 1738.7508277302716,
+    "infall_Mach_number": 30.858740358422192
+   },
+   {
+    "name": "CL-J1226.9+3332",
+    "z": 0.89,
+    "cs_core_kms": 3076.1510155003803,
+    "cs_cosmic_bg_z_kms": 109.047570510249,
+    "v_circ_500_kms": 2277.5349498727624,
+    "infall_Mach_number": 20.885700976334036
+   },
+   {
+    "name": "MACS-J0717.5+3745",
+    "z": 0.548,
+    "cs_core_kms": 2503.6248842596738,
+    "cs_cosmic_bg_z_kms": 80.83132959334262,
+    "v_circ_500_kms": 2104.9077927754875,
+    "infall_Mach_number": 26.04074191733759
+   },
+   {
+    "name": "RXC-J0232.2-4420",
+    "z": 0.284,
+    "cs_core_kms": 2143.7217773965276,
+    "cs_cosmic_bg_z_kms": 61.061971702576436,
+    "v_circ_500_kms": 1336.8494010126635,
+    "infall_Mach_number": 21.893321878373882
+   },
+   {
+    "name": "RXC-J0532.9-3701",
+    "z": 0.275,
+    "cs_core_kms": 2132.8667367438065,
+    "cs_cosmic_bg_z_kms": 60.421091320244436,
+    "v_circ_500_kms": 1519.2655712909702,
+    "infall_Mach_number": 25.144623145559297
+   },
+   {
+    "name": "RX-J1347.5-1145",
+    "z": 0.451,
+    "cs_core_kms": 2362.3549219636047,
+    "cs_cosmic_bg_z_kms": 73.35410231461253,
+    "v_circ_500_kms": 2361.1925064969805,
+    "infall_Mach_number": 32.18896328892322
+   }
+  ]
+ }
+}
