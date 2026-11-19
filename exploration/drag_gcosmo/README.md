@@ -86,6 +86,7 @@ Pre-registered before running. Computed at each dataset's best fit from the mode
 - The Weyl dark radiation's own perturbations (Ω_Weyl ≈ 1.75 today) are not modelled, and they are exactly where a full CMB lensing/ISW calculation could still break it. That remains [O].
 
 ## The large bare drag is a floor, not a fixable choice [D] (from `FLUX_CODAZZI.json`, no new fit)
+> **Scope (2026-11-19, `exploration/bulk5d/`).** The floor assumes w_d ≥ 0, a sound-speed condition. The covariant velocity-dependent tension is a w = −1 component with no momentum, for which a sound speed means nothing. It is excluded only by `PREREG_FLUX.md`'s single-channel rule. The floor holds while that exclusion stands; without it the bare drag would be x₀ = |κ|/4.
 The data constrain only κ = (3w_d − 1)x₀. On the stable sub-conformal branch 0 ≤ w_d < 1/3, x₀ = |κ|/(1 − 3w_d) ≥ |κ|, with the minimum at w_d = 0. Any w_d > 0 needs *more* drag, which diverges as w_d → 1/3.
 
 | Fit | best x₀ (floor) | 2σ floor on x₀ | bare G_cosmo/G_N today, 1/(1 + x₀): best / 2σ upper |
@@ -140,3 +141,6 @@ Pre-registered before any numerical output. Rather than waiting on a full 1+1D 5
 - **Knife edge.** Under the pre-registration's primary convention (bulk-rest flux), free-falling drag (Law A) passes at a best fit only for c_vis² = 0. That closure has zero Weyl anisotropic stress, and Law A and Law C give identical numbers there. Its ℓ = 2 ISW ratio is 1.5934 with 25 k-modes and 1.5944 with 50, against the 1.6 gate: a numerically stable pass, 0.4% inside the gate.
 - **Law C is post-hoc.** The pre-registration names the flux-frame conventions but not the drag-momentum law. Law C (F_d = 0) was introduced in the run. Its robust passes for free-streaming closures (c_vis² = 1/3, `mb95_l8`) are a post-hoc result: they sharpen the 5D junction question but do not carry the pre-registered verdict.
 - **Verdict wording.** SURVIVES ENVELOPE under the pre-registered rule, narrowly: only through the zero-stress closure, 0.4% inside the ISW gate. Robustly only under the post-hoc Law C. The 5D bulk-perturbation solve stays justified `[O]`, and its first job is to decide which drag-momentum law the junction gives.
+
+### 5D follow-up (2026-11-19)
+- Phase 1 of the bulk solve (`exploration/bulk5d/`): the covariant velocity-dependent tension reproduces this drag background but is `[X]` as the flux-fed branch, because its flux flips sign at z ≈ 0.73. Absorbed bulk null dust gives Law A with a computed flux frame. Law C has no covariant realization from either candidate.

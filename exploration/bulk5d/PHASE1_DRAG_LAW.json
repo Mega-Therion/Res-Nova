@@ -1,0 +1,51 @@
+{
+ "candidate_a": {
+  "A1_X_equals_adot_sq": true,
+  "A1_note": "X = (xi.n)^2 = adot^2 for a wall at r = a(tau) in flat-sliced AdS-Schwarzschild; xi = d/dt",
+  "A2_junction_leading_order_linear_in_H2": true,
+  "A2_G4": "G4 = 2 k_+ k_- G5 / (k_- - k_+)  (matches 1807.01570)",
+  "A2_drag_background_reproduced": true,
+  "A2_x0": "x0 = (4 pi G4 / 3) rho_b  (sigma = sigma0 + rho_b adot^2 / 2; a = 1 today)",
+  "A3_wd": -1,
+  "A3_momentum_density_all_frames": 0,
+  "A3_momentum_balance": "Q_i = -d_i delta sigma = -sigma'(X) d_i delta X  (no Phi term: rho + p = 0)",
+  "A3_vs_LawC": "Law C has w_d = 0 and Q_i = -K^2 Omega_d Phi; the covariant sigma(X) wall has w = -1 and Q_i = -d_i delta sigma: not Law C",
+  "A4_flux_required": "Q4 = d(Delta Sigma)/dtau = 2 H Delta Sigma (-q)  (vacuum bulk would force sigma_dot = 0)",
+  "A4_numeric": {
+   "Pantheon+_BAO_CMB": {
+    "kappa": -2.2444519783747996,
+    "x0_at_wd_minus1": 0.5611129945936999,
+    "x0_at_wd_0": 2.2444519783747996,
+    "s_NEC_at_z0": 0.40865482674739717,
+    "s_NEC_at_z2": -0.3829106777523066,
+    "s_NEC_min": -0.5034795415988456,
+    "s_NEC_max": 0.40865482674739717,
+    "z_sign_flip": 0.734,
+    "sign_changes_on_0_10": true,
+    "verdict_a": "[X] (NEC channel rule: Q4 flips sign at the onset of acceleration)"
+   },
+   "DES-Dovekie_BAO_CMB": {
+    "kappa": -2.496571182856366,
+    "x0_at_wd_minus1": 0.6241427957140915,
+    "x0_at_wd_0": 2.496571182856366,
+    "s_NEC_at_z0": 0.39555255566029357,
+    "s_NEC_at_z2": -0.38272670942569675,
+    "s_NEC_min": -0.5039731624434887,
+    "s_NEC_max": 0.39555255566029357,
+    "z_sign_flip": 0.7415,
+    "sign_changes_on_0_10": true,
+    "verdict_a": "[X] (NEC channel rule: Q4 flips sign at the onset of acceleration)"
+   }
+  }
+ },
+ "candidate_b": {
+  "B1_l_null_and_geodesic": true,
+  "B1_projection_identity": "e^A_mu l_A = -d_mu (V|wall) exactly, for any wall embedding (V, R)(tau, y)",
+  "B1_deposited_momentum": "Q_mu = -[psi (l.n)] e^A_mu l_A  proportional to  d_mu V|wall",
+  "B2_flux_frame": "u_F,mu = -d_mu V / sqrt(-h^ab d_a V d_b V): the normal to wall-restricted V = const slices (hypersurface-orthogonal)",
+  "B2_law": "Law A (Q_mu = q4 u_F,mu) whenever the absorbed energy is stored in a momentum-carrying wall component",
+  "B2_two_channels": "with inflow from both sides (outside ingoing V, inside outgoing U) u_F is the q-weighted sum of -dV and -dU",
+  "B3_remaining": "u_F - u_m needs delta V|wall = delta T + delta R / f in wall longitudinal gauge, i.e. the bending from the asymmetric junction plus the bulk solution (Phase 2). The envelope's 'bulk_rest' convention is the special case delta V|wall = 0 on CN slices."
+ },
+ "preregistered_decision": "(a) [X]: the covariant sigma(X) drag reproduces the drag background exactly but is w = -1 and needs a flux that flips sign at the onset of acceleration. (b) gives Law A with a computed flux frame. So the envelope's Law A numbers apply (survives only at c_vis^2 = 0, 0.4% inside the ISW gate); Phase 2 narrows to pi_E from the bulk and u_F from delta V."
+}
