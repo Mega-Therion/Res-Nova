@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """Mixed cubic + quartic Galileon on the AeST scalar (PREREG_MIXED_L3L4.md), 2026-11-18. [O], first order.
 
+SUPERSEDED __main__: the 273-point grid used an ellipticity check that mixed perturbation orders. Its failures were
+spurious; the log is kept as mixed_l3l4_INVALID_ellipticity.log. The decisive runs are mixed_stability_sparc.py,
+mixed_cassini_survivors.py and mixed_high_k3.py. ellipticity() below is now the order-consistent near-Sun check.
+Scope: total-law embedding (an [O] alternative to D9's scalar-channel function).
+
 Static equation for the scalar phi (acceleration units), around the Sun inside the Milky Way:
     Z_ij d_i d_j phi + 2 k3 sigma2(H) + 6 k4 sigma3(H) + [Galactic cross terms] = 4 pi G rho
 Z = A_e (I + L e e) + 2 k3 (trT I - T) + 6 k4 cof(T)   (constant: AQUAL external-field + Galaxy cofactors)
@@ -159,17 +164,17 @@ def fib_dirs(n=300):
     i = np.arange(n) + 0.5; phi = np.arccos(1 - 2 * i / n); th = math.pi * (1 + 5**0.5) * i
     return np.stack([np.cos(th) * np.sin(phi), np.sin(th) * np.sin(phi), np.cos(phi)], 1)
 def ellipticity(P):
-    """Minimum eigenvalue (relative) of the linearised principal symbol around the Sun."""
-    r3, r4 = radii(P); rs = np.logspace(math.log10(0.1 * AU), math.log10(3 * max(r3, r4, 1e13)), 60)
-    y, a, b = background(P, rs); T = P["T"]; trT = np.trace(T); worst = np.inf
-    for n in fib_dirs():
-        nn = np.outer(n, n); Tn = T @ n; Tnn = n @ Tn; nT = np.outer(n, Tn)
-        for ai, bi in zip(a, b):
-            H = ai * nn + bi * (np.eye(3) - nn)
-            Mmix = -ai * T + (ai - bi) * (nT + nT.T) + (ai * trT - (ai - bi) * Tnn) * np.eye(3) - (ai - bi) * trT * nn
-            M = P["Z"] + 2 * P["k3"] * (np.trace(H) * np.eye(3) - H) + 6 * P["k4"] * (cof(H) + Mmix)
-            ev = np.linalg.eigvalsh(M); worst = min(worst, ev[0] / ev[-1])
-    return worst
+    """Order-consistent near-Sun check (hand-derived; see README).
+    Inside r_T ~ c/|T| the Galileon cancels the Galactic tide, so the inner kinetic tensor is the external-field
+    AQUAL A_e(I + L e e) and the effective cubic is k3 (no k4 trT). Required: M_rr > 0 and, at O(1),
+    M_perp - (Z_max - Z_iso) > 0, where the second term is the anisotropic correction (e1 sees -Z_e2e2)."""
+    Zin = P["Ae"] * (np.eye(3) + P["Le"] * np.outer(E_GC, E_GC)); ev = np.linalg.eigvalsh(Zin)
+    Q = dict(P); Q["Ziso"] = float(np.trace(Zin) / 3); Q["k3e"] = P["k3"]
+    r3, r4 = radii(Q); rs = np.logspace(math.log10(0.1 * AU), math.log10(3 * max(r3, r4, 1e13)), 200)
+    y, a, b = background(Q, rs)
+    Mrr = Q["Ziso"] + 4 * Q["k3e"] * b + 6 * Q["k4"] * b * b
+    Mpp = Q["Ziso"] + 2 * Q["k3e"] * (a + b) + 6 * Q["k4"] * a * b
+    return float(min(Mrr.min(), (Mpp - (ev[-1] - Q["Ziso"])).min()) / Q["Ziso"])
 
 # ---------------- SPARC with cubic + quartic ----------------
 FG = np.logspace(-0.5, 0.5, 61)
@@ -222,6 +227,7 @@ def regression_b():
     return out
 
 if __name__ == "__main__":
+    print("NOTE: this grid is superseded (see module docstring); rerunning uses the corrected ellipticity().", flush=True)
     res = {"directions": {"E_GC": E_GC.tolist(), "E_NGP": E_NGP.tolist()}}
     ra = regression_a(); res["regression_a"] = ra
     for r_ in ra: print("reg-a sigma=%.2f ode=%.3e exact=%.3e ratio=%.3f" % (r_["sigma"], r_["Q2_ode_first_order"], r_["Q2_exact_stretched"], r_["ratio"]), flush=True)

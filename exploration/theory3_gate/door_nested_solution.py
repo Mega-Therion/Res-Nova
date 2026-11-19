@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Nested field solution for the open door (AeST live scalar law + quartic Galileon), 2026-11-18.
+"""Nested field solution for the open door (AeST total-law embedding, an [O] alternative to D9, + quartic Galileon), 2026-11-18.
 
-Model (AEST_TOTAL_SCALAR_CORRESPONDENCE, live total law x mu_std(x) = y, lambda_s < 11.2788):
+Model (AEST_TOTAL_SCALAR_CORRESPONDENCE total-law embedding x mu_std(x) = y, lambda_s < 11.2788):
   matter feels g = g_hat + g_phi;  lap(Phi_hat) = 4 pi G_hat rho;
   div[J'(|grad phi|^2) grad phi] + kappa * 6 det(d^2 phi) = 4 pi G_hat rho     (static quartic Galileon)
   scalar law (parametric in x):  s = x(1 - eta mu),  J' = eta mu/(1 - eta mu),  flux f = J' s = eta x mu.

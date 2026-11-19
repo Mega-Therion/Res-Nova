@@ -5,8 +5,8 @@ Spherical flux: 2 k4 y^3 + 2 k3 r y^2 + Z r^2 y = GM, with y = phi0'. Linearised
   radial  M_rr = Z + 4 k3 b + 6 k4 b^2
   angular M_perp = Z + 2 k3 (a + b) + 6 k4 a b,   a = y', b = y/r.
 Result (SymPy, series in r): in the quartic-dominated core, M_perp -> -Z + 2 k3^2/(3 k4).
-- Pure quartic (k3 = 0): M_perp -> -Z < 0. The screened static solution is gradient-unstable in the angular
-  directions inside the Vainshtein region.
+- Pure quartic (k3 = 0): M_perp -> -Z < 0. Inside the Vainshtein region the screened static solution's operator is non-elliptic in the
+  angular directions; that is a gradient instability if the time-kinetic coefficient is positive.
 - A cubic term stabilises the core iff 2 k3^2/(3 k4) > Z.
 - Anisotropic Z (hand-derived to O(1), consistent with this series): an angular direction e1 sees
   -Z_{e2e2} + 2 k3^2/(3 k4), so the criterion is 2 k3^2/(3 k4) > Z_max.
