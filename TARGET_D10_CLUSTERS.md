@@ -432,3 +432,10 @@ See `exploration/d10_attack/README.md` (pre-registered).
 - The added mass is a median 1.09× the cosmic dust allowance, and exceeds it in 8/12 clusters.
 - Screening MOND entirely gives R = 6.83. The M₂₀₀/M₅₀₀ shape test is circular, because the catalogue ratio is NFW-derived.
 - The gap is now an overshoot. Whether the quasi-static limit holds near r_v is `[O]`.
+
+## 13. X-COP (gas measured to R₂₀₀): passes at R₅₀₀, fails at R₂₀₀ `[D]`, added 2026-11-19
+See `exploration/d10_xcop/README.md` (pre-registered).
+- On 12 X-COP clusters, with non-thermal-corrected total masses and gas measured to R₂₀₀, AeST μ_std with the virial boundary and supply cap gives median **R₅₀₀ = 0.83, 12/12 in band**. That **passes** the pre-registered criterion, a first for D10.
+- But **R₂₀₀ = 0.62, 1/12 in band: fails** (pure MOND gives 1.90 / 1.49).
+- The amount of mass at R₅₀₀ is right; its growth outward is too steep.
+- The open item is the outer profile of the AeST dust: the boundary radius, and the x_H screen in the outskirts `[O]`.
