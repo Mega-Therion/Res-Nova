@@ -22,3 +22,18 @@ Pre-registration: `PREREG.md` (committed before the run). Script: `tidal_aest_bb
 3. The c₄,eff = local-share identification in the D3 map is a modelling step, not derived.
 
 **Next decisive item:** write the covariant QUMOND-in-AeST action (auxiliary field), and check its cosmology (ghost-freedom, c_T, and that G_cosmo is unchanged).
+
+## Covariant step (`covariant_qumond_check.py`, SymPy Euler–Lagrange)
+Aether-frame action, built only from spatial gradients q^{μν} = g^{μν} + A^μA^ν:
+L = ρφ + (1/8πG)[−2 q(∂φ,∂ψ) + q(∂ψ,∂ψ) + a₀² F(q(∂ψ,∂ψ)/a₀², X(∇∇ψ))].
+
+1. **[D]** Varying φ gives ∇²ψ = −4πGρ, so ψ is the Newtonian potential. Varying ψ gives Poisson for φ with a source built from the known ψ, including the Hessian ("W") terms, which reach fourth order in ψ. The system is **triangular**: ψ comes from ρ, then φ from ψ. That is why it is well-posed even though F depends on ∇∇ψ.
+2. **[D, structural]** No time derivatives appear in the aether frame, so φ and ψ are constraints and do not propagate. The indefinite φψ cross term therefore carries no propagating ghost.
+3. **[D]** On FRW the spatial gradients vanish, so the sector reduces to a₀²F(0,0)/8πG. With F(0,0) = 0, G_cosmo and Λ are unchanged, and the BBN result above stands.
+4. **[D, structural]** The sector is quadratic in φ and ψ, which vanish on the background, so h_ij couples only at second order and **c_T = c**.
+
+**Binding open requirement: how matter feels φ.**
+- A ρφ (conformal) coupling gives no MOND lensing, so galaxy and cluster lensing see GR mass only.
+- A disformal coupling for photons is excluded by GW170817: GWs and photons would cross the Milky Way's potential with different Shapiro delays (Boran et al. 2018).
+- So the MOND potential must enter the **single metric** (both potentials, γ = 1). AeST already does this through its **J^μ∇_μφ mixing**, where J is the aether acceleration, equal to ∇Φ in the static weak field.
+- **Next construction:** keep AeST's J·∇φ mixing and replace 𝒥(𝒴) with the auxiliary-ψ QUMOND sector above. Then check γ = 1 / PPN, lensing = dynamics, and that the D3 c₄,eff → 0 identification follows from the field equations instead of being assumed.
