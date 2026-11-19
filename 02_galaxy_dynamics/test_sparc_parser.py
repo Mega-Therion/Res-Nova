@@ -21,8 +21,13 @@ from pathlib import Path
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
+ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
+sys.path.insert(0, str(ROOT / "scripts"))
 import parameter_ledger as pl  # noqa: E402
+import sparc_a0_reextract_3mu as re3  # noqa: E402
+import sparc_a0_reextract_std as restd  # noqa: E402
+import a0_distance_corrected_reextract as dc_re  # noqa: E402
 from sparc_reproduce import A0_HORIZON, load_rotmod, predict_velocity, v_baryon  # noqa: E402
 
 ROWS = [
@@ -77,7 +82,47 @@ def main() -> None:
             np.testing.assert_allclose(vp_r, vp_l, rtol=1e-9, atol=1e-6,
                                        err_msg=f"mu_std prediction parity at Yd={yd}, Yb={yb}, fd={fd}")
 
-    print("PASS: signed parsing, signed V_bar with Y on V^2, and sparc_reproduce == parameter_ledger at Y != 1, fd != 1")
+        # 4. Layer 1b distance-scaling invariance in a0 re-extraction harnesses (fixed 2026-11-19):
+        #    g_bar = (fd * V_bar^2) / (fd * R) MUST be invariant across all FD grid points,
+        #    and predicted velocity at (Yd, Yb, fd) MUST match parameter_ledger.v_mond_like.
+        parity_file = Path(tmp) / "PARITY_rotmod.dat"
+        for mod_name, mod in (("sparc_a0_reextract_3mu", re3), ("sparc_a0_reextract_std", restd)):
+            vobs, verr, r_m, gbar, _ = mod.prep(str(parity_file))
+            # gbar must be constant along the FD axis (axis=2)
+            fd_span = np.max(np.abs(gbar - gbar[:, :, :1, :]))
+            assert fd_span == 0.0, f"{mod_name}: g_bar must be distance-invariant, got max FD spread {fd_span}"
+            # Check velocity parity against parameter_ledger at non-trivial (Yd, Yb, fd != 1).
+            # Note: parameter_ledger.KPC_TO_M = 3.086e19 vs IAU KPC = 3.085677581491367e19
+            # (~1.045e-4 relative difference in R -> ~5.2e-5 max relative difference in V).
+            iy, ib, ifd = 2, 5, 0  # Yd=0.45, Yb=0.75, fd=0.85
+            yd_v, yb_v, fd_v = float(mod.YD[iy]), float(mod.YB[ib]), float(mod.FD[ifd])
+            g_acc = mod.mu_close(gbar[iy, ib, ifd], pl.A0_HORIZON, "std")
+            vp_re = np.sqrt(np.maximum(g_acc * (fd_v * r_m), 0.0)) / mod.KMS
+            vp_pl = pl.v_mond_like(L, pl.A0_HORIZON, yd_v, yb_v, fd_v)
+            np.testing.assert_allclose(vp_re, vp_pl, rtol=1e-4, atol=1e-3,
+                                       err_msg=f"{mod_name} vs parameter_ledger parity failed at fd={fd_v}")
+            # With identical KPC constant, parity must be machine-exact:
+            kpc_ratio = mod.KPC / pl.KPC_TO_M
+            g_acc_exact = mod.mu_close(gbar[iy, ib, ifd] * kpc_ratio, pl.A0_HORIZON, "std")
+            vp_re_exact = np.sqrt(np.maximum(g_acc_exact * (fd_v * r_m / kpc_ratio), 0.0)) / mod.KMS
+            np.testing.assert_allclose(vp_re_exact, vp_pl, rtol=1e-11, atol=1e-8,
+                                       err_msg=f"{mod_name} exact-KPC parity failed at fd={fd_v}")
+
+        # 5. T2 flow-rescaling copy must scale R -> s*R AND V_bar -> sqrt(s)*V_bar (g_bar invariant)
+        scaled_dir = Path(tmp) / "scaled"
+        scale = 73.0 / 67.4
+        dc_re.rescaled_copy([(str(parity_file), scale)], scaled_dir)
+        sr_scaled = load_rotmod(scaled_dir / "PARITY_rotmod.dat")
+        assert sr_scaled is not None
+        np.testing.assert_allclose(sr_scaled["r"], sr["r"] * scale, rtol=1e-12)
+        np.testing.assert_allclose(sr_scaled["v_gas"], sr["v_gas"] * np.sqrt(scale), rtol=1e-12)
+        np.testing.assert_allclose(sr_scaled["v_disk"], sr["v_disk"] * np.sqrt(scale), rtol=1e-12)
+        np.testing.assert_allclose(sr_scaled["v_bulge"], sr["v_bulge"] * np.sqrt(scale), rtol=1e-12)
+        gb_orig = v_baryon(sr["v_gas"], sr["v_disk"], sr["v_bulge"], 0.5, 0.7) ** 2 / sr["r"]
+        gb_scal = v_baryon(sr_scaled["v_gas"], sr_scaled["v_disk"], sr_scaled["v_bulge"], 0.5, 0.7) ** 2 / sr_scaled["r"]
+        np.testing.assert_allclose(gb_scal, gb_orig, rtol=1e-12, err_msg="T2 rescaling broke g_bar invariance")
+
+    print("PASS: signed parsing, signed V_bar with Y on V^2, sparc_reproduce == parameter_ledger == a0 re-extractors at Y != 1, fd != 1, and T2 g_bar invariance")
 
 
 if __name__ == "__main__":

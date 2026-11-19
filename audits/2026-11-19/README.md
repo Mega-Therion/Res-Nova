@@ -1,0 +1,11 @@
+# 2026-11-19 3-Layer Forward-Model & Provenance Audit
+
+All four scripts in this directory are deterministic, exit `0`, and enforce the separation defined in `docs/FORWARD_MODEL_SPEC.md`:
+$\text{Data} = \mathcal{O}_{\text{inst}}(\mathcal{P}_{\text{light-cone}}(\mathcal{T}_{\text{phys}})) + \epsilon$, gated by $\mathcal{G}_{\text{prov}}$.
+
+| Audit Script | Committed Receipt | Tag | Headline Result |
+|---|---|---|---|
+| `sparc_forward_model_ablation.py` | `SPARC_FORWARD_MODEL_ABLATION.json` (`sparc-forward-model-result.md`) | `[D]` / `[E]` | Reproduces `2026-09-16` JSON (`+0.00e+00`); fixes `FD`/`T2` scaling (`S1-T2 = 1.0749e-10`, `+3.14%`); real `e_D/D` drops `T1/T2/T3` to `1.104–1.125e-10`; exact $-2\ln\mathcal{L}$ favors $\sigma_{\text{int}} = 5\text{–}7\ \mathrm{km/s}$ (`Δ(-2 ln L) = -6,979`), showing `~10–15%` Layer 1b/2 systematic bandwidth on $a_0$ (`1.075–1.214e-10`) that absorbs the historical `11.4%` (`f_emp = 1.114365`) gap. |
+| `highz_forward_model_check.py` | `HIGHZ_FORWARD_MODEL_CHECK.json` | `[D]` | On 19 identical $z > 1.5$ galaxies, RC100 (2023) vs RC41 (2020) pipeline drift alone shifts $a_0$ by `0.35×`–`1.73×` (`RMS |Δ ln a0| = 0.394`); RC41 beam FWHMs span `0.25"–0.75"` (`3.0×`); every cosmology/covariance/inclination sweep leaves `n=0` and `n=1` inside 95% CI (inconclusive). |
+| `bao_cmb_dneff_forward_check.py` | `BAO_CMB_DNEFF_FORWARD_CHECK.json` | `[D]` | First-principles sound horizon matches Aubourg+2015 to `+0.02%` (`147.08` vs `147.05 Mpc`). For $Q^4$ ($w=1/3$, $\Delta N_{\text{eff}} \in [0.255, 0.290]$), $r_d$ shrinks `-0.85%` to `-0.96%`, shifting DESI $D_M/r_d$ by `+0.85%` to `+0.97%` and CMB $\ell_A$ by `+2.56` to `+2.90` (compensating $H_0 = 70.3\text{–}70.7\ \mathrm{km/s/Mpc}$). For $Q^3$ ($w=1/2$), $\Delta N_{\text{eff}}(z_*) = 4.46\times 10^{-4}$ (decouples BBN from CMB/BAO). |
+| `cassini_ge_uncertainty_band.py` | `CASSINI_GE_UNCERTAINTY_BAND.json` | `[D]` / `[E]` | Axisymmetric QUMOND PDE across $\pm 21\%$ Milky Way $g_e \in [1.5, 2.3]\times 10^{-10}$ and all 3 $a_0$ bases yields $Q_2 \in [15.40, 19.89]\times 10^{-27}\ \mathrm{s}^{-2}$: bare $\mu_{\text{std}}$ is excluded at `+7.67σ` to `+10.16σ` vs Park et al. (2026) everywhere in the box. |
