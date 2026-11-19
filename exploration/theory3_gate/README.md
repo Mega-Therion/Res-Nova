@@ -17,3 +17,8 @@ Open door left: a DHOST/beyond-Horndeski quartic with c_T=c (p=2) plus a scaling
 - α_T ≈ (4.6e-13 … 4.9e-11)·ε⁴ with ε = φ̇/(M_p H₀) → needs **ε ≲ 0.07–0.22**.
 - At SZ21's reference Q₀=0.1 Mpc⁻¹, ε≈430 → α_T≈0.02–2: **closed**. Survives only if Q₀ ≲ ~2×10⁻⁵ Mpc⁻¹ AND that still gives the dust branch. That is the single deciding check.
 - BBN compensator exit: one scalar mass in [1.9e-27, 2.2e-16] eV (11 decades — a loose, not fine, tune).
+
+## Small-Q₀ dust check (`small_q0_dust_check.py` → `SMALL_Q0_DUST.json`) — [O]
+- Dust validity (Q−Q₀)/Q₀ = ρ/(μ²(2−K_B)) — **Q₀ cancels** (SymPy-asserted). Only μ = √(2K₂/(2−K_B))·Q₀ matters.
+- Need μ ≳ 7.6 Mpc⁻¹ (dust by z_rec) to 41 Mpc⁻¹ (by z_eq). Q₀ ≤ 2×10⁻⁵ Mpc⁻¹ just needs K₂ ≈ 7×10¹⁰–2×10¹² (2.5×10⁷ × SZ's).
+- **Door stays OPEN.** New flags: (a) strong-coupling scale of Q fluctuations at K₂~10¹¹; (b) 1/μ ≲ 25–130 kpc caps MOND's reach (inherited from SZ21, not new to this door).

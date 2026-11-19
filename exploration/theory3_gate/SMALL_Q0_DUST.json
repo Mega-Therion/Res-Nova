@@ -1,0 +1,21 @@
+{
+ "dust_validity_depends_on": "mu only (Q0 cancels)",
+ "mu_min_per_Mpc_for_delta<1": {
+  "z=1100": 7.533212275215849,
+  "z=3400": 40.89866902103134
+ },
+ "K2_needed_at_Q0=2e-5": {
+  "z=1100": 70936608979.32843,
+  "z=3400": 2090876409614.8354
+ },
+ "K2_scale_vs_SZ_Q0=0.1": 25000000.0,
+ "galaxy_side_1_over_mu_kpc": {
+  "z=1100": 132.7454960070599,
+  "z=3400": 24.450673431102846
+ },
+ "verdict": "[O] DUST BRANCH SURVIVES small Q0: requirement is mu >~ 7.6 (z_rec) to 41 (z_eq) /Mpc, independent of Q0; Q0<=2e-5/Mpc just needs K2 ~ 1e11-1e12 (2.5e7 x SZ). Door stays OPEN.",
+ "new_flags": [
+  "K2~1e11: check strong-coupling scale of Q fluctuations",
+  "1/mu <~ 25-130 kpc is a galaxy-scale limit on MOND reach; inherited from SZ21, independent of this door"
+ ]
+}
