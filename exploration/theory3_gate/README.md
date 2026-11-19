@@ -1,6 +1,6 @@
 # Theory 3 gate (2026-11-18) — exploration, no tier change
 
-> **CURRENT VERDICT (latest, read first).** Theory 3 is UNSAT (corrected reason: see "CORRECTION — Theory 3 part (A)"). The open door (single-order quartic Galileon + scaling compensator) is **CLOSED [O]** by the nested field solution (last section). A mixed cubic+quartic Galileon is not covered and stays open. Earlier "door stays OPEN" lines are history. What survives: the exact stretched-cone solution and its angular-leak no-go for Vainshtein screening; the BBN corollary (screening the solar-system scalar removes λ_s from BBN); the D5 r_C item evaluated with D5's quoted estimate (SZ's run: 144/175 SPARC galaxies beyond r_C, [O]). Mixed L₃ + L₄ is now also closed [O] (last section): the pure quartic is gradient-unstable around the Sun, and the cubic that stabilises it leaves a Cassini leak 4–16× over the bound. The open route left is symmetron-type (density-melting) screening, i.e. the panel's Theory 1.
+> **CURRENT VERDICT (latest, read first).** Theory 3 is UNSAT (corrected reason: see "CORRECTION — Theory 3 part (A)"). The open door (single-order quartic Galileon + scaling compensator) is **CLOSED [O]** by the nested field solution (last section). A mixed cubic+quartic Galileon is not covered and stays open. Earlier "door stays OPEN" lines are history. What survives: the exact stretched-cone solution and its angular-leak no-go for Vainshtein screening; the BBN corollary (screening the solar-system scalar removes λ_s from BBN); the D5 r_C item evaluated with D5's quoted estimate (SZ's run: 144/175 SPARC galaxies beyond r_C, [O]). Mixed L₃ + L₄ is now also closed [O] (last section): the pure quartic is gradient-unstable around the Sun, and the cubic that stabilises it leaves a Cassini leak 4–16× over the bound. The symmetron (density-melting) route is closed too (last section). That closes every standard screening class for the AeST MOND scalar on these gates.
 
 Runs the panel's "Theory 3" (w=1/3 tracker replacing Q³ + p≥3/2 Vainshtein screening) as SAT/UNSAT.
 `python3 theory3_gate.py` → `THEORY3_GATE.json`.
@@ -117,3 +117,17 @@ Live scalar law (AEST_TOTAL_SCALAR_CORRESPONDENCE: x μ_std(x) = y, λ_s < 11.28
    - The first-order solver overestimates by ≤ 21% (regression a), which cannot close a 4–16× gap.
    - Caveats: the solver holds the Galaxy's cofactors constant inside r_T, where they are cancelled; the leak is set near r_V, outside r_T. The required Milky Way baryon scale f_MW = 0.72–1.62 is partly implausible.
 5. **Stop rule triggered.** No candidate passes, so mixed L₃ + L₄ is closed [O] at first order. Next route: symmetron-type (density-melting) screening. The BBN corollary (λ_s drops out once the solar-system scalar is screened) carries over.
+
+
+## Symmetron / density-melting screening (`symmetron_route.py` → `SYMMETRON_ROUTE.json`): closed
+A density screen must act where Cassini measures, which is the field at Saturn's orbit. There the density is interplanetary, not solar.
+1. **Local density [D].** Saturn's orbit has ρ ≈ 1.3×10⁻²² kg m⁻³ (solar wind), **0.019×** the galactic midplane density at R☉ (6.8×10⁻²¹) that the screen must leave unscreened (repo bound S(ρ_disk) ≥ 0.99).
+   - Any screen that never increases with density then has S(Saturn) ≥ 0.99, so Q₂ ≥ 1.89×10⁻²⁶: **+9.6σ** against Park 2026.
+   - The Oort-cloud region (local ISM, 0.2–1.7×10⁻²¹) is no denser.
+2. **Compton-length smoothing [D].** A compact body pins σ = 0 only inside itself. The maximal (thin-shell) exterior depletion is σ = σ₀(1 − R/r), and a finite range only reduces it. At Saturn |δσ/σ₀| ≤ R☉/r = 4.9×10⁻⁴ (1.2×10⁻² at Mercury), so the screen is open at the planets.
+   - Screening the whole neighbourhood through the Milky Way's own environment would also screen the disc at R☉, which the Galaxy's rotation needs MONDian.
+3. **Source gating [O].** Suppressing the Sun's scalar charge (thin shell) could pass Cassini, but it screens every star alike, since the Sun is a typical star. Galaxies' MOND source then reduces to gas.
+   - SPARC with a gas-only MOND source: χ² 49 865 → 126 048 (**Δχ² = +76 183**), with 88 galaxies worse by more than 25.
+4. **The corpus window is an artifact.** `screen_mass_cassini.py` and `CassiniSymmetronWindow.lean` evaluate the solar-system suppression at ρ☉ = 1.4×10³–1.5×10⁵ kg m⁻³, the Sun's interior, not at Saturn's orbit. The Lean algebra is fine; its physical premise should be marked [X] on main.
+
+**Where this leaves the AeST MOND sector.** The single-order Galileons, mixed cubic + quartic, the symmetron/density screens and the corpus's earlier tidal screen (killed by the Oort cloud, 2026-10-16) all fail. No standard screening class rescues bare μ_std at Cassini without breaking SPARC, the Oort cloud or GW170817. The surviving lever is the **interpolating function itself, tested with honest SPARC systematics**. The 10-27 a₀-boundary sweep left ν₈,₀.₂₅ a near miss (Cassini edge 1.167 vs SPARC-preferred 1.175×10⁻¹⁰). Its SPARC side used the pre-fix pipeline (S0), which today's merged forward-model audit (#235) shows carries a ~10–15% systematic band.
