@@ -95,3 +95,13 @@ Verified with SymPy, on ρ = −∇²Φ_N/(4πG):
 - Passes: BBN, Mercury, Cassini (2σ edge), SPARC, the Oort peak, GW170817, γ = 1, lensing = dynamics, linear growth, and the CMB (the sector is inert at linear order).
 - Makes a testable nonlinear prediction: δ_c lowered by 1–7%, most at low mass.
 - Constants: one derived (x_H,low); two data-bounded but not derived (x*, C).
+
+## Can x* and C be derived? No, within this theory [D] (`constants_derivation.py` → `CONSTANTS_DERIVATION.json`)
+- **x*.** With only {G, c, a₀, H₀, Λ} and no mass scale, every tidal scale is a power of cH₀/a₀ (= 5.64 at the fitted a₀). The data window x* ∈ [1.7×10¹⁰, 7.04×10¹¹] needs that ratio raised to the power 13.6–15.8, which is no natural construction. **x* is a genuine new constant.**
+- **What x* encodes.** Cassini's calibration places the screen onset at 0.40× the tidal field at the Sun's MOND radius (r_M = 7148 au). That explains the value, but it refers to one body, so it is not a law.
+- **C** is a constant zero of the screening Lagrangian. No symmetry selects a nonzero value, and C = 0 is [X] (Oort). It is a boundary datum, not derivable from the action.
+
+**Final constant count for the candidate.**
+- **Derived:** x_H,low ≈ 154, from virialisation.
+- **New constants, data-bounded:** x* (a tidal scale) and C (a boundary datum).
+- **Alongside the corpus's two irreducible inputs,** a₀ and the choice of function.

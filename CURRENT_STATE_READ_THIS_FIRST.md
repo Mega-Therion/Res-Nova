@@ -20,7 +20,7 @@ Also 2026-11-19 (exploration record, no tier change): **tidal screen with an AeS
   - CMB: the sector's linear boost at recombination is ≤ 7.5×10⁻¹³, so the CMB is that of the AeST/ΛCDM background.
   - Nonlinear (spherical collapse): δ_c is lowered by 1.2% at 10¹⁴, 3.3% at 10¹¹ and 6.9% at 10⁸ M☉. That is a testable rise in low-mass halo abundance.
   - x_H,low is derived from virialisation: 0.866·Ω_m·18π² ≈ 154.
-  - x* (≈ 3.2×10³ M☉ pc⁻³ tidal density) and C remain data-bounded `[O]` inputs.
+  - **x* and C are not derivable within the theory `[D]`** (`constants_derivation.py`). Without a mass scale, every tidal scale from {G, c, a₀, H₀, Λ} is a power of cH₀/a₀ = 5.64, and the window needs power 13.6–15.8. Cassini's x* sits at 0.40× the tidal field at the Sun's MOND radius, which is Sun-specific. C is a boundary datum with no selecting symmetry. Both are genuine new constants, bounded by data.
 
 Also 2026-11-19 (exploration record; one physical premise marked `[X]`; no other tier change, no axiom change): **screening and interpolating-function routes for the AeST MOND scalar** (`exploration/theory3_gate/README.md`; pre-registrations in that folder, each committed before its numbers). Scope: the total-law embedding (`AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md`), which is `[O]`; D9's scalar-channel function stays the one in use.
 - **Closed `[O]` in that embedding.**
