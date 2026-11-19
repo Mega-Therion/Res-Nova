@@ -10,6 +10,11 @@ are the only current physics.**
 **Last verified against the physics:** 2026-11-19 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
+Also 2026-11-19 (exploration record, no tier change): **Berezhiani–Khoury condensation against the x_H virial cut: partial map** (`exploration/bk_xh_map/`, pre-registered).
+- x_H ≥ 154 is a σ-independent density cut (ρ ≥ 178ρ_crit). BK's criterion scales as m⁴σ³.
+- They agree for galaxies; for m ≈ 2 eV, σ_c ≈ 400 km/s. They disagree for clusters, where BK stays normal-phase and x_H switches MOND on.
+- So the tidal-AeST candidate keeps MOND's cluster problem. A screen depending on potential depth would add BK's cluster behaviour `[O]`.
+
 Also 2026-11-19 (exploration record, no tier change): **drag variable-G cosmology** (`exploration/drag_gcosmo/`, pre-registered).
 - Model: G_cosmo/G_N = 1/(1 + x₀a²).
 - On DESI DR2 BAO + Pantheon+ + compressed CMB + fσ₈: Δχ² ≈ −6 against ΛCDM, x₀ ≈ 0.31, G_cosmo/G_N today ≈ 0.76 (2σ 0.59–0.95). Favoured by the pre-registered rule `[E]`.

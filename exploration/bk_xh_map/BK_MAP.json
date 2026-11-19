@@ -1,0 +1,24 @@
+{
+ "rho_crit": 8.533114727833856e-27,
+ "rho_xH154": 1.5173915942233777e-24,
+ "rho_xH154_over_crit": 177.82388291040473,
+ "sigma_c_kms_at_virial_density": {
+  "0.1": 21983.39752773317,
+  "0.3": 5080.812174795221,
+  "0.6": 2016.3216477806925,
+  "1.0": 1020.3789248959705,
+  "2.0": 404.93764469651103,
+  "5.0": 119.34424304377568
+ },
+ "m_eV_for_sigma_c_400kms": 2.0184877428444143,
+ "rhoBK_over_rhoxH_vs_sigma_at_m_star": {
+  "50": 0.001953124999999998,
+  "100": 0.015624999999999984,
+  "200": 0.12499999999999988,
+  "400": 0.999999999999999,
+  "800": 7.999999999999992,
+  "1200": 26.999999999999968
+ },
+ "scaling": "rho_BK / rho_xH = (sigma/sigma_c)^3; equal only at sigma = sigma_c.",
+ "verdict": "PARTIAL. Both are density thresholds, but BK's scales as sigma^3 and x_H's does not. For sigma << sigma_c BK condenses at densities far below the virial value, so x_H's virial cut is the stricter, binding condition (same answer: MOND on inside collapsed galaxies). For sigma > sigma_c BK stays normal-phase in clusters while x_H switches MOND on. No single m maps the two across galaxies and clusters."
+}
