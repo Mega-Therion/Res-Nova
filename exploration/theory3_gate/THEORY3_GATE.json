@@ -1,0 +1,40 @@
+{
+ "sup_G_cosmo_over_G_N": 0.9185586535436918,
+ "BBN_Omega_phi_window_RD": [
+  0.03309615416453493,
+  0.12518223472029355
+ ],
+ "A_free_dark_radiation": {
+  "dNeff_for_exact_compensation": 0.6602974428242944,
+  "verdict": "FAILS metric: amplitude is an initial condition"
+ },
+ "B_scaling_attractor": {
+  "k2_window": [
+   31.953415825636732,
+   120.85996397388996
+  ],
+  "Omega_MD_min": 0.024822115623401197,
+  "EDE_bound": 0.0036,
+  "ratio": 6.895032117611444,
+  "verdict": "UNSAT unless scaling exits before recombination (a new tuned scale)"
+ },
+ "C_cassini_vainshtein": {
+  "cubic L3": {
+   "p": 1.5,
+   "clears_p_req": false,
+   "cT": "c_T=c"
+  },
+  "quartic L4": {
+   "p": 2.0,
+   "clears_p_req": true,
+   "cT": "c_T!=c (GW170817 excludes generic G4X)"
+  },
+  "quintic L5": {
+   "p": 2.5,
+   "clears_p_req": true,
+   "cT": "c_T!=c (excluded)"
+  }
+ },
+ "C_verdict": "cubic (the p>=3/2 proposal) fails p_req; quartic clears p_req but breaks c_T=c unless DHOST-tuned; no Horndeski Galileon is SAT on Cassini AND GW170817",
+ "overall": "UNSAT as proposed (Theory 3). Panel's own rule then routes to Theory 1."
+}
