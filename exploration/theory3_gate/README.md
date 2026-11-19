@@ -1,6 +1,6 @@
 # Theory 3 gate (2026-11-18) — exploration, no tier change
 
-> **CURRENT VERDICT (latest, read first).** Theory 3 is UNSAT (corrected reason: see "CORRECTION — Theory 3 part (A)"). The open door (single-order quartic Galileon + scaling compensator) is **CLOSED [O]** by the nested field solution (last section). A mixed cubic+quartic Galileon is not covered and stays open. Earlier "door stays OPEN" lines are history. What survives: the exact stretched-cone solution and its angular-leak no-go for Vainshtein screening; the BBN corollary (screening the solar-system scalar removes λ_s from BBN); the D5 r_C item evaluated with D5's quoted estimate (SZ's run: 144/175 SPARC galaxies beyond r_C, [O]). Mixed L₃ + L₄ is now also closed [O] (last section): the pure quartic is gradient-unstable around the Sun, and the cubic that stabilises it leaves a Cassini leak 4–16× over the bound. The symmetron (density-melting) route is closed too (last section). That closes every standard screening class for the AeST MOND scalar on these gates.
+> **CURRENT VERDICT (latest, read first).** Theory 3 is UNSAT (corrected reason: see "CORRECTION — Theory 3 part (A)"). The open door (single-order quartic Galileon + scaling compensator) is **CLOSED [O]** by the nested field solution (last section). A mixed cubic+quartic Galileon is not covered and stays open. Earlier "door stays OPEN" lines are history. What survives: the exact stretched-cone solution and its angular-leak no-go for Vainshtein screening; the BBN corollary (screening the solar-system scalar removes λ_s from BBN); the D5 r_C item evaluated with D5's quoted estimate (SZ's run: 144/175 SPARC galaxies beyond r_C, [O]). Mixed L₃ + L₄ is now also closed [O] (last section): the pure quartic is gradient-unstable around the Sun, and the cubic that stabilises it leaves a Cassini leak 4–16× over the bound. The symmetron (density-melting) route is closed too. The interpolating-function route is closed from both sides: SPARC under the honest error model, and BBN through the non-folding ceiling (last section). **The AeST MOND sector as constructed fails BBN + Cassini + SPARC on every route tested [O]**; the requirements map is at the end.
 
 Runs the panel's "Theory 3" (w=1/3 tracker replacing Q³ + p≥3/2 Vainshtein screening) as SAT/UNSAT.
 `python3 theory3_gate.py` → `THEORY3_GATE.json`.
@@ -131,3 +131,24 @@ A density screen must act where Cassini measures, which is the field at Saturn's
 4. **The corpus window is an artifact.** `screen_mass_cassini.py` and `CassiniSymmetronWindow.lean` evaluate the solar-system suppression at ρ☉ = 1.4×10³–1.5×10⁵ kg m⁻³, the Sun's interior, not at Saturn's orbit. The Lean algebra is fine; its physical premise should be marked [X] on main.
 
 **Where this leaves the AeST MOND sector.** The single-order Galileons, mixed cubic + quartic, the symmetron/density screens and the corpus's earlier tidal screen (killed by the Oort cloud, 2026-10-16) all fail. No standard screening class rescues bare μ_std at Cassini without breaking SPARC, the Oort cloud or GW170817. The surviving lever is the **interpolating function itself, tested with honest SPARC systematics**. The 10-27 a₀-boundary sweep left ν₈,₀.₂₅ a near miss (Cassini edge 1.167 vs SPARC-preferred 1.175×10⁻¹⁰). Its SPARC side used the pre-fix pipeline (S0), which today's merged forward-model audit (#235) shows carries a ~10–15% systematic band.
+
+
+## Interpolating function under the honest SPARC error model, and the BBN ceiling: closed
+**SPARC × Cassini (`PREREG_NU_FORWARD_MODEL_JOINT.md`, `nu_forward_model_joint.py` → `NU_FORWARD_MODEL_JOINT.json`).**
+- FM-A regression is exact (rel. diff 0.0).
+- FM-B (per-galaxy e_D/D, profiled σ_int = 7 km/s, all 175 galaxies): ν₂ prefers a₀ = 1.20×10⁻¹⁰.
+- Every steep shape loses to ν₂ by **Δ(−2 ln L) = +881 to +1063** at any a₀: ν₅ +909, ν₆ +1028, ν₆,₀ +1063, ν₆,₀.₂₅ +881, ν₈,₀.₂₅ +976.
+- Verdict **NO_JOINT_UNDER_FM_B**. The honest error model sharpens SPARC's preference for the gentle μ_std transition; it does not loosen it.
+
+**BBN ceiling from non-folding [D] (`bbn_folding_gate.py` → `BBN_FOLDING_GATE.json`).**
+- In the total-scalar correspondence, s'(x) = 1 − η y′(x) > 0 needs η < min_y d(yν)/dy. With G_cosmo/G_N = η(2−K_B)/2, unscreened AeST therefore has **sup G_cosmo/G_N = min_y d(yν)/dy**. For μ_std this reproduces √(27/32) = 0.91856.
+- Only ν₁ (1.000) and ν̄₀.₅ (0.968) clear BBN at 5%, and both fail Cassini (Q₂ = 2.7–3.5×10⁻²⁶).
+- Every shape steep enough to help Cassini has a ceiling ≤ 0.84; the near misses sit at 0.47–0.75.
+- BBN and Cassini pull ν in opposite directions, and SPARC prefers the middle (μ_std), which fails both.
+
+## Requirements map: what a viable completion must do (the silhouette left by these walls)
+1. **Give the scalar no Newtonian share inside the solar system.** That fixes BBN (G_cosmo/G_local = 1 − K_B/2) and Mercury.
+2. **Remove the external-field quadrupole within ~10 AU, in all directions.** No angular leak, so not quartic-Vainshtein-like; a constant-magnitude anisotropic force must be ≲ 5×10⁻¹⁵ m s⁻² at Saturn.
+3. **Do it by a quantity that separates the solar system from galactic disks.** Not density (Saturn's orbit is 50× less dense than the disk). Not potential (the Sun ≈ any star). Not the scalar's own gradient (that is the interpolation, which is closed). What still separates them by 10¹³: the **tidal/curvature scale** GM/r³ (the corpus's tidal screen failed only on the Oort cloud, through its C/x* tuning), or **orbital-timescale (frequency) dependence**, which no static screen tests.
+4. **Keep the Oort peak** (10⁴–10⁵ au) and SPARC (the μ_std-like transition the honest model prefers).
+5. **c_T = c, no GW decay into the scalar,** and a stable static solution (positive principal symbol).
