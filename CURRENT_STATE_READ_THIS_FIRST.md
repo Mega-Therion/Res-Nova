@@ -10,6 +10,11 @@ are the only current physics.**
 **Last verified against the physics:** 2026-11-19 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
+Also 2026-11-19 (no tier change): **D10 nonperturbative virial-boundary solve** (`exploration/d10_attack/`, `TARGET_D10_CLUSTERS.md` §12, pre-registered).
+- Well-posed for 12/12 clusters under μ_std; this fixes §9.
+- Median R 1.96 → **0.75**, an overshoot that fails the band. The added mass exceeds the cosmic dust budget in 8/12 clusters.
+- Full MOND screening gives R = 6.83, so the BK-type route is `[X]`. The shape test is circular (NFW-derived ratio). 2 eV active neutrinos are closed by KATRIN and cosmology `[C]`.
+
 Also 2026-11-19 (no tier change): **D10 clusters, μ²Φ gauge fixed at the x_H virial boundary** (`TARGET_D10_CLUSTERS.md` §11, pre-registered).
 - Φ(r_v) = 0 at mean density 177.8 ρ_c (r_v ≈ 1.59 r₅₀₀).
 - Expansion parameter 2.39, median R 0.77: **fails** the pre-registered band, and first order is invalid in the physical gauge.
