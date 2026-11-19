@@ -182,5 +182,11 @@ lean_lib «ResNovaFormal» where
     `ModelIdentity,
     -- ADDED 2026-11-17. Wave/AeST theorems restated with their physics literals read
     -- from ModelIdentity.canonical; sabotage_model_identity.sh mutates each field.
-    `ModelIdentityBindings
+    `ModelIdentityBindings,
+    -- ADDED 2026-11-19 (O44/O15, BLK-1518/BLK-1522). Spin^c Dirac index polynomial on CP^2
+    -- twisted by O(Q), Serre duality Q <-> -3 - Q (h^0=3 vs h^2=3), and Dolan cross-check.
+    `CP2SpincIndex,
+    -- ADDED 2026-11-19 (O44, BLK-1522). First formalizable chunks (B1-B3) of the
+    -- diffeomorphism Noether identity in a t-only reduced 2D model.
+    `NoetherScoping
   ]
