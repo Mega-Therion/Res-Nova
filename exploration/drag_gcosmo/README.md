@@ -84,3 +84,15 @@ Pre-registered before running. Computed at each dataset's best fit from the mode
 - Lensing sits about 0.7σ higher than ΛCDM's on the same data, a mild but real tilt.
 - **These are proxies, not a Boltzmann calculation.** The lensing potential is assumed to be sourced by G_N ρ_m δ, and the lensing-kernel shift from the modified D_A(z) is ignored.
 - The Weyl dark radiation's own perturbations (Ω_Weyl ≈ 1.75 today) are not modelled, and they are exactly where a full CMB lensing/ISW calculation could still break it. That remains [O].
+
+## The large bare drag is a floor, not a fixable choice [D] (from `FLUX_CODAZZI.json`, no new fit)
+The data constrain only κ = (3w_d − 1)x₀. On the stable sub-conformal branch 0 ≤ w_d < 1/3, x₀ = |κ|/(1 − 3w_d) ≥ |κ|, with the minimum at w_d = 0. Any w_d > 0 needs *more* drag, which diverges as w_d → 1/3.
+
+| Fit | best x₀ (floor) | 2σ floor on x₀ | bare G_cosmo/G_N today, 1/(1 + x₀): best / 2σ upper |
+|---|---|---|---|
+| Pantheon+ / BAO / CMB | 2.24 | 0.83 | 0.31 / 0.55 |
+| + fσ₈ anchored | 2.00 | 0.62 | 0.33 / 0.62 |
+| + fσ₈ free | 2.24 | 0.83 | 0.31 / 0.55 |
+| DES-Dovekie / BAO / CMB | 2.50 | 1.08 | 0.29 / 0.48 |
+
+So within this model the bare drag cannot be brought below x₀ ≈ 0.6–1.1 at 2σ. Bare G_cosmo/G_N is at most about 0.5–0.6 today, offset by Weyl radiation. This is a property of the flux-fed branch, recorded as a derived floor. Whether the Weyl sector's perturbations tolerate it is the open Boltzmann question [O].
