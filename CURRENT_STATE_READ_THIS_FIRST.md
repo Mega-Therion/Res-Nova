@@ -10,6 +10,12 @@ are the only current physics.**
 **Last verified against the physics:** 2026-11-19 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
+Also 2026-11-19 (no tier change): **5D bulk solve, Phase 1: the drag-momentum law from a 5D-covariant drag** (`exploration/bulk5d/`, pre-registered in `00975315` before any derivation).
+- `[D]` The covariant velocity-dependent tension σ(X), X = (ξ·n)² = ȧ², reproduces the drag background exactly in the dark-bubble junction condition (x₀ = 4πG₄ρ_b/3). Its wall stress is −σh_μν: w = −1 and zero momentum. That is not Law C.
+- `[X]` As the flux-fed branch, it needs Q₄ = 2HΔΣ(−q), which changes sign at z ≈ 0.73. That fails the NEC channel rule.
+- `[D]` Absorbed bulk null dust deposits momentum along −∂_μV|_wall (exact). That gives Law A with a computed flux frame. The envelope's `bulk_rest` is the special case δV|_wall = 0.
+- So neither covariant candidate gives Law C, and the flux-fed wall's survival rests on π_E ≈ 0 from the bulk `[O]`. Phase 2 computes π_E and δV; its prerequisites and controls are fixed in the pre-registration.
+
 Also 2026-11-19 (no tier change): **Two targeted follow-ups on the remaining open `[O]` problems — D10 X-COP Cosh `[X]` (plus a conditional cluster constraint on r, `[O]`), and Flux-fed wall Causal Weyl Anisotropic-Stress Envelope `SURVIVES ENVELOPE` (narrowly under the pre-registered conventions; `5D PDE justified`) `[D]`/`[O]`.** Both pre-registered in commits (`29b64d1a`, `7ea3f668`) before any numerical outputs:
 - **D10 X-COP Cosh K(Q) test & `#257` sawtooth audit (`exploration/d10_xcop/xcop_cosh.py` → `XCOP_COSH_SUMMARY.json`, `TARGET_D10_CLUSTERS.md` §16):**
   - `[D]` `#257` control audit (`r = inf`): verbatim `xcop_screened_full.py` reproduces `0.9221 (12/12)` / `0.7548 (8/12)` (`max |ΔS| = 0.332`, `A1644 R200 = 0.696`); self-consistent `smooth_phi` (`deg-14`, `max |ΔS| < 1e-4`, `max_fd_resid = 1.61e-3`; independently confirmed on the original solver, see verification bullet) gives `R500_cap = 0.9236 (12/12)` and `R200_cap = 0.7927 (9/12)` (`+0.038` shift) — still **FAILS** `[0.80, 1.25]`.
