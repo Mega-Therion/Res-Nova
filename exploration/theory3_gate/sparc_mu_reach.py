@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""SPARC reach vs 1/mu (2026-11-18). If MOND switches off beyond r ~ 1/mu, count SPARC galaxies
+"""SUPERSEDED 2026-11-18: uses the quadratic K that TARGET_D5 §1.3 excludes [D]. See door_under_cosh.py.
+SPARC reach vs 1/mu (2026-11-18). If MOND switches off beyond r ~ 1/mu, count SPARC galaxies
 and low-acceleration points (g_bar < a0) lying beyond 1/mu = 132.7 kpc (dust by z_rec) and
 24.5 kpc (dust by z_eq), from SMALL_Q0_DUST.json."""
 import glob, json, os

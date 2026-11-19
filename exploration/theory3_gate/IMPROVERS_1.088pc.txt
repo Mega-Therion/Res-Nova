@@ -1,0 +1,2 @@
+dchi2<-9: 26  dchi2<-25: 16  dchi2>25: 9
+best: [('UGC06787', np.float64(-411.4)), ('UGC06786', np.float64(-197.1)), ('UGC02953', np.float64(-169.6)), ('UGC05253', np.float64(-138.4)), ('IC4202', np.float64(-125.4)), ('UGC02916', np.float64(-123.0)), ('UGC03580', np.float64(-115.4)), ('NGC2903', np.float64(-79.4))]

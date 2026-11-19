@@ -1,5 +1,7 @@
 # Theory 3 gate (2026-11-18) — exploration, no tier change
 
+> **CURRENT VERDICT (latest, read first).** Theory 3 is UNSAT (corrected reason: see "CORRECTION — Theory 3 part (A)"). The open door (quartic Galileon + scaling compensator) is **CLOSED [O]** by the nested field solution (last section). Earlier "door stays OPEN" lines are history. What survives: the exact stretched-cone solution and its angular-leak no-go for Vainshtein screening; the BBN corollary (screening the solar-system scalar removes λ_s from BBN); r_C closes the D5 open item (SZ's run fails 144/175 SPARC galaxies). Next route: symmetron-type (density-melting) screening, i.e. the panel's Theory 1.
+
 Runs the panel's "Theory 3" (w=1/3 tracker replacing Q³ + p≥3/2 Vainshtein screening) as SAT/UNSAT.
 `python3 theory3_gate.py` → `THEORY3_GATE.json`.
 
@@ -27,3 +29,65 @@ Open door left: a DHOST/beyond-Horndeski quartic with c_T=c (p=2) plus a scaling
 - Largest SPARC radius is 108.3 kpc. With 1/μ = 132.7 kpc (dust by recombination), 0/175 galaxies and 0/2350 low-acceleration points lie beyond: **passes**.
 - With 1/μ = 24.5 kpc (dust by equality), 45 galaxies and 357/2350 (15%) low-acceleration points lie beyond: **fails**.
 - So the open door is pinned to μ ≈ 7.6–9 Mpc⁻¹, a ~20% band. Deciding question: must the condensate already be dust at z_eq (CMB peak heights), or is z_rec enough? (g_bar uses Υ=1 here; counting only.)
+
+## CORRECTION — superseded under Cosh 𝒦 (TARGET_D5 §2), 2026-11-18
+`small_q0_dust_check.py` and `sparc_mu_reach.py` used the quadratic 𝒦, which TARGET_D5 §1.3 already excludes **[D]**. Their μ floor (7.6–41 Mpc⁻¹), the 1/μ ≤ 25–133 kpc cut, the "~20% μ band" and the "dust by z_eq or z_rec?" question are artifacts of that model. **Withdrawn.** The scripts carry a SUPERSEDED banner; the sections above stay as history.
+
+Re-run: `door_under_cosh.py` → `DOOR_UNDER_COSH.json` ([O]; regression reproduces SZ's published Cosh run, D5 §2.5, to 1%).
+- Under Cosh, μ (curvature at 𝒬₀) and early-time w (width, r = 𝒵₀/𝒬₀) are independent (D5 §2.2). The background depends on (μ, r, K_B) only, so **Q₀ drops out**. Small Q₀ costs nothing cosmologically.
+- **Cosmological floor:** μ ≥ 1.1×10⁻³ Mpc⁻¹ (a_* < 1 at r = 0.02); **μ ≥ 3.4×10⁻³ Mpc⁻¹** if the ρ̄a³ drift is held to SZ's own Planck-consistent 5.34%.
+- **Galactic cap** (SZ's r_C ~ (r_M μ⁻²)^{1/3} ≥ R_max, all 175 SPARC galaxies, Υ_d = 0.5, Υ_b = 0.7, signed gas): **μ ≤ 3.6 Mpc⁻¹** (binding UGC 09133, R_max = 108 kpc); ≤ 1.27 Mpc⁻¹ with r_C ≥ 2R_max.
+- **Window: μ ∈ [3.4×10⁻³, 3.6] Mpc⁻¹, three decades.** At Q₀ = 2×10⁻⁵ Mpc⁻¹ this means 𝒦₂ ≈ 2.7×10⁴ – 3.1×10¹⁰.
+- **By-product, closes the D5 open item "r_C evaluated for real galaxies at SZ's (𝒬₀, 𝒦₂)":** SZ's own Cosh run (μ = 100 Mpc⁻¹, 1/μ = 10 kpc) puts r_C inside the last measured point of **144/175** SPARC galaxies. If the r_C estimate holds, SZ's CMB-fit parameters conflict with the galaxy sector, as D5 §2.5 suspected. [O], because r_C is SZ's order-of-magnitude estimate.
+
+## CORRECTION — Theory 3 part (A)
+(A) said the w = 1/3 tracker's amplitude is an initial condition. That holds for a decoupled field. It is **wrong** if the tracker is AeST's own condensate (𝒦 ~ (𝒬−𝒬₀)⁴ early, which is what "replace Q³ by Q⁴" means): 𝒦_𝒬 = I₀/a³ ties the amplitude to Ω_c. The correct kill (`theory3_condensate_tracker.py`, [O]): compensating BBN needs ρ_φ/ρ_r = a_t/a_eq ∈ [0.034, 0.143], i.e. the condensate stays radiation-like until z ≈ 4×10⁴–10⁵. In AeST the condensate is all the dark matter, so structure above k ≈ 0.08–0.2 Mpc⁻¹ is erased. Cold to k = 10 Mpc⁻¹ allows at most 7.3×10⁻⁴, **47× short**. Theory 3 stays UNSAT, for a stronger reason. The compensator in the open door must be a separate field.
+
+## Quartic screening of galaxies (`door_quartic_sparc_fit.py` → `DOOR_QUARTIC_SPARC_FIT.json`) — [O]
+Λ is fixed by the Sun's Vainshtein radius, so every galaxy gets r_V(M) = r_V☉(M/M☉)^{1/3}. This uses the same heuristic as VAINSHTEIN_PREQ: spherical enclosed mass, with the MOND part of the RAR suppressed by u, where u + (r_V/r)⁶u³ = 1. It is not a field solution. Each galaxy refits Υ (prior 0.1 dex).
+
+| r_V☉ (pc) | total Δχ² (vs 38 242 unscreened) | galaxies Δχ² > 25 | worst |
+|---|---|---|---|
+| 1.09 | −1076 | 9 | UGC 09133 +191 |
+| 1.2 | −1137 | 9 | UGC 09133 +259 |
+| 1.4 | −886 | 9 | UGC 09133 +395 |
+| 1.7 | +409 | 17 | UGC 09133 +623 |
+| 2.0 | +2608 | 27 | UGC 09133 +866 |
+| 2.36 | +6047 | 48 | UGC 09133 +1161 |
+
+- The unscreened χ²/N is 11.3, so the quoted errors are ~3.4× too small for this model. Per-galaxy Δχ² should be read against that.
+- Up to ~1.5 pc the total *improves*. That is most likely the screening absorbing inner-disk RAR/Υ mismatch, not evidence for screening. A handful of massive high-surface-brightness discs get worse: UGC 09133, NGC 6015, NGC 5055.
+- Galaxies that improve are mostly bulge-dominated: 26 with Δχ² < −9 and 16 with Δχ² < −25 at 1.09 pc; the best is UGC 06787, at −411 (`IMPROVERS_1.088pc.txt`). That is consistent with the screening absorbing an inner Υ_b/RAR mismatch.
+- Above ~1.6 pc SPARC turns against it. **The Cassini-allowed range [1.09, 2.36] pc shrinks to ≈ [1.09, 1.5] pc.** This tightens GW170817 to ε ≲ 0.13–0.22, i.e. **Q₀ ≲ 3×10⁻⁵ Mpc⁻¹**.
+
+## Where the open door stands
+Open, narrow, and resting on two links nobody has shown:
+1. **The p-scaling is not a field solution** (VAINSHTEIN_PREQ's own caveat). The decider is the nested AeST + L₄ field equation for the Sun inside the Galaxy's field, or a no-go.
+2. **The GW170817 / GW-decay analysis is borrowed.** Creminelli+ 2018 and the α_T formula are scalar–tensor EFT-of-DE results. AeST is vector–tensor–scalar with an aether background, and whether L₄ on φ keeps c_T = c and avoids decay there is not shown.
+
+Also open: the BBN compensator is a separate field. It needs an exit mass in [1.9×10⁻²⁷, 2.2×10⁻¹⁶] eV and must dilute at least as fast as radiation after exit (kination, or w ≥ 1/3 oscillation); a dust-like exit overcloses. Strong coupling at 𝒦₂ up to 3×10¹⁰ is unchecked. No Boltzmann run decides 1 or 2, so none was set up (`classy` is not installed; no AeST Boltzmann code exists, see D5 §5).
+
+## Nested field solution: the door closes (`door_nested_solution.py`, `door_nested_refine.py`) [O]
+Live scalar law (AEST_TOTAL_SCALAR_CORRESPONDENCE: x μ_std(x) = y, λ_s < 11.28) plus a quartic Galileon on φ. K is the Galileon strength in m².
+
+1. **Exact reduction [D].** Around the Sun the screened scalar gradient c is ~10⁻⁴ of the Galactic scalar gradient. The AQUAL term therefore linearises to A_e(δ + L êê), and the quartic Galileon is blind to the uniform part of the Galactic field. Stretching z′ = z/√(1+L) makes the whole operator isotropic; this is checked numerically to 2×10⁻¹⁵ at 40 random points (`part_a`). Inside r_V′ the exact solution is φ = c r′, with c = (GM σ a₀ₘ²/K)^{1/3}. VAINSHTEIN_PREQ's p = 2 scaling is the spherical limit of this.
+2. **Why it leaks.** Around that cone the linearised quartic operator has only radial second derivatives, so it gives no angular stiffness. The external-field anisotropy imprinted near r_V′ survives inward as a constant-magnitude quadrupolar force of size ≈ (1 − 1/σ²)c.
+3. **BBN corollary [D algebra / O physics], independent of the Galileon.** If the solar-system scalar is screened, the local G is Ĝ. Then G_cosmo/G_local = (2 − K_B)/2: λ_s drops out of BBN, and the ratio is ≥ 0.95 for K_B ≤ 0.1. Any solar-system screening of the tracking scalar removes the Wave-3 BBN tension and the separate compensator field.
+4. **First pass** (λ_s ∈ {0.5, 1, 3, 11}, K = 10³⁷–10⁴³, Milky Way assumed unscreened at R☉; `DOOR_NESTED_SOLUTION.json`): Mercury + Cassini + SPARC Δχ² ≤ 0 (vs live μ_std, χ² 49 866) all pass for λ_s = 0.5 (K = 10³⁹–10⁴¹), λ_s = 1 (3×10³⁹–10⁴¹) and λ_s = 3 (3×10⁴¹). λ_s = 11 fails: L = 25.8 near the folding bound.
+5. **Refinement** (`DOOR_NESTED_REFINE.json`). Those K also screen the Milky Way at R☉: the Galileon/AQUAL flux ratio there is 0.2–55. The Galaxy is re-solved with the Galileon, using McMillan-like baryons and spherical enclosed mass.
+   - The Sun's problem stays elliptic (A_⊥ > 0). A flat-curve shortcut said otherwise; it was wrong and is not used.
+   - But the Galaxy's Galileon cofactor stiffens the Sun's kinetic tensor along the GC direction: σ = 1.7–3.7 across the SPARC-accepted window.
+   - **Cassini Q₂_eff = 1.2–5.8×10⁻²⁶ against ≤ 5.2×10⁻²⁷: a 2–11× failure at every point SPARC accepts.**
+   - Q₂ passes only at K ≥ 10⁴², where SPARC Δχ² is +22k to +132k and the model's own g(R☉) = 1.24–1.42×10⁻¹⁰ falls below the observed 1.9×10⁻¹⁰.
+   - λ_s = 0.2 (`DOOR_NESTED_SOLUTION_lam0.2.json`, `DOOR_NESTED_REFINE_lam0.2.json`): SPARC Δχ² ≥ +18k at every K, and the refined Cassini fails wherever g(R☉) is in the observed band.
+6. **Verdict: CLOSED [O].** Together with the cubic Galileon (p = 1.5 needs r_V ≳ 90 pc, which screens whole galaxies) and the quintic (GW170817 and GW decay), no Horndeski Galileon order screens the AeST scalar consistently with Mercury, Cassini, SPARC and GW170817.
+7. **Caveats.**
+   - The Galaxy and galaxies use spherical enclosed mass.
+   - The mixed term κ cof(H_sun):T is not solved. It reshapes the matching at r ~ r_V′ by O(T r_V′/c) ≈ 0.3, too small to remove a 2–11× overshoot, but it is not computed.
+   - Saturn's Q₂ is a least-squares proxy for the ephemeris fit.
+   - PPN α₁/α₂ with a screened scalar is not checked.
+8. **What survives and where it points.**
+   - (a) Any Vainshtein screening whose angular kinetic terms vanish cannot hide the external-field quadrupole. A viable screen must give the angular modes a mass or stiffness as well, as density-dependent (symmetron/chameleon-type) screening does.
+   - (b) The BBN corollary.
+   - (c) The D5 r_C item (144/175).
+   - "Two-phase information tension that melts at high density" (the panel's Theory 1) is in field-theory terms a symmetron-type screen. The corpus already has a Cassini symmetron window (`05_lean_formalization/CassiniSymmetronWindow.lean`). That is the next route, and (b) carries over to it.

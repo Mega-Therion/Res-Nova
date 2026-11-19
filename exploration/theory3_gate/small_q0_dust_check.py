@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Small-Q0 dust-branch check (2026-11-18). [O]; O(1) factors dropped.
+"""SUPERSEDED 2026-11-18: uses the quadratic K that TARGET_D5 §1.3 excludes [D]. See door_under_cosh.py.
+Small-Q0 dust-branch check (2026-11-18). [O]; O(1) factors dropped.
 AeST background: d/dt[a^3 K'(Q)]=0, K ~ K2 (Q-Q0)^2 => 2K2(Q-Q0)=I0/a^3, rho ~ Q0*I0/a^3 (dust)
 valid while (Q-Q0)/Q0 = rho/(2 K2 Q0^2) << 1. With mu^2 = 2K2 Q0^2/(2-K_B) this is
 rho(z)/(mu^2 (2-K_B)) << 1: Q0 drops out; only mu (= sqrt(K2)*Q0 scale) controls the dust branch."""
