@@ -1,0 +1,17 @@
+{
+ "x_star_window": [
+  16713124336.724857,
+  704000000000.0
+ ],
+ "x_star_window_factor": 42.12258497072592,
+ "C_window_ge1.9": [
+  0.2089,
+  0.6962
+ ],
+ "xH_low_window": [
+  10.0,
+  491.73296457790207
+ ],
+ "xH_low_natural_virial": 154.148,
+ "verdict": "None of x*, C, x_H_low is derived from an action. Each is bracketed on both sides by data, so none is fine-tuned: x* by SPARC (below) and Cassini (above); C by the Oort window; x_H_low by linear growth (below) and SPARC (above), with the virial scale ~154 inside. [O] until derived."
+}

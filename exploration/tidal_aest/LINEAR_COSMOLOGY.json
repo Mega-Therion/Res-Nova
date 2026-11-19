@@ -1,0 +1,32 @@
+{
+ "linear_modes_z0": {
+  "k=0.005h/Mpc": {
+   "g": 4.1282691123570023e-13,
+   "nu_minus_1": 15.782712559862716,
+   "x": 0.30077770242927787
+  },
+  "k=0.01h/Mpc": {
+   "g": 5.160336390446252e-13,
+   "nu_minus_1": 14.014251654941328,
+   "x": 0.7519442560731948
+  },
+  "k=0.03h/Mpc": {
+   "g": 6.880448520595003e-13,
+   "nu_minus_1": 12.007541610399988,
+   "x": 3.0077770242927793
+  },
+  "k=0.1h/Mpc": {
+   "g": 6.192403668535503e-13,
+   "nu_minus_1": 12.70912096868164,
+   "x": 9.023331072878337
+  }
+ },
+ "sparc_min_x": {
+  "min": 51663.5106932699,
+  "p5": 152371.2623837733,
+  "median": 766286.949200528
+ },
+ "note": "x* = 7.04e11 screens the Solar System; linear modes and SPARC are both far below it (S = 1).",
+ "band_gap_factor": 5725.547503023165,
+ "verdict": "Linear modes get an O(10) phantom boost (nu - 1 >> 1) unless screened. A low-x cut would need x_low between max linear-mode x (9.0) and SPARC min x (51663.5); gap factor 5725.5."
+}

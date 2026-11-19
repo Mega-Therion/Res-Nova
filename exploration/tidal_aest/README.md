@@ -54,3 +54,27 @@ Verified with SymPy, on ρ = −∇²Φ_N/(4πG):
   1. Full covariant check of the mixing weight against AeST's 2(2 − K_B)J·∇φ, and the K_B normalisation of G_N.
   2. Linear cosmological perturbations with the new sector. It is non-dynamical, so this is expected to be ΛCDM-like; unchecked.
   3. x* and C remain declared inputs.
+
+## Items 1–3 (2026-11-19)
+**1. Normalisation against AeST's own weights [D] (`normalization_kb.py`, all four field equations zero).**
+- With the AeST static weights (Maxwell K_B/2, mixing (2 − K_B), scalar (2 − K_B)/2), the solution is Ψ = Φ, ψ′ = −g_N, and Φ′ = ν(g_N/a₀)g_N with ν = 1 + F′.
+- **G_N = G̃/(1 − K_B/2)** and G_cosmo/G_N = 1 − K_B/2.
+- It works because AeST's ratio of mixing to scalar weight is exactly 1.
+
+**2. Linear cosmology: the bare sector fails; the x_H screen fixes it.**
+- **Unscreened** (`linear_cosmology.py`, `linear_growth.py`): the QUMOND source is sub-linear (ν − 1 ≈ 12–16 for linear modes), unlike AeST's second-order AQUAL term. Growth is enhanced 245–1186×.
+- **Screening on x alone** (`xlow_scan.py`): growth within 2% needs x_low ≳ 10⁶, which screens 45% of SPARC points. Fails.
+- **Nonlinearity screen** (`xh_screen.py`): S on x_H = ‖∇∇Φ_N‖/H², with H = θ/3 from the aether expansion. Linear modes have x_H ≲ 1; SPARC has x_H ≥ 1623. With x_H,low = 10–100, growth is within 4×10⁻³ to 4×10⁻⁵ of ΛCDM and no SPARC point is screened.
+- **Natural value:** the virial scale ≈ 0.87 Ω_m Δ_vir ≈ 154 lies in the window, so MOND acts only inside collapsed structures.
+
+**3. Constants: bounded on both sides by data, not derived [O] (`item3_windows.py`).**
+- x* ∈ [1.7×10¹⁰ (SPARC), 7.04×10¹¹ (Cassini)].
+- C ∈ [0.209, 0.696] (Oort window).
+- x_H,low ∈ [10 (growth), 492 (SPARC)].
+
+**Candidate after items 1–3.**
+- Passes at quasistatic and linear level: BBN, Mercury, Cassini (2σ edge), SPARC, the Oort peak, GW170817, γ = 1, lensing = dynamics, and linear growth.
+- Open:
+  - nonlinear structure formation;
+  - the full CMB (the sector is off at linear order, so it inherits AeST/D5's status);
+  - deriving the constants.
