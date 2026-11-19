@@ -10,6 +10,14 @@ are the only current physics.**
 **Last verified against the physics:** 2026-11-19 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
+Also 2026-11-19 (exploration record, no tier change): **tidal screen with an AeST two-field (QUMOND-type) scalar** (`exploration/tidal_aest/README.md`; pre-registered in `PREREG.md`).
+- **[D] static.** With AeST's own weights the sector enters the single metric: Ψ = Φ = Φ_N + φ, with G_N = G̃/(1 − K_B/2). So G_cosmo/G_N = 1 − K_B/2 (BBN passes for K_B ≤ 0.1), γ = 1 and lensing = dynamics. The aether-frame action is non-dynamical and gives c_T = c.
+- **Linear cosmology.**
+  - The bare sector fails (growth enhanced up to ~10³×), and a screen on x alone fails as well.
+  - A nonlinearity screen on x_H = ‖∇∇Φ_N‖/H² (H from the aether expansion) keeps growth within 4×10⁻³ of ΛCDM for x_H,low ∈ [10, 492] and leaves SPARC untouched. The virial value ≈154 sits inside that window.
+- **Constants.** x* ∈ [1.7×10¹⁰, 7.04×10¹¹], C ∈ [0.209, 0.696] and x_H,low ∈ [10, 492] are each bounded on both sides by data, not derived `[O]`.
+- **Open `[O]`.** Nonlinear structure formation, the full CMB, and deriving the constants.
+
 Also 2026-11-19 (exploration record; one physical premise marked `[X]`; no other tier change, no axiom change): **screening and interpolating-function routes for the AeST MOND scalar** (`exploration/theory3_gate/README.md`; pre-registrations in that folder, each committed before its numbers). Scope: the total-law embedding (`AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md`), which is `[O]`; D9's scalar-channel function stays the one in use.
 - **Closed `[O]` in that embedding.**
   - The w = 1/3 condensate tracker (it erases dark-matter structure above k ≈ 0.1–0.2 Mpc⁻¹).

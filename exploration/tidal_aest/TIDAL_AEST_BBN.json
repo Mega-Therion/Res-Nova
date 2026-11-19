@@ -1,0 +1,38 @@
+{
+ "rows": {
+  "Mercury": {
+   "share": 0.0,
+   "unscreened_share": 0.0,
+   "S": 3.968159022871209e-27,
+   "x": 1.117578723600055e+25
+  },
+  "Earth": {
+   "share": 2.6227899050202883e-40,
+   "unscreened_share": 2.220446049250313e-16,
+   "S": 1.1811995638920469e-24,
+   "x": 6.47755367198295e+23
+  },
+  "Saturn": {
+   "share": 1.4084774426933496e-30,
+   "unscreened_share": 1.5847323453499484e-12,
+   "S": 8.887793871477537e-19,
+   "x": 7.4675075826051e+20
+  },
+  "Neptune": {
+   "share": 1.3812718162236122e-25,
+   "unscreened_share": 1.5723777835319197e-10,
+   "S": 8.784605269103715e-16,
+   "x": 2.375262068526064e+19
+  }
+ },
+ "G_cosmo_over_G_local_KB=0.0": 1.0,
+ "G_cosmo_over_G_local_KB=0.05": 0.9749999999999999,
+ "G_cosmo_over_G_local_KB=0.1": 0.9500000000000001,
+ "G_cosmo_over_G_local_KB=0.2": 0.8999999999999999,
+ "mercury_extra_accel": 0.0,
+ "mercury_prec_mas_cy_upper": 0.0,
+ "verdict": {
+  "BBN_5pct_KB_le_0.1": true,
+  "mercury_ok": true
+ }
+}
