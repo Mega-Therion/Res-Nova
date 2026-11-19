@@ -86,6 +86,7 @@ Pre-registered before running. Computed at each dataset's best fit from the mode
 - The Weyl dark radiation's own perturbations (Ω_Weyl ≈ 1.75 today) are not modelled, and they are exactly where a full CMB lensing/ISW calculation could still break it. That remains [O].
 
 ## The large bare drag is a floor, not a fixable choice [D] (from `FLUX_CODAZZI.json`, no new fit)
+> **Scope (2026-11-19, `exploration/bulk5d/`).** The floor assumes w_d ≥ 0, a sound-speed condition. The covariant velocity-dependent tension is a w = −1 component with no momentum, for which a sound speed means nothing. It is excluded only by `PREREG_FLUX.md`'s single-channel rule. The floor holds while that exclusion stands; without it the bare drag would be x₀ = |κ|/4.
 The data constrain only κ = (3w_d − 1)x₀. On the stable sub-conformal branch 0 ≤ w_d < 1/3, x₀ = |κ|/(1 − 3w_d) ≥ |κ|, with the minimum at w_d = 0. Any w_d > 0 needs *more* drag, which diverges as w_d → 1/3.
 
 | Fit | best x₀ (floor) | 2σ floor on x₀ | bare G_cosmo/G_N today, 1/(1 + x₀): best / 2σ upper |
