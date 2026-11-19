@@ -10,6 +10,11 @@ are the only current physics.**
 **Last verified against the physics:** 2026-11-19 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
+Also 2026-11-19 (no tier change): **D10 clusters, μ²Φ gauge fixed at the x_H virial boundary** (`TARGET_D10_CLUSTERS.md` §11, pre-registered).
+- Φ(r_v) = 0 at mean density 177.8 ρ_c (r_v ≈ 1.59 r₅₀₀).
+- Expansion parameter 2.39, median R 0.77: **fails** the pre-registered band, and first order is invalid in the physical gauge.
+- The AeST mass term is strong at cluster scales, with the sign standing (11 of 12 clusters overshoot the gap). Closing it needs a nonperturbative solve with the virial boundary condition `[O]`.
+
 Also 2026-11-19 (exploration record, no tier change): **Berezhiani–Khoury condensation against the x_H virial cut: partial map** (`exploration/bk_xh_map/`, pre-registered).
 - x_H ≥ 154 is a σ-independent density cut (ρ ≥ 178ρ_crit). BK's criterion scales as m⁴σ³.
 - They agree for galaxies; for m ≈ 2 eV, σ_c ≈ 400 km/s. They disagree for clusters, where BK stays normal-phase and x_H switches MOND on.
