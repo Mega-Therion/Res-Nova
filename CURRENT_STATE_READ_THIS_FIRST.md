@@ -10,6 +10,11 @@ are the only current physics.**
 **Last verified against the physics:** 2026-11-19 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
+Also 2026-11-19 (no tier change): **D10 on X-COP** (gas measured to R₂₀₀; `exploration/d10_xcop/`, pre-registered).
+- AeST μ_std with the virial boundary and supply cap gives median **R₅₀₀ = 0.83, 12/12 in band: passes**, the first D10 pass.
+- **R₂₀₀ = 0.62, 1/12: fails** (overshoot).
+- The mass at R₅₀₀ is reproduced, but its growth outward is too steep. The outer AeST dust profile is the open item `[O]`.
+
 Also 2026-11-19 (no tier change): **D10 with measured ACCEPT gas profiles** (11/12 clusters, pre-registered).
 - Pure MOND gives R = 2.15. AeST static gives 0.69, supply-capped 0.80 (6/11 in band): **fails**.
 - The profiles reach only a median 0.59 r₅₀₀, so the outer gas is still extrapolated. Two clusters have unphysical outer slopes (β ≈ 0.9–1.0).
