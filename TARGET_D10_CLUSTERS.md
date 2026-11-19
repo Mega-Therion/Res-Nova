@@ -452,3 +452,9 @@ See `exploration/d10_xcop/README.md`, tests A–C (pre-registered per stage).
 - Built on the baryonic field, the candidate's virial screen kills clusters (R ≈ 2.1–2.6) and is marginal on SPARC.
 - Built on the full metric potential, iterated to self-consistency, X-COP gives **R₅₀₀ = 0.92 (12/12, passes)** and **R₂₀₀ = 0.755 (8/12, fails narrowly)**, up from 0.62.
 - The outer residual is about 25% `[O]`.
+
+## 16. Cosh K(Q) R₂₀₀ test (`[X]`) + `#257` sawtooth audit + cluster Bratu bound `r > 3e-5` (`[D]`), added 2026-11-19
+See `exploration/d10_xcop/PREREG_COSH.md` (commit `29b64d1a`), `exploration/d10_xcop/README.md`, and `xcop_cosh.py` → `XCOP_COSH_SUMMARY.json`.
+- **`#257` numerical sawtooth audit (`r = ∞`):** Verbatim `xcop_screened_full.py` reproduces `0.9221 (12/12)` / `0.7548 (8/12)`, but undamped 6-step `np.gradient` left `max |ΔS| = 0.332` (`A1644 R200 = 0.696`). Continuum-converged `smooth_phi` (`deg-14` poly derivative, `max |ΔS| < 1e-4`, `fd_resid = 1.61e-3`) yields `R500_cap = 0.9236 (12/12)` and `R200_cap = 0.7927 (9/12)` (`A1644 R200 = 0.795`, `+0.038` shift) — still failing `[0.80, 1.25]`.
+- **Pre-registered Cosh grid fails at every point `[X]`:** Across `r ∈ {inf, 1e-3, 1e-4, 3e-5, 1e-5, 3e-6, 1e-6}`, `sinh(-Φ/Φ_c) > -Φ/Φ_c` enhances central dust density and lowers `R200_cap` (`0.793 → 0.793 → 0.788 → 0.765`) before triggering Bratu / Bonnor–Ebert collapse (`6/12` static failures at `r = 3e-5`, `12/12` at `r ≤ 1e-5`, `0/12` total convergence at `r = 1e-6`). Secondary fixed-`μ` free-boundary `Φ₀` cap also fails (`1e-4`: `0.901 (12/12)` / `0.779 (8/12)`, `3e-5`: `6/12`, `1e-5`: `0/12`).
+- **Derived D5 window tightening `[D]`:** X-COP static stability (`12/12` clusters at universal `μ`) rules out `r ≤ 3e-5` (at `r = 1e-4` all `12/12` exist), raising the D5 Cosh lower bound from `r ≫ 2.5e-8` to **`r > 3e-5`**. D10 `R200` remains **`[O]`**.

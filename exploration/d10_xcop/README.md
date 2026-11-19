@@ -50,3 +50,28 @@ Each systematic was varied one at a time within its physical range, and every co
 - **R₂₀₀ is robust too, but as an overshoot.** Every allowed configuration gives a median of 0.60–0.78. The best variant reaches 9/12, but its median is still below 0.8.
 - So the excess dynamical mass at R₂₀₀ (about 25%) is a genuine prediction of this model, not a modelling artefact. **[D]: the candidate's mass profile is too extended between R₅₀₀ and R₂₀₀.**
 - That makes it a falsifiable target. Weak-lensing mass profiles to R₂₀₀ on X-COP-like clusters would confirm or kill it.
+
+## Cosh dust function test + #257 grid-sawtooth audit (`PREREG_COSH.md` 29b64d1a, `xcop_cosh.py` → `XCOP_COSH_SUMMARY.json`)
+Pre-registered in `PREREG_COSH.md` before any run. Replaces the quadratic $n=1$ polytrope dust source $-\mu^2 r^2 \Phi$ with the corpus's cosmological Cosh function (`CoshCosmology.lean`, `TARGET_D5`), $\mu^2 r^2 \Phi_c \sinh(-\Phi/\Phi_c)$ ($\Phi_c = c^2 r$, D5 window $2.5\times 10^{-8} \ll r \lesssim 2\times 10^{-2}$), keeping Test C fixed ($x_H$ on the full solved field, $x_{H,\mathrm{low}} = 154$, $\Phi(r_v) = 0$, cosmic supply cap $5.36\,M_b$).
+
+1. **Control audit at $r = \infty$ & `#257` `np.gradient` sawtooth bias:**
+   - Exact verbatim reproduction of `xcop_screened_full.py` (`testc_exact`: 6 undamped `np.gradient` iterations on $N=800$, `DOP853`): **`R500_capped = 0.9221` (12/12)**, **`R200_capped = 0.7548` (8/12)**, matching `XCOP_SCREENED_FULL.json` identically (`±0.0000`). However, the undamped `np.gradient` fixed-point loop did not converge (`max |ΔS| = 0.332` across the sample), exciting a grid-scale sawtooth in `A1644` (adjacent-cell jump `0.321`, dragging `A1644 R200` from `0.795` to `0.696`).
+   - Continuum-converged `smooth_phi` (degree-14 log-log polynomial derivative, `0.75`-relaxed to `max |ΔS| ≤ 9.8e-5`, finite-difference self-consistency residual `max_fd_resid = 1.61e-3`): **`R500_capped = 0.9236` (12/12)**, **`R200_capped = 0.7927` (9/12)** (`R500_static = 0.9077` 11/12, `R200_static = 0.7637` 7/12). Removing `#257`'s numerical sawtooth shifts median `R200_capped` up by **`+0.0379`** (`A1644 R200`: `0.696 → 0.795`), still **FAILING** the pre-registered `[0.80, 1.25]` median criterion.
+
+2. **Pre-registered 7-point Cosh grid (`smooth_phi`, all numbers reported):**
+
+| $r = \mathcal{Z}_0/Q_0$ | Static conv. | Capped conv. | Median $R_{500,\mathrm{cap}}$ (in $[0.7,1.4]$) | Median $R_{200,\mathrm{cap}}$ (in $[0.7,1.4]$) | Max `fd_resid` | Verdict |
+|---|---:|---:|---|---|---:|---|
+| `inf` (control) | 12/12 | 12/12 | 0.924 (12/12) | 0.793 (9/12) | 1.61e-3 | FAILS |
+| `1e-3` | 12/12 | 12/12 | 0.924 (12/12) | 0.793 (9/12) | 1.64e-3 | FAILS |
+| `1e-4` | 12/12 | 12/12 | 0.920 (12/12) | 0.788 (9/12) | 1.58e-3 | FAILS |
+| `3e-5` | 6/12 | 12/12 | 0.909 (12/12) | 0.765 (9/12) | 1.34e-3 | FAILS |
+| `1e-5` | 0/12 | 12/12 | 1.598 (4/12) | 1.754 (3/12) | 3.17e-3 | FAILS |
+| `3e-6` | 0/12 | 8/12 | 2.320 (0/12) | 3.186 (0/12) | 8.54e-1 | FAILS |
+| `1e-6` | 0/12 | 0/12 | — (0/12) | — (0/12) | — | FAILS |
+
+   - **Secondary diagnostic (fixed-$\mu$ free-boundary $\Phi_0$ cap):** `r = 1e-4` gives `R500 = 0.901 (12/12)`, `R200 = 0.779 (8/12)`; `r = 3e-5` converges for `6/12`; `r = 1e-5` converges for `0/12` — FAILS.
+
+**Verdict & new constraint:**
+- **Cosh concentration route for cluster $R_{200}$ is `[X]`:** Because $\sinh(-\Phi/\Phi_c) > -\Phi/\Phi_c$, finite $r$ strengthens central dust accretion rather than suppressing outer dust, pushing $R_{200}$ *downward* (`0.793 → 0.788 → 0.765`) until hitting Bratu / Bonnor–Ebert hydrostatic collapse (`6/12` static failures at `r = 3e-5`, `12/12` static failures for `r ≤ 1e-5`, `0/12` total convergence at `r = 1e-6`).
+- **Cluster Bratu stability tightens the D5 Cosh window `[D]`:** Requiring static hydrostatic equilibrium (`12/12` clusters at universal $\mu$) excludes $r \le 3\times 10^{-5}$ (`r = 1e-4` passes `12/12` static stability; `r = 3e-5` collapses in `6/12` clusters), raising the lower bound on $r \equiv \mathcal{Z}_0/Q_0$ by ~3 orders of magnitude over the previous D5 window `r ≫ 2.5e-8` to **`r > 3e-5`** (`r ∈ [1e-4, 2e-2]`). The underlying D10 `R200` ~25% overshoot remains **`[O]`** (real weak-lensing profiles out to `R200` / measured outer ICM slopes remain decisive).
