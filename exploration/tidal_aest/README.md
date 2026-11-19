@@ -37,3 +37,20 @@ L = ρφ + (1/8πG)[−2 q(∂φ,∂ψ) + q(∂ψ,∂ψ) + a₀² F(q(∂ψ,∂�
 - A disformal coupling for photons is excluded by GW170817: GWs and photons would cross the Milky Way's potential with different Shapiro delays (Boran et al. 2018).
 - So the MOND potential must enter the **single metric** (both potentials, γ = 1). AeST already does this through its **J^μ∇_μφ mixing**, where J is the aether acceleration, equal to ∇Φ in the static weak field.
 - **Next construction:** keep AeST's J·∇φ mixing and replace 𝒥(𝒴) with the auxiliary-ψ QUMOND sector above. Then check γ = 1 / PPN, lensing = dynamics, and that the D3 c₄,eff → 0 identification follows from the field equations instead of being assumed.
+
+## The MOND potential enters the single metric [D] for the static reduction (`aest_qumond_metric.py`)
+Static weak-field Lagrangian:
+L = ρΦ + (1/8πG)[Ψ′² − 2Φ′Ψ′ (Einstein–Hilbert) + 2Φ′φ′ (AeST-type J·∇φ mixing) − φ′² + 2φ′ψ′ + a₀²F(ψ′²/a₀², ψ″)].
+
+Verified with SymPy, on ρ = −∇²Φ_N/(4πG):
+- **Ψ = Φ = Φ_N + φ** and ψ = −Φ_N. The Φ, Ψ and φ equations vanish identically.
+- The ψ equation is the Poisson equation for φ, sourced by Φ_N through F. With F′ = (ν − 1)S and the Hessian ("W") terms, φ is the tidally screened QUMOND phantom potential.
+- **γ = 1 and lensing equals dynamics.** Photons, GWs and matter all follow the one metric, so the Boran et al. Shapiro-delay constraint is met. The γ = 1 argument of TARGET_D3 §8.1 carries over: every sector stress is quadratic in perturbations.
+- **The scalar drops out locally, as derived.** Because Φ = Φ_N + φ with φ ≈ 0 where (ν − 1)S ≈ 0, the solar-system scalar share vanishes. That is the c₄,eff → 0 used in the BBN gate.
+
+**Status of the tidal–AeST candidate.**
+- **Passes:** BBN, Mercury, Cassini (at the 2σ edge by x* calibration), SPARC, the Oort peak (working C), GW170817, γ = 1 and lensing = dynamics. Quasistatic level, with a covariant aether-frame action.
+- **Still open:**
+  1. Full covariant check of the mixing weight against AeST's 2(2 − K_B)J·∇φ, and the K_B normalisation of G_N.
+  2. Linear cosmological perturbations with the new sector. It is non-dynamical, so this is expected to be ΛCDM-like; unchecked.
+  3. x* and C remain declared inputs.
