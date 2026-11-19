@@ -1,0 +1,386 @@
+{
+ "nfw_c4_M200_over_M500": 1.4452619963215254,
+ "clusters": [
+  {
+   "name": "ABELL-1689",
+   "fbar": 0.17099999999999999,
+   "M200_over_M500_catalog": 1.2548236859614106,
+   "catalog_col7": 1.25,
+   "R_newton_screened": 5.847953216374269,
+   "simple": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.0972759691376952,
+    "R_pure_MOND": 1.5155365291752907,
+    "M200_over_M500_model": 1.7476123449970646,
+    "M200_over_M500_pureMOND": 1.745092199929666,
+    "extra_mass_over_cosmic_dust_budget": 8.00329563366976,
+    "mu_rv_rad": 2.5625169967338084
+   },
+   "mu_std": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.5660524033630174,
+    "R_pure_MOND": 1.9840941610038536,
+    "M200_over_M500_model": 1.7955832337558937,
+    "M200_over_M500_pureMOND": 1.8012175942535045,
+    "extra_mass_over_cosmic_dust_budget": 1.3962975298671407,
+    "mu_rv_rad": 2.5625169967338084
+   }
+  },
+  {
+   "name": "ABELL-1763",
+   "fbar": 0.22699999999999998,
+   "M200_over_M500_catalog": 1.5740162398500934,
+   "catalog_col7": 1.57,
+   "R_newton_screened": 4.405286343612335,
+   "simple": {
+    "converged": false
+   },
+   "mu_std": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.39806715985469676,
+    "R_pure_MOND": 1.7473938179536166,
+    "M200_over_M500_model": 2.035543985393804,
+    "M200_over_M500_pureMOND": 2.014387512421909,
+    "extra_mass_over_cosmic_dust_budget": 1.854808726712539,
+    "mu_rv_rad": 2.7767676528651064
+   }
+  },
+  {
+   "name": "ABELL-2034",
+   "fbar": 0.088,
+   "M200_over_M500_catalog": 1.564796905222437,
+   "catalog_col7": 1.56,
+   "R_newton_screened": 11.363636363636365,
+   "simple": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.344584110014755,
+    "R_pure_MOND": 1.9330943832345266,
+    "M200_over_M500_model": 2.0873338857473254,
+    "M200_over_M500_pureMOND": 1.9744026061922368,
+    "extra_mass_over_cosmic_dust_budget": 2.8472972585048724,
+    "mu_rv_rad": 1.9804050397473647
+   },
+   "mu_std": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.8539535568961745,
+    "R_pure_MOND": 2.305005946824606,
+    "M200_over_M500_model": 2.1510693766325706,
+    "M200_over_M500_pureMOND": 2.0296691184384206,
+    "extra_mass_over_cosmic_dust_budget": 1.1649810043718551,
+    "mu_rv_rad": 1.9804050397473647
+   }
+  },
+  {
+   "name": "ABELL-209",
+   "fbar": 0.16099999999999998,
+   "M200_over_M500_catalog": 1.599375650364204,
+   "catalog_col7": 1.6,
+   "R_newton_screened": 6.2111801242236035,
+   "simple": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.1598263020539038,
+    "R_pure_MOND": 1.4974155691929025,
+    "M200_over_M500_model": 2.081661213129034,
+    "M200_over_M500_pureMOND": 1.9692346583938047,
+    "extra_mass_over_cosmic_dust_budget": 4.816024194338866,
+    "mu_rv_rad": 2.3738220659951756
+   },
+   "mu_std": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.6518279897636521,
+    "R_pure_MOND": 1.9239628876191937,
+    "M200_over_M500_model": 2.1343532846815414,
+    "M200_over_M500_pureMOND": 2.042653430003109,
+    "extra_mass_over_cosmic_dust_budget": 1.1932993678219672,
+    "mu_rv_rad": 2.3738220659951756
+   }
+  },
+  {
+   "name": "ABELL-2142",
+   "fbar": 0.173,
+   "M200_over_M500_catalog": 1.4191343963553533,
+   "catalog_col7": 1.42,
+   "R_newton_screened": 5.780346820809249,
+   "simple": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.1716959757363024,
+    "R_pure_MOND": 1.3732732021233334,
+    "M200_over_M500_model": 1.9209523226911298,
+    "M200_over_M500_pureMOND": 1.859191294433483,
+    "extra_mass_over_cosmic_dust_budget": 3.785230964226501,
+    "mu_rv_rad": 2.3041071604812227
+   },
+   "mu_std": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.6278825714686532,
+    "R_pure_MOND": 1.7580139619945585,
+    "M200_over_M500_model": 1.977230089973646,
+    "M200_over_M500_pureMOND": 1.9219234532004286,
+    "extra_mass_over_cosmic_dust_budget": 1.0500185907343782,
+    "mu_rv_rad": 2.3041071604812227
+   }
+  },
+  {
+   "name": "ABELL-383",
+   "fbar": 0.136,
+   "M200_over_M500_catalog": 1.3577512776831344,
+   "catalog_col7": 1.36,
+   "R_newton_screened": 7.352941176470588,
+   "simple": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.381019473733287,
+    "R_pure_MOND": 1.5499786230588526,
+    "M200_over_M500_model": 1.8853847490092395,
+    "M200_over_M500_pureMOND": 1.827814513530499,
+    "extra_mass_over_cosmic_dust_budget": 1.4959642787864662,
+    "mu_rv_rad": 1.9202176903599073
+   },
+   "mu_std": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.8830546663899086,
+    "R_pure_MOND": 1.9292686043070744,
+    "M200_over_M500_model": 1.9423975017275725,
+    "M200_over_M500_pureMOND": 1.8824567100264922,
+    "extra_mass_over_cosmic_dust_budget": 0.6553769660209925,
+    "mu_rv_rad": 1.9202176903599073
+   }
+  },
+  {
+   "name": "ABELL-773",
+   "fbar": 0.131,
+   "M200_over_M500_catalog": 1.3668639053254437,
+   "catalog_col7": 1.37,
+   "R_newton_screened": 7.633587786259541,
+   "simple": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.21103317047389963,
+    "R_pure_MOND": 1.7173701074510488,
+    "M200_over_M500_model": 1.876252928975655,
+    "M200_over_M500_pureMOND": 1.82943399731744,
+    "extra_mass_over_cosmic_dust_budget": 3.95444591053838,
+    "mu_rv_rad": 2.284236803832899
+   },
+   "mu_std": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.7553654207192285,
+    "R_pure_MOND": 2.1697133925934193,
+    "M200_over_M500_model": 1.9361364961658825,
+    "M200_over_M500_pureMOND": 1.887117444230933,
+    "extra_mass_over_cosmic_dust_budget": 1.122638586036418,
+    "mu_rv_rad": 2.284236803832899
+   }
+  },
+  {
+   "name": "CL-J1226.9+3332",
+   "fbar": 0.055,
+   "M200_over_M500_catalog": 1.44640522875817,
+   "catalog_col7": 1.45,
+   "R_newton_screened": 18.181818181818183,
+   "simple": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.7256465294851037,
+    "R_pure_MOND": 3.7828939104937724,
+    "M200_over_M500_model": 1.9642867990527502,
+    "M200_over_M500_pureMOND": 1.8863050938145693,
+    "extra_mass_over_cosmic_dust_budget": 2.247275662669788,
+    "mu_rv_rad": 2.0470452157375836
+   },
+   "mu_std": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 1.9180164567374418,
+    "R_pure_MOND": 4.695036049424942,
+    "M200_over_M500_model": 2.023864399872453,
+    "M200_over_M500_pureMOND": 1.94499378555397,
+    "extra_mass_over_cosmic_dust_budget": 0.8627224159884648,
+    "mu_rv_rad": 2.0470452157375836
+   }
+  },
+  {
+   "name": "MACS-J0717.5+3745",
+   "fbar": 0.185,
+   "M200_over_M500_catalog": 1.7904312668463611,
+   "catalog_col7": 1.79,
+   "R_newton_screened": 5.405405405405405,
+   "simple": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.15618777900682795,
+    "R_pure_MOND": 1.593120949389428,
+    "M200_over_M500_model": 2.2368126684749843,
+    "M200_over_M500_pureMOND": 2.0572055475056876,
+    "extra_mass_over_cosmic_dust_budget": 4.910716794612198,
+    "mu_rv_rad": 2.495876417303959
+   },
+   "mu_std": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.7530278054848479,
+    "R_pure_MOND": 2.1624952893318627,
+    "M200_over_M500_model": 2.255654310563951,
+    "M200_over_M500_pureMOND": 2.150023666289415,
+    "extra_mass_over_cosmic_dust_budget": 1.0178825938555343,
+    "mu_rv_rad": 2.495876417303959
+   }
+  },
+  {
+   "name": "RXC-J0232.2-4420",
+   "fbar": 0.138,
+   "M200_over_M500_catalog": 1.2274774774774775,
+   "catalog_col7": 1.23,
+   "R_newton_screened": 7.246376811594202,
+   "simple": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.5806815607895863,
+    "R_pure_MOND": 1.5232599629508392,
+    "M200_over_M500_model": 1.7698864729443262,
+    "M200_over_M500_pureMOND": 1.7397083625269454,
+    "extra_mass_over_cosmic_dust_budget": 0.6820719566309588,
+    "mu_rv_rad": 1.6323951155726395
+   },
+   "mu_std": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 1.070551423627697,
+    "R_pure_MOND": 1.8948398264782986,
+    "M200_over_M500_model": 1.8221149453479866,
+    "M200_over_M500_pureMOND": 1.7873616818970735,
+    "extra_mass_over_cosmic_dust_budget": 0.3755848568753683,
+    "mu_rv_rad": 1.6323951155726395
+   }
+  },
+  {
+   "name": "RXC-J0532.9-3701",
+   "fbar": 0.15599999999999997,
+   "M200_over_M500_catalog": 1.415267175572519,
+   "catalog_col7": 1.42,
+   "R_newton_screened": 6.4102564102564115,
+   "simple": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.3750145389310296,
+    "R_pure_MOND": 1.4827413169885002,
+    "M200_over_M500_model": 1.9298955971762672,
+    "M200_over_M500_pureMOND": 1.858750986492707,
+    "extra_mass_over_cosmic_dust_budget": 1.387854502753712,
+    "mu_rv_rad": 1.9551923814755268
+   },
+   "mu_std": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.8959924420118347,
+    "R_pure_MOND": 1.8857544872295477,
+    "M200_over_M500_model": 1.9846645369391833,
+    "M200_over_M500_pureMOND": 1.9201993825971357,
+    "extra_mass_over_cosmic_dust_budget": 0.5890328278143683,
+    "mu_rv_rad": 1.9551923814755268
+   }
+  },
+  {
+   "name": "RX-J1347.5-1145",
+   "fbar": 0.115,
+   "M200_over_M500_catalog": 1.5355855855855858,
+   "catalog_col7": 1.54,
+   "R_newton_screened": 8.695652173913043,
+   "simple": {
+    "converged": false
+   },
+   "mu_std": {
+    "converged": true,
+    "n_roots": 1,
+    "uE_positive_throughout": true,
+    "R": 0.5354610281209228,
+    "R_pure_MOND": 2.8641602076208392,
+    "M200_over_M500_model": 2.0146220407387623,
+    "M200_over_M500_pureMOND": 1.9982893950856042,
+    "extra_mass_over_cosmic_dust_budget": 2.793115984587793,
+    "mu_rv_rad": 2.8191464340682586
+   }
+  }
+ ],
+ "summary": {
+  "simple": {
+   "median_R": [
+    0.2778086402443273,
+    10
+   ],
+   "n_in_0.7_1.4": 1,
+   "all_uE_positive": false,
+   "median_M200_M500_model": [
+    1.9254239599336986,
+    10
+   ],
+   "median_M200_M500_pureMOND": [
+    1.8589711404630949,
+    10
+   ],
+   "median_extra_over_dust_budget": [
+    3.3162641113656868,
+    10
+   ],
+   "max_extra_over_dust_budget": 8.00329563366976,
+   "verdict_1": "FAILS"
+  },
+  "mu_std": {
+   "median_R": [
+    0.7541966131020382,
+    12
+   ],
+   "n_in_0.7_1.4": 6,
+   "all_uE_positive": true,
+   "median_M200_M500_model": [
+    1.9996432888389728,
+    12
+   ],
+   "median_M200_M500_pureMOND": [
+    1.9334586193771992,
+    12
+   ],
+   "median_extra_over_dust_budget": [
+    1.0863285883853981,
+    12
+   ],
+   "max_extra_over_dust_budget": 2.793115984587793,
+   "verdict_1": "FAILS"
+  },
+  "median_M200_M500_catalog": 1.4327698125567616,
+  "catalog_col7_equals_ratio": true,
+  "median_R_newton_screened": 6.828316610925307
+ }
+}

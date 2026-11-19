@@ -424,3 +424,11 @@ Pre-registered in `02_galaxy_dynamics/clusters/PREREG_D10_VIRIAL_GAUGE.md` (comm
 - So at cluster scales the AeST mass term is **strong, not perturbative**. Whether it closes the 1.96 gap is a nonperturbative question.
 - §9 found that question ill-posed under the compensated boundary condition. The x_H virial boundary is the candidate condition to re-pose it with, `[O]`.
 - **Sign stands.** 11 of 12 clusters move from R ≈ 2 to below 1 (CL-J1226 stays at 1.84, from its low f_gas). The term has more than enough strength; the open question is control.
+
+## 12. Nonperturbative solve with the virial boundary: well-posed, but overshoots `[D]`, added 2026-11-19
+See `exploration/d10_attack/README.md` (pre-registered).
+- Under μ_std the full BVP with Φ(r_v) = 0 converges for **12/12** clusters with u_E > 0. That resolves §9's ill-posedness: μr_v ≈ 2–2.8 rad, against 26 rad at the compensation radius.
+- Median **R = 0.75**, with 6/12 in [0.7, 1.4]. That **fails** the pre-registered band [0.8, 1.25] by overshooting.
+- The added mass is a median 1.09× the cosmic dust allowance, and exceeds it in 8/12 clusters.
+- Screening MOND entirely gives R = 6.83. The M₂₀₀/M₅₀₀ shape test is circular, because the catalogue ratio is NFW-derived.
+- The gap is now an overshoot. Whether the quasi-static limit holds near r_v is `[O]`.
