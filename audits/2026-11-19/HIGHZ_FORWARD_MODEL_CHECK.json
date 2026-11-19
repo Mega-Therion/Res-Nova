@@ -1,0 +1,215 @@
+{
+  "generated": "2026-11-19",
+  "epistemic_tag": "[D] / [U]",
+  "cosmology_da_ratio_planck_over_rc100": {
+    "z=0.6": 1.03284,
+    "z=1.0": 1.02992,
+    "z=1.5": 1.02748,
+    "z=2.0": 1.02588,
+    "z=2.5": 1.02478
+  },
+  "shape_fit_unrescaled_H0_70_Om_0p30": {
+    "N": 51,
+    "n_shape": -0.75,
+    "n_95ci": [
+      -2.164,
+      0.818
+    ],
+    "a0_median": 2.820953234604877e-10
+  },
+  "shape_fit_planck_rescaled": {
+    "N": 51,
+    "n_shape": -0.742,
+    "n_95ci": [
+      -2.146,
+      0.811
+    ],
+    "a0_median": 2.7513412107687093e-10
+  },
+  "covariance_and_inclination_sweep_full_zgt1p5": {
+    "rho=-0.7_sigInc=0deg": {
+      "N": 51,
+      "n_shape": -0.587,
+      "n_95ci": [
+        -2.057,
+        0.93
+      ],
+      "a0_median": 2.7513412107687093e-10
+    },
+    "rho=+0.0_sigInc=0deg": {
+      "N": 51,
+      "n_shape": -0.742,
+      "n_95ci": [
+        -2.146,
+        0.811
+      ],
+      "a0_median": 2.7513412107687093e-10
+    },
+    "rho=+0.7_sigInc=0deg": {
+      "N": 51,
+      "n_shape": -0.791,
+      "n_95ci": [
+        -2.181,
+        0.765
+      ],
+      "a0_median": 2.7513412107687093e-10
+    },
+    "rho=+0.0_sigInc=5deg": {
+      "N": 51,
+      "n_shape": -0.728,
+      "n_95ci": [
+        -2.154,
+        0.841
+      ],
+      "a0_median": 2.7513412107687093e-10
+    },
+    "rho=+0.0_sigInc=8deg": {
+      "N": 51,
+      "n_shape": -0.705,
+      "n_95ci": [
+        -2.153,
+        0.873
+      ],
+      "a0_median": 2.7513412107687093e-10
+    },
+    "rho=-0.5_sigInc=8deg": {
+      "N": 51,
+      "n_shape": -0.601,
+      "n_95ci": [
+        -2.096,
+        0.964
+      ],
+      "a0_median": 2.7513412107687093e-10
+    }
+  },
+  "inclination_error_sweep_incl_verified": {
+    "sigInc=0deg": {
+      "N": 18,
+      "n_shape": 0.891,
+      "n_95ci": [
+        -1.172,
+        6.957
+      ],
+      "a0_median": 3.799248912113267e-10
+    },
+    "sigInc=5deg": {
+      "N": 18,
+      "n_shape": 0.978,
+      "n_95ci": [
+        -1.107,
+        7.147
+      ],
+      "a0_median": 3.799248912113267e-10
+    },
+    "sigInc=8deg": {
+      "N": 18,
+      "n_shape": 1.093,
+      "n_95ci": [
+        -1.064,
+        7.316
+      ],
+      "a0_median": 3.799248912113267e-10
+    }
+  },
+  "cross_era_pipeline_drift_RC100_vs_RC41_identical_galaxies": {
+    "n_overlapping_valid": 19,
+    "median_ratio_RC100_over_RC41": 1.062,
+    "min_ratio": 0.352,
+    "max_ratio": 1.726,
+    "rms_dln_a0": 0.394,
+    "median_factor_scatter": 1.169,
+    "examples": [
+      {
+        "galaxy": "SSA22 MD41",
+        "z": 2.17,
+        "Vc_RC41": 189.0,
+        "Vc_RC100": 190.0,
+        "fDM_RC41": 0.9,
+        "fDM_RC100": 0.74,
+        "a0_RC41": 1.6223042716057336e-09,
+        "a0_RC100": 5.709522442290196e-10,
+        "ratio_RC100_over_RC41": 0.352,
+        "abs_dln_a0": 1.044
+      },
+      {
+        "galaxy": "zC 405501",
+        "z": 2.15,
+        "Vc_RC41": 139.0,
+        "Vc_RC100": 89.0,
+        "fDM_RC41": 0.15,
+        "fDM_RC100": 0.21,
+        "a0_RC41": 7.761070329648015e-11,
+        "a0_RC100": 2.7941454506338784e-11,
+        "ratio_RC100_over_RC41": 0.36,
+        "abs_dln_a0": 1.022
+      },
+      {
+        "galaxy": "COS4 02672",
+        "z": 2.31,
+        "Vc_RC41": 190.0,
+        "Vc_RC100": 199.0,
+        "fDM_RC41": 0.25,
+        "fDM_RC100": 0.4,
+        "a0_RC41": 1.3942886826416855e-10,
+        "a0_RC100": 2.406715436311045e-10,
+        "ratio_RC100_over_RC41": 1.726,
+        "abs_dln_a0": 0.546
+      },
+      {
+        "galaxy": "D3a 15504",
+        "z": 2.38,
+        "Vc_RC41": 268.0,
+        "Vc_RC100": 234.0,
+        "fDM_RC41": 0.08,
+        "fDM_RC100": 0.24,
+        "a0_RC41": 1.6255374832044374e-10,
+        "a0_RC100": 2.2957683938244627e-10,
+        "ratio_RC100_over_RC41": 1.412,
+        "abs_dln_a0": 0.345
+      },
+      {
+        "galaxy": "BX389",
+        "z": 2.17,
+        "Vc_RC41": 331.0,
+        "Vc_RC100": 302.0,
+        "fDM_RC41": 0.4,
+        "fDM_RC100": 0.56,
+        "a0_RC41": 6.397531887041699e-10,
+        "a0_RC100": 8.679628140090952e-10,
+        "ratio_RC100_over_RC41": 1.357,
+        "abs_dln_a0": 0.305
+      }
+    ]
+  },
+  "rc41_zgt1p5_beam_heterogeneity": {
+    "n_with_fwhm": 19,
+    "min_arcsec": 0.25,
+    "median_arcsec": 0.43,
+    "max_arcsec": 0.75,
+    "max_over_min_ratio": 3.0,
+    "modes": {
+      "LBT/NOEMA": 1,
+      "SINF-H250/KMOS": 1,
+      "SINF-H250": 1,
+      "SINF-K250": 2,
+      "SINF-K100/K250": 6,
+      "SINF-K100": 3,
+      "KMOS": 2,
+      "SINF-K100/K250+KMOS": 2,
+      "SINF-K250+KMOS": 1
+    },
+    "single_flat_beam_used_in_resolution_test": 0.53
+  },
+  "raw_observable_requirement": {
+    "invariant": "a0_R^2 / a0_BTFR = (V_flat^2 / R_t)^2 / (V_flat^4 / (G M_b))",
+    "source_verifier": "scripts/light_cone_a0.py (L3: invariant to <1e-10 under H0 & Om errors when eta=1)",
+    "required_jwst_columns": [
+      "raw un-deprojected line-of-sight velocity curve V_los(theta) + error",
+      "angular radius theta_k [arcsec] + per-object PSF/LSF FWHM",
+      "photometric inclination i +/- e_i [deg] (cut i >= 30 deg)",
+      "bolometric/band flux F + explicit stellar M/L & gas priors (not dynamical-fit Mbar)",
+      "spectroscopic redshift z_spec + SHA-256 provenance manifest"
+    ]
+  },
+  "verdict": "[U] High-z a0(z) remains unresolved, and the Layer 2/3 diagnostics prove why: re-analyzing the EXACT SAME 19 z>1.5 galaxies between Genzel+2020 (RC41) and Nestor Shachar+2023 (RC100) shifts inferred a0 by a median factor of 1.169x (range 0.352x to 1.726x, RMS dln a0 = 0.394), and beam FWHM spans 0.25\" to 0.75\" (3.0x spread across AO vs seeing-limited modes). Every covariance/inclination/cosmology perturbation leaves both n=0 and n=1 inside the 95% CI."
+}

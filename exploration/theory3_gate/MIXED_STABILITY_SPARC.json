@@ -1,0 +1,695 @@
+[
+ {
+  "lambda_s": 0.5,
+  "K4": 1.2e+38,
+  "K3_threshold": 1.3649868323639577e+19,
+  "cubic_screen_radius_kpc": 1.3270766753384557,
+  "mercury_prec": 0.001608001816293944,
+  "mercury_ok": false,
+  "mw_reachable": true,
+  "fmw": 0.6634376306682126,
+  "Ae_1pL": 0.5175525145908308,
+  "sparc": {
+   "dchi2_total": -4154.565926502286,
+   "galaxies_dchi2>25": 32,
+   "worst": [
+    [
+     "UGC11914",
+     637.8
+    ],
+    [
+     "UGC02953",
+     500.4
+    ],
+    [
+     "UGC06786",
+     439.4
+    ],
+    [
+     "NGC2841",
+     411.6
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 0.5,
+  "K4": 3e+38,
+  "K3_threshold": 2.162250326648045e+19,
+  "cubic_screen_radius_kpc": 2.102197549970553,
+  "mercury_prec": 0.0011847858682195683,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 0.7193913360043173,
+  "Ae_1pL": 0.5194807194543974,
+  "sparc": {
+   "dchi2_total": -9974.437872202137,
+   "galaxies_dchi2>25": 25,
+   "worst": [
+    [
+     "NGC6015",
+     406.9
+    ],
+    [
+     "NGC6195",
+     344.9
+    ],
+    [
+     "UGC05764",
+     310.3
+    ],
+    [
+     "NGC5985",
+     290.9
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 0.5,
+  "K4": 1e+39,
+  "K3_threshold": 3.9641729236506894e+19,
+  "cubic_screen_radius_kpc": 3.854074852043967,
+  "mercury_prec": 0.0007931346989778904,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 0.8206195379091461,
+  "Ae_1pL": 0.5238222322868418,
+  "sparc": {
+   "dchi2_total": -14819.460433505337,
+   "galaxies_dchi2>25": 27,
+   "worst": [
+    [
+     "UGC05764",
+     652.6
+    ],
+    [
+     "NGC6015",
+     463.9
+    ],
+    [
+     "NGC5985",
+     425.4
+    ],
+    [
+     "NGC6195",
+     363.5
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 0.5,
+  "K4": 3e+39,
+  "K3_threshold": 6.910898873034499e+19,
+  "cubic_screen_radius_kpc": 6.71896056619357,
+  "mercury_prec": 0.0005499288856150171,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 0.9368586436468237,
+  "Ae_1pL": 0.5306724803701056,
+  "sparc": {
+   "dchi2_total": -15849.573521284474,
+   "galaxies_dchi2>25": 33,
+   "worst": [
+    [
+     "UGC05764",
+     1076.5
+    ],
+    [
+     "NGC5985",
+     496.4
+    ],
+    [
+     "NGC6015",
+     413.6
+    ],
+    [
+     "NGC6195",
+     329.1
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 0.5,
+  "K4": 1e+40,
+  "K3_threshold": 1.2761271166244541e+20,
+  "cubic_screen_radius_kpc": 12.406848850741687,
+  "mercury_prec": 0.0003681405162326609,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 1.0767727618436442,
+  "Ae_1pL": 0.5428334725947476,
+  "sparc": {
+   "dchi2_total": -12195.215915580524,
+   "galaxies_dchi2>25": 44,
+   "worst": [
+    [
+     "UGC05764",
+     1634.8
+    ],
+    [
+     "NGC2403",
+     538.6
+    ],
+    [
+     "NGC5985",
+     487.6
+    ],
+    [
+     "UGC03580",
+     475.8
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 0.5,
+  "K4": 3e+40,
+  "K3_threshold": 2.240871914494866e+20,
+  "cubic_screen_radius_kpc": 21.78635558701299,
+  "mercury_prec": 0.00025525437747517824,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 1.2007059505330397,
+  "Ae_1pL": 0.5579452152413206,
+  "sparc": {
+   "dchi2_total": -2806.01116783225,
+   "galaxies_dchi2>25": 56,
+   "worst": [
+    [
+     "UGC05764",
+     2178.1
+    ],
+    [
+     "NGC2403",
+     1684.0
+    ],
+    [
+     "UGC03580",
+     1048.3
+    ],
+    [
+     "DDO154",
+     801.2
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 0.5,
+  "K4": 1e+41,
+  "K3_threshold": 4.133669252960665e+20,
+  "cubic_screen_radius_kpc": 40.18863712895614,
+  "mercury_prec": 0.00017087569093459629,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 1.319483365525865,
+  "Ae_1pL": 0.5695740497624128,
+  "sparc": {
+   "dchi2_total": 16077.452754970982,
+   "galaxies_dchi2>25": 72,
+   "worst": [
+    [
+     "NGC2403",
+     3822.1
+    ],
+    [
+     "UGC05764",
+     2746.9
+    ],
+    [
+     "UGC03580",
+     2092.3
+    ],
+    [
+     "DDO154",
+     1399.7
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 1.0,
+  "K4": 1.2e+38,
+  "K3_threshold": 1.9791283627012624e+19,
+  "cubic_screen_radius_kpc": 1.282774322002309,
+  "mercury_prec": 0.0021070784609623144,
+  "mercury_ok": false,
+  "mw_reachable": true,
+  "fmw": 0.8510410814720606,
+  "Ae_1pL": 1.0880414100134943,
+  "sparc": {
+   "dchi2_total": 5135.501127157223,
+   "galaxies_dchi2>25": 23,
+   "worst": [
+    [
+     "UGC02953",
+     3672.3
+    ],
+    [
+     "UGC06786",
+     1680.9
+    ],
+    [
+     "UGC06787",
+     1085.5
+    ],
+    [
+     "NGC2403",
+     828.0
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 1.0,
+  "K4": 3e+38,
+  "K3_threshold": 3.1367244777573265e+19,
+  "cubic_screen_radius_kpc": 2.033071573877776,
+  "mercury_prec": 0.001552508684058375,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 0.8773922356799543,
+  "Ae_1pL": 1.0932267165957743,
+  "sparc": {
+   "dchi2_total": -265.9815141494041,
+   "galaxies_dchi2>25": 24,
+   "worst": [
+    [
+     "UGC02953",
+     2003.2
+    ],
+    [
+     "UGC06786",
+     1229.3
+    ],
+    [
+     "NGC2403",
+     689.0
+    ],
+    [
+     "NGC2841",
+     537.1
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 1.0,
+  "K4": 1e+39,
+  "K3_threshold": 5.756572643935008e+19,
+  "cubic_screen_radius_kpc": 3.7311291725929343,
+  "mercury_prec": 0.001039300468397385,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 0.9289721352129986,
+  "Ae_1pL": 1.1046042868300294,
+  "sparc": {
+   "dchi2_total": -5827.247743031225,
+   "galaxies_dchi2>25": 25,
+   "worst": [
+    [
+     "UGC06786",
+     678.2
+    ],
+    [
+     "UGC05764",
+     611.4
+    ],
+    [
+     "NGC2403",
+     572.7
+    ],
+    [
+     "NGC2841",
+     329.3
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 1.0,
+  "K4": 3e+39,
+  "K3_threshold": 1.0048968549038458e+20,
+  "cubic_screen_radius_kpc": 6.513250509795806,
+  "mercury_prec": 0.0007206106972012224,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 0.9956364042836519,
+  "Ae_1pL": 1.122019654439601,
+  "sparc": {
+   "dchi2_total": -8375.205490120929,
+   "galaxies_dchi2>25": 29,
+   "worst": [
+    [
+     "UGC05764",
+     985.6
+    ],
+    [
+     "NGC2403",
+     614.0
+    ],
+    [
+     "UGC03580",
+     366.4
+    ],
+    [
+     "UGC06786",
+     324.4
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 1.0,
+  "K4": 1e+40,
+  "K3_threshold": 1.8586513842372785e+20,
+  "cubic_screen_radius_kpc": 12.046870300011527,
+  "mercury_prec": 0.00048240054488818326,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 1.0882818027217414,
+  "Ae_1pL": 1.1515283227090507,
+  "sparc": {
+   "dchi2_total": -6791.638346888794,
+   "galaxies_dchi2>25": 40,
+   "worst": [
+    [
+     "UGC05764",
+     1499.9
+    ],
+    [
+     "NGC2403",
+     965.6
+    ],
+    [
+     "UGC03580",
+     609.4
+    ],
+    [
+     "ESO444-G084",
+     409.5
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 1.0,
+  "K4": 3e+40,
+  "K3_threshold": 3.2639478180075366e+20,
+  "cubic_screen_radius_kpc": 21.155315280212182,
+  "mercury_prec": 0.00033447785655111136,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 1.1829393401842438,
+  "Ae_1pL": 1.1837061509640174,
+  "sparc": {
+   "dchi2_total": 139.0619485168172,
+   "galaxies_dchi2>25": 54,
+   "worst": [
+    [
+     "UGC05764",
+     2018.1
+    ],
+    [
+     "NGC2403",
+     1813.6
+    ],
+    [
+     "UGC03580",
+     1072.2
+    ],
+    [
+     "DDO154",
+     710.1
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 1.0,
+  "K4": 1e+41,
+  "K3_threshold": 5.965565970027028e+20,
+  "cubic_screen_radius_kpc": 38.665884370010225,
+  "mercury_prec": 0.0002239104982481712,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 1.285095104073258,
+  "Ae_1pL": 1.186265911424817,
+  "sparc": {
+   "dchi2_total": 14848.49266279264,
+   "galaxies_dchi2>25": 66,
+   "worst": [
+    [
+     "NGC2403",
+     3467.0
+    ],
+    [
+     "UGC05764",
+     2571.3
+    ],
+    [
+     "UGC03580",
+     1942.7
+    ],
+    [
+     "DDO154",
+     1257.4
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 3.0,
+  "K4": 1.2e+38,
+  "K3_threshold": 3.818482420889717e+19,
+  "cubic_screen_radius_kpc": 1.6499691786368158,
+  "mercury_prec": 0.0027610538717449565,
+  "mercury_ok": false,
+  "mw_reachable": true,
+  "fmw": 1.1508379629854453,
+  "Ae_1pL": 4.05022444406772,
+  "sparc": {
+   "dchi2_total": 6144.206663492303,
+   "galaxies_dchi2>25": 24,
+   "worst": [
+    [
+     "UGC02953",
+     3056.9
+    ],
+    [
+     "UGC06787",
+     1672.4
+    ],
+    [
+     "UGC06786",
+     1198.7
+    ],
+    [
+     "NGC2403",
+     620.3
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 3.0,
+  "K4": 3e+38,
+  "K3_threshold": 6.05747766485745e+19,
+  "cubic_screen_radius_kpc": 2.617440738398613,
+  "mercury_prec": 0.002034361886590283,
+  "mercury_ok": false,
+  "mw_reachable": true,
+  "fmw": 1.1567815867444526,
+  "Ae_1pL": 4.077003962249651,
+  "sparc": {
+   "dchi2_total": 4455.663423389143,
+   "galaxies_dchi2>25": 26,
+   "worst": [
+    [
+     "UGC02953",
+     2671.7
+    ],
+    [
+     "UGC06787",
+     1403.3
+    ],
+    [
+     "UGC06786",
+     1129.2
+    ],
+    [
+     "NGC2403",
+     659.8
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 3.0,
+  "K4": 1e+39,
+  "K3_threshold": 1.113885636411548e+20,
+  "cubic_screen_radius_kpc": 4.813108366168878,
+  "mercury_prec": 0.0013618688792748608,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 1.1694123667218719,
+  "Ae_1pL": 4.135804036679865,
+  "sparc": {
+   "dchi2_total": 2692.8089560683684,
+   "galaxies_dchi2>25": 31,
+   "worst": [
+    [
+     "UGC02953",
+     2110.5
+    ],
+    [
+     "UGC06787",
+     1098.2
+    ],
+    [
+     "UGC06786",
+     1025.8
+    ],
+    [
+     "NGC2403",
+     786.0
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 3.0,
+  "K4": 3e+39,
+  "K3_threshold": 1.950086597911789e+20,
+  "cubic_screen_radius_kpc": 8.42633912526294,
+  "mercury_prec": 0.0009442671416324882,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 1.187982588152323,
+  "Ae_1pL": 4.225375265950195,
+  "sparc": {
+   "dchi2_total": 2133.5519341598765,
+   "galaxies_dchi2>25": 37,
+   "worst": [
+    [
+     "UGC02953",
+     1555.0
+    ],
+    [
+     "UGC05764",
+     1125.2
+    ],
+    [
+     "NGC2403",
+     1032.9
+    ],
+    [
+     "UGC06786",
+     962.5
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 3.0,
+  "K4": 1e+40,
+  "K3_threshold": 3.619909012595349e+20,
+  "cubic_screen_radius_kpc": 15.641654568257227,
+  "mercury_prec": 0.0006321235382886944,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 1.2188392299268995,
+  "Ae_1pL": 4.367913753156346,
+  "sparc": {
+   "dchi2_total": 4514.642565198696,
+   "galaxies_dchi2>25": 52,
+   "worst": [
+    [
+     "UGC05764",
+     1638.2
+    ],
+    [
+     "NGC2403",
+     1590.6
+    ],
+    [
+     "UGC02953",
+     1201.5
+    ],
+    [
+     "UGC06786",
+     973.0
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 3.0,
+  "K4": 3e+40,
+  "K3_threshold": 6.325940627005833e+20,
+  "cubic_screen_radius_kpc": 27.33443789958338,
+  "mercury_prec": 0.0004382899820548814,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 1.2574910696461923,
+  "Ae_1pL": 4.446391646266995,
+  "sparc": {
+   "dchi2_total": 11227.415410864218,
+   "galaxies_dchi2>25": 60,
+   "worst": [
+    [
+     "NGC2403",
+     2542.3
+    ],
+    [
+     "UGC05764",
+     2132.4
+    ],
+    [
+     "UGC03580",
+     1430.5
+    ],
+    [
+     "UGC02953",
+     1314.8
+    ]
+   ]
+  }
+ },
+ {
+  "lambda_s": 3.0,
+  "K4": 1e+41,
+  "K3_threshold": 1.0956672608741821e+21,
+  "cubic_screen_radius_kpc": 47.34386625937635,
+  "mercury_prec": 0.00029340575567846045,
+  "mercury_ok": true,
+  "mw_reachable": true,
+  "fmw": 1.3064670864714683,
+  "Ae_1pL": 4.00162248850511,
+  "sparc": {
+   "dchi2_total": 23500.668827288464,
+   "galaxies_dchi2>25": 73,
+   "worst": [
+    [
+     "NGC2403",
+     4091.3
+    ],
+    [
+     "UGC05764",
+     2613.5
+    ],
+    [
+     "UGC03580",
+     2282.1
+    ],
+    [
+     "UGC06787",
+     2079.4
+    ]
+   ]
+  }
+ }
+]

@@ -192,6 +192,11 @@ def main():
     parser = argparse.ArgumentParser(description="Pre-registered high-z a0(z) hypothesis test")
     parser.add_argument("--out", type=str, default="03_observer_jwst/A0_OF_Z_REPORT.json", help="Output JSON report path")
     parser.add_argument("--data", type=str, default="", help="Custom JSON data file")
+    parser.add_argument(
+        "--allow-withdrawn-archive",
+        action="store_true",
+        help="Explicitly override the Layer 3 fail-closed quarantine on the withdrawn 20-row table (forensic audit only).",
+    )
     args = parser.parse_args()
 
     repo_root = Path(__file__).resolve().parent.parent
@@ -203,6 +208,16 @@ def main():
         with open(data_path, "r", encoding="utf-8") as f:
             points = json.load(f)
     else:
+        if not args.allow_withdrawn_archive:
+            print(
+                "REFUSED (exit 2 — Layer 3 fail-closed quarantine): The built-in 20-point "
+                "Bouché+2021 / Mercier+2022 table was WITHDRAWN on 2026-09-27 (untraceable sources; "
+                "mu_dual also retired [X]). Pass --data <verified.json> or use "
+                "audits/2026-11-18/a0z_zgt15_manifest.py, or pass --allow-withdrawn-archive "
+                "explicitly for historical forensic reproduction.",
+                file=sys.stderr,
+            )
+            sys.exit(2)
         points = load_muse_dark_published_sample()
 
     if len(points) < 5:

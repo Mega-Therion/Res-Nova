@@ -29,6 +29,8 @@ Checks (exit 0 iff all pass):
   C4  T2 shifts a0 DOWN (flow fraction rescaled to the smaller Planck H0).
   C5  all 95% intervals are finite and ordered.
 """
+import argparse
+import math
 import tempfile
 import glob
 import json
@@ -71,11 +73,18 @@ def parse_master():
     return recs
 
 
-def rescaled_copy(files_and_scale, dest):
-    """Write rotmod copies with the radius column scaled (exact code path reuse)."""
+def rescaled_copy(files_and_scale, dest, *, legacy_r_only: bool = False):
+    """Write rotmod copies with distance rescaled D -> s*D.
+
+    Corrected 2026-11-19: under D -> s*D, SPARC radii scale as R -> s*R AND
+    baryonic velocity components (Vgas, Vdisk, Vbul) scale as V_bar -> sqrt(s)*V_bar
+    (since M_bar ~ L ~ D^2 => V_bar^2 ~ G M / R ~ D, keeping g_bar = V_bar^2/R invariant).
+    Pass legacy_r_only=True only for forensic reproduction of 2026-09-16 JSON.
+    """
     dest.mkdir(parents=True, exist_ok=True)
     n = 0
     for fp, s in files_and_scale:
+        v_s = 1.0 if legacy_r_only else math.sqrt(s)
         out = []
         for line in open(fp):
             if line.startswith("#") or not line.strip():
@@ -85,6 +94,10 @@ def rescaled_copy(files_and_scale, dest):
             if len(p) >= 6:
                 try:
                     p[0] = repr(float(p[0]) * s)
+                    if not legacy_r_only:
+                        p[3] = repr(float(p[3]) * v_s)
+                        p[4] = repr(float(p[4]) * v_s)
+                        p[5] = repr(float(p[5]) * v_s)
                     out.append(" ".join(p) + "\n")
                     continue
                 except ValueError:
@@ -95,8 +108,8 @@ def rescaled_copy(files_and_scale, dest):
     return n
 
 
-def run_treatment(files):
-    gal = [p for p in (M.prep(f) for f in files) if p is not None]
+def run_treatment(files, *, legacy_buggy_fd: bool = False):
+    gal = [p for p in (M.prep(f, legacy_buggy_fd=legacy_buggy_fd) for f in files) if p is not None]
     prof = np.zeros((len(gal), len(M.A0_GRID)))
     for gi, (vobs, verr, r_m, gbar, pri) in enumerate(gal):
         for ai, a0 in enumerate(M.A0_GRID):
@@ -117,6 +130,14 @@ def run_treatment(files):
 
 
 def main():
+    ap = argparse.ArgumentParser(description="Distance-corrected SPARC a0 re-extraction (fixed Layer 1b scaling by default)")
+    ap.add_argument("--legacy-buggy-fd", action="store_true",
+                    help="Reproduce the archived 2026-09-16 harness (buggy FD and R-only T2 scaling)")
+    ap.add_argument("--out", type=Path, default=None,
+                    help="Output JSON path (defaults to 02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-11-19.json; archived 2026-09-16 JSON is preserved)")
+    args = ap.parse_args()
+    legacy = bool(args.legacy_buggy_fd)
+
     print("closure and ordering checks:")
     M.verify_closures()
     note(True, "C1 closure/ordering (module checks passed)")
@@ -134,35 +155,39 @@ def main():
          f"flow {n_flow}, non-flow {n_non}")
 
     # T1: baseline
-    t1 = run_treatment(files)
+    t1 = run_treatment(files, legacy_buggy_fd=legacy)
 
-    # T2: flow rescaled to Planck H0 (D -> D * 73/67.4 -> radii x 73/67.4)
+    # T2: flow rescaled to Planck H0 (D -> D * 73/67.4 -> R x s and V_bar x sqrt(s))
     scale = H0_FLOW / H0_PLANCK
     pairs = [(f, scale if recs[f.split("/")[-1].replace("_rotmod.dat", "")][1] == 1 else 1.0)
              for f in files]
-    # A private temporary directory, not the fixed /tmp/sparc_T2 used until 2026-10-09: on a shared machine
-    # that name belongs to whichever user created it first, so a second user's run failed to write, and a
-    # stale file planted there would have been read as data.
     t2_dir = Path(tempfile.mkdtemp(prefix="sparc_T2_"))
     try:
-        n2 = rescaled_copy(pairs, t2_dir)
-        t2 = run_treatment(sorted(str(p) for p in t2_dir.glob("*_rotmod.dat")))
+        n2 = rescaled_copy(pairs, t2_dir, legacy_r_only=legacy)
+        t2 = run_treatment(sorted(str(p) for p in t2_dir.glob("*_rotmod.dat")), legacy_buggy_fd=legacy)
     finally:
         shutil.rmtree(t2_dir, ignore_errors=True)
     note(n2 == 175, "C4a T2 rescaled files written", f"{n2}")
 
     # T3: non-flow only
     files3 = [f for f in files if recs[f.split("/")[-1].replace("_rotmod.dat", "")][1] != 1]
-    t3 = run_treatment(files3)
+    t3 = run_treatment(files3, legacy_buggy_fd=legacy)
 
     # checks C3-C5
-    frozen = json.load(open(BASE / "02_galaxy_dynamics/A0_REEXTRACTION_3MU_2026-09-16.json"))["std"]
-    d_best = abs(t1["a0_best"] - frozen["a0_best"]) / frozen["a0_best"]
-    w = frozen["bootstrap_68"]
-    dw = max(abs(t1["bootstrap_68"][0] - w[0]), abs(t1["bootstrap_68"][1] - w[1])) / (w[1] - w[0])
-    note(d_best < 0.01 and dw < 0.05,
-         "C3 T1 reproduces the frozen window",
-         f"a0 {t1['a0_best']:.4e} vs {frozen['a0_best']:.4e} ({d_best:.3%}); 68% window match {dw:.2%}")
+    if legacy:
+        frozen = json.load(open(BASE / "02_galaxy_dynamics/A0_REEXTRACTION_3MU_2026-09-16.json"))["std"]
+        d_best = abs(t1["a0_best"] - frozen["a0_best"]) / frozen["a0_best"]
+        w = frozen["bootstrap_68"]
+        dw = max(abs(t1["bootstrap_68"][0] - w[0]), abs(t1["bootstrap_68"][1] - w[1])) / (w[1] - w[0])
+        note(d_best < 0.01 and dw < 0.05,
+             "C3 T1 reproduces the archived 2026-09-16 frozen window (legacy mode)",
+             f"a0 {t1['a0_best']:.4e} vs {frozen['a0_best']:.4e} ({d_best:.3%}); 68% window match {dw:.2%}")
+    else:
+        # Under fixed Layer 1b scaling, T2 drop must be substantially larger than legacy -5.4%
+        drop_pct = (1.0 - t2["a0_best"] / t1["a0_best"]) * 100.0
+        note(drop_pct > 7.5,
+             "C3 fixed Layer 1b scaling: T2 Planck rescaling drops a0 by >7.5% (vs legacy 5.4%)",
+             f"{t1['a0_best']:.4e} -> {t2['a0_best']:.4e} (-{drop_pct:.2f}%)")
     note(t2["a0_best"] < t1["a0_best"],
          "C4 T2 shifts a0 down (Planck-rescaled flow)",
          f"{t1['a0_best']:.4e} -> {t2['a0_best']:.4e} ({t2['a0_best']/t1['a0_best']:.4f})")
@@ -175,9 +200,6 @@ def main():
     h0 = lambda a: 2 * np.pi * a / C_LIGHT * MPC / 1e3  # 1/s -> km/s/Mpc
     for name, t in (("T1", t1), ("T2", t2), ("T3", t3)):
         t["H0_from_a0_95"] = [float(h0(t["bootstrap_95"][0]) * 1e0), float(h0(t["bootstrap_95"][1]))]
-        # The committed JSON (07deb05) carries H0_from_a0_best, which CURRENT_STATE cites as
-        # H0 = 75.1, but no committed version of this script wrote it. It is written here so
-        # the cited number regenerates (2026-10-09).
         t["H0_from_a0_best"] = float(h0(t["a0_best"]))
     print()
     print(f"T1 all 175 (as-is):        a0 = {t1['a0_best']:.4e}, 95% [{t1['bootstrap_95'][0]:.4e}, {t1['bootstrap_95'][1]:.4e}]")
@@ -188,12 +210,11 @@ def main():
           f"  T3 [{t3['H0_from_a0_95'][0]:.1f}, {t3['H0_from_a0_95'][1]:.1f}] km/s/Mpc")
 
     out = {
-        "generated": "2026-09-16",
-        "purpose": "Distance-corrected a0 re-extraction (obligation 5, post-PR-59): "
-                   "the SPARC Hubble-flow distances (f_D=1, 97/175) assume H0=73 "
-                   "(SPARC_Lelli2016c.mrt note 2), so the frozen window's H0 inversion "
-                   "is circular. Treatments: T1 baseline (validation), T2 flow "
-                   "rescaled to Planck H0 (D x 73/67.4), T3 non-flow galaxies only.",
+        "generated": "2026-09-16" if legacy else "2026-11-19",
+        "legacy_buggy_fd": legacy,
+        "purpose": "Distance-corrected a0 re-extraction (obligation 5, post-PR-59; Layer 1b "
+                   "distance scaling fixed 2026-11-19: V_bar^2 -> fd*V_bar^2, R -> fd*R so g_bar "
+                   "is distance-invariant, and T2 scales V_bar by sqrt(73/67.4) alongside R).",
         "provenance": {"master": "https://astroweb.cwru.edu/SPARC/SPARC_Lelli2016c.mrt",
                         "note2": "f_D=1: Hubble-Flow assuming H0=73 km/s/Mpc with "
                                  "Virgo-centric infall correction; f_D=2 TRGB; 3 Cepheids; "
@@ -203,7 +224,8 @@ def main():
         "treatments": {"T1_baseline_175": t1, "T2_flow_rescaled_to_Planck_67p4": t2,
                         "T3_nonflow_only": t3},
     }
-    dest = BASE / "02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json"
+    dest = args.out or (BASE / ("02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json" if legacy
+                                else "02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-11-19.json"))
     json.dump(out, open(dest, "w"), indent=2)
     print("written:", dest)
 

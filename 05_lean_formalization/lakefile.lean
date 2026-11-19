@@ -165,7 +165,25 @@ lean_lib «ResNovaFormal» where
     -- Calculus/normalization only; no covariant field equation or branch selection.
     `AeSTParameterizedNormalization,
     `AeSTVectorNoetherResidual,
-    -- ADDED 2026-11-13 (PR #210). Adjacent root-data bookkeeping only; not a physical
+    -- ADDED 2026-11-17 (Issue #217 / BLK-1443, Muse). Parameterized scalar-channel
+    -- calculus normalization J(Y) = 2 lam a^2 F_std(sqrt Y / a); calculus only.
+    `AeSTParameterizedNormalization,
+    -- ADDED 2026-11-17 (Issue #217 obligations 3-4). Arbitrary-dimension off-shell
+    -- diffeomorphism Noether identity, minimal-coupling matter conservation, and C^2
+    -- 1+1D curved-metric fderiv verification of div(sqrt(-g) V) and div T = E_chi d chi.
+    `AeSTDiffeomorphismNoether,
+    -- ADDED 2026-11-17 (PR #210). Adjacent root-data bookkeeping only; not a physical
     -- unification result.
-    `StringTheoryBridge
+    `StringTheoryBridge,
+    -- ADDED 2026-11-17 (Wave 3 #1 BBN bounds + BLK-1450/BLK-1461 E8 x CP2 Spin^c Gate 2).
+    -- Pure algebraic/arithmetic bounds on G_cosmo vs J_tot non-folding, zero-sum SU(3) twists,
+    -- O(-1)^3/O(-4)^3 uniqueness, and E8 248 vs (27,3) chiral Spin^c charge-locking.
+    `Wave3BBNAndSpinCCP2Bounds,
+    -- ADDED 2026-11-17 (foundations audit 2026-11-13 Sec. 6 step 1). The canonical
+    -- model-identity manifest as one Lean record, with open Sec. 7 questions stored as
+    -- open slots. Data plus bookkeeping checks; proves no physics.
+    `ModelIdentity,
+    -- ADDED 2026-11-17. Wave/AeST theorems restated with their physics literals read
+    -- from ModelIdentity.canonical; sabotage_model_identity.sh mutates each field.
+    `ModelIdentityBindings
   ]

@@ -170,8 +170,51 @@ def run_symbolic_checks() -> dict:
     )
     assert sp.diff(H_curl, mu) == 0 and sp.diff(H_curl, nu) == 0
 
-    # BLK-1440 Minkowski boundary degeneration: d2U/dmu2(mu=0) = 0
+    # BLK-1440 Minkowski boundary degeneration & BLK-1446 #2 tertiary-constraint analysis at mu = 0:
     assert d2U_dmu2_expected.subs(mu, 0) == 0
+    w1_expr = A_norm * sig + chi_expr * Dp_par
+    # 1. Exact sum-of-squares decomposition Y_can == w1^2 + Dp_perp^2
+    assert sp.simplify(Y_can - (w1_expr**2 + Dp_perp**2)) == 0
+    # 2. On S^(mu)|_{mu=0} = Y_can = 0: w1 = 0, Dp_perp = 0 => v_mu = A_norm * w1 = 0
+    #    Also note (w1 * Xi) is completely independent of mu for ALL A_norm, so dw1/dmu = A_norm^2 * w1 / Xi!
+    assert sp.simplify(sp.diff(w1_expr * Xi, mu)) == 0
+    assert sp.simplify(sp.diff(w1_expr, mu) - A_norm**2 * w1_expr / Xi) == 0
+    # 3. Division-free determinant det(C^{AB}) = U_mumu*U_nunu + (2/Xi)*(U_mumu*v_nu^2 + U_nunu*v_mu^2)
+    det_no_div = Um_s * Un_s + (2 / Xi_s) * (Um_s * vn_s**2 + Un_s * vm_s**2)
+    assert sp.simplify(det_direct - det_no_div) == 0
+    assert sp.simplify(det_no_div.subs({Um_s: 0, vm_s: 0})) == 0
+    # 4. Dirac irregularity / no linear tertiary constraint: all first partials of S^(mu) vanish at (w1=0, Dp_perp=0, mu=0)
+    w1_s = sp.Symbol("w1_s", real=True)
+    S_mu_cone = w1_s**2 + Dp_perp**2 - a0t**2 * mu**2 / (mu_max**2 - mu**2)
+    assert all(sp.diff(S_mu_cone, var).subs({w1_s: 0, Dp_perp: 0, mu: 0}) == 0 for var in (w1_s, Dp_perp, mu))
+    # 5. Wave 3 #2 [P]: Canonical Poisson bracket {S^(mu), H_0} = 0 identically + d^2 S / dt^2 cone derivation
+    t_s = sp.Symbol("t_s", real=True)
+    w1_f, w2_f, mu_f = sp.Function("w1_f"), sp.Function("w2_f"), sp.Function("mu_f")
+    w1_t, w2_t, mu_t = w1_f(t_s), w2_f(t_s), mu_f(t_s)
+    dw1_t, dw2_t, u_mu_t, ddw1_t, ddw2_t, du_mu_t = sp.symbols("dw1_t dw2_t u_mu_t ddw1_t ddw2_t du_mu_t", real=True)
+    S_t = w1_t**2 + w2_t**2 - a0t**2 * mu_t**2 / (mu_max**2 - mu_t**2)
+    d2S_t = sp.diff(S_t, t_s, 2).subs({
+        sp.Derivative(w1_t, (t_s, 2)): ddw1_t,
+        sp.Derivative(w2_t, (t_s, 2)): ddw2_t,
+        sp.Derivative(mu_t, (t_s, 2)): du_mu_t,
+        sp.Derivative(w1_t, t_s): dw1_t,
+        sp.Derivative(w2_t, t_s): dw2_t,
+        sp.Derivative(mu_t, t_s): u_mu_t,
+    }).subs({w1_t: 0, w2_t: 0, mu_t: 0})
+    expected_d2S = 2 * (dw1_t**2 + dw2_t**2 - (a0t / mu_max)**2 * u_mu_t**2)
+    assert sp.simplify(d2S_t - expected_d2S) == 0
+    q_c, p_c = sp.symbols("q_c p_c", real=True)
+    w1_c, w2_c, mu_c = sp.Function("w1_c")(q_c, p_c), sp.Function("w2_c")(q_c, p_c), sp.Function("mu_c")(q_c, p_c)
+    H0_c = sp.Function("H0_c")(q_c, p_c)
+    w1q, w1p, w2q, w2p, mq, mp, H0q, H0p = sp.symbols("w1q w1p w2q w2p mq mp H0q H0p", real=True)
+    S_c = w1_c**2 + w2_c**2 - a0t**2 * mu_c**2 / (mu_max**2 - mu_c**2)
+    pb_c = (sp.diff(S_c, q_c) * sp.diff(H0_c, p_c) - sp.diff(S_c, p_c) * sp.diff(H0_c, q_c)).subs({
+        sp.Derivative(w1_c, q_c): w1q, sp.Derivative(w1_c, p_c): w1p,
+        sp.Derivative(w2_c, q_c): w2q, sp.Derivative(w2_c, p_c): w2p,
+        sp.Derivative(mu_c, q_c): mq, sp.Derivative(mu_c, p_c): mp,
+        sp.Derivative(H0_c, q_c): H0q, sp.Derivative(H0_c, p_c): H0p,
+    }).subs({w1_c: 0, w2_c: 0, mu_c: 0})
+    assert sp.simplify(pb_c) == 0
 
     print("[PASS] mu(Y) and nu(Q) conjugate inversion verified symbolically")
     print("[PASS] Closed-form BSZ auxiliary potential U(nu, mu) verified:")
@@ -182,6 +225,7 @@ def run_symbolic_checks() -> dict:
     print("[PASS] Full canonical kinetic Hessian = (2/Xi) v v^T (exact rank-1) verified")
     print("[PASS] A_i = 0 canonical S^(nu)_nu = 2 Q_0^2 / [nu (1 - nu/(2*K_2))^3] verified")
     print("[PASS] General A_i != 0, curl A != 0 universal nu-cancellation and curl-independence verified")
+    print("[PASS] BLK-1446 #2 (mu=0): Y_can=w1^2+D_perp^2, v_mu=0 on S^(mu)=0, dS^(mu)|_0=0 (no linear tertiary constraint)")
 
     return {
         "U_nu_symbolic": str(U_nu),
@@ -194,6 +238,7 @@ def run_symbolic_checks() -> dict:
         "A_zero_S_nu_nu_symbolic": str(M_11_A0_expected),
         "nonspherical_universal_nu_cancellation": str(shift_expected),
         "d2U_dmu2_at_zero": 0,
+        "mu_zero_dirac_degeneracy": "irregular quadratic cone (dS^(mu)|_{mu=0,S^(mu)=0}=0, C^{AB} rank-1, no linear tertiary constraint)",
         "canonical_rank1_correction_verified": True,
     }
 

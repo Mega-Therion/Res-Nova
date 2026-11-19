@@ -1,0 +1,70 @@
+{
+  "generated": "2026-11-19",
+  "legacy_buggy_fd": false,
+  "purpose": "Distance-corrected a0 re-extraction (obligation 5, post-PR-59; Layer 1b distance scaling fixed 2026-11-19: V_bar^2 -> fd*V_bar^2, R -> fd*R so g_bar is distance-invariant, and T2 scales V_bar by sqrt(73/67.4) alongside R).",
+  "provenance": {
+    "master": "https://astroweb.cwru.edu/SPARC/SPARC_Lelli2016c.mrt",
+    "note2": "f_D=1: Hubble-Flow assuming H0=73 km/s/Mpc with Virgo-centric infall correction; f_D=2 TRGB; 3 Cepheids; 4 Ursa Major cluster; 5 SNe light curves",
+    "counts": {
+      "flow_H0_73": 97,
+      "non_flow": 78
+    }
+  },
+  "mu": "std (x/sqrt(1+x^2), the live row; battery-passing)",
+  "treatments": {
+    "T1_baseline_175": {
+      "n_galaxies": 175,
+      "n_points": 3391,
+      "a0_best": 1.1802861043317964e-10,
+      "bootstrap_68": [
+        1.080603313818465e-10,
+        1.2543937256248453e-10
+      ],
+      "bootstrap_95": [
+        1.0063698806854686e-10,
+        1.3128650239099703e-10
+      ],
+      "H0_from_a0_95": [
+        65.08296666627894,
+        84.90432019910696
+      ],
+      "H0_from_a0_best": 76.33030624145518
+    },
+    "T2_flow_rescaled_to_Planck_67p4": {
+      "n_galaxies": 175,
+      "n_points": 3391,
+      "a0_best": 1.0749096734297687e-10,
+      "bootstrap_68": [
+        9.921595904095076e-11,
+        1.1528349190731969e-10
+      ],
+      "bootstrap_95": [
+        9.129952768487284e-11,
+        1.2291975012521674e-10
+      ],
+      "H0_from_a0_95": [
+        59.04433579544615,
+        79.49345616919487
+      ],
+      "H0_from_a0_best": 69.51550497262468
+    },
+    "T3_nonflow_only": {
+      "n_galaxies": 78,
+      "n_points": 1406,
+      "a0_best": 1.1809606470531978e-10,
+      "bootstrap_68": [
+        1.0998328857497428e-10,
+        1.2463254400462746e-10
+      ],
+      "bootstrap_95": [
+        9.93118764026855e-11,
+        1.3075795398929434e-10
+      ],
+      "H0_from_a0_95": [
+        64.22600343602396,
+        84.56250255661054
+      ],
+      "H0_from_a0_best": 76.37392960727178
+    }
+  }
+}

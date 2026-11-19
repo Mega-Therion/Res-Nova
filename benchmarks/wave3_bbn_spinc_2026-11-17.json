@@ -1,0 +1,98 @@
+{
+  "date": "2026-11-17",
+  "lam_max_Jtot": 11.278775382679628,
+  "lam_min_BBN_5pct": 19.0,
+  "max_KB_at_10pct_BBN": 0.04040820577345752,
+  "symmetric_3gen_twists": [
+    -4,
+    -1
+  ],
+  "matter_27_net3_solutions": [
+    {
+      "Q0": -2,
+      "k_psi": -1,
+      "Q_10": 0,
+      "ind_10_per_color": 1,
+      "total_ind_10_symmetric": 3,
+      "Q_16_plus": -3,
+      "Q_16_minus": -1
+    },
+    {
+      "Q0": -2,
+      "k_psi": 1,
+      "Q_10": -4,
+      "ind_10_per_color": 3,
+      "total_ind_10_symmetric": 9,
+      "Q_16_plus": -1,
+      "Q_16_minus": -3
+    },
+    {
+      "Q0": -1,
+      "k_psi": -1,
+      "Q_10": 1,
+      "ind_10_per_color": 3,
+      "total_ind_10_symmetric": 9,
+      "Q_16_plus": -2,
+      "Q_16_minus": 0
+    },
+    {
+      "Q0": -1,
+      "k_psi": 1,
+      "Q_10": -3,
+      "ind_10_per_color": 1,
+      "total_ind_10_symmetric": 3,
+      "Q_16_plus": 0,
+      "Q_16_minus": -2
+    }
+  ],
+  "e8_248_traceless_chiral_excess_identically_zero": true,
+  "e8_248_traceful_twice_chiral_excess_formula": "2*(2*Q0+3)*(q1+q2+q3)",
+  "traceful_27_net3_and_all_10_vanish_solutions": [
+    {
+      "Q0": -2,
+      "k_psi": 0,
+      "q": [
+        1,
+        1,
+        1
+      ],
+      "trace": 3,
+      "net_27": -3,
+      "net_248": -3
+    },
+    {
+      "Q0": -1,
+      "k_psi": 0,
+      "q": [
+        -1,
+        -1,
+        -1
+      ],
+      "trace": -3,
+      "net_27": -3,
+      "net_248": -3
+    }
+  ],
+  "traceful_gate2_locus_cancel10_witness_count": 32,
+  "single_multiplet_ind3_charges": [
+    -4,
+    1
+  ],
+  "l1_l2_boundary_summary": {
+    "dolan_Q1_single_multiplet": {
+      "Q0": 0,
+      "Q": 1,
+      "ind_16": 3,
+      "ind_10": 0,
+      "ind_singlet_1_16": 10
+    },
+    "gate2_Q0_chiral_excess_Q0_zero_triplet_16": "9*k_psi (never +-3)",
+    "gate2_Q0_locus_16_charges_subset_of": [
+      -3,
+      -2,
+      -1,
+      0
+    ],
+    "gate2_exotic_10_min_total_ind_traceless": 3
+  }
+}
