@@ -406,3 +406,21 @@ The parameter moves by a factor ≈ 4 from the gauge alone, and median `R` moves
 A bounded quasi-static solve at `r_C = 0.54 r₅₀₀` — the radius §7 identifies as SZ's validity limit, where §9's resonance regime is not yet reached — gives median `R = 1.76` under `μ_std` and `2.17` in the pure-MOND limit, against `1.96` at `r₅₀₀` in §2. No closure of the gap where the equation *is* well posed. Caveat recorded: the outer condition there is vacuum (`Φ(r_C) = 0`), not compensated, so this is a bounded diagnostic and not the AeST prediction. Two of twelve clusters fail the cosmological-condition branch of the same solve and are excluded rather than tuned.
 
 **Scripts and data:** `02_galaxy_dynamics/clusters/d10_gauge_test.py` (the table above), `02_galaxy_dynamics/clusters/d10_nonlinear/d10_solve.py` and `d10_verify.py` (DOP853, `rtol = 1e-10`, 12 clusters), results in `d10_results.json`. The `R(μ_std)` column reproduces §2 (`2.86, 1.75, 4.70, 1.98, 2.16, …`) to two decimals — the check that the `R` definition matches.
+
+## 11. Gauge fixed at the x_H virial boundary: first order fails in the physical gauge `[D]`, added 2026-11-19
+Pre-registered in `02_galaxy_dynamics/clusters/PREREG_D10_VIRIAL_GAUGE.md` (committed before any number). Script `d10_virial_gauge.py` → `D10_VIRIAL_GAUGE.json`.
+
+**Gauge C.** §10 left the μ²Φ correction gauge-dependent. Today's tidal-AeST work supplies a physical boundary: the x_H = 154 virial cut, outside which linear growth is ΛCDM-identical and the AeST perturbation potential vanishes.
+- So Φ(r_v) = 0, where r_v is the radius with mean enclosed lensing density 177.8 ρ_c(z), taken from the weak-lensing M₂₀₀.
+- Median r_v/r₅₀₀ = 1.59.
+
+**Result, 12 clusters.**
+- Median W/W₀ − 1 = **2.39**: the first-order "correction" is more than twice the zeroth order.
+- Median R(+μ²) = **0.77**: an overshoot, outside the pre-registered band [0.8, 1.25].
+- **Verdict: FAILS.** Even taken at face value, first order is not valid in the physical gauge.
+
+**What this settles.**
+- Of the three gauges, the physically motivated one gives the largest correction: A 0.81, B 3.12, C 2.39 at its own boundary.
+- So at cluster scales the AeST mass term is **strong, not perturbative**. Whether it closes the 1.96 gap is a nonperturbative question.
+- §9 found that question ill-posed under the compensated boundary condition. The x_H virial boundary is the candidate condition to re-pose it with, `[O]`.
+- **Sign stands.** 11 of 12 clusters move from R ≈ 2 to below 1 (CL-J1226 stays at 1.84, from its low f_gas). The term has more than enough strength; the open question is control.
