@@ -10,6 +10,11 @@ are the only current physics.**
 **Last verified against the physics:** 2026-11-19 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
+Also 2026-11-19 (exploration record, no tier change): **Dark Bubble wall acceleration as the origin of a₀ is `[X]`** (`exploration/dark_bubble_a0/`, pre-registered).
+- The wall's AdS₅ excess acceleration is a_w² = c²H₀²[Ω_Λ − 2Ω_m(1+z)³] `[D]`. That gives 1.54×10⁻¹⁰ today, and a₀ = 1.1607 needs Ω_m = 0.323.
+- But a_w vanishes for z > 0.028, so a₀ would run across SPARC's own volume. Δχ² is +4758 against a constant a₀ (threshold 25).
+- The a₀ origin stays `[O]`.
+
 Also 2026-11-19 (exploration record, no tier change): **tidal screen with an AeST two-field (QUMOND-type) scalar** (`exploration/tidal_aest/README.md`; pre-registered in `PREREG.md`).
 - **[D] static.** With AeST's own weights the sector enters the single metric: Ψ = Φ = Φ_N + φ, with G_N = G̃/(1 − K_B/2). So G_cosmo/G_N = 1 − K_B/2 (BBN passes for K_B ≤ 0.1), γ = 1 and lensing = dynamics. The aether-frame action is non-dynamical and gives c_T = c.
 - **Linear cosmology.**
