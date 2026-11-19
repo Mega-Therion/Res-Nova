@@ -140,7 +140,7 @@
       ],
       "data_artifacts": [],
       "assumptions": [
-        "Parameter totals are interpreted according to the repository’s tier definitions."
+        "Parameter totals are interpreted according to the repository\u2019s tier definitions."
       ],
       "verification_commands": [
         "python3 scripts/check_claim_consistency.py"
@@ -351,9 +351,9 @@
     },
     {
       "id": "CLM-12",
-      "wording": "F_dual(x) = x^2/2 - (x - ln(1+x)) is the unique Pade[1/1] AQUAL potential and decomposes into H = x^2/2 and L_corr = x - ln(1+x).",
-      "state": "formally-verified",
-      "assurance_level": "formal-algebraic",
+      "wording": "RETIRED. F_dual(x) = x^2/2 - (x - ln(1+x)) is the unique Pade[1/1] AQUAL potential, and it is the potential of the RETIRED mu_dual = x/(1+x). PROVED for the retired branch; FALSE as a statement about the live model.",
+      "state": "retracted",
+      "assurance_level": "formal-refutation",
       "formal_artifacts": [
         "05_lean_formalization/Hamilgrangian.lean",
         "05_lean_formalization/DualChannelDerivation.lean"
@@ -368,23 +368,23 @@
         "cd 05_lean_formalization && bash verify_all_proofs.sh"
       ],
       "independent_witness": "assurance/evidence/res_nova_verify_final.log",
-      "limitations": "Does not establish that MOND emerges independently of MOND assumptions; the boundary conditions that fix the form are the definition of MOND. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
+      "limitations": "The uniqueness theorem is correct and, precisely because it is, it excludes the live theory: Pade[1/1] + mu(0)=0 + mu(inf)=1 + mu'(0)=1 has the unique solution x/(1+x), and mu_std = x/sqrt(1+x^2) is not a rational function, so it lies outside the admissible class entirely. It cannot be repaired by fixing algebra; repairing it would destroy the theorem. Retired 2026-11-18 on audits/2026-11-18/verify_untested_claims.py.",
       "status_owner": "Res-Nova formalization maintainers",
       "claim_type": "algebraic-identity",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-12",
       "falsifiability": {
-        "test": null,
-        "scope": null,
-        "result": "not_run"
+        "test": "does the Pade[1/1] uniqueness theorem admit the live mu_std?",
+        "scope": "Pade[1/1] class with mu(0)=0, mu(inf)=1, mu'(0)=1",
+        "result": "contradicted"
       },
-      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+      "last_verified_commit": "da34485f1439d840cd86959f07a1b404278feca6"
     },
     {
       "id": "CLM-13",
-      "wording": "Fisher identity: F'_dual(x)^2 * I(mu(x)) = x^3, with odds-ratio inverse mu(odds(p)) = p.",
-      "state": "formally-verified",
-      "assurance_level": "formal-algebraic",
+      "wording": "RETIRED. The Fisher identity F'_dual(x)^2 * I(mu(x)) = x^3 holds for mu_dual = x/(1+x) and FAILS for the live mu_std, by the factor x + sqrt(1+x^2). PROVED for the retired branch; FALSE for the live model.",
+      "state": "retracted",
+      "assurance_level": "formal-refutation",
       "formal_artifacts": [
         "05_lean_formalization/Hamilgrangian.lean"
       ],
@@ -397,17 +397,17 @@
         "cd 05_lean_formalization && bash verify_all_proofs.sh"
       ],
       "independent_witness": "assurance/evidence/res_nova_verify_final.log",
-      "limitations": "An algebraic identity over the reals. It does NOT derive galactic gravity from a statistical estimation process or from a minimum-Fisher-information variational principle. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
+      "limitations": "Solving F'^2 I(mu) = x^3 gives mu = x/(1+x) exactly, so the identity CHARACTERISES the retired branch rather than merely describing it. Substituting mu_std gives LHS/x^3 = x + sqrt(1+x^2). There is no version of this identity that selects mu_std. Retired 2026-11-18 on audits/2026-11-18/verify_untested_claims.py.",
       "status_owner": "Res-Nova formalization maintainers",
       "claim_type": "algebraic-identity",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER.md#CLM-13",
       "falsifiability": {
-        "test": null,
-        "scope": null,
-        "result": "not_run"
+        "test": "does F'^2 I(mu) = x^3 hold for the live mu_std?",
+        "scope": "real x > 0, I(p) = 1/(p(1-p))",
+        "result": "contradicted"
       },
-      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+      "last_verified_commit": "da34485f1439d840cd86959f07a1b404278feca6"
     },
     {
       "id": "CLM-14",
@@ -499,9 +499,9 @@
     },
     {
       "id": "CLM-D2-01",
-      "wording": "F_dual is uniquely determined given 4 structural constraints (constitutive-relation, Pade[1/1], MOND boundary conditions, dual-channel).",
-      "state": "derived",
-      "assurance_level": "symbolic-derivation",
+      "wording": "RETIRED. F_dual is uniquely determined given 4 structural constraints (constitutive relation, Pade[1/1], MOND boundary conditions, dual-channel). Proved; the result is the RETIRED function mu_dual = x/(1+x), not the live mu_std.",
+      "state": "retracted",
+      "assurance_level": "formal-refutation",
       "claim_type": "algebraic-identity",
       "formal_artifacts": [],
       "computational_artifacts": [
@@ -515,22 +515,22 @@
         "SymPy verification embedded in TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Theorem 9.1"
       ],
       "independent_witness": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md",
-      "limitations": "Uniqueness is conditional on the four adopted constraints, not a first-principles selection of F_dual. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
+      "limitations": "Internally consistent and correctly proved, and that is the problem: the constraint set is satisfiable by exactly one function and it is not the one the corpus uses. Recorded as a closed path, not as a live derivation. Retired 2026-11-18 on audits/2026-11-18/verify_untested_claims.py.",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-01 (TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.9 Theorem 9.1)",
       "falsifiability": {
-        "test": null,
-        "scope": null,
-        "result": "not_run"
+        "test": "does the 4-constraint uniqueness theorem deliver the live mu_std?",
+        "scope": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.9 Theorem 9.1",
+        "result": "contradicted"
       },
-      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+      "last_verified_commit": "da34485f1439d840cd86959f07a1b404278feca6"
     },
     {
       "id": "CLM-D2-02",
-      "wording": "mu(x) = x/(1+x) is the unique Pade[1/1] rational function satisfying mu(0)=0, mu(infinity)=1, mu'(0)=1.",
-      "state": "derived",
-      "assurance_level": "symbolic-derivation",
+      "wording": "RETIRED. mu(x) = x/(1+x) is the unique Pade[1/1] rational function with mu(0)=0, mu(infinity)=1, mu'(0)=1. True, and it is a uniqueness proof for the RETIRED branch.",
+      "state": "retracted",
+      "assurance_level": "formal-refutation",
       "claim_type": "algebraic-identity",
       "formal_artifacts": [],
       "computational_artifacts": [
@@ -544,22 +544,22 @@
         "SymPy verification embedded in TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Theorem 5.1"
       ],
       "independent_witness": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md",
-      "limitations": "Uniqueness holds only within the adopted Pade[1/1] class; the class itself is not derived. Retired branch: F_dual / mu_dual = x/(1+x) was falsified on 2026-09-12 (TARGET_D7_COVARIANT_COMPLETION.md sec.4). This record is mathematics about that function and gives no physical support to the live theory (mu_std).",
+      "limitations": "mu_std = x/sqrt(1+x^2) is irrational, so no member of the Pade[1/1] class is the live model and this theorem cannot be a derivation of it. Retired 2026-11-18 on audits/2026-11-18/verify_untested_claims.py.",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-02 (TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.5 Theorem 5.1)",
       "falsifiability": {
-        "test": null,
-        "scope": null,
-        "result": "not_run"
+        "test": "is the live mu_std in the Pade[1/1] class?",
+        "scope": "Pade[1/1] rational functions",
+        "result": "contradicted"
       },
-      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+      "last_verified_commit": "da34485f1439d840cd86959f07a1b404278feca6"
     },
     {
       "id": "CLM-D2-03",
-      "wording": "mu is the inverse of the odds-ratio function, i.e. mu has Bayesian-odds structure.",
-      "state": "derived",
-      "assurance_level": "symbolic-derivation",
+      "wording": "RETIRED. mu is the inverse of the odds-ratio function (Bayesian-odds structure). Holds for mu_dual = x/(1+x); FAILS for the live mu_std except at p = 0 and p = 1.",
+      "state": "retracted",
+      "assurance_level": "formal-refutation",
       "claim_type": "algebraic-identity",
       "formal_artifacts": [],
       "computational_artifacts": [
@@ -573,22 +573,22 @@
         "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.6 Theorem 6.1"
       ],
       "independent_witness": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md",
-      "limitations": "An algebraic correspondence, not a derivation of a Bayesian-inference origin for mu.",
+      "limitations": "mu(odds(p)) - p = 0 for x/(1+x) and equals -p - p/((p-1) sqrt(p^2/(p-1)^2 + 1)) for mu_std. The Bayesian-odds property is a property of x/(1+x) alone, not a general structural requirement. Retired 2026-11-18 on audits/2026-11-18/verify_untested_claims.py.",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-03 (TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.6 Theorem 6.1)",
       "falsifiability": {
-        "test": null,
-        "scope": null,
-        "result": "not_run"
+        "test": "does mu(odds(p)) = p hold for the live mu_std?",
+        "scope": "odds p/(1-p), p in (0,1)",
+        "result": "contradicted"
       },
-      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+      "last_verified_commit": "da34485f1439d840cd86959f07a1b404278feca6"
     },
     {
       "id": "CLM-D2-04",
-      "wording": "F'(x)^2 * I(mu(x)) = x^3 (Fisher-information identity linking the action derivative to Bernoulli Fisher information).",
-      "state": "derived",
-      "assurance_level": "symbolic-derivation",
+      "wording": "RETIRED. F'(x)^2 * I(mu(x)) = x^3 as a Fisher-information identity. Identical to CLM-13 and carries the same verdict: true for the retired mu_dual, false for the live mu_std.",
+      "state": "retracted",
+      "assurance_level": "formal-refutation",
       "claim_type": "algebraic-identity",
       "formal_artifacts": [],
       "computational_artifacts": [
@@ -602,16 +602,16 @@
         "SymPy verification embedded in TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Theorem 7.1"
       ],
       "independent_witness": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md",
-      "limitations": "Algebraic identity only; does not establish that a minimum-Fisher-information principle selects mu (open, see CLM-D2-05 note in the same source).",
+      "limitations": "Algebraic identity that characterises mu = x/(1+x). See CLM-13 for the exact failure factor x + sqrt(1+x^2) under mu_std. Retired 2026-11-18 on audits/2026-11-18/verify_untested_claims.py.",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-04 (TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.7 Theorem 7.1)",
       "falsifiability": {
-        "test": null,
-        "scope": null,
-        "result": "not_run"
+        "test": "does the Fisher identity hold for the live mu_std?",
+        "scope": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.7",
+        "result": "contradicted"
       },
-      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+      "last_verified_commit": "da34485f1439d840cd86959f07a1b404278feca6"
     },
     {
       "id": "CLM-D2-05",
@@ -754,9 +754,9 @@
     },
     {
       "id": "CLM-D5-02",
-      "wording": "RMOND linear screening reduces the structure-growth enhancement to approximately 0.23% (F''/F' = 1/(2 x0^2 (1+x0)) ~= 0.00233; corrected 2026-09-08 from an earlier ~0.4%).",
-      "state": "conditional",
-      "assurance_level": "numerical-derivation",
+      "wording": "RETIRED. The '0.23% structure-growth suppression' figure is withdrawn. It rested on F''/F' = 1/(2 x0^2 (1+x0)) ~= 0.00233, which is not the derivative ratio: for F_dual the ratio is (x+2)/(x(x+1)), giving 0.203 at the old x0 = 5.67, an error of 87x, and the x0 = 5.67 background itself was deleted by TARGET_D7_COVARIANT_COMPLETION.md Sec.3. No suppression percentage is quoted.",
+      "state": "retracted",
+      "assurance_level": "numerical-control",
       "claim_type": "algebraic-identity",
       "formal_artifacts": [],
       "computational_artifacts": [
@@ -771,16 +771,16 @@
         "TARGET_D7_COVARIANT_COMPLETION.md Sec.4.1"
       ],
       "independent_witness": "TARGET_D7_COVARIANT_COMPLETION.md",
-      "limitations": "CONDITIONAL since 2026-09-30: computed for the retired F_dual (falsified 2026-09-12); the mu_std value of the linear screening ratio has not been computed, so this number carries no support for the live theory. Linear-regime only. Non-linear consistency is CLM-D5-03, resolved INCONCLUSIVE (see falsifiability below), not this claim.",
+      "limitations": "Two independent defects. (1) The formula 1/(2x0^2(1+x0)) is not F''/F' for any branch; the correct ratio is (x+2)/(x(x+1)) for F_dual and (x^2+2)/(x^3+x) for F_std, so the old figure understated the ratio by ~87x. (2) The evaluation background x0 = 5.67 was retracted in TARGET_D7 Sec.3, so there is no valid background left to evaluate at. Retired 2026-11-18 on audits/2026-11-18/verify_untested_claims.py; the source document already carried [X] at TARGET_D7_COVARIANT_COMPLETION.md Sec.4/line 430.",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D5-02 (TARGET_D7_COVARIANT_COMPLETION.md Sec.4.1)",
       "falsifiability": {
-        "test": null,
-        "scope": null,
-        "result": "not_run"
+        "test": "recompute F''/F' and compare to 1/(2 x0^2 (1+x0))",
+        "scope": "F_dual and F_std, real x > 0",
+        "result": "contradicted"
       },
-      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+      "last_verified_commit": "da34485f1439d840cd86959f07a1b404278feca6"
     },
     {
       "id": "CLM-D5-03",
@@ -1204,9 +1204,9 @@
     },
     {
       "id": "CLM-D2-00",
-      "wording": "F_dual is uniquely determined from first principles (rescored from [P] to [P/O]: conditional on the adopted Pade choice; necessity of that choice is open).",
-      "state": "conditional",
-      "assurance_level": "formal-algebraic-under-adopted-premise",
+      "wording": "RETIRED. 'F_dual is uniquely determined from first principles' is true only of the retired mu_dual. The four adopted constraints include Pade[1/1], which forces mu = x/(1+x) and therefore excludes the live mu_std by construction.",
+      "state": "retracted",
+      "assurance_level": "formal-refutation",
       "claim_type": "algebraic-identity",
       "formal_artifacts": [],
       "computational_artifacts": [
@@ -1220,16 +1220,16 @@
         "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.9"
       ],
       "independent_witness": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md",
-      "limitations": "Uniqueness given the constraints is proved (CLM-D2-01); necessity of the Pade[1/1] constraint itself remains open (CLM-D2-05). This record tracks the rescore of the umbrella claim, distinct from CLM-D2-01's narrower theorem.",
+      "limitations": "The uniqueness is real but its conclusion is the falsified function. 'First principles' here means four adopted constraints, one of which is the very choice now known to select the dead branch. Replaced by the Postulate R statement CLM-PR-01. Retired 2026-11-18 on audits/2026-11-18/verify_untested_claims.py.",
       "status_owner": "Res-Nova formalization maintainers",
       "quotation_type": "paraphrase",
       "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D2-00 (Rescored Claims table)",
       "falsifiability": {
-        "test": null,
-        "scope": null,
-        "result": "not_run"
+        "test": "does first-principles uniqueness deliver the live mu_std?",
+        "scope": "TARGET_D2_PHYSICAL_ACTION_DERIVATION.md Sec.9",
+        "result": "contradicted"
       },
-      "last_verified_commit": "934b7eee88ac4f4cb028cc096c63ecf37fbed897"
+      "last_verified_commit": "da34485f1439d840cd86959f07a1b404278feca6"
     },
     {
       "id": "CLM-D3-05",
@@ -1548,7 +1548,7 @@
     },
     {
       "id": "CLM-Z-03",
-      "wording": "On AeST's held branch, the Milky Way external field gives mu_std a solar-system quadrupole Q2 = 1.67-1.72e-26 s^-2 at the anchor a0, excluded by Cassini at +4.6/+4.7 sigma against Hees et al. 2014; sharper interpolating functions are excluded more strongly, and SPARC's total chi2 prefers the smooth mu_std transition. The isolated-Sun monopole term is negligible.",
+      "wording": "On AeST's held branch, the Milky Way external field gives mu_std a solar-system quadrupole Q2 = 1.67-1.72e-26 s^-2 at the anchor a0. Against the authoritative Park et al. (2026) bound Q2 = (1.6 +- 1.8)e-27 s^-2 (arXiv:2602.17884, PRD 2026, DE440 + full Cassini tracking through Aug 2017) this is an exclusion at +8.4 to +8.7 sigma (8.73 sigma at Q2 = 1.731e-26, i.e. (17.31-1.6)/1.8 = 8.728). The superseded Hees et al. (2014) bound Q2 = (3 +- 3)e-27 s^-2 gave +4.6/+4.7 sigma and must not be cited as the current constraint. Sharper interpolating functions are excluded more strongly, and SPARC's total chi2 prefers the smooth mu_std transition. The isolated-Sun monopole term is negligible.",
       "state": "computed",
       "assurance_level": "computation",
       "formal_artifacts": [],
@@ -1559,23 +1559,24 @@
         "02_galaxy_dynamics/EFE_QUADRUPOLE_Q2.json"
       ],
       "assumptions": [
-        "Held (MOND) branch in the solar system; QUMOND Q2 validated against Hees et al. Table 2."
+        "Held (MOND) branch in the solar system; QUMOND Q2 validated against Hees et al. Table 2.",
+        "Cassini bound is the Park et al. (2026) Q2; Hees et al. (2014) is superseded."
       ],
       "verification_commands": [
         "python3 02_galaxy_dynamics/efe_quadrupole_q2.py"
       ],
       "independent_witness": "02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md",
-      "limitations": "Applies to the held branch only. On the dragged branch the solar system is exactly GR (CLM-D3-10), so this does not exclude AeST; branch selection stays [O]. Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
+      "limitations": "Applies to the held branch only. On the dragged branch the solar system is exactly GR (CLM-D3-10), so this does not exclude AeST; branch selection stays [O]. The sigma scales with the bound, not with the model: same computed Q2, two measurements. Hees et al. (2014) is superseded by Park et al. (2026) and the +4.6/+4.7 sigma figures are historical only. Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
       "status_owner": "Res-Nova maintainers",
       "claim_type": "computed-result",
       "quotation_type": "paraphrase",
       "source_locator": "02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md",
       "falsifiability": {
-        "test": "Cassini Q2 bound (Hees et al. 2014)",
+        "test": "Cassini Q2 bound (Park et al. 2026, arXiv:2602.17884)",
         "scope": "held branch, mu_std, anchor a0",
         "result": "supported"
       },
-      "last_verified_commit": "223c385779ee2f43dd83560a8e9ca2e0b1594cb7",
+      "last_verified_commit": "da34485f1439d840cd86959f07a1b404278feca6",
       "published_in": [
         "10.5281/zenodo.23101840 claim 449",
         "10.5281/zenodo.23101840 claim 450",
@@ -1662,9 +1663,9 @@
     },
     {
       "id": "CLM-Z-06",
-      "wording": "With the chiral threshold theta = 0.70 as an adopted input, the band ceiling is kappa = sqrt(theta(2-theta)) = sqrt(0.91) = 0.953939; the corpus kappa is 0.9539.",
-      "state": "derived",
-      "assurance_level": "formal",
+      "wording": "ENGINEERING GATE, NOT A DERIVED CONSTANT. At the adopted input theta = 0.70 the band ceiling is kappa = sqrt(theta(2-theta)) = sqrt(0.91) = 0.953939. This is a fenced engineering threshold and is NOT the physical band ceiling.",
+      "state": "conditional",
+      "assurance_level": "formal-algebraic-under-adopted-premise",
       "formal_artifacts": [
         "05_lean_formalization/PillarIV_AntiDriftGate.lean"
       ],
@@ -1677,17 +1678,17 @@
         "cd 05_lean_formalization && bash verify_all_proofs.sh"
       ],
       "independent_witness": "05_lean_formalization/PillarIV_AntiDriftGate.lean",
-      "limitations": "The Lean theorem evaluates kappaBand at 7/10; it does not derive theta. chi_s = 0.956145 (CLM-11) is a different constant (E-13). Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
+      "limitations": "Fenced 2026-11-18 to end a two-value ambiguity. The derived physical ceiling is kappa = 0.956145, obtained from theta = 1/sqrt(2), which CLM-10 PROVES from the rapidity equipartition sinh(psi)=1 and which CLM-11 states as chi_s = sqrt(sqrt2 - 1/2). Since theta(2-theta) = sqrt2 - 1/2 at theta = 1/sqrt(2), the two routes agree exactly at 0.956145; 0.953939 arises only from the adopted 0.70 and is therefore an engineering margin, not physics. The Lean theorem kappaBand_at_seven_tenths evaluates at 7/10 and is correct as arithmetic at that input. Anyone quoting a band ceiling for physics must use 0.956145.",
       "status_owner": "Res-Nova maintainers",
       "claim_type": "derived-identity",
       "quotation_type": "paraphrase",
       "source_locator": "05_lean_formalization/PillarIV_AntiDriftGate.lean#kappaBand_at_seven_tenths",
       "falsifiability": {
-        "test": null,
-        "scope": null,
-        "result": "not_run"
+        "test": "which theta is derived?",
+        "scope": "CLM-10 rapidity equipartition",
+        "result": "contradicted"
       },
-      "last_verified_commit": "223c385779ee2f43dd83560a8e9ca2e0b1594cb7",
+      "last_verified_commit": "da34485f1439d840cd86959f07a1b404278feca6",
       "published_in": [
         "10.5281/zenodo.20652233 claim 1",
         "10.5281/zenodo.20652233 claim 2",
@@ -1876,6 +1877,42 @@
         "result": "not_run"
       },
       "last_verified_commit": "63dad5287d1d83d49c953760977675d45a0e961e"
+    },
+    {
+      "id": "CLM-PR-01",
+      "wording": "POSTULATE R [O]. The live interpolating function mu_std(x) = x/sqrt(1+x^2) is ADOPTED, not derived. It is selected empirically by SPARC within the l^n family at n ~ 2 and structurally by the L^2 quadrature of the argument, and no uniqueness theorem in this corpus produces it. Convexity alone does not force n = 2.",
+      "state": "proposed",
+      "assurance_level": "open-research-question",
+      "formal_artifacts": [
+        "05_lean_formalization/MuStdDuality.lean",
+        "05_lean_formalization/MuStdUniqueness.lean",
+        "05_lean_formalization/MuNDuality.lean"
+      ],
+      "computational_artifacts": [
+        "02_galaxy_dynamics/JOINT_N_LIKELIHOOD.json"
+      ],
+      "data_artifacts": [
+        "02_galaxy_dynamics/SPARC_175_summary.json"
+      ],
+      "assumptions": [
+        "mu_std is treated as irreducible parameter 2, alongside the a0 scale."
+      ],
+      "verification_commands": [
+        "python3 audits/2026-11-18/verify_untested_claims.py",
+        "python3 scripts/validate_claim_registry.py"
+      ],
+      "independent_witness": "audits/2026-11-18/verify_untested_claims.py",
+      "limitations": "This is the honest replacement for the three retired uniqueness routes (CLM-12, CLM-13, CLM-D2-00..04). Those are theorems that force mu_dual = x/(1+x) and therefore exclude mu_std by construction, so they cannot be repaired. What would settle Postulate R: a covariant argument that singles out x/sqrt(1+x^2) among admissible mu without using galactic data, or a demonstration that n = 2 follows from an independent principle (causal structure, spectral action, or a symmetry of the relativistic completion). Until then n = 2 is an empirical selection and must be tagged [O].",
+      "status_owner": "Res-Nova theory maintainers",
+      "claim_type": "phenomenological-posit",
+      "quotation_type": "paraphrase",
+      "source_locator": "assurance/claims.json#CLM-PR-01 (replaces CLAIM_EVIDENCE_LEDGER.md#CLM-12..13, CLM-D2-00..04)",
+      "falsifiability": {
+        "test": "galaxy likelihood over the l^n family",
+        "scope": "SPARC (JOINT_N_LIKELIHOOD.json)",
+        "result": "supported"
+      },
+      "last_verified_commit": "da34485f1439d840cd86959f07a1b404278feca6"
     }
   ]
 }
