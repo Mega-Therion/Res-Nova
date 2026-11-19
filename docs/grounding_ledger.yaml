@@ -22,9 +22,9 @@ modules:
     theorems: 18
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "2T = SL(2,3), the binary tetrahedral double cover of A4: the finite flavour/double-cover group. mulBT is the 2T group law; phi is the order-3 generation-cycle generator (Z/3); the Z/2 factor is the spin double cover. Denotes a candidate finite flavour group acting on generation labels. No gauge field, no coupling constant and no action term is represented."
+    observable: "none (finite group only)"
+    falsifier: "none (group theory; no measurement discriminates a finite flavour group without a coupling)"
 
   - module: CartanTrialityGenerations
     tier: ARITH
@@ -49,36 +49,36 @@ modules:
     theorems: 9
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "[O] conjectural. The orientation-reversing reflection (parity) element and the loop that realises it: flip is the reflection involution, handLoop the non-contractible loop, TheMismatch the failure of the loop to undo its own reflection. Denotes parity P as an orientation-reversing holonomy. Self-declared as NOT a result of the MOND manuscript."
+    observable: "none (no observable defined in the module)"
+    falsifier: "none (conjectural; nothing to falsify yet)"
 
   - module: ChiralHolonomyOrientation
     tier: ARITH
     theorems: 8
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "The parallel-transport holonomy U_gamma of a gauge connection around a loop gamma. holonomyReversed is U(gamma^-1) = U(gamma)^-1; comp and inv are the composition and inverse of the holonomy group. Denotes the physical statement that a loop holonomy in a chiral gauge field distinguishes traversal orientation: U(gamma+) != U(gamma-)."
+    observable: "Wilson-loop / holonomy eigenvalue phases (lattice or ring-interferometry analogue)"
+    falsifier: "a loop experiment in which forward and reversed holonomy agree, i.e. U(gamma) = U(gamma)^-1"
 
   - module: ChiralPartner
     tier: ARITH
     theorems: 15
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "The chiral gauge group SU(2)_L x SU(2)_R with the parity automorphism exchanging the two factors. leftEmb/rightEmb are the embeddings of the two chiral factors, exchange is the parity operator P: L<->R, wact is its action, and diagonal_symmetric/only_vacuum_symmetric state that only the diagonal survives. Denotes spontaneous parity breaking from a parity-symmetric doubled cover."
+    observable: "none directly (the module stops at the group action)"
+    falsifier: "a chiral gauge sector in which the vacuum is not parity-symmetric, or in which parity is not exchanged between factors"
 
   - module: ChiralResidue
     tier: ARITH
     theorems: 37
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "[O] conjectural. The residue left when the chiral doubled cover is broken: the quaternion group Q8 = {+-1,+-i,+-j,+-k} with r the rotation generator, minusOne the central element and n the reflection. Denotes the surviving Z/2 that produces maximal parity violation, i.e. the projector onto the maximally parity-violating sector. The stated aim is to derive maximal parity violation rather than insert it."
+    observable: "none (no parity-violating observable named)"
+    falsifier: "a sector whose parity violation is not maximal"
 
   - module: CoshCosmology
     tier: ARITH
@@ -121,9 +121,9 @@ modules:
     theorems: 12
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "The net chiral index (generation number) of a Z3 orbifold: net is the net index, cy the Calabi-Yau condition, isolated the isolated-fixed-point count, coxeterH_E6/E7/E8 the Coxeter numbers h = 12, 18, 30, e8Roots the 240-root system, bigN and net111/net222 the lattice-index counts. IsolatedGivesThree is the n_g = 3 statement; AbsNetThree its absolute value. CenterLadder and the Coxeter numbers are marked TRANSCRIBED_NOT_DERIVED."
+    observable: "the observed number of fermion generations, n_g = 3"
+    falsifier: "a fourth chiral generation, or n_g != 3 from a confirmed orbifold construction"
 
   - module: DualChannelDerivation
     tier: STRUCT
@@ -139,9 +139,9 @@ modules:
     theorems: 17
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "Unit quaternions as the spin-1/2 carrier: qmul is quaternion multiplication, qnorm the unit-sphere constraint |q| = 1, qT the tetrahedral generator and qTPow its powers, q8Coord/btCoord the exact coordinates of Q8 and of 2T inside the unit quaternions. Denotes SU(2) as the double cover of SO(3) in its quaternionic form, i.e. the spinor representation of a rotation."
+    observable: "none (representation theory only)"
+    falsifier: "none (a faithful finite representation cannot be falsified by measurement)"
 
   - module: GODActionKinematics
     tier: ARITH
@@ -157,18 +157,18 @@ modules:
     theorems: 11
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "A constructed order-3 cyclic permutation sigma of the three generation labels, with sigma^3 = id, sigma^2 != id, and the orientation asymmetry that sigma and sigma^-1 disagree everywhere. tau is the companion involution. Denotes a Z3 generation-cycling operator and the CP/T-odd phase a complex generation cycle would carry. Constructed, not derived."
+    observable: "none (no CP or mixing observable named)"
+    falsifier: "a generation cycle that is an involution, i.e. sigma^2 = id"
 
   - module: GenerationIndex
     tier: ARITH
     theorems: 2
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "none. Self-declared vacuous (D47): z3NetChirality and mckayArrowsPerNode_DECLARED_BOOKKEEPING_LITERAL are arithmetic on literals written into their own definitions, and the module states it formalises no E8, no E6 x SU(3), no Coxeter number, no Calabi-Yau, no orbifold quotient, no McKay quiver and no representation theory."
+    observable: "none"
+    falsifier: "none (nothing physical is asserted)"
 
   - module: HorizonScale
     tier: ARITH
@@ -247,18 +247,18 @@ modules:
     theorems: 7
     structures: 0
     plain_real_defs: 2
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "Lane 2, not Res-Nova. A 2D enstrophy threshold: thetaGeom = 1/sqrt2 is the geometric alignment angle, reCritical = sqrt2 the critical Reynolds number, vortexStretchingPlanar the planar vortex-stretching term. Denotes the dimensionless enstrophy/alignment threshold of a 2D vorticity field and the vanishing of planar vortex stretching."
+    observable: "a 2D fluid enstrophy or Reynolds-number measurement"
+    falsifier: "a 2D flow that sustains vortex stretching at Re below Re_c"
 
   - module: NavierStokesScope
     tier: ARITH
     theorems: 3
     structures: 0
     plain_real_defs: 1
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "none as a physical claim. alignmentGate is an assumed scalar threshold in R and the module states it defines no Navier-Stokes equation, no vorticity, no solution class, no Lyapunov functional, no time integral and no continuation criterion."
+    observable: "none"
+    falsifier: "none"
 
   - module: PPNLimitsStd
     tier: ARITH
@@ -310,9 +310,9 @@ modules:
     theorems: 5
     structures: 0
     plain_real_defs: 1
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "A Ramanujan graph spectral gap: gap = lambda_1 - lambda_0, kappa^2 <= gap, petersen the Petersen graph instance. Denotes a graph-theoretic spectral gap, NOT a physical field. The module records its own substitutability test: the identical proof closes with the physics replaced by nonsense, so the mathematics carries no physical content."
+    observable: "none (graph spectrum only)"
+    falsifier: "none (physics-independent by the module's own substitutability test)"
 
   - module: RamanujanModularBounds
     tier: ARITH
@@ -328,9 +328,9 @@ modules:
     theorems: 4
     structures: 0
     plain_real_defs: 1
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "Kerr spin rapidity: psi = artanh(a*) is the spin rapidity, theta = tanh(psi) the corresponding spin fraction, and the equipartition condition sinh(psi) = 1 selects psi_0 = arsinh(1) = ln(1+sqrt2), giving theta = 1/sqrt2 and odds theta/(1-theta) = 1+sqrt2 (silver ratio). The module proves only the real-analysis identities; it does not prove that a Kerr spin IS a rapidity."
+    observable: "black-hole spin parameter a* = J/(GM^2) and the resulting spin ceiling"
+    falsifier: "a measured a* that violates the derived ceiling without a disk-truncation or reflection-bias explanation"
 
   - module: RelativisticStability
     tier: ARITH
@@ -355,9 +355,9 @@ modules:
     theorems: 3
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "Injectivity (faithfulness) of the finite spinor representation: btCoord, btMatrix and btCarrier are injective, so distinct flavour states give distinct matrices. Denotes the representation-theoretic statement that the spin-1/2 map loses no group element."
+    observable: "none"
+    falsifier: "none"
 
   - module: SkordisZlosnikEmbedding
     tier: ARITH
@@ -400,27 +400,27 @@ modules:
     theorems: 9
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "A4 (order 12) acting faithfully and transitively on four vertices: T4 is the four-vertex set, rep4 the representation, sig the generator, act4 the action. generation_vertex_axis identifies the three involutions with three generation axes. Denotes the tetrahedral rotation group as a finite flavour symmetry acting on four states."
+    observable: "none (finite group action)"
+    falsifier: "none"
 
   - module: TetrahedralEvenness
     tier: ARITH
     theorems: 3
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "Parity as the sign character of A4: lvl and invCount define parity by inversion count, non-circularly, and image_even shows the action lands in the even permutations. Denotes the Z/2 grading (even/odd) that separates the two chiral halves of a finite flavour group."
+    observable: "none"
+    falsifier: "none"
 
   - module: TetrahedralQuotient
     tier: ARITH
     theorems: 17
     structures: 0
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "The quotient 2T/{+-1} = A4: proj is the projection, V4 the normal subgroup, shadow the induced representation, lift its section. two_pi_invisible states that the central -1 (a 2pi rotation) is projected out. Denotes the physical fact that a 2pi rotation returns a spinor to minus itself and is invisible in the vector representation."
+    observable: "none (representation theory)"
+    falsifier: "none"
 
   - module: YangMillsCasimirBound
     tier: ARITH
@@ -445,18 +445,18 @@ modules:
     theorems: 2
     structures: 10
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "The five axioms A1-A5 of the Chyren framework. QuantumSubstrate is A1 (substrate), DerivedGeometry A2 (entanglement geometry, A2Strong its strong form), KineticAccelerationScale A3/A4 (the acceleration scale a0), IsInterpolationFunction the interpolating function mu(x), and the A5 recovery statement is a theorem-level consequence. ASSUMED, not derived; A3 was found vacuous and A5 non-independent in the 2026-11-06 audit."
+    observable: "the acceleration scale a0 and the interpolating function mu"
+    falsifier: "an A3/A5 formulation that is neither vacuous nor dependent"
 
   - module: Hamilgrangian
     tier: STRUCT
     theorems: 16
     structures: 20
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "RETIRED BRANCH (MuDual, falsified 2026-09-12). x = |grad Phi|/a0 is the dimensionless acceleration; H_channel = x^2/2 the Newtonian kinetic channel; L_corr = x - ln(1+x) the logarithmic correction channel; F_dual = x^2/2 - x + ln(1+x) the AQUAL free function; mu = mu_pade = x/(1+x) the Padé[1/1] interpolating function; p_flux the constitutive flux. The mathematics survives; the physical closure is dead at Cassini."
+    observable: "SPARC rotation curves (and, fatally, the Cassini quadrupole Q2)"
+    falsifier: "Cassini Q2, which killed it: the closure exceeds the bound by 5.7e5"
 
   - module: ITActionClosure
     tier: STRUCT
@@ -490,18 +490,18 @@ modules:
     theorems: 1
     structures: 2
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "none beyond 3D Euclidean geometry. Vector3 is R^3 and the single theorem is the unit-vector norm inequality |u - v| <= 2. The module states it defines no Navier-Stokes solution, no vorticity direction, no high-vorticity set, no angle modulus and no continuation criterion."
+    observable: "none"
+    falsifier: "none"
 
   - module: NavierStokesSpec
     tier: STRUCT
     theorems: 2
     structures: 2
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "Lane 2, not Res-Nova. A specification interface for vorticity-direction alignment: Point3 is x in R^3, Vector3 the ambient space, VorticityField the map omega(x), HighVorticity the set {|omega| > lambda}, direction the unit vector xi = omega/|omega|, AlignmentPredicate and alignmentFromGate the alignment test, PersistenceObligation the conditional regularity obligation. All are definitions; no existence, no regularity."
+    observable: "the vorticity field omega(x) and the direction xi = omega/|omega| in a 3D flow"
+    falsifier: "a 3D flow with bounded enstrophy that nevertheless blows up"
 
   - module: PPNLimits
     tier: STRUCT
@@ -517,9 +517,9 @@ modules:
     theorems: 25
     structures: 17
     plain_real_defs: 1
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "An open quantum system under GKSL. chiFloor = 1/sqrt2 is the coherence floor; mu = tanh(arsinh x) the interpolating function; OpenSystem the (H, L) pair; sigma_minus/sigma_plus the lowering and raising operators; H the Hamiltonian; gksl_generator the Lindbladian L[rho] = -i[H,rho] + sum(L rho L^dag - 1/2{L^dag L, rho}); steady_state the fixed point rho_ss; blochCoherence chi the Bloch-vector length; kappaBand the band identity kappa^2 = theta(2 - theta); twoChannelUnion the two-channel union. The anti-drift gate u >= gamma <=> chi >= 1/sqrt2 is RETRACTED (CLM-15, contradicted by test). Module carries sorries."
+    observable: "ground-state coherence chi of a driven open system (qubit T1/T2-type measurement)"
+    falsifier: "the retracted gate itself: a driven system with u >= gamma and chi < 1/sqrt2"
 
   - module: SOCasimirGenuine
     tier: STRUCT
@@ -535,18 +535,18 @@ modules:
     theorems: 4
     structures: 8
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "The algebraic carrier SU(2) = {U in M2(C) : U^dag U = 1, det U = 1}: Mat2 is M2(C), SU2Carrier the carrier predicate, carrierOne/carrierMul the group operations, btCarrier the image of 2T. Denotes the spin-1/2 carrier space C^2. Algebraic carrier only, not yet a Lie group."
+    observable: "none (algebraic carrier)"
+    falsifier: "none"
 
   - module: SU2MatrixEnvelope
     tier: STRUCT
     theorems: 9
     structures: 18
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "The Pauli-matrix realisation U = a0 I + i a.sigma: qMatrix maps a unit quaternion to a 2x2 complex matrix, with qMatrix_unitary, qMatrix_det_one and qMatrix_injective. Denotes the standard spinor representation of SU(2). The module states it proves no topology, no continuity, no Lie structure and no physical SU(2)_L gauge field."
+    observable: "none (explicitly not a gauge field)"
+    falsifier: "none"
 
   - module: SZStdEmbedding
     tier: ARITH
@@ -571,24 +571,24 @@ modules:
     theorems: 3
     structures: 1
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "none (Lane 3). A semiotic/linguistic structure: GlyphRadical the 24-radical glyph set, ConsonantalRoot the consonantal root, is_rytt_root the RYTT root predicate, TopologicalPrimitive/Chirality/OperationalModulator the semiotic type classes, compute_topological_parity the parity assignment. No physical quantity is denoted."
+    observable: "none"
+    falsifier: "none"
 
   - module: TrialityFixedSubalgebra
     tier: STRUCT
     theorems: 6
     structures: 6
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "The fixed subalgebra of so(8) under the order-3 triality: rank 2, dimension 14, i.e. g2. fixed_subspace_char characterises the fixed Cartan subspace by two exact linear conditions, fixed_basis_one/two give its basis, norm_scaled_by_four the norm scaling, mulVec_entry_parity the integrality of the action. Denotes g2 = Fix(triality) inside so(8)."
+    observable: "none (Lie-algebra structure only)"
+    falsifier: "none"
 
   - module: TrialityG2
     tier: STRUCT
     theorems: 7
     structures: 17
     plain_real_defs: 0
-    denotes: TODO
-    observable: TODO
-    falsifier: TODO
+    denotes: "The concrete order-3 triality automorphism of so(8): M is the SO(8) matrix with M_orthogonal, M_order_three and M_det_ne_zero, acting as the permutation 8_v -> 8_s -> 8_c -> 8_v. T_maps_vector_to_spinor_weights is the vector-to-spinor weight map and T_vector_lands_in_odd_parity_class its parity class. Denotes the triality outer automorphism that cycles the three 8-dimensional representations."
+    observable: "none (representation theory only)"
+    falsifier: "none"
