@@ -24,6 +24,11 @@ Also 2026-11-19 (no tier change): **Three open-physics closures — Postulate R 
   - `[X]` $w_d = 1/3$ cancels drag identically ($\Lambda$CDM); $w_d > 1/3$ reverses sign to anti-drag.
   - `[E]`/`[D]` Pre-registered verdict **SURVIVES** for sub-conformal stable walls $0 \le w_d < 1/3$: satisfies 5D NEC ($\mathcal{Q}_4 > 0$, $\Omega_{\mathrm{Weyl}} > 0$) everywhere and BBN/CMB radiation bounds ($\Delta N_{\mathrm{eff}}(z_*) = 3.6\times 10^{-5}$), produces a ghost-free effective phantom crossing ($w_{\mathrm{eff}}(0) = -0.88$, $w_{\mathrm{eff}}(1) = -1.15$), and achieves $\Delta\chi^2 = \mathbf{-10.38}$ (Pantheon+), **−8.55** ($+f\sigma_8$ anchored), **−10.40** ($+f\sigma_8$ free), and **−12.74** (DES-Dovekie) — outperforming both naive drag (`−6.54`/`−8.72`) and 2-parameter CPL (`−9.17`/`−12.46`) with 1 parameter. Caveats: absorbs the DESI+SN DE signal rather than supplying independent bubble evidence, requires $O(1)$ bare drag ($x_0 \approx 2.24$ at $w_d = 0$, $\Omega_{\mathrm{Weyl}}(0) \approx 1.75$), and 5D perturbative clustering / CMB lensing / ISW stay `[O]`.
 
+Also 2026-11-19 (no tier change): **the x_H screen must be defined on the full metric potential** (`exploration/d10_xcop/README.md` tests A–C, pre-registered).
+- Built on baryons, it fails clusters (R ≈ 2.1) and is marginal on SPARC (1.9% of points affected).
+- Built on the full Φ, self-consistently: X-COP R₅₀₀ = 0.92 (12/12, passes) and R₂₀₀ = 0.755 (8/12, fails narrowly).
+- Flux-fed drag wall: passes the CMB-lensing proxy (σ₈Ω_m^0.25 = 0.61, +1σ) and the ISW proxy (0.96) on all four fits. The full Boltzmann calculation is `[O]`.
+
 Also 2026-11-19 (no tier change): **D10 on X-COP** (gas measured to R₂₀₀; `exploration/d10_xcop/`, pre-registered).
 - AeST μ_std with the virial boundary and supply cap gives median **R₅₀₀ = 0.83, 12/12 in band: passes**, the first D10 pass.
 - **R₂₀₀ = 0.62, 1/12: fails** (overshoot).
