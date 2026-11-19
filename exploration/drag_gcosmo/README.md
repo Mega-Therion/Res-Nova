@@ -69,3 +69,18 @@ Pre-registered in `PREREG.md` (commit 7c5908a, before any number). Fits: `drag_f
   1. Reproducing the signal after Weyl cancellation requires an $O(1)$ bare drag amplitude ($x_0 \approx 2.24$ at $w_d = 0$, with $\Omega_{\mathrm{Weyl}}(0) \approx 1.75$ partially cancelling $\Delta\Sigma_{\mathrm{drag}}(0) \approx 2.24$, so the effective dark-energy rewrite $\Omega_\Lambda + \Omega_{\mathrm{net}}$ turns negative for $z \gtrsim 2$ while $E(z)^2 > 0$ remains within $0.6\%$ of $\Lambda$CDM at $z = 10$).
   2. Like naive drag, this absorbs the DESI DR2 + SN evolving-DE signal rather than supplying independent evidence for a Dark Bubble.
   3. Linear growth used $G_{\mathrm{local}} = G_N$; full 5D perturbative clustering of $\rho_{\mathrm{Weyl}}$ + wall drag, CMB lensing, and ISW remain uncomputed `[O]` and are the decisive physical test of an $O(1)$ Weyl + drag sector.
+
+## CMB-lensing and late-ISW proxies for the flux-fed wall (`PREREG_LENS_ISW.md`, `lens_isw_proxy.py` → `LENS_ISW_PROXY.json`)
+Pre-registered before running. Computed at each dataset's best fit from the model's own background and growth.
+
+| Fit | σ₈ | σ₈Ω_m^0.25 (Planck lensing 0.589 ± 0.020) | ΛCDM, same data | ISW ratio vs ΛCDM |
+|---|---|---|---|---|
+| Pantheon+ / BAO / CMB | 0.817 | 0.609 (+1.0σ) | 0.596 | 0.96 |
+| + fσ₈ anchored | 0.815 | 0.606 (+0.9σ) | 0.595 | 0.97 |
+| + fσ₈ free | 0.817 | 0.609 (+1.0σ) | 0.596 | 0.96 |
+| DES-Dovekie / BAO / CMB | 0.819 | 0.611 (+1.1σ) | 0.596 | 0.96 |
+
+**Verdict: survives both proxies** (lensing within 2σ, ISW within [0.4, 1.6]).
+- Lensing sits about 0.7σ higher than ΛCDM's on the same data, a mild but real tilt.
+- **These are proxies, not a Boltzmann calculation.** The lensing potential is assumed to be sourced by G_N ρ_m δ, and the lensing-kernel shift from the modified D_A(z) is ignored.
+- The Weyl dark radiation's own perturbations (Ω_Weyl ≈ 1.75 today) are not modelled, and they are exactly where a full CMB lensing/ISW calculation could still break it. That remains [O].

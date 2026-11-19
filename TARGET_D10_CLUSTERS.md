@@ -446,3 +446,9 @@ See `exploration/d10_attack/PREREG_POLYTROPE_4QUAD.md` (committed `a4db5e0b` bef
 - **4th quadrant (MOND OFF + AeST polytrope dust) is `[X]`:** Screening MOND off in clusters while keeping hydrostatic AeST dust gives median $R = \mathbf{3.11}$, **1/12** in $[0.7, 1.4]$, pulling in only $0.23\times$ the cosmic dust budget (`0/12` capped) across all $\beta \in \{2/3, 0.85, 1.0\}$. MOND's deeper potential well is required to concentrate the polytrope dust.
 - **Splashback pole `[D]`:** Uncapped Dirichlet $\Phi(R_{\mathrm{out}}) = 0$ breaks for **5/12** clusters at $1.4\,r_{200}$ and **11/12** at $1.8\,r_{200}$, in exact 1-to-1 match with crossing the Lane–Emden radius $R_{\mathrm{LE}} = \pi/\mu = 3.109\,\mathrm{Mpc}$.
 - **Fixed-$\mu$ free-boundary polytrope & ICM slope sensitivity `[O]`:** Holding $\mu$ universal and fixing the chemical potential $\Phi_0$ by cosmic supply $5.36\,M_b(r_v)$ gives median $R = 0.835$ (`7/12`, `FAILS`) at the baseline toy $r^{-2}$ profile ($\beta = 2/3$, $M_b(r_v)/M_b(r_{500}) = 1.69$), $R = 0.860$ (`8/12`, `FAILS`) at $\beta = 0.85$, and **$R = 0.875$ (`10/12`, `CLOSES`)** at realistic outer ICM slope $\beta = 1.0$ ($r^{-3}$, $M_b(r_v)/M_b(r_{500}) = 1.23$). D10 remains `[O]` pending real deprojected X-ray gas profiles out to $r_v$.
+
+## 15. Screen definition settles it: x_H must use the full metric potential `[D]`, added 2026-11-19
+See `exploration/d10_xcop/README.md`, tests A–C (pre-registered per stage).
+- Built on the baryonic field, the candidate's virial screen kills clusters (R ≈ 2.1–2.6) and is marginal on SPARC.
+- Built on the full metric potential, iterated to self-consistency, X-COP gives **R₅₀₀ = 0.92 (12/12, passes)** and **R₂₀₀ = 0.755 (8/12, fails narrowly)**, up from 0.62.
+- The outer residual is about 25% `[O]`.

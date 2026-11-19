@@ -1,0 +1,39 @@
+{
+ "Pantheon+_BAO_CMB": {
+  "sigma8": 0.81725715323536,
+  "S_lens": 0.6091541740194427,
+  "S_lens_LCDM": 0.595863727609397,
+  "lens_pull_sigma": 1.0077087009721375,
+  "ISW_ratio": 0.9625150639979012,
+  "lens_pass": true,
+  "isw_pass": true
+ },
+ "Pantheon+_BAO_CMB+fs8_anchored": {
+  "sigma8": 0.814484882662339,
+  "S_lens": 0.606079424640678,
+  "S_lens_LCDM": 0.5945846319299746,
+  "lens_pull_sigma": 0.853971232033901,
+  "ISW_ratio": 0.9678714782487953,
+  "lens_pass": true,
+  "isw_pass": true
+ },
+ "Pantheon+_BAO_CMB+fs8_free_amp": {
+  "sigma8": 0.8171183881375802,
+  "S_lens": 0.6089821452612402,
+  "S_lens_LCDM": 0.5957015322965767,
+  "lens_pull_sigma": 0.9991072630620101,
+  "ISW_ratio": 0.962569086620342,
+  "lens_pass": true,
+  "isw_pass": true
+ },
+ "DES-Dovekie_BAO_CMB": {
+  "sigma8": 0.818929974703258,
+  "S_lens": 0.6107587174224229,
+  "S_lens_LCDM": 0.596243467355485,
+  "lens_pull_sigma": 1.0879358711211484,
+  "ISW_ratio": 0.9594406892700214,
+  "lens_pass": true,
+  "isw_pass": true
+ },
+ "verdict": "SURVIVES proxies"
+}
