@@ -34,3 +34,31 @@ Pre-registered in `PREREG.md` (commit 7c5908a, before any number). Fits: `drag_f
 - 1820 SNe, full inverse STAT+SYS covariance. Drag: Δχ² = **−8.72**, x₀ = 0.35 (2σ 0.10–0.72), G_cosmo/G_N today = 0.74. CPL: Δχ² = −12.46, w₀ = −0.81, w_a = −0.69.
 - The drag preference **strengthens** with DES-Dovekie (Pantheon+ gave −6.54), as DESI's own dynamical-DE preference does across SN samples. The result does not hinge on the SN sample.
 - DESI DR2's abstract (arXiv:2503.14738) confirms the favoured quadrant w₀ > −1, w_a < 0, which both of our CPL fits occupy. The exact table values were not re-fetched.
+
+## Pre-registered 5D AdS-Vaidya Israel–Codazzi bulk-flux, NEC, and Weyl backreaction test (`PREREG_FLUX.md` a4db5e0b, `flux_codazzi_check.py` → `FLUX_CODAZZI.json`)
+
+**Symbolic `[D]` (SymPy exact 5D AdS-Vaidya + 4D Bianchi identity):**
+- On flat-sliced 5D AdS-Vaidya $ds^2 = -f(r,v)\,dv^2 + 2\epsilon\,dv\,dr + r^2 d\mathbf{x}^2$, $f = k^2 r^2 - \mu(v)/r^2$, $R = -20 k^2$ and every component of $G_{AB} - 6 k^2 g_{AB}$ vanishes except $E_{vv} = \frac{3\epsilon}{2r^3}\dot{\mu}(v)$.
+- By the 5D Null Energy Condition, both bulk-to-wall inflows ($\dot{\mu}_+ \ge 0$ from outside, $\dot{\mu}_- \le 0$ from inside) strictly increase the 4D Weyl dark-radiation density $\rho_{\mathrm{Weyl}} \propto (\mu_+/k_+ - \mu_-/k_-)/a^4$.
+- For a barotropically stable wall drag fluid $P_{\mathrm{wall}} = -\Sigma_0 + w_d\,\Delta\Sigma_{\mathrm{drag}}$ ($c_s^2 = w_d \in [0, 1]$), the 4D Dark Bubble Bianchi identity forces the exact coupled Weyl backreaction
+  $$\dot{\rho}_{\mathrm{Weyl}} + 4H\rho_{\mathrm{Weyl}} = \mathcal{Q}_4 = \dot{\Delta\Sigma} + 3(1+w_d)H\Delta\Sigma \quad \Longrightarrow \quad \frac{d}{dt}\!\left(a^4 \rho_{\mathrm{net}}\right) = (3 w_d - 1) a^4 H\,\Delta\Sigma_{\mathrm{drag}},$$
+  where $\rho_{\mathrm{net}} \equiv \rho_{\mathrm{Weyl}} - \Delta\Sigma_{\mathrm{drag}}$. The exact coupled Friedmann system admits a closed-form integrating-factor solution depending on $(w_d, x_0)$ **only through the single combination $\kappa \equiv (3 w_d - 1) x_0$** (verified against DOP853 to `2.3e-13`).
+
+**Three exact regimes across $w_d \in [0, 1]$ (`[D]`/`[E]`):**
+- **$w_d = 1/3$ (conformal wall fluid): `[X]` exact cancellation.** $\kappa = 0$ identically; Weyl dark radiation cancels $\Delta\Sigma_{\mathrm{drag}}$ at all $z$, reducing $H(z)$ to exact $\Lambda$CDM ($\Delta\chi^2 = 0$).
+- **$w_d \in (1/3, 1]$ (super-conformal): `[X]` sign-reversed anti-drag.** $\kappa = (3 w_d - 1) x_0 > 0$ overpowers drag and flips the sign; with $x_0 \ge 0$, best fit collapses to $x_0 = 0$ ($\Lambda$CDM).
+- **$w_d \in [0, 1/3)$ (sub-conformal stable wall fluid, $0 \le c_s^2 < 1/3$): PRE-REGISTERED VERDICT `SURVIVES` (`[E]`/`[D]`).**
+
+| Dataset (1 parameter $\kappa = (3 w_d - 1) x_0$) | $\Delta\chi^2$ (coupled − $\Lambda$CDM) | $\kappa$ best (2$\sigma$) | $x_0$ at $w_d = 0$ | $w_{\mathrm{eff}}(0) \to w_{\mathrm{eff}}(1)$ | Compare: naive drag / 2-param CPL |
+|---|---:|---|---:|---|---|
+| DESI DR2 + Pantheon+ + CMB | **−10.38** | −2.24 (−3.75, −0.83) | 2.24 | −0.88 → −1.15 | −6.54 / −9.17 |
+| + $f\sigma_8$ (anchored) | **−8.55** | −2.00 (−3.46, −0.62) | 2.00 | −0.89 → −1.14 | −5.96 / — |
+| + $f\sigma_8$ (free amp) | **−10.40** | −2.24 (−3.74, −0.83) | 2.24 | −0.88 → −1.15 | −6.24 / — |
+| DESI DR2 + DES-Dovekie + CMB | **−12.74** | −2.50 (−3.99, −1.08) | 2.50 | −0.87 → −1.17 | −8.72 / −12.46 |
+
+- **5D NEC & early universe:** Strictly positive bulk inflow $\mathcal{Q}_4(z) > 0$ for all $z \in [0, 10]$ ($\min s_{\mathrm{NEC}} = +0.996$), positive Weyl density $\Omega_{\mathrm{Weyl}}(z) \ge 1.24 > 0$, and negligible early dark radiation ($\Delta N_{\mathrm{eff}}(z_*) = 3.6\times 10^{-5}$ at $w_d = 0$, $\sim 10^{-18}$ at BBN).
+- **Ghost-free effective phantom crossing:** The deceleration-to-acceleration turnover ($\ddot{a} = 0$) of $\Delta\Sigma_{\mathrm{drag}} \propto \dot{a}^2$ coupled to $\rho_{\mathrm{Weyl}}$ produces $w_{\mathrm{eff}}(z=1) = -1.15$ crossing $-1$ to $w_{\mathrm{eff}}(z=0) = -0.88$ with $0 \le c_s^2 < 1/3$ and zero NEC violation.
+- **Honest limitations & sharpest remaining `[O]` kill-test:**
+  1. Reproducing the signal after Weyl cancellation requires an $O(1)$ bare drag amplitude ($x_0 \approx 2.24$ at $w_d = 0$, with $\Omega_{\mathrm{Weyl}}(0) \approx 1.75$ partially cancelling $\Delta\Sigma_{\mathrm{drag}}(0) \approx 2.24$, so the effective dark-energy rewrite $\Omega_\Lambda + \Omega_{\mathrm{net}}$ turns negative for $z \gtrsim 2$ while $E(z)^2 > 0$ remains within $0.6\%$ of $\Lambda$CDM at $z = 10$).
+  2. Like naive drag, this absorbs the DESI DR2 + SN evolving-DE signal rather than supplying independent evidence for a Dark Bubble.
+  3. Linear growth used $G_{\mathrm{local}} = G_N$; full 5D perturbative clustering of $\rho_{\mathrm{Weyl}}$ + wall drag, CMB lensing, and ISW remain uncomputed `[O]` and are the decisive physical test of an $O(1)$ Weyl + drag sector.
