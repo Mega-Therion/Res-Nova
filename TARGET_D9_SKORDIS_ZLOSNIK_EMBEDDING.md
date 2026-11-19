@@ -46,7 +46,18 @@
 > §1 (the action), §3 (the integration), §4.2 (convexity), and the $c_T=c$ / $\Phi=\Psi$
 > arguments all stand and are strengthened in D7 §5–§7.
 
-> **SYNC 2026-09-12 — μ_std revalidation (fourth correction).** `TARGET_D6_D8_D9_SUPPLEMENT_MU_STD_REVALIDATION.md` rows 3–7 re-ran this document under $F_{\rm std}$: (a) §2/§3's matching and integration hold under F_std **in the same $2J'=\mu$ convention** with $J_{\rm std} = \tfrac12[\sqrt{\mathcal{Y}(1+\mathcal{Y})} - \operatorname{arsinh}\sqrt{\mathcal{Y}}]$ and $2J' - \mu_{\rm std}(\sqrt{\mathcal{Y}}) = 0$ exactly **[D]**; (b) the deep-MOND leading coefficient $\tfrac13$ is IDENTICAL under the swap (row 6) — the old §4.1 explanation is [X] but the result stands; (c) §5's `SkordisZlosnikEmbedding.lean` still hardcodes the falsified $J_{\rm dual}$ — **[X] stale, needs the F_std rebuild** (row 3); (d) the $2J'=\mu$ vs $J'=\lambda_s\mu$ normalization muddle remains **[O]**, unresolved.
+> **SYNC 2026-11-17 — live $\mu_{\rm std}$ normalization and branch status.** The
+> issue-branch theorem `hasDerivAt_scaled_Fstd` in `05_lean_formalization/SZStdEmbedding.lean`
+> derives
+> $$\frac{d}{d\mathcal{Y}}\left(2\lambda_s\tilde a_0^{\,2}
+> F_{\rm std}(\sqrt{\mathcal{Y}}/\tilde a_0)\right)
+> =\lambda_s\mu_{\rm std}(\sqrt{\mathcal{Y}}/\tilde a_0)$$
+> for $\mathcal{Y}>0$ and $\tilde a_0>0$, with arbitrary real $\lambda_s$.
+> This reconciles the unit-scale identity $2J'_{\rm std}=\mu_{\rm std}$ with the
+> scaled identity $J'_{\rm scaled}=\lambda_s\mu_{\rm std}$. It does not prove the
+> covariant Noether identity or settle the separate vector-equation coefficient
+> discrepancy recorded in [PR #215](https://github.com/Mega-Therion/Res-Nova/pull/215);
+> those obligations remain open.
 ---
 
 ## 0. Executive Verdict & Epistemic Status
@@ -56,18 +67,19 @@
 EPISTEMIC VERDICT: TARGET D9 (SKORDIS-ZŁOŚNIK RMOND PARENT MEMBERSHIP)
 ========================================================================================================
 1. Covariant Action Membership:
-   The derived dual-channel closure F_dual(x) = ½x² − x + ln(1+x) — **retired**, falsified
-2026-09-12; the live closure is the mu_std branch — EMBEDS EXACTLY [P about a retired
-branch] into the
-   Skordis–Złośnik (SZ, Phys. Rev. Lett. 127, 161302, 2021) relativistic MOND framework
-   via the kinetic scalar potential:
-       J(Y) = ½Y − √Y + ln(1 + √Y)   where Y ≡ (1/a₀²) g^μν ∇̂_μ ϕ ∇̂_ν ϕ.
+   The displayed dual-channel closure F_dual(x) = ½x² − x + ln(1+x) is **retired** and was
+   falsified on 2026-09-12. Its mathematical embedding into the Skordis–Złośnik (SZ,
+   Phys. Rev. Lett. 127, 161302, 2021) framework is a result about that historical
+   function only [P], via
+       J_dual(Y) = ½Y − √Y + ln(1 + √Y),   Y ≡ (1/a₀²) g^μν ∇̂_μ ϕ ∇̂_ν ϕ.
+   It does not describe the live μ_std branch or establish physical viability.
 
-2. Quasistatic Weak-Field Reduction:
+2. Historical Quasistatic Weak-Field Reduction (retired μ_dual branch only):
    In static galactic halos (u^μ = (1, 0, 0, 0), Y = x² = |∇ϕ|²/a₀²):
-       2 J′(Y) = √Y / (1 + √Y) = x / (1 + x) ≡ μ(x)   [P].
-   The scalar field equation reduces identically to the verified dual-channel AQUAL law:
-       ∇ · [ μ(|∇ϕ|/a₀) ∇ϕ ] = 4πG ρ_bar   [P].
+       2 J_dual′(Y) = √Y / (1 + √Y) = x / (1 + x) ≡ μ_dual(x)   [P about the retired branch].
+   The corresponding historical dual-channel AQUAL law is:
+       ∇ · [ μ_dual(|∇ϕ|/a₀) ∇ϕ ] = 4πG ρ_bar   [P about the retired branch].
+   This is not the live μ_std law; see D7 §2 and `SZStdEmbedding.lean` for the live scalar channel.
 
 3. Multi-Messenger Gravitational Wave Concordance:
    Because the gravitational action is formulated in the physical metric frame g_μν (coupling directly
@@ -86,9 +98,12 @@ branch] into the
    - On cosmological FLRW backgrounds, ∇̂_μ ϕ ≡ 0 ==> Y_FLRW = 0, decoupling identically from
      dynamical background dark energy.
 
-VERDICT: EMBEDDED-VIABLE [P]
-The Res-Nova derived dual-channel closure has earned a full, 2017-safe, ghost-free,
-lensing-consistent 4D relativistic metric parent theory.
+VERDICT: HISTORICAL μ_dual EMBEDDING [P]; ITS PHYSICAL VIABILITY [X]; NO LIVE-BRANCH PROMOTION
+The embedding calculations above are mathematical results about the retired F_dual/μ_dual
+branch only. That branch's physical viability was falsified; this document does not establish
+viability of the live μ_std model. See D7 §2 for the live scalar normalization. The separate
+action-derived vector coefficient discrepancy remains open in PR #215, and no machine-checked
+covariant Noether identity is claimed here.
 ========================================================================================================
 ```
 

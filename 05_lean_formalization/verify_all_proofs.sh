@@ -113,9 +113,9 @@ TARGETS=(
   OctonionHopfShells.lean
   AeSTWeakFieldCondensate.lean
   AeSTHamiltonianLegendre.lean
+  AeSTParameterizedNormalization.lean
   CassiniSymmetronWindow.lean
   AeSTVectorNoetherResidual.lean
-  AeSTParameterizedNormalization.lean
   AeSTDiffeomorphismNoether.lean
   StringTheoryBridge.lean
   Wave3BBNAndSpinCCP2Bounds.lean
