@@ -547,3 +547,11 @@ CP2SpincIndex.lean               # Characteristic-class arithmetic for Spin^c Di
 NoetherScoping.lean              # Abstract B1-B3 chunks of diffeomorphism Noether identity
                                  # (vector sector, Fin 2 contraction, t-only 2D density
                                  # divergence; O44). Not cited by the manuscript.
+PostulateRAnalyticNoGo.lean      # Postulate R analytic induced-metric brane no-go (proves
+                                 # no C^1-at-0 g(x^2) can match mu_std(x) even on [0, eps)),
+                                 # J_std''(y) blowup as y -> 0+, and exact analytic auxiliary-
+                                 # susceptibility realization F_std(x) = sup_{s in [0,1)}
+                                 # [s x^2/2 - (artanh s - s)/2] with V'(0) = V''(0) = 0.
+                                 # 21 theorems, standard axioms only. Adjacent audit companion
+                                 # to audits/2026-11-19/postulate_r_analytic_nogo.py; not cited
+                                 # by the manuscript.

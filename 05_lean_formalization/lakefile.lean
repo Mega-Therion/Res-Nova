@@ -188,5 +188,9 @@ lean_lib «ResNovaFormal» where
     `CP2SpincIndex,
     -- ADDED 2026-11-19 (O44, BLK-1522). First formalizable chunks (B1-B3) of the
     -- diffeomorphism Noether identity in a t-only reduced 2D model.
-    `NoetherScoping
+    `NoetherScoping,
+    -- ADDED 2026-11-19. Postulate R analytic induced-metric brane no-go (even on x >= 0),
+    -- J_std''(y) blowup at y -> 0+, and exact analytic auxiliary-susceptibility supremum
+    -- F_std(x) = sup_{s in [0,1)} [s x^2/2 - (artanh s - s)/2].
+    `PostulateRAnalyticNoGo
   ]

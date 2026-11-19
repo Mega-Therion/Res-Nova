@@ -123,6 +123,7 @@ TARGETS=(
   ModelIdentityBindings.lean
   CP2SpincIndex.lean
   NoetherScoping.lean
+  PostulateRAnalyticNoGo.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------
