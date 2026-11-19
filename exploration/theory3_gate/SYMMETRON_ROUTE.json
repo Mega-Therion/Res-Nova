@@ -1,0 +1,30 @@
+{
+ "densities_kg_m3": {
+  "Mercury_0.387AU": 7.817505625329673e-20,
+  "Earth_1AU": 1.17082e-20,
+  "Saturn_9.54AU": 1.2872608681392752e-22,
+  "local_ISM_Oort_region_lo": 1.6726e-22,
+  "local_ISM_Oort_region_hi": 1.6726e-21,
+  "galactic_midplane_Rsun": 6.7697663777785676e-21,
+  "sun_mean_used_by_repo": 1407.9,
+  "sun_core_used_by_repo": 150000.0
+ },
+ "rho_Saturn_over_rho_disk": 0.01901484920313716,
+ "monotone_nogo": {
+  "S_at_Saturn_min": 0.99,
+  "Q2_min": 1.8909e-26,
+  "sigma_vs_Park2026": 9.616111111111111,
+  "passes": false
+ },
+ "thin_shell_exterior_depletion_bound_at": {
+  "Mercury": 0.012016711268636066,
+  "Saturn": 0.00048762370357157987
+ },
+ "source_gating_SPARC": {
+  "chi2_baseline_mu_std": 49865.00025971881,
+  "chi2_gas_only_MOND_source": 126048.32863363589,
+  "delta_chi2": 76183.32837391709,
+  "galaxies_worse_by_25": 88
+ },
+ "verdict": "[D] Local-density and Compton-smoothed symmetron screens cannot screen Saturn's orbit without screening the galactic disk. Thin-shell screening reaches only r ~ R_sun. [O] Source gating fails SPARC (see delta_chi2). The symmetron route is closed for the AeST MOND scalar."
+}

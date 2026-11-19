@@ -1,0 +1,28 @@
+{
+ "rV_min_pc": 1.0880745078887017,
+ "rV_cap_pc": 2.3609412457165018,
+ "window_exists": true,
+ "rV_min": {
+  "alphaT_at_eps1": 4.649535835852076e-13,
+  "eps_max_for_cT": 0.2153513507639585
+ },
+ "rV_cap": {
+  "alphaT_at_eps1": 4.85253708017091e-11,
+  "eps_max_for_cT": 0.06737639719591461
+ },
+ "exit_mass_window_eV": [
+  1.9025109156182868e-27,
+  2.197876857072084e-16
+ ],
+ "verdict": "[O] MAYBE-SAT: Cassini via quartic Horndeski needs r_V in [1.09, 2.36] pc and the screening scalar's cosmological roll eps=phidot/(Mp H0) below ~0.07-0.22; the BBN compensator needs one mass in [1.9e-27, 2.2e-16] eV. Next obligation: compute eps from AeST's own Q0 normalization.",
+ "eps_at_SZ_reference_Q0": {
+  "Q0_per_Mpc": 0.1,
+  "eps": 428.3,
+  "alphaT_range": [
+   0.015645948519299617,
+   1.632905907701923
+  ],
+  "note": "[O] eps=Q0/H0 assumes phi carries the M_p normalization of the AeST action; Q0 is free in SZ21"
+ },
+ "verdict_2": "At SZ's reference Q0=0.1/Mpc, eps~430 and alpha_T~1e-2..2 vs 1e-15: CLOSED. Door stays open only if Q0 <~ 0.07-0.2 H0 (~2e-5/Mpc) and that small Q0 still gives the dust-like branch."
+}

@@ -1,0 +1,30 @@
+{
+ "N_galaxies": 175,
+ "R_max_kpc_max": 108.31,
+ "z=1100": {
+  "one_over_mu_kpc": 132.7454960070599,
+  "galaxies_extending_beyond": 0,
+  "lowacc_points_total": 2350,
+  "lowacc_points_beyond": 0,
+  "frac_beyond": 0.0,
+  "examples": []
+ },
+ "z=3400": {
+  "one_over_mu_kpc": 24.450673431102846,
+  "galaxies_extending_beyond": 45,
+  "lowacc_points_total": 2350,
+  "lowacc_points_beyond": 357,
+  "frac_beyond": 0.1519148936170213,
+  "examples": [
+   "ESO563-G021",
+   "IC4202",
+   "NGC0289",
+   "NGC0801",
+   "NGC1003",
+   "NGC1090",
+   "NGC2683",
+   "NGC2841"
+  ]
+ },
+ "verdict": "[O] z_rec bound (132.7 kpc): only 0 galaxies reach it -> door survives SPARC. z_eq bound (24.5 kpc): 45 galaxies / 15% of MOND-regime points lie beyond -> would fail if dust is needed by z_eq."
+}

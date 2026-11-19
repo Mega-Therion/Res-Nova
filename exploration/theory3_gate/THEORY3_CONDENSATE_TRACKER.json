@@ -1,0 +1,24 @@
+{
+ "x_window": [
+  0.034229002508452844,
+  0.14309521329881636
+ ],
+ "x_exact_compensation": 0.08866210790363471,
+ "x_min": {
+  "z_t": 99329.96937780677,
+  "eta_t_Mpc": 4.685025734410716,
+  "k_erased_above_per_Mpc": 0.21344599937950615
+ },
+ "x_exact": {
+  "z_t": 38346.836301110736,
+  "eta_t_Mpc": 12.135447332800577,
+  "k_erased_above_per_Mpc": 0.08240322524387927
+ },
+ "if_cold_to_k=10/Mpc": {
+  "a_t_max": 2.1488363671118647e-07,
+  "z_t_min": 4653680.4775898745,
+  "x_max": 0.0007306043648180341,
+  "shortfall_vs_x_min": 46.85025734410715
+ },
+ "verdict": "[O] UNSAT: compensating BBN needs the condensate radiation-like until z~1e+05, erasing dark-matter structure above k~0.2/Mpc; cold-to-10/Mpc allows x<=7.3e-04, 47x short of the BBN minimum."
+}
