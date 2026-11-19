@@ -1,0 +1,18 @@
+{
+ "cH0_over_a0": 5.641660065919825,
+ "dimensionless_candidates_in_window": {
+  "(cH0/a0)^14": 33090002744.53532,
+  "(cH0/a0)^15": 186682547065.02234
+ },
+ "power_needed_range": [
+  13.615058264415726,
+  15.767186101583812
+ ],
+ "sun_identity": {
+  "r_M_sun_AU": 7147.755572882184,
+  "x_at_sun_MOND_radius": 1773788936397.2283,
+  "x_star_over_x_at_rM": 0.3968905124810993
+ },
+ "C": "C is a constant zero of the screening Lagrangian. Within the action it is an integration-type constant with no fixed point: no symmetry selects a nonzero value, and C = 0 is [X] (Oort). It cannot be derived from the action; it is a boundary datum.",
+ "verdict": "x* is NOT derivable from {G, c, a0, H0, Lambda}: without a mass scale every tidal scale is a power of cH0/a0 = 5.642, and the window needs a power 13.6-15.8, which is unnatural. Cassini's x* equals the tidal field near the Sun's MOND radius (ratio 0.40). That explains the value but is Sun-specific. So x* and C are genuine new constants (a tidal scale and a boundary datum), not derivable within this theory."
+}
