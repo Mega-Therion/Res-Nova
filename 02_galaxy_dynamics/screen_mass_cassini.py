@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """Symmetron effective mass and Cassini external-field quadrupole (Q2) audit.
 
+[X] PHYSICAL PREMISE (2026-11-19): the solar-system suppression below is evaluated at rho_sun (the Sun's
+interior). Cassini measures the field at Saturn's orbit (~1.3e-22 kg/m^3, below the galactic disk), so the
+S_chi ratio here is not the screening Cassini sees. See exploration/theory3_gate/symmetron_route.py.
+
 Citations:
 - /home/mega/Chyren/3_research/Res-Nova/02_galaxy_dynamics/REPAIRED_COUPLING_CASSINI.md
 - /home/mega/Chyren/3_research/Res-Nova/02_galaxy_dynamics/repaired_coupling_cassini.py

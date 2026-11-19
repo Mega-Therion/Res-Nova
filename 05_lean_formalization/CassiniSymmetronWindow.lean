@@ -5,6 +5,11 @@
   and the upper scale bound (7413 * x + 10000 * rho_gal <= 2587 * rho_odot), which gives
   the Cassini bound 10000 * (x + rho_gal) <= 2587 * (x + rho_odot)
   simultaneously preserves galaxy rotation curves (>= 99%) and passes 2-sigma Cassini.
+
+  [X] PHYSICAL PREMISE (2026-11-19): rho_odot here is the Sun's interior density, but Cassini measures the
+  field at Saturn's orbit, where the density (~1.3e-22 kg/m^3) is below rho_gal. The algebra below is
+  correct; the window it describes is not a physical window. See
+  exploration/theory3_gate/symmetron_route.py and CURRENT_STATE (2026-11-19).
 -/
 
 namespace ResNova.CassiniSymmetronWindow
