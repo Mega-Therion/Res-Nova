@@ -34,3 +34,23 @@ Pre-registered in `PREREG.md` (3ff68c6, before any number). Script `d10_attack.p
   - Is the quasi-static limit valid near r_v, where linear and nonlinear regimes meet?
   - Is the r_v boundary right, or should it be the splashback radius?
   - Does a time-dependent (accretion) treatment cut the dust intake?
+
+## Addendum: time-dependent / supply-limited accretion (`PREREG_ACCRETION.md` 5c5bcf5, `accretion.py` → `ACCRETION.json`)
+**(a) Static is valid.**
+- The AeST dust equilibration time is t_eq = r₅₀₀/c_s, with c_s = √(4πGρ̄₅₀₀)/μ ≈ 2000 km/s.
+- t_eq is a median 0.20 of the cluster age since assembly, and below 0.3 for 12/12 clusters.
+- Time dependence therefore does not rescue the overshoot. The dust has time to settle into the quasi-static configuration.
+
+**(b) Supply cap: closes in the median, fails the pre-registered spread.**
+- Capping each cluster's AeST dust at the cosmic share (Ω_c/Ω_b)·M_b moves median R from 0.75 to **0.84**, inside [0.8, 1.25].
+- But only **8/12** clusters land in [0.7, 1.4], against the required 9. **FAILS**, narrowly.
+- The misses: A1763 0.60, A2142 0.64 and A1689 0.69 overshoot even after capping; CL-J1226 sits at 1.92 because of its anomalous f_gas.
+
+**Reading.** With a physical boundary, a finite supply and a valid static limit, AeST's own dust sector lands clusters near R ≈ 0.84. That is the closest the corpus has come to closing D10, but it is still outside the pre-registered success criterion. [O]: the per-cluster scatter tracks f_gas and the assumed cored gas profile. Real deprojected gas profiles are the next input.
+
+## #5 bounds: verified against arXiv abstracts (replaces "cited from memory")
+- KATRIN, arXiv:2406.13516: m_ν < 0.45 eV (90% CL).
+- Planck 2018, arXiv:1807.06209: Σm_ν < 0.12 eV.
+- DESI DR2, arXiv:2503.14738: Σm_ν < 0.064 eV (95%, DESI+CMB, ΛCDM).
+- A 2 eV active neutrino is excluded on all three.
+- A 2 eV sterile species would itself be hot dark matter. It needs ΔN_eff ≈ 1 thermalised, and is constrained by the same CMB+BAO Σm limits unless its abundance is suppressed. Not a route the corpus pursues; recorded as closed.

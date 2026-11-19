@@ -10,6 +10,11 @@ are the only current physics.**
 **Last verified against the physics:** 2026-11-19 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
+Also 2026-11-19 (no tier change): **D10 supply-limited accretion** (`exploration/d10_attack/` addendum, pre-registered).
+- The static limit is valid: dust equilibration takes ~0.2 of the cluster age, for 12/12 clusters.
+- Capping AeST dust at the cosmic share gives median R = **0.84** (inside the band), but only 8/12 clusters land in [0.7, 1.4] against the required 9. **Fails**, narrowly.
+- Neutrino bounds are now verified against arXiv. The drag G_cosmo result is robust to DES-Dovekie (Δχ² −8.7).
+
 Also 2026-11-19 (no tier change): **D10 nonperturbative virial-boundary solve** (`exploration/d10_attack/`, `TARGET_D10_CLUSTERS.md` §12, pre-registered).
 - Well-posed for 12/12 clusters under μ_std; this fixes §9.
 - Median R 1.96 → **0.75**, an overshoot that fails the band. The added mass exceeds the cosmic dust budget in 8/12 clusters.
