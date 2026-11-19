@@ -104,7 +104,70 @@ The derived first-principles thermodynamic horizon scale ($\xi = 1$) misses the 
 
 **Literature note:** the $\approx 2\pi$ (or $\approx 6$) normalization is not a divisor invented for this fit — it is the form independently reported across the MOND literature for over a decade: Milgrom (2015, *Phys. Rev. D* 91, 044009) states $a_0 \approx cH_0/2\pi$ explicitly when discussing $a_0$'s secular time-variation; Sanders (2019, *MNRAS* 485, 513) independently reports $a_0 \approx cH_0/6$; Milgrom's review (2020, arXiv:2001.09729, "The $a_0$–cosmology connection in MOND") surveys the full family of order-unity normalizations ($cH_0$, $c^2\Lambda^{1/2}$, $c^2/U$) without settling on one. So this repo's $\xi \approx 1/2\pi$ finding **reproduces the literature's standard framing of the coincidence**, not an ad hoc correction. What genuinely is new here — and remains `[O]` — is that Theorem A shows the $2\pi$ does not fall out of the Unruh/Gibbons-Hawking thermal-equilibrium action itself; the field has long noted the numerical coincidence without deriving the normalizing factor from first principles either.
 
-Therefore, Theorem A confirms mathematically that **the $2\pi$ divisor is NOT derived** from horizon thermodynamics (`[P]`), and the relation $a_0 = \xi c H_0$ remains an open phenomenological hypothesis (`[O]`) whose empirical validity must be decided by redshift evolution $a_0(z) \propto H(z)$ (Workstream B).
+Therefore, Theorem A confirms mathematically that **the $2\pi$ divisor is NOT derived** from horizon thermodynamics (`[P]`), and the relation $a_0 = \xi c H_0$ remains an open phenomenological hypothesis (`[O]`) whose empirical validity must be decided by redshift evolution (Workstream B). Note that the *direction* of that evolution is itself a fork, not a foregone conclusion: $a_0 \propto H(z)$ (kinematic, $n \approx 1.5$ in the matter era) and $a_0 \propto \sqrt{\Lambda}$ (anthropic, $n = 0$ exactly) are opposite predictions. See §4.
+
+## 4. The Anthropic Branch: A Severable Module for the $a_0(z)$ Fork
+
+**Tiers: `[P]` on the algebra, `[D]` on the implication, `[O]` on the selection premise.** This section adds **no new postulate**. It resolves an ambiguity already present in the anchor, and it is deliberately constructed so it can be deleted without disturbing anything else.
+
+### A. The ambiguity in the anchor
+
+The declared anchor $a_0 = cH_0/2\pi$ writes $H_0$ as "the Hubble rate" without specifying *which* rate. Two readings exist and they are not equivalent:
+
+- **(i) Kinematic.** $H_0$ stands for $H(z)$, the expansion rate at the epoch in question. Then $a_0$ evolves, and in the matter era $a_0 \propto (1+z)^{3/2}$.
+- **(ii) Anthropic.** $H_0$ is today's fixed rate, and since $H_0 = c\sqrt{\Lambda/3}$ in a flat $\Lambda$-dominated universe, $a_0 \propto \sqrt{\Lambda}$. Because $\Lambda$ is constant, $a_0$ is constant.
+
+The closing sentence of this document adopts (i) implicitly. This section makes (ii) explicit so that the two branches can be discriminated rather than assumed. **That is the entire role of the anthropic principle here: it is the named alternative, not a foundation.**
+
+### B. The module
+
+Three lines, each already established elsewhere in the corpus:
+
+$$H_0 = c\sqrt{\Lambda/3} \quad (\text{flat, } \Lambda\text{-dominated today, } [D])$$
+$$a_0 = cH_0/2\pi \quad (\text{declared anchor, } [A] \text{ per §0})$$
+$$\Longrightarrow \; a_0 \propto \sqrt{\Lambda} \quad \text{and hence} \quad n = 0 \text{ exactly, where } a_0 \propto (1+z)^n$$
+
+One input ($\Lambda$), one output ($n = 0$). The $2\pi$ is carried through untouched.
+
+### C. Severability test
+
+Delete this section and ask what breaks. If **only** the $n = 0$ prediction falls, the module is correctly confined. If the $2\pi$, $\mu_{\text{std}}$, $F_{\text{std}}$, the SPARC fit, or the dark-matter question also move, the module has overreached and should be cut back. This is the operational meaning of "not more than enough."
+
+### D. What the anthropic branch must not be allowed to touch
+
+- **The $2\pi$.** Theorem A (`[P]`) shows the divisor cancels in the Unruh / Gibbons–Hawking equilibrium ($\xi = 1$). No selection argument produces a coefficient. Anthropic reasoning **bounds**; it does not **compute**.
+- **The $\approx 11\%$ offset.** A Weinberg-type structure-formation bound admits $\rho_\Lambda$ up to roughly $10$–$10^3\times$ the observed value, hence $a_0$ up to $3.2$–$31.6\times$ observed. That is a statement about the *scale*. The observed offset ($1.0422$ vs $1.1607 \times 10^{-10}$) is $11\%$ and needs $1.11$ accuracy — two orders of magnitude tighter than selection can deliver. **Any claim that the anthropic principle explains the offset is `[X]`.**
+- **$\mu_{\text{std}}$, $F_{\text{std}}$, and the $n=2$ root.** These are geometric (`audits/2026-11-19/postulate_r_membrane_derivation.py`: $\mu_{\text{std}} = \sin\theta$ is the membrane tilt sine, $F_{\text{std}}$ the Legendre transform of the antiderivative of the DBI area element). Not selection.
+- **Dark matter versus MOND.** Whether $a_0$ is selected says nothing about whether MOND replaces dark matter. That is decided by SPARC, clusters and lensing, empirically.
+- **The value of $\Lambda$ itself.** Weinberg's problem, not this repository's.
+
+### E. The fork
+
+| $z$ | $a_0 \propto H(z)$ total | $a_0 \propto \sqrt{\Lambda}$ |
+|---|---|---|
+| 0 | $1.042\times10^{-10}$ | $1.042\times10^{-10}$ |
+| 1 | $2.948\times10^{-10}$ | $1.042\times10^{-10}$ |
+| 2 | $5.416\times10^{-10}$ | $1.042\times10^{-10}$ |
+| 3 | $8.338\times10^{-10}$ | $1.042\times10^{-10}$ |
+
+The anthropic branch is **sharper** than the kinematic one: it predicts $n = 0$ *exactly*, not approximately. The kinematic branch predicts $n \approx 1.5$ in the matter era. These are opposite, not a continuum.
+
+### F. Current data status — do not score this yet
+
+From `audits/2026-11-18/a0z_zgt15_manifest.py` (exit 0), fits of $\ln a_0 = c + n\ln E(z) + b(\log M_{\text{bar}} - 10.5)$:
+
+| sample | $N$ | $n$ | 95% CI | $\Delta\chi^2$ |
+|---|---|---|---|---|
+| full | 51 | $-0.745$ | $[-2.25,\ 0.92]$ | $6.08$ (2.47$\sigma$) |
+| inclination-verified | 18 | $0.889$ | $[-1.35,\ 7.54]$ | $-0.47$ |
+
+Both intervals admit $n = 0$. $n = 1.5$ lies nominally outside the full-sample interval, **but the full-sample central value is unphysical for either branch**, so the constraint is systematics-dominated and must not be recorded as a win for the anthropic reading. This is consistent with the standing `CURRENT_STATE` warning that the $2.4$–$3.4\times$ median offset at $z \sim 2.2$ is **not** a detection and must not be cited as evidence for $a_0 \propto H(z)$.
+
+**Status: `[U]` — the fork is live and undecided. That is the correct state for a pre-registered test.**
+
+### G. What would decide it
+
+A pre-registered fit of $n$ with an explicit systematics budget (pressure support, beam smearing, $f_{\text{DM}}$ route) on a sample where inclination is measured for *every* object, evaluated against the frozen gate. Until then the anthropic branch is a named alternative with one sharp prediction, and nothing more.
 
 **References**
 - Milgrom, M. (2015). Cosmological variation of the MOND constant: Secular effects on galactic systems. *Physical Review D, 91*(4), 044009. https://doi.org/10.1103/physrevd.91.044009
