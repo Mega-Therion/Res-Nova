@@ -1,6 +1,6 @@
 # Theory 3 gate (2026-11-18) — exploration, no tier change
 
-> **CURRENT VERDICT (latest, read first).** Theory 3 is UNSAT (corrected reason: see "CORRECTION — Theory 3 part (A)"). The open door (quartic Galileon + scaling compensator) is **CLOSED [O]** by the nested field solution (last section). Earlier "door stays OPEN" lines are history. What survives: the exact stretched-cone solution and its angular-leak no-go for Vainshtein screening; the BBN corollary (screening the solar-system scalar removes λ_s from BBN); r_C closes the D5 open item (SZ's run fails 144/175 SPARC galaxies). Next route: symmetron-type (density-melting) screening, i.e. the panel's Theory 1.
+> **CURRENT VERDICT (latest, read first).** Theory 3 is UNSAT (corrected reason: see "CORRECTION — Theory 3 part (A)"). The open door (single-order quartic Galileon + scaling compensator) is **CLOSED [O]** by the nested field solution (last section). A mixed cubic+quartic Galileon is not covered and stays open. Earlier "door stays OPEN" lines are history. What survives: the exact stretched-cone solution and its angular-leak no-go for Vainshtein screening; the BBN corollary (screening the solar-system scalar removes λ_s from BBN); the D5 r_C item evaluated with D5's quoted estimate (SZ's run: 144/175 SPARC galaxies beyond r_C, [O]). Open routes: symmetron-type (density-melting) screening, i.e. the panel's Theory 1, and mixed L₃ + L₄.
 
 Runs the panel's "Theory 3" (w=1/3 tracker replacing Q³ + p≥3/2 Vainshtein screening) as SAT/UNSAT.
 `python3 theory3_gate.py` → `THEORY3_GATE.json`.
@@ -72,7 +72,10 @@ Live scalar law (AEST_TOTAL_SCALAR_CORRESPONDENCE: x μ_std(x) = y, λ_s < 11.28
 
 1. **Exact reduction [D].** Around the Sun the screened scalar gradient c is ~10⁻⁴ of the Galactic scalar gradient. The AQUAL term therefore linearises to A_e(δ + L êê), and the quartic Galileon is blind to the uniform part of the Galactic field. Stretching z′ = z/√(1+L) makes the whole operator isotropic; this is checked numerically to 2×10⁻¹⁵ at 40 random points (`part_a`). Inside r_V′ the exact solution is φ = c r′, with c = (GM σ a₀ₘ²/K)^{1/3}. VAINSHTEIN_PREQ's p = 2 scaling is the spherical limit of this.
 2. **Why it leaks.** Around that cone the linearised quartic operator has only radial second derivatives, so it gives no angular stiffness. The external-field anisotropy imprinted near r_V′ survives inward as a constant-magnitude quadrupolar force of size ≈ (1 − 1/σ²)c.
-3. **BBN corollary [D algebra / O physics], independent of the Galileon.** If the solar-system scalar is screened, the local G is Ĝ. Then G_cosmo/G_local = (2 − K_B)/2: λ_s drops out of BBN, and the ratio is ≥ 0.95 for K_B ≤ 0.1. Any solar-system screening of the tracking scalar removes the Wave-3 BBN tension and the separate compensator field.
+3. **BBN corollary, independent of the Galileon.** It is [D] inside the corpus's own Einstein-aether map (TARGET_D3_ALPHA_WORKING: c₁ = −c₃ = K_B, c₂ = 0, c₄,eff = (2−K_B)/(1+λ_s), G_N = G/(1 − c₁₄/2)).
+   - G_cosmo = G/(1 + (c₁+3c₂+c₃)/2) = G. This reproduces the repo's G_cosmo/G_N = λ_s(2−K_B)/[2(1+λ_s)] exactly.
+   - If screening removes c₄,eff locally (an [O] physics assumption), then c₁₄ → K_B and **G_cosmo/G_local = 1 − K_B/2**. λ_s drops out of BBN, and the ratio is ≥ 0.95 for K_B ≤ 0.1. Any such screening removes the Wave-3 BBN tension and the separate compensator field.
+   - The same map gives α₁ = −4c₁₄ → −4K_B on the static branch. |α₁| < 10⁻⁴ then needs K_B ≲ 2.5×10⁻⁵, unless the solar system sits on D3's dragged branch, where α₁ = α₂ = 0. Both point to small K_B.
 4. **First pass** (λ_s ∈ {0.5, 1, 3, 11}, K = 10³⁷–10⁴³, Milky Way assumed unscreened at R☉; `DOOR_NESTED_SOLUTION.json`): Mercury + Cassini + SPARC Δχ² ≤ 0 (vs live μ_std, χ² 49 866) all pass for λ_s = 0.5 (K = 10³⁹–10⁴¹), λ_s = 1 (3×10³⁹–10⁴¹) and λ_s = 3 (3×10⁴¹). λ_s = 11 fails: L = 25.8 near the folding bound.
 5. **Refinement** (`DOOR_NESTED_REFINE.json`). Those K also screen the Milky Way at R☉: the Galileon/AQUAL flux ratio there is 0.2–55. The Galaxy is re-solved with the Galileon, using McMillan-like baryons and spherical enclosed mass.
    - The Sun's problem stays elliptic (A_⊥ > 0). A flat-curve shortcut said otherwise; it was wrong and is not used.
@@ -80,14 +83,19 @@ Live scalar law (AEST_TOTAL_SCALAR_CORRESPONDENCE: x μ_std(x) = y, λ_s < 11.28
    - **Cassini Q₂_eff = 1.2–5.8×10⁻²⁶ against ≤ 5.2×10⁻²⁷: a 2–11× failure at every point SPARC accepts.**
    - Q₂ passes only at K ≥ 10⁴², where SPARC Δχ² is +22k to +132k and the model's own g(R☉) = 1.24–1.42×10⁻¹⁰ falls below the observed 1.9×10⁻¹⁰.
    - λ_s = 0.2 (`DOOR_NESTED_SOLUTION_lam0.2.json`, `DOOR_NESTED_REFINE_lam0.2.json`): SPARC Δχ² ≥ +18k at every K, and the refined Cassini fails wherever g(R☉) is in the observed band.
-6. **Verdict: CLOSED [O].** Together with the cubic Galileon (p = 1.5 needs r_V ≳ 90 pc, which screens whole galaxies) and the quintic (GW170817 and GW decay), no Horndeski Galileon order screens the AeST scalar consistently with Mercury, Cassini, SPARC and GW170817.
+6. **Verdict: CLOSED [O] for each single Galileon order.**
+   - Cubic alone: p = 1.5 needs r_V ≳ 90 pc, which screens whole galaxies.
+   - Quartic alone: this section.
+   - Quintic: GW170817 and GW decay.
+   - **Not covered: a mixed L₃ + L₄.** Linearised around the cone, a cubic term gives coefficients ∝ (c/r)(δ + nn), so it supplies the angular stiffness the quartic lacks. It is safe for c_T and GW decay. A mixture could keep the quartic dominant at Mercury (p = 2) while the cubic damps the angular leak. Open.
 7. **Caveats.**
-   - The Galaxy and galaxies use spherical enclosed mass.
+   - The Galaxy and galaxies use spherical enclosed mass. The disc geometry makes things **worse, not better**: at R☉ the scalar's vertical curvature, ≈ 4πGρ₀/A_e with ρ₀ = 0.1 M☉/pc³, is ~30× the in-plane curvature, and it enters the azimuthal cofactor with the sign of s′.
+   - In all 4 rows that pass both SPARC and the Milky Way rotation band, s′ < 0. The Galileon's azimuthal coefficient is then −6 to −10 against A_e = 0.5–0.9, so the Sun's static problem is **not elliptic** there at all (estimate, `door_nested_refine.py` inputs).
    - The mixed term κ cof(H_sun):T is not solved. It reshapes the matching at r ~ r_V′ by O(T r_V′/c) ≈ 0.3, too small to remove a 2–11× overshoot, but it is not computed.
    - Saturn's Q₂ is a least-squares proxy for the ephemeris fit.
    - PPN α₁/α₂ with a screened scalar is not checked.
 8. **What survives and where it points.**
    - (a) Any Vainshtein screening whose angular kinetic terms vanish cannot hide the external-field quadrupole. A viable screen must give the angular modes a mass or stiffness as well, as density-dependent (symmetron/chameleon-type) screening does.
    - (b) The BBN corollary.
-   - (c) The D5 r_C item (144/175).
-   - "Two-phase information tension that melts at high density" (the panel's Theory 1) is in field-theory terms a symmetron-type screen. The corpus already has a Cassini symmetron window (`05_lean_formalization/CassiniSymmetronWindow.lean`). That is the next route, and (b) carries over to it.
+   - (c) The D5 r_C item, evaluated with D5's quoted r_C ~ (r_M μ⁻²)^{1/3}. The literature-sweep note says SZ's exact scaling did not extract cleanly, so 144/175 is [O] and should not be attributed to the PRL as stated.
+   - "Two-phase information tension that melts at high density" (the panel's Theory 1) is in field-theory terms a symmetron-type screen. The corpus already has a Cassini symmetron window (`05_lean_formalization/CassiniSymmetronWindow.lean`). That is one next route; mixed L₃ + L₄ is the other. (b) carries over to both.
