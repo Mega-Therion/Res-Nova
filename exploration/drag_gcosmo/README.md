@@ -96,3 +96,10 @@ The data constrain only κ = (3w_d − 1)x₀. On the stable sub-conformal branc
 | DES-Dovekie / BAO / CMB | 2.50 | 1.08 | 0.29 / 0.48 |
 
 So within this model the bare drag cannot be brought below x₀ ≈ 0.6–1.1 at 2σ. Bare G_cosmo/G_N is at most about 0.5–0.6 today, offset by Weyl radiation. This is a property of the flux-fed branch, recorded as a derived floor. Whether the Weyl sector's perturbations tolerate it is the open Boltzmann question [O].
+
+## Why the full Boltzmann test is blocked: a closure problem, not effort [C]
+A full CMB lensing/ISW calculation needs the perturbations of the Weyl dark radiation (Ω_Weyl(0) ≈ 1.75). In braneworld cosmology the brane equations evolve the dark radiation's energy and momentum densities, "but there is no evolution equation for the dark radiative anisotropic stress" (Maartens & Koyama, *Brane-World Gravity*, Living Rev. Rel. 13, 5 (2010), arXiv:1004.3962, verified in the source text). Those nonlocal corrections "cannot be determined purely from data on the brane".
+
+So any Boltzmann run that closes the Weyl sector on the brane, for example by setting its anisotropic stress to zero, imposes an assumption, not a prediction. The decisive test therefore needs the 5D bulk perturbations solved for this flux-fed AdS-Vaidya geometry. That is a research step [O], and the lensing/ISW proxies above are the most that brane-only data can claim.
+
+Because Ω_Weyl here is O(1) and not a small correction, the undetermined anisotropic stress is expected to matter at leading order. This item should be treated as the flux branch's main vulnerability.
