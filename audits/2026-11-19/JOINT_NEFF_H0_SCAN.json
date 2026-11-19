@@ -1,0 +1,83 @@
+{
+  "caveat": "CHW compressed distance prior + Gaussian Planck omega_m h^2; uncorrelated approximation; no DESI BAO vector in repo",
+  "planck_om_h2": {
+    "value": 0.14237,
+    "sigma": 0.00121
+  },
+  "degeneracy_test": {
+    "chi2_at_planck_om_h2": 41.19,
+    "H0_at_planck_om_h2": 71.65,
+    "chi2_chw_free": 0.0078,
+    "note": "compressed prior has an exact (h, om_h2) degeneracy"
+  },
+  "scan": [
+    {
+      "dneff": 0.0,
+      "H0_best": 67.99,
+      "om_h2": 0.14338,
+      "om_pull_sigma": 0.83,
+      "chi2_total": 1.3,
+      "dchi2": 0.0,
+      "sigma": 0.0
+    },
+    {
+      "dneff": 0.1,
+      "H0_best": 68.8,
+      "om_h2": 0.14445,
+      "om_pull_sigma": 1.72,
+      "chi2_total": 5.49,
+      "dchi2": 4.19,
+      "sigma": 2.05
+    },
+    {
+      "dneff": 0.2,
+      "H0_best": 69.61,
+      "om_h2": 0.1455,
+      "om_pull_sigma": 2.59,
+      "chi2_total": 12.51,
+      "dchi2": 11.21,
+      "sigma": 3.35
+    },
+    {
+      "dneff": 0.255,
+      "H0_best": 70.07,
+      "om_h2": 0.14605,
+      "om_pull_sigma": 3.04,
+      "chi2_total": 17.54,
+      "dchi2": 16.24,
+      "sigma": 4.03
+    },
+    {
+      "dneff": 0.27,
+      "H0_best": 70.19,
+      "om_h2": 0.1462,
+      "om_pull_sigma": 3.17,
+      "chi2_total": 19.05,
+      "dchi2": 17.75,
+      "sigma": 4.21
+    },
+    {
+      "dneff": 0.29,
+      "H0_best": 70.35,
+      "om_h2": 0.14642,
+      "om_pull_sigma": 3.35,
+      "chi2_total": 21.17,
+      "dchi2": 19.86,
+      "sigma": 4.46
+    }
+  ],
+  "theory_point": {
+    "dneff": 0.27,
+    "H0_best": 70.19,
+    "om_h2": 0.1462,
+    "om_pull_sigma": 3.17,
+    "chi2_total": 19.05,
+    "dchi2": 17.75,
+    "sigma": 4.21
+  },
+  "fixed_parameter_dchi2_reported_by_D4": [
+    1571,
+    1949
+  ],
+  "overstatement_factor": 88.5
+}
