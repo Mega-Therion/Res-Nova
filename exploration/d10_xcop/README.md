@@ -32,3 +32,21 @@ Pre-registered in `PREREG.md` (a2ea966, before any number). Data in `xcop_data.t
 - With it, the candidate reproduces cluster masses at R₅₀₀ (12/12, median 0.92). At R₂₀₀ it comes within one cluster and 0.045 in the median of the pre-registered criterion.
 - Median S at R₂₀₀ is 0.82: the screen is acting in the outskirts, exactly where the overshoot was.
 - **Remaining [O]:** a residual ~25% outer overshoot at R₂₀₀. The candidates (not tuned here) are the boundary radius (splashback), the inner gas shape (β-model assumed), and the 5–15% non-thermal-pressure corrections already folded into M_tot.
+
+## R₂₀₀ systematics sweep (`PREREG_SYSTEMATICS.md`, `xcop_systematics.py` → `XCOP_SYST_*.json`)
+Each systematic was varied one at a time within its physical range, and every configuration is reported.
+
+| Configuration | R₅₀₀ (median, in band) | R₂₀₀ (median, in band) |
+|---|---|---|
+| Baseline (Test C) | 0.922, 12/12 | 0.755, 8/12 |
+| Gas core r_c = 0.05 R₅₀₀ | 0.921, 12/12 | 0.776, 9/12 |
+| Gas core r_c = 0.2 R₅₀₀ | 0.924, 12/12 | 0.771, 9/12 |
+| M_HSE (no non-thermal correction) | 0.881, 11/12 | 0.710, 7/12 |
+| Boundary 1.2 r_v | 0.844, 11/12 | 0.600, 3/12 |
+| Boundary at splashback (≥ 1.4 r₂₀₀) | — | ill-posed: past the Lane–Emden radius for 5–11/12 clusters (§14) |
+
+**Verdict: not closed, and not systematics-limited.**
+- **R₅₀₀ is robust:** it passes in every configuration.
+- **R₂₀₀ is robust too, but as an overshoot.** Every allowed configuration gives a median of 0.60–0.78. The best variant reaches 9/12, but its median is still below 0.8.
+- So the excess dynamical mass at R₂₀₀ (about 25%) is a genuine prediction of this model, not a modelling artefact. **[D]: the candidate's mass profile is too extended between R₅₀₀ and R₂₀₀.**
+- That makes it a falsifiable target. Weak-lensing mass profiles to R₂₀₀ on X-COP-like clusters would confirm or kill it.
