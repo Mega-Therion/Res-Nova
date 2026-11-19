@@ -44,7 +44,8 @@ def g_ratio(lamY, KB, epsQ):
 def cs2(KB, lamY, K2):
     return (2-KB)*(1+0.5*KB*lamY)/(K2*KB)
 
-def evaluate(name, mu_is_std, KB, lamY, epsQ, K2, screening_scale, ct_is_c, sparc_chi2):
+def evaluate(name, mu_is_std, KB, lamY, epsQ, K2, screening_scale, ct_is_c, sparc_chi2,
+             op_power=None, require_w_radiation=False):
     g = Gate()
     # ---- [1] SPARC-175
     if not mu_is_std:
@@ -74,6 +75,16 @@ def evaluate(name, mu_is_std, KB, lamY, epsQ, K2, screening_scale, ct_is_c, spar
         g.add(3,'c_s^2 <= 1', False, f'degenerate: K_B = {KB}, K2 = {K2}')
     g.add(3,'non-folding lam < 11.2788', lamY < LAM_CEIL,
           f'lam_Y = {lamY} vs ceiling {LAM_CEIL:.6f}')
+    # F5 x F4 immunization rule: an operator whose abundance DRIFTS during radiation
+    # domination makes the BBN value an initial-condition tune. w = 1/3 pins it.
+    if op_power is not None:
+        wq = 1.0/(op_power-1)
+        tracks = abs(wq - 1.0/3.0) < 1e-9
+        expo = -3*(1 + wq)
+        det = (f'F(0,Q) = -cQ^{op_power:g} -> w = {wq:.6f}, rho ~ a^{expo:.2f}'
+               f' -> ' + ('constant eps_Q' if tracks else 'eps_Q DRIFTS: BBN abundance is a tune'))
+        g.add(3,'w_Q = 1/3 (radiation-tracking)', tracks, det,
+              blocking=bool(require_w_radiation))
     # ---- [4] blind gates (non-blocking)
     jwst = os.path.isfile('02_galaxy_dynamics/A0_HIGHZ_RESOLUTION_TEST.json')
     g.add(4,'JWST a0(z) z>1.5 fail-closed', jwst,
@@ -123,12 +134,17 @@ def main():
     ap.add_argument('--mu-std', action='store_true', default=True)
     ap.add_argument('--no-ct-c', action='store_true')
     ap.add_argument('--sparc-chi2', type=float, default=15.0087)
+    ap.add_argument('--op-power', type=float, default=None,
+                    help='power p in F(0,Q) = -c Q^p; gives w = 1/(p-1)')
+    ap.add_argument('--require-w-radiation', action='store_true',
+                    help='enforce the F5 x F4 rule: w_Q must equal 1/3')
     ap.add_argument('--self-test', action='store_true')
     a = ap.parse_args()
     if a.self_test: return self_test()
     if not a.candidate: ap.error('--candidate or --self-test required')
     g = evaluate(a.candidate, a.mu_std, a.KB, a.lamY, a.epsQ, a.K2,
-                 a.screening_scale, not a.no_ct_c, a.sparc_chi2)
+                 a.screening_scale, not a.no_ct_c, a.sparc_chi2,
+                 op_power=a.op_power, require_w_radiation=a.require_w_radiation)
     return report(a.candidate, g)
 
 if __name__ == '__main__':
