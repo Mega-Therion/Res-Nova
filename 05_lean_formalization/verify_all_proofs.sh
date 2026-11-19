@@ -121,6 +121,8 @@ TARGETS=(
   Wave3BBNAndSpinCCP2Bounds.lean
   ModelIdentity.lean
   ModelIdentityBindings.lean
+  CP2SpincIndex.lean
+  NoetherScoping.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------

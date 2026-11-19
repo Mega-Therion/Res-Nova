@@ -540,3 +540,10 @@ ModelIdentity.lean               # The versioned model-identity manifest as one 
 ModelIdentityBindings.lean       # Wave 3 / AeST theorems restated with literals read
                                  # from ModelIdentity.canonical; gated by
                                  # sabotage_model_identity.sh. Not cited by the manuscript.
+CP2SpincIndex.lean               # Characteristic-class arithmetic for Spin^c Dirac index
+                                 # on CP^2 twisted by O(Q), Serre duality Q <-> -3 - Q
+                                 # (h^0=3 at Q=1 vs h^2=3 at Q=-4), and Dolan cross-check
+                                 # (O44/O15). Atiyah-Singer enters only as [ext] hypothesis.
+NoetherScoping.lean              # Abstract B1-B3 chunks of diffeomorphism Noether identity
+                                 # (vector sector, Fin 2 contraction, t-only 2D density
+                                 # divergence; O44). Not cited by the manuscript.
