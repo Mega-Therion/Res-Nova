@@ -16,7 +16,11 @@ Also 2026-11-19 (exploration record, no tier change): **tidal screen with an AeS
   - The bare sector fails (growth enhanced up to ~10³×), and a screen on x alone fails as well.
   - A nonlinearity screen on x_H = ‖∇∇Φ_N‖/H² (H from the aether expansion) keeps growth within 4×10⁻³ of ΛCDM for x_H,low ∈ [10, 492] and leaves SPARC untouched. The virial value ≈154 sits inside that window.
 - **Constants.** x* ∈ [1.7×10¹⁰, 7.04×10¹¹], C ∈ [0.209, 0.696] and x_H,low ∈ [10, 492] are each bounded on both sides by data, not derived `[O]`.
-- **Open `[O]`.** Nonlinear structure formation, the full CMB, and deriving the constants.
+- **Close-out (`closeout.py`).**
+  - CMB: the sector's linear boost at recombination is ≤ 7.5×10⁻¹³, so the CMB is that of the AeST/ΛCDM background.
+  - Nonlinear (spherical collapse): δ_c is lowered by 1.2% at 10¹⁴, 3.3% at 10¹¹ and 6.9% at 10⁸ M☉. That is a testable rise in low-mass halo abundance.
+  - x_H,low is derived from virialisation: 0.866·Ω_m·18π² ≈ 154.
+  - x* (≈ 3.2×10³ M☉ pc⁻³ tidal density) and C remain data-bounded `[O]` inputs.
 
 Also 2026-11-19 (exploration record; one physical premise marked `[X]`; no other tier change, no axiom change): **screening and interpolating-function routes for the AeST MOND scalar** (`exploration/theory3_gate/README.md`; pre-registrations in that folder, each committed before its numbers). Scope: the total-law embedding (`AEST_TOTAL_SCALAR_CORRESPONDENCE_2026-10-14.md`), which is `[O]`; D9's scalar-channel function stays the one in use.
 - **Closed `[O]` in that embedding.**

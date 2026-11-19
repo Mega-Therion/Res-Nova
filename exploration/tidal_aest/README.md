@@ -78,3 +78,20 @@ Verified with SymPy, on ρ = −∇²Φ_N/(4πG):
   - nonlinear structure formation;
   - the full CMB (the sector is off at linear order, so it inherits AeST/D5's status);
   - deriving the constants.
+
+## Close-out of the open items (`closeout.py` → `CLOSEOUT.json`)
+- **CMB: closed at this level.** At recombination the sector's boost on linear modes is b ≤ 7.5×10⁻¹³ (x_H ≪ x_H,low). The CMB is therefore that of the underlying AeST/ΛCDM background, and this sector adds nothing. The background itself keeps AeST/D5's status.
+- **Nonlinear structure: computed (spherical top-hat in ΛCDM, x_H,low = 154).**
+  - Collapsing shells stay screened until near virialisation, then feel the phantom boost.
+  - The collapse threshold falls: δ_c changes by −1.2% at 10¹⁴ M☉, −3.3% at 10¹¹ M☉ and −6.9% at 10⁸ M☉.
+  - **Prediction:** more low-mass halos and earlier dwarf/high-z collapse. Cluster abundance moves by roughly 7% (≈1–2% in σ₈ equivalent), which is marginal against current counts and testable.
+  - The absolute δ_c here uses a matter-era extrapolation (1.28 against the exact 1.686); the relative changes are the result.
+- **Constants.**
+  - **x_H,low is derived** from spherical-collapse virialisation: 0.866·Ω_m·18π² ≈ 154, inside the data window [10, 492]. "MOND switches on at virialisation" is the postulate; the number follows from it.
+  - **x* is not derived.** It corresponds to a tidal density of 3.2×10³ M☉ pc⁻³ (a globular-cluster core) and stays a data-bounded [O] input in [1.7×10¹⁰, 7.04×10¹¹].
+  - **C is not derived.** It stays inside the Oort window [0.209, 0.696], as a constant Lagrangian zero.
+
+**Final status of the candidate.**
+- Passes: BBN, Mercury, Cassini (2σ edge), SPARC, the Oort peak, GW170817, γ = 1, lensing = dynamics, linear growth, and the CMB (the sector is inert at linear order).
+- Makes a testable nonlinear prediction: δ_c lowered by 1–7%, most at low mass.
+- Constants: one derived (x_H,low); two data-bounded but not derived (x*, C).
