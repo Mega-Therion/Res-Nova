@@ -10,3 +10,10 @@ Runs the panel's "Theory 3" (w=1/3 tracker replacing Q³ + p≥3/2 Vainshtein sc
 3. Cassini: VAINSHTEIN_PREQ [D] needs p≥1.890. Cubic Galileon (p=1.5, the proposal) fails. Quartic (p=2) clears it but generic G4X breaks c_T=c (GW170817).
 
 Open door left: a DHOST/beyond-Horndeski quartic with c_T=c (p=2) plus a scaling field that exits before z~1100. Both add structure; neither is derived. Per the panel's own rule, UNSAT routes to Theory 1 (two-phase), whose test is the same three gates.
+
+## Open door, run 2 (`open_door_gate.py` → `OPEN_DOOR_GATE.json`) — [O], O(1) factors dropped
+- Decay bound (Creminelli+ 2018, arXiv:1809.03484: α_H=0 + c_T=c rules out quartic/quintic GLPV) kills beyond-Horndeski/DHOST quartics. Only **pure Horndeski quartic** (α_H=0, p=2) remains, bound by |α_T|≲1e-15.
+- p=2 needs the Sun's Vainshtein radius in **[1.09, 2.36] pc** (lower: Mercury precession; upper: Galactic cap). Window exists.
+- α_T ≈ (4.6e-13 … 4.9e-11)·ε⁴ with ε = φ̇/(M_p H₀) → needs **ε ≲ 0.07–0.22**.
+- At SZ21's reference Q₀=0.1 Mpc⁻¹, ε≈430 → α_T≈0.02–2: **closed**. Survives only if Q₀ ≲ ~2×10⁻⁵ Mpc⁻¹ AND that still gives the dust branch. That is the single deciding check.
+- BBN compensator exit: one scalar mass in [1.9e-27, 2.2e-16] eV (11 decades — a loose, not fine, tune).
