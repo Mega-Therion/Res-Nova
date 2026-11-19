@@ -1,0 +1,197 @@
+{
+  "generated": "2026-11-19",
+  "epistemic_tag": "[D] / [E]",
+  "solver": "02_galaxy_dynamics/qumond_axisym_efe.py (axisymmetric QUMOND PDE, Richardson extrapolated)",
+  "benchmark_Park2026": {
+    "citation": "Park, Hees, Famaey, Desmond, Durakovic 2026, arXiv:2602.17884, Phys. Rev. D",
+    "Q2_mean_s2": 1.6e-27,
+    "Q2_sigma_s2": 1.8e-27
+  },
+  "grid": [
+    {
+      "a0_label": "derived_cH0_2pi",
+      "a0_mps2": 1.0422165280763669e-10,
+      "ge_mps2": 1.5e-10,
+      "eta": 1.4392,
+      "Q2_extrap_s2": 1.5401976712727538e-26,
+      "Q2_fine_s2": 1.5403075714289134e-26,
+      "Q2_richardson_err_s2": 1.0990015615965536e-30,
+      "Q2_1e27": 15.402,
+      "sigma_Park2026": 7.668,
+      "sigma_Hees2014_superseded": 4.134
+    },
+    {
+      "a0_label": "derived_cH0_2pi",
+      "a0_mps2": 1.0422165280763669e-10,
+      "ge_mps2": 1.7e-10,
+      "eta": 1.6311,
+      "Q2_extrap_s2": 1.61616837273819e-26,
+      "Q2_fine_s2": 1.616281187921799e-26,
+      "Q2_richardson_err_s2": 1.1281518360910056e-30,
+      "Q2_1e27": 16.1617,
+      "sigma_Park2026": 8.09,
+      "sigma_Hees2014_superseded": 4.387
+    },
+    {
+      "a0_label": "derived_cH0_2pi",
+      "a0_mps2": 1.0422165280763669e-10,
+      "ge_mps2": 1.9e-10,
+      "eta": 1.823,
+      "Q2_extrap_s2": 1.666082973796032e-26,
+      "Q2_fine_s2": 1.6661966484555046e-26,
+      "Q2_richardson_err_s2": 1.1367465947262744e-30,
+      "Q2_1e27": 16.6608,
+      "sigma_Park2026": 8.367,
+      "sigma_Hees2014_superseded": 4.554
+    },
+    {
+      "a0_label": "derived_cH0_2pi",
+      "a0_mps2": 1.0422165280763669e-10,
+      "ge_mps2": 2.1e-10,
+      "eta": 2.0149,
+      "Q2_extrap_s2": 1.6966497716487714e-26,
+      "Q2_fine_s2": 1.6967627968491798e-26,
+      "Q2_richardson_err_s2": 1.130252004084454e-30,
+      "Q2_1e27": 16.9665,
+      "sigma_Park2026": 8.537,
+      "sigma_Hees2014_superseded": 4.655
+    },
+    {
+      "a0_label": "derived_cH0_2pi",
+      "a0_mps2": 1.0422165280763669e-10,
+      "ge_mps2": 2.3e-10,
+      "eta": 2.2068,
+      "Q2_extrap_s2": 1.7129642321030504e-26,
+      "Q2_fine_s2": 1.713076047166323e-26,
+      "Q2_richardson_err_s2": 1.1181506327253577e-30,
+      "Q2_1e27": 17.1296,
+      "sigma_Park2026": 8.628,
+      "sigma_Hees2014_superseded": 4.71
+    },
+    {
+      "a0_label": "sparc_S2_real_eD",
+      "a0_mps2": 1.1205e-10,
+      "ge_mps2": 1.5e-10,
+      "eta": 1.3387,
+      "Q2_extrap_s2": 1.6578744668153485e-26,
+      "Q2_fine_s2": 1.6579946559844598e-26,
+      "Q2_richardson_err_s2": 1.2018916911130858e-30,
+      "Q2_1e27": 16.5787,
+      "sigma_Park2026": 8.322,
+      "sigma_Hees2014_superseded": 4.526
+    },
+    {
+      "a0_label": "sparc_S2_real_eD",
+      "a0_mps2": 1.1205e-10,
+      "ge_mps2": 1.7e-10,
+      "eta": 1.5172,
+      "Q2_extrap_s2": 1.7554098720720813e-26,
+      "Q2_fine_s2": 1.7555340335368134e-26,
+      "Q2_richardson_err_s2": 1.2416146473211308e-30,
+      "Q2_1e27": 17.5541,
+      "sigma_Park2026": 8.863,
+      "sigma_Hees2014_superseded": 4.851
+    },
+    {
+      "a0_label": "sparc_S2_real_eD",
+      "a0_mps2": 1.1205e-10,
+      "ge_mps2": 1.9e-10,
+      "eta": 1.6957,
+      "Q2_extrap_s2": 1.8231788257595582e-26,
+      "Q2_fine_s2": 1.8233052004368967e-26,
+      "Q2_richardson_err_s2": 1.2637467733855333e-30,
+      "Q2_1e27": 18.2318,
+      "sigma_Park2026": 9.24,
+      "sigma_Hees2014_superseded": 5.077
+    },
+    {
+      "a0_label": "sparc_S2_real_eD",
+      "a0_mps2": 1.1205e-10,
+      "ge_mps2": 2.1e-10,
+      "eta": 1.8742,
+      "Q2_extrap_s2": 1.868203136957745e-26,
+      "Q2_fine_s2": 1.8683292624050206e-26,
+      "Q2_richardson_err_s2": 1.2612544727567785e-30,
+      "Q2_1e27": 18.682,
+      "sigma_Park2026": 9.49,
+      "sigma_Hees2014_superseded": 5.227
+    },
+    {
+      "a0_label": "sparc_S2_real_eD",
+      "a0_mps2": 1.1205e-10,
+      "ge_mps2": 2.3e-10,
+      "eta": 2.0527,
+      "Q2_extrap_s2": 1.8960330039626563e-26,
+      "Q2_fine_s2": 1.896158655433751e-26,
+      "Q2_richardson_err_s2": 1.256514710947251e-30,
+      "Q2_1e27": 18.9603,
+      "sigma_Park2026": 9.645,
+      "sigma_Hees2014_superseded": 5.32
+    },
+    {
+      "a0_label": "sparc_T1_legacy",
+      "a0_mps2": 1.1607e-10,
+      "ge_mps2": 1.5e-10,
+      "eta": 1.2923,
+      "Q2_extrap_s2": 1.7149779902698404e-26,
+      "Q2_fine_s2": 1.7151034574436057e-26,
+      "Q2_richardson_err_s2": 1.2546717376538424e-30,
+      "Q2_1e27": 17.1498,
+      "sigma_Park2026": 8.639,
+      "sigma_Hees2014_superseded": 4.717
+    },
+    {
+      "a0_label": "sparc_T1_legacy",
+      "a0_mps2": 1.1607e-10,
+      "ge_mps2": 1.7e-10,
+      "eta": 1.4646,
+      "Q2_extrap_s2": 1.8240787867458115e-26,
+      "Q2_fine_s2": 1.8242089289890222e-26,
+      "Q2_richardson_err_s2": 1.3014224321074383e-30,
+      "Q2_1e27": 18.2408,
+      "sigma_Park2026": 9.245,
+      "sigma_Hees2014_superseded": 5.08
+    },
+    {
+      "a0_label": "sparc_T1_legacy",
+      "a0_mps2": 1.1607e-10,
+      "ge_mps2": 1.9e-10,
+      "eta": 1.6369,
+      "Q2_extrap_s2": 1.9016371083683153e-26,
+      "Q2_fine_s2": 1.9017692232770902e-26,
+      "Q2_richardson_err_s2": 1.3211490877492859e-30,
+      "Q2_1e27": 19.0164,
+      "sigma_Park2026": 9.676,
+      "sigma_Hees2014_superseded": 5.339
+    },
+    {
+      "a0_label": "sparc_T1_legacy",
+      "a0_mps2": 1.1607e-10,
+      "ge_mps2": 2.1e-10,
+      "eta": 1.8093,
+      "Q2_extrap_s2": 1.9547480333810922e-26,
+      "Q2_fine_s2": 1.9548816739736923e-26,
+      "Q2_richardson_err_s2": 1.3364059260015976e-30,
+      "Q2_1e27": 19.5475,
+      "sigma_Park2026": 9.971,
+      "sigma_Hees2014_superseded": 5.516
+    },
+    {
+      "a0_label": "sparc_T1_legacy",
+      "a0_mps2": 1.1607e-10,
+      "ge_mps2": 2.3e-10,
+      "eta": 1.9816,
+      "Q2_extrap_s2": 1.9891481777906426e-26,
+      "Q2_fine_s2": 1.9892817498701503e-26,
+      "Q2_richardson_err_s2": 1.3357207950770487e-30,
+      "Q2_1e27": 19.8915,
+      "sigma_Park2026": 10.162,
+      "sigma_Hees2014_superseded": 5.63
+    }
+  ],
+  "summary": {
+    "min_exclusion_sigma_Park2026": 7.668,
+    "max_exclusion_sigma_Park2026": 10.162,
+    "verdict": "Bare unscreened mu_std QUMOND is excluded by Park et al. (2026) at +7.67 to +10.16 sigma across the entire +/-21% Milky Way external-field uncertainty band and all three a0 conventions. Forward-model / astrophysical environment uncertainty cannot rescue bare mu_std."
+  }
+}

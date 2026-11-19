@@ -29,7 +29,7 @@
     "a0_mps2": 1.1607e-10,
     "delta_std": 1.6151832177512186e-12,
     "lean_bound": "1 - mu_std(x) <= 2e-12 for x >= 5e5 (saturn_monopole_deviation_le)",
-    "scope": "Isolated-Sun monopole only. Not a Cassini clearance: the EFE quadrupole Q2 is the binding test and bare mu_std fails it at ~4.6 sigma (CASSINI_EFE_QUADRUPOLE_2026-09-27.md)."
+    "scope": "Isolated-Sun monopole only. Not a Cassini clearance: the EFE quadrupole Q2 is the binding test and bare mu_std fails Park et al. (2026, arXiv:2602.17884, superseding Hees et al. 2014 ~4.6 sigma) at +8.37 to +9.68 sigma (+7.67 to +10.16 sigma across +/-21% Milky Way g_e; audits/2026-11-19/CASSINI_GE_UNCERTAINTY_BAND.json)."
   },
   "planetary_monopole_table": [
     {

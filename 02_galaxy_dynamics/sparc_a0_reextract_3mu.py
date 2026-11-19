@@ -58,7 +58,17 @@ def verify_closures():
     deep = mu_close(np.array([1e-12]), a0, 'simple')[0] / np.sqrt(2.0*a0*1e-12)
     print(f"  mu_simple deep-MOND check: g/sqrt(2*a0*gb) = {deep:.12f} (sqrt2 normalization defect confirmed)")
 
-def prep(fp):
+def prep(fp, *, legacy_buggy_fd: bool = False):
+    """Prepare a SPARC galaxy for (Yd, Yb, fd) profile likelihood.
+
+    Physical Layer 1b SPARC scaling (Lelli+2016, Li+2018, parameter_ledger.py,
+    sparc_reproduce.py): when distance scales as D -> fd * D, luminosity L -> fd^2 L
+    and radius R -> fd * R, so V_bar^2 -> fd * V_bar^2 and g_bar = V_bar^2 / R is
+    DISTANCE-INDEPENDENT. Predicted speed scales as V_pred = sqrt(g(g_bar, a0) * fd * R).
+
+    Pass legacy_buggy_fd=True ONLY to reproduce the archived 2026-09-16 JSON
+    (where vb2 omitted the fd factor, making g_bar erroneously scale as 1/fd).
+    """
     rows = []
     for line in open(fp):
         if line.startswith('#') or not line.strip(): continue
@@ -74,7 +84,12 @@ def prep(fp):
     hasb = np.max(np.abs(vbulge)) > 0
     yb_eff = YB if hasb else np.array([0.7])
     vb2 = A[None,None,None,:] + YD[:,None,None,None]*D[None,None,None,:] + yb_eff[None,:,None,None]*B[None,None,None,:]
-    gbar = vb2 / (FD[None,None,:,None]*np.maximum(r_m,1e16)[None,None,None,:])
+    r_safe = np.maximum(r_m, 1e16)[None,None,None,:]
+    if legacy_buggy_fd:
+        gbar = vb2 / (FD[None,None,:,None] * r_safe)
+    else:
+        # (FD * vb2) / (FD * r_m) = vb2 / r_m (broadcast over FD axis for harness shape parity)
+        gbar = np.broadcast_to(vb2 / r_safe, (len(YD), len(yb_eff), len(FD), len(r_m)))
     pri = ((YD[:,None,None]-0.5)/0.125)**2 + ((FD[None,None,:]-1.0)/0.10)**2
     if hasb: pri = pri + ((yb_eff[None,:,None]-0.7)/0.175)**2
     return (vobs, verr, r_m, gbar, pri)

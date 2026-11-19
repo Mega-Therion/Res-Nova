@@ -39,9 +39,12 @@ Comprehensive Symbolic & High-Precision Numerical Certification:
      Fractional deviation: Delta g / g_N ~ 1 / (2 * x^2)
    - NOT a Cassini clearance. 1 - mu is a fractional acceleration shift; the Cassini bound
      |gamma - 1| <= 2.3e-5 (Bertotti et al. 2003) constrains a light-propagation parameter
-     and is not comparable. The binding Cassini test is the external-field quadrupole Q2,
-     which bare mu_std FAILS at ~4.6 sigma
-     (02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md).
+     and is not comparable. The binding Cassini test is the external-field quadrupole Q2
+     (Park et al. 2026, arXiv:2602.17884, Q2 = (1.6 +/- 1.8)e-27 s^-2, superseding Hees et al.
+     2014's ~4.6-4.7 sigma), which bare mu_std FAILS at +8.37 to +9.68 sigma at g_e=1.9e-10
+     (+7.67 to +10.16 sigma across +/-21% Milky Way g_e; see
+     audits/2026-11-19/CASSINI_GE_UNCERTAINTY_BAND.json and
+     02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md).
    - Contrast against falsified dual branch mu_dual(x) = x / (1 + x):
      Produces unshielded Delta g ~ a0 across all orbits (falsification confirmed).
    - Generates machine-readable receipt at scripts/repro/cassini_clearance_receipt.json
@@ -316,8 +319,9 @@ def run_cassini_and_solar_system():
     assert saturn_entry["x_ratio"] >= 5e5, "Saturn x below the Lean theorem's hypothesis"
     assert saturn_entry["delta_std"] <= 2e-12, "Saturn monopole deviation exceeds the Lean bound"
     print("    SCOPE: isolated-Sun monopole only. Not comparable to the Cassini |gamma-1| bound.")
-    print("    The binding Cassini test is the EFE quadrupole Q2, which bare mu_std FAILS (~4.6 sigma);")
-    print("    see 02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md.")
+    print("    The binding Cassini test is the EFE quadrupole Q2 (Park et al. 2026, arXiv:2602.17884,")
+    print("    superseding Hees et al. 2014 ~4.6 sigma), which bare mu_std FAILS at +8.37 to +9.68 sigma")
+    print("    (+7.67 to +10.16 sigma across +/-21% g_e; see audits/2026-11-19/CASSINI_GE_UNCERTAINTY_BAND.json).")
 
     # Falsification contrast:
     print("\n[+] Contrast Against Falsified Dual Branch mu_dual(x) = x / (1 + x):")
@@ -354,7 +358,7 @@ def main():
             "a0_mps2": 1.1607e-10,
             "delta_std": next(e["delta_std"] for e in res_4 if "Saturn" in e["target"]),
             "lean_bound": "1 - mu_std(x) <= 2e-12 for x >= 5e5 (saturn_monopole_deviation_le)",
-            "scope": "Isolated-Sun monopole only. Not a Cassini clearance: the EFE quadrupole Q2 is the binding test and bare mu_std fails it at ~4.6 sigma (CASSINI_EFE_QUADRUPOLE_2026-09-27.md)."
+            "scope": "Isolated-Sun monopole only. Not a Cassini clearance: the EFE quadrupole Q2 is the binding test and bare mu_std fails Park et al. (2026, arXiv:2602.17884, superseding Hees et al. 2014 ~4.6 sigma) at +8.37 to +9.68 sigma (+7.67 to +10.16 sigma across +/-21% Milky Way g_e; audits/2026-11-19/CASSINI_GE_UNCERTAINTY_BAND.json)."
         },
         "planetary_monopole_table": res_4,
         "overall_status": "CALCULUS_VERIFIED; P(X)_COMPLETION_SUPERLUMINAL; MONOPOLE_ONLY_NOT_CASSINI"

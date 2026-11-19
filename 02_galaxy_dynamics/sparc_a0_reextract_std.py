@@ -24,7 +24,13 @@ def mu_close(gb, a0, mu):
     if mu == 'dual': return gb*(0.5 + np.sqrt(0.25 + a0/gb))
     return np.sqrt(0.5*(gb**2 + np.sqrt(gb**4 + 4*gb**2*a0**2)))   # mu_std
 
-def prep(fp):
+def prep(fp, *, legacy_buggy_fd: bool = False):
+    """Prepare a SPARC galaxy for (Yd, Yb, fd) profile likelihood.
+
+    Corrected 2026-11-19: V_bar^2 -> fd*V_bar^2 and R -> fd*R so g_bar = V_bar^2/R is
+    distance-invariant (matching parameter_ledger.py and sparc_reproduce.py).
+    Pass legacy_buggy_fd=True only for historical 2026-09-16 forensic reproduction.
+    """
     rows = []
     for line in open(fp):
         if line.startswith('#') or not line.strip(): continue
@@ -40,7 +46,11 @@ def prep(fp):
     hasb = np.max(np.abs(vbulge)) > 0
     yb_eff = YB if hasb else np.array([0.7])
     vb2 = A[None,None,None,:] + YD[:,None,None,None]*D[None,None,None,:] + yb_eff[None,:,None,None]*B[None,None,None,:]
-    gbar = vb2 / (FD[None,None,:,None]*np.maximum(r_m,1e16)[None,None,None,:])
+    r_safe = np.maximum(r_m, 1e16)[None,None,None,:]
+    if legacy_buggy_fd:
+        gbar = vb2 / (FD[None,None,:,None] * r_safe)
+    else:
+        gbar = np.broadcast_to(vb2 / r_safe, (len(YD), len(yb_eff), len(FD), len(r_m)))
     pri = ((YD[:,None,None]-0.5)/0.125)**2 + ((FD[None,None,:]-1.0)/0.10)**2
     if hasb: pri = pri + ((yb_eff[None,:,None]-0.7)/0.175)**2
     return (vobs, verr, r_m, gbar, pri)
