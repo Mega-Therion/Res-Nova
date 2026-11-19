@@ -1,6 +1,6 @@
 # Theory 3 gate (2026-11-18) — exploration, no tier change
 
-> **CURRENT VERDICT (latest, read first).** Theory 3 is UNSAT (corrected reason: see "CORRECTION — Theory 3 part (A)"). The open door (single-order quartic Galileon + scaling compensator) is **CLOSED [O]** by the nested field solution (last section). A mixed cubic+quartic Galileon is not covered and stays open. Earlier "door stays OPEN" lines are history. What survives: the exact stretched-cone solution and its angular-leak no-go for Vainshtein screening; the BBN corollary (screening the solar-system scalar removes λ_s from BBN); the D5 r_C item evaluated with D5's quoted estimate (SZ's run: 144/175 SPARC galaxies beyond r_C, [O]). Open routes: symmetron-type (density-melting) screening, i.e. the panel's Theory 1, and mixed L₃ + L₄.
+> **CURRENT VERDICT (latest, read first).** Theory 3 is UNSAT (corrected reason: see "CORRECTION — Theory 3 part (A)"). The open door (single-order quartic Galileon + scaling compensator) is **CLOSED [O]** by the nested field solution (last section). A mixed cubic+quartic Galileon is not covered and stays open. Earlier "door stays OPEN" lines are history. What survives: the exact stretched-cone solution and its angular-leak no-go for Vainshtein screening; the BBN corollary (screening the solar-system scalar removes λ_s from BBN); the D5 r_C item evaluated with D5's quoted estimate (SZ's run: 144/175 SPARC galaxies beyond r_C, [O]). Mixed L₃ + L₄ is now also closed [O] (last section): the pure quartic is gradient-unstable around the Sun, and the cubic that stabilises it leaves a Cassini leak 4–16× over the bound. The open route left is symmetron-type (density-melting) screening, i.e. the panel's Theory 1.
 
 Runs the panel's "Theory 3" (w=1/3 tracker replacing Q³ + p≥3/2 Vainshtein screening) as SAT/UNSAT.
 `python3 theory3_gate.py` → `THEORY3_GATE.json`.
@@ -99,3 +99,21 @@ Live scalar law (AEST_TOTAL_SCALAR_CORRESPONDENCE: x μ_std(x) = y, λ_s < 11.28
    - (b) The BBN corollary.
    - (c) The D5 r_C item, evaluated with D5's quoted r_C ~ (r_M μ⁻²)^{1/3}. The literature-sweep note says SZ's exact scaling did not extract cleanly, so 144/175 is [O] and should not be attributed to the PRL as stated.
    - "Two-phase information tension that melts at high density" (the panel's Theory 1) is in field-theory terms a symmetron-type screen. The corpus already has a Cassini symmetron window (`05_lean_formalization/CassiniSymmetronWindow.lean`). That is one next route; mixed L₃ + L₄ is the other. (b) carries over to both.
+
+
+## Mixed cubic + quartic (`PREREG_MIXED_L3L4.md`): closed [O]
+1. **The pure quartic is unstable [D] (`quartic_core_instability.py`, SymPy series).** Inside the quartic-dominated core the angular principal coefficient is M_⊥ → −Z + 2κ₃²/(3κ₄).
+   - With κ₃ = 0 it is −Z < 0, so the quartic-screened solar solution is gradient-unstable in the angular directions inside its Vainshtein region.
+   - This kills the pure-quartic door independently of the Cassini result above, and more strongly.
+   - My first hand derivation got the sign of the cubic term wrong; the SymPy series is the record.
+2. **The Galaxy's tide is cancelled near the Sun [D, order-by-order].** The Sun's induced response is H₁ = −κ₃/(3κ₄) I − T, so inside r_T ~ c/|T| the Galaxy's Galileon cofactors drop out. The Z that enters is the external-field AQUAL tensor A_e(I + L êê), with an O(1) anisotropic correction: angular direction e₁ sees −Z_e₂e₂.
+   - Stability condition: **K₃ > √(3 K₄ A_e(1+L))**.
+   - The first scan implementation mixed perturbation orders and reported spurious failures. Its log is kept as `mixed_l3l4_INVALID_ellipticity.log`. The scan was stopped and replaced by the order-consistent criterion.
+3. **The stabilising cubic survives SPARC [O] (`mixed_stability_sparc.py`).** In deep MOND the cubic/AQUAL flux ratio is K₃/(η r), independent of mass, so every galaxy's MOND scalar is suppressed inside r ~ K₃/η (2–22 kpc here).
+   - At the stability threshold, 9 rows still pass Mercury, the Milky Way g(R☉) and SPARC Δχ² ≤ 0: λ_s = 0.5 with K₄ = 3×10³⁸–3×10⁴⁰, and λ_s = 1 with K₄ = 3×10³⁸–10⁴⁰.
+4. **Cassini kills it [O] (`mixed_cassini_survivors.py`).** All 18 survivor configurations (1.0× and 1.5× the threshold K₃, both g_e) give **Q₂_eff = 2.1–8.5×10⁻²⁶**, 4–16× the 2σ upper bound of 5.2×10⁻²⁷.
+   - Cause: the cubic couples to the disc's vertical tidal curvature through 2κ₃(tr T − T), whose anisotropy is ~2κ₃T_zz/A_e ≫ 1. The Sun's r_V (~1–2 pc) lies outside the vertical cancellation radius (~0.2 pc), so that anisotropy is imprinted where the leak amplitude is set.
+   - Raising K₃ does not help: shell angular stiffness and Galactic anisotropy both scale with κ₃, while r_V grows and SPARC worsens.
+   - The first-order solver overestimates by ≤ 21% (regression a), which cannot close a 4–16× gap.
+   - Caveats: the solver holds the Galaxy's cofactors constant inside r_T, where they are cancelled; the leak is set near r_V, outside r_T. The required Milky Way baryon scale f_MW = 0.72–1.62 is partly implausible.
+5. **Stop rule triggered.** No candidate passes, so mixed L₃ + L₄ is closed [O] at first order. Next route: symmetron-type (density-melting) screening. The BBN corollary (λ_s drops out once the solar-system scalar is screened) carries over.
