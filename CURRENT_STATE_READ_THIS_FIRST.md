@@ -10,6 +10,11 @@ are the only current physics.**
 **Last verified against the physics:** 2026-11-19 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
+Also 2026-11-19 (no tier change): **D10 with measured ACCEPT gas profiles** (11/12 clusters, pre-registered).
+- Pure MOND gives R = 2.15. AeST static gives 0.69, supply-capped 0.80 (6/11 in band): **fails**.
+- The profiles reach only a median 0.59 r₅₀₀, so the outer gas is still extrapolated. Two clusters have unphysical outer slopes (β ≈ 0.9–1.0).
+- The decisive input is gas profiles to r₂₀₀ (X-COP-type) `[O]`.
+
 Also 2026-11-19 (no tier change): **D10 supply-limited accretion** (`exploration/d10_attack/` addendum, pre-registered).
 - The static limit is valid: dust equilibration takes ~0.2 of the cluster age, for 12/12 clusters.
 - Capping AeST dust at the cosmic share gives median R = **0.84** (inside the band), but only 8/12 clusters land in [0.7, 1.4] against the required 9. **Fails**, narrowly.

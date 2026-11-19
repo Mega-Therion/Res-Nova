@@ -1,0 +1,135 @@
+{
+ "N": 11,
+ "median_R_pureMOND": 2.1508629742510332,
+ "median_R_static": 0.6863748028134702,
+ "n_static_in": 4,
+ "median_R_capped": 0.795597983447145,
+ "n_capped_in": 6,
+ "median_fgas_measured_over_catalog": 1.1502004686064125,
+ "median_rmax_over_r500": 0.5852818074995848,
+ "rows": [
+  {
+   "name": "ABELL-1689",
+   "fgas_measured": 0.12176018772867031,
+   "fgas_catalog": 0.156,
+   "beta_outer": 1.9914106631600426,
+   "rmax_measured_over_r500": 0.550474374892339,
+   "R_static": 0.5950430749303052,
+   "dust_ratio": 1.580347317118016,
+   "R_capped": 0.779515878316636,
+   "R_pureMOND": 2.2322187857091533
+  },
+  {
+   "name": "ABELL-1763",
+   "fgas_measured": 0.26193942532569786,
+   "fgas_catalog": 0.212,
+   "beta_outer": 0.8690416410827144,
+   "rmax_measured_over_r500": 0.5966805499591054,
+   "R_static": 0.3568400513045779,
+   "dust_ratio": 0.9290264652336013,
+   "R_capped": 0.3568400513045779,
+   "R_pureMOND": 1.5672409832619947
+  },
+  {
+   "name": "ABELL-2034",
+   "fgas_measured": 0.2053062704041383,
+   "fgas_catalog": 0.073,
+   "beta_outer": 1.0136773546384725,
+   "rmax_measured_over_r500": 0.7471518832775692,
+   "R_static": 0.6859628221754913,
+   "dust_ratio": 0.3546742024583075,
+   "R_capped": 0.6859628221754913,
+   "R_pureMOND": 1.4339895088403714
+  },
+  {
+   "name": "ABELL-209",
+   "fgas_measured": 0.10748408346492115,
+   "fgas_catalog": 0.146,
+   "beta_outer": 1.5973641854524656,
+   "rmax_measured_over_r500": 0.41612455856958375,
+   "R_static": 0.6863748028134702,
+   "dust_ratio": 1.3128182123905177,
+   "R_capped": 0.795597983447145,
+   "R_pureMOND": 2.2191585207812223
+  },
+  {
+   "name": "ABELL-2142",
+   "fgas_measured": 0.1820298897974208,
+   "fgas_catalog": 0.158,
+   "beta_outer": 1.410780321926256,
+   "rmax_measured_over_r500": 0.27832340397626143,
+   "R_static": 0.6062948441244195,
+   "dust_ratio": 0.7754964268733932,
+   "R_capped": 0.6062948441244195,
+   "R_pureMOND": 1.6417874903653997
+  },
+  {
+   "name": "ABELL-383",
+   "fgas_measured": 0.1391742567013759,
+   "fgas_catalog": 0.121,
+   "beta_outer": 1.5808507718738012,
+   "rmax_measured_over_r500": 0.24399017951887364,
+   "R_static": 0.853941176423122,
+   "dust_ratio": 0.5247238434918482,
+   "R_capped": 0.853941176423122,
+   "R_pureMOND": 1.8076812001951144
+  },
+  {
+   "name": "ABELL-773",
+   "fgas_measured": 0.11821156288708709,
+   "fgas_catalog": 0.116,
+   "beta_outer": 1.7307182888043824,
+   "rmax_measured_over_r500": 0.6985245855798752,
+   "R_static": 0.7520084066663543,
+   "dust_ratio": 1.0243642938140107,
+   "R_capped": 0.762138990091177,
+   "R_pureMOND": 2.1508629742510332
+  },
+  {
+   "name": "CL-J1226.9+3332",
+   "fgas_measured": 0.08775992233560123,
+   "fgas_catalog": 0.04,
+   "beta_outer": 1.907718322522167,
+   "rmax_measured_over_r500": 0.6736916622934738,
+   "R_static": 1.63099125185673,
+   "dust_ratio": 0.47548621136697977,
+   "R_capped": 1.63099125185673,
+   "R_pureMOND": 3.3838343909055117
+  },
+  {
+   "name": "MACS-J0717.5+3745",
+   "fgas_measured": 0.13886144552186078,
+   "fgas_catalog": 0.17,
+   "beta_outer": 2.6622431229111694,
+   "rmax_measured_over_r500": 0.826623946582718,
+   "R_static": 0.8026334134732316,
+   "dust_ratio": 1.5071340411085021,
+   "R_capped": 1.0028134817676633,
+   "R_pureMOND": 2.3886764198585175
+  },
+  {
+   "name": "RXC-J0232.2-4420",
+   "fgas_measured": 0.16761979890076886,
+   "fgas_catalog": 0.123,
+   "beta_outer": 1.7379195232837297,
+   "rmax_measured_over_r500": 0.5554623297358222,
+   "R_static": 0.9806455884171493,
+   "dust_ratio": 0.26570869005179965,
+   "R_capped": 0.9806455884171493,
+   "R_pureMOND": 1.6377716479802822
+  },
+  {
+   "name": "RX-J1347.5-1145",
+   "fgas_measured": 0.061309994477786595,
+   "fgas_catalog": 0.1,
+   "beta_outer": 2.6705710016423407,
+   "rmax_measured_over_r500": 0.5852818074995848,
+   "R_static": 0.5798283601388279,
+   "dust_ratio": 5.880348831926629,
+   "R_capped": 1.630959838030801,
+   "R_pureMOND": 3.550158948401654
+  }
+ ],
+ "verdict_static": "FAILS",
+ "verdict_capped": "FAILS"
+}
