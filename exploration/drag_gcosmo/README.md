@@ -37,6 +37,13 @@ Pre-registered in `PREREG.md` (commit 7c5908a, before any number). Fits: `drag_f
 
 ## Pre-registered 5D AdS-Vaidya Israel–Codazzi bulk-flux, NEC, and Weyl backreaction test (`PREREG_FLUX.md` a4db5e0b, `flux_codazzi_check.py` → `FLUX_CODAZZI.json`)
 
+> **Read first (review note, 2026-11-19).** The surviving sub-conformal branch needs a large bare drag. At w_d = 0 the best fit is x₀ ≈ 2.24, so the bare G_cosmo/G_N today is 1/(1 + x₀) ≈ 0.31: a 69% bare mismatch, offset by Weyl dark radiation (Ω_Weyl(0) ≈ 1.75).
+>
+> This is a much stronger cancellation than the naive drag fit's 24%. The fit quality rests on that cancellation, and CMB lensing and ISW are where it would be tested.
+>
+> Independently reproduced: the rerun of `flux_codazzi_check.py` matches the committed `FLUX_CODAZZI.json`; see the PR.
+
+
 **Symbolic `[D]` (SymPy exact 5D AdS-Vaidya + 4D Bianchi identity):**
 - On flat-sliced 5D AdS-Vaidya $ds^2 = -f(r,v)\,dv^2 + 2\epsilon\,dv\,dr + r^2 d\mathbf{x}^2$, $f = k^2 r^2 - \mu(v)/r^2$, $R = -20 k^2$ and every component of $G_{AB} - 6 k^2 g_{AB}$ vanishes except $E_{vv} = \frac{3\epsilon}{2r^3}\dot{\mu}(v)$.
 - By the 5D Null Energy Condition, both bulk-to-wall inflows ($\dot{\mu}_+ \ge 0$ from outside, $\dot{\mu}_- \le 0$ from inside) strictly increase the 4D Weyl dark-radiation density $\rho_{\mathrm{Weyl}} \propto (\mu_+/k_+ - \mu_-/k_-)/a^4$.
