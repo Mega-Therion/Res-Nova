@@ -35,13 +35,24 @@ keywords:
 # archival DOI. Do not put a paper DOI in this field -- the repository and the
 # papers are different objects.
 references:
+  # The paper, by its own version DOI. Its title is copied from DataCite.
+  # (The concept DOI 10.5281/zenodo.21539453 now resolves to the correction
+  # notice below, so pairing it with the paper's title would not match.)
   - type: article
     title: >-
       Res Nova: Geometrically Ordered Dynamics and Information Tension
-      — Dual-Channel Variational Closure
+      — Dual-Channel Action, Covariant Completion, and Formal Verification
     authors:
       - family-names: Yett
         given-names: R.W.
         orcid: "https://orcid.org/0009-0001-1303-7190"
-    doi: "10.5281/zenodo.21539453"
+    doi: "10.5281/zenodo.22079177"
+    year: 2026
+  - type: generic
+    title: "Res Nova: correction of the public abstract (2026-10-03)"
+    authors:
+      - family-names: Yett
+        given-names: R.W.
+        orcid: "https://orcid.org/0009-0001-1303-7190"
+    doi: "10.5281/zenodo.23130663"
     year: 2026
