@@ -76,6 +76,24 @@ That is the one thing this operator gets right, and it is irrelevant: the Solar-
 | Local anisotropic operator separates `ℓ=2` from `ℓ=0` | **`[X]`** |
 | Non-local / background-dependent `S_ij T^ij` escape | `[O]` unbuilt |
 
+## 5b. `[P]` The `a₀` basis does not affect the verdict
+
+The corpus carries two `a₀` conventions, and they differ by **11.4%**:
+
+| value | meaning | tag |
+|---|---|---|
+| `1.1607×10⁻¹⁰ m s⁻²` | SPARC-175 fitted (T1, all 175 galaxies) | `[E]` |
+| `1.0422×10⁻¹⁰ m s⁻²` | `cH₀/(2π)` with `H₀ = 67.4` | `[D]` |
+
+`#228`/`#229` quoted `Q₂` against the **derived** anchor; the `r_M` in §3 uses the **fitted** value. That is not an inconsistency, but it needed stating. Recomputing §3 on both bases:
+
+| basis | `a₀` | `r_M` | strength at `r_M` |
+|---|---|---|---|
+| SPARC-175 fitted `[E]` | `1.1607×10⁻¹⁰` | 7148 au | `8.72×10⁻²¹` |
+| `cH₀/(2π)` derived `[D]` | `1.0422×10⁻¹⁰` | 7543 au | `7.83×10⁻²¹` |
+
+Both give `~10⁻²⁰` of the leading term at `r_M`. **LOCKED either way.** The 11.4% gap between the two conventions is a separate open item in this corpus and is not addressed here.
+
 ## 6. What this adds beyond #228
 
 `#228` showed `Q₂` is not a high-acceleration problem: a perfect screen above `y=30` changes it by 0.031%. That killed *isotropic, magnitude-dependent* screening.

@@ -95,6 +95,28 @@ print(f"      which puts {(rM_sun/R_MERC)**2:.3e} x the leading term at Mercury 
 print(f"      precession prediction would be ~{(rM_sun/R_MERC)**2*rel_max*ORBITS_PER_CY*2*math.pi*R_MERC**2/GM_SUN/MAS:.3e} mas/cy")
 print(f"      against a {PREC_BOUND_MAS} mas/cy bound. Excluded by many orders.")
 
+hdr("D.  the SPARC side: what the operator does to rotation curves")
+print("""  Because the profile is fixed at 1/r^2, tuning for Q2 makes the operator negligible
+  at galactic radii (r ~ 11 kpc >> r_M of the Sun), so SPARC rotation curves are
+  actually PROTECTED. That is the one thing this operator gets right -- and it is
+  irrelevant, because the Solar-System monopole dies first.
+
+  [D] So the constraint that kills this operator is NOT the SPARC chi2_nu drift the
+      brief anticipated. It is the Mercury monopole residual, which the operator
+      over-corrects by ~7 orders of magnitude at any coupling strong enough to move Q2.""")
+
+hdr("E.  a0 basis robustness: two conventions, one verdict")
+print("  The corpus carries two a0 conventions and they differ by 11.4%:")
+print("    1.1607e-10 = SPARC-175 fitted [E] (T1, all 175 galaxies)")
+print("    1.0422e-10 = cH0/(2 pi) derived [D]")
+print("  #228/#229 quoted Q2 against the DERIVED anchor; this note's r_M uses the FITTED")
+print("  value. Neither choice moves the verdict:")
+for label, a0v in (("SPARC-175 fitted [E]", 1.1607e-10), ("cH0/2pi derived [D]", 1.0422e-10)):
+    rM = math.sqrt(GM_SUN/a0v)
+    s_rM = (rc_max/rM)**2
+    print(f"    {label:<24} a0={a0v:.4e}  r_M={rM/AU:7.0f} au  strength@r_M={s_rM:.2e}")
+print("  [P] Both bases give ~1e-20 of the leading term at r_M: LOCKED either way.")
+
 hdr("VERDICT")
 print(f"""  [P] S_ij S^ij = (2/3)(phi'' - phi'/r)^2 : purely radial, l=0 content, 1/r^2 profile.
   [P] An l=0-blind anisotropic operator requires a fixed external tensor -> not covariant.
