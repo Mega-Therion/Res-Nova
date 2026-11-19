@@ -106,3 +106,62 @@ Until step 3 is done, the 5% no-go stands as proved but its *premise* is a trunc
 | C1 Cassini | **fails**; tracking branch, constant residual | **yes, structurally** |
 
 The theory is not killed by three independent exclusions. It is killed by one, C1, and C1 is an embedding-class problem that no parameter scan can reach.
+
+---
+
+# 8. The Q/Y decoupling: what the no-go is actually pointing at
+
+Added after PR #226 review. Receipt: `audits/2026-11-18/qy_decoupling_test.py` (exit 0).
+
+## 8.1 The structural fact, which the corpus already had
+
+On FLRW, with a unit timelike `A^μ` and homogeneous `φ(t)`,
+
+```
+q^{00} = g^{00} + A^0 A^0 = -1 + 1 = 0    ⇒    Y = q^{μν} ∂_μ φ ∂_ν φ ≡ 0
+```
+
+for **all** `φ(t)`. This is not new: `CLM-D7-02` and `CLM-D7-03` were retracted on exactly this ground. It matters here for a consequence that was not drawn.
+
+A `J(Y)`-only theory has no cosmological scalar dynamics at all, because `J(0)` is a constant. So in minimal AeST `λ_s` **cannot** enter `G_cosmo`. It enters only `G_N = (1 + 1/λ_s) Ĝ`, which is the quasi-static Newtonian limit: a Y-sector object.
+
+## 8.2 So the trap is the reverse of the usual telling
+
+The BBN bound is therefore *not* driven by `Q`. It is driven by `λ_s` reaching the ratio through `G_N`. And non-folding is also a `λ_s` condition. **One parameter, two regimes, no independent knob.** That is the entire content of the collision, and it is not about `μ(x)` at all.
+
+Restated: BBN needs `λ_s` *large* (weak fifth force, `G_N → Ĝ`); non-folding needs `λ_s` *small*. Both are the same Y-sector number.
+
+## 8.3 The escape, and its exact size
+
+Give `G_cosmo` its own knob from a Q sector:
+
+```
+G_cosmo = (1 − K_B/2)(1 + ε_Q) Ĝ ,     ε_Q from F_Q(0, Q₀) at the BBN background
+```
+
+Then `G_cosmo/G_N = (1 − K_B/2)(1 + ε_Q) · λ_Y/(1 + λ_Y)`, and with `λ_Y` pinned at the non-folding ceiling the ratio is linear in `1 + ε_Q`:
+
+| BBN bound | `ε_Q` at `K_B = 0` | `ε_Q` at `K_B = 0.04` |
+|---|---|---|
+| 5% | **3.423%** | 5.534% |
+| 2% | 6.689% | 8.866% |
+| 1% | 7.778% | 9.977% |
+
+**A Q-sector contribution of 3.42% to `G_cosmo` dissolves the 5% no-go entirely**, with `λ_Y` left at 11.2788. Causality is not threatened: a `P(Q)` term has `c_s² = P_Q/(P_Q + 2Q P_QQ) ≤ 1` whenever `P_QQ ≥ 0`, and is ghost-free for `P_Q > 0`. The Y sector is untouched at background order precisely because `Y ≡ 0` on FLRW.
+
+## 8.4 What this is and is not
+
+It **is** a one-line change to the action and a three-line change to the no-go theorem, and it converts a hard no-go into a satisfiable inequality with a computable threshold.
+
+It is **not** a solved theory. Two things remain open, and neither is discharged here:
+
+1. **`ε_Q` is a requirement, not a derivation.** We have shown what size the Q-sector contribution must have. We have not shown that any covariant `F(Y,Q)` produces exactly that value without fine tuning, nor that such a term survives the full perturbation analysis (ghost, gradient, and coupling to the aether).
+2. **Cassini is still unaddressed.** The survival gate passes observable 2 only because a screening scale is *declared*. Its magnitude is not computed. `CLM-D3-03`'s 119× Vainshtein margin was retracted, so there is no live computation of the suppression factor.
+
+`python3 scripts/survival_vector_gate.py --self-test` encodes exactly this: minimal AeST fails three blocking checks; the `F(Y,Q)` variant passes — **conditional on the declared screening scale**, which is the honest weak point in the gate.
+
+## 8.5 The next calculation, precisely
+
+The Z3/SAT layer is cheap and can run now: the constraint set over `(K_B, λ_Y, ε_Q, 𝒦₂)` is linear in `ε_Q` and decidable in milliseconds. That is worth doing and it is *not* the bottleneck.
+
+The bottleneck is item 1 above: deriving `ε_Q` from a covariant `F(Y,Q)` and checking the full quadratic action. That is the xAct/Cadabra job, and its target is now a single number — **3.423%** — rather than an open-ended survey.
