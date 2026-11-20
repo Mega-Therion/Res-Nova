@@ -144,3 +144,4 @@ Pre-registered before any numerical output. Rather than waiting on a full 1+1D 5
 
 ### 5D follow-up (2026-11-19)
 - Phase 1 of the bulk solve (`exploration/bulk5d/`): the covariant velocity-dependent tension reproduces this drag background but is `[X]` as the flux-fed branch, because its flux flips sign at z ≈ 0.73. Absorbed bulk null dust gives Law A with a computed flux frame. Law C has no covariant realization from either candidate.
+- Phase 2 (`exploration/bulk5d/`): under any closure, DES-Dovekie fails the ISW gate. Pantheon+ passes only if the bulk flux source keeps the effective Weyl viscosity below c_vis² ≈ 5.5×10⁻⁴. The flux frame drops out at zero viscosity.
