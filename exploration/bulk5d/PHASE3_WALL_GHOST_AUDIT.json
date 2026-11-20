@@ -1,0 +1,16 @@
+{
+ "scalar_time_kinetic_second_derivative": "K2",
+ "scalar_no_ghost_iff": "K2 > 0",
+ "scalar_spatial_gradient_coefficient_in_L_cond": 0,
+ "scalar_gradient_stability": "[O] L_cond has no (spatial gradient of phi)^2 term. This audit does not decide gradient stability.",
+ "vector_electric_lagrangian": "L = K_B * epsilon^2 |grad Phi|^2 / a^2",
+ "vector_no_ghost_on_J2b_electric_mode_iff": "K_B > 0",
+ "F2_used": "-2*epsilon^2*|grad Phi|^2/a^2 (JACOBIAN_SPLIT J2b)",
+ "G4_over_G5": "2*k_m*k_p/(k_m - k_p)",
+ "G4_positive_when": "k_m > k_p",
+ "junction": "4G = -8 pi G4 tau + Weyl. The minus is the Israel convention already verified in p0 C3, not a negative Newton constant.",
+ "H2_identity": "H^2 = (8 pi G4 / 3) (sigma_ext - sigma) when tension is the only source. Positive for sub-extremal tension.",
+ "H2_prefactor_symbol": "16*pi*k_m*k_p/(3*(k_m - k_p))*(sigma_ext - sigma), with G4 = 2*k_p*k_m/(k_m - k_p)",
+ "where_rho_d_sits": "[O] Whether rho_d from L_cond adds to wall tension (lowers H^2) or to brane matter (ordinary attraction) is not fixed by the quadratic kinetic signs.",
+ "verdict": "Time-kinetic ghost-free iff K2 > 0. Electric vector energy positive iff K_B > 0. Gradient stability and the gravitational seat of rho_d stay open."
+}

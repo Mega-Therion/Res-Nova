@@ -7,8 +7,13 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against the physics:** 2026-11-19 (UTC). The audit-cycle state below supersedes
+**Last verified against the physics:** 2026-11-20 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
+
+Also 2026-11-20 (no tier change): **Dark-bubble embedding of the flux-fed drag is `[X]` as formulated** (`exploration/bulk5d/README.md` Test G and Test W; receipts `PHASE3_WALL_GHOST_AUDIT.json`, `PHASE3_WALL_GHOST_COUPLED.json`, `WEP_2507_03748_AUDIT.json`, `PHASE3_DRAG_ACTION_AND_DK.json`, `audits/2026-11-19/JACOBIAN_SPLIT_AND_D56_AUDIT.json`, `exploration/drag_gcosmo/LAW_B_RELAXATION_SWEEP.json`).
+- `[X]` arXiv:2507.03748 sign rule: net weight := −1 + β. Abelian DBI has weight +1. Gluons, every su(3) generator being traceless, have weight −1 at leading order in α′. Active-mass Al/Fe is excluded by LLR by about 11 orders (η_active ≥ 9×10⁻³ against 3.9×10⁻¹⁴).
+- The drag survives only as a 4D effective parameterization in `drag_gcosmo`. Reopen the embedding only if a mechanism other than the B/C₂ fields gives non-abelian worldvolume fields weight +1 and the quark sign is derived.
+- Live seat unchanged: substrate `V_2(R^3)`, gauge seat `E8 × E8`, minimal single-metric matter coupling plus AeST. Disformal matter coupling remains `[X]` (`RN-GEA-RETIRED-001`). Single-metric minimal coupling gives η_active = 0.
 
 Also 2026-11-19 (no tier change): **5D bulk solve, Phase 3 (pre-registered mechanism search, `14c90dc8`): DES-Dovekie needs drag pinning Γ ≳ 30H; no tested covariant candidate supplies it naturally** (`exploration/bulk5d/`).
 - `[D]` The Law-B sweep runs from Law A (γ = 0, reproduced exactly) to Law C (γ = 1000, reproduced to within 1%). Both best fits pass for Γ ≥ 30H at c_vis² ∈ {0.1, 1/3, `mb95_l8`}; both fail for Γ ≤ 10H.

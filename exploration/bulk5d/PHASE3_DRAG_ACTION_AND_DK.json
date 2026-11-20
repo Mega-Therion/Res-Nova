@@ -1,0 +1,30 @@
+{
+ "P3A_covariant_drag_action": {
+  "killing_norm_identity": "Y - X = f(a), with X = adot^2 and Y = f(a) + adot^2",
+  "naive_L_of_Y_rho_d": "k**2*rho_b*a(tau)**2 - mu*rho_b/a(tau)**2 + rho_b*Derivative(a(tau), tau)**2/2 + sigma0",
+  "naive_L_of_Y_obstruction": "Tangential Y = f(a) + adot^2 injects rho_b * k^2 * a^2 ~ (k/H)^2 ~ 1e62 times larger than drag",
+  "unit_killing_Z": "Z = 1 + adot^2 / f(a) = 1 + O(H^2/k^2): no a^2 growth without a UV-growing bulk field",
+  "aest_condensate_dust_limit": "rho_d = K2*Q0*dQ + (1/2)*K2*dQ^2, p_d = (1/2)*K2*dQ^2 => w_d = dQ/(2*Q0) -> 0 as dQ/Q0 -> 0",
+  "law_c_link_and_risk": "Pinning A_mu to u_xi_mu gives F_d = 0 (Law C) on delta T|wall = 0 slices, but inherits -8*pi*G4 anti-gravitating wall sign requiring an explicit scalar-ghost check [O]."
+ },
+ "P3B_delta_k_window": {
+  "single_sided_pi_over_rho": "pi_p/rho_p",
+  "single_sided_delta_k_cancels": true,
+  "two_sided_cancellation_amplification": "-c_p/(alpha - 1)",
+  "Q4_over_abs_rho_Lambda5_exact": "(5 + 2*E'/E)/4 * x0 * a^2 * ((k_- - k_+)*k/(k_+*k_-)) * (H/k)^3",
+  "H0_over_k_micron": 3.6429956504868156e-31,
+  "Ep_today_approx": -0.5963045,
+  "null_dust_ratio_at_dk_over_k_1": 1.032889274626573e-91,
+  "static_medium_v3_ratio_prefactor_times_dk_over_k": 4.2727531723659995,
+  "backreaction_bound_dk_over_k_for_10pct": 0.023404113452363522
+ },
+ "P3C_kramers_kronig": {
+  "causal_pole": "w = -i / tau_R (strictly in lower half-plane)",
+  "kramers_kronig_pv_integral_matches_ReG": true,
+  "low_freq_cvis2_scaling": "c_vis^2 ~ (G_inf / rho_W) * (H0 * tau_R)",
+  "uv_gapped_tauR_1_over_k": 3.6429956504868156e-31,
+  "gapless_tauR_1_over_H0": 1.0,
+  "pantheon_lawA_ceiling": "1.5e-4 to 5.5e-4 (phase2_threshold_frame.py)",
+  "implication": "Under Law A, Pantheon+ forbids gapless O(1)-shear bulk states (tau_R ~ 1/H0 unless G_inf/rho_W <= 1e-4), while a UV-gapped state (tau_R ~ 1/k) naturally yields H0*tau_R ~ 3.6e-31 << 1e-4."
+ }
+}

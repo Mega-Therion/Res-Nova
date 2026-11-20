@@ -1,0 +1,125 @@
+{
+ "source": "arXiv:2507.03748 TeX (prl_draft.tex) and arXiv:2310.15032 sec. 4, fetched 2026-11-20",
+ "C1_sign_rule": {
+  "rule": "w_net = -1 + beta; beta = 2 (abelian, linear Delta H ~ F) gives +1; beta = 0 (su(N), Tr F = 0) gives -1 [D]",
+  "consistency_with_B4": "PHASE3_WALL_GHOST_COUPLED B4: wall bending alone leaves wall-localized stress at Phi = +4 pi G4 rho/k^2 (repulsive). That is the -1 the paper starts from; 2310.15032 sec. 4 states the same (brane matter negative, overcompensated by H-field backreaction) [D]+[C]",
+  "su3_traceless_checked": true
+ },
+ "C2_proton": {
+  "Aq_minus_Ag": "0.009 +- 0.037 (matches the paper's 0.009 +- 0.037) [D]",
+  "fractional_deviation": "0.991 (paper: 0.99) [D]",
+  "string_scale_Ag_asymptotic": {
+   "n_f=3": 0.64,
+   "n_f=5": 0.5161,
+   "n_f=6": 0.4706
+  },
+  "string_scale_mg_over_mi_cbar0": {
+   "n_f=3": -0.28,
+   "n_f=5": -0.0323,
+   "n_f=6": 0.0588
+  },
+  "cbar_band_mg_over_mi": [
+   0.398,
+   -0.402
+  ],
+  "robust_min_deviation": "|1 - m_g/m_i| = 2 f_g >= 0.60 for |cbar_g| <= 0.2 [D]",
+  "verdict": "The O(1) deviation is robust: it needs only that gluons carry O(1/2) of the proton's rest energy, which holds at hadronic scales and at the ~11 TeV string scale of 2311.14589 (RG fixed point A_g ~ 0.47-0.52). The exact 0.009 is not robust (scheme dependent; cbar omitted; central value consistent with zero or negative).",
+  "mass_origin_link": "Most proton mass is QCD (quark motion + gluon field + trace anomaly), not Yukawa. The sign rule splits exactly along that decomposition, which is why the effect is O(1) and not O(1%)."
+ },
+ "C3_electroweak": {
+  "W_Z_at_rest": "time-averaged field-strength energy = mass-term energy; -T_SU(2) + T_Higgs gives m_grav = 0, m_inert = m [D]",
+  "paper_claim_checked": "2507.03748 sec. 3 diagonalises only the Higgs mass matrix (the inertial spectrum) and concludes m_grav = m_inert for W, Z. Its own sign rule gives m_grav(W, Z) = 0 at tree level. [D]",
+  "photon_weight_under_paper_rule": "cos(2 theta_W) = 0.5376, not 1 [D] (unless U(1)_em is the brane trace U(1); model dependent)",
+  "impact": "Does not rescue the model. W, Z are unstable and irrelevant to WEP tests; it shows the EW section is incomplete."
+ },
+ "C4_active_passive": {
+  "passive_mass": "Brane fields couple minimally to the induced metric h_ab and follow its geodesics, so free fall is universal: the rule does not by itself violate passive WEP (MICROSCOPE tests passive mass). [D]",
+  "active_mass": "The rule changes the SOURCE T^{00}: active/inertial mass becomes composition dependent. [D]",
+  "paper_bounds_critique": "2507.03748 uses MICROSCOPE (passive) and an Si-28/Avogadro comparison. Both compare baryonic matter with baryonic matter or test free fall, so a universal baryon factor cancels or does not enter; a universal factor would be absorbed into G4. The decisive test is active-mass composition dependence. [D]",
+  "coulomb_fraction": {
+   "Al27": 0.00147,
+   "Fe56": 0.002316
+  },
+  "scan": [
+   {
+    "R_B": -0.065,
+    "w_e": 1,
+    "eta_active_Al_Fe": 0.0142
+   },
+   {
+    "R_B": -0.065,
+    "w_e": -1,
+    "eta_active_Al_Fe": 0.0144
+   },
+   {
+    "R_B": -0.028,
+    "w_e": 1,
+    "eta_active_Al_Fe": 0.0333
+   },
+   {
+    "R_B": -0.028,
+    "w_e": -1,
+    "eta_active_Al_Fe": 0.0334
+   },
+   {
+    "R_B": 0.009,
+    "w_e": 1,
+    "eta_active_Al_Fe": 0.0744
+   },
+   {
+    "R_B": 0.009,
+    "w_e": -1,
+    "eta_active_Al_Fe": 0.0799
+   },
+   {
+    "R_B": 0.046,
+    "w_e": 1,
+    "eta_active_Al_Fe": 0.0166
+   },
+   {
+    "R_B": 0.046,
+    "w_e": -1,
+    "eta_active_Al_Fe": 0.0172
+   },
+   {
+    "R_B": 0.083,
+    "w_e": 1,
+    "eta_active_Al_Fe": 0.00902
+   },
+   {
+    "R_B": 0.083,
+    "w_e": -1,
+    "eta_active_Al_Fe": 0.0093
+   }
+  ],
+  "eta_active_min_over_scan": 0.00902,
+  "bounds": {
+   "LLR_Singh2023": 3.9e-14,
+   "LLR_BartlettVanBuren1986": 4e-12
+  },
+  "orders_of_magnitude_excess": 11.4,
+  "verdict": "Nuclear Coulomb energy (abelian, weight +1) against QCD binding (weight ~0) makes Al and Fe differ in active mass by eta >= 1e-2 over the whole LQCD band and either electron sign, about 11 orders above LLR. The paper's conclusion survives, through the active-mass channel it did not use. [D]"
+ },
+ "C5_single_metric": {
+  "weights": {
+   "quarks": 1,
+   "gluons": 1,
+   "electroweak": 1,
+   "photons": 1,
+   "leptons": 1
+  },
+  "eta_active": 0,
+  "note": "Minimal coupling of every sector to one metric g (Res-Nova seat; disformal coupling [X] RN-GEA-RETIRED-001) gives T^{mu nu}_total with unit weight per sector: m_active = m_passive = m_inertial identically. [D]"
+ },
+ "implications": {
+  "phase2_matter_sector_scope": "PHASE2_MATTER_SECTOR's +G4 result is for stretched-string endpoints (dust of mass tau/k). SM baryons are not stretched strings: under 2507.03748 about half their rest energy (gluons) gravitates with -1. The [D] status holds for string-endpoint dust only.",
+  "envelope_embedding": "The drag_gcosmo / bulk5d envelope treats baryons and CDM as +G4 fluids. Inside the dark-bubble embedding as currently formulated, baryons have m_g/m_i ~ 0 +- 0.04 (or ~0.06 at the string scale). The cosmological embedding is inconsistent with its own matter coupling unless a new mechanism (not B, C2 fields) couples gluons to induced gravity with weight +1.",
+  "drag_seat": "The drag condensate is meant to sit in the -G4 seat (B4). That is a feature for a dark component, not a WEP problem, but it does not help the baryon sector.",
+  "loopholes_open": [
+   "[O] A non-B/C mechanism coupling non-abelian fields linearly to a bulk mode (e.g. non-normalizable boundary conditions, 2311.16242).",
+   "[O] Quark sign: the paper assumes +1 for quarks without derivation; brane-localized fermions would naively be -1 as well.",
+   "[O] Higher-order alpha' terms (Tr F^3, Tr F^4) are subleading and cannot flip the leading sign (paper's argument; not re-derived)."
+  ]
+ },
+ "verdict": "[D] The paper's conclusion stands and is stronger than stated: O(1) composition-dependent ACTIVE mass, excluded by LLR by about 11 orders. Two corrections to the paper: its tests are the wrong channel (passive / baryon-vs-baryon), and its electroweak section is incomplete (m_grav(W,Z) = 0, photon weight cos 2 theta_W under its own rule). For bulk5d: the dark-bubble embedding cannot carry +G4 baryons as formulated."
+}

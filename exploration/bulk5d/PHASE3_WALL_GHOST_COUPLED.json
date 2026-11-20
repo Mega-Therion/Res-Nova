@@ -1,0 +1,46 @@
+{
+ "B1_background_and_noether": {
+  "Y_frw_drops_out_identically": true,
+  "rho_d": "K2*Q0*dQ + (1/2)*K2*dQ^2",
+  "p_d": "(1/2)*K2*dQ^2",
+  "noether_continuity_identity": "d(rho_d)/dtau + 3*H*(rho_d + p_d) == Q * (1/a^3)*d/dtau(a^3 * K2 * dQ)",
+  "shift_symmetric_obstruction": "Closed wall condensate (div J_phi = 0) forces Q4 = 0 and dQ ~ a^-3 rather than a^2 H^2; flux-fed drag requires bulk shift-current injection div J_phi = Q4 / Q > 0."
+ },
+ "B2_nonzero_drag_dispersion": {
+  "Y2_longitudinal": "(Qbar*A_x + v_x)^2",
+  "cY_0_dispersion": "2*K_B*omega^4 + K2*dQb*Qbar*omega^2 - K2*dQb^2*k^2 = 0",
+  "cY_0_ir_tachyon_k0": "-K2*dQb*Qbar / (2*K_B) < 0",
+  "cY_0_uv_blowup": "-sqrt(K2/(2*K_B))*dQb*k -> -infinity",
+  "small_k_acoustic_cs2": "dQb / Qbar (exact adiabatic dust speed dp_d/drho_d)",
+  "cY_stabilized_uv_speeds": [
+   "0",
+   "c_Y / K2"
+  ],
+  "cY_stabilized_k0_masses": [
+   "0",
+   "Qbar*(c_Y*Qbar - K2*dQb)/(2*K_B)"
+  ],
+  "transverse_Ay_dispersion": "omega^2(k) = k^2 + Qbar*(c_Y*Qbar - K2*dQb)/(2*K_B)",
+  "stability_window_dynamical_Ai": "K2 > 0, K_B > 0, and K2*dQb/Qbar <= c_Y <= K2",
+  "pinned_Ai_zero_dispersion": "omega^2(k) = (c_Y / K2) * k^2 (requires c_Y << K2 for dust if A_i is non-dynamical)"
+ },
+ "B3_adm_gravity_and_tensor_sign": {
+  "tensor_EH_quadratic": "+(1/2)*s_EH*Mpl2*(h_t^2 - h_z^2)",
+  "relative_tensor_scalar_kinetic_sign": "In local 4D EFT s_EH*Mpl2*R + L_wall, s_EH = -1 gives tensor -(1/2)*Mpl2*h_t^2 vs scalar +(1/2)*K2*varphi_t^2 (opposite signs for K2 > 0); ghost-freedom relies on 5D non-localization (arXiv:2202.00545, 2212.14004).",
+  "static_poisson_k2_coeff": "-2*s_EH*Mpl2 + K_B",
+  "gr_aest_window_sEH_plus1": "0 < K_B < 2*Mpl2 (attractive Poisson iff K_B < 2*Mpl2)",
+  "wall_poisson_sEH_minus1": "+(2*Mpl2 + K_B)*k^2*Phi^2 (repulsive for all K_B > 0)",
+  "adm_dQb0_pinned_kinetic_coeff": "K2*K_B*k^2*omega^2 / (K2*Q0^2 + 2*K_B*k^2) (vanishes at K_B = 0: pure L_cond at dQb=0 is pure gauge)"
+ },
+ "B4_5d_wall_bending_seat": {
+  "F_bend_wall_dust": "-k_m*k_p*kappa5sq*rho_d/(3*p2*(k_m - k_p))",
+  "h_wall_covariant": "-(2*kappa4^2/p^2)*(tau_ab - tau*eta_ab/2)",
+  "Phi_static_wall_dust": "k_m*k_p*kappa5sq*rho_d/(k**2*(k_m - k_p)) = +4*pi*G4*rho_d/k^2 > 0 (anti-gravitating)",
+  "Psi_over_Phi_slip": "1 (bending turns 5D 1/3 trace into 4D 1/2, keeping zero slip)",
+  "seat_verdict": "[D] at leading order in p/(a*k): wall bending alone does NOT overcompensate purely wall-localized dust to +G4; L_cond sits in the anti-gravitating drag seat needed for 3*(1 + x0*a^2)*(Psi' + Phi), while +G4 matter requires an explicit bulk source (strings / bulk field)."
+ },
+ "remaining_open_gates": [
+  "[O] Full 5D bulk Weyl backreaction E_eff induced by L_cond - (1/2)*c_Y*Y at finite H/k and non-zero dQb.",
+  "[O] Explicit bulk shift-current coupling S_flux supplying div J_phi = Q4/Q > 0 while keeping stability and Law B / c_vis^2 gates satisfied."
+ ]
+}

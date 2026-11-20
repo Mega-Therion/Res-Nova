@@ -117,7 +117,7 @@ Pre-registered before any derivation. Self-contained SymPy at linear order and l
 
 **Still `[O]` after Phase 2:**
 1. The state of the flux source, which sets the first-order π_eff.
-2. ~~The 4D matter sector~~ **resolved at leading order** (`phase2_matter_sector.py` → `PHASE2_MATTER_SECTOR.json`). arXiv:2001.07433 §3.1 works in Lorentzian 4-momentum and includes the wall bending, which turns the 5D tensor structure into the 4D one. The resulting response is h_ab = −(2κ₄²/p²)(T_ab − ½Tη_ab): linearized 4D GR with G₄ for time-dependent sources, algebra verified in SymPy. String endpoints behave as dust (point masses τ/k), and worldvolume EM gravitates as 4D radiation (2310.15032). `[D]` at leading order in p/(ak) and H/k; the endpoints' equations of motion are taken from the paper, not derived from the string action.
+2. ~~The 4D matter sector~~ **resolved at leading order** (`phase2_matter_sector.py` → `PHASE2_MATTER_SECTOR.json`). arXiv:2001.07433 §3.1 works in Lorentzian 4-momentum and includes the wall bending, which turns the 5D tensor structure into the 4D one. The resulting response is h_ab = −(2κ₄²/p²)(T_ab − ½Tη_ab): linearized 4D GR with G₄ for time-dependent sources, algebra verified in SymPy. String endpoints behave as dust (point masses τ/k), and worldvolume EM gravitates as 4D radiation (2310.15032). `[D]` at leading order in p/(ak) and H/k; the endpoints' equations of motion are taken from the paper, not derived from the string action. **Scope (Test W, Phase 3):** this holds for stretched-string endpoint dust only. SM baryons are not stretched strings: their gluon energy gravitates with −1 (arXiv:2507.03748), so they are not +G₄ matter in this embedding.
 3. The drag's perturbation law, and a 5D action for the w_d = 0 drag.
 4. ~~Δk = k₋ − k₊~~ **no longer an independent input** (`dk_ratio_identity.py`). For single-sided feeding it drops out of the closure; for two-sided feeding what matters is the split k₋ρ⁺ vs k₊ρ⁻, which is part of the flux-source specification (item 1).
 
@@ -153,6 +153,22 @@ Pre-registered before any derivation. Self-contained SymPy at linear order and l
 - **(ii) Radial string forest.** Not tested; no concrete action is specified.
 
 **Verdict.** None of the tested candidates is a natural covariant source of the w_d = 0 drag. The requirement is now quantified: any mechanism that keeps DES-Dovekie must pin the drag momentum at Γ ≳ 30H with nonzero Weyl stress.
+
+**Test G, wall-condensate ghost and seat audit `[D]`** (`phase3_wall_ghost_audit.py` → `PHASE3_WALL_GHOST_AUDIT.json`; `phase3_wall_ghost_coupled.py` → `PHASE3_WALL_GHOST_COUPLED.json`, sheet `PHASE3_WALL_GHOST_COUPLED.md`). Candidate: the AeST-like condensate L_cond in `phase3_drag_action_and_dk.py`.
+- **Decoupled signs.** The time kinetic term is ghost-free iff K₂ > 0. The J2b electric energy is positive iff K_B > 0. The junction minus is the Israel convention (G₄ > 0 for k₋ > k₊), not a negative Newton constant.
+- **Non-zero drag, dynamical A_i.** Bare L_cond is unstable at every k: there is an IR tachyon ω²(0) = −K₂δQ̄Q̄/(2K_B), and ω² ~ −√(K₂/2K_B)·δQ̄·k in the UV. Adding −½c_Y𝒴 with 𝒴 := (h^{μν} + A^μA^ν)∂_μφ∂_νφ leaves FRW ρ_d and p_d unchanged. It stabilizes the condensate iff K₂ > 0, K_B > 0 and K₂δQ̄/Q̄ ≤ c_Y ≤ K₂, and the IR dust speed stays c_s² = δQ̄/Q̄.
+- **Noether.** Exactly, ρ̇_d + 3H(ρ_d + p_d) = Q ∇_μJ^μ_φ. A closed condensate has Q₄ = 0. The drag therefore needs bulk shift-current injection ∇_μJ^μ_φ = Q₄/Q > 0 `[O]`.
+- **4D-EFT sign.** In a local 4D EFT with the −8πG₄ sign, the tensor and scalar kinetic terms have opposite signs. Ghost-freedom therefore rests on 5D non-localization (2202.00545, 2212.14004).
+- **Seat.** Under 2001.07433 bending, purely wall-localized dust gives Φ = Ψ = +4πG₄ρ_d/k² (repulsive, zero slip). Bending alone does not overcompensate. L_cond sits in the anti-gravitating drag seat that P0 O3 needs.
+- **Still open `[O]`:** the 5D Weyl backreaction at finite H/k, and an explicit bulk coupling that supplies ∇_μJ^μ_φ.
+
+**Test W, the equivalence principle `[D]` → dark-bubble embedding `[X]` as formulated** (`wep_2507_03748_audit.py` → `WEP_2507_03748_AUDIT.json`, sheet `WEP_2507_03748_AUDIT.md`; source arXiv:2507.03748 and 2310.15032 §4 TeX).
+- **Sign rule.** Net weight := −1 + β. The brane piece is −1 (Test G seat). Abelian DBI has ΔH ∝ F, so β = 2 and the weight is +1. Every su(3) generator is traceless, so β = 0 and gluons gravitate with −1 at leading order in α′.
+- **Proton.** A_q − A_g = 0.009 ± 0.037. The deviation is O(1) and robust: |1 − m_g/m_i| = 2f_g ≥ 0.6, including at the string scale, where A_g → 16/(16 + 3n_f). It is O(1) because most baryon mass is QCD, not Yukawa.
+- **The decisive channel is active mass.** Brane matter follows induced-metric geodesics, so free fall stays universal. The paper's MICROSCOPE and Si-28 tests are the wrong channel. Nuclear Coulomb energy (weight +1) against QCD binding (≈ 0) gives η_active(Al/Fe) ≥ 9×10⁻³. The LLR bound is 3.9×10⁻¹⁴ (Singh et al. 2023). Excluded by about 11 orders of magnitude.
+- **Paper correction.** Under the paper's own rule, m_grav(W, Z) = 0, not m_W, and the photon weight is cos 2θ_W. This does not change the verdict.
+- **Consequence for this track.** Phase 2 open item 2 (+G₄ matter) holds for stretched-string endpoint dust only. SM baryons are not stretched strings. In the dark-bubble embedding as formulated, baryons have m_g/m_i ≈ 0 ± 0.04, so the embedding contradicts the envelope's +G₄ baryon fluid. **The dark-bubble embedding of the drag is `[X]` as formulated.** The drag survives only as a 4D effective parameterization (`drag_gcosmo`), not as a derived dark-bubble mechanism.
+- **Reopen only if** a mechanism other than B/C₂ couples non-abelian worldvolume fields linearly to a bulk mode with weight +1 (e.g. non-normalizable boundary conditions, 2311.16242), and the quark sign is derived rather than assumed `[O]`.
 
 ## Original Phase 2 scope (superseded by `PREREG_PHASE2.md` 0ea2f7a5)
 Kept for the record. P0 is done. The moving-wall PDE and the two numerical controls below were replaced by the low-energy expansion and the K1–K3 controls; see the amendment.

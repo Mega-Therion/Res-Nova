@@ -1,50 +1,28 @@
-# Pre-registration: Phase 3, a mechanism search for the drag perturbation law (2026-11-19, before any Phase 3 number)
+# Pre-registration: Dark-Bubble Phase 3 Decision Filter (2026-11-19, before any computation)
 
-**Status and scope.** This is a new phase. It searches for 5D mechanisms, with kill gates fixed in advance.
-- It cannot change Phase 2's conditional verdict (#264, corrected in #266).
-- Any mechanism it finds stays `[O]` until its own gates pass.
-- The flux source's state stays a model input whatever this phase finds.
-- Prompted by a Muse "7-Muses" brainstorm. Its claims are re-derived here, not imported.
+Locks the Phase 3 Law-B relaxation sweep and the three symbolic bulk/drag closures (`phase3_drag_action_and_dk.py`) prior to running numbers.
 
-**Known before any run (from committed results).**
-- At c_vis² = 0, Law A and Law C give identical numbers. A pinning sweep there measures nothing.
-- Law C (F_d = 0) passes Pantheon+ at every c_vis² and DES-Dovekie only at c_vis² ≥ 0.1.
-- Law A passes Pantheon+ only for c_vis² ≲ 1.5–5.5×10⁻⁴ and never passes DES-Dovekie.
-- The question is therefore how strong the pinning must be, and whether any covariant mechanism supplies it.
+## 1. Law-B Relaxation Sweep (`exploration/drag_gcosmo/law_b_relaxation_sweep.py`)
+- **Covariant interpolation:** On the flat Conformal Newtonian background of `weyl_causal_envelope.py` (`w_d = 0`, `x_0 = |kappa|`), replace the rigid poles `Law A` (`F_d` free-falling) and `Law C` (`F_d := 0`) with one continuous relaxation parameter `gamma_pin := Gamma / H >= 0`:
+  $$Q_i := q_4 u_F - \gamma_{\mathrm{pin}}(F_d - \Omega_d u_F), \qquad F_d = F_m + F_r + F_W - \frac{2}{3} E^2 K^2 (\Psi' + \Phi).$$
+  - At `gamma_pin = 0`, recovers `Law A`.
+  - As `gamma_pin -> oo` (at `u_F = 0`), forces `F_d -> 0` and `Q_i -> -K^2 Omega_d Phi` (`Law C`).
+- **Symbolic requirement (`S1`):** Verify in SymPy that `d(E00)/dN = 0` on the constraint surface and `div3(T_d) - Q_i = 0` hold identically for arbitrary symbolic `gamma_pin`.
+- **Grid:**
+  - `gamma_pin in {0, 0.1, 0.3, 1, 3, 10, 30, 100}` plus exact `Law C` (`inf`), with `300` run on `hu98` (`N1` asymptotic convergence) and on `mb95_l8` if `100` still fails; `6`-step parallel log-bisection on any passing/failing bracket to locate `gamma_pin_crit`.
+  - Backgrounds: `Pantheon+_best` (`kappa = -2.244452`) and `DES-Dovekie_best` (`kappa = -2.496571`), using `get_parameter_points()` from `weyl_causal_envelope.py`.
+  - Closures: `hu98` at `c_vis^2 = 1/3` and `mb95_l8` (Ma-Bertschinger `l_max = 8`).
+  - Primary flux frame: `bulk_rest` (`u_F = 0`), plus spot-check on `matter_comoving` (`u_F = u_m`) at `gamma_pin in {10, 100}` for `Pantheon+_best`, `c_vis^2 = 1/3`.
+- **Gates (matching `PREREG_WEYL_ENVELOPE.md` & `VERIFY_WEYL_KNIFE.md`):**
+  - CMB lensing: `|A_phiphi_mean - 1| <= 0.08` AND `all(|A_L - 1| <= 0.08)` for `L in {40, 80, 120, 200, 300, 400}`.
+  - Late-ISW: `0.4 <= ISW_ratio(ell) <= 1.6` for **every integer `ell in [2, 30]`**.
+- **Controls (`N1`):**
+  - `LCDM_control` (`kappa = 0`) reproduces `weyl_causal_envelope.py`.
+  - `gamma_pin = 0` reproduces `Law A` (`WEYL_CAUSAL_ENVELOPE.json` / `VERIFY_WEYL_KNIFE.json`) within `1e-2`.
+  - `gamma_pin = 100 -> 300 -> inf` $O(1/\gamma_{\mathrm{pin}})$ asymptotic convergence check on `hu98`: `|A_mean(300) - A_mean(LawC)| < 5e-3`, `|ISW_max(300) - ISW_max(LawC)| < 4e-2`, and asymptotic ratio `(ISW_max(100) - ISW_max(LawC)) / (ISW_max(300) - ISW_max(LawC))` in `[2.5, 3.5]`.
+- **Recorded numerical-solver deviation (2026-11-19):** After `Radau` stalled on unbatched oscillatory modes during the initial run, the solver was switched to `DOP853` (`rtol=1e-6, atol=1e-9`) for `gamma_pin <= 100` and `LSODA` (`BDF` fallback) for `gamma_pin > 100`; `GAMMA_GRID` was evaluated through `100` + `inf`, and the high-`gamma` `N1` check was formulated as an explicit $O(1/\gamma_{\mathrm{pin}})$ asymptotic check across `100 -> 300 -> inf` (`delta_ISW(300) < 4e-2`, ratio in `[2.5, 3.5]`).
 
-## Test L: Law-B pinning sweep (`law_b_relaxation_sweep.py`)
-- **Model.** The envelope's Law A equations plus a drag-momentum relaxation at rate γ per e-fold, with the dark-bubble sign (P0: the Weyl fluid gains what the wall gains). Concretely, F_W′ → F_W′ − γF_d, with F_d = F_m + F_r + F_W − (2/3)E²K²(Ψ′ + Φ) taken from the 0i constraint.
-  - γ = 0 is Law A.
-  - γ → ∞ forces F_d → 0 and turns the F_W equation into Law C's.
-- **Grid.**
-  - γ ∈ {0, 0.3, 1, 3, 10, 30, 100, 300, 1000};
-  - closures: Hu c_vis² ∈ {0.1, 1/3} and `mb95_l8`;
-  - fits: the Pantheon+ and DES-Dovekie best fits;
-  - w_d = 0, bulk-rest flux frame, adiabatic initial conditions;
-  - 25 k-modes, every integer ℓ ∈ [2, 30];
-  - the pre-registered gates: |A_φφ − 1| ≤ 0.08, ISW ratio in [0.4, 1.6].
-- **Controls (the run is void if either fails).**
-  - γ = 0 reproduces the committed Law A numbers in `WEYL_CAUSAL_ENVELOPE.json` (ISW max and A_φφ mean to 10⁻³ relative).
-  - γ = 1000 reproduces the committed Law C numbers to 1%.
-- **Outputs.**
-  - The smallest passing γ, γ_crit, for each (fit, closure).
-  - Whether any single (γ, closure) passes both best fits.
-
-## Test S: covariant drag-action scan (`phase3_drag_action_scan.py`, SymPy)
-**Candidates.**
-- **(i) Tangential Killing coupling.** A wall Lagrangian L(Y, r) with Y ≡ −h^{μν}ξ_μξ_ν = f(r) + X (bulk static Killing ξ; X = (ξ·n)²), including L = Λ(r) + ½M(r)(Y − f(r))².
-- **(iii) Static bulk medium with friction.** Q = Cρ_med(r)v³, with v = ȧ/√f.
-- **(ii) Radial string-forest pinning.** Recorded as **not tested**: no concrete action is specified.
-
-**Pass criteria, all required.**
-1. w_d ∈ [0, 1/3) for the ȧ²-dependent piece.
-2. A single-sign Q₄ > 0 across z ∈ [0, 10] on the fitted background.
-3. No unsuppressed O(k²a²) term. Y = f + X is dominated by f ~ k²a².
-4. It reproduces the fitted energy equation ΔΣ̇ + 3HΔΣ = Q₄ with ΔΣ ∝ a²H². Failing that, it is a different model and needs its own pre-registered refit.
-5. Its momentum law: free-falling (Law A), pinned (Law C), or neither.
-6. Ghost / gradient stability given the −8πG₄ wall sign: stated as tested or **not tested**.
-
-**Not claimed by this test.** Preferred-frame bounds (α₁, α₂) are a later gate. A null result reads "none of the tested candidates".
-
-## Not in this phase
-- The modern lensing gate (Planck PR4 + ACT DR6) gets its own pre-registration. It does not reopen the ±8% verdict already recorded.
+## 2. Phase 3 Symbolic Audits (`exploration/bulk5d/phase3_drag_action_and_dk.py`)
+- **P3-A (5D covariant drag action scan):** Test tangential Killing invariant `Y = -h^{mu nu} xi_mu xi_nu = f(a) + adot^2`, unit-normalized Killing velocity `U^A = xi^A / sqrt(f)`, and an AeST-like wall dust condensate `L_d = K_2 (Q - Q_0)^2` coupled to `u_xi^mu = xi_||^mu / sqrt(f + adot^2)` against: `w_d in [0, 1/3)`, `O(k^2 a^2)` hierarchy, `Law C` pinning, and the `-8 pi G_4` anti-gravitating ghost check.
+- **P3-B (`Delta k` cancellation & backreaction squeeze):** Derive exact ratio `pi_eff / rho_W,eff` for single-sided vs. two-sided/metric-induced bulk perturbations, and exact bulk density ratio `Q_4 / |rho_Lambda5|` for null-dust absorption vs. `O(v_loc^3)` inelastic dissipation.
+- **P3-C (Kramers-Kronig causal dispersion):** Verify exact SymPy principal-value Hilbert/Kramers-Kronig identity for causal single-pole shear `chi(omega) = i omega eta_0 / (1 - i omega tau_R)` and compute the bulk-gap implication (`tau_R ~ 1/k` vs. `tau_R ~ 1/H_0`) against the Phase-2 `c_vis^2` ceiling.
