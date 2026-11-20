@@ -74,27 +74,31 @@ Pre-registered before any derivation. Self-contained SymPy at linear order and l
 - **The flux channel is unspecified.** `FLUX_CODAZZI` fits only μ₊/k₊ − μ₋/k₋. A growing Ω_W needs either ingoing dust from outside or outgoing dust from inside.
 - **A thermal side (horizon) can't be the feeding side.**
   - Its Weyl fluid is hydrodynamic. Cutoff fluid/gravity applies (arXiv:1101.2451, 1104.3281), with η/s = 1/4π.
-  - The exact local temperature at the wall gives c_vis²_eff ~ ½√(H/k), about 3×10⁻¹⁶ for the micron example. So a thermal side contributes essentially no anisotropic stress.
+  - The exact local temperature at the wall gives c_vis²_eff ~ ½√(H/k), about 3×10⁻¹⁶ for the micron example (order of magnitude, from the Navier–Stokes → Hu mapping). So a thermal side contributes essentially no anisotropic stress.
   - But an interior black hole adds negative dark radiation and can't emit classically, and the exterior has no horizon.
 - **The feeding side is horizonless.**
-  - Planar radial null dust sits at fixed x, so each column deposits locally isotropic dark radiation: π = 0 at zeroth order in gradients.
-  - The first-order π is set by the state of the flux source, which the flux-fed model does not specify.
+  - Planar radial null dust sits at fixed x, so each column deposits its dark radiation isotropically.
+  - Any later π is set by the state of the flux source, which the flux-fed model does not specify.
+  - No small parameter (unlike k/T on a thermal side) is known to suppress it on the feeding side.
 - **No radion term.** Koyama's low-energy π_E comes from a second brane; the dark bubble has one wall.
 - **No free-streaming (c_vis² = 1/3).** It would need weakly coupled, non-hydrodynamic bulk content, which classical 5D Einstein gravity with radial null dust does not supply at wavelengths ≫ 1/k.
 - **Asymmetry amplifies.** π_eff = π₊ + (k₊/(k₋ − k₊))(π₊ − π₋), so a near-symmetric bubble amplifies any one side's π.
 
 **J2 `[D]`: the flux frame drops out at zero viscosity.** At c_vis² = 0 the flux frame u_F drops out of the envelope's Law A equations exactly: S_W stays 0, D_W comes from the 00 constraint, and F_W never reaches the metric (SymPy on the transcribed equations). It enters only through viscosity. So Phase 1's open u_F question matters only if π_eff ≠ 0.
 
-**The threshold `[D]`.** Law A, every integer ℓ ∈ [2, 30], pre-registered gates:
+**The threshold `[D]`, a characterization added after the amendment (not pre-registered).**
+- Setup: Law A, every integer ℓ ∈ [2, 30], the pre-registered gates, Hu's GDM closure family.
+- The rows below use the `bulk_rest` frame. A `matter_comoving` rerun (`phase2_threshold_frame.py` → `PHASE2_THRESHOLD_FRAME.json`) already fails at c_vis² = 3×10⁻⁴ (ISW 1.6068), putting its crossing near 1.5×10⁻⁴.
+- So the Pantheon+ threshold is **c_vis² ≈ 1.5–5.5×10⁻⁴ across the two tested frames**, within the Hu family. A bulk-sourced π need not take Hu's form.
 
 | Fit | ISW max at c_vis² = 0 | Largest passing c_vis² | Verdict at π_eff ≈ 0 |
 |---|---:|---|---|
-| Pantheon+ best (Δχ² −10.38) | 1.5934 (1.5944 with 50 k-modes) | 3×10⁻⁴; the gate is crossed at 5.5×10⁻⁴ | passes by 0.4% |
+| Pantheon+ best (Δχ² −10.38) | 1.5934 (1.5944 with 50 k-modes) | 3×10⁻⁴ (`bulk_rest`); crossed at 5.5×10⁻⁴ (`bulk_rest`) or about 1.5×10⁻⁴ (`matter_comoving`) | passes by 0.4% |
 | DES-Dovekie best (Δχ² −12.74) | 1.6628 (1.6640 with 50) | none | **fails** |
-| Pantheon+ 2σ floor (κ = −0.83) | 1.2117 | ≥ 0.1 (fails at 1/3) | passes |
+| Pantheon+ 2σ floor (κ = −0.83; a drag 2.7× smaller than best, disfavoured by the background data at 2σ) | 1.2117 | ≥ 0.1 (fails at 1/3) | passes |
 
 **Verdict (pre-registered conditional branch).**
-- The flux-fed wall survives only if the bulk state of its flux source keeps the k-weighted effective Weyl viscosity below c_vis² ≈ 5.5×10⁻⁴.
+- The flux-fed wall survives only if the bulk state of its flux source keeps the k-weighted effective Weyl viscosity below c_vis² ≈ 1.5–5.5×10⁻⁴ (Hu family, two tested frames). That is a requirement on the source, not an expectation.
 - Even then it survives only on the Pantheon+ fit, 0.4% inside the ISW gate. The stronger DES-Dovekie fit fails the gate under every closure.
 - The envelope's either-fit rule calls this SURVIVES, but the sample that fits best is the one excluded.
 - If the source state carries any larger anisotropic stress, both best fits fail. Only a reduced drag near the 2σ floor survives.
@@ -117,8 +121,8 @@ Pre-registered before any derivation. Self-contained SymPy at linear order and l
 3. The drag's perturbation law, and a 5D action for the w_d = 0 drag.
 4. Δk = k₋ − k₊, which sets the amplification and is not fixed by the drag model.
 
-## Phase 2 status
-Phase 2 is complete as pre-registered (PREREG_PHASE1 → P0 → PREREG_PHASE2). The bulk moving-wall PDE was replaced by the low-energy expansion; see the amendment.
+## Original Phase 2 scope (superseded by `PREREG_PHASE2.md` 0ea2f7a5)
+Kept for the record. P0 is done. The moving-wall PDE and the two numerical controls below were replaced by the low-energy expansion and the K1–K3 controls; see the amendment.
 
 - **P0.** Effective 4D scalar equations on an asymmetric wall (hep-th/0105091). The dark bubble does not localize gravity (arXiv:2212.14004), so the Randall–Sundrum-style Weyl-fluid equations in `weyl_causal_envelope.py` must be confirmed or replaced first.
 - **Bulk.** Vaidya null dust carries its own perturbations, so a vacuum master-variable reduction does not apply unmodified.

@@ -10,14 +10,14 @@ are the only current physics.**
 **Last verified against the physics:** 2026-11-19 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
-Also 2026-11-19 (no tier change): **5D bulk solve, Phase 2 complete: the flux-fed wall survives only under a near-inviscid bulk source, and only on Pantheon+** (`exploration/bulk5d/`, amendment pre-registered in `0ea2f7a5`).
+Also 2026-11-19 (no tier change): **5D bulk solve, Phase 2 complete (pre-registered third branch: conditional on the bulk state `[O]`): the flux-fed wall survives only if its bulk flux source is nearly inviscid, and only on Pantheon+** (`exploration/bulk5d/`, amendment pre-registered in `0ea2f7a5`).
 - At H/k ≪ 1 (H₀/k = 3.6×10⁻³¹ for a micron-scale extra dimension) the low-energy expansion replaces the moving-wall PDE. The Weyl anisotropic stress is set by the bulk state, not by the wall.
   - The feeding side must be horizonless.
-  - π_eff = 0 at zeroth order in gradients.
-  - The first order depends on the flux source's state `[O]`.
-  - A thermal side would give c_vis² ~ ½√(H/k), but it cannot feed the flux.
+  - The radial dust deposits isotropically.
+  - Any later π is set by the source's state `[O]`, and no small parameter is known to suppress it on the feeding side.
+  - A thermal side would give c_vis² ~ ½√(H/k) (order of magnitude), but it cannot feed the flux.
 - `[D]` At c_vis² = 0 the flux frame u_F drops out of the envelope's equations exactly.
-- `[D]` The Pantheon+ fit passes only while the effective Weyl viscosity stays below c_vis² ≈ 5.5×10⁻⁴, 0.4% inside the ISW gate at zero. The DES-Dovekie fit (Δχ² −12.74) fails the ISW gate under every closure. The 2σ floor passes up to c_vis² ≥ 0.1.
+- `[D]` The DES-Dovekie fit (Δχ² −12.74) fails the ISW gate under every closure. The Pantheon+ fit passes only while the effective Weyl viscosity stays below c_vis² ≈ 1.5–5.5×10⁻⁴ (Hu family, `matter_comoving` and `bulk_rest` frames; a post-amendment characterization), 0.4% inside the ISW gate at zero. The 2σ floor, a drag 2.7× smaller and disfavoured at 2σ by the background data, passes up to c_vis² ≥ 0.1.
 - `[D]` The covariant σ(X) drag stays excluded on physical grounds: absorbing or reflecting a medium at rest gives a one-signed energy exchange, but σ(X) needs one that flips sign at z ≈ 0.73.
 - Still open: the flux source's state, the bulk-carried matter sector, the drag's perturbation law, and Δk.
 
