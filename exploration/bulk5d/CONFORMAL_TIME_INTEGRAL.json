@@ -1,0 +1,47 @@
+{
+ "definition": "eta = \u222b da/(a^2 E(a)) in units c/H0, E from weyl_causal_envelope.bg_at_N",
+ "backgrounds": {
+  "LCDM_control": {
+   "kappa": 0.0,
+   "x0": -0.0,
+   "h": 0.6810363151866539,
+   "Om": 0.30360698573080336,
+   "OL": 0.6963028912483286,
+   "eta_past_0_to_1": 3.227287253668158,
+   "eta_future_1_to_8": 0.9930804281365891,
+   "eta_future_total": 1.1428642024919524,
+   "late_E_times_a": null,
+   "future_conformal_time": "finite",
+   "event_horizon": true,
+   "tail": "\u039b term: E -> sqrt(OL), \u222b_A^\u221e da/(a^2 E) = 1/(A sqrt(OL))"
+  },
+  "Pantheon+_best": {
+   "kappa": -2.2444519783747996,
+   "x0": 2.2444519783747996,
+   "h": 0.6803247862228956,
+   "Om": 0.30865546826192025,
+   "OL": 1.1882384273575992,
+   "eta_past_0_to_1": 3.2124823149126622,
+   "eta_future_1_to_8": 1.5956523100514461,
+   "E_times_a_at_8": 1.4451406821842407,
+   "late_E_times_a_analytic": 1.4552132264762019,
+   "future_tail": "\u222b_8^\u221e da/(a^2 E) ~ (1/C) ln(a/8) -> \u221e",
+   "future_conformal_time": "diverges_logarithmically",
+   "event_horizon": false
+  },
+  "DES-Dovekie_best": {
+   "kappa": -2.496571182856366,
+   "x0": 2.496571182856366,
+   "h": 0.6801065733422411,
+   "Om": 0.3093795670685889,
+   "OL": 1.2445281507873969,
+   "eta_past_0_to_1": 3.210101552041211,
+   "eta_future_1_to_8": 1.6260363729008978,
+   "E_times_a_at_8": 1.4033048268940884,
+   "late_E_times_a_analytic": 1.4120835096272082,
+   "future_tail": "\u222b_8^\u221e da/(a^2 E) ~ (1/C) ln(a/8) -> \u221e",
+   "future_conformal_time": "diverges_logarithmically",
+   "event_horizon": false
+  }
+ }
+}

@@ -1,0 +1,139 @@
+{
+ "S1_isotropic_einstein_tensor": {
+  "G_t_t_O1": "-2*Derivative(Psi(r), (r, 2)) - 4*Derivative(Psi(r), r)/r",
+  "G_r_r_O1": "2*(Derivative(Phi(r), r) - Derivative(Psi(r), r))/r",
+  "G_th_th_O1": "Derivative(Phi(r), (r, 2)) - Derivative(Psi(r), (r, 2)) + Derivative(Phi(r), r)/r - Derivative(Psi(r), r)/r",
+  "aniso_O1": "r * d/dr((Psi' - Phi')/r) == -Phi'' + Psi'' + (Phi' - Psi')/r",
+  "aniso_O2_at_Psi_eq_Phi": "-2*(Phi')^2",
+  "schwarzschild_control_exact_to_O_M2": true
+ },
+ "S2_standalone_chi_nogo": {
+  "equation_of_state_deep_mond": "p_r = +2*rho_chi, p_theta = -rho_chi, T^r_r - T^theta_theta = 3*rho_chi",
+  "hydrostatic_profile": "rho_chi = C_chi / r^3 (equivalent to vacuum chi' ~ 1/r, enclosed halo mass ~ ln r, NOT flat v^2/r)",
+  "linear_slip": "Phi' - Psi' = 8*pi*G_N*C_chi/r^2 = 8*pi*G_N*r*rho_chi => (Phi' - Psi')/Psi' = 2 / ln(r/r0) = O(1)",
+  "verdict": "[X] Naive standalone AQUAL scalar chi without AeST J.grad(phi) mixing breaks PPN gamma=1 at O(1) even on one shared metric."
+ },
+ "S3_live_aest_and_tidal_qumond_slip": {
+  "aest_aqual_equals_tidal_qumond_on_shell": true,
+  "anisotropic_stress_on_shell": "-K_B*(Phi')^2 - (2 - K_B)*Phi'*phi'",
+  "slip_ode": "r * d/dr(delta_slip'/r) == (2 - K_B) * Phi' * g_N (the MOND self-stress (Phi')^2 cancels identically)",
+  "linear_order_ppn_gamma": 1,
+  "newtonian_slip_O_v4_c4": "(1 - K_B/2) * G_N^2 * M^2 / (4 * r^2) (recovers exact isotropic Schwarzschild at K_B = 0)",
+  "deep_mond_slip_O_v4_c4": "(2/3) * (1 - K_B/2) * v_c^2 * G_N * M / r"
+ },
+ "S4_xcop_and_sparc_slip_bounds": {
+  "n_clusters": 12,
+  "max_xcop_frac_slip_scale_KB0": 6.169e-06,
+  "max_xcop_frac_slip_deep_mond_KB005": 4.01e-06,
+  "sparc_benchmark": {
+   "v_c_kms": 150.0,
+   "M_bar_Msun": 10000000000.0,
+   "R_kpc": 10.0,
+   "frac_slip_scale_KB0": 4.785e-08,
+   "frac_slip_deep_mond_KB005": 3.111e-08
+  },
+  "solar_system_1AU": {
+   "Phi_over_c2": 9.871e-09,
+   "frac_slip_newt_KB005": 2.406e-09
+  },
+  "clusters": [
+   {
+    "name": "A1644",
+    "Phi_tot_over_c2_R500": 1.598e-05,
+    "Phi_tot_over_c2_R200": 1.771e-05,
+    "frac_slip_scale_R500_KB0": 2.204e-06,
+    "frac_slip_scale_R200_KB0": 2.473e-06,
+    "frac_slip_deep_mond_R200_KB005": 1.607e-06
+   },
+   {
+    "name": "A1795",
+    "Phi_tot_over_c2_R500": 1.98e-05,
+    "Phi_tot_over_c2_R200": 1.843e-05,
+    "frac_slip_scale_R500_KB0": 2.911e-06,
+    "frac_slip_scale_R200_KB0": 2.795e-06,
+    "frac_slip_deep_mond_R200_KB005": 1.817e-06
+   },
+   {
+    "name": "A2029",
+    "Phi_tot_over_c2_R500": 3.02e-05,
+    "Phi_tot_over_c2_R200": 2.927e-05,
+    "frac_slip_scale_R500_KB0": 4.471e-06,
+    "frac_slip_scale_R200_KB0": 4.47e-06,
+    "frac_slip_deep_mond_R200_KB005": 2.905e-06
+   },
+   {
+    "name": "A2142",
+    "Phi_tot_over_c2_R500": 3.529e-05,
+    "Phi_tot_over_c2_R200": 3.522e-05,
+    "frac_slip_scale_R500_KB0": 5.18e-06,
+    "frac_slip_scale_R200_KB0": 5.374e-06,
+    "frac_slip_deep_mond_R200_KB005": 3.493e-06
+   },
+   {
+    "name": "A2255",
+    "Phi_tot_over_c2_R500": 2.349e-05,
+    "Phi_tot_over_c2_R200": 2.519e-05,
+    "frac_slip_scale_R500_KB0": 3.51e-06,
+    "frac_slip_scale_R200_KB0": 3.87e-06,
+    "frac_slip_deep_mond_R200_KB005": 2.515e-06
+   },
+   {
+    "name": "A2319",
+    "Phi_tot_over_c2_R500": 4.067e-05,
+    "Phi_tot_over_c2_R200": 4.717e-05,
+    "frac_slip_scale_R500_KB0": 5.354e-06,
+    "frac_slip_scale_R200_KB0": 6.169e-06,
+    "frac_slip_deep_mond_R200_KB005": 4.01e-06
+   },
+   {
+    "name": "A3158",
+    "Phi_tot_over_c2_R500": 1.93e-05,
+    "Phi_tot_over_c2_R200": 1.989e-05,
+    "frac_slip_scale_R500_KB0": 2.869e-06,
+    "frac_slip_scale_R200_KB0": 3.035e-06,
+    "frac_slip_deep_mond_R200_KB005": 1.973e-06
+   },
+   {
+    "name": "A3266",
+    "Phi_tot_over_c2_R500": 2.992e-05,
+    "Phi_tot_over_c2_R200": 2.982e-05,
+    "frac_slip_scale_R500_KB0": 4.237e-06,
+    "frac_slip_scale_R200_KB0": 3.664e-06,
+    "frac_slip_deep_mond_R200_KB005": 2.381e-06
+   },
+   {
+    "name": "A644",
+    "Phi_tot_over_c2_R500": 2.346e-05,
+    "Phi_tot_over_c2_R200": 2.163e-05,
+    "frac_slip_scale_R500_KB0": 3.168e-06,
+    "frac_slip_scale_R200_KB0": 3.011e-06,
+    "frac_slip_deep_mond_R200_KB005": 1.957e-06
+   },
+   {
+    "name": "A85",
+    "Phi_tot_over_c2_R500": 2.41e-05,
+    "Phi_tot_over_c2_R200": 2.381e-05,
+    "frac_slip_scale_R500_KB0": 3.579e-06,
+    "frac_slip_scale_R200_KB0": 3.67e-06,
+    "frac_slip_deep_mond_R200_KB005": 2.385e-06
+   },
+   {
+    "name": "RXC1825",
+    "Phi_tot_over_c2_R500": 1.706e-05,
+    "Phi_tot_over_c2_R200": 1.912e-05,
+    "frac_slip_scale_R500_KB0": 2.562e-06,
+    "frac_slip_scale_R200_KB0": 2.893e-06,
+    "frac_slip_deep_mond_R200_KB005": 1.88e-06
+   },
+   {
+    "name": "ZwCl1215",
+    "Phi_tot_over_c2_R500": 2.703e-05,
+    "Phi_tot_over_c2_R200": 2.834e-05,
+    "frac_slip_scale_R500_KB0": 3.119e-06,
+    "frac_slip_scale_R200_KB0": 2.842e-06,
+    "frac_slip_deep_mond_R200_KB005": 1.847e-06
+   }
+  ],
+  "verdict": "[D] On one shared metric with AeST J.grad(phi) mixing, linear slip vanishes identically (gamma=1) and nonlinear O(v^4/c^4) slip is <= 1e-5 across all 12 X-COP clusters (and ~3e-8 in SPARC galaxies): 4 orders too small to explain X-COP's ~21% R200 overshoot, confirming lensing and X-ray HSE masses match."
+ }
+}

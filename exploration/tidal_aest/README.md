@@ -105,3 +105,8 @@ Verified with SymPy, on ρ = −∇²Φ_N/(4πG):
 - **Derived:** x_H,low ≈ 154, from virialisation.
 - **New constants, data-bounded:** x* (a tidal scale) and C (a boundary datum).
 - **Alongside the corpus's two irreducible inputs,** a₀ and the choice of function.
+
+## Single-metric anisotropic stress & gravitational slip audit (`single_metric_slip_audit.py` → `SINGLE_METRIC_SLIP_AUDIT.json`, sheet `SINGLE_METRIC_SLIP_AUDIT.md`) `[D]`
+- **Naive standalone scalar `[X]`:** without AeST's $J\cdot\nabla\phi$ mixing, a single-metric deep-MOND scalar ($F(y) := \frac{2}{3}y^{3/2}$) carries $p_r = +2\rho_\chi$, $p_\theta = -\rho_\chi$, selecting $\rho_\chi = C_\chi/r^3$ and forcing $O(1)$ linear slip $(\Phi'-\Psi')/\Psi' = 2/\ln(r/r_0)$ (plus $\ln r$ halo mass, not flat $v_c$).
+- **Live AeST AQUAL & Tidal-QUMOND match identically:** both yield on-shell anisotropic stress $8\pi\tilde{G}(T^r_{\;r}-T^\theta_{\;\theta}) = -K_B(\Phi')^2 - (2-K_B)\Phi'\phi'$; linear slip vanishes ($\Psi = \Phi$, $\gamma_{\mathrm{PPN}} = 1$), and at $O(\epsilon^2)$ the pure-MOND $(\Phi')^2$ self-stress cancels identically against $(G^r_{\;r}-G^\theta_{\;\theta})_{O(\epsilon^2)} = -2(\Phi')^2$, leaving $r(\delta_{\mathrm{slip}}'/r)' = (2-K_B)\Phi' g_N$ ($\delta_{\mathrm{slip}} = (1-\frac{K_B}{2})\frac{G_N^2 M^2}{4r^2}$ Newtonian; $\frac{2}{3}(1-\frac{K_B}{2})\frac{v_c^2 G_N M}{r}$ deep MOND).
+- **12 X-COP clusters & SPARC:** across all 12 clusters in `../d10_xcop/xcop_data.tsv`, $|\delta_{\mathrm{slip}}/\Phi|_{\mathrm{scale}} \le 6.17\times 10^{-6}$ at $K_B=0$ (`4.01×10⁻⁶` deep-MOND at $K_B=0.05$), and $\sim 3.1\times 10^{-8}$ in SPARC — confirming weak-lensing and X-ray HSE masses match to $\sim 10^{-5}$.
