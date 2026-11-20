@@ -121,6 +121,39 @@ Pre-registered before any derivation. Self-contained SymPy at linear order and l
 3. The drag's perturbation law, and a 5D action for the w_d = 0 drag.
 4. ~~Δk = k₋ − k₊~~ **no longer an independent input** (`dk_ratio_identity.py`). For single-sided feeding it drops out of the closure; for two-sided feeding what matters is the split k₋ρ⁺ vs k₊ρ⁻, which is part of the flux-source specification (item 1).
 
+## Phase 3: mechanism search for the drag perturbation law (`PREREG_PHASE3.md` 14c90dc8)
+**What this phase is.** A new, pre-registered mechanism search, prompted by a Muse brainstorm whose claims were re-derived here. It does not change Phase 2's conditional verdict, and the flux source's state stays a model input.
+
+**Test L, Law-B pinning sweep `[D]`** (`law_b_relaxation_sweep.py` → `LAW_B_SWEEP.json`).
+- **Model.** Drag momentum relaxes at rate Γ = γH, with the dark-bubble sign. γ = 0 is Law A; γ → ∞ is Law C.
+- **Controls pass.** γ = 0 reproduces the committed Law A numbers exactly. γ = 1000 reproduces Law C to within 1%.
+- **Result: both best fits pass from Γ = 30H.**
+  - At Γ ≥ 30H, both best fits pass every gate at c_vis² = 0.1, at 1/3 and with the `mb95_l8` free-streaming closure. DES-Dovekie at c_vis² = 0.1 and γ = 30 is the narrowest, with ISW at 1.57.
+  - At Γ ≤ 10H, both fail everywhere (ISW 1.65–1.84 at γ = 10).
+  - So γ_crit lies in (10, 30]H for all six (fit, closure) cases.
+- **What it means.** The free-streaming route needs pinning Γ ≳ 30H. The Law A route needs c_vis² ≲ 1.5–5.5×10⁻⁴ and keeps only Pantheon+. At c_vis² = 0 pinning is irrelevant (the laws coincide).
+
+**Test S, covariant drag-action scan** (`phase3_drag_action_scan.py` → `PHASE3_DRAG_ACTION_SCAN.json`).
+- **(i) Tangential Killing coupling, L(Y, φ) = Λ + ½M(Y − F(φ))².**
+  - **Passes four criteria.** It gives:
+    - w_d = X/(4f + 3X) ≈ (H/k)²/4: dust;
+    - ΔΣ = ½ρ_b ȧ² for M ≈ ρ_b/4f;
+    - Q₄ = 2HΔΣ(3/2 − q) > 0 at all z;
+    - dust locked to the bulk static frame, i.e. Law C (`[D]`).
+  - **Fails criterion 3.** The O(k²a²) term cancels only if F equals f to relative precision (H/k)², about 10⁻⁶¹ for micron AdS.
+  - **The covariant version collapses.** Enforcing F = −ξ·ξ covariantly gives a 5D metric variation of Y + ξ·ξ = (ξ·n)² that is purely normal-normal (numerical check to 5.5×10⁻¹⁰). The tangential dust disappears and the candidate reduces to (a), the w = −1 tension.
+  - **Verdict:** `[X]` as a natural mechanism. Ghost and gradient stability not tested.
+- **(iii) Frictional bulk medium, Q = Cρ_med v³.**
+  - **Sign.** Q is positive-definite, so a single-sign inflow is guaranteed.
+  - **Shape.** Closing the energy equation needs ρ_med(r) ∝ r²(3/2 − q(r)). That factor runs 1.00–1.91, and the best power law, r^2.22, misses it by up to 19%. So the profile must encode the fitted expansion history.
+  - **Heat channel.** Wall radiation cancels the drag; massive wall dust keeps it.
+  - **Backreaction.** It needs Δk/k ≪ 0.2.
+  - **Pinning, heuristically.** The same friction acting tangentially would pin at Γ/H ~ (k/H)² ≫ 30, effectively Law C.
+  - **Verdict:** a different model needing its own refit `[O]`.
+- **(ii) Radial string forest.** Not tested; no concrete action is specified.
+
+**Verdict.** None of the tested candidates is a natural covariant source of the w_d = 0 drag. The requirement is now quantified: any mechanism that keeps DES-Dovekie must pin the drag momentum at Γ ≳ 30H with nonzero Weyl stress.
+
 ## Original Phase 2 scope (superseded by `PREREG_PHASE2.md` 0ea2f7a5)
 Kept for the record. P0 is done. The moving-wall PDE and the two numerical controls below were replaced by the low-energy expansion and the K1–K3 controls; see the amendment.
 

@@ -10,6 +10,12 @@ are the only current physics.**
 **Last verified against the physics:** 2026-11-19 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
+Also 2026-11-19 (no tier change): **5D bulk solve, Phase 3 (pre-registered mechanism search, `14c90dc8`): DES-Dovekie needs drag pinning Γ ≳ 30H; no tested covariant candidate supplies it naturally** (`exploration/bulk5d/`).
+- `[D]` The Law-B sweep runs from Law A (γ = 0, reproduced exactly) to Law C (γ = 1000, reproduced to within 1%). Both best fits pass for Γ ≥ 30H at c_vis² ∈ {0.1, 1/3, `mb95_l8`}; both fail for Γ ≤ 10H.
+- `[D]/[X]` The tangential Killing coupling gives Law-C dust with w_d ≈ 0 and Q₄ > 0, but only with a stationary point tuned to (H/k)² ≈ 10⁻⁶¹. Its covariant form varies purely normal-normal, which reduces it to the excluded w = −1 tension.
+- `[O]` A frictional bulk medium needs a radial profile tuned to the fitted q(z) and an unspecified heat channel. Radial string forests were not tested.
+- Phase 2's conditional verdict is unchanged.
+
 Also 2026-11-19 (no tier change): **5D bulk solve, Phase 2 complete (pre-registered third branch: conditional on the bulk state `[O]`): the flux-fed wall survives only if its bulk flux source is nearly inviscid, and only on Pantheon+** (`exploration/bulk5d/`, amendment pre-registered in `0ea2f7a5`).
 - At H/k ≪ 1 (H₀/k = 3.6×10⁻³¹ for a micron-scale extra dimension) the low-energy expansion replaces the moving-wall PDE. The Weyl anisotropic stress is set by the bulk state, not by the wall.
   - The feeding side must be horizonless.
