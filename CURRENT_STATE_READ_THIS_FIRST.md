@@ -19,7 +19,8 @@ Also 2026-11-19 (no tier change): **5D bulk solve, Phase 2 complete (pre-registe
 - `[D]` At c_vis² = 0 the flux frame u_F drops out of the envelope's equations exactly.
 - `[D]` The DES-Dovekie fit (Δχ² −12.74) fails the ISW gate under every closure. The Pantheon+ fit passes only while the effective Weyl viscosity stays below c_vis² ≈ 1.5–5.5×10⁻⁴ (Hu family, `matter_comoving` and `bulk_rest` frames; a post-amendment characterization), 0.4% inside the ISW gate at zero. The 2σ floor, a drag 2.7× smaller and disfavoured at 2σ by the background data, passes up to c_vis² ≥ 0.1.
 - `[D]` The covariant σ(X) drag stays excluded on physical grounds: absorbing or reflecting a medium at rest gives a one-signed energy exchange, but σ(X) needs one that flips sign at z ≈ 0.73.
-- Still open: the flux source's state, the bulk-carried matter sector, the drag's perturbation law, and Δk.
+- `[D]` The matter sector is resolved at leading order. The dark bubble's covariant 4-momentum response with wall bending (arXiv:2001.07433 eq. onehalf, algebra verified) is linearized 4D GR with G₄ for time-dependent sources: string endpoints act as dust, and worldvolume EM gravitates as 4D radiation.
+- Still open, all three being unspecified model inputs rather than computations: the flux source's state, the drag's perturbation law (the w_d = 0 drag has no 5D action), and Δk = k₋ − k₊ (an embedding parameter).
 
 Also 2026-11-19 (no tier change): **5D bulk solve, P0: the envelope's brane equations hold in form on the asymmetric dark-bubble wall** (`exploration/bulk5d/`, pre-registered in `971f68cc`).
 - `[D]` 4G = −8πG₄τ − E_eff + F_eff, with E_eff = (k₋E⁺ − k₊E⁻)/(k₋ − k₊). All controls pass: the exact Gauss identity with E from the bulk Weyl tensor, the Randall–Sundrum limit, the dark-bubble limit of 1807.01570, and BCMU's κ₄.

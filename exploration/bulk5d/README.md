@@ -55,7 +55,7 @@ Pre-registered before any derivation. Self-contained SymPy at linear order and l
 **Matter sector (output 4, `[O]`).**
 - Wall-localized stress has explicit coupling −8πG₄. Its net gravity also depends on the bulk response it induces.
 - Ordinary +G₄ matter is therefore carried by bulk terms. Either it is bulk-sourced (string endpoints, through F_eff), or it sits on the wall and its own bulk response overcompensates its −8πG₄ term (arXiv:2310.15032 §4.2; 1807.01570 propagator; 2001.07433 bending).
-- That this response perturbs like the envelope's 4D fluids is verified only in the Newtonian 1/p² limit.
+- That this response perturbs like the envelope's 4D fluids was first taken from the Newtonian 1/p² limit. Phase 2 upgrades it to the covariant 4-momentum result of 2001.07433 (see the Phase 2 open-items list).
 - The envelope's "free" Weyl fluid, closed with Hu parameters, is E_eff minus that matter-induced response.
 
 **Size of the neglected pieces.**
@@ -117,7 +117,7 @@ Pre-registered before any derivation. Self-contained SymPy at linear order and l
 
 **Still `[O]` after Phase 2:**
 1. The state of the flux source, which sets the first-order π_eff.
-2. The 4D matter sector (P0): bulk-carried and checked only in the Newtonian limit.
+2. ~~The 4D matter sector~~ **resolved at leading order** (`phase2_matter_sector.py` → `PHASE2_MATTER_SECTOR.json`). arXiv:2001.07433 §3.1 works in Lorentzian 4-momentum and includes the wall bending, which turns the 5D tensor structure into the 4D one. The resulting response is h_ab = −(2κ₄²/p²)(T_ab − ½Tη_ab): linearized 4D GR with G₄ for time-dependent sources, algebra verified in SymPy. String endpoints behave as dust (point masses τ/k), and worldvolume EM gravitates as 4D radiation (2310.15032). `[D]` at leading order in p/(ak) and H/k; the endpoints' equations of motion are taken from the paper, not derived from the string action.
 3. The drag's perturbation law, and a 5D action for the w_d = 0 drag.
 4. Δk = k₋ − k₊, which sets the amplification and is not fixed by the drag model.
 
