@@ -109,7 +109,8 @@ def j1_bulk_states() -> dict:
         "J1_iv_free_streaming": ("Free-streaming (c_vis^2 = 1/3) along the wall needs weakly coupled, non-hydrodynamic bulk content; classical "
                                  "5D Einstein gravity with radial null dust does not supply it at wavelengths >> 1/k. Metric perturbations "
                                  "tilt the dust at first order; the deposited momentum goes into u_F (J2: irrelevant at pi = 0)."),
-        "J1_amplification": "pi_eff = pi_+ + (k_+/(k_- - k_+))(pi_+ - pi_-): any side's pi is amplified by k/(k_- - k_+) if the bubble is near-symmetric.",
+        "J1_amplification": ("Corrected 2026-11-19 (dk_ratio_identity.py): the closure is pi_eff/rho_eff, which equals the feeding side's "
+                             "closure for single-sided feeding; amplification needs two-sided, nearly cancelling dark radiation with different closures."),
         "J1_result": ("pi_eff is not fixed by the wall or by classical bulk gravity alone: it is set by the state of the flux source. "
                       "Zeroth order in gradients: pi_eff = 0. First order: source-dependent [O]."),
         "micron_H0_over_k": H_over_k,

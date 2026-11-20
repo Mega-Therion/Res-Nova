@@ -231,8 +231,10 @@ def outputs() -> dict:
     out["O2_bianchi_check"] = ("Background: 3H^2 = 8 pi G4 (rho_W - rho_tau) and the Raychaudhuri equation imply "
                                "rho_W' + 4H rho_W = rho_tau' + 3H(rho_tau + p_tau) = Q4: the Weyl fluid GAINS what the wall gains, the dark-bubble "
                                "relative sign (Randall-Sundrum has the opposite: rho_W' + 4H rho_W = -Q). FLUX_CODAZZI uses the dark-bubble sign.")
-    out["O2_amplification"] = ("E_eff = E+ + (k+/(k- - k+))(E+ - E-), and likewise pi_eff. For k- - k+ << k, the jump between the two sides is "
-                               "amplified by k/(k- - k+): pi_eff ~ 0 needs pi+ and pi- to cancel to about (k- - k+)/k.")
+    out["O2_amplification"] = ("Corrected 2026-11-19 (dk_ratio_identity.py): the closure the envelope sees is pi_eff/rho_eff = "
+                               "(pi+/k+ - pi-/k-)/(rho+/k+ - rho-/k-). Single-sided feeding or equal closures: the k's drop out. "
+                               "General: cbar + (dc/2) A with A = (k- rho+ + k+ rho-)/(k- rho+ - k+ rho-); amplification needs two-sided, "
+                               "nearly cancelling dark radiation with different closures.")
     return out
 
 

@@ -1,0 +1,8 @@
+{
+ "identity": "pi_eff/rho_eff = (pi+/k+ - pi-/k-)/(rho+/k+ - rho-/k-)",
+ "single_sided": "rho- = pi- = 0  =>  pi_eff/rho_eff = pi+/rho+ : k+, k- and Delta k drop out exactly",
+ "same_closure": "pi+- = c rho+-  =>  pi_eff/rho_eff = c : k's drop out exactly",
+ "general": "pi+- = (cbar +- dc/2) rho+-  =>  pi_eff/rho_eff = cbar + (dc/2) A,  A = (k- rho+ + k+ rho-)/(k- rho+ - k+ rho-)",
+ "reading": "Amplification needs BOTH dark radiation on both sides that nearly cancels in k- rho+ - k+ rho- AND different closures on the two sides (dc != 0). Delta k does not appear on its own. The earlier statements 'near-symmetric bubble amplifies by k/(k- - k+)' (P0 O2, Phase 2 J1) were too strong and are corrected.",
+ "status_change": "Delta k leaves the open list: for single-sided feeding it is irrelevant to the closure; for two-sided feeding what matters is the split k- rho+ vs k+ rho-, which is part of the flux-source specification."
+}

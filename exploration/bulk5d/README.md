@@ -62,7 +62,7 @@ Pre-registered before any derivation. Self-contained SymPy at linear order and l
 - The bulk null dust projects with F^τ_τ = 0 exactly (nullness), leaving a pure pressure.
 - Relative to the Weyl pressure growth per Hubble time it is (H/k)(1 + H/k): negligible at this order.
 
-**Consequence for Phase 2.** E_eff = E⁺ + (k₊/(k₋ − k₊))(E⁺ − E⁻). A near-symmetric bubble (k₋ − k₊ ≪ k) amplifies the jump between the two sides, so π_eff ≈ 0 needs π⁺ and π⁻ to cancel to about (k₋ − k₊)/k. The bulk solve must supply both sides.
+**Consequence for Phase 2 (corrected 2026-11-19, `dk_ratio_identity.py`).** The closure the envelope sees is the ratio π_eff/ρ_eff = (π⁺/k₊ − π⁻/k₋)/(ρ⁺/k₊ − ρ⁻/k₋). With single-sided feeding, or the same closure on both sides, the k's and Δk drop out exactly. In general it equals c̄ + ½δc·A, with A = (k₋ρ⁺ + k₊ρ⁻)/(k₋ρ⁺ − k₊ρ⁻). Amplification needs dark radiation on both sides that nearly cancels AND different closures on the two sides. The earlier "amplified by k/(k₋ − k₊)" was too strong. The bulk solve must supply both sides.
 
 ## Phase 2: bulk closure for the Weyl anisotropic stress (`PREREG_PHASE2.md` 0ea2f7a5, `phase2_bulk_closure.py` → `PHASE2_BULK_CLOSURE.json`, `phase2_cvis_threshold.py` → `PHASE2_CVIS_THRESHOLD.json`)
 
@@ -82,7 +82,7 @@ Pre-registered before any derivation. Self-contained SymPy at linear order and l
   - No small parameter (unlike k/T on a thermal side) is known to suppress it on the feeding side.
 - **No radion term.** Koyama's low-energy π_E comes from a second brane; the dark bubble has one wall.
 - **No free-streaming (c_vis² = 1/3).** It would need weakly coupled, non-hydrodynamic bulk content, which classical 5D Einstein gravity with radial null dust does not supply at wavelengths ≫ 1/k.
-- **Asymmetry amplifies.** π_eff = π₊ + (k₊/(k₋ − k₊))(π₊ − π₋), so a near-symmetric bubble amplifies any one side's π.
+- **Asymmetry (corrected).** What matters is π_eff/ρ_eff, not π_eff. It equals the feeding side's own closure for single-sided feeding, and is amplified only by two-sided, nearly cancelling dark radiation with different closures (`DK_RATIO_IDENTITY.json`).
 
 **J2 `[D]`: the flux frame drops out at zero viscosity.** At c_vis² = 0 the flux frame u_F drops out of the envelope's Law A equations exactly: S_W stays 0, D_W comes from the 00 constraint, and F_W never reaches the metric (SymPy on the transcribed equations). It enters only through viscosity. So Phase 1's open u_F question matters only if π_eff ≠ 0.
 
@@ -119,7 +119,7 @@ Pre-registered before any derivation. Self-contained SymPy at linear order and l
 1. The state of the flux source, which sets the first-order π_eff.
 2. ~~The 4D matter sector~~ **resolved at leading order** (`phase2_matter_sector.py` → `PHASE2_MATTER_SECTOR.json`). arXiv:2001.07433 §3.1 works in Lorentzian 4-momentum and includes the wall bending, which turns the 5D tensor structure into the 4D one. The resulting response is h_ab = −(2κ₄²/p²)(T_ab − ½Tη_ab): linearized 4D GR with G₄ for time-dependent sources, algebra verified in SymPy. String endpoints behave as dust (point masses τ/k), and worldvolume EM gravitates as 4D radiation (2310.15032). `[D]` at leading order in p/(ak) and H/k; the endpoints' equations of motion are taken from the paper, not derived from the string action.
 3. The drag's perturbation law, and a 5D action for the w_d = 0 drag.
-4. Δk = k₋ − k₊, which sets the amplification and is not fixed by the drag model.
+4. ~~Δk = k₋ − k₊~~ **no longer an independent input** (`dk_ratio_identity.py`). For single-sided feeding it drops out of the closure; for two-sided feeding what matters is the split k₋ρ⁺ vs k₊ρ⁻, which is part of the flux-source specification (item 1).
 
 ## Original Phase 2 scope (superseded by `PREREG_PHASE2.md` 0ea2f7a5)
 Kept for the record. P0 is done. The moving-wall PDE and the two numerical controls below were replaced by the low-energy expansion and the K1–K3 controls; see the amendment.
