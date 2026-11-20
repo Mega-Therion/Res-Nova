@@ -1,0 +1,55 @@
+{
+ "J2": "At c_vis^2 = 0: SW stays 0, D_W comes from the 00 constraint, and F_W (hence u_F) never enters the metric subsystem or Phi_W: the observables are exactly independent of the flux frame, within the envelope's equations. At c_vis^2 > 0, u_F enters through F_W -> S_W -> Phi.",
+ "K1": "Consistency identity (not a test): the projected Weyl tensor of the planar black brane is isotropic in its rest frame (P0/C1), so a uniform delta-mu or a uniform boost gives momentum at O(v) and no anisotropic stress at O(v). Anisotropic stress needs gradients.",
+ "J1_flux_channel": "FLUX_CODAZZI fits only the combination mu_+/k_+ - mu_-/k_-; the channel is unspecified. Positive Omega_W growing in time needs ingoing dust from outside (mu_+ increasing) or outgoing dust from inside (mu_- decreasing).",
+ "J1_i_thermal": "A horizon (thermal state) makes the Weyl fluid hydrodynamic: cutoff fluid/gravity (Bredberg-Keeler-Lysov-Strominger arXiv:1101.2451; Cai-Li-Zhang arXiv:1104.3281) with eta/s = 1/4pi. Exact local temperature at the wall: T_loc = (k/pi) x^(1/4)/sqrt(1 - x), x = (r_h/a)^4 = H_W^2/(c_w k^2). Effective Hu viscosity (order of magnitude) c_vis^2_eff ~ H/(2 pi T_loc) = sqrt(eps)*sqrt(c_w - eps**2)/(2*c_w**(1/4)) with eps = H/k at H_W = H. Micron example (L = 5e-5 m): H0/k = 3.643e-31, c_vis^2_eff ~ 3.0e-16.",
+ "J1_i_conflict": "But a horizon side cannot be the flux channel: an interior black hole contributes -mu_-/k_- (negative dark radiation) and cannot emit outgoing dust classically; the exterior has no horizon (it would sit behind the wall). So the thermal estimate covers only a static, non-feeding side.",
+ "J1_ii_horizonless": "The feeding side is horizonless: exterior AdS-Vaidya fed from the boundary region (mu_+ is itself a growing normalizable mode, so it is not the normalizable-modes-vanish state of 2001.07433), or a horizonless interior with an outgoing source. Planar radial null dust sits at fixed x, so each column deposits locally isotropic dark radiation: pi = 0 at zeroth order in gradients. The first-order pi is set by the source's state, which the flux-fed model does not specify.",
+ "J1_iii_radion": "Koyama 2003's low-energy pi_E comes from the radion of a second brane. The dark bubble has one wall: no radion term.",
+ "J1_iv_free_streaming": "Free-streaming (c_vis^2 = 1/3) along the wall needs weakly coupled, non-hydrodynamic bulk content; classical 5D Einstein gravity with radial null dust does not supply it at wavelengths >> 1/k. Metric perturbations tilt the dust at first order; the deposited momentum goes into u_F (J2: irrelevant at pi = 0).",
+ "J1_amplification": "pi_eff = pi_+ + (k_+/(k_- - k_+))(pi_+ - pi_-): any side's pi is amplified by k/(k_- - k_+) if the bubble is near-symmetric.",
+ "J1_result": "pi_eff is not fixed by the wall or by classical bulk gravity alone: it is set by the state of the flux source. Zeroth order in gradients: pi_eff = 0. First order: source-dependent [O].",
+ "micron_H0_over_k": 3.6429956504868156e-31,
+ "thermal_cvis2_eff_micron": 3.0178616810942544e-16,
+ "J3": "The covariant sigma(X), X = (xi.n)^2, singles out the bulk static frame: its partner is a medium at rest in that frame. For an expanding wall (v = adot > 0) absorption gives Q > 0 and elastic reflection gives Q < 0 at every epoch, while sigma(X) needs Q4 = rho_b adot addot, which changes sign at the onset of acceleration (z ~ 0.73). No single interaction supplies it; switching channel exactly at z_acc would be post-hoc. So candidate (a) stays excluded on physical grounds, not only by PREREG_FLUX's single-channel rule. The w_d = 0 flux-fed branch's partner is the Vaidya null dust by construction (PREREG_FLUX); its drag still has no 5D action [O].",
+ "K2_published_consistency": "Cardoso-Hiramatsu-Koyama-Seahra (arXiv:0705.1685): modes with wavelength >> the AdS length are not amplified, i.e. 4D behaviour is recovered at low energy, consistent with the gradient expansion. A literature consistency check, not a reproduction.",
+ "verdict_inputs": {
+  "at_pi_eff_0": {
+   "Pantheon+_best": {
+    "A_phiphi_mean": 1.0485445179122017,
+    "ISW_max_all_ell": 1.5934171655579497,
+    "pass_at_cvis2_0": true,
+    "cvis2_threshold": {
+     "largest_passing_cvis2": 0.0003,
+     "smallest_failing_cvis2": 0.001,
+     "cvis2_at_ISW_1p6_interp": 0.0005501027213783808
+    }
+   },
+   "DES-Dovekie_best": {
+    "A_phiphi_mean": 1.0542603412977913,
+    "ISW_max_all_ell": 1.6628117798341393,
+    "pass_at_cvis2_0": false,
+    "cvis2_threshold": {
+     "largest_passing_cvis2": null,
+     "smallest_failing_cvis2": 0.0,
+     "cvis2_at_ISW_1p6_interp": null
+    }
+   },
+   "Pantheon+_2sigma_floor": {
+    "A_phiphi_mean": 1.0182183054093532,
+    "ISW_max_all_ell": 1.21169433368391,
+    "pass_at_cvis2_0": true,
+    "cvis2_threshold": {
+     "largest_passing_cvis2": 0.1,
+     "smallest_failing_cvis2": null,
+     "cvis2_at_ISW_1p6_interp": null
+    }
+   }
+  },
+  "knife_50_kmodes_ISW_max": {
+   "Pantheon+_best": 1.5944201033667338,
+   "DES-Dovekie_best": 1.66398456204054
+  },
+  "rule": "PREREG_PHASE2: J1 could not pick a single state -> verdict conditional on the bulk state [O]"
+ }
+}
