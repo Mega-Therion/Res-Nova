@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="408" height="26" viewBox="0 0 408 26">
+  <rect width="408" height="26" rx="4" fill="#14161C" stroke="#CF6679" stroke-width="1" stroke-opacity="0.78"/>
+  <rect x="0.5" y="0.5" width="92" height="25" rx="3.5" fill="#CF6679" fill-opacity="0.18"/>
+  <line x1="92" y1="1" x2="92" y2="25" stroke="#CF6679" stroke-width="0.9" stroke-opacity="0.5"/>
+  <text x="46.0" y="17" text-anchor="middle" font-family="'DejaVu Sans Mono', monospace" font-size="11" font-weight="700" fill="#CF6679">[D] QUMOND</text>
+  <text x="250.0" y="17" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="600" fill="#E2E8F0">C = 0.579 · Cassini +8.7σ bare kill</text>
+</svg>

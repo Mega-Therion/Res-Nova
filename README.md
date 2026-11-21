@@ -1,7 +1,15 @@
 # Res-Nova
 
 <p align="center">
-  <img src="assets/res-nova-repo-card.png" width="480" alt="Res Nova — Folio I cover: the official open-source repository">
+  <img src="assets/readme_hero_banner.svg" alt="Res Nova — Geometrically Ordered Dynamics, Folio I">
+</p>
+
+<p align="center">
+  <img src="assets/badges/badge_lean4_P.svg" alt="[P] Lean 4 — 0 sorry">
+  <img src="assets/badges/badge_qumond_D.svg" alt="[D] QUMOND">
+  <img src="assets/badges/badge_sparc175_E.svg" alt="[E] SPARC-175">
+  <img src="assets/badges/badge_kms_O.svg" alt="[O] Horizon KMS">
+  <img src="assets/badges/badge_retired_X.svg" alt="[X] Retired">
 </p>
 
 <p align="left">

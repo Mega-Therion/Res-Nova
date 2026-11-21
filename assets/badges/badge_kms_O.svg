@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="324" height="26" viewBox="0 0 324 26">
+  <rect width="324" height="26" rx="4" fill="#14161C" stroke="#D4A347" stroke-width="1" stroke-opacity="0.78"/>
+  <rect x="0.5" y="0.5" width="127" height="25" rx="3.5" fill="#D4A347" fill-opacity="0.18"/>
+  <line x1="127" y1="1" x2="127" y2="25" stroke="#D4A347" stroke-width="0.9" stroke-opacity="0.5"/>
+  <text x="63.5" y="17" text-anchor="middle" font-family="'DejaVu Sans Mono', monospace" font-size="11" font-weight="700" fill="#D4A347">[O] Horizon KMS</text>
+  <text x="225.5" y="17" text-anchor="middle" font-family="'DejaVu Sans', sans-serif" font-size="11" font-weight="600" fill="#E2E8F0">a₀ = cH₀/(2π) galactic ID</text>
+</svg>
