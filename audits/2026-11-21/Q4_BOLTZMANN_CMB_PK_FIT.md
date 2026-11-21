@@ -32,17 +32,17 @@ Across all 24 `Radau` trajectories (`rtol = 1e-10`, `atol = 1e-12`), the maximum
 
 | $k\,[\mathrm{Mpc}^{-1}]$ | $\mathcal{T}_{\Phi,\mathrm{AeST/Fluid}}(3\,a_{\mathrm{eq}})$ | $\mathcal{T}_{\delta_m,\mathrm{AeST/Fluid}}(10\,a_{\mathrm{eq}})$ | $\mathcal{T}_{\Phi,\mathrm{AeST/\Lambda CDM}}(3\,a_{\mathrm{eq}})$ | $\mathcal{T}_{\delta_m,\mathrm{AeST/\Lambda CDM}}(10\,a_{\mathrm{eq}})$ | Fixed-Param $P_{\mathrm{AeST}}/P_{\Lambda\mathrm{CDM}}(10\,a_{\mathrm{eq}})$ |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| `0.005` | `1.000105` | `1.000090` | `0.996402` | `0.995392` | `0.990805` |
-| `0.010` | `1.000372` | `1.000319` | `0.996030` | `0.992710` | `0.985473` |
-| `0.020` | `1.001164` | `1.000999` | `0.996597` | `0.988565` | `0.977261` |
-| `0.050` | `1.003830` | `1.003284` | `1.000383` | `0.985426` | `0.971065` |
-| `0.100` | `1.007898` | `1.006753` | `1.006262` | `0.986643` | `0.973464` |
-| `0.150` | `1.010984` | `1.009362` | `1.010566` | `0.988176` | `0.976492` |
-| `0.200` | `1.012803` | `1.010870` | `1.012977` | `0.988887` | `0.977898` |
-| `0.300` | `1.011056` | `1.009260` | `1.011730` | `0.983576` | `0.967422` |
+| `0.005` | `1.000115` | `1.000065` | `1.001020` | `0.995398` | `0.990818` |
+| `0.010` | `1.000163` | `0.999934` | `1.001158` | `0.993046` | `0.986141` |
+| `0.020` | `1.001710` | `1.001510` | `0.999673` | `0.990275` | `0.980644` |
+| `0.050` | `1.006087` | `1.005597` | `0.995502` | `0.987537` | `0.975229` |
+| `0.100` | `1.012136` | `1.009058` | `0.991625` | `0.986629` | `0.973437` |
+| `0.150` | `1.009633` | `1.010430` | `0.990000` | `0.985981` | `0.972159` |
+| `0.200` | `1.012803` | `1.010866` | `0.992207` | `0.985221` | `0.970661` |
+| `0.300` | `1.011271` | `1.010595` | `0.992622` | `0.983571` | `0.967413` |
 
 ### Key Part A Result (`[D]`)
-Because $E_{h_T}^{(\mathrm{AeST})} \equiv 0$ (zero linear scalar anisotropic stress) and $c_{s,\mathrm{IR}}^2 = 1/3$ for $Q^4$, the full coupled 12-variable AeST vector-scalar perturbation system with covariant running $\lambda_s(\mathcal{Q})$ differs from an uncoupled zero-anisotropic-stress $w=1/3, c_s^2=1/3$ fluid dark-radiation species (`CLASS` `idr_nature = fluid`) by **at most `1.280%` in $\Phi(3\,a_{\mathrm{eq}})$** and **at most `1.087%` in $\delta_m(10\,a_{\mathrm{eq}})$** across the entire CMB/LSS wavenumber window $k \in [0.005, 0.30]\,\mathrm{Mpc}^{-1}$.
+Because $E_{h_T}^{(\mathrm{AeST})} \equiv 0$ (zero linear scalar anisotropic stress) and $c_{s,\mathrm{IR}}^2 = 1/3$ for $Q^4$, the full coupled 12-variable AeST vector-scalar perturbation system with covariant running $\lambda_s(\mathcal{Q})$ differs from an uncoupled zero-anisotropic-stress $w=1/3, c_s^2=1/3$ fluid dark-radiation species (`CLASS` `idr_nature = fluid`) by **at most `1.2803%` (`1.280%`) in $\Phi(3\,a_{\mathrm{eq}})$** and **at most `1.0866%` (`1.087%`) in $\delta_m(10\,a_{\mathrm{eq}})$** across the entire CMB/LSS wavenumber window $k \in [0.005, 0.30]\,\mathrm{Mpc}^{-1}$.
 
 ---
 
@@ -56,19 +56,19 @@ To close the `[O]` note on line 189 of `CURRENT_STATE_READ_THIS_FIRST.md` (*"The
 
 | Model | $\Delta N_{\mathrm{eff}}$ | Mode | $\chi^2_{\mathrm{plik}}$ (613) | $\chi^2_{\mathrm{DESI\_BAO}}$ (13) | $\chi^2_{\mathrm{total}}$ (626) | $\Delta\chi^2_{\mathrm{total}}$ vs $\Lambda\mathrm{CDM}$ | $H_0$ $[\mathrm{km/s/Mpc}]$ | $\omega_b$ | $\omega_{\mathrm{cdm}}$ | $\omega_m h^2$ | $n_s$ | $\ln 10^{10}A_s$ | $r_d$ $[\mathrm{Mpc}]$ | $\sigma_8$ | $S_8$ |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **`M0_LCDM_joint_fit`** | `0.000` | $\Lambda\mathrm{CDM}$ | `551.18` | `11.30` | **`562.48`** | `0.00` | `68.47` | `0.02255` | `0.11744` | `0.14064` | `0.9700` | `3.0468` | `147.60` | `0.8006` | `0.8006` |
-| **`M1_AeST_Q4_dNeff0p270_unrefitted`** | `0.270` | `fluid_idr` + AeST $\mathcal{T}(k)$ (at `M0` params) | `2236.75` | `228.56` | `2465.31` | `+1902.83` | `68.47` | `0.02255` | `0.11744` | `0.14064` | `0.9700` | `3.0468` | `146.17` | `0.8104` | `0.8104` |
+| **`M0_LCDM_joint_fit`** | `0.000` | $\Lambda\mathrm{CDM}$ | `551.18` | `11.30` | **`562.48`** | `0.00` | `68.47` | `0.02252` | `0.11748` | `0.14064` | `0.9702` | `3.0370` | `147.60` | `0.8006` | `0.8006` |
+| **`M1_AeST_Q4_dNeff0p270_unrefitted`** | `0.270` | `fluid_idr` + AeST $\mathcal{T}(k)$ (at `M0` params) | `2236.75` | `228.56` | `2465.31` | `+1902.83` | `68.47` | `0.02252` | `0.11748` | `0.14064` | `0.9702` | `3.0370` | `146.17` | `0.8104` | `0.8104` |
 | **`M2_AeST_Q4_PR226_dNeff0p270_joint_fit`** | `0.270` ($\epsilon_Q=0.0363$) | `fluid_idr` + AeST $\mathcal{T}(k)$ | `553.85` | **`10.44`** ($\Delta=-0.86$) | **`564.30`** | **`+1.82`** (`1.35σ`) | **`70.04`** | `0.02266` | `0.12251` | `0.14581` | `0.9600` | `3.0209` | `144.82` | `0.8069` | `0.8032` |
 | **`M3_AeST_Q4_Gate1_eps0p039_joint_fit`** | `0.291` ($\epsilon_Q=0.0390$) | `fluid_idr` + AeST $\mathcal{T}(k)$ | `554.07` | **`10.38`** ($\Delta=-0.92$) | **`564.46`** | **`+1.98`** (`1.41σ`) | **`70.17`** | `0.02267` | `0.12286` | `0.14617` | `0.9597` | `3.0204` | `144.62` | `0.8073` | `0.8030` |
 | **`M4_GR_freestream_dNeff0p270_joint_fit`** | `0.270` | Free-streaming `N_ur` ($\sigma \neq 0$) | `554.68` | `10.89` ($\Delta=-0.41$) | **`565.57`** | **`+3.09`** (`1.76σ`) | `69.92` | `0.02269` | `0.12218` | `0.14552` | `0.9783` | `3.0486` | `144.86` | `0.8145` | `0.8113` |
 
-*(Note on `ln10_10_As` and `chi2_plik_undressed` in `M2`/`M3`: `M2` and `M3` are jointly optimized with `apply_aest_transfer = True`, where the slight $+1.1\%\text{--}1.3\%$ high-$k$ transfer boost $\mathcal{T}_{\Phi,\mathrm{AeST/Fluid}}(k)$ is absorbed by a $-0.026$ shift in $\ln(10^{10}A_s)$ (`3.0209` vs `3.0468`) and $-0.010$ in $n_s$. The diagnostic field `chi2_plik_undressed` in the JSON receipt evaluates the undressed spectrum at that lowered $\ln(10^{10}A_s) = 3.0209$ without re-centering $\ln(10^{10}A_s)$.)*
+*(Note on `ln10_10_As` and `chi2_plik_undressed` in `M2`/`M3`: `M2` and `M3` are jointly optimized with `apply_aest_transfer = True`, where the slight $+1.1\%\text{--}1.3\%$ high-$k$ transfer boost $\mathcal{T}_{\Phi,\mathrm{AeST/Fluid}}(k)$ is absorbed by a $-0.016$ shift in $\ln(10^{10}A_s)$ (`3.0209` vs `3.0370`) and $-0.010$ in $n_s$. The diagnostic field `chi2_plik_undressed` in the JSON receipt evaluates the undressed spectrum at that lowered $\ln(10^{10}A_s) = 3.0209$ without re-centering $\ln(10^{10}A_s)$.)*
 
 ### CMB Acoustic Peak Positions & Amplitudes ($D_\ell^{TT}$ in $\mu\mathrm{K}^2$)
 
 | Model | Peak 1 ($\ell_1$, $D_{\ell_1}^{TT}$) | Peak 2 ($\ell_2$, $D_{\ell_2}^{TT}$) | Peak 3 ($\ell_3$, $D_{\ell_3}^{TT}$) |
 | :--- | :---: | :---: | :---: |
-| **`M0_LCDM_joint_fit`** | $\ell_1 = 221.0$, $5732.72\,\mu\mathrm{K}^2$ | $\ell_2 = 536.0$, $2591.32\,\mu\mathrm{K}^2$ | $\ell_3 = 813.0$, $2534.51\,\mu\mathrm{K}^2$ |
+| **`M0_LCDM_joint_fit`** | $\ell_1 = 220.0$, $5735.61\,\mu\mathrm{K}^2$ | $\ell_2 = 536.0$, $2594.60\,\mu\mathrm{K}^2$ | $\ell_3 = 813.0$, $2535.24\,\mu\mathrm{K}^2$ |
 | **`M2_AeST_Q4_PR226_dNeff0p270_joint_fit`** | $\ell_1 = 220.0$, $5728.85\,\mu\mathrm{K}^2$ | $\ell_2 = 536.0$, $2590.50\,\mu\mathrm{K}^2$ | $\ell_3 = 813.0$, $2536.85\,\mu\mathrm{K}^2$ |
 | **`M3_AeST_Q4_Gate1_eps0p039_joint_fit`** | $\ell_1 = 220.0$, $5727.35\,\mu\mathrm{K}^2$ | $\ell_2 = 536.0$, $2590.41\,\mu\mathrm{K}^2$ | $\ell_3 = 813.0$, $2536.91\,\mu\mathrm{K}^2$ |
 | **`M4_GR_freestream_dNeff0p270_joint_fit`** | $\ell_1 = 220.0$, $5731.29\,\mu\mathrm{K}^2$ | $\ell_2 = 536.0$, $2590.26\,\mu\mathrm{K}^2$ | $\ell_3 = 813.0$, $2540.03\,\mu\mathrm{K}^2$ |
@@ -77,13 +77,13 @@ To close the `[O]` note on line 189 of `CURRENT_STATE_READ_THIS_FIRST.md` (*"The
 
 | $k\,[\mathrm{Mpc}^{-1}]$ | `M0_LCDM` $P(k)$ $[\mathrm{Mpc}^3]$ | `M2_AeST_Q4` ($\Delta N_{\mathrm{eff}}=0.270$) $P(k)/P_{\Lambda\mathrm{CDM}}(k)$ | `M3_AeST_Q4` ($\epsilon_Q=0.039$) $P(k)/P_{\Lambda\mathrm{CDM}}(k)$ | `M4_GR_freestream` ($\Delta N_{\mathrm{eff}}=0.270$) $P(k)/P_{\Lambda\mathrm{CDM}}(k)$ |
 | :---: | :---: | :---: | :---: | :---: |
-| `0.005` | `61092.47` | `0.94360` | `0.93801` | `0.92980` |
-| `0.010` | `77673.24` | `0.94550` | `0.94062` | `0.94196` |
-| `0.020` | `62441.59` | `0.96288` | `0.95944` | `0.96597` |
-| `0.050` | `28171.71` | `0.97310` | `0.97048` | `0.98401` |
-| `0.100` | `9923.60` | **`0.99750`** | **`0.99653`** | `1.01520` |
-| `0.150` | `4760.41` | **`0.99920`** | **`0.99871`** | `1.02323` |
-| `0.200` | `2774.45` | **`0.99194`** | **`0.99116`** | `1.02157` |
+| `0.005` | `61092.82` | `0.94360` | `0.93801` | `0.92980` |
+| `0.010` | `77673.54` | `0.94550` | `0.94062` | `0.94196` |
+| `0.020` | `62441.91` | `0.96288` | `0.95944` | `0.96597` |
+| `0.050` | `28171.76` | `0.97310` | `0.97048` | `0.98401` |
+| `0.100` | `9923.59` | **`0.99750`** | **`0.99653`** | `1.01520` |
+| `0.150` | `4760.40` | **`0.99920`** | **`0.99871`** | `1.02323` |
+| `0.200` | `2774.44` | **`0.99194`** | **`0.99116`** | `1.02157` |
 | `0.300` | `1238.76` | **`0.98666`** | **`0.98584`** | `1.02583` |
 
 ---
