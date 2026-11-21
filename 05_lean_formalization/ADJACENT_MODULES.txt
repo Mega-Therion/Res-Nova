@@ -555,3 +555,19 @@ PostulateRAnalyticNoGo.lean      # Postulate R analytic induced-metric brane no-
                                  # 21 theorems, standard axioms only. Adjacent audit companion
                                  # to audits/2026-11-19/postulate_r_analytic_nogo.py; not cited
                                  # by the manuscript.
+SingleMetricSlipCancellation.lean # Single-metric AeST & Tidal-QUMOND anisotropic-stress
+                                 # cancellation (10 theorems, standard axioms only): standalone
+                                 # deep-MOND chi [X] EOS + HasDerivAt linear O(1) slip; live
+                                 # AQUAL & Tidal-QUMOND on-shell equivalence; (Phi')^2 cancel-
+                                 # lation leaving (2-K_B)*Phi'*g_N; HasDerivAt Newtonian &
+                                 # deep-MOND O(v^4/c^4) slip ODE solutions. Adjacent companion
+                                 # to exploration/tidal_aest/single_metric_slip_audit.py; not
+                                 # cited by the manuscript.
+CoupledAeSTStabilityBounds.lean  # Coupled 2x2 AeST FLRW stability bounds (12 theorems,
+                                 # standard axioms only): Matrix (Fin 2)(Fin 2) C determinant
+                                 # factorization, SZ22 limit, all-k M_gap^2 < 0 instability vs
+                                 # stable roots, Qbar-independent power-law K_B_min(p, lambda_s),
+                                 # universal running-lambda_s(Q) existence iff theorem, stiff
+                                 # p=2 [X], global Cosh viability, and Q^2+Q^4 AM-GM lower
+                                 # bound. Adjacent companion to audits/2026-11-20/*.py; not
+                                 # cited by the manuscript.

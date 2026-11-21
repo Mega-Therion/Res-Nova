@@ -193,5 +193,13 @@ lean_lib «ResNovaFormal» where
     -- J_std''(y) blowup at y -> 0+, and exact analytic auxiliary-susceptibility supremum
     -- F_std(x) = sup over s in 0..1 of (s x^2/2 - (artanh s - s)/2).
     -- (No square brackets in comments here: verify_all_proofs.sh ends the roots range at the first one.)
-    `PostulateRAnalyticNoGo
+    `PostulateRAnalyticNoGo,
+    -- ADDED 2026-11-20. Single-metric AeST AQUAL & Tidal-QUMOND on-shell anisotropic stress,
+    -- (Phi')^2 self-stress cancellation, exact Newtonian/deep-MOND O(v^4/c^4) slip ODEs,
+    -- and standalone deep-MOND chi linear-slip no-go.
+    `SingleMetricSlipCancellation,
+    -- ADDED 2026-11-20. Coupled 2x2 AeST FLRW stability determinant factorization, SZ22 limit,
+    -- all-k instability when M_gap^2 < 0, Qbar-independent power-law K_B lower bound, and
+    -- universal running-lambda_s(Q) existence criterion (stiff p=2 no-go, global Cosh, AM-GM).
+    `CoupledAeSTStabilityBounds
   ]

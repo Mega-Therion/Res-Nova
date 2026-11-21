@@ -1,0 +1,65 @@
+{
+ "C1_sz22_calibration": {
+  "det_N0_exact": "-2*k^6*omega^2 * [K2_eff*K_B*omega^2 - 4*(2-K_B)*(1 + K_B*lambda_s/2)*k^2 - K2_eff*Qbar^2*(2-K_B)*(1+lambda_s)] [D]",
+  "sz22_speed_of_sound_at_K2eff_4K2": "(2 - K_B)*(1 + K_B*lambda_s/2) / (K_2 * K_B) [D]",
+  "k0_gap_at_K1_0": "(2 - K_B)*(1 + lambda_s)*Qbar^2 / K_B [D]"
+ },
+ "C2_coupled_2x2_and_gauge_invariance": {
+  "uv_sound_speeds_gauge_invariant": true,
+  "kinetic_matrix_K": "diag(K2_eff/2, K_B) [D]",
+  "gyroscopic_mixing_kw": "+/- (2 - K_B) * k * omega [D]",
+  "coupled_2x2_characteristic_eq": "omega^4 - (M_gap^2 + c_{s,UV}^2 * k^2)*omega^2 + M_gap^2 * c_{s,IR}^2 * k^2 = 0 [D]",
+  "M_gap2": "Qbar * (2*(2 - K_B)*(1 + lambda_s)*Qbar - K1) / (2 * K_B) [D]",
+  "c_s_UV_sq": "4*(2 - K_B)*(1 + K_B*lambda_s/2) / (K2_eff * K_B) [D]",
+  "c_s_IR_sq": "K1 / (K2_eff * Qbar) == dp_phi / drho_phi [D]",
+  "transverse_Ay_dispersion": "omega_perp^2(k) = k^2 + M_gap^2 (exact same M_gap^2) [D]"
+ },
+ "C3_stability_window_and_powerlaw_bound": {
+  "unstable_when_Mgap2_lt_0": "Product omega_+^2 * omega_-^2 = M_gap^2 * c_{s,IR}^2 * k^2 < 0 for every k > 0 (all-k longitudinal instability approaching -|M_gap^2| c_{s,IR}^2 / c_{s,UV}^2 as k->oo, plus transverse tachyon for k < sqrt(|M_gap^2|)) [D]",
+  "stability_conditions_general_K": [
+   "0 < K_B < 2 and K2_eff > 0 (ghost-free kinetic matrix + positive tensor/Poisson stability)",
+   "K2_eff >= 4*(2 - K_B)*(1 + K_B*lambda_s/2) / K_B (UV subluminality c_{s,UV}^2 <= 1)",
+   "0 <= K1/(2*Qbar) <= (2 - K_B)*(1 + lambda_s) (IR sound speed >= 0 and tachyon-free M_gap^2 >= 0)"
+  ],
+  "power_law_cs2_IR": "1 / (p - 1) (1/2 for Q^3, 1/3 for Q^4) [D]",
+  "power_law_KB_min": "2 / ((p - 1)*(1 + lambda_s) - lambda_s) (exact, independent of Qbar and c) [D]"
+ },
+ "C4_pr226_witness_and_trackers": {
+  "pr226_witness": {
+   "K_B": 0.008,
+   "lambda_s": 11.2787,
+   "K_2": 300.0,
+   "BBN_KB_limit": 0.1
+  },
+  "sz22_Y_only_cs2": 0.867445,
+  "pure_Q3_KB_min_at_lam1128": 0.150617,
+  "pure_Q3_verdict": "FAILS at PR #226 witness (0.008 < 0.1506) AND violates BBN K_B <= 0.10 (need lambda_s >= 38 at K_B = 0.05) [D]",
+  "pure_Q4_KB_min_at_lam1128": 0.078255,
+  "pure_Q4_verdict": "FAILS at PR #226 witness (0.008 < 0.0783); narrow BBN window K_B in [0.0783, 0.10] at lambda_s = 11.28 [D]",
+  "combined_K_at_witness": {
+   "nontachyon_ceiling_2_2mKB_1plam": 48.918341,
+   "at_c_0_max_fractional_Qbar_above_Q0": 0.040765,
+   "at_Qbar_eq_Q0_max_cQ0": 16.306114,
+   "at_Qbar_eq_Q0_cs2_UV_range": [
+    0.802053,
+    0.867445
+   ],
+   "at_Qbar_eq_Q0_cs2_IR_range": [
+    0.0,
+    0.037692
+   ],
+   "early_universe_warning": "For any early epoch with Qbar >> Q0, 4*K_2*(Qbar-Q0)/Qbar ~ 1200 >> 48.92 drives M_gap^2 < 0 (all-k instability) unless lambda_s increases with Qbar [D]"
+  },
+  "tidal_qumond_KB_005_min_lambda_s": {
+   "Q3_p3": 38.0,
+   "Q4_p4": 18.5
+  }
+ },
+ "C5_scope_and_open_boundary": {
+  "closed_here": "[D] Sub-horizon coupled 2x2 kinetic/gradient matrices, 3-gauge invariance across fixed-metric, Newtonian 4x4, and unitary-ADM 4x4, exact SZ22 limit reproduction, and exact power-law K_B(p, lambda_s) stability windows/bounds.",
+  "still_open": [
+   "[O] Full finite-H/k horizon-crossing FLRW ODE transfer functions coupled to radiation fluid perturbations delta_rho_rad with time-dependent Hdot, Qbar_dot.",
+   "[O] Whether a Q-dependent running lambda_s(Q) preserves BBN tuning AND avoids the Qbar >> Q0 early-universe tachyon M_gap^2 < 0."
+  ]
+ }
+}

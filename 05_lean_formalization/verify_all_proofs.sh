@@ -124,6 +124,8 @@ TARGETS=(
   CP2SpincIndex.lean
   NoetherScoping.lean
   PostulateRAnalyticNoGo.lean
+  SingleMetricSlipCancellation.lean
+  CoupledAeSTStabilityBounds.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------
