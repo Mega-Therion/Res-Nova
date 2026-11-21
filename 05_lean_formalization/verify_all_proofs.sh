@@ -126,6 +126,11 @@ TARGETS=(
   PostulateRAnalyticNoGo.lean
   SingleMetricSlipCancellation.lean
   CoupledAeSTStabilityBounds.lean
+  EuclidWeakLensingTheory.lean
+  BandCircle.lean
+  SovereignConstants.lean
+  BernoulliLegendreShell.lean
+  RimOffset.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------

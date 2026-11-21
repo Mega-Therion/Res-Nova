@@ -201,5 +201,12 @@ lean_lib «ResNovaFormal» where
     -- ADDED 2026-11-20. Coupled 2x2 AeST FLRW stability determinant factorization, SZ22 limit,
     -- all-k instability when M_gap^2 < 0, Qbar-independent power-law K_B lower bound, and
     -- universal running-lambda_s(Q) existence criterion (stiff p=2 no-go, global Cosh, AM-GM).
-    `CoupledAeSTStabilityBounds
+    `CoupledAeSTStabilityBounds,
+    -- ADDED 2026-11-21 (BLK-1567). Adjacent E.H.Y.E.H. / Euclid / 4Leibniz Lean 4 companions
+    -- landed for claim-gate resolution; no square brackets in comments inside roots.
+    `EuclidWeakLensingTheory,
+    `BandCircle,
+    `SovereignConstants,
+    `BernoulliLegendreShell,
+    `RimOffset
   ]
