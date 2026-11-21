@@ -1,0 +1,679 @@
+{
+ "meta": {
+  "date_utc": "2026-11-21",
+  "plik_lite_validation_chi2": 548.49,
+  "plik_lite_nbins": 613,
+  "desi_dr2_bao_nbins": 13,
+  "total_nbins": 626,
+  "elapsed_seconds": 431.94
+ },
+ "part_A_sympy_radau_multi_k_transfer": {
+  "eps_Q": 0.039,
+  "equivalent_dNeff": 0.29052,
+  "max_rel_E00_across_all_24_runs": 2.213e-10,
+  "max_rel_E0x_across_all_24_runs": 2.597e-10,
+  "max_abs_deviation_T_Phi_AeST_vs_FluidIDR_at_recomb": 0.012803,
+  "max_abs_deviation_T_dm_AeST_vs_FluidIDR_at_10aeq": 0.010866,
+  "k_grid_rows": [
+   {
+    "k_Mpc_inv": 0.005,
+    "at_1p0_aeq": {
+     "T_Phi_AeST_over_FluidIDR": 1.000059,
+     "T_dm_AeST_over_FluidIDR": 1.000394,
+     "T_Phi_AeST_over_LCDM": 1.001047,
+     "T_dm_AeST_over_LCDM": 0.997017
+    },
+    "at_3p0_aeq_recomb": {
+     "T_Phi_AeST_over_FluidIDR": 1.000115,
+     "T_dm_AeST_over_FluidIDR": 1.000244,
+     "T_Phi_AeST_over_LCDM": 1.00102,
+     "T_dm_AeST_over_LCDM": 0.995061
+    },
+    "at_10p0_aeq_matter": {
+     "T_Phi_AeST_over_FluidIDR": 1.000356,
+     "T_dm_AeST_over_FluidIDR": 1.000065,
+     "Pk_ratio_AeST_over_FluidIDR": 1.00013,
+     "T_Phi_AeST_over_LCDM": 0.999278,
+     "T_dm_AeST_over_LCDM": 0.995398,
+     "Pk_ratio_AeST_over_LCDM_fixed_params": 0.990818
+    },
+    "max_rel_E00_q4": 1.204e-11,
+    "max_rel_E0x_q4": 7.452e-12
+   },
+   {
+    "k_Mpc_inv": 0.01,
+    "at_1p0_aeq": {
+     "T_Phi_AeST_over_FluidIDR": 1.000037,
+     "T_dm_AeST_over_FluidIDR": 1.000172,
+     "T_Phi_AeST_over_LCDM": 1.001627,
+     "T_dm_AeST_over_LCDM": 0.99316
+    },
+    "at_3p0_aeq_recomb": {
+     "T_Phi_AeST_over_FluidIDR": 1.000163,
+     "T_dm_AeST_over_FluidIDR": 1.00004,
+     "T_Phi_AeST_over_LCDM": 1.001158,
+     "T_dm_AeST_over_LCDM": 0.991195
+    },
+    "at_10p0_aeq_matter": {
+     "T_Phi_AeST_over_FluidIDR": 1.002371,
+     "T_dm_AeST_over_FluidIDR": 0.999934,
+     "Pk_ratio_AeST_over_FluidIDR": 0.999867,
+     "T_Phi_AeST_over_LCDM": 0.996752,
+     "T_dm_AeST_over_LCDM": 0.993046,
+     "Pk_ratio_AeST_over_LCDM_fixed_params": 0.986141
+    },
+    "max_rel_E00_q4": 1.916e-11,
+    "max_rel_E0x_q4": 8.982e-12
+   },
+   {
+    "k_Mpc_inv": 0.02,
+    "at_1p0_aeq": {
+     "T_Phi_AeST_over_FluidIDR": 1.000079,
+     "T_dm_AeST_over_FluidIDR": 1.000024,
+     "T_Phi_AeST_over_LCDM": 1.003867,
+     "T_dm_AeST_over_LCDM": 0.986872
+    },
+    "at_3p0_aeq_recomb": {
+     "T_Phi_AeST_over_FluidIDR": 1.00171,
+     "T_dm_AeST_over_FluidIDR": 0.999912,
+     "T_Phi_AeST_over_LCDM": 0.999673,
+     "T_dm_AeST_over_LCDM": 0.989146
+    },
+    "at_10p0_aeq_matter": {
+     "T_Phi_AeST_over_FluidIDR": 1.004855,
+     "T_dm_AeST_over_FluidIDR": 1.00151,
+     "Pk_ratio_AeST_over_FluidIDR": 1.003021,
+     "T_Phi_AeST_over_LCDM": 0.994126,
+     "T_dm_AeST_over_LCDM": 0.990275,
+     "Pk_ratio_AeST_over_LCDM_fixed_params": 0.980644
+    },
+    "max_rel_E00_q4": 4.869e-11,
+    "max_rel_E0x_q4": 3.379e-11
+   },
+   {
+    "k_Mpc_inv": 0.05,
+    "at_1p0_aeq": {
+     "T_Phi_AeST_over_FluidIDR": 1.003438,
+     "T_dm_AeST_over_FluidIDR": 0.999887,
+     "T_Phi_AeST_over_LCDM": 1.015911,
+     "T_dm_AeST_over_LCDM": 0.984862
+    },
+    "at_3p0_aeq_recomb": {
+     "T_Phi_AeST_over_FluidIDR": 1.006087,
+     "T_dm_AeST_over_FluidIDR": 1.002349,
+     "T_Phi_AeST_over_LCDM": 0.995502,
+     "T_dm_AeST_over_LCDM": 0.987788
+    },
+    "at_10p0_aeq_matter": {
+     "T_Phi_AeST_over_FluidIDR": 1.009444,
+     "T_dm_AeST_over_FluidIDR": 1.005597,
+     "Pk_ratio_AeST_over_FluidIDR": 1.011225,
+     "T_Phi_AeST_over_LCDM": 0.991643,
+     "T_dm_AeST_over_LCDM": 0.987537,
+     "Pk_ratio_AeST_over_LCDM_fixed_params": 0.975229
+    },
+    "max_rel_E00_q4": 7.105e-11,
+    "max_rel_E0x_q4": 6.862e-11
+   },
+   {
+    "k_Mpc_inv": 0.1,
+    "at_1p0_aeq": {
+     "T_Phi_AeST_over_FluidIDR": 1.014891,
+     "T_dm_AeST_over_FluidIDR": 1.00185,
+     "T_Phi_AeST_over_LCDM": 0.978833,
+     "T_dm_AeST_over_LCDM": 0.989416
+    },
+    "at_3p0_aeq_recomb": {
+     "T_Phi_AeST_over_FluidIDR": 1.012136,
+     "T_dm_AeST_over_FluidIDR": 1.006043,
+     "T_Phi_AeST_over_LCDM": 0.991625,
+     "T_dm_AeST_over_LCDM": 0.987705
+    },
+    "at_10p0_aeq_matter": {
+     "T_Phi_AeST_over_FluidIDR": 1.012761,
+     "T_dm_AeST_over_FluidIDR": 1.009058,
+     "Pk_ratio_AeST_over_FluidIDR": 1.018199,
+     "T_Phi_AeST_over_LCDM": 0.990471,
+     "T_dm_AeST_over_LCDM": 0.986629,
+     "Pk_ratio_AeST_over_LCDM_fixed_params": 0.973437
+    },
+    "max_rel_E00_q4": 1.351e-10,
+    "max_rel_E0x_q4": 1.57e-10
+   },
+   {
+    "k_Mpc_inv": 0.15,
+    "at_1p0_aeq": {
+     "T_Phi_AeST_over_FluidIDR": 1.012629,
+     "T_dm_AeST_over_FluidIDR": 1.004418,
+     "T_Phi_AeST_over_LCDM": 1.015972,
+     "T_dm_AeST_over_LCDM": 0.989711
+    },
+    "at_3p0_aeq_recomb": {
+     "T_Phi_AeST_over_FluidIDR": 1.009633,
+     "T_dm_AeST_over_FluidIDR": 1.008108,
+     "T_Phi_AeST_over_LCDM": 0.99,
+     "T_dm_AeST_over_LCDM": 0.987857
+    },
+    "at_10p0_aeq_matter": {
+     "T_Phi_AeST_over_FluidIDR": 1.013365,
+     "T_dm_AeST_over_FluidIDR": 1.01043,
+     "Pk_ratio_AeST_over_FluidIDR": 1.020968,
+     "T_Phi_AeST_over_LCDM": 0.988147,
+     "T_dm_AeST_over_LCDM": 0.985981,
+     "Pk_ratio_AeST_over_LCDM_fixed_params": 0.972159
+    },
+    "max_rel_E00_q4": 1.603e-10,
+    "max_rel_E0x_q4": 1.67e-10
+   },
+   {
+    "k_Mpc_inv": 0.2,
+    "at_1p0_aeq": {
+     "T_Phi_AeST_over_FluidIDR": 1.007179,
+     "T_dm_AeST_over_FluidIDR": 1.006186,
+     "T_Phi_AeST_over_LCDM": 0.995483,
+     "T_dm_AeST_over_LCDM": 0.990989
+    },
+    "at_3p0_aeq_recomb": {
+     "T_Phi_AeST_over_FluidIDR": 1.012803,
+     "T_dm_AeST_over_FluidIDR": 1.009133,
+     "T_Phi_AeST_over_LCDM": 0.992207,
+     "T_dm_AeST_over_LCDM": 0.987736
+    },
+    "at_10p0_aeq_matter": {
+     "T_Phi_AeST_over_FluidIDR": 1.013506,
+     "T_dm_AeST_over_FluidIDR": 1.010866,
+     "Pk_ratio_AeST_over_FluidIDR": 1.02185,
+     "T_Phi_AeST_over_LCDM": 0.988921,
+     "T_dm_AeST_over_LCDM": 0.985221,
+     "Pk_ratio_AeST_over_LCDM_fixed_params": 0.970661
+    },
+    "max_rel_E00_q4": 1.538e-10,
+    "max_rel_E0x_q4": 2.597e-10
+   },
+   {
+    "k_Mpc_inv": 0.3,
+    "at_1p0_aeq": {
+     "T_Phi_AeST_over_FluidIDR": 1.002973,
+     "T_dm_AeST_over_FluidIDR": 1.008224,
+     "T_Phi_AeST_over_LCDM": 1.029091,
+     "T_dm_AeST_over_LCDM": 0.991895
+    },
+    "at_3p0_aeq_recomb": {
+     "T_Phi_AeST_over_FluidIDR": 1.011271,
+     "T_dm_AeST_over_FluidIDR": 1.009696,
+     "T_Phi_AeST_over_LCDM": 0.992622,
+     "T_dm_AeST_over_LCDM": 0.986962
+    },
+    "at_10p0_aeq_matter": {
+     "T_Phi_AeST_over_FluidIDR": 1.012818,
+     "T_dm_AeST_over_FluidIDR": 1.010595,
+     "Pk_ratio_AeST_over_FluidIDR": 1.021302,
+     "T_Phi_AeST_over_LCDM": 0.9872,
+     "T_dm_AeST_over_LCDM": 0.983571,
+     "Pk_ratio_AeST_over_LCDM_fixed_params": 0.967413
+    },
+    "max_rel_E00_q4": 1.978e-10,
+    "max_rel_E0x_q4": 2.408e-10
+   }
+  ]
+ },
+ "part_B_class_plik_desi_joint_fits": {
+  "M0_LCDM_joint_fit": {
+   "theta": [
+    0.022520104594463308,
+    0.11747773614288318,
+    0.9701899786769979,
+    3.036964549324643,
+    0.6846532458096999
+   ],
+   "omega_b": 0.022520104594463308,
+   "omega_cdm": 0.11747773614288318,
+   "omega_m_h2": 0.14064203227696426,
+   "Omega_m": 0.30003629264043846,
+   "H0": 68.46532458096999,
+   "n_s": 0.9701899786769979,
+   "ln10_10_As": 3.036964549324643,
+   "dNeff": 0.0,
+   "dr_mode": "none",
+   "apply_aest_transfer": false,
+   "rd_Mpc": 147.602339112383,
+   "sigma8": 0.8005557445971225,
+   "sigma8_undressed": 0.8005557445971225,
+   "S8": 0.8006041669356707,
+   "chi2_plik": 551.1751767966293,
+   "chi2_plik_undressed": 551.1751767966293,
+   "chi2_desi_bao": 11.30333252493441,
+   "chi2_total": 562.4785093215637,
+   "peaks_TT": {
+    "l1": 220.0,
+    "Dl1_uK2": 5735.61,
+    "l2": 536.0,
+    "Dl2_uK2": 2594.6,
+    "l3": 813.0,
+    "Dl3_uK2": 2535.24
+   },
+   "pk_mpc3_at_grid": [
+    61092.81679162071,
+    77673.54133461603,
+    62441.91453708284,
+    28171.761166161745,
+    9923.590353455256,
+    4760.401329963768,
+    2774.4446349785508,
+    1238.7623166348058
+   ],
+   "dchi2_plik_vs_LCDM": 0.0,
+   "dchi2_bao_vs_LCDM": 0.0,
+   "dchi2_total_vs_LCDM": 0.0,
+   "aest_dressing_dchi2_plik": 0.0,
+   "Pk_ratio_vs_LCDM_at_grid": [
+    {
+     "k_Mpc_inv": 0.005,
+     "Pk_over_Pk_LCDM": 1.0
+    },
+    {
+     "k_Mpc_inv": 0.01,
+     "Pk_over_Pk_LCDM": 1.0
+    },
+    {
+     "k_Mpc_inv": 0.02,
+     "Pk_over_Pk_LCDM": 1.0
+    },
+    {
+     "k_Mpc_inv": 0.05,
+     "Pk_over_Pk_LCDM": 1.0
+    },
+    {
+     "k_Mpc_inv": 0.1,
+     "Pk_over_Pk_LCDM": 1.0
+    },
+    {
+     "k_Mpc_inv": 0.15,
+     "Pk_over_Pk_LCDM": 1.0
+    },
+    {
+     "k_Mpc_inv": 0.2,
+     "Pk_over_Pk_LCDM": 1.0
+    },
+    {
+     "k_Mpc_inv": 0.3,
+     "Pk_over_Pk_LCDM": 1.0
+    }
+   ]
+  },
+  "M1_AeST_Q4_dNeff0p270_unrefitted_at_LCDM": {
+   "theta": [
+    0.022520104594463308,
+    0.11747773614288318,
+    0.9701899786769979,
+    3.036964549324643,
+    0.6846532458096999
+   ],
+   "omega_b": 0.022520104594463308,
+   "omega_cdm": 0.11747773614288318,
+   "omega_m_h2": 0.14064203227696426,
+   "Omega_m": 0.30003629264043846,
+   "H0": 68.46532458096999,
+   "n_s": 0.9701899786769979,
+   "ln10_10_As": 3.036964549324643,
+   "dNeff": 0.27,
+   "dr_mode": "fluid_idr",
+   "apply_aest_transfer": true,
+   "rd_Mpc": 146.27284553817486,
+   "sigma8": 0.7915893866548512,
+   "sigma8_undressed": 0.7847597733489201,
+   "S8": 0.7916372666551266,
+   "chi2_plik": 2436.9118425631787,
+   "chi2_plik_undressed": 1950.0026410280755,
+   "chi2_desi_bao": 28.39983100321659,
+   "chi2_total": 2465.3116735663953,
+   "peaks_TT": {
+    "l1": 222.0,
+    "Dl1_uK2": 5876.84,
+    "l2": 541.0,
+    "Dl2_uK2": 2689.07,
+    "l3": 822.0,
+    "Dl3_uK2": 2600.76
+   },
+   "pk_mpc3_at_grid": [
+    60730.1807161432,
+    76780.1106180693,
+    61531.27264618772,
+    27620.822988521835,
+    9778.721193507201,
+    4673.543350623336,
+    2708.3999560100137,
+    1203.5450299784118
+   ],
+   "dchi2_plik_vs_LCDM": 1885.737,
+   "dchi2_bao_vs_LCDM": 17.096,
+   "dchi2_total_vs_LCDM": 1902.833,
+   "aest_dressing_dchi2_plik": 486.9092,
+   "Pk_ratio_vs_LCDM_at_grid": [
+    {
+     "k_Mpc_inv": 0.005,
+     "Pk_over_Pk_LCDM": 0.99406
+    },
+    {
+     "k_Mpc_inv": 0.01,
+     "Pk_over_Pk_LCDM": 0.9885
+    },
+    {
+     "k_Mpc_inv": 0.02,
+     "Pk_over_Pk_LCDM": 0.98542
+    },
+    {
+     "k_Mpc_inv": 0.05,
+     "Pk_over_Pk_LCDM": 0.98044
+    },
+    {
+     "k_Mpc_inv": 0.1,
+     "Pk_over_Pk_LCDM": 0.9854
+    },
+    {
+     "k_Mpc_inv": 0.15,
+     "Pk_over_Pk_LCDM": 0.98175
+    },
+    {
+     "k_Mpc_inv": 0.2,
+     "Pk_over_Pk_LCDM": 0.9762
+    },
+    {
+     "k_Mpc_inv": 0.3,
+     "Pk_over_Pk_LCDM": 0.97157
+    }
+   ]
+  },
+  "M2_AeST_Q4_PR226_dNeff0p270_joint_fit": {
+   "theta": [
+    0.02265172094250346,
+    0.12251430538874632,
+    0.959441789623287,
+    3.020881743254266,
+    0.7003589562794039
+   ],
+   "omega_b": 0.02265172094250346,
+   "omega_cdm": 0.12251430538874632,
+   "omega_m_h2": 0.14581021787086756,
+   "Omega_m": 0.29726692124262405,
+   "H0": 70.03589562794039,
+   "n_s": 0.959441789623287,
+   "ln10_10_As": 3.020881743254266,
+   "dNeff": 0.27,
+   "dr_mode": "fluid_idr",
+   "apply_aest_transfer": true,
+   "rd_Mpc": 144.82428895001138,
+   "sigma8": 0.8068754428466124,
+   "sigma8_undressed": 0.7998576798487068,
+   "S8": 0.8031916099241608,
+   "chi2_plik": 553.8540264983894,
+   "chi2_plik_undressed": 662.1587959008956,
+   "chi2_desi_bao": 10.442303253163454,
+   "chi2_total": 564.2963297515529,
+   "peaks_TT": {
+    "l1": 220.0,
+    "Dl1_uK2": 5728.85,
+    "l2": 536.0,
+    "Dl2_uK2": 2590.5,
+    "l3": 813.0,
+    "Dl3_uK2": 2536.85
+   },
+   "pk_mpc3_at_grid": [
+    57646.88070470778,
+    73440.0881304657,
+    60123.93800386,
+    27413.87497612051,
+    9898.776426923258,
+    4756.599489501566,
+    2752.0731219200625,
+    1222.23567314513
+   ],
+   "dchi2_plik_vs_LCDM": 2.679,
+   "dchi2_bao_vs_LCDM": -0.861,
+   "dchi2_total_vs_LCDM": 1.818,
+   "aest_dressing_dchi2_plik": -108.3048,
+   "Pk_ratio_vs_LCDM_at_grid": [
+    {
+     "k_Mpc_inv": 0.005,
+     "Pk_over_Pk_LCDM": 0.9436
+    },
+    {
+     "k_Mpc_inv": 0.01,
+     "Pk_over_Pk_LCDM": 0.9455
+    },
+    {
+     "k_Mpc_inv": 0.02,
+     "Pk_over_Pk_LCDM": 0.96288
+    },
+    {
+     "k_Mpc_inv": 0.05,
+     "Pk_over_Pk_LCDM": 0.9731
+    },
+    {
+     "k_Mpc_inv": 0.1,
+     "Pk_over_Pk_LCDM": 0.9975
+    },
+    {
+     "k_Mpc_inv": 0.15,
+     "Pk_over_Pk_LCDM": 0.9992
+    },
+    {
+     "k_Mpc_inv": 0.2,
+     "Pk_over_Pk_LCDM": 0.99194
+    },
+    {
+     "k_Mpc_inv": 0.3,
+     "Pk_over_Pk_LCDM": 0.98666
+    }
+   ]
+  },
+  "M3_AeST_Q4_Gate1_eps0p039_dNeff0p291_joint_fit": {
+   "theta": [
+    0.02266586713897648,
+    0.12285944805589381,
+    0.9596694616591541,
+    3.02044033088075,
+    0.7017202206927606
+   ],
+   "omega_b": 0.02266586713897648,
+   "omega_cdm": 0.12285944805589381,
+   "omega_m_h2": 0.14616950673448809,
+   "Omega_m": 0.29684435794870245,
+   "H0": 70.17202206927607,
+   "n_s": 0.9596694616591541,
+   "ln10_10_As": 3.02044033088075,
+   "dNeff": 0.29052,
+   "dr_mode": "fluid_idr",
+   "apply_aest_transfer": true,
+   "rd_Mpc": 144.624270459081,
+   "sigma8": 0.8072890703478435,
+   "sigma8_undressed": 0.8002632069374657,
+   "S8": 0.8030319869969088,
+   "chi2_plik": 554.0727663780359,
+   "chi2_plik_undressed": 663.1674966549922,
+   "chi2_desi_bao": 10.383927109337085,
+   "chi2_total": 564.456693487373,
+   "peaks_TT": {
+    "l1": 220.0,
+    "Dl1_uK2": 5727.35,
+    "l2": 536.0,
+    "Dl2_uK2": 2590.41,
+    "l3": 813.0,
+    "Dl3_uK2": 2536.91
+   },
+   "pk_mpc3_at_grid": [
+    57305.745674465914,
+    73061.57672723077,
+    59908.9665334369,
+    27340.252058032453,
+    9889.143935949178,
+    4754.264211642154,
+    2749.914752063408,
+    1221.2241847697367
+   ],
+   "dchi2_plik_vs_LCDM": 2.898,
+   "dchi2_bao_vs_LCDM": -0.919,
+   "dchi2_total_vs_LCDM": 1.978,
+   "aest_dressing_dchi2_plik": -109.0947,
+   "Pk_ratio_vs_LCDM_at_grid": [
+    {
+     "k_Mpc_inv": 0.005,
+     "Pk_over_Pk_LCDM": 0.93801
+    },
+    {
+     "k_Mpc_inv": 0.01,
+     "Pk_over_Pk_LCDM": 0.94062
+    },
+    {
+     "k_Mpc_inv": 0.02,
+     "Pk_over_Pk_LCDM": 0.95944
+    },
+    {
+     "k_Mpc_inv": 0.05,
+     "Pk_over_Pk_LCDM": 0.97048
+    },
+    {
+     "k_Mpc_inv": 0.1,
+     "Pk_over_Pk_LCDM": 0.99653
+    },
+    {
+     "k_Mpc_inv": 0.15,
+     "Pk_over_Pk_LCDM": 0.99871
+    },
+    {
+     "k_Mpc_inv": 0.2,
+     "Pk_over_Pk_LCDM": 0.99116
+    },
+    {
+     "k_Mpc_inv": 0.3,
+     "Pk_over_Pk_LCDM": 0.98584
+    }
+   ]
+  },
+  "M4_GR_freestream_dNeff0p270_joint_fit": {
+   "theta": [
+    0.02269303906809946,
+    0.12218204192340842,
+    0.9783124227156693,
+    3.0485585215115223,
+    0.6992406557099486
+   ],
+   "omega_b": 0.02269303906809946,
+   "omega_cdm": 0.12218204192340842,
+   "omega_m_h2": 0.14551927253112568,
+   "Omega_m": 0.29762346749632257,
+   "H0": 69.92406557099487,
+   "n_s": 0.9783124227156693,
+   "ln10_10_As": 3.0485585215115223,
+   "dNeff": 0.27,
+   "dr_mode": "freestream_ur",
+   "apply_aest_transfer": false,
+   "rd_Mpc": 144.86385113624834,
+   "sigma8": 0.8144836426344471,
+   "sigma8_undressed": 0.8144836426344471,
+   "S8": 0.8112511500518353,
+   "chi2_plik": 554.6780406264801,
+   "chi2_plik_undressed": 554.6780406264801,
+   "chi2_desi_bao": 10.891640126395327,
+   "chi2_total": 565.5696807528755,
+   "peaks_TT": {
+    "l1": 220.0,
+    "Dl1_uK2": 5731.29,
+    "l2": 536.0,
+    "Dl2_uK2": 2590.26,
+    "l3": 813.0,
+    "Dl3_uK2": 2540.03
+   },
+   "pk_mpc3_at_grid": [
+    56803.96180433882,
+    73165.0326159431,
+    60316.98715805864,
+    27721.363916403578,
+    10074.380859654399,
+    4870.9979224558465,
+    2834.2843628611304,
+    1270.753371469091
+   ],
+   "dchi2_plik_vs_LCDM": 3.503,
+   "dchi2_bao_vs_LCDM": -0.412,
+   "dchi2_total_vs_LCDM": 3.091,
+   "aest_dressing_dchi2_plik": 0.0,
+   "Pk_ratio_vs_LCDM_at_grid": [
+    {
+     "k_Mpc_inv": 0.005,
+     "Pk_over_Pk_LCDM": 0.9298
+    },
+    {
+     "k_Mpc_inv": 0.01,
+     "Pk_over_Pk_LCDM": 0.94196
+    },
+    {
+     "k_Mpc_inv": 0.02,
+     "Pk_over_Pk_LCDM": 0.96597
+    },
+    {
+     "k_Mpc_inv": 0.05,
+     "Pk_over_Pk_LCDM": 0.98401
+    },
+    {
+     "k_Mpc_inv": 0.1,
+     "Pk_over_Pk_LCDM": 1.0152
+    },
+    {
+     "k_Mpc_inv": 0.15,
+     "Pk_over_Pk_LCDM": 1.02323
+    },
+    {
+     "k_Mpc_inv": 0.2,
+     "Pk_over_Pk_LCDM": 1.02157
+    },
+    {
+     "k_Mpc_inv": 0.3,
+     "Pk_over_Pk_LCDM": 1.02583
+    }
+   ]
+  }
+ },
+ "summary_comparison": {
+  "AeST_vector_scalar_perturbation_vs_FluidIDR": "Across k in [0.005, 0.30] Mpc^-1, full coupled AeST Q^4 + running lambda_s(Q) differs from an uncoupled w=1/3, cs^2=1/3, sigma=0 perfect fluid by at most 1.280% in Phi(3 a_eq) and 1.087% in delta_m(10 a_eq), shifting plik_lite chi^2 by only -108.305.",
+  "M0_LCDM": {
+   "chi2_plik": 551.18,
+   "chi2_bao": 11.3,
+   "chi2_total": 562.48,
+   "H0": 68.47,
+   "omega_m_h2": 0.14064,
+   "sigma8": 0.8006,
+   "S8": 0.8006
+  },
+  "M2_AeST_Q4_dNeff0p270": {
+   "chi2_plik": 553.85,
+   "chi2_bao": 10.44,
+   "chi2_total": 564.3,
+   "dchi2_vs_LCDM": 1.818,
+   "H0": 70.04,
+   "omega_m_h2": 0.14581,
+   "sigma8": 0.8069,
+   "S8": 0.8032
+  },
+  "M3_AeST_Q4_eps0p039_dNeff0p291": {
+   "chi2_plik": 554.07,
+   "chi2_bao": 10.38,
+   "chi2_total": 564.46,
+   "dchi2_vs_LCDM": 1.978,
+   "H0": 70.17,
+   "omega_m_h2": 0.14617,
+   "sigma8": 0.8073,
+   "S8": 0.803
+  },
+  "M4_GR_freestream_dNeff0p270": {
+   "chi2_plik": 554.68,
+   "chi2_bao": 10.89,
+   "chi2_total": 565.57,
+   "dchi2_vs_LCDM": 3.091,
+   "H0": 69.92,
+   "omega_m_h2": 0.14552,
+   "sigma8": 0.8145,
+   "S8": 0.8113
+  }
+ }
+}
