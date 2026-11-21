@@ -1,5 +1,7 @@
 # D7 directional tidal boundary-value problem (2026-11-21)
 
+> **SCOPE NOTICE (2026-11-21):** The mathematical operator and extragalactic X-COP vs. depth-axis no-go results below stand as recorded; per [`../../02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`](../../02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md) and [`../../OUTSIDE_GALAXIES.md`](../../OUTSIDE_GALAXIES.md) (Erratum `E-16`), ordinary GR holds outside galaxies and Cassini $Q_2$ is not a gate on the galaxy law `μ_std`.
+
 Equation solved, with one constant coupling and no fitted function:
 
 ```

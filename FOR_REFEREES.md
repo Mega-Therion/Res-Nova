@@ -2,24 +2,27 @@
 
 Read  this  first, then  the  ledger, then  the  manuscript.  The quotable  readiness score is the 2026-10-09 line at the top of `PEER_REVIEW_READINESS.md`. The in/out cut for a deposit is `publication/jewel_scope.tex`, printed before the title.
 
-**What this repository is:** a non-relativistic dual-channel interpolating function, Lean-checked identities, a Skordis–Złośnik embedding, and a SPARC measurement with a systematic budget.
+**What this repository is:** a galactic interpolating law `μ_std(x) = x/√(1+x²)` scored on galaxies (`FRONT.md` Block 3; [`02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`](02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md)), ordinary general relativity outside galaxies (`OUTSIDE_GALAXIES.md` Block 2), Lean-checked identities (98 targets), a Skordis–Złośnik AeST embedding, and a SPARC measurement with a systematic budget.
 
-**What this repository is not:** a completed derivation of `a0` from cosmology, a replacement for `Λ`CDM in the CMB, or a theory without inputs: it carries two irreducible ones, the `a0` scale and the choice of μ.
+**What this repository is not:** a completed derivation of `a0` from cosmology, a replacement for `Λ`CDM in the CMB, a theory without inputs (it carries two irreducible ones, the `a0` scale and the choice of μ), or a solar-system modification of `μ_std` (the agent-written joint `Cassini × SPARC` gate is withdrawn, Erratum `E-16`).
 
 ## Audit order
 
-1. `EPISTEMIC_BOUNDARY_v1.5.0.md` — every claim, tagged.
-2. `AGENT_COVENANT.md` — what the authors forbid themselves to say.
-3. `OPEN_PROBLEMS_AND_TESTS.md` — what is still open.
-4. `res_nova_manuscript.pdf` — narrative. If it outruns the ledger, the ledger wins.
-5. `05_lean_formalization/verify_all_proofs.sh` — formal core.
-6. `02_galaxy_dynamics/A0_MEASUREMENT.json` and `PARAMETER_LEDGER.json` — empirical core.
+1. `02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`, `FRONT.md`, and `OUTSIDE_GALAXIES.md` — domain split (galaxies vs. outside galaxies).
+2. `CURRENT_STATE_READ_THIS_FIRST.md` — live claim state & audits.
+3. `EPISTEMIC_BOUNDARY_v1.5.0.md` — historical v1.5.0 baseline, tagged.
+4. `AGENT_COVENANT.md` — what the authors forbid themselves to say.
+5. `OPEN_PROBLEMS_AND_TESTS.md` — what is still open.
+6. `res_nova_manuscript.pdf` — narrative. If it outruns the ledger, the ledger wins.
+7. `05_lean_formalization/verify_all_proofs.sh` — formal core (`98/98` targets).
+8. `02_galaxy_dynamics/A0_DISTANCE_CORRECTED_2026-09-16.json` and `PARAMETER_LEDGER.json` — empirical core (`A0_MEASUREMENT.json` is the superseded `μ_dual` fit).
 
 ## Map: claim → files
 
 | If you are checking | Read | Run (if data present) |
 |---|---|---|
-| `μ(x)=x/(1+x)` from `F_dual` | `DualChannelDerivation.lean`, `GODActionKinematics.lean`, `TARGET_D1_VARIATIONAL_DERIVATION.md` | `./05_lean_formalization/verify_all_proofs.sh` |
+| Live `μ_std` galaxy law & AeST embedding | `MuStdUniqueness.lean`, `MuStdFoundations.lean`, `SZStdEmbedding.lean`, `02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md` | `./05_lean_formalization/verify_all_proofs.sh` |
+| `μ(x)=x/(1+x)` from `F_dual` (retired branch, falsified 2026-09-12; math kept as record) | `DualChannelDerivation.lean`, `GODActionKinematics.lean`, `TARGET_D1_VARIATIONAL_DERIVATION.md` | `./05_lean_formalization/verify_all_proofs.sh` |
 | Single-channel / `arcsinh` failure | `TARGET_D1_VARIATIONAL_DERIVATION.md`, `PAPER_01_NOTICE.md` | same |
 | RAQUAL no-go | `CovariantCompletion.lean`, `TARGET_D7_COVARIANT_COMPLETION.md` | same |
 | GW170817 / disformal split | `TensorSpeed.lean`, `TARGET_D8_TENSOR_SPEED.md` | same |
@@ -36,6 +39,7 @@ Read  this  first, then  the  ledger, then  the  manuscript.  The quotable  read
 - 5-fold CV that reports one `a0` to 16 figures in every fold.
 - “Zero free parameters” as the SPARC model class (withdrawn).
 - Unconstrained NFW median 1.92 as the `Λ`CDM row (97/171 galaxies railed at `c=1`).
+- The agent-written joint `Cassini × SPARC` gate on `μ_std` or `a₀`, or any claim that Saturn extrapolation numbers fail the galaxy law (withdrawn 2026-11-21; `02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`, Erratum `E-16`).
 
 ## Numbers that are current (`[D]`; the benchmark lines are generated from the result JSONs)
 
@@ -50,8 +54,8 @@ Read  this  first, then  the  ledger, then  the  manuscript.  The quotable  read
 
 ## Formal core you can take as mathematics
 
-Lean `v4.33.0-rc1`, Mathlib pin `5eec30bc`. The gate covers every module on disk, 66 targets on 2026-10-09 (the manuscript modules plus the adjacent-programme modules declared in `05_lean_formalization/ADJACENT_MODULES.txt`; the live count is the `verified: N / N` line of `assurance/evidence/gate_66_targets_2026-10-09.log`), 0 `sorry`, standard axioms only. A clean kernel certifies the mathematics, not a physical reading: which rows are `[P]` is fixed by `proof-records/P_ROWS.json`. O6 — closed 2026-09-08: cold-machine fetch demonstrated (VERIFICATION_RUN_008) and the `lean-gate` CI job runs the full gate on every push (green at `d130413`). O5 — closed 2026-09-09: clean-clone `fetch_sparc.sh` walk, 175/175 checksums, 0 drift (VERIFICATION_RUN_009).
+Lean `v4.33.0-rc1`, Mathlib pin `5eec30bc`. The gate covers every module on disk (`98/98` targets verified in CI on `2026-11-21`, commit `11c82177`; earlier `66/66` baseline on `2026-10-09` recorded in `assurance/evidence/gate_66_targets_2026-10-09.log`), 0 `sorry`, standard axioms only. A clean kernel certifies the mathematics, not a physical reading: which rows are `[P]` is fixed by `proof-records/P_ROWS.json`. O6 — closed 2026-09-08: cold-machine fetch demonstrated (VERIFICATION_RUN_008) and the `lean-gate` CI job runs the full gate on every push (green at `11c82177`). O5 — closed 2026-09-09: clean-clone `fetch_sparc.sh` walk, 175/175 checksums, 0 drift (VERIFICATION_RUN_009).
 
 ## Recommended citation posture
 
-Cite the dual-channel identity and the no-go theorems as mathematics. Cite the SPARC measurement as a measurement. Cite the horizon formula as a hypothesis under test. Do not cite `Ω_\Lambda=\ln 2` as a result of this package.
+Cite the galaxy-law identities (`μ_std`, `AeST`) and the no-go theorems as mathematics. Cite the SPARC measurement as a measurement. Cite the horizon formula as a hypothesis under test. Do not cite `Ω_\Lambda=\ln 2` as a result of this package.

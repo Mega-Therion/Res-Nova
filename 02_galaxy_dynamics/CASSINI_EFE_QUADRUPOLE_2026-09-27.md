@@ -1,5 +1,7 @@
 # Cassini external-field quadrupole at the derived a0 — 2026-09-27
 
+> **SCOPE NOTICE (2026-11-21):** Under [`GALAXY_LAW_SCOPE_2026-11-21.md`](GALAXY_LAW_SCOPE_2026-11-21.md) and [`../OUTSIDE_GALAXIES.md`](../OUTSIDE_GALAXIES.md) (Erratum `E-16`), `μ_std` with measured `a₀` is the galaxy law scored on galaxies, while ordinary general relativity holds outside galaxies. The agent-written joint `Cassini × SPARC` requirement is **withdrawn**; computed Saturn `Q₂` values below stay archived strictly as out-of-domain extrapolation measurements and are **not** a failure of `μ_std`.
+
 > **SUPERSEDED BOUND (2026-11-18).** This document was computed against the Hees et al. (2014)
 > bound `Q₂ = (3 ± 3)×10⁻²⁷ s⁻²`. The authoritative measurement is now **Park et al. (2026)**,
 > `Q₂ = (1.6 ± 1.8)×10⁻²⁷ s⁻²` (arXiv:2602.17884, Phys. Rev. D 2026; DE440 + full Cassini

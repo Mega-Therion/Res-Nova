@@ -163,7 +163,7 @@ structure ModelIdentity where
 /-- The canonical instance. Every `.open` slot quotes an audit §7 question or a
 CURRENT_STATE `[O]` item. -/
 def canonical : ModelIdentity where
-  version := "1.0.0 (2026-11-17)"
+  version := "1.1.0 (2026-11-21)"
   spacetimeDim := 4
   signature := (1, 3)
   symmetry := .diffeomorphism
@@ -183,14 +183,14 @@ def canonical : ModelIdentity where
     "Route (a) V2(R^3)/triality action on bundles and modes, or (b) a heterotic (X,V) compactification and its index: not chosen (audit §6 step 2)"
   chiralitySignRule := .open
     "What is the dynamical selection rule for the sign/orientation of the chiral spectrum? (audit §7)"
-  interpolation := .fixed .muStd .A .novel "CURRENT_STATE §1 (mu_std live on galaxies, [A])"
+  interpolation := .fixed .muStd .A .novel "CURRENT_STATE §1; 02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md (mu_std live galaxy law, [A])"
   a0 := .fixed ⟨11607 / 10000, -10, "m s^-2"⟩ .E .established
     "A0_DISTANCE_CORRECTED_2026-09-16.json T1 (mu_std, 175 SPARC galaxies)"
   a0TwoPiNormalization := .open
     "What independent mechanism, if any, yields the 1/(2 pi) in a0? (O1; audit §7)"
   irreducibleParameters := [.a0Scale, .interpolationChoice]
   singleBranchAllRegimes := .open
-    "What single action yields the observed galaxy interpolation while remaining consistent with the Solar System and the AeST/cosmological sector? (audit §7; bare mu_std fails the Cassini EFE quadrupole)"
+    "Outside galaxies, ordinary GR holds (FRONT.md Block 2, OUTSIDE_GALAXIES.md); mu_std is the galaxy law scored on galaxies (GALAXY_LAW_SCOPE_2026-11-21.md). Open: whether one covariant completion also resolves X-COP cluster outskirts and D7 branch selection without ad-hoc solar-system screens (audit §7)."
 
 /-! ## Bookkeeping checks on the record (`[arith]`) -/
 

@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # Phrases that assert a result the repository's own current-state file contradicts.
 FORBIDDEN = [
     (re.compile(r"clear(s|ing)?\s+(the\s+)?Cassini", re.I),
-     "mu_std does not clear Cassini: the EFE quadrupole excludes it (~4.6 sigma)"),
+     "mu_std is the galaxy law (02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md) and does not clear Cassini Q2"),
     (re.compile(r"100\s*%\s*verified", re.I),
      "'100% verified' conflates compiling mathematics with verified physics"),
     (re.compile(r"2\s*\\*\*?pi\s+(is\s+)?(proved|derived)|KMS[^.\n]{0,40}proves?\s+the\s+2", re.I),

@@ -184,9 +184,9 @@ modules:
     theorems: 6
     structures: 0
     plain_real_defs: 0
-    denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton in the solar system"
-    observable: "Cassini quadrupole ceiling Q_2 < 3.4e-27 s^-2 (Park et al. 2026, PRD, doi 10.1103/r7n8-kw38) and planetary perihelion residuals (Park et al. 2017 AJ 153:121; Konopliv et al. 2011 Icarus 211:401; Pitjev & Pitjeva 2013 MNRAS 432:3431; Hees et al. 2014 PRD 89:102002)"
-    falsifier: "a solar-system residual with r^2 radial profile detected above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
+    denotes: "the AeST tracking-slope parameter lambda_s and the residual acceleration delta_g = (1+lambda_s)^3 a_0^2 r^2 / (2 G_N M) it leaves beyond Newton if extrapolated onto the held branch in the solar system"
+    observable: "planetary perihelion residuals and Saturn Q_2 as out-of-domain extrapolation benchmarks only (GALAXY_LAW_SCOPE_2026-11-21.md; OUTSIDE_GALAXIES.md: ordinary GR holds outside galaxies and Cassini Q_2 is not a gate on mu_std)"
+    falsifier: "under an out-of-domain held-branch extrapolation assumption, a solar-system residual with r^2 radial profile"
 
   - module: LeptonMassCollar
     tier: ARITH
@@ -212,7 +212,7 @@ modules:
     structures: 0
     plain_real_defs: 1
     denotes: "the x -> 1/x duality invariant mu_n(x)^n + mu_n(1/x)^n = 1 for the l^n interpolating family mu_n(x) = x/(1+x^n)^(1/n), every n >= 1; the duality does not select n = 2. No field equation, no empirical content, no selection principle."
-    observable: "galactic rotation-curve family shape; Cassini EFE quadrupole excludes mu_2 at the derived a_0 and admits n >= 4.36 at 2 sigma (empirical statement made outside this module)"
+    observable: "galactic rotation-curve family shape on SPARC (GALAXY_LAW_SCOPE_2026-11-21.md: scored on galaxies only; out-of-domain Saturn EFE Q_2 is not a gate on mu_std)"
     falsifier: "a counterexample x > 0, n >= 1 with mu_n(x)^n + mu_n(1/x)^n != 1"
 
   - module: MuStdDuality
@@ -230,8 +230,8 @@ modules:
     structures: 1
     plain_real_defs: 2
     denotes: "canonical constitutive derivative F_std'=x*mu_std, strict convexity, the P(X)-completion characteristic speed along the gradient c_par^2 = x F''/F' = (x^2+2)/(x^2+1) in (1,2] (superluminal), and the inverse-square monopole tail 1-mu_std <= 1/(2x^2)"
-    observable: "Solar System planetary ephemerides (monopole anomalous acceleration only; the Cassini EFE quadrupole is not covered and bare mu_std fails it)"
-    falsifier: "observed monopole anomalous acceleration above a0^2/(2 g_N); the superluminality result is a mathematical statement about the P(X) completion, not a prediction of AeST"
+    observable: "out-of-domain isolated-Sun monopole tail scaling only (GALAXY_LAW_SCOPE_2026-11-21.md; OUTSIDE_GALAXIES.md: ordinary GR holds outside galaxies, and Cassini Q_2 is not a gate on mu_std)"
+    falsifier: "algebraic failure of 1 - mu_std(x) <= 1/(2x^2) or the P(X) dispersion relation; mu_std is the galaxy law scored on galaxies"
 
   - module: AeSTStealthSector
     tier: STRUCT
@@ -275,8 +275,8 @@ modules:
     structures: 0
     plain_real_defs: 0
     denotes: "the secular perihelion precession rate induced by the mu_std residual, dvarpi/dt = (1+lambda_s)^3 a_0^2 r^(5/2) / (GM)^(3/2), the exact linear response of a near-circular Kepler orbit to an isotropic r^2 perturbation"
-    observable: "planetary perihelion residuals. Saturn is binding: Hees et al. 2014 PRD 89:102002 (direct Cassini limit, 0.43 mas/cy) and Fienga et al. 2011 CMDA 111:363 Table 5 (INPOP10a supplementary advance, 0.15 +/- 0.65 mas/cy). Mercury: Park et al. 2017 AJ 153:121. Mars: Konopliv et al. 2011 Icarus 211:401"
-    falsifier: "a measured perihelion residual with r^(5/2) radial scaling above the quoted ceilings, or its absence at a level excluding lambda_s = O(1)"
+    observable: "out-of-domain Keplerian extrapolation check against planetary perihelion bounds (GALAXY_LAW_SCOPE_2026-11-21.md; OUTSIDE_GALAXIES.md: ordinary GR holds outside galaxies, not a gate on mu_std)"
+    falsifier: "algebraic breakdown of the Keplerian perturbation scaling if extrapolated out of domain"
 
   - module: PrintAxioms
     tier: ARITH

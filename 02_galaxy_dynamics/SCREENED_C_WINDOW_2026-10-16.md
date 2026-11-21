@@ -1,5 +1,7 @@
 # Working solution: C inside the Oort window
 
+> **SCOPE NOTICE (2026-11-21):** The solar-system screening / `working-C` track recorded here is **withdrawn as a gate on `μ_std`** under [`GALAXY_LAW_SCOPE_2026-11-21.md`](GALAXY_LAW_SCOPE_2026-11-21.md) and [`../OUTSIDE_GALAXIES.md`](../OUTSIDE_GALAXIES.md) (Erratum `E-16`). `μ_std` is the galaxy law scored on galaxies, while ordinary general relativity holds outside galaxies; computed numbers below remain archived as historical exploratory records only.
+
 **Choice:** RY, 2026-10-16. Use the closed form below. `C = 0` stays the failed pre-registered case `[X]`. This note does not retune `a₀`, `μ_std`, or `x*`.
 
 **Tier:** the algebra and the match to `SCREENED_C_SOLUTIONS.json` are `[D]`. `screened_c_window_check.py` exits 0 and prints `MATCH`. One-field `χ` is still impossible: `η` is one number at one point, and the Sun needs `1.637–2.068` while the Milky Way needs `3.0×10⁻³`.

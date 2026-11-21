@@ -6,6 +6,8 @@ Outside galaxies, the gravitational law in this corpus is ordinary general relat
 
 The boundary is the unscreened run \(S=1\) in [`02_galaxy_dynamics/screen_mass_cassini.json`](02_galaxy_dynamics/screen_mass_cassini.json). That file's keys `unscreened_S_eq_1_sigma_2014` and `unscreened_S_eq_1_sigma_2026` are `5.3666…` and `5.7` against the 2014 window, and `9.7222…` and `10.2777…` against the 2026 window, at the two external-field values stored beside those keys. The run fails. It is why block 3 stops at galaxies. It does not replace earlier Cassini rows in [`CURRENT_STATE_READ_THIS_FIRST.md`](CURRENT_STATE_READ_THIS_FIRST.md), which use other anchors and other screens.
 
+**Scope clarification (2026-11-21):** Under [`02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`](02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md), that unscreened \(S=1\) Saturn extrapolation marks the domain boundary where Block 3 stops (Block 2 keeps ordinary general relativity outside galaxies); the Cassini external-field quadrupole is **not** a gate on or failure of the galaxy law \(\mu_{\mathrm{std}}\), and the agent-written joint `Cassini × SPARC` requirement is withdrawn. Computed Saturn extrapolation values remain archived strictly as out-of-domain extrapolation measurements.
+
 What this note constrains:
 
 - Block 3. \(\mu(x)=x/\sqrt{1+x^2}\) stays an axiom on galaxies. This note does not derive it and does not extend it.

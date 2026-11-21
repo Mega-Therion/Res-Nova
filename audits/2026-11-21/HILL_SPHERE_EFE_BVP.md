@@ -1,7 +1,9 @@
-# Hill-Sphere Barycentric Matching BVP for Cassini ($Q_2$ at $9.5\,\mathrm{AU}$)
+# Hill-Sphere Barycentric Matching BVP Extrapolation ($Q_2$ at $9.5\,\mathrm{AU}$)
+
+> **SCOPE NOTICE (2026-11-21):** Under [`../../02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`](../../02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md) and [`../../OUTSIDE_GALAXIES.md`](../../OUTSIDE_GALAXIES.md) (Erratum `E-16`), `μ_std` with measured `a₀` is the galaxy law scored on galaxies, while ordinary general relativity holds outside galaxies. The Cassini external-field quadrupole `Q₂` is **not** a gate on `μ_std`, `a₀`, or SPARC. All computed numbers below remain archived strictly as **out-of-domain extrapolation measurements** — not a failure of the galaxy law.
 
 - **Date:** 2026-11-21
-- **Epistemic Tag:** `[D] / [X]`
+- **Epistemic Tag:** `[D]` (out-of-domain extrapolation measurement)
 - **Script:** `audits/2026-11-21/hill_sphere_efe_bvp.py`
 - **Receipt:** `audits/2026-11-21/HILL_SPHERE_EFE_BVP.json`
 
@@ -46,6 +48,6 @@
 
 ## 4. Verdict
 
-> **FAILS_CASSINI_CAP_[X]: On [0.2 AU, R_Hill] (~259517 AU = 34.4 r_M >> r_M), the nonlinear single-metric nu_2 barycentric Hill-sphere BVP yields Saturn Q2(9.5 AU) = 15.40-19.89 x 10^-27 s^-2 (+7.67 to +10.16 sigma above Park et al. 2026; 0/15 cells below 5.2e-27 s^-2), matching the unbounded qumond_axisym_efe.py solver to <0.01%. Only the linear (nu=1) control recovers the Milky Way tide 7.560e-31 s^-2 (Q2_tide = 2.268e-30 s^-2), which is not a Cassini pass.**
+> **OUT_OF_DOMAIN_EXTRAPOLATION_[D]: On [0.2 AU, R_Hill] (~259517 AU = 34.4 r_M >> r_M), extrapolating the nonlinear single-metric galaxy formula nu_2 into the solar system yields Saturn Q2(9.5 AU) = 15.40-19.89 x 10^-27 s^-2 (+7.67 to +10.16 sigma above Park et al. 2026; 0/15 cells below 5.2e-27 s^-2), matching the unbounded qumond_axisym_efe.py solver to <0.01%. Only the linear (nu=1) control recovers the Milky Way tide 7.560e-31 s^-2 (Q2_tide = 2.268e-30 s^-2). Per 02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md and OUTSIDE_GALAXIES.md, ordinary GR holds in the solar system and this extrapolation is NOT a failure or gate on the galaxy law mu_std.**
 
-Because $R_{\mathrm{Hill}} \approx 259517\,\mathrm{AU}$ lies ~`36x` outside the solar MOND transition radius $r_M \approx 7100\,\mathrm{AU}$, matching the barycentric field at the Hill surface reproduces the full nonlinear QUMOND $Q_2(9.5\,\mathrm{AU}) = 15.40\text{--}19.89\times 10^{-27}\,\mathrm{s}^{-2}$ (exceeding the $5.2\times 10^{-27}\,\mathrm{s}^{-2}$ cap in every cell, `0/15` pass).
+Because $R_{\mathrm{Hill}} \approx 259517\,\mathrm{AU}$ lies ~`36x` outside the solar MOND transition radius $r_M \approx 7100\,\mathrm{AU}$, matching the barycentric field at the Hill surface reproduces the full nonlinear QUMOND $Q_2(9.5\,\mathrm{AU}) = 15.40\text{--}19.89\times 10^{-27}\,\mathrm{s}^{-2}$ (`0/15` cells under `5.2e-27 s^-2`). Under `02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`, this marks the domain boundary (`OUTSIDE_GALAXIES.md`), and $\mu_{\mathrm{std}}$ is not retuned to move these numbers.

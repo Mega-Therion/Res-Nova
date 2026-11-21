@@ -29,7 +29,7 @@ Comprehensive Symbolic & High-Precision Numerical Certification:
    - The earlier "c_s^2 = (1+x^2)/(x^2+2) in [1/2, 1), strictly subluminal" was the
      reciprocal: a ratio of spatial stiffnesses with no time-derivative coefficient in it.
      It is asserted below to equal 1/c_par^2 so the inversion cannot silently return.
-4. Solar-System MONOPOLE Deviation (scope corrected 2026-09-30):
+4. Solar-System MONOPOLE Deviation (scope corrected 2026-09-30; domain scope 2026-11-21):
    - Live a0 = 1.1607e-10 m/s^2 (mu_std SPARC extraction; 1.116e-10 is the superseded
      mu_dual-era value).
    - Evaluated (mpmath 50 digits) at Mercury ... Voyager 1:
@@ -39,12 +39,13 @@ Comprehensive Symbolic & High-Precision Numerical Certification:
      Fractional deviation: Delta g / g_N ~ 1 / (2 * x^2)
    - NOT a Cassini clearance. 1 - mu is a fractional acceleration shift; the Cassini bound
      |gamma - 1| <= 2.3e-5 (Bertotti et al. 2003) constrains a light-propagation parameter
-     and is not comparable. The binding Cassini test is the external-field quadrupole Q2
-     (Park et al. 2026, arXiv:2602.17884, Q2 = (1.6 +/- 1.8)e-27 s^-2, superseding Hees et al.
-     2014's ~4.6-4.7 sigma), which bare mu_std FAILS at +8.37 to +9.68 sigma at g_e=1.9e-10
-     (+7.67 to +10.16 sigma across +/-21% Milky Way g_e; see
+     and is not comparable. Under 02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md and
+     OUTSIDE_GALAXIES.md, mu_std is the galaxy law scored on galaxies and ordinary GR holds
+     outside galaxies; the Cassini EFE quadrupole Q2 (Park et al. 2026, arXiv:2602.17884;
+     extrapolation values 15.40-19.89e-27 s^-2 across +/-21% Milky Way g_e in
      audits/2026-11-19/CASSINI_GE_UNCERTAINTY_BAND.json and
-     02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md).
+     audits/2026-11-21/HILL_SPHERE_EFE_BVP.json) is an out-of-domain solar-system
+     extrapolation measurement, not a gate on or failure of the galaxy law.
    - Contrast against falsified dual branch mu_dual(x) = x / (1 + x):
      Produces unshielded Delta g ~ a0 across all orbits (falsification confirmed).
    - Generates machine-readable receipt at scripts/repro/cassini_clearance_receipt.json
@@ -318,10 +319,12 @@ def run_cassini_and_solar_system():
     print(f"    Standard mu deviation (1 - mu):   {saturn_entry['delta_std']:.6e}")
     assert saturn_entry["x_ratio"] >= 5e5, "Saturn x below the Lean theorem's hypothesis"
     assert saturn_entry["delta_std"] <= 2e-12, "Saturn monopole deviation exceeds the Lean bound"
-    print("    SCOPE: isolated-Sun monopole only. Not comparable to the Cassini |gamma-1| bound.")
-    print("    The binding Cassini test is the EFE quadrupole Q2 (Park et al. 2026, arXiv:2602.17884,")
-    print("    superseding Hees et al. 2014 ~4.6 sigma), which bare mu_std FAILS at +8.37 to +9.68 sigma")
-    print("    (+7.67 to +10.16 sigma across +/-21% g_e; see audits/2026-11-19/CASSINI_GE_UNCERTAINTY_BAND.json).")
+    print("    SCOPE: isolated-Sun monopole only. Not a Cassini clearance.")
+    print("    Under 02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md and OUTSIDE_GALAXIES.md, mu_std")
+    print("    is the galaxy law scored on galaxies and ordinary GR holds outside galaxies; the Cassini EFE")
+    print("    quadrupole Q2 (Park et al. 2026, arXiv:2602.17884; 15.40-19.89e-27 s^-2 in")
+    print("    audits/2026-11-19/CASSINI_GE_UNCERTAINTY_BAND.json & audits/2026-11-21/HILL_SPHERE_EFE_BVP.json)")
+    print("    is an out-of-domain extrapolation measurement, not a gate on or failure of the galaxy law.")
 
     # Falsification contrast:
     print("\n[+] Contrast Against Falsified Dual Branch mu_dual(x) = x / (1 + x):")
@@ -358,7 +361,7 @@ def main():
             "a0_mps2": 1.1607e-10,
             "delta_std": next(e["delta_std"] for e in res_4 if "Saturn" in e["target"]),
             "lean_bound": "1 - mu_std(x) <= 2e-12 for x >= 5e5 (saturn_monopole_deviation_le)",
-            "scope": "Isolated-Sun monopole only. Not a Cassini clearance: the EFE quadrupole Q2 is the binding test and bare mu_std fails Park et al. (2026, arXiv:2602.17884, superseding Hees et al. 2014 ~4.6 sigma) at +8.37 to +9.68 sigma (+7.67 to +10.16 sigma across +/-21% Milky Way g_e; audits/2026-11-19/CASSINI_GE_UNCERTAINTY_BAND.json)."
+            "scope": "Isolated-Sun monopole only. Not a Cassini clearance. Under 02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md and OUTSIDE_GALAXIES.md, mu_std is the galaxy law scored on galaxies and ordinary GR holds outside galaxies; the Cassini EFE quadrupole Q2 (Park et al. 2026, arXiv:2602.17884; extrapolation values 15.40-19.89e-27 s^-2 in audits/2026-11-19/CASSINI_GE_UNCERTAINTY_BAND.json and audits/2026-11-21/HILL_SPHERE_EFE_BVP.json) is an out-of-domain solar-system extrapolation measurement, not a gate on or failure of the galaxy law."
         },
         "planetary_monopole_table": res_4,
         "overall_status": "CALCULUS_VERIFIED; P(X)_COMPLETION_SUPERLUMINAL; MONOPOLE_ONLY_NOT_CASSINI"

@@ -1,5 +1,7 @@
 # Joint Cassini × SPARC scan, 2026-10-27
 
+> **SCOPE NOTICE (2026-11-21):** The joint `Cassini × SPARC` gate tested here was an agent-written requirement and is **withdrawn** under [`GALAXY_LAW_SCOPE_2026-11-21.md`](GALAXY_LAW_SCOPE_2026-11-21.md) and [`../OUTSIDE_GALAXIES.md`](../OUTSIDE_GALAXIES.md) (Erratum `E-16`). `μ_std` with measured `a₀` is the galaxy law scored on galaxies, while ordinary general relativity holds outside galaxies; computed Saturn numbers stay archived strictly as extrapolation measurements.
+
 Pre-registration: `CASSINI_SPARC_JOINT_SCAN_PREREG_2026-10-27.md` (commit `6be3885`, written before any number).
 Script: `cassini_sparc_joint_scan.py`. Output: `CASSINI_SPARC_JOINT_SCAN.json` (320 rows; per-row stream in `CASSINI_SPARC_JOINT_SCAN.partial.jsonl`).
 Cassini: `qumond_axisym_efe.py` (QUMOND, axisymmetric EFE; PR #194), band [−2, 5.2]×10⁻²⁷ s⁻², pass at both external fields. The band is the 2σ interval of Q₂ = (1.6 ± 1.8)×10⁻²⁷ s⁻² (1σ), Park, Hees, Famaey, Desmond & Durakovic, arXiv:2602.17884 (v2 2026-07-28), Phys. Rev. D (2026), doi:10.1103/r7n8-kw38.

@@ -5,6 +5,7 @@ This page is a map. It does not delete the audit notes at the repository root, a
 ## The paper and the numbers
 
 - The four blocks and the closed channels: [`FRONT.md`](../FRONT.md). This map does not change a tier.
+- Galaxy law domain scope (`2026-11-21`): [`02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`](../02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md) and [`OUTSIDE_GALAXIES.md`](../OUTSIDE_GALAXIES.md) (`μ_std` scored on galaxies; ordinary GR outside galaxies; joint `Cassini × SPARC` gate withdrawn).
 - Claim status, with dates: [`CURRENT_STATE_READ_THIS_FIRST.md`](../CURRENT_STATE_READ_THIS_FIRST.md).
 - Headline numbers: [`RESULTS.md`](../RESULTS.md). `./reproduce_core_results.sh` regenerates them from the SPARC data in an offline copy.
 - What was checked or broken from outside: [`CHECKS.md`](../CHECKS.md).

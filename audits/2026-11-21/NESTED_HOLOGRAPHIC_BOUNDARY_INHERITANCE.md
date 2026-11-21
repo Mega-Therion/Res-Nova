@@ -1,5 +1,7 @@
 # Two-Domain X-COP Hydrostatic-Core ($r \le R_{500}$) BVP & Expansion-Scalar Rule Audit
 
+> **SCOPE NOTICE (2026-11-21):** The extragalactic X-COP cluster results and symbolic expansion-scalar math below stand as recorded; per [`../../02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`](../../02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md) and [`../../OUTSIDE_GALAXIES.md`](../../OUTSIDE_GALAXIES.md) (Erratum `E-16`), ordinary GR holds outside galaxies and any Cassini $Q_2$ comparison line is an out-of-domain extrapolation check, not a gate on the galaxy law `μ_std`.
+
 - **Date:** 2026-11-21
 - **Script:** `audits/2026-11-21/nested_holographic_boundary_inheritance.py` (exit 0)
 - **Receipt:** `audits/2026-11-21/NESTED_HOLOGRAPHIC_BOUNDARY_INHERITANCE.json`

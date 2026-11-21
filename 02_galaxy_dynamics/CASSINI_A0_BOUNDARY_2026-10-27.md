@@ -1,5 +1,7 @@
 # Cassini a₀ boundary sweep, 2026-10-27
 
+> **SCOPE NOTICE (2026-11-21):** The joint `Cassini × SPARC` gate tested here was an agent-written requirement and is **withdrawn** under [`GALAXY_LAW_SCOPE_2026-11-21.md`](GALAXY_LAW_SCOPE_2026-11-21.md) and [`../OUTSIDE_GALAXIES.md`](../OUTSIDE_GALAXIES.md) (Erratum `E-16`). `μ_std` with measured `a₀` is the galaxy law scored on galaxies, while ordinary general relativity holds outside galaxies; computed Saturn numbers stay archived strictly as extrapolation measurements.
+
 Pre-registration: `CASSINI_A0_BOUNDARY_PREREG_2026-10-27.md` (commit `ec865aa`, before any number).
 Script: `cassini_a0_boundary.py`. Output: `CASSINI_A0_BOUNDARY.json` (228 rows, 0 errors, 0 inadmissible; runtime 5798 s).
 Cassini scorer, SPARC fitter, data and nuisance policy are the joint scan's, unchanged.

@@ -10,10 +10,10 @@ export type EvidenceStatus =
 export type StatusTone = "blue" | "amber" | "red" | "slate";
 
 export const releaseState = {
-  version: "Public atlas v0.3",
-  researchRelease: "Res Nova · correction cycle 2026-11-06",
-  commit: "6254e4ef1207756d15da982b53a7ec78f02e2ecf",
-  note: "Aligned with origin/main (6254e4ef) on 2026-11-06. The four commits after effd09e are the axiom ledger, the SPARC catalogue pin, and the E.H.Y.E.H. salvage sketch. Measured physics is unchanged from the 2026-10-21 sentence and was not re-run for this pin: the tidal screen fails the Oort cloud at C = 0, and RY adopted a tuned Lagrangian zero C = 0.579 at the Oort-window centre; at that C, Cassini, Gaia wide binaries, SPARC, four dwarfs and the comet cloud all pass their pre-registered tests. The late-time holographic-dark-energy edge does not survive a fixed CMB block, and DESI DR2 excludes the phantom window. 73 Lean targets, all passing in CI; a₀ = 1.1607 × 10⁻¹⁰ m s⁻² under μ_std; unscreened μ_std fails Cassini; D7 stays open; the retracted-claim list matches assurance/claims.json.",
+  version: "Public atlas v0.4",
+  researchRelease: "Res Nova · scope alignment 2026-11-21",
+  commit: "11c82177",
+  note: "Aligned on 2026-11-21 under 02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md (Erratum E-16) and OUTSIDE_GALAXIES.md: μ_std with measured a₀ (1.1607 × 10⁻¹⁰ m s⁻²) is the galaxy law scored on galaxies, while ordinary general relativity holds outside galaxies. The agent-written joint Cassini × SPARC gate and solar-system screening chase (working-C = 0.579, tidal x*, duality screen S, ν_6) are withdrawn; computed Saturn extrapolation values stay archived strictly as out-of-domain extrapolation measurements. Coupled AeST Q^4 + running λ_s(Q) passes the 626-bin Planck plik_lite + DESI DR2 BAO Boltzmann fit at 1.35σ (Δχ² = +1.82); unscreened hydrostatic AeST dust overshoots X-COP clusters at R_200 [X]; 98 Lean targets pass in CI with 0 sorry and standard axioms only; retracted-claim list matches assurance/claims.json (24/24).",
   links: {
     github: "https://github.com/Mega-Therion/Res-Nova",
     zenodo: "https://doi.org/10.5281/zenodo.21969121",
@@ -32,9 +32,9 @@ export const stats = [
     detail: "3,391 kinematic points",
   },
   {
-    value: "73",
+    value: "98",
     label: "Lean targets in the current gate",
-    detail: "73/73 in CI on 2026-10-16 (verify run 38827607035)",
+    detail: "98/98 in CI on 2026-11-21 (lean-gate, 0 sorry)",
   },
   { value: "6", label: "evidence states", detail: "from derived to refuted" },
   {
@@ -172,16 +172,16 @@ export const claims = [
   },
   {
     id: "CLM-CASSINI-01",
-    status: "refuted" as EvidenceStatus,
-    tone: "red" as StatusTone,
-    domain: "solar system",
-    title: "Unscreened μ_std fails the Cassini external-field test",
+    status: "conditional" as EvidenceStatus,
+    tone: "slate" as StatusTone,
+    domain: "domain boundary",
+    title: "Solar-system domain boundary: ordinary GR holds outside galaxies",
     summary:
-      "[E] At the live a₀, unscreened μ_std gives an external-field quadrupole of 19–20 × 10⁻²⁷ s⁻², +9.7σ to +10.2σ against the 2026 bound. A phenomenological screen S = 1/(1+η²) can pass. Taking η from an external field keeps the light cone luminal, but one field cannot give the Sun and the Milky Way their different η at the same point. A screen on the tidal coordinate passes Cassini and leaves SPARC unchanged in a QUMOND form, at the price of a third constant fixed by the Solar System (x* = 7.04 × 10¹¹ once the action's full field equation is solved). That constant is admitted as open. In the pre-registered wide-binary test of 2026-10-16 it was not excluded without retuning. But the same screen fails the Oort cloud: around the Sun its shell term raises the potential, so comets arrive with 1/a ≥ 1.2 × 10⁻⁴ au⁻¹ and the observed Oort peak at a = 10⁴–10⁵ au would be empty, for every x* Cassini allows. Only an extra constant tuned to the solar neighbourhood would remove that. On 2026-10-16 RY adopted that constant as the working solution: a Lagrangian zero C, with the Oort window as its range and C = 0.579 at the window's centre ([D] algebra; C = 0 stays the failed pre-registered case). It is tuned, not derived. At the working C, with x* and a₀ frozen, every pre-registered follow-up came back clean: Cassini's quadrupole is unchanged (5.20 × 10⁻²⁷ s⁻², inside 2σ), the Gaia wide-binary shell is not excluded (clean calibrated χ² 3.00), SPARC is not excluded (total unchanged from unscreened μ_std), four dwarfs pass at M/L ≤ 3, and the comet-cloud rays stay bound inside 10⁴–10⁵ au.",
+      "Under 02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md (Erratum E-16) and OUTSIDE_GALAXIES.md (FRONT.md Blocks 2–3), μ_std(x) = x/√(1+x²) with measured a₀ is the galaxy law scored on galaxies, while ordinary general relativity holds outside galaxies (the solar system and vacuum light cones). The agent-written joint Cassini × SPARC gate and solar-system screening chase (duality screen S, tidal x*, Oort working-C = 0.579, ν_6) are withdrawn. Extrapolating the galaxy formula into the Milky Way external field at Saturn yields Q₂ = 15.4–19.9 × 10⁻²⁷ s⁻² against Park et al. (2026); those numbers remain archived strictly as out-of-domain extrapolation measurements marking where Block 3 stops, not as failures of the galaxy law.",
     source:
-      "02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md; 06_foundations/SETA_EXTERNAL_FIELD_SCREENING.md; 02_galaxy_dynamics/TIDAL_SCREENING_2026-10-15.md; 02_galaxy_dynamics/SCREENED_C_WINDOW_2026-10-16.md; 02_galaxy_dynamics/CASSINI_AT_WORKING_C_2026-10-16.md; 02_galaxy_dynamics/WORKING_C_WIDE_BINARY_RS_2026-10-16.md; 02_galaxy_dynamics/SPARC_AT_WORKING_C_2026-10-16.md; 02_galaxy_dynamics/DWARF_ML_WORKING_C_2026-10-16.md; 02_galaxy_dynamics/COMET_CLOUD_WORKING_C_2026-10-17.md",
+      "02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md; OUTSIDE_GALAXIES.md; FRONT.md; audits/2026-11-21/HILL_SPHERE_EFE_BVP.md; 02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md",
     limitation:
-      "The failure is of the unscreened branch. It is not a measurement of a screened covariant theory, because that theory is not in hand.",
+      "Out-of-domain solar-system extrapolation measurement only; Cassini Q₂ is not a gate on μ_std, a₀, or SPARC, and μ_std is never retuned to move Saturn extrapolation numbers.",
   },
   {
     id: "CLM-MU-RETIRED",
@@ -222,10 +222,52 @@ export const retractedClaims = [
       "It is historical. The matched Tier 1 comparison uses 374 nuisance parameters.",
   },
   {
+    id: "CLM-12",
+    title: "Padé[1/1] uniqueness of F_dual excludes μ_std (retired branch)",
+    detail:
+      "Retired 2026-11-18: Padé[1/1] minimality uniquely forces the falsified μ_dual = x/(1+x), placing irrational μ_std outside the class.",
+  },
+  {
+    id: "CLM-13",
+    title: "Fisher identity F'² I(μ) = x³ characterizes μ_dual only",
+    detail:
+      "Retired 2026-11-18: holds for μ_dual = x/(1+x) and fails for live μ_std by the factor x + √(1+x²).",
+  },
+  {
     id: "CLM-15",
     title: "The anti-drift gate u ≥ γ ⇔ χ ≥ θ is false",
     detail:
       "The steady-state coherence is not monotonic; θ is a ceiling on coherence, not a gate.",
+  },
+  {
+    id: "CLM-D2-00",
+    title: "First-principles Padé uniqueness selects μ_dual, not μ_std",
+    detail:
+      "Retired 2026-11-18: the four adopted postulates include Padé[1/1], which excludes μ_std; replaced by Postulate R (CLM-PR-01).",
+  },
+  {
+    id: "CLM-D2-01",
+    title: "Four-constraint F_dual uniqueness is retired",
+    detail:
+      "Retired 2026-11-18: internally valid theorem about μ_dual = x/(1+x), not the live μ_std galaxy law.",
+  },
+  {
+    id: "CLM-D2-02",
+    title: "Unique Padé[1/1] rational interpolation applies to μ_dual only",
+    detail:
+      "Retired 2026-11-18: μ_std is irrational and cannot arise from rational Padé[1/1] selection.",
+  },
+  {
+    id: "CLM-D2-03",
+    title: "Bayesian odds-ratio inverse μ(odds(p)) = p holds for μ_dual only",
+    detail:
+      "Retired 2026-11-18: fails for live μ_std everywhere except p = 0 and p = 1.",
+  },
+  {
+    id: "CLM-D2-04",
+    title: "TARGET_D2 Fisher-information identity selects μ_dual only",
+    detail:
+      "Retired 2026-11-18: identical to CLM-13; holds for retired μ_dual and fails for μ_std.",
   },
   {
     id: "CLM-D3-01",
@@ -237,13 +279,19 @@ export const retractedClaims = [
     id: "CLM-D3-03",
     title: "Vainshtein screening puts Q₂ 119× below the Cassini bound",
     detail:
-      "Retracted 2026-09-30: computed with the retired F_dual action, and no GW170817-safe Vainshtein screen is available.",
+      "Retracted 2026-09-30: computed with the retired F_dual action, and no GW170817-safe Vainshtein screen is available. Re-scoped 2026-11-21 (Erratum E-16): ordinary GR holds outside galaxies and Cassini Q₂ is not a gate on μ_std.",
   },
   {
     id: "CLM-D3-05",
     title: "γ = β = 1 with Cassini and MESSENGER margins",
     detail:
       "Void: derived for an Einstein-aether action that was not the AeST action.",
+  },
+  {
+    id: "CLM-D5-02",
+    title: "0.23% structure-growth suppression (F''/F' ≈ 0.00233)",
+    detail:
+      "Retired 2026-11-18: wrong derivative formula (off by 87×) evaluated on the deleted x₀ = 5.67 vector background.",
   },
   {
     id: "CLM-D6-03",
@@ -445,8 +493,13 @@ export const timeline = [
   },
   {
     date: "2026 · 10 · 03",
-    title: "Cassini and the tier-0 comparison are stated up front",
-    body: "Unscreened μ_std fails Cassini. D7 stays open: a proposed no-go was not adopted. On SPARC, the horizon anchor's tier-0 median reduced χ² is 11.08 and the literature a₀ is 9.93, same μ_std.",
+    title: "Out-of-domain extrapolations and the tier-0 comparison are stated up front",
+    body: "SPARC tier-0 medians under μ_std (11.08 horizon anchor vs. 9.93 literature a₀) and D7 branch status are stated alongside the archived Saturn extrapolation numbers.",
+  },
+  {
+    date: "2026 · 11 · 21",
+    title: "Scope realigned, Q⁴ Boltzmann fit closed, and 98 Lean targets green",
+    body: "GALAXY_LAW_SCOPE_2026-11-21.md (Erratum E-16) withdraws the joint Cassini × SPARC gate: μ_std is scored on galaxies and ordinary GR holds outside galaxies. Coupled Q⁴ clears Planck + DESI DR2 BAO at 1.35σ; 98/98 Lean targets compile with 0 sorry.",
   },
   {
     date: "Now",

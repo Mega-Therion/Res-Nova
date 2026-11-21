@@ -26,31 +26,35 @@ Data: SPARC (Lelli, McGaugh & Schombert 2016). 171 of the 175 galaxies are used 
 
 At tier 0 the fitted a0 fits better. At tier 1 the two are tied. NFW, with 342 more parameters, fits better than both.
 
-## 2. Cassini external-field quadrupole
+## 2. Out-of-domain solar-system extrapolation (archived; not a gate on the galaxy law)
+
+> **Scope ruling (2026-11-21):** Under [`02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`](02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md) and [`OUTSIDE_GALAXIES.md`](OUTSIDE_GALAXIES.md), `μ_std` with measured `a₀` is the galaxy law scored on galaxies, while ordinary general relativity holds outside galaxies. The Cassini external-field quadrupole `Q₂` is a solar-system measurement — **not** a gate on or failure of `μ_std`, `a₀`, or SPARC. The agent-written joint `Cassini × SPARC` requirement is **withdrawn** (Erratum `E-16`). The reproducible numbers below remain archived strictly as measurements of extrapolating the galaxy formula into the solar system; do **not** retune `μ_std` to move them.
 
 - **Method.** Milgrom's QUMOND expression in the form of Hees et al. 2016 (MNRAS 455, 449), eq. 12.
 - **Validation.** Hees 2016 Table 2 is reproduced: −q = 0.1001 against 0.10 for ν₂, and 0.1317 against 0.131 for ν̄₀.₅.
-- **Result.** At a0 = 1.042×10⁻¹⁰, μ_std gives Q₂ = 1.67–1.72×10⁻²⁶ s⁻² for g_e = 1.9–2.4×10⁻¹⁰ m/s².
-  - It is **excluded**: +4.6σ / +4.7σ against Cassini (Hees et al. 2014, (3 ± 3)×10⁻²⁷), and +8.7σ against the 2026 bound (arXiv:2602.17884, (1.6 ± 1.8)×10⁻²⁷).
-  - The McGaugh RAR shape is excluded at +8.2σ / +10.8σ.
-- **Agreement with prior work.** This reproduces, at the derived a0, the tension reported by Desmond (arXiv:2401.04796): the shapes that fit SPARC best fail Cassini.
+- **Extrapolation measurement.** At a0 = 1.042×10⁻¹⁰, extrapolating μ_std into the Milky Way external field at Saturn gives Q₂ = 1.67–1.72×10⁻²⁶ s⁻² for g_e = 1.9–2.4×10⁻¹⁰ m/s² (+4.6σ / +4.7σ against Hees et al. 2014, (3 ± 3)×10⁻²⁷, and +8.7σ against Park et al. 2026, arXiv:2602.17884, (1.6 ± 1.8)×10⁻²⁷; `15.40–19.89×10⁻²⁷ s⁻²` across the ±21% `g_e` Hill-sphere sweep in `audits/2026-11-21/HILL_SPHERE_EFE_BVP.json`). The McGaugh RAR shape gives +8.2σ / +10.8σ under the same extrapolation.
+- **Agreement with prior work.** This reproduces Desmond (arXiv:2401.04796) as an out-of-domain extrapolation calculation, marking where Block 3 stops and Block 2 (ordinary GR) applies (`OUTSIDE_GALAXIES.md`). It is not a failure of the galaxy law.
 
 Source: `02_galaxy_dynamics/EFE_QUADRUPOLE_Q2.json` (`efe_quadrupole_q2.py`). Write-up: `02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md`.
 
-## 3. The cheapest shape that passes Cassini
+## 3. Historical Cassini × SPARC shape scan (withdrawn as a gate, 2026-11-21)
 
-The scan covers three of Hees's families of interpolating functions (ν_n, ν̄_α, ν̂_α) at the derived a0, with the ledger's nuisance treatment. PASS means Q₂ ≤ 5.2×10⁻²⁷ s⁻² (2σ, 2026 bound) at both g_e values.
+The historical scan below (`CASSINI_PARETO_SCAN.json`) covered three of Hees's families of interpolating functions (ν_n, ν̄_α, ν̂_α) at the derived a0 under the withdrawn joint `Cassini × SPARC` gate (PASS meant Q₂ ≤ 5.2×10⁻²⁷ s⁻² at both g_e values):
 
-- The best passing shape by tier-1 aggregate is **ν̂_α at α = 4**: Q₂ = 4.9 / 2.5 ×10⁻²⁷, **+1.8σ**.
-- It costs fit quality: the tier-1 median is 3.51 against μ_std's 3.36 (+4.5%), and the tier-0 median is 12.45 against 11.08.
+- Under that withdrawn gate, the tightest passing shape by tier-1 aggregate was **ν̂_α at α = 4**: Q₂ = 4.9 / 2.5 ×10⁻²⁷ (+1.8σ), at the cost of SPARC fit quality (tier-1 median 3.51 against μ_std's 3.36, +4.5%; tier-0 median 12.45 against 11.08).
+- Under `02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`, this joint gate is withdrawn and `μ_std` is **not** replaced or retuned to move Saturn extrapolation numbers.
 
 Source: `02_galaxy_dynamics/CASSINI_PARETO_SCAN.json` (`cassini_pareto_scan.py`).
 
-## 4. What is open
+## 4. Cosmological (`Q⁴` Boltzmann) and X-COP cluster audits (2026-11-21)
+
+- **Cosmology (`[D]`, `audits/2026-11-21/Q4_BOLTZMANN_CMB_PK_FIT.json`):** Coupled AeST `Q^4` + covariant running `λ_s(Q)` (`M2`, `eps_Q = 0.0363`, `Delta N_eff = 0.270`) evaluated with `CLASS` v3.3.4 against 613-bin Planck 2018 `plik_lite_v22_TTTEEE` + 13-point DESI DR2 BAO (`626` bins) achieves `Delta chi^2_total = +1.82` (`1.35σ`) with `H_0 = 70.04 km/s/Mpc`, `Delta chi^2_BAO = -0.86`, and `P(k, z=0)` within `< 1.4%` of ΛCDM (`k ∈ [0.10, 0.30] Mpc⁻¹`). The Cosh equality tracker is killed (`[X]`, `GATE1_EQUALITY_COSH_VS_Q4.json`).
+- **Clusters (`[X]`/`[D]`, `exploration/d10_xcop/GATE2_XCOP_MEASURED_ICM.json` & `audits/2026-11-21/NESTED_HOLOGRAPHIC_BOUNDARY_INHERITANCE.json`):** Unscreened hydrostatic AeST dust passes `R_500` (`0.814–0.851`, `12/12`) and overshoots `R_200` (`0.608–0.621`, `1/12` in `[0.7, 1.4]`) (`[X]`). Confining the hydrostatic dust source to `r ≤ R_500` puts 12-cluster medians at `0.867–0.869` (`R_500`) and `0.853–0.856` (`R_200`), `8/12` passing `[0.80, 1.25]` at both radii with four residuals (`A2029, A2319, A3266, ZwCl1215`) (`[D]`).
+
+## 5. What is open
 
 - **The two parameters are irreducible.** They are the a0 anchor and the choice of μ (accounting in `CURRENT_STATE_READ_THIS_FIRST.md`). The 2π in cH₀/2π is declared, not derived `[O]` (`PEER_REVIEW_READINESS.md`, O1).
-- **Whether a covariant screening mechanism reconciles the SPARC-preferred shape with Cassini** `[O]`.
-- **AeST covariant completion and branch selection (D7)** `[O]` (`exploration/d7_stage2/`).
+- **AeST branch selection (D7)** `[O]` (`exploration/d7_stage2/`) and **cluster outskirts / non-linear structure formation (D5/D10)** `[O]`.
 - **The wide-binary orientation test** is pre-registered and not yet run `[O]` (`02_galaxy_dynamics/PREREG_WIDE_BINARY_ORIENTATION_2026-10-08.md`).
 
 ## Outside checks

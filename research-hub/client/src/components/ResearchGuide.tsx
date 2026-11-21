@@ -54,7 +54,7 @@ function answerFor(input: string): GuideMessage {
     return { id: Date.now(), role: "guide", text: `The current public slice is downloadable as CSV and SVG from Data & Methods. It is sourced from ${sparcSource.authors} (${sparcSource.doi}) and is labeled CC BY 4.0 in the archive metadata.`, action: { label: "Open downloads & methods", kind: "navigate", href: "/data" } };
   }
   if (/open|unresolved|falsif|future|problem|gap|missing/.test(query)) {
-    return { id: Date.now(), role: "guide", text: "The atlas keeps unresolved work visible: the acceleration-scale interpretation is not derived from horizon thermodynamics, the structural uniqueness argument is conditional, the post-Newtonian and screening sectors remain incomplete, and nonlinear structure formation is still open. These are boundaries, not footnotes.", action: { label: "Read the open problems", kind: "navigate", href: "/open-problems" } };
+    return { id: Date.now(), role: "guide", text: "The atlas keeps unresolved work visible: the acceleration-scale interpretation is not derived from horizon thermodynamics, Postulate R is open, D7 branch selection and X-COP cluster outskirts beyond R_500 remain open, and nonlinear structure formation is still open (ordinary GR holds outside galaxies). These are boundaries, not footnotes.", action: { label: "Read the open problems", kind: "navigate", href: "/open-problems" } };
   }
   if (/claim|evidence|proof|derived|computed|conditional|status/.test(query)) {
     const computed = claims.filter((claim) => claim.status === "computed").length;

@@ -191,7 +191,7 @@
    "wording": "Vainshtein screening resolves the Q2 tension: the screened Q2 sits 119x below the Cassini bound (corrected 2026-09-12 from a misstated 70x that used the retracted F''/F'=0.004 figure).",
    "state": "retracted",
    "claim_type": "algebraic-identity",
-   "limitations": "RETRACTED 2026-09-30. The 119x figure was computed with F''/F' of the retired F_dual action, and TARGET_D7 sec.11.3 shows the c_T = c-safe Vainshtein sector caps at exponent p < 2 against a required p >= 2.34, so no GW170817-safe Vainshtein screening is available. The live Q2 status: bare mu_std is excluded at ~4.6 sigma (02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md); the working screening is phenomenological. Previous limitation: Depends on the corrected F''/F' value; the earlier 70x figure is superseded, not merely re-derived.",
+   "limitations": "RETRACTED 2026-09-30. The 119x figure was computed with F''/F' of the retired F_dual action, and TARGET_D7 sec.11.3 shows the c_T = c-safe Vainshtein sector caps at exponent p < 2 against a required p >= 2.34, so no GW170817-safe Vainshtein screening is available. Live scope (2026-11-21, 02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md and OUTSIDE_GALAXIES.md): ordinary general relativity holds outside galaxies, mu_std is the galaxy law scored on galaxies, and the joint Cassini x SPARC screening gate is withdrawn. Previous limitation: Depends on the corrected F''/F' value; the earlier 70x figure is superseded, not merely re-derived.",
    "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-D3-03 (TARGET_D7_SUPPLEMENT_COUPLING_OPTIMIZATION.md Sec.3)"
   },
   {
@@ -319,7 +319,7 @@
    "wording": "AXIOMS_V2.lean:64 disjunction: mu(x) = x/(1+x) OR mu(x) = x/sqrt(1+x^2).",
    "state": "conditional",
    "claim_type": "formal-proof",
-   "limitations": "One disjunct (mu(x)=x/(1+x)) is contradicted by CLM-D7-08's solar-system result within two-derivative AeST. The axiom's disjunction survives as written, but any downstream claim that silently assumes the first disjunct -- which is this repo's entire mu=x/(1+x) program outside the Vainshtein-screened D3/D7-07 track -- must either switch branches or invoke Skordis-Zlosnik's higher-derivative screening. Not yet resolved anywhere in the corpus. ADDED 2026-09-27: the second disjunct (mu_std) also fails the Cassini EFE quadrupole in QUMOND at the derived a0 (Q2 = 1.7e-26 vs (3+/-3)e-27, ~4.6 sigma); its '~1300x clear' was the isolated-Sun monopole test only. AeST not computed. See 02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md.",
+   "limitations": "One disjunct (mu(x)=x/(1+x)) is contradicted by CLM-D7-08's solar-system result within two-derivative AeST. The axiom's disjunction survives as written, but any downstream claim that silently assumes the first disjunct -- which is this repo's entire mu=x/(1+x) program outside the Vainshtein-screened D3/D7-07 track -- must either switch branches or invoke Skordis-Zlosnik's higher-derivative screening. Not yet resolved anywhere in the corpus. ADDED 2026-09-27 (re-scoped 2026-11-21): extrapolating the second disjunct (mu_std) in QUMOND at Saturn gives Q2 = 1.7e-26 vs (3+/-3)e-27 (~4.6 sigma, or 15.40-19.89e-27 against Park et al. 2026); its '~1300x clear' was the isolated-Sun monopole test only (02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md). SCOPE (2026-11-21, 02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md): mu_std is the galaxy law scored on galaxies, ordinary GR holds outside galaxies (OUTSIDE_GALAXIES.md), and the Saturn Q2 computation is an out-of-domain extrapolation measurement, not a gate on mu_std.",
    "source_locator": "CLAIM_EVIDENCE_LEDGER_v1.6.0_SUPPLEMENT.md#CLM-AX-02 (05_lean_formalization/AXIOMS_V2.lean:64)"
   },
   {
@@ -383,7 +383,7 @@
    "wording": "mu_std is the corpus's functional choice (irreducible parameter 2): structurally motivated by Postulate R (chiral coordinate), selected by galaxies within the l^n family (n ~ 2), and ghost-free. D2 is closed under the two-irreducible-parameters accounting, not by a derivation of mu from the action.",
    "state": "empirically-supported",
    "claim_type": "phenomenological-posit",
-   "limitations": "A re-scope, not a derivation: no covariant argument forces mu (MuNDuality.lean: the duality holds for every n). mu_std at the derived a0 fails the Cassini EFE quadrupole unless screened, or unless the Sun is dragged (D3 sec.34). CLM-D2-01..05 and CLM-D2-00 concern the retired mu_dual.",
+   "limitations": "A re-scope, not a derivation: no covariant argument forces mu (MuNDuality.lean: the duality holds for every n). Under 02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md and OUTSIDE_GALAXIES.md, mu_std is the galaxy law scored on galaxies, ordinary general relativity holds outside galaxies, and the agent-written joint Cassini x SPARC gate is withdrawn. CLM-D2-01..05 and CLM-D2-00 concern the retired mu_dual.",
    "source_locator": "TARGET_D2_SUPPLEMENT_MU_STD_UNIQUENESS.md (status 2026-09-27)"
   },
   {
@@ -412,10 +412,10 @@
   },
   {
    "id": "CLM-Z-03",
-   "wording": "On AeST's held branch, the Milky Way external field gives mu_std a solar-system quadrupole Q2 = 1.67-1.72e-26 s^-2 at the anchor a0. Against the authoritative Park et al. (2026) bound Q2 = (1.6 +- 1.8)e-27 s^-2 (arXiv:2602.17884, PRD 2026, DE440 + full Cassini tracking through Aug 2017) this is an exclusion at +8.4 to +8.7 sigma (8.73 sigma at Q2 = 1.731e-26, i.e. (17.31-1.6)/1.8 = 8.728). The superseded Hees et al. (2014) bound Q2 = (3 +- 3)e-27 s^-2 gave +4.6/+4.7 sigma and must not be cited as the current constraint. Sharper interpolating functions are excluded more strongly, and SPARC's total chi2 prefers the smooth mu_std transition. The isolated-Sun monopole term is negligible.",
+   "wording": "Out-of-domain solar-system extrapolation measurement: extrapolating the galaxy formula mu_std with the Milky Way external field onto the held branch at Saturn gives Q2 = 1.67-1.72e-26 s^-2 at the anchor a0 (+8.4 to +8.7 sigma against Park et al. 2026 Q2 = (1.6 +- 1.8)e-27 s^-2, arXiv:2602.17884; Hees et al. 2014 (3 +- 3)e-27 s^-2 gave +4.6/+4.7 sigma and is superseded). Under 02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md and OUTSIDE_GALAXIES.md, ordinary GR holds outside galaxies and Cassini Q2 is NOT a gate on or failure of the galaxy law mu_std (SPARC prefers the smooth mu_std transition; isolated-Sun monopole deviation is negligible).",
    "state": "computed",
    "claim_type": "computed-result",
-   "limitations": "Applies to the held branch only. On the dragged branch the solar system is exactly GR (CLM-D3-10), so this does not exclude AeST; branch selection stays [O]. The sigma scales with the bound, not with the model: same computed Q2, two measurements. Hees et al. (2014) is superseded by Park et al. (2026) and the +4.6/+4.7 sigma figures are historical only. Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program): judge 1, canon-quote gate, Grok cross-check, file-level claim auditor.",
+   "limitations": "Out-of-domain solar-system extrapolation measurement only (02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md; OUTSIDE_GALAXIES.md). Ordinary GR holds outside galaxies; the agent-written joint Cassini x SPARC gate is withdrawn. These computed Saturn numbers are archived as extrapolation measurements and are NOT a failure of the galaxy law mu_std. Do not retune mu_std to move them. Hees et al. (2014) is superseded by Park et al. (2026). Audit provenance: Zenodo claim audit 2026-10-11 (Holy Canon program), re-scoped 2026-11-21 under Erratum E-16.",
    "source_locator": "02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md"
   },
   {
@@ -495,7 +495,7 @@
    "wording": "POSTULATE R [O]. The live interpolating function mu_std(x) = x/sqrt(1+x^2) is ADOPTED, not derived. It is selected empirically by SPARC within the l^n family at n ~ 2 and structurally by the L^2 quadrature of the argument, and no uniqueness theorem in this corpus produces it. Convexity alone does not force n = 2.",
    "state": "proposed",
    "claim_type": "phenomenological-posit",
-   "limitations": "This is the honest replacement for the three retired uniqueness routes (CLM-12, CLM-13, CLM-D2-00..04). Those are theorems that force mu_dual = x/(1+x) and therefore exclude mu_std by construction, so they cannot be repaired. What would settle Postulate R: a covariant argument that singles out x/sqrt(1+x^2) among admissible mu without using galactic data, or a demonstration that n = 2 follows from an independent principle (causal structure, spectral action, or a symmetry of the relativistic completion). Until then n = 2 is an empirical selection and must be tagged [O].",
+   "limitations": "This is the honest replacement for the three retired uniqueness routes (CLM-12, CLM-13, CLM-D2-00..04). Those are theorems that force mu_dual = x/(1+x) and therefore exclude mu_std by construction, so they cannot be repaired. What would settle Postulate R: a covariant argument that singles out x/sqrt(1+x^2) among admissible mu without using galactic data, or a demonstration that n = 2 follows from an independent principle (causal structure, spectral action, or a symmetry of the relativistic completion). Until then n = 2 is an empirical selection and must be tagged [O]. Domain scope (2026-11-21, 02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md, FRONT.md Block 3): mu_std is the galaxy axiom scored on galaxies and is not extrapolated into the solar system (ordinary GR holds outside galaxies, OUTSIDE_GALAXIES.md).",
    "source_locator": "assurance/claims.json#CLM-PR-01 (replaces CLAIM_EVIDENCE_LEDGER.md#CLM-12..13, CLM-D2-00..04)"
   }
  ]

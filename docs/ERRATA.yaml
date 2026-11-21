@@ -125,3 +125,10 @@ errata:
     evidence: [docs/corrections/ITT_VELOCITY_LAW_2026-10-11.md]
     scan_entities: ["v_N * T(r) velocity law"]
     dois: []
+  - id: E-16
+    withdrawn: "2026-11-21"
+    what: "the agent-written joint Cassini x SPARC gate requiring unscreened mu_std or a0 to pass the solar-system external-field quadrupole Q2, treating Saturn extrapolation values as a failure of the galaxy law, or adopting ad-hoc solar-system screens (duality screen S, tidal x*, working-C = 0.579125, nu_hat_4 / nu_6) to retune or rescue mu_std"
+    replacement: "mu_std(x) = x/sqrt(1+x^2) with measured a0 is the galaxy law, scored on galaxies (02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md); outside galaxies, ordinary general relativity holds (OUTSIDE_GALAXIES.md, FRONT.md Block 2). Computed Saturn numbers remain archived strictly as out-of-domain extrapolation measurements."
+    evidence: [02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md, FRONT.md, OUTSIDE_GALAXIES.md, CURRENT_STATE_READ_THIS_FIRST.md]
+    scan_entities: []
+    dois: []

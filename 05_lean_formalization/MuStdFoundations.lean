@@ -44,14 +44,16 @@ Project: Res Nova Monograph / Chyren Autonomous Verification Pipeline
    - `saturn_monopole_deviation_le`: for `x ≥ 5·10⁵`, `1 - μ_std(x) ≤ 2·10⁻¹²`.
      (Saturn: `g_N = 6.458·10⁻⁵ m/s²`; at the live `a₀ = 1.1607·10⁻¹⁰`, `x ≈ 5.56·10⁵`.)
 
-   **Scope, corrected 2026-09-30.** This is the isolated-Sun MONOPOLE only. It is *not*
-   a Cassini clearance: `1 − μ` is a fractional acceleration shift and is not comparable
-   to the Cassini bound on `γ − 1` (a light-propagation parameter), with which it was
-   previously compared. The binding Cassini test for MOND is the external-field
-   quadrupole `Q₂`, which bare `μ_std` FAILS at ~4.6σ at the derived `a₀`
-   (`02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md`); passing requires the
-   phenomenological screening of `DWARF_SCREENING_TEST_2026-09-27.md`, which has no
-   covariant realization `[O]`.
+   **Scope, corrected 2026-09-30 and realigned 2026-11-21:** This is the isolated-Sun
+   MONOPOLE only. It is *not* a Cassini clearance: `1 − μ` is a fractional acceleration
+   shift and is not comparable to the Cassini bound on `γ − 1` (a light-propagation
+   parameter), with which it was previously compared. Under
+   `02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md` and `OUTSIDE_GALAXIES.md`,
+   `μ_std` with measured `a₀` is the galaxy law scored on galaxies, while ordinary GR
+   holds outside galaxies; the Cassini external-field quadrupole `Q₂`
+   (`02_galaxy_dynamics/CASSINI_EFE_QUADRUPOLE_2026-09-27.md`;
+   `audits/2026-11-21/HILL_SPHERE_EFE_BVP.json`) is an out-of-domain solar-system
+   extrapolation measurement, not a gate on or failure of `μ_std`.
 -/
 
 namespace ResNova.MuStdFoundations
@@ -128,8 +130,9 @@ theorem deviation_le_inv_two_sq {x : ℝ} (hx : 1 ≤ x) :
   simpa using inv_anti₀ h2x2 hprod
 
 /-- **Theorem 1.4 (Saturn-orbit monopole deviation).** For `x ≥ 5·10⁵`,
-`1 - μ_std(x) ≤ 2·10⁻¹²`. Monopole only; see the module docstring for why this is
-not a Cassini clearance (the EFE quadrupole is the binding test and bare `μ_std` fails it). -/
+`1 - μ_std(x) ≤ 2·10⁻¹²`. Monopole algebra only; see the module docstring for why
+this is not a Cassini clearance and why `μ_std` is scored on galaxies under
+`02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md` while ordinary GR holds outside galaxies. -/
 theorem saturn_monopole_deviation_le {x : ℝ} (hx : (500000 : ℝ) ≤ x) :
     1 - mu_std x ≤ 2 / 10 ^ 12 := by
   have hx1 : (1 : ℝ) ≤ x := by linarith

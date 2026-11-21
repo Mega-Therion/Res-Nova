@@ -16,7 +16,7 @@ The picture this page follows is the checked drawing in BLK-939. Two passes, wou
 
 ## Where the galaxy law stops
 
-The numbers and the file keys are in [`OUTSIDE_GALAXIES.md`](OUTSIDE_GALAXIES.md). That run is why block 3 does not enter the solar system. It does not replace earlier Cassini rows in the ledger. \(\lambda\) and \(M\) are not fitted to move \(S\).
+The numbers and the file keys are in [`OUTSIDE_GALAXIES.md`](OUTSIDE_GALAXIES.md). That run is why block 3 does not enter the solar system. It does not replace earlier Cassini rows in the ledger. \(\lambda\) and \(M\) are not fitted to move \(S\). Under [`02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`](02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md) (2026-11-21), the galaxy law \(\mu_{\mathrm{std}}\) is scored on galaxies, the agent-written joint `Cassini × SPARC` requirement is withdrawn, and computed Saturn extrapolation numbers stay archived as extrapolation measurements rather than failures of the galaxy law.
 
 ## Closed channels
 

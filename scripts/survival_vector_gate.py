@@ -1,26 +1,28 @@
 #!/usr/bin/env python3
 """
-The 4-observable survival gate for Res-Nova.
+The survival gate for Res-Nova (scope realigned 2026-11-21 under GALAXY_LAW_SCOPE_2026-11-21.md).
 
-POLICY (2026-11-18): no new Lagrangian or modification enters active Res-Nova unless this
-script proves a NON-EMPTY joint parameter window across the first three observables.
-Observable 4 is fail-closed and forward-looking; it is reported but does not block, because
-the data do not exist yet.
+POLICY (updated 2026-11-21): Under 02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md and
+OUTSIDE_GALAXIES.md, mu_std with measured a0 is the galaxy law scored on galaxies, while
+ordinary general relativity holds outside galaxies. The Cassini external-field quadrupole
+Q2 is a solar-system measurement — NOT a blocking gate on mu_std, a0, or SPARC. The agent-
+written joint Cassini x SPARC requirement is withdrawn (Erratum E-16). Observable [2] is
+logged for out-of-domain reference only (non-blocking).
 
 Exit codes:
-  0  non-empty joint window proved  -> the candidate may enter the active corpus
-  2  window empty, or an input missing  -> fail-closed, the candidate may NOT enter
+  0  blocking gates (Observables [1] SPARC-175 and [3] BBN+stability) satisfied
+  2  a blocking gate unmet -> fail-closed
   1  usage error
 
 Observables:
   [1] SPARC-175   [E]/[D]  a0 = 1.1607e-10 (95% [0.972, 1.295]e-10), median chi2_nu <= 15.01
-  [2] Cassini Q2  [E]      Q2 = (1.6 +- 1.8)e-27 s^-2; needs a screening scale BEYOND a0
+  [2] Solar Sys   [C]      OUTSIDE_GALAXIES.md: ordinary GR outside galaxies; Q2 not a gate (non-blocking)
   [3] BBN+stabil  [P]/[D]  |G_cosmo/G_N - 1| <= 0.05, 0<K_B<2, c_T=c, c_s^2<=1, non-folding
   [4] Blind gates [O]      JWST a0(z) z>1.5, Euclid DR1  (reported, non-blocking)
 
 Usage:
   python3 scripts/survival_vector_gate.py --candidate minimal_aest
-  python3 scripts/survival_vector_gate.py --candidate aest_plus_q --KB 0.02 --lamY 11.27 --epsQ 0.06 --K2 75
+  python3 scripts/survival_vector_gate.py --candidate aest_plus_q --KB 0.04 --lamY 11.27 --epsQ 0.06 --K2 75
   python3 scripts/survival_vector_gate.py --self-test
 """
 import argparse, math, sys, os
@@ -55,13 +57,15 @@ def evaluate(name, mu_is_std, KB, lamY, epsQ, K2, screening_scale, ct_is_c, spar
         a0_ok = A0_LO <= A0_BEST <= A0_HI
         g.add(1,'SPARC-175', a0_ok and sparc_chi2 <= CHI2_MAX,
               f'a0 = {A0_BEST:.4e} inside 95% CI [{A0_LO:.3e}, {A0_HI:.3e}]; median chi2_nu = {sparc_chi2:.4f} <= {CHI2_MAX} (receipt da34485)')
-    # ---- [2] Cassini
+    # ---- [2] Solar-system domain scope (non-blocking under GALAXY_LAW_SCOPE_2026-11-21.md)
     if screening_scale is None:
-        g.add(2,'Cassini Q2', False,
-              f'no screening scale beyond a0 declared. Residual a0/2 is constant; Q2 = {CASSINI_Q2:.1e} +- {CASSINI_SIG:.1e} s^-2 cannot be met by parameter choice (tracking branch)')
+        g.add(2,'Cassini Q2 (scope note)', True,
+              'ordinary GR holds outside galaxies (OUTSIDE_GALAXIES.md, GALAXY_LAW_SCOPE_2026-11-21.md); Cassini Q2 is not a gate on the galaxy law mu_std',
+              blocking=False)
     else:
-        g.add(2,'Cassini Q2','PASS',
-              f'screening scale declared: {screening_scale}. Suppression must reach the Q2 bound; this gate checks the scale exists, not its magnitude')
+        g.add(2,'Cassini Q2 (scope note)', True,
+              f'optional screening scale noted ({screening_scale}); not required for galaxy law mu_std under GALAXY_LAW_SCOPE_2026-11-21.md',
+              blocking=False)
     # ---- [3] BBN + stability
     r = g_ratio(lamY, KB, epsQ)
     g.add(3,'BBN |G_cosmo/G_N-1|<=0.05', r >= 1-BBN_DELTA,
@@ -109,14 +113,14 @@ def report(name, g):
     return 0
 
 def self_test():
-    print("SELF-TEST: the gate must reject minimal AeST and accept the Q-sector variant.\n")
+    print("SELF-TEST: BBN+stability must reject minimal AeST and accept the Q-sector variant without a solar-system screen.\n")
     g1 = evaluate('minimal_aest', True, KB=1e-6, lamY=LAM_CEIL-1e-6, epsQ=0.0,
                   K2=75, screening_scale=None, ct_is_c=True, sparc_chi2=15.0087)
-    e1 = report('minimal_aest  (J(Y) only, no Q sector, no screening)', g1)
+    e1 = report('minimal_aest  (J(Y) only, no Q sector -> BBN fails)', g1)
     print()
     g2 = evaluate('aest_plus_q', True, KB=0.04, lamY=LAM_CEIL-1e-6, epsQ=0.06,
-                  K2=75, screening_scale='Vainshtein r_V (declared)', ct_is_c=True, sparc_chi2=15.0087)
-    e2 = report('aest_plus_q  (F(Y,Q), eps_Q=0.06, screening declared)', g2)
+                  K2=75, screening_scale=None, ct_is_c=True, sparc_chi2=15.0087)
+    e2 = report('aest_plus_q  (F(Y,Q), eps_Q=0.06, no solar-system screen needed)', g2)
     print()
     print("="*84)
     ok = (e1 == 2 and e2 == 0)

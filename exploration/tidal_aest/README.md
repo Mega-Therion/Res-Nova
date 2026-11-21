@@ -1,5 +1,7 @@
 # Tidal screen with an AeST two-field (QUMOND-type) scalar sector (2026-11-19)
 
+> **SCOPE NOTICE (2026-11-21):** Under [`../../02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`](../../02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md) and [`../../OUTSIDE_GALAXIES.md`](../../OUTSIDE_GALAXIES.md) (Erratum `E-16`), `μ_std` with measured `a₀` is the galaxy law scored on galaxies and ordinary general relativity holds outside galaxies; Cassini `Q₂` is **not** a gate on `μ_std`, so the `x*`/`working-C` solar-system screen is no longer required for `μ_std`. All mathematical normalization (`normalization_kb.py`), slip (`single_metric_slip_audit.py`), and `x_H` results below remain archived intact.
+
 Pre-registration: `PREREG.md` (committed before the run). Script: `tidal_aest_bbn.py` → `TIDAL_AEST_BBN.json`.
 
 **Verdict: both pre-registered gates pass [D]. The model as a whole is [O]: the covariant completion is missing.**

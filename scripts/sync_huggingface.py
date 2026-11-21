@@ -73,11 +73,13 @@ before relying on any result here.
   median reduced chi-squared of 11.08 for the horizon anchor and 9.93 for the
   literature a0 of 1.2e-10 m/s^2, on 3,375 points. The horizon anchor fits worse.
   The anchor a0 = cH0/(2*pi) is a declared normalisation, not a derivation.
-- **Solar system (status, not a pass)**: the isolated-Sun monopole deviation of mu_std is
-  ~1e-12 at Saturn, but with the Milky Way external field the Cassini quadrupole Q2
-  **excludes bare mu_std at ~4.6 sigma** at the working a0. A screening mechanism is
-  required; the working one is phenomenological and has no covariant realization yet.
-- **Formal verification**: Lean 4 modules checked by `05_lean_formalization/verify_all_proofs.sh`
+- **Domain scope (galaxies vs. solar system)**: under `02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`
+  and `OUTSIDE_GALAXIES.md` (`FRONT.md` Blocks 2–3), `mu_std(x) = x/sqrt(1+x^2)` with measured `a0` is the
+  galaxy law scored on galaxies, while ordinary general relativity holds outside galaxies. The
+  Cassini external-field quadrupole `Q2` is a solar-system measurement, not a gate on `mu_std`, `a0`,
+  or SPARC (computed Saturn extrapolation files stay archived strictly as extrapolation measurements,
+  and `mu_std` does not claim to pass Cassini).
+- **Formal verification**: 98 Lean 4 modules checked by `05_lean_formalization/verify_all_proofs.sh`
   with no `sorry` and only the standard axioms. That certifies the mathematics, not the
   physical identification each theorem is given.
 - **Claim manifests**: MVPC-X manifests for the O-series claims.

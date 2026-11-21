@@ -1,6 +1,6 @@
-# Model identity manifest — v1.0.0 (2026-11-17)
+# Model identity manifest — v1.1.0 (2026-11-21)
 
-Closure step 1 of [`audits/PHYSICS_FOUNDATIONS_AUDIT_2026-11-13.md`](audits/PHYSICS_FOUNDATIONS_AUDIT_2026-11-13.md) §6.
+Closure step 1 of [`audits/PHYSICS_FOUNDATIONS_AUDIT_2026-11-13.md`](audits/PHYSICS_FOUNDATIONS_AUDIT_2026-11-13.md) §6 (scope realigned `2026-11-21` under [`02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`](02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md)).
 The source of truth is the Lean record `ResNova.ModelIdentity.canonical` in
 [`05_lean_formalization/ModelIdentity.lean`](05_lean_formalization/ModelIdentity.lean). This page mirrors it. If they
 disagree, the Lean file wins and this page is the defect.
@@ -22,7 +22,7 @@ its theorems are bookkeeping checks on the record (`[arith]`).
 | gauge group | `SU(3) × SU(2) × U(1)` | `[C]` | established | `IMPORTED_STANDARD_MODEL.md` |
 | generation target | 3 | `[E]` | established | `IMPORTED_STANDARD_MODEL.md` |
 | substrate | `V₂(ℝ³)` via Cartan triality (`V₂₄₀` retired 2026-08-25) | `[conj]` | novel | `CURRENT_STATE` §2 |
-| interpolating function | `μ_std(x) = x/√(1+x²)` | `[A]` | novel | `CURRENT_STATE` §1 |
+| interpolating function | `μ_std(x) = x/√(1+x²)` | `[A]` | novel | `CURRENT_STATE` §1; `02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md` |
 | a₀ | 1.1607 × 10⁻¹⁰ m s⁻² (bootstrap 95% [0.972, 1.295]) | `[E]` | established | `A0_DISTANCE_CORRECTED_2026-09-16.json` T1 |
 | irreducible inputs | two: the a₀ scale and the μ choice | — | — | `CURRENT_STATE` (the "zero free parameters" claim is retired) |
 
@@ -35,7 +35,7 @@ its theorems are bookkeeping checks on the record (`[arith]`).
 | geometry-to-spectrum route | Route (a) `V₂(ℝ³)`/triality action on bundles and modes, or (b) a heterotic `(X, V)` compactification and its index. Not chosen. |
 | chirality sign rule | What dynamical rule selects the sign/orientation of the chiral spectrum? |
 | 1/2π in a₀ | What independent mechanism, if any, yields it? (O1) |
-| one branch, all regimes | What single action gives the galaxy interpolation and stays consistent with the Solar System and the AeST/cosmological sector? Bare μ_std fails the Cassini EFE quadrupole. |
+| one branch, all regimes | Outside galaxies, ordinary GR holds (`FRONT.md` Block 2, `OUTSIDE_GALAXIES.md`); `μ_std` is the galaxy law scored on galaxies (`GALAXY_LAW_SCOPE_2026-11-21.md`). Open: whether one covariant completion also resolves X-COP cluster outskirts and D7 branch selection without ad-hoc solar-system screens (audit §7). |
 
 ## Bindings
 

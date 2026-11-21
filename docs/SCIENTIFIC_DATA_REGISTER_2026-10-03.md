@@ -1,5 +1,7 @@
 # Scientific Data Register — Res Nova and Nova Conscientia
 
+> **SCOPE NOTICE (2026-11-21):** The 2026-10-03 intake note and §B "Priority" paragraph below reflect the agent-written `Cassini × SPARC` screening framing that was **withdrawn on 2026-11-21** (`02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`, `OUTSIDE_GALAXIES.md`, Erratum `E-16`). `μ_std` with measured `a₀` is the galaxy law scored on galaxies; ordinary general relativity holds outside galaxies, and Cassini `Q₂` is not a gate on `μ_std`.
+
 **Prepared:** 2026-10-03 UTC  
 **Repositories audited:** [`Mega-Therion/Res-Nova`](https://github.com/Mega-Therion/Res-Nova), [`Mega-Therion/Nova-Conscientia`](https://github.com/Mega-Therion/Nova-Conscientia)  
 **Purpose:** identify the scientific/empirical inputs required to reproduce, validate, or extend the claims currently made in the two repositories.

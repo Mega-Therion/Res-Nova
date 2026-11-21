@@ -1,5 +1,7 @@
 # Theory 3 gate (2026-11-18) — exploration, no tier change
 
+> **SCOPE NOTICE (2026-11-21):** The solar-system `Cassini × SPARC` screening chase explored below (`working-C`, `ν_6`, Galileon/symmetron screens) is **withdrawn as a gate on `μ_std`** under [`../../02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`](../../02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md) and [`../../OUTSIDE_GALAXIES.md`](../../OUTSIDE_GALAXIES.md) (Erratum `E-16`). `μ_std` with measured `a₀` is the galaxy law scored on galaxies; ordinary general relativity holds outside galaxies. All computed numbers and mathematical no-go theorems below remain archived intact.
+
 > **CURRENT VERDICT (latest, read first). Scope: the total-law embedding (AEST_TOTAL_SCALAR_CORRESPONDENCE), an [O] alternative to D9's scalar-channel function, which stays in use.** Theory 3 is UNSAT; see "CORRECTION — Theory 3 part (A)". Closed [O] in this embedding:
 > - the quartic Galileon door (it fails Cassini, and its core is non-elliptic in the angular directions [D]);
 > - the cubic Galileon (Mercury);

@@ -1390,11 +1390,11 @@ function OpenProblems() {
       body: "The uniqueness statement is conditional on its Padé / structural postulates. The postulates themselves are not derived from a deeper principle.",
     },
     {
-      n: "D3",
+      n: "D3 / D7",
       title:
-        "Can the corrected covariant branch close the full solar-system sector?",
+        "Can AeST branch selection and cluster outskirts close cleanly?",
       status: "open" as EvidenceStatus,
-      body: "The current state separates tensor speed and selected weak-field results from unresolved post-Newtonian and screening calculations.",
+      body: "Outside galaxies, ordinary GR holds (OUTSIDE_GALAXIES.md, GALAXY_LAW_SCOPE_2026-11-21.md); open questions are D7 branch selection for dwarfs/galaxies and cluster outskirts beyond R_500.",
     },
     {
       n: "D5",

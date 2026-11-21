@@ -32,13 +32,14 @@ A shorter map, including what the two `06_` directories are, is [`docs/WHERE_TO_
 | | |
 | :--- | :--- |
 | [`FRONT.md`](FRONT.md) | The four blocks: imported Standard Model, general relativity outside galaxies, the galaxy law as an axiom, and the null-seam yield. Closed channels are listed there. The dated claim ledger remains [`CURRENT_STATE_READ_THIS_FIRST.md`](CURRENT_STATE_READ_THIS_FIRST.md). |
+| [`02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`](02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md) | Governing scope ruling (R.W. Yett, 2026-11-21): `μ_std` with measured `a₀` is the galaxy law scored on galaxies; Cassini `Q₂` is not a gate on `μ_std`, `a₀`, or SPARC (Erratum `E-16`). |
 | [`RESULTS.md`](RESULTS.md) | The core numbers. `./reproduce_core_results.sh` regenerates them and the other headline files from the official SPARC data and checks them against the commit: five files byte for byte, and three optimizer or bootstrap outputs to a stated tolerance (a₀ 10⁻¹², two fit outputs 10⁻⁸). It runs offline from a verified copy of the data. |
 | [`CHECKS.md`](CHECKS.md) | Every outside reproduction or critique, confirming or breaking. |
 | [`CURRENT_STATE_READ_THIS_FIRST.md`](CURRENT_STATE_READ_THIS_FIRST.md) | The current status of every physics claim. Its verification date is enforced by CI against the newest physics change. |
 | [`PEER_REVIEW_READINESS.md`](PEER_REVIEW_READINESS.md) | The twelve research targets, each scored and decomposed. |
 | [`docs/EPISTEMIC_TIER_LEGEND.md`](docs/EPISTEMIC_TIER_LEGEND.md) | The canonical claim tags. Where any other legend disagrees, this one wins. |
 | [`FOR_REFEREES.md`](FOR_REFEREES.md) | Referee-facing notes. |
-| [`05_lean_formalization/verify_all_proofs.sh`](05_lean_formalization/verify_all_proofs.sh) | The Lean 4 gate. 66/66 targets passed locally on 2026-10-03: no `sorry`, standard axioms only. |
+| [`05_lean_formalization/verify_all_proofs.sh`](05_lean_formalization/verify_all_proofs.sh) | The Lean 4 gate. 98/98 targets passing in CI (`lean-gate`, 2026-11-21): no `sorry`, standard axioms only. |
 | [`assurance/claims.json`](assurance/claims.json) | The machine-readable claim registry, gated in CI. |
 | [`research-hub/`](research-hub/) | Source for the Research Atlas web app, merged here 2026-10-03 from the former `res-nova-research-hub` repository. |
 
@@ -51,23 +52,23 @@ The theory starts in Geometrically Ordered Dynamics and Information Tension: a c
 Res-Nova is the only public home of claims about the physical world. Notes in Chyren stay in the workshop until they name a catalog, a measurement, or a physical model and are promoted here. Nova-Conscientia may borrow a formula as code. That borrowing is not a result of this repository. See [`docs/REPO_PROMOTION.md`](docs/REPO_PROMOTION.md).
 
 Res-Nova is a research program in modified gravity built to be checked:
-- It tests a MOND-type interpolating law and its covariant completion (Skordis–Złośnik AeST) against real catalogs. These are SPARC (171 galaxies, 3375 points), the RC100 and MUSE-DARK III high-redshift samples, and Cassini's external-field bound (which unscreened μ_std fails; see below).
+- It tests a MOND-type galactic interpolating law (`μ_std`) and its covariant completion (Skordis–Złośnik AeST) against real catalogs. These are SPARC (175 galaxies / 3,391 points for the `a₀` extraction; 171 galaxies / 3,375 points for the matched parameter ledger), the RC100 and MUSE-DARK III high-redshift samples, X-COP galaxy clusters (12 clusters), and Planck 2018 `plik_lite` + DESI DR2 BAO cosmology. Outside galaxies (including the solar system), ordinary general relativity holds (`OUTSIDE_GALAXIES.md`, [`02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`](02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md)); the Cassini external-field quadrupole is a solar-system measurement and is not a gate on `μ_std`, `a₀`, or SPARC.
 - It records what the data reject as well as what survives.
 - It machine-checks the mathematics in Lean 4.
 
-**What is proved.** `[P]` means a machine-checked theorem. It certifies mathematics, never physical ontology. Examples are c_T = c (D8) and the μ_std embedding in AeST (D9).
+**What is proved.** `[P]` means a machine-checked theorem. It certifies mathematics, never physical ontology. Examples are `F_std' = x μ_std` (D1, `MuStdUniqueness.lean`) and the `μ_std` embedding in AeST (D9, `SZStdEmbedding.lean`); `c_T = c` (D8) is a structural derivation `[D]`.
 
 **What was killed.** Each `[X]` is kept with its date:
-- μ = x/(1+x), which fails in the solar system (2026-09-12);
+- μ = x/(1+x), which leaves a constant anomalous acceleration `≈ a₀` when extended into the solar system (2026-09-12, retired);
 - the 20-point high-z table, with its void results (2026-09-27);
-- lepton and quark mass "predictions". The Lean modules fit measured masses; they do not predict them. The ledger was corrected and status notices were added to the legacy manuscripts on 2026-10-03. `ARS_MAGNA_THE_LAW_OF_GOD` now lives in `archive/legacy_root/`. The Navier–Stokes notes live in the same directory. `05_lean_formalization/NavierStokesScope.lean` is an alignment-threshold lemma, not a regularity proof.
+- lepton and quark mass "predictions". The Lean modules fit measured masses; they do not predict them. The ledger was corrected and status notices were added to the legacy manuscripts on 2026-10-03. `ARS_MAGNA_THE_LAW_OF_GOD` now lives in `archive/legacy_root/`. The Navier–Stokes notes live in the same directory. `05_lean_formalization/NavierStokesScope.lean` is an alignment-threshold lemma, not a regularity proof;
+- on 2026-11-21, the agent-written joint `Cassini × SPARC` gate (and solar-system screening chase for `μ_std`) was withdrawn ([`02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`](02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md), Erratum `E-16`).
 
 **What is open.** Each `[O]`:
 - AeST branch selection (D7). A proposed no-go from an exploratory non-linear solver is **not adopted**.
 - The 2π in the a₀ ≈ cH₀/2π anchor, which is declared, not proved.
 - a₀(z), where the real high-z data are inconclusive.
-- Non-linear structure formation.
-- Solar-system screening. At the horizon-anchor a₀ (cH₀/2π), unscreened μ_std fails Cassini's external-field quadrupole (about 4.6σ, and +8.7σ against the 2026 bound). Only the phenomenological duality screening S = 1/(1+η²) passes Cassini, SPARC and the Milky Way dwarfs together. It has no covariant realization yet.
+- Cluster outskirts & non-linear structure formation (D5/D10): unscreened hydrostatic AeST dust overshoots X-COP at `R_200` `[X]`; the two-domain `R_500`-core truncation leaves four residual clusters (`A2029`, `A2319`, `A3266`, `ZwCl1215`) `[D]`.
 
 **What this is not.** It is not a claim to have overturned general relativity or ΛCDM. It is not parameter-free: it declares two irreducible inputs, the a₀ scale and the choice of interpolating function.
 

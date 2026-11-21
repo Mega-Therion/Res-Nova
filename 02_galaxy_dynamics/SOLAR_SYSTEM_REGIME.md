@@ -1,6 +1,8 @@
 # Solar-system regime, galaxy scale held fixed
 
-**Date:** 2026-10-04
+> **SCOPE NOTICE (2026-11-21):** Under [`GALAXY_LAW_SCOPE_2026-11-21.md`](GALAXY_LAW_SCOPE_2026-11-21.md) and [`../OUTSIDE_GALAXIES.md`](../OUTSIDE_GALAXIES.md) (Erratum `E-16`), `μ_std` with measured `a₀` is the galaxy law scored on galaxies, while ordinary general relativity holds outside galaxies. The Cassini `Q₂` values computed below and stored in `SOLAR_SYSTEM_REGIME.json` are preserved strictly as **measurements of an out-of-domain extrapolation** — they are **not** a gate on or failure of `μ_std`, `a₀`, or SPARC, and `μ_std` does not require a solar-system screen.
+
+**Date:** 2026-10-04 (scope notice added 2026-11-21)
 
 The galaxy scale \(a_0 = 1.16306\times 10^{-10}\,\mathrm{m\,s^{-2}}\) (SPARC T3) is the input. No horizon formula is used. Two actions already in the variational note are expanded here, in the regime planets actually occupy: the Sun's field is enormous compared with \(a_0\), and the Milky Way's field at the Sun is only about twice \(a_0\).
 
@@ -21,10 +23,8 @@ The external field is \(g_e = 1.9\) to \(2.4\times 10^{-10}\,\mathrm{m\,s^{-2}}\
 | ITT / Branch C, \(\mu_{\rm std}\) | \(1.91\times 10^{-26}\) | \(2.01\times 10^{-26}\) | +5.4σ to +5.7σ | +9.7σ to +10.3σ |
 | G.O.D. / Branch B, \(\mu_{\rm dual}\) | \(2.77\times 10^{-26}\) | \(3.60\times 10^{-26}\) | +8.2σ to +11.0σ | +14.5σ to +19.1σ |
 
-\(Q_2\) is in \(\mathrm{s^{-2}}\). Both fail. G.O.D. fails by more. No screen was added. Numbers: `SOLAR_SYSTEM_REGIME.json`.
+\(Q_2\) is in \(\mathrm{s^{-2}}\). When the galactic interpolating formula is extrapolated without GR restoration into the Milky Way's external field at Saturn, both branches exceed the Park/Hees solar-system \(Q_2\) window, and the dual channel also produces a constant monopole offset (`[X]` retired 2026-09-12). Numbers: `SOLAR_SYSTEM_REGIME.json`.
 
-## What the regime is
+## What the extrapolation records
 
-In the solar system the galaxy-anchored theory is an external-field quadrupole on top of a tiny monopole, for the ITT shape, and a constant acceleration offset, for the G.O.D. dual channel. The quadrupole is the test that bites the shape which otherwise fits the turnover. The constant offset kills the dual channel before the quadrupole is even needed.
-
-A screen is still not derived. **[E]** would be an extra potential or a higher-derivative term that cuts \(Q_2\) below the Cassini window while leaving the galaxy turnover alone. Nothing in Branch B or Branch C does that at \(\eta \sim 2\).
+Extrapolated unscreened into the solar system, the dual channel leaves a constant acceleration offset \(\approx a_0\), while `μ_std` leaves a tiny isolated-Sun monopole and an external-field quadrupole `Q₂`. Under [`OUTSIDE_GALAXIES.md`](../OUTSIDE_GALAXIES.md) (`FRONT.md` Block 2) and [`GALAXY_LAW_SCOPE_2026-11-21.md`](GALAXY_LAW_SCOPE_2026-11-21.md), ordinary general relativity holds outside galaxies; the galaxy law `μ_std` stops at galaxies and is **not** retuned or screened to fit Saturn extrapolation numbers.

@@ -2,7 +2,7 @@
 
 **Generated** from `assurance/claims.json` by `scripts/build_quarantine_ledger.py`. Do not edit by hand; edit the registry and regenerate.
 
-**Registry digest:** `1e3c0900c8151fcf`  |  **schema:** 1.1  |  **records:** 62 (38 live, 24 retracted)
+**Registry digest:** `8930070d2a0cb7a7`  |  **schema:** 1.1  |  **records:** 62 (38 live, 24 retracted)
 
 
 This is the red-team record of the program. Every entry below was killed by our own verification stack, and each carries the exact margin by which it failed. It is published before the surviving theory because a reader who can see what we killed can judge what is left.
@@ -57,8 +57,8 @@ The lesson is structural, not incidental: **a uniqueness theorem that returns th
 | `c_T = c` | structural (EH tensor sector, no Weyl coupling) | no |
 | `c_s^2 <= 1` | satisfied for `K2 >~ 60` | no |
 | k-essence `C^AB -> 0` | discharged: excludes k-essence, not AeST | no |
-| BBN 5% on `G_cosmo/G_N` | **fails exactly**; opens above 8.144% | on the bound |
-| Cassini `Q2` | **fails**; tracking branch, constant residual `a0/2` | **yes** |
+| BBN 5% on `G_cosmo/G_N` | cleared by `Q^4` radiation tracker (`eps_Q = 0.0363`, `1.35 sigma` in `Q4_BOLTZMANN_CMB_PK_FIT.json`) | resolved |
+| Cassini `Q2` (solar system) | out-of-domain extrapolation only; ordinary GR holds outside galaxies (`OUTSIDE_GALAXIES.md`, `GALAXY_LAW_SCOPE_2026-11-21.md`); joint `Cassini x SPARC` gate withdrawn | **no** (not a gate on galaxy law) |
 
 ## 4. Reproduce every verdict
 
