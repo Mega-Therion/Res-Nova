@@ -1,0 +1,18 @@
+{
+ "V1": "Re-derived from the Euler-Lagrange equations: the bare condensate's dispersion is 2K_B w^4 + K2 dQ Qbar w^2 - K2 dQ^2 k^2 = 0 (IR root w^2 = -K2 dQ Qbar/(2K_B) < 0: tachyonic for dQ > 0); with c_Y the k = 0 root is Qbar(c_Y Qbar - K2 dQ)/(2K_B), stable iff c_Y >= K2 dQ/Qbar. Matches the agent's B2 (the agent's prose drops the square on dQ; its code has it).",
+ "V2": {
+  "Pantheon+": {
+   "eta_0_to_1": 3.2123766977635397,
+   "E_a_at_8": 1.4451406823248842,
+   "E_a_at_400": 1.455209175202877,
+   "C_analytic": 1.4552132264631128
+  },
+  "DES-Dovekie": {
+   "eta_0_to_1": 3.2099959674367935,
+   "E_a_at_8": 1.403304827065484,
+   "E_a_at_400": 1.4120799752114281,
+   "C_analytic": 1.4120835096147155
+  }
+ },
+ "V2_reading": "eta(0->1) = 3.212 / 3.210 and E*a -> 2 sqrt(Omega_L/|kappa|) confirmed on a direct ODE path: the late expansion coasts (adot -> const), eta grows as ln(a)/C, so these drag backgrounds have no event horizon."
+}
