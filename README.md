@@ -1,5 +1,9 @@
 # Res-Nova
 
+<p align="center">
+  <img src="assets/res-nova-repo-card.png" width="480" alt="Res Nova — Folio I cover: the official open-source repository">
+</p>
+
 <p align="left">
   <a href="https://github.com/Mega-Therion/Res-Nova/actions/workflows/verify.yml"><img src="https://github.com/Mega-Therion/Res-Nova/actions/workflows/verify.yml/badge.svg" alt="Verify CI"></a>
   <a href="https://github.com/Mega-Therion/Res-Nova/actions/workflows/verify.yml"><img src="https://img.shields.io/badge/Lean%204-verified-6f42c1?style=flat-square&logo=lean&logoColor=white" alt="Lean 4 Verified"></a>
