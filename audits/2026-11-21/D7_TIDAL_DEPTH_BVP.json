@@ -1,0 +1,64 @@
+{
+  "pre_registered": {
+    "a0_m_s2": 1.1607e-10,
+    "mercury_precession_mas_per_cy_2sig": 1.6,
+    "q2_cap_s^-2": 5.2e-27,
+    "r200_pass_window": [
+      0.8,
+      1.25
+    ],
+    "galactic_centre_ecliptic_latitude_deg": -5.53,
+    "equation": "nabla^2 varphi = kappa * T_parallel, T_parallel = -(2 GM/r^3) P2",
+    "boundary": "varphi -> 0 at infinity, homogeneous r^2 and r^-3 coefficients set to 0"
+  },
+  "orbit_mean_P2": 0.24303506145032405,
+  "mercury_budget": {
+    "g_N": 0.039574739366926445,
+    "a_tilde_max": 1.1767182117104558e-13,
+    "rel_max": 2.9734073566479816e-12
+  },
+  "finite_difference": {
+    "n": 4000,
+    "max_rel_error_vs_particular": 6.354540355793097e-07
+  },
+  "kappa_max_from_mercury": 3.670343701321146e-11,
+  "at_mercury_cap": {
+    "a_r_mercury_m_s2": -1.176718211710456e-13,
+    "a_r_saturn_m_s2": -1.953739113435494e-16,
+    "q2_saturn_s^-2": 3.980151513525385e-40,
+    "fractional_radial_correction": 2.973407356647982e-12,
+    "delta_a_at_gN_eq_a0": 3.451233918861313e-22,
+    "delta_a_10kpc_1e11Msun": 4.1445567259064455e-22,
+    "g_N_that_galaxy": 1.393874511220265e-10
+  },
+  "if_kappa_set_to_cassini_edge": {
+    "kappa": 479.5241382648996,
+    "a_r_mercury_m_s2": -1.537362253698372,
+    "ratio_to_mercury_budget": 13064829271773.492
+  },
+  "if_kappa_set_to_order_unity_mond_boost": {
+    "kappa": 12.343897963106015,
+    "a_r_mercury_m_s2": -0.03957473936692646,
+    "implied_perihelion_mas_per_cy": 538103195454.4339
+  },
+  "depth_c2": {
+    "saturn_solar": 1.039010104031745e-09,
+    "mercury_solar": 2.5498974984715298e-08,
+    "galaxy_200kms_disk": 4.450600224214474e-07,
+    "cluster_1000kms": 1.1126500560536185e-05
+  },
+  "depth_order_shallow_to_deep": [
+    "saturn_solar",
+    "mercury_solar",
+    "galaxy_200kms_disk",
+    "cluster_1000kms"
+  ],
+  "gates": {
+    "mercury_at_own_cap": "PASS",
+    "cassini_q2_at_mercury_cap": "PASS",
+    "sparc_order_a0_boost_at_mercury_cap": "FAIL",
+    "monotonic_Xi_of_depth_separates_cluster_from_galaxy": "FAIL",
+    "joint": "FAIL"
+  },
+  "verdict": "[X] for Xi = 1 and for every monotonic Xi(|Phi|/c^2). The Mercury cap leaves a fractional correction far below a0, so SPARC is untouched. A coupling large enough for an order-unity MOND boost violates the perihelion budget. Cluster |Phi| is deeper than galactic |Phi|, so a nondecreasing depth gate that is on for SPARC is on for X-COP, where Gate 2 already records med R200 = 0.608-0.621. A window between those depths needs two new dimensionful edges and fails the uniqueness line. The 12-cluster hydrostatic system was not refit."
+}
