@@ -16,7 +16,7 @@ then reproduces `A0_REEXTRACTION_MU_STD.json` on both μ functions:
 | μ | recorded | reproduced | rel diff |
 |---|---|---|---|
 | μ_std | 1.1562e-10 | 1.1562458e-10 | 3.96e-5 |
-| μ_dual | 9.285e-11 | 9.2849503e-11 | 5.35e-6 |
+| μ_dual (retired) | 9.285e-11 | 9.2849503e-11 | 5.35e-6 |
 
 Bootstrap 68% intervals agree to the same order. The guard tolerance is 1e-4 relative
 because the record stores only 5 significant figures; the extraction is deterministic
