@@ -1,0 +1,454 @@
+{
+  "meta": {
+    "date": "2026-11-21",
+    "script": "audits/2026-11-21/nested_holographic_boundary_inheritance.py",
+    "universal_mu0_Mpc_inv": 1.010611,
+    "cosmic_dust_cap_ratio": 5.36
+  },
+  "xcop_r500_core_truncation_bvp": {
+    "equation_solved": "Phi(r_v) = 0 at r_v = R_200*(200/177.8)^(1/3); dW/dr = G dM_b/dr - mu_0^2 r^2 Phi(r) for r <= R_500 and dW/dr = G dM_b/dr for R_500 < r <= r_v; dPhi/dr = g_mond(W/r^2).",
+    "summary": "Medians pass [0.80, 1.25] at both R_500 (0.8669-0.8692) and R_200 (0.8533-0.8560) with mu_eff/mu_0 = 1.0 and max core-dust ratio 0.6786. On the [0.80, 1.25] window, 9/12 pass at R_500, 9/12 pass at R_200, and 8/12 pass both simultaneously; the four clusters outside [0.80, 1.25] in all three ICM models are A2029, A2319, A3266, and ZwCl1215. On the wider [0.70, 1.40] band, 12/12 are inside.",
+    "models": {
+      "M1_stacked_measured": {
+        "all12_med_R500": 0.8685,
+        "all12_med_R200": 0.8533,
+        "all12_in_080_125_R500": "9/12",
+        "all12_in_080_125_R200": "9/12",
+        "all12_in_080_125_both": "8/12",
+        "all12_in_070_140_R500": "12/12",
+        "all12_in_070_140_R200": "12/12",
+        "direct11_med_R500": 0.8692,
+        "direct11_med_R200": 0.8537,
+        "direct11_in_080_125_R500": "9/11",
+        "direct11_in_080_125_R200": "9/11",
+        "direct11_in_070_140_R500": "11/11",
+        "direct11_in_070_140_R200": "11/11",
+        "clusters_outside_080_125_R500": {
+          "A2029": 0.7757,
+          "A3266": 0.7102,
+          "ZwCl1215": 0.7907
+        },
+        "clusters_outside_080_125_R200": {
+          "A2029": 0.7552,
+          "A2319": 1.3072,
+          "A3266": 0.7226
+        },
+        "clusters_outside_080_125_either": {
+          "A2029": {
+            "R500_obs_over_mod": 0.7757,
+            "R200_obs_over_mod": 0.7552
+          },
+          "A2319": {
+            "R500_obs_over_mod": 1.147,
+            "R200_obs_over_mod": 1.3072
+          },
+          "A3266": {
+            "R500_obs_over_mod": 0.7102,
+            "R200_obs_over_mod": 0.7226
+          },
+          "ZwCl1215": {
+            "R500_obs_over_mod": 0.7907,
+            "R200_obs_over_mod": 0.8327
+          }
+        },
+        "max_core_dust_ratio_of_cosmic": 0.5591,
+        "budget_caps_triggered": 0,
+        "per_cluster": {
+          "A1644": {
+            "R500_obs_over_mod": 0.8692,
+            "R200_obs_over_mod": 0.9027,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.2684,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A1795": {
+            "R500_obs_over_mod": 0.9116,
+            "R200_obs_over_mod": 0.8073,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.2753,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A2029": {
+            "R500_obs_over_mod": 0.7757,
+            "R200_obs_over_mod": 0.7552,
+            "in_080_125_R500": false,
+            "in_080_125_R200": false,
+            "core_dust_ratio_of_cosmic": 0.4777,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A2142": {
+            "R500_obs_over_mod": 0.8486,
+            "R200_obs_over_mod": 0.8537,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.4446,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A2255": {
+            "R500_obs_over_mod": 0.8636,
+            "R200_obs_over_mod": 0.8927,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.3175,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A2319": {
+            "R500_obs_over_mod": 1.147,
+            "R200_obs_over_mod": 1.3072,
+            "in_080_125_R500": true,
+            "in_080_125_R200": false,
+            "core_dust_ratio_of_cosmic": 0.3279,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A3158": {
+            "R500_obs_over_mod": 0.9135,
+            "R200_obs_over_mod": 0.8901,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.262,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A3266": {
+            "R500_obs_over_mod": 0.7102,
+            "R200_obs_over_mod": 0.7226,
+            "in_080_125_R500": false,
+            "in_080_125_R200": false,
+            "core_dust_ratio_of_cosmic": 0.5591,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A644": {
+            "R500_obs_over_mod": 0.9378,
+            "R200_obs_over_mod": 0.8346,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.3273,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A85": {
+            "R500_obs_over_mod": 0.8934,
+            "R200_obs_over_mod": 0.8528,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.3196,
+            "mu_eff_over_mu0": 1.0
+          },
+          "RXC1825": {
+            "R500_obs_over_mod": 0.8679,
+            "R200_obs_over_mod": 0.9184,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.2634,
+            "mu_eff_over_mu0": 1.0
+          },
+          "ZwCl1215": {
+            "R500_obs_over_mod": 0.7907,
+            "R200_obs_over_mod": 0.8327,
+            "in_080_125_R500": false,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.559,
+            "mu_eff_over_mu0": 1.0
+          }
+        }
+      },
+      "M2_vikhlinin_CCNCC": {
+        "all12_med_R500": 0.8692,
+        "all12_med_R200": 0.8546,
+        "all12_in_080_125_R500": "9/12",
+        "all12_in_080_125_R200": "9/12",
+        "all12_in_080_125_both": "8/12",
+        "all12_in_070_140_R500": "12/12",
+        "all12_in_070_140_R200": "12/12",
+        "direct11_med_R500": 0.8702,
+        "direct11_med_R200": 0.857,
+        "direct11_in_080_125_R500": "9/11",
+        "direct11_in_080_125_R200": "9/11",
+        "direct11_in_070_140_R500": "11/11",
+        "direct11_in_070_140_R200": "11/11",
+        "clusters_outside_080_125_R500": {
+          "A2029": 0.7763,
+          "A3266": 0.7104,
+          "ZwCl1215": 0.7909
+        },
+        "clusters_outside_080_125_R200": {
+          "A2029": 0.758,
+          "A2319": 1.3052,
+          "A3266": 0.7213
+        },
+        "clusters_outside_080_125_either": {
+          "A2029": {
+            "R500_obs_over_mod": 0.7763,
+            "R200_obs_over_mod": 0.758
+          },
+          "A2319": {
+            "R500_obs_over_mod": 1.1477,
+            "R200_obs_over_mod": 1.3052
+          },
+          "A3266": {
+            "R500_obs_over_mod": 0.7104,
+            "R200_obs_over_mod": 0.7213
+          },
+          "ZwCl1215": {
+            "R500_obs_over_mod": 0.7909,
+            "R200_obs_over_mod": 0.8312
+          }
+        },
+        "max_core_dust_ratio_of_cosmic": 0.5489,
+        "budget_caps_triggered": 0,
+        "per_cluster": {
+          "A1644": {
+            "R500_obs_over_mod": 0.8702,
+            "R200_obs_over_mod": 0.9092,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.2773,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A1795": {
+            "R500_obs_over_mod": 0.9123,
+            "R200_obs_over_mod": 0.8112,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.2813,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A2029": {
+            "R500_obs_over_mod": 0.7763,
+            "R200_obs_over_mod": 0.758,
+            "in_080_125_R500": false,
+            "in_080_125_R200": false,
+            "core_dust_ratio_of_cosmic": 0.4883,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A2142": {
+            "R500_obs_over_mod": 0.849,
+            "R200_obs_over_mod": 0.8523,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.4373,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A2255": {
+            "R500_obs_over_mod": 0.8637,
+            "R200_obs_over_mod": 0.8897,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.311,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A2319": {
+            "R500_obs_over_mod": 1.1477,
+            "R200_obs_over_mod": 1.3052,
+            "in_080_125_R500": true,
+            "in_080_125_R200": false,
+            "core_dust_ratio_of_cosmic": 0.3231,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A3158": {
+            "R500_obs_over_mod": 0.9138,
+            "R200_obs_over_mod": 0.8878,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.2576,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A3266": {
+            "R500_obs_over_mod": 0.7104,
+            "R200_obs_over_mod": 0.7213,
+            "in_080_125_R500": false,
+            "in_080_125_R200": false,
+            "core_dust_ratio_of_cosmic": 0.5488,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A644": {
+            "R500_obs_over_mod": 0.9383,
+            "R200_obs_over_mod": 0.8334,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.3228,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A85": {
+            "R500_obs_over_mod": 0.8941,
+            "R200_obs_over_mod": 0.857,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.3272,
+            "mu_eff_over_mu0": 1.0
+          },
+          "RXC1825": {
+            "R500_obs_over_mod": 0.8682,
+            "R200_obs_over_mod": 0.9163,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.2591,
+            "mu_eff_over_mu0": 1.0
+          },
+          "ZwCl1215": {
+            "R500_obs_over_mod": 0.7909,
+            "R200_obs_over_mod": 0.8312,
+            "in_080_125_R500": false,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.5489,
+            "mu_eff_over_mu0": 1.0
+          }
+        }
+      },
+      "M3_per_cluster_exact_vikhlinin": {
+        "all12_med_R500": 0.8669,
+        "all12_med_R200": 0.856,
+        "all12_in_080_125_R500": "9/12",
+        "all12_in_080_125_R200": "9/12",
+        "all12_in_080_125_both": "8/12",
+        "all12_in_070_140_R500": "12/12",
+        "all12_in_070_140_R200": "12/12",
+        "direct11_med_R500": 0.8671,
+        "direct11_med_R200": 0.8567,
+        "direct11_in_080_125_R500": "9/11",
+        "direct11_in_080_125_R200": "9/11",
+        "direct11_in_070_140_R500": "11/11",
+        "direct11_in_070_140_R200": "11/11",
+        "clusters_outside_080_125_R500": {
+          "A2029": 0.7768,
+          "A3266": 0.7137,
+          "ZwCl1215": 0.7935
+        },
+        "clusters_outside_080_125_R200": {
+          "A2029": 0.7613,
+          "A2319": 1.2806,
+          "A3266": 0.7428
+        },
+        "clusters_outside_080_125_either": {
+          "A2029": {
+            "R500_obs_over_mod": 0.7768,
+            "R200_obs_over_mod": 0.7613
+          },
+          "A2319": {
+            "R500_obs_over_mod": 1.1452,
+            "R200_obs_over_mod": 1.2806
+          },
+          "A3266": {
+            "R500_obs_over_mod": 0.7137,
+            "R200_obs_over_mod": 0.7428
+          },
+          "ZwCl1215": {
+            "R500_obs_over_mod": 0.7935,
+            "R200_obs_over_mod": 0.8494
+          }
+        },
+        "max_core_dust_ratio_of_cosmic": 0.6786,
+        "budget_caps_triggered": 0,
+        "per_cluster": {
+          "A1644": {
+            "R500_obs_over_mod": 0.8671,
+            "R200_obs_over_mod": 0.8866,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.2491,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A1795": {
+            "R500_obs_over_mod": 0.9138,
+            "R200_obs_over_mod": 0.8233,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.3016,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A2029": {
+            "R500_obs_over_mod": 0.7768,
+            "R200_obs_over_mod": 0.7613,
+            "in_080_125_R500": false,
+            "in_080_125_R200": false,
+            "core_dust_ratio_of_cosmic": 0.5017,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A2142": {
+            "R500_obs_over_mod": 0.8495,
+            "R200_obs_over_mod": 0.8554,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.4467,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A2255": {
+            "R500_obs_over_mod": 0.8625,
+            "R200_obs_over_mod": 0.8817,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.2987,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A2319": {
+            "R500_obs_over_mod": 1.1452,
+            "R200_obs_over_mod": 1.2806,
+            "in_080_125_R500": true,
+            "in_080_125_R200": false,
+            "core_dust_ratio_of_cosmic": 0.2954,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A3158": {
+            "R500_obs_over_mod": 0.9138,
+            "R200_obs_over_mod": 0.888,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.2579,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A3266": {
+            "R500_obs_over_mod": 0.7137,
+            "R200_obs_over_mod": 0.7428,
+            "in_080_125_R500": false,
+            "in_080_125_R200": false,
+            "core_dust_ratio_of_cosmic": 0.6786,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A644": {
+            "R500_obs_over_mod": 0.9401,
+            "R200_obs_over_mod": 0.8514,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.3617,
+            "mu_eff_over_mu0": 1.0
+          },
+          "A85": {
+            "R500_obs_over_mod": 0.8941,
+            "R200_obs_over_mod": 0.8567,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.3265,
+            "mu_eff_over_mu0": 1.0
+          },
+          "RXC1825": {
+            "R500_obs_over_mod": 0.8668,
+            "R200_obs_over_mod": 0.9022,
+            "in_080_125_R500": true,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.2425,
+            "mu_eff_over_mu0": 1.0
+          },
+          "ZwCl1215": {
+            "R500_obs_over_mod": 0.7935,
+            "R200_obs_over_mod": 0.8494,
+            "in_080_125_R500": false,
+            "in_080_125_R200": true,
+            "core_dust_ratio_of_cosmic": 0.6425,
+            "mu_eff_over_mu0": 1.0
+          }
+        }
+      }
+    }
+  },
+  "expansion_scalar_rule_check_and_limits": {
+    "formula": "a_hor := c * theta / (6 * pi)",
+    "at_theta_eq_3H0": "H_0*c/(2*pi)",
+    "limit_nu_std_as_theta_to_0": 1,
+    "cassini_limitation": "Setting theta = 0 in a stationary galactic disk sets the internal solar MOND term to zero by hypothesis; it does NOT resolve the Cassini external-field quadrupole from the galactic acceleration g_e = |grad Phi_MW| != 0, which remains non-zero in a stationary disk. The Newtonian Milky Way tide v_circ^2 / R_sun^2 = 7.560e-31 s^-2 is a background tidal gradient, not the Cassini EFE quadrupole Q_2.",
+    "not_recomputed_here": [
+      "175 SPARC rotation curves (copied reference only)",
+      "626-bin Planck plik_lite + DESI DR2 BAO fit (copied reference from Q4_BOLTZMANN_CMB_PK_FIT.json)",
+      "Cassini Doppler / EFE quadrupole Q_2"
+    ]
+  }
+}
