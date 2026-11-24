@@ -46,6 +46,8 @@ Also 2026-11-20 (no tier change): **Dark-bubble embedding of the flux-fed drag i
 - The drag survives only as a 4D effective parameterization in `drag_gcosmo`. Reopen the embedding only if a mechanism other than the B/C₂ fields gives non-abelian worldvolume fields weight +1 and the quark sign is derived.
 - Live seat unchanged: substrate `V_2(R^3)`, gauge seat `E8 × E8`, minimal single-metric matter coupling plus AeST. Disformal matter coupling remains `[X]` (`RN-GEA-RETIRED-001`). Single-metric minimal coupling gives η_active = 0.
 
+Also 2026-11-23 (no tier change): **Phase 3 pre-registration restored.** Another agent's overwrite of `PREREG_PHASE3.md` (faa99b04) is reverted to the committed version (14c90dc8). The overwriting text is kept as `PREREG_PHASE3_DECISION_FILTER.md` with a provenance note: a post-hoc cross-check, not a pre-registration. Its results reproduce and agree with the committed Phase 3 thresholds.
+
 Also 2026-11-19 (no tier change): **5D bulk solve, Phase 3 (pre-registered mechanism search, `14c90dc8`): DES-Dovekie needs drag pinning Γ ≳ 30H; no tested covariant candidate supplies it naturally** (`exploration/bulk5d/`).
 - `[D]` The Law-B sweep runs from Law A (γ = 0, reproduced exactly) to Law C (γ = 1000, reproduced to within 1%). Both best fits pass for Γ ≥ 30H at c_vis² ∈ {0.1, 1/3, `mb95_l8`}; both fail for Γ ≤ 10H.
 - `[D]/[X]` The tangential Killing coupling gives Law-C dust with w_d ≈ 0 and Q₄ > 0, but only with a stationary point tuned to (H/k)² ≈ 10⁻⁶¹. Its covariant form varies purely normal-normal, which reduces it to the excluded w = −1 tension.
