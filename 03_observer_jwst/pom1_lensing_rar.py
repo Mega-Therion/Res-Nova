@@ -3,7 +3,7 @@
 
 Pre-registered: 03_observer_jwst/PREREG_POM1_LENSING_RAR_2026-11-25.md (rule frozen before the data comparison).
 
-Forward model (no free parameter). Each lens is a baryonic point mass M (valid at the measured radii, R > 30 kpc;
+Forward model (nothing fitted; the two irreducible inputs, mu_std and a0, fixed in advance). Each lens is a baryonic point mass M (valid at the measured radii, R > 30 kpc;
 B21 Sect. 2.4). The single-metric potential is the galaxy-tier law, mu_std with the observed a0:
     g(r) = nu(gN/a0) gN,  gN = GM/r^2,  nu(y) = sqrt((1 + sqrt(1 + 4/y^2))/2)   (inverse of mu = x/sqrt(1+x^2)).
 The total enclosed mass is M3(<r) = r^2 g/G = M N(x), with x = r/r_M, r_M = sqrt(GM/a0) and N(x) = nu(1/x^2).

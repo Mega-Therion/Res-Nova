@@ -7,7 +7,7 @@
 ## 0. What kind of test this is (declared before the run)
 
 - **A replication.** P-OM-1 says the lensing signal around a galaxy follows the phantom profile set by its baryons alone, with the asymptote ΔΣ → √(G M_b a₀)/(4 G R). Single-metric MOND makes the same prediction. On this data set, Brouwer et al. 2021 (B21, A&A 650, A113) and Mistele et al. 2024 (JCAP 04, 020) already found MOND-like behaviour at a₀ = 1.2×10⁻¹⁰. B21 also found that ΛCDM reproduces the data when its stellar-to-halo mass relation is right (their MICE comparison).
-- **What a PASS means.** The observation-tier map passes its first data check with zero free parameters and the corpus's own μ_std and observed a₀. It is not evidence for ITT over MOND or over ΛCDM.
+- **What a PASS means.** The observation-tier map passes its first data check with nothing fitted: its two irreducible inputs, the μ_std choice and the observed a₀, are fixed in advance. It is not evidence for ITT over MOND or over ΛCDM.
 - **What a FAIL means.** P-OM-1 as written (μ_std with the observed a₀) fails on KiDS-1000.
 - **New number this produces.** The a₀ that the lensing RAR prefers under μ_std. The corpus's literature sweep records that nobody has extracted it (`02_galaxy_dynamics/literature_sweep_2026-10-28/notes/constraint_landscape.md:104`).
 
@@ -24,7 +24,7 @@ Before registration, the data README and the main data file were opened. Two bin
 - **Isolation:** B21's criterion, no satellite with more than 10% of the lens's stellar mass within 3 Mpc/h70.
 - **Primary range:** g_bar > 7.56×10⁻¹⁴ m s⁻², which leaves 7 bins. This is B21's own boundary (Sect. 4.1): R < 0.3 Mpc/h70 at the sample's mean galaxy mass, where the photometric-redshift isolation is reliable.
 
-## 3. Frozen prediction (zero free parameters)
+## 3. Frozen prediction (nothing fitted; the two irreducible inputs fixed in advance)
 
 - **Model:** each lens is a baryonic point mass. The metric potential follows μ_std with a₀ = 1.1607×10⁻¹⁰ m s⁻², the canonical observed value `[E]`.
 - **Forward modelling:** the enclosed mass (point mass plus phantom density) is projected exactly into ΔΣ(R), then converted with the same Eq. 7 estimator that was applied to the data, so B21's SIS-conversion bias cancels. The closed form is in the header of `pom1_lensing_rar.py`.
@@ -75,3 +75,11 @@ No other cut, data file, or refit can change the verdict.
 - Script: `03_observer_jwst/pom1_lensing_rar.py`
 - Output: `03_observer_jwst/POM1_LENSING_RAR.json`
 - Record: `03_observer_jwst/POM1_LENSING_RAR_RECORD_2026-11-25.md`
+
+## Erratum (wording only, 2026-11-25, after the run)
+
+The corpus's claim-hygiene gate (dead-branch scan) flagged one phrase. Two places in the registered text said "zero free parameters" (§0, §3). They now read "nothing fitted; the two irreducible inputs (the μ_std choice and the observed a₀) fixed in advance", following the standing two-irreducible-input accounting.
+
+The script's docstring and the post-hoc script's docstring were reworded the same way.
+
+No rule, threshold, data choice, or line of code changed. The registered text is commit `af7d6564`.
