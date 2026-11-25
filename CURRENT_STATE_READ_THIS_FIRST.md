@@ -10,6 +10,8 @@ are the only current physics.**
 **Last verified against the physics:** 2026-11-25 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
+**2026-11-25 (no tier change): O3 `Ω_Λ = ln 2` tested against CMB + BAO + SN** (`04_cosmology/O3_LN2_CMB_BAO_SN_2026-11-25.md`, pre-registered `608182cb`). CHW 2019 Planck distance priors + DESI DR2 + Pantheon+: `Δχ² = 1.73` (CONSISTENT); with DES-Dovekie: `Δχ² = 1.44` (CONSISTENT). `[D]` test outcomes only; `Ω_Λ = ln 2` stays `[O]` and quarantined as a conjectured horizon boundary condition, not a derived density.
+
 **2026-11-21 — Galaxy-law scope ruling (R.W. Yett, `02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`, Erratum E-16):**
 > **Block 3 (`\mu_std` + measured `a_0`) is the galaxy law and is scored on galaxies; Block 2 (`OUTSIDE_GALAXIES.md`) keeps ordinary general relativity outside galaxies (solar system and vacuum light cones). The Cassini external-field quadrupole `Q_2` is a solar-system measurement — it is NOT a gate on `\mu_std`, on `a_0`, or on a SPARC fit. The agent-written joint `Cassini × SPARC` requirement and solar-system screening chase (duality screen `S`, tidal `x*`, Oort `working-C = 0.579125`, `\nu_6`, `\hat{\nu}_4`) are WITHDRAWN. Computed Saturn numbers stay in their files strictly as out-of-domain extrapolation measurements — they are NOT a failure of the galaxy law; never retune `\mu_std` to move them and never claim `\mu_std` clears Cassini.**
 
