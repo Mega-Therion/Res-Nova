@@ -1,0 +1,4 @@
+G1 static: {'residual': np.float64(5.8899317761814905e-12), 'converged': True}
+G0: {'converged': True, 'res': np.float64(2.7501867076425595e-11), 'p': 20.0, 'Y_ratio': 0.015368581132143034, 'pass': True}
+G2: {'converged': False, 'residual': np.float64(2.869049791575181)}
+[B_stripped_down] p =  19.9658  pdot -0.456  Y/Ys 0.0153  g/gs 0.0823  u/tilt 1.67e-02  its 4  eig None    [1522s]
