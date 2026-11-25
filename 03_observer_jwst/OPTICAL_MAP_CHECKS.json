@@ -1,0 +1,67 @@
+{
+ "C1_gw170817": {
+  "speed_bound_eps": 1e-15,
+  "eps_inside_galaxies_max": 6.666666666666667e-14,
+  "light_only_deflection_max_rad": 6.666666666666667e-13,
+  "galaxy_lensing_needs_rad": 1e-05,
+  "shortfall_factor": 15000000.0,
+  "reading": "A light-only optical term can supply at most ~1e-12 of the needed deflection. Lensing 'dark matter' must therefore come from the metric that gravitational waves also follow (single metric): the ITT phantom potential, not a photon-only effect."
+ },
+ "C2_distance_duality": {
+  "model": "D_L = (1+z) D_M (1+z)^eps; M (SN) and r_d (BAO) free; flat-LCDM shape for D_M",
+  "best": {
+   "omega_m": 0.29752169511036985,
+   "eps": -0.028248298882007555,
+   "c_over_H0_rd": 29.52600703275614,
+   "chi2": 1413.2668538635587
+  },
+  "eps_1sigma": [
+   -0.04324829888200754,
+   -0.013248298882007542
+  ],
+  "reading": "Any optical effect that brightens or dims distant sources relative to the geometric (BAO) distance is bounded at this level out to z ~ 2.3.",
+  "flux_change_at_z_2_3_percent_best": 6.977950533987887,
+  "flux_change_at_z_2_3_percent_1sigma_range": [
+   3.2140584847096143,
+   10.879099886840926
+  ],
+  "sigma_from_zero_approx": 1.8832199254671704
+ },
+ "C3_omegacdm_vs_planck_at_jwst_z": {
+  "7": {
+   "DL_ratio_omegacdm_over_planck": 0.9997811806277443,
+   "luminosity_ratio": 0.9995624091374063,
+   "age_planck_Myr": 756.2299559777161,
+   "age_omegacdm_Myr": 759.1824787975467,
+   "age_ratio": 1.0039042658869726
+  },
+  "10": {
+   "DL_ratio_omegacdm_over_planck": 1.0001330745567596,
+   "luminosity_ratio": 1.000266166822357,
+   "age_planck_Myr": 468.16033805453304,
+   "age_omegacdm_Myr": 469.988438388678,
+   "age_ratio": 1.0039048594798563
+  },
+  "12": {
+   "DL_ratio_omegacdm_over_planck": 1.0002777169221608,
+   "luminosity_ratio": 1.0005555109710105,
+   "age_planck_Myr": 363.8850376982314,
+   "age_omegacdm_Myr": 365.3035155859619,
+   "age_ratio": 1.0038981484281497
+  },
+  "14.44": {
+   "DL_ratio_omegacdm_over_planck": 1.0004048904552405,
+   "luminosity_ratio": 1.0008099448467618,
+   "age_planck_Myr": 280.64280772437564,
+   "age_omegacdm_Myr": 281.7338424174063,
+   "age_ratio": 1.0038876274859045
+  }
+ },
+ "C4_141_99_provenance": {
+  "object": "CEERS-93316",
+  "photometric_z": 16.4,
+  "spectroscopic_z": 4.912,
+  "source": "Arrabal Haro et al. 2023, Nature 622, 707 (arXiv:2303.15431): 'another candidate with suggested z~16 instead has z = 4.9'",
+  "reading": "The 141.99 'boost' was traced (project_god_theory_141) to this object's apparent mass excess at z ~ 16.7. At z = 4.9 that excess does not exist. The factor has no surviving empirical anchor."
+ }
+}
