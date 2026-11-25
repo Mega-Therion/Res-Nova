@@ -65,13 +65,17 @@ Light from a galaxy reaches us along null geodesics of **one metric**, the same 
 ## 4. Predictions this map makes (to pre-register before any run)
 
 - **P-OM-1, the weak-lensing profile tracks baryons alone.** Galaxy–galaxy lensing excess surface density at large radii follows the phantom profile set by the baryons: ΔΣ(R) → √(G M_b a₀)/(4G R), flat circular velocity to ~1 Mpc, with no separate halo mass.
-  - Published weak-lensing RAR data (KiDS-1000, and Mistele et al. 2024's lensing RAR) can test this now.
-  - This prediction is shared with single-metric MOND. It separates ITT-geometry from particle halos, not ITT from MOND.
+  - This prediction is shared with single-metric MOND.
+  - *Correction (2026-11-25):* an earlier version said this prediction "separates ITT-geometry from particle halos". It does not. ΛCDM fits the same data through its stellar-to-halo mass relation (B21's MICE mock, χ²_red = 2.3).
+  - **Tested 2026-11-25 on KiDS-1000: FAIL as written** (`POM1_LENSING_RAR_RECORD_2026-11-25.md`, pre-registered `af7d6564`).
+    - On all isolated lenses, χ² = 52 / 7.
+    - Late-type lenses pass with no adjustment (low Sérsic index: χ² = 3.6 / 7).
+    - Early types sit 0.15 dex high. That is the known early/late split, and it is open: either unseen hot gas or isolation leakage (Mistele et al. 2024).
 - **P-OM-2, lensing mass equals dynamical mass, galaxy by galaxy.** Both come from the same Φ_IT. A systematic lensing/dynamics mismatch at galaxy scale would falsify the map.
 - **P-OM-3, the JWST bright-end excess correlates with foreground convergence.** If the excess is optical, it should be stronger along sight-lines with more foreground phantom convergence. If it is the tier-1 a₀(z) effect, it should not depend on sight-line.
 
 ## 5. Open, in order
 
-1. Run P-OM-1 against the published lensing RAR. This is the cheapest decisive test: the data is public, and the frozen rule must be written first.
+1. ~~Run P-OM-1 against the published lensing RAR.~~ Done 2026-11-25: FAIL as written. Late types pass and early types do not (see the record). The next lensing step is a new pre-registration of the late-type claim on independent data, or the early-type baryon budget.
 2. Run O4 (a₀(z)): the tier-1 route for early galaxies.
 3. Build an up-to-date JWST target list (spectroscopic z > 10 only), replacing the old 18-galaxy list.
