@@ -71,11 +71,16 @@ Light from a galaxy reaches us along null geodesics of **one metric**, the same 
     - On all isolated lenses, χ² = 52 / 7.
     - Late-type lenses pass with no adjustment (low Sérsic index: χ² = 3.6 / 7).
     - Early types sit 0.15 dex high. That is the known early/late split, and it is open: either unseen hot gas or isolation leakage (Mistele et al. 2024).
+  - **v2, the same claim stated correctly, PASS on re-test** (`POM1V2_MASS_SYSTEM_RECORD_2026-11-25.md`, pre-registered `ef4672a0`).
+    - Lens baryons were moved onto the mass system a₀ was measured with, using Mistele et al. 2024's published conversions: H₀ = 73, early-type stars ×1.4, and hot gas from X-ray scaling. Nothing was fitted.
+    - Joint χ² = 17.8 / 14 (p = 0.22).
+    - Early and late types agree (difference p = 0.28).
+    - The data had already been seen, so a blind test on new data (KiDS-Legacy, Euclid) is still owed.
 - **P-OM-2, lensing mass equals dynamical mass, galaxy by galaxy.** Both come from the same Φ_IT. A systematic lensing/dynamics mismatch at galaxy scale would falsify the map.
 - **P-OM-3, the JWST bright-end excess correlates with foreground convergence.** If the excess is optical, it should be stronger along sight-lines with more foreground phantom convergence. If it is the tier-1 a₀(z) effect, it should not depend on sight-line.
 
 ## 5. Open, in order
 
-1. ~~Run P-OM-1 against the published lensing RAR.~~ Done 2026-11-25: FAIL as written. Late types pass and early types do not (see the record). The next lensing step is a new pre-registration of the late-type claim on independent data, or the early-type baryon budget.
+1. ~~Run P-OM-1 against the published lensing RAR.~~ Done 2026-11-25. v1 failed as written, because its baryons were on a different mass system from a₀. v2, with all baryons on the kinematic system, passes on re-test. Next lensing step: a blind run of the frozen v2 recipe on new data.
 2. Run O4 (a₀(z)): the tier-1 route for early galaxies.
 3. Build an up-to-date JWST target list (spectroscopic z > 10 only), replacing the old 18-galaxy list.
