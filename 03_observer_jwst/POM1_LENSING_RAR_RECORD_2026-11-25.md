@@ -41,7 +41,7 @@ P-OM-1 as written fails on the KiDS-bright isolated lenses. "As written" means: 
 
 ## The lensing a₀ (`[E]`, a new number for the corpus)
 
-- **Late-type lenses:** 0.95–1.03×10⁻¹⁰ (statistical error ±15%). This is consistent with both 1.1607 `[E]` and 1.0422 `[D]`.
+- **Late-type lenses:** two central values, 0.95×10⁻¹⁰ (blue split) and 1.03×10⁻¹⁰ (low-Sérsic split), each with a statistical error of about ±15%. Both are consistent with 1.1607 `[E]` and with 1.0422 `[D]`.
 - **The stellar-mass systematic dominates.** A shift of ±0.2 dex moves the fitted a₀ by about ±0.2 dex; for the full sample the range is 1.11–2.82×10⁻¹⁰. As declared in the pre-registration, this cannot choose between the two a₀ conventions.
 - **The a₀ depends on the population.** Early and late types differ by a factor of about 2.2. So until the early-type baryon budget or the isolation question is settled, "the lensing a₀" is not one number.
 
