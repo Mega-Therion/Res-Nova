@@ -22,11 +22,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  # Two jobs: deploy-pages sometimes queried the artifact list before a same-job upload was visible
+  # ("Found 0 artifact(s)", 2026-11-24/25 runs 45312377851, 45568288016, 45585566087, 45594082755).
+  # A job boundary gives the artifact time to register, as in GitHub's own Pages templates.
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -38,6 +37,14 @@ jobs:
         with:
           # Upload entire repository
           path: '.'
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
