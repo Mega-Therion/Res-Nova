@@ -12,7 +12,7 @@ export type StatusTone = "blue" | "amber" | "red" | "slate";
 export const releaseState = {
   version: "Public atlas v0.4",
   researchRelease: "Res Nova · observation tier 2026-11-25",
-  commit: "708ddcc2",
+  commit: "212b55a8",
   note: "Aligned on 2026-11-21 under 02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md (Erratum E-16) and OUTSIDE_GALAXIES.md: μ_std with measured a₀ (1.1607 × 10⁻¹⁰ m s⁻²) is the galaxy law scored on galaxies, while ordinary general relativity holds outside galaxies. The agent-written joint Cassini × SPARC gate and solar-system screening chase (working-C = 0.579, tidal x*, duality screen S, ν_6) are withdrawn; computed Saturn extrapolation values stay archived strictly as out-of-domain extrapolation measurements. Coupled AeST Q^4 + running λ_s(Q) passes the 626-bin Planck plik_lite + DESI DR2 BAO Boltzmann fit at 1.35σ (Δχ² = +1.82); unscreened hydrostatic AeST dust overshoots X-COP clusters at R_200 [X]; the Lean suite passes in CI with 0 sorry and standard axioms only; retracted-claim list matches assurance/claims.json (24/24). Updated 2026-11-25: Ω_Λ = ln 2 is consistent with Planck 2018 distance priors + DESI DR2 BAO + Pantheon+ or DES-Dovekie (Δχ² = 1.73 and 1.44 against free ΛCDM) and stays [O] as a conjectured horizon boundary condition; the ΩCDM status check is deposited as Zenodo 10.5281/zenodo.24530683. R.W. Yett's observation-tier directive separates the galaxy-level dynamics (the law above) from a geometric optical effect on how galaxies are observed; optical map v0 is written ([O]). Its first test, the KiDS-1000 weak-lensing RAR, failed as written (χ² = 52/7) and passes on re-test once lens baryons are put on the mass system a₀ was measured on (joint χ² = 17.8/14; early- and late-type galaxies agree); a blind test on new data is still owed.",
   links: {
     github: "https://github.com/Mega-Therion/Res-Nova",
@@ -200,7 +200,7 @@ export const claimRegistryState = {
   source: "CLAIM_EVIDENCE_LEDGER.md",
   release: releaseState.researchRelease,
   commit: releaseState.commit,
-  snapshotDate: "2026-10-13",
+  snapshotDate: "2026-11-25",
   totalClaims: claims.length,
   statuses: {
     derived: claims.filter(claim => claim.status === "derived").length,

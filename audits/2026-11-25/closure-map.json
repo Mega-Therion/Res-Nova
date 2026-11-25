@@ -1,0 +1,21 @@
+{
+  "repository": "Mega-Therion/Res-Nova",
+  "audited_commit": "212b55a8da278f1363d82642b736fc7ef30dee7c",
+  "audit_date": "2026-11-25",
+  "local_gate": "PASS",
+  "lean_local_execution": "BLOCKED: lake/Mathlib unavailable in sandbox; committed CI evidence retained",
+  "issues": {
+    "183": {"status": "CLOSEABLE_NOW_AFTER_DOCUMENTATION", "next": "Cross-link exact Cassini, a0, nu6, and screen artifacts; preserve separate inputs and proxy scopes; rerun gates."},
+    "184": {"status": "OPEN_PHYSICS", "next": "Freeze total-law AeST action and run converged nonspherical EFE with independent check and raw JSON."},
+    "185": {"status": "BLOCKED_EXTERNAL_OPERATIONS", "next": "Clear/confirm Vercel quota, deploy intended main SHA, verify READY production SHAs and smoke checks."},
+    "186": {"status": "BLOCKED_EXTERNAL_ARTIFACTS_AND_NEW_GATE", "next": "Mirror C3 artifacts, recompute corrected screening requirement, preregister and run R3 covariant screen gate."},
+    "187": {"status": "BLOCKED_EXTERNAL_ARTIFACTS_AND_SAME_ACTION_DERIVATION", "next": "Mirror J6-total workspace, derive same-action equations/stability, and run independent SPARC/EFE gates."},
+    "188": {"status": "BLOCKED_PUBLICATION_SCOPE_AND_INDEPENDENT_RERUN", "next": "Package narrower manuscript and ledger; obtain independent rerun; do not claim submission-ready closure."},
+    "214": {"status": "OPEN_PHYSICS", "next": "Run full extended-source two-field BVP with frozen action/profile, stability, boundary selection, and branch comparison."}
+  },
+  "repository_edit": {
+    "path": "research-hub/client/src/data/research.ts",
+    "changes": ["releaseState.commit 708ddcc2 -> 212b55a8", "claimRegistryState.snapshotDate 2026-10-13 -> 2026-11-25"],
+    "scope": "metadata hygiene only; no theory, data, nuisance, or gate changes"
+  }
+}
