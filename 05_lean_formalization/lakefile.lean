@@ -208,5 +208,6 @@ lean_lib «ResNovaFormal» where
     `BandCircle,
     `SovereignConstants,
     `BernoulliLegendreShell,
-    `RimOffset
+    `RimOffset,
+    `IharaGraphRH
   ]

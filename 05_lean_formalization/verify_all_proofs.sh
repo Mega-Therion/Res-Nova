@@ -131,6 +131,7 @@ TARGETS=(
   SovereignConstants.lean
   BernoulliLegendreShell.lean
   RimOffset.lean
+  IharaGraphRH.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------
