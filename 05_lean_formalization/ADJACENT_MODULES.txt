@@ -588,3 +588,4 @@ BernoulliLegendreShell.lean      # Bernoulli-Legendre invariance, AQUAL acoustic
 RimOffset.lean                   # Offset-sphere Legendre coefficients a1 = -eps, a2 = -eps^2/3
                                  # and B4 multipole bridge (8 thms, from 4Leibniz). Companion to
                                  # E.H.Y.E.H. Folio V; not Table 2.
+IharaGraphRH.lean                # Graph RH <=> Ramanujan bound, pole-by-pole (Ihara zeta analogue; RH synthesis 2026-11-24)
