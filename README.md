@@ -51,7 +51,7 @@ The theory starts in Geometrically Ordered Dynamics and Information Tension: a c
 
 Res-Nova is the only public home of claims about the physical world. Notes in Chyren stay in the workshop until they name a catalog, a measurement, or a physical model and are promoted here. Nova-Conscientia may borrow a formula as code. That borrowing is not a result of this repository. See [`docs/REPO_PROMOTION.md`](docs/REPO_PROMOTION.md).
 
-Res-Nova is a research program in modified gravity built to be checked:
+Res-Nova is a research program in modified gravity tested in the open:
 - It tests a MOND-type galactic interpolating law (`μ_std`) and its covariant completion (Skordis–Złośnik AeST) against real catalogs. These are SPARC (175 galaxies / 3,391 points for the `a₀` extraction; 171 galaxies / 3,375 points for the matched parameter ledger), the RC100 and MUSE-DARK III high-redshift samples, X-COP galaxy clusters (12 clusters), and Planck 2018 `plik_lite` + DESI DR2 BAO cosmology. Outside galaxies (including the solar system), ordinary general relativity holds (`OUTSIDE_GALAXIES.md`, [`02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md`](02_galaxy_dynamics/GALAXY_LAW_SCOPE_2026-11-21.md)); the Cassini external-field quadrupole is a solar-system measurement and is not a gate on `μ_std`, `a₀`, or SPARC.
 - It records what the data reject as well as what survives.
 - It machine-checks the mathematics in Lean 4.
