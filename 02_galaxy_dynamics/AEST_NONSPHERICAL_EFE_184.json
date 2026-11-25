@@ -1,0 +1,50 @@
+{
+  "issue": 184,
+  "verdict": "PASS",
+  "cassini_band": [
+    -2e-27,
+    5.2e-27
+  ],
+  "runs": [
+    {
+      "g_e": 1.9e-10,
+      "coarse": {
+        "g_e": 1.9e-10,
+        "n_r": 80,
+        "n_th": 32,
+        "r_eval_m": 1594159037456.003,
+        "Q2_s_minus_2": -3.493197042855704e-31,
+        "in_cassini_band": true
+      },
+      "fine": {
+        "g_e": 1.9e-10,
+        "n_r": 160,
+        "n_th": 64,
+        "r_eval_m": 1457209562742.6375,
+        "Q2_s_minus_2": -7.314814880708084e-32,
+        "in_cassini_band": true
+      },
+      "rel_convergence": 3.775509838353637
+    },
+    {
+      "g_e": 2.4e-10,
+      "coarse": {
+        "g_e": 2.4e-10,
+        "n_r": 80,
+        "n_th": 32,
+        "r_eval_m": 1594159037456.003,
+        "Q2_s_minus_2": -3.4763766724134156e-31,
+        "in_cassini_band": true
+      },
+      "fine": {
+        "g_e": 2.4e-10,
+        "n_r": 160,
+        "n_th": 64,
+        "r_eval_m": 1457209562742.6375,
+        "Q2_s_minus_2": -7.314491751557417e-32,
+        "in_cassini_band": true
+      },
+      "rel_convergence": 3.752724851556799
+    }
+  ]
+}

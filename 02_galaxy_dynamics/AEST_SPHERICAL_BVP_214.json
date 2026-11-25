@@ -1,0 +1,78 @@
+{
+  "issue": 214,
+  "verdict": "PASS",
+  "runs": [
+    {
+      "profile": "point",
+      "bc_type": "dirichlet",
+      "n_r": 400,
+      "has_negative_condensate": false,
+      "min_rho_c": 0.0,
+      "max_g_ratio": 83.40651522946615
+    },
+    {
+      "profile": "point",
+      "bc_type": "neumann",
+      "n_r": 400,
+      "has_negative_condensate": false,
+      "min_rho_c": 0.0,
+      "max_g_ratio": 90.42482892835972
+    },
+    {
+      "profile": "point",
+      "bc_type": "robin",
+      "n_r": 400,
+      "has_negative_condensate": false,
+      "min_rho_c": 0.0,
+      "max_g_ratio": 83.40651522946615
+    },
+    {
+      "profile": "plummer",
+      "bc_type": "dirichlet",
+      "n_r": 400,
+      "has_negative_condensate": false,
+      "min_rho_c": 0.0,
+      "max_g_ratio": 83.40651522960175
+    },
+    {
+      "profile": "plummer",
+      "bc_type": "neumann",
+      "n_r": 400,
+      "has_negative_condensate": false,
+      "min_rho_c": 0.0,
+      "max_g_ratio": 90.42482892849533
+    },
+    {
+      "profile": "plummer",
+      "bc_type": "robin",
+      "n_r": 400,
+      "has_negative_condensate": false,
+      "min_rho_c": 0.0,
+      "max_g_ratio": 83.40651522960175
+    },
+    {
+      "profile": "hernquist",
+      "bc_type": "dirichlet",
+      "n_r": 400,
+      "has_negative_condensate": false,
+      "min_rho_c": 0.0,
+      "max_g_ratio": 83.4066888941959
+    },
+    {
+      "profile": "hernquist",
+      "bc_type": "neumann",
+      "n_r": 400,
+      "has_negative_condensate": false,
+      "min_rho_c": 0.0,
+      "max_g_ratio": 90.4250097510397
+    },
+    {
+      "profile": "hernquist",
+      "bc_type": "robin",
+      "n_r": 400,
+      "has_negative_condensate": false,
+      "min_rho_c": 0.0,
+      "max_g_ratio": 83.4066888941959
+    }
+  ]
+}
