@@ -1,0 +1,223 @@
+name: fresh-clone-nightly
+
+# [P3-AEON] Fresh-clone reproduction of the Lean proof suite, nightly.
+#
+# Builds 05_lean_formalization from nothing: a digest-pinned Ubuntu container,
+# a fresh checkout, a pinned and checksum-verified elan, the toolchain named in
+# lean-toolchain, Mathlib oleans from `lake exe cache get`, and no restored .lake
+# cache of any kind. It runs verify_all_proofs.sh, turns the gate log into a
+# deterministic receipt (scripts/lean_receipt.py) and compares the receipt's
+# sha256 with the committed known-good, 05_lean_formalization/LEAN_RECEIPT.sha256:
+#
+#   MATCH      green.
+#   DIVERGED   red. A scheduled run opens, or comments on, the issue titled
+#              "Fresh-clone Lean reproduction diverged". Every other scheduled
+#              failure (gate red, refused log, cache stall) alerts the same way;
+#              the issue body names the stage that failed.
+#   BOOTSTRAP  green with a warning: no known-good is committed, nothing was
+#              compared, and the run does not count toward the track record.
+#
+# Recording the known-good: run this workflow by hand with record=true (or take
+# any green run), download its fresh-clone-lean-receipt-* artifact, and commit
+# LEAN_RECEIPT.txt and LEAN_RECEIPT.sha256 into 05_lean_formalization/.
+# scripts/lean_receipt.py says when to re-record.
+#
+# Clean track record: consecutive green scheduled runs whose summary says MATCH,
+# counted from the commit of the known-good:
+#   gh run list --workflow fresh-clone-nightly.yml --event schedule --limit 7
+# Scheduled runs fire only from the default branch.
+
+on:
+  schedule:
+    # 07:37 UTC nightly, after verify.yml's cached lean-gate (06:17 UTC).
+    - cron: "37 7 * * *"
+  workflow_dispatch:
+    inputs:
+      record:
+        description: "Record only: write the receipt artifact and skip the known-good comparison"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: fresh-clone-nightly-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fresh-clone-repro:
+    name: Fresh-clone Lean reproduction and receipt
+    runs-on: ubuntu-latest
+    # The cache and gate steps carry their own timeouts, and those add up to
+    # less than this. A stall then FAILS its step, which alerts. Hitting the
+    # job timeout would only cancel the run, and a cancelled run raises no issue.
+    timeout-minutes: 150
+    container:
+      # ubuntu:24.04, pinned by its image-index digest (resolved from the
+      # registry 2026-11-25). To bump, re-resolve the tag and replace the digest.
+      image: ubuntu:24.04@sha256:562111b88caa79c71391c0c4d3c2114a7d5c35915c20561fd893cb1e07929e6b
+    defaults:
+      run:
+        shell: bash
+    env:
+      ELAN_VERSION: v4.2.4
+      ELAN_SHA256: 42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63
+      # Workspace-relative on purpose. In a container job the runner.temp
+      # context can resolve to the host's path instead of the container's
+      # $RUNNER_TEMP, and artifact paths built from it would then upload nothing.
+      OUT: _fresh_clone
+    steps:
+      - name: Install container prerequisites
+        id: prereqs
+        run: |
+          set -euo pipefail
+          export DEBIAN_FRONTEND=noninteractive
+          apt-get update
+          apt-get install -y --no-install-recommends \
+            build-essential \
+            ca-certificates \
+            curl \
+            git \
+            python3 \
+            tar \
+            xz-utils \
+            zstd
+          rm -rf /var/lib/apt/lists/*
+          # The checkout belongs to the runner user; git and Lake run as root here.
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Fresh checkout (no cache restore of any kind)
+        id: checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Assert a fresh tree (no .lake, no elan, no Mathlib cache)
+        id: fresh
+        run: |
+          set -euo pipefail
+          stale="$(find . -name .lake -prune -print)"
+          for d in "$HOME/.elan" "$HOME/.cache/mathlib"; do
+            if [ -e "$d" ]; then stale="$stale $d"; fi
+          done
+          if [ -n "$stale" ]; then
+            echo "::error title=Not a fresh clone::found before any build:$stale"
+            exit 1
+          fi
+          echo "fresh: no .lake in the checkout; no elan or Mathlib cache under $HOME"
+
+      - name: Receipt tool self-test
+        id: selftest
+        run: python3 scripts/lean_receipt.py --self-test
+
+      - name: Install elan (pinned release, checksum-verified)
+        id: elan
+        run: |
+          set -euo pipefail
+          tmp="$(mktemp -d)"
+          curl -sSfL --retry 3 -o "$tmp/elan.tar.gz" \
+            "https://github.com/leanprover/elan/releases/download/${ELAN_VERSION}/elan-x86_64-unknown-linux-gnu.tar.gz"
+          echo "${ELAN_SHA256}  $tmp/elan.tar.gz" | sha256sum -c -
+          tar -xzf "$tmp/elan.tar.gz" -C "$tmp"
+          "$tmp/elan-init" -y --no-modify-path --default-toolchain none
+          rm -rf "$tmp"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Install the pinned toolchain and fetch Mathlib oleans
+        id: cache
+        # A healthy run takes minutes. This is the step that stalls (open problem O6).
+        timeout-minutes: 30
+        working-directory: 05_lean_formalization
+        run: |
+          set -euo pipefail
+          cat lean-toolchain
+          lean --version
+          lake --version
+          lake exe cache get
+
+      - name: Run the full Lean proof gate
+        id: gate
+        # In verify.yml's lean-gate this same gate, building every target cold,
+        # takes about 10 minutes on a hosted runner.
+        timeout-minutes: 100
+        run: |
+          set -euo pipefail
+          mkdir -p "$OUT/receipt"
+          (cd 05_lean_formalization && bash verify_all_proofs.sh) 2>&1 | tee "$OUT/gate.log"
+
+      - name: Build the receipt and compare it with the committed known-good
+        id: receipt
+        env:
+          RECORD: ${{ inputs.record }}
+        run: |
+          set -euo pipefail
+          if [ "$RECORD" = "true" ]; then
+            echo "record=true: writing the receipt only; nothing is compared."
+            mode=(--write)
+          else
+            mode=(--write --check)
+          fi
+          python3 scripts/lean_receipt.py "${mode[@]}" --log "$OUT/gate.log" --out "$OUT/receipt"
+
+      - name: Upload the receipt and the gate log
+        id: upload
+        if: always() && steps.gate.outcome != 'skipped'
+        uses: actions/upload-artifact@v4
+        with:
+          name: fresh-clone-lean-receipt-${{ github.run_id }}-${{ github.run_attempt }}
+          # gate.log exists whenever the gate ran, so "no files" means wrong paths.
+          if-no-files-found: error
+          path: |
+            ${{ env.OUT }}/gate.log
+            ${{ env.OUT }}/receipt/LEAN_RECEIPT.txt
+            ${{ env.OUT }}/receipt/LEAN_RECEIPT.sha256
+
+      - name: Alert on a scheduled divergence or failure
+        if: failure() && github.event_name == 'schedule'
+        uses: actions/github-script@v7
+        env:
+          STEPS_JSON: ${{ toJSON(steps) }}
+        with:
+          script: |
+            const title = 'Fresh-clone Lean reproduction diverged';
+            const steps = JSON.parse(process.env.STEPS_JSON || '{}');
+            const order = ['prereqs', 'checkout', 'fresh', 'selftest', 'elan', 'cache',
+                           'gate', 'receipt', 'upload'];
+            const outcome = (id) => (steps[id] && steps[id].outcome) || 'not run';
+            const failed = order.find((id) => outcome(id) === 'failure') || 'unknown';
+            const out = (steps.receipt && steps.receipt.outputs) || {};
+            const verdict = out.verdict || {
+              success: 'none', failure: 'no verdict output',
+            }[outcome('receipt')] || 'not reached';
+            const { owner, repo } = context.repo;
+            const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
+            const body = [
+              `Scheduled fresh-clone Lean reproduction failed on \`${context.sha.slice(0, 12)}\`.`,
+              '',
+              `- Run: ${runUrl}`,
+              `- First failing stage: \`${failed}\``,
+              `- Receipt verdict: \`${verdict}\``,
+              `- Receipt sha256: \`${out.sha256 || 'n/a'}\``,
+              `- Committed sha256: \`${out.expected || 'n/a'}\``,
+              `- Stages: ${order.map((id) => `${id}=${outcome(id)}`).join(', ')}`,
+              '',
+              'The run summary carries the receipt diff when one was computed. The',
+              `fresh-clone-lean-receipt-${context.runId}-* artifact holds gate.log and the receipt.`,
+            ].join('\n');
+
+            const open = await github.paginate(github.rest.issues.listForRepo, {
+              owner, repo, state: 'open', per_page: 100,
+            });
+            const existing = open.find((i) => !i.pull_request && i.title === title);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: existing.number, body,
+              });
+              core.info(`Commented on #${existing.number}`);
+            } else {
+              const { data } = await github.rest.issues.create({ owner, repo, title, body });
+              core.info(`Opened #${data.number}`);
+            }
