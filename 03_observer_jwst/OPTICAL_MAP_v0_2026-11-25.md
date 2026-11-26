@@ -83,4 +83,4 @@ Light from a galaxy reaches us along null geodesics of **one metric**, the same 
 
 1. ~~Run P-OM-1 against the published lensing RAR.~~ Done 2026-11-25. v1 failed as written, because its baryons were on a different mass system from a₀. v2, with all baryons on the kinematic system, passes on re-test. Next lensing step: a blind run of the frozen v2 recipe on new data.
 2. Run O4 (a₀(z)): the tier-1 route for early galaxies.
-3. Build an up-to-date JWST target list (spectroscopic z > 10 only), replacing the old 18-galaxy list.
+3. ~~Build an up-to-date JWST target list (spectroscopic z > 10 only), replacing the old 18-galaxy list.~~ Done 2026-11-26 (`JWST_ZGT10_SPEC_TARGETS_2026-11-26.md` + `jwst_zgt10_targets.py`: 50 secure spectra / 48 unique physical galaxies out to `MoM-z14` at $z_{\rm spec} = 14.4441$, retiring `CEERS-93316` at $z_{\rm spec} = 4.912$ and quarantining revised `CAPERS-EGS-65480` at $z_{\rm spec} = 5.875$).

@@ -1,0 +1,476 @@
+#!/usr/bin/env python3
+"""Curated, deduplicated catalog of spectroscopically confirmed z >= 10 JWST galaxies.
+
+Replaces the retired 18-galaxy placeholder/photometric-excess anchor traced to CEERS-93316
+(spectroscopically confirmed interloper at z = 4.912, Arrabal Haro et al. 2023).
+
+Primary authoritative inputs cross-matched by sky position (< 1.0 arcsec):
+  1. Naidu et al. 2025 (arXiv:2505.11263): MoM-z14 (z_spec = 14.44)
+  2. Roberts-Borsani et al. 2025 (arXiv:2508.21708v2, Table 1): 43 NIRSpec spectra / 41 unique galaxies
+  3. Curtis-Lake et al. 2025 / JADES DR4 (arXiv:2510.01033, Combined_DR4_external_v1.2.1.fits)
+  4. Donnan et al. 2026 (arXiv:2601.11515): PAN-z14-1 (z_spec = 13.53)
+  5. Harikane et al. 2026 (arXiv:2601.21833): CEERS2-588 = CEERS-10 MIRI Balmer break (z = 11.04)
+  6. Rodighiero et al. 2026 (arXiv:2603.15841 & 2605.22914): EGS-z11-R0 (z_spec = 11.452)
+  7. Witstok et al. 2026 (arXiv:2603.18775): JADES-GS-z13-1-LA (z_spec = 13.01)
+  8. Heintz et al. 2026 (arXiv:2606.30787, Table 1): 25 DJA v4 + MoM damping-wing sample
+  9. Taylor / CAPERS Collaboration 2026 (arXiv:2610.12322, Table 2): UDS-111893 (12.98), EGS-54833, COSMOS-107634; revises EGS-65480 to z=5.875
+ 10. Arrabal Haro et al. 2023 (Nature 622, 707; arXiv:2303.15431): Maisie's Galaxy, CEERS2-588, CEERS-93316 (z=4.912)
+
+Usage:
+  python3 03_observer_jwst/jwst_zgt10_targets.py          # write CSV, JSON, MD
+  python3 03_observer_jwst/jwst_zgt10_targets.py --check  # verify committed CSV/JSON/MD parity & invariants
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import hashlib
+import json
+import math
+import sys
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+CSV_OUT = HERE / "JWST_ZGT10_SPEC_TARGETS_2026-11-26.csv"
+JSON_OUT = HERE / "JWST_ZGT10_SPEC_TARGETS_2026-11-26.json"
+MD_OUT = HERE / "JWST_ZGT10_SPEC_TARGETS_2026-11-26.md"
+
+# Fields:
+# id_primary, aliases, physical_system, field, ra_deg, dec_deg,
+# z_spec, z_err_or_range, quality_tier, tier, m_uv, lensing_mu,
+# catalogs, primary_ref, notes
+TARGETS = [
+    # --- SECURE spectroscopically confirmed z_spec >= 10.0 (50 spectra = 48 unique physical galaxies) ---
+    ("MoM-z14", "5224_277193; COSMOS-102896", "MoM-z14", "COSMOS", 150.09333, 2.27316,
+     14.4441, "14.44+-0.02 (N25); 14.4441 (H26)", "A/B/C(DJA)+N25", "SECURE", -20.00, 1.0,
+     "N25;RB25;H26", "Naidu+2025 (2505.11263); Heintz+2026 (2606.30787)",
+     "Highest spectroscopically confirmed redshift; sharp Lya break + 5 UV lines."),
+    ("JADES-GS-z14-0", "GS-z14-0; 1287_183348; goods-s-deepjwst_183348", "JADES-GS-z14-0", "GOODS-S", 53.08294, -27.85563,
+     14.1832, "14.1796 (JADES DR4); 14.1832 (H26)", "C(DR4)+ALMA", "SECURE", -20.96, 1.0,
+     "RB25;JADES_DR4;H26", "Carniani+2024; Schouws+2025; Curtis-Lake+2025 (2510.01033)",
+     "PRISM Lya break + ALMA [OIII] 88um confirmation."),
+    ("JADES-GS-z14-1", "GS-z14-1; 1287_20018044; goods-s-deepjwst_20018044", "JADES-GS-z14-1", "GOODS-S", 53.07427, -27.88592,
+     14.0440, "13.86 (DR4) / 14.044 (RB25) / 14.0848 (H26)", "C(DR4)", "SECURE", -19.21, 1.0,
+     "RB25;JADES_DR4;H26", "Carniani+2024; Curtis-Lake+2025 (2510.01033)",
+     "Continuum Lya break confirmation; compact low-luminosity z~14 galaxy."),
+    ("PAN-z14-1", "BEACON-PAN-z14-1", "PAN-z14-1", "Parallel", 334.25036, 0.37921,
+     13.5300, "+0.05/-0.06", "PRISM_break", "SECURE", -20.60, 1.0,
+     "D26", "Donnan+2026 (2601.11515)",
+     "Pure-parallel NIRCam discovery confirmed with NIRSpec PRISM."),
+    ("JADES-GS-z13-0", "GS-z13-0; 3215_20128771; goods-s-deephst_17400; goods-s-ultradeep_20128771", "JADES-GS-z13-0", "GOODS-S", 53.14988, -27.77650,
+     13.2000, "13.20 (DR4); 12.926 (RB25); 12.848 (H26)", "C(DR4)", "SECURE", -18.73, 1.0,
+     "RB25;JADES_DR4;H26", "Curtis-Lake+2023; Hainline+2024; Curtis-Lake+2025",
+     "Observed in DeepHST (17400) and UltraDeep (20128771)."),
+    ("JADES-GS-z13-1-LA", "1287_20013731; goods-s-deepjwst_20013731", "JADES-GS-z13-1-LA", "GOODS-S", 53.06475, -27.89024,
+     13.0100, "13.01 (DR4/Lya); 12.955 (RB25)", "C(DR4)+Lya", "SECURE", -18.70, 1.0,
+     "RB25;JADES_DR4;H26;W26", "Witstok+2025; Witstok+2026 (2603.18775)",
+     "Detected Lyman-alpha emission at z ~ 13.0."),
+    ("CAPERS-UDS-z13", "UDS-111893", "CAPERS-UDS-z13", "UDS", 34.29201, -5.17414,
+     12.9800, "+0.18/-0.16", "zq=9(CAPERS)", "SECURE", -20.03, 1.0,
+     "CAPERS26", "CAPERS / Taylor+2026 (2610.12322)",
+     "Highest-redshift CAPERS confirmation; BEACON+MINERVA photometry rules out Balmer break (dchi2=46.7)."),
+    ("UNCOVER-13077", "2561_13077; UNCOVER-z13", "UNCOVER-13077", "Abell 2744", 3.57087, -30.40159,
+     12.9080, "12.908 (RB25) / 13.08 (Wang+23)", "A/B/C(DJA)", "SECURE", -19.37, 2.5,
+     "RB25", "Fujimoto+2023; Wang+2023",
+     "Magnified mu=2.5 behind Abell 2744."),
+    ("JADES-GS-z12-0", "GS-z12-0; 3215_20096216; goods-s-deephst_2773; goods-s-ultradeep_20096216", "JADES-GS-z12-0", "GOODS-S", 53.16635, -27.82156,
+     12.4800, "12.48 (DR4); 12.516 (RB25); 12.498 (H26)", "C(DR4)+lines", "SECURE", -18.98, 1.0,
+     "RB25;JADES_DR4;H26", "Curtis-Lake+2023; D'Eugenio+2024; Curtis-Lake+2025",
+     "CIII] emission detection confirming systemic redshift."),
+    ("UNCOVER-38766", "2561_38766; UNCOVER-z12", "UNCOVER-38766", "Abell 2744", 3.51356, -30.35680,
+     12.3930, "12.393 (RB25)", "A/B/C(DJA)", "SECURE", -19.10, 1.7,
+     "RB25", "Fujimoto+2023; Wang+2023",
+     "Magnified mu=1.7 behind Abell 2744."),
+    ("GHZ2", "GLASS-z12; 3073_22600", "GHZ2", "Abell 2744", 3.49898, -30.32475,
+     12.3420, "12.338 (RB25); 12.3420 (H26)", "lines+ALMA", "SECURE", -20.96, 1.3,
+     "RB25;H26", "Castellano+2024; Zavala+2025",
+     "Rich rest-UV + [OIII] emission lines; mu=1.3."),
+    ("CAPERS-UDS-88619", "UDS-88619; CAPERS-88619", "CAPERS-UDS-88619", "UDS", 34.31913, -5.23014,
+     11.5100, "11.51+-0.04 (CAPERS26); 11.3637 (H26)", "zq=3(CAPERS)", "SECURE", -20.28, 1.0,
+     "CAPERS26;H26", "Heintz+2026 (2606.30787); CAPERS (2610.12322)",
+     "Robust spectroscopic redshift in UDS."),
+    ("EGS-z11-R0", "DJA-60147; CEERS-EGS-z11-R0", "EGS-z11-R0", "EGS", 214.86171, 52.86185,
+     11.4520, "+-0.021 (CIV+CIII])", "lines_SNR>3", "SECURE", -19.78, 1.0,
+     "R26", "Rodighiero+2026 (2603.15841, 2605.22914)",
+     "Dust-reddened z=11.452 galaxy with CIV (S/N=3.9) and CIII] (S/N=3.2)."),
+    ("Maisie", "CEERS-1; CEERS-16943; CEERS2_5429; 2750_1", "Maisie", "EGS", 214.94315, 52.94244,
+     11.4160, "11.416+-0.005 (AH23); 11.400 (RB25)", "lines+break", "SECURE", -20.25, 1.0,
+     "AH23;RB25;H26", "Arrabal Haro+2023 (2303.15431); Finkelstein+2024",
+     "Maisie's Galaxy; [OII]3727 line + sharp Lya break."),
+    ("JADES-GS-z11-1", "JADES-GS-20015720; 1287_20015720; goods-s-deepjwst_20015720", "JADES-GS-z11-1", "GOODS-S", 53.11763, -27.88818,
+     11.2750, "11.275 (DR4); 11.267 (RB25); 11.2499 (H26)", "C(DR4)", "SECURE", -19.56, 1.0,
+     "RB25;JADES_DR4;H26", "Tang+2025; Curtis-Lake+2025 (2510.01033)",
+     "Deep JADES GOODS-S confirmation."),
+    ("goods-s-mediumjwst_177075", "JADES-177075", "JADES-GS-177075", "GOODS-S", 53.05613, -27.86398,
+     11.1179, "11.1179 (JADES DR4)", "C(DR4)", "SECURE", None, 1.0,
+     "JADES_DR4", "Curtis-Lake+2025 (2510.01033); Heintz+2026",
+     "JADES DR4 medium-JWST flag C confirmation."),
+    ("JADES-GS-z11-0", "GS-z11-0; 1210_14220; 3215_20130158; goods-s-deephst_10014220; goods-s-ultradeep_20130158", "JADES-GS-z11-0", "GOODS-S", 53.16477, -27.77463,
+     11.1220, "11.122 (DR4/RB25); 11.0979 (H26)", "C(DR4)", "SECURE", -19.38, 1.0,
+     "RB25;JADES_DR4;H26", "Curtis-Lake+2023; Witstok+2025_O3; Curtis-Lake+2025",
+     "Observed across JADES DeepHST and UltraDeep."),
+    ("CEERS-10", "CEERS2_588; 2750_10", "CEERS-10", "EGS", 214.90663, 52.94550,
+     11.0430, "11.043+-0.003 (AH23); 11.04 (RB25/Harikane26)", "lines+MIRI", "SECURE", -20.26, 1.0,
+     "AH23;RB25;H26;Ha26", "Arrabal Haro+2023; Harikane+2026 (2601.21833)",
+     "Balmer break observed in MIRI (Harikane+2026)."),
+    ("CAPERS-UDS-z11", "UDS-126973; CAPERS-126973; 6368_126973", "CAPERS-UDS-z11", "UDS", 34.26444, -5.09623,
+     11.0080, "11.008+-0.017 (CAPERS26); 11.1736 (H26)", "zq=3(CAPERS)", "SECURE", -20.44, 1.0,
+     "RB25;H26;CAPERS26", "Kokorev+2025; CAPERS (2610.12322)",
+     "Confirmed CAPERS UDS bright z=11 source."),
+    ("MoM-z11-1", "5224_10132", "MoM-z11-1", "COSMOS", 150.11405, 2.19134,
+     10.9210, "10.921 (RB25)", "A/B/C(DJA)", "SECURE", -19.98, 1.0,
+     "RB25", "Roberts-Borsani+2025 (2508.21708)",
+     "MoM COSMOS z~11 confirmation."),
+    ("JADES-GS-20177294", "1287_20177294; goods-s-deepjwst_20177294", "JADES-GS-20177294", "GOODS-S", 53.07900, -27.86359,
+     10.8930, "10.893 (RB25/Tang25); 10.800 (DR4 flag D)", "A/B/C(DJA)", "SECURE", -19.25, 1.0,
+     "RB25;JADES_DR4", "Tang+2025; Roberts-Borsani+2025",
+     "DJA/Tang+25 confirmation (flag D in JADES DR4 internal table)."),
+    ("JADES-GS-20030902", "GS-20030902; 1286_20030902; goods-s-mediumjwst_20030902", "JADES-GS-20030902", "GOODS-S", 53.10798, -27.87760,
+     10.8499, "10.8499 (DR4 flag C); 10.425 (RB25)", "C(DR4)", "SECURE", -19.68, 1.0,
+     "RB25;JADES_DR4", "Curtis-Lake+2025 (2510.01033); Roberts-Borsani+2025",
+     "Break redshift differs between DR4 (10.85) and RB25 DJA (10.425)."),
+    ("CAPERS-EGS-43539", "6368_43539", "CAPERS-EGS-43539", "EGS", 214.90310, 52.80659,
+     10.8160, "10.816 (RB25)", "A/B/C(DJA)", "SECURE", -18.82, 1.0,
+     "RB25", "Roberts-Borsani+2025 (2508.21708)",
+     "CAPERS EGS confirmation."),
+    ("MoM-z11-2", "MoM-z11; 5224_154407", "MoM-z11-2", "UDS", 34.39431, -5.12917,
+     10.8030, "10.803 (RB25); 10.7123 (H26)", "A/B/C(DJA)", "SECURE", -20.02, 1.0,
+     "RB25;H26", "Roberts-Borsani+2025 (2508.21708); Heintz+2026",
+     "MoM UDS z~10.8 confirmation."),
+    ("GHZ4", "3073_16115", "GHZ4", "Abell 2744", 3.51374, -30.35157,
+     10.6980, "10.698 (RB25)", "A/B/C(DJA)", "SECURE", -19.47, 1.6,
+     "RB25", "Napolitano+2025",
+     "GLASS Abell 2744 lensed source (mu=1.6)."),
+    ("EGS-22637", "CAPERS-22637; 1345_80073; 6368_22637", "EGS-22637", "EGS", 214.93207, 52.84187,
+     10.7040, "10.704 (RB25); 10.7457 (H26); 10.56 (CAPERS26)", "zq=9(CAPERS)+DJA", "SECURE", -20.23, 1.0,
+     "RB25;H26;CAPERS26", "Roberts-Borsani+2025; CAPERS (2610.12322)",
+     "Observed in both CEERS and CAPERS."),
+    ("JADES-GS-20176151", "JADES-20176151; 1287_20176151; 1286_20176151; goods-s-deepjwst_20176151; goods-s-mediumjwst_20176151", "JADES-GS-20176151", "GOODS-S", 53.07076, -27.86544,
+     10.6190, "10.619 (RB25); 10.537/10.408 (DR4)", "C(DR4)", "SECURE", -19.50, 1.0,
+     "RB25;JADES_DR4;H26", "Tang+2025; Curtis-Lake+2025",
+     "Multiple JADES DR4 observations (Deep + Medium)."),
+    ("EGS-69", "2750_69", "EGS-69", "EGS", 214.86160, 52.90460,
+     10.6190, "10.619 (RB25)", "A/B/C(DJA)", "SECURE", -19.78, 1.0,
+     "RB25", "Roberts-Borsani+2025 (2508.21708)",
+     "DDT-2750 target (inconclusive in early AH23 reduction, confirmed in RB25)."),
+    ("GN-z11", "GNz11; 1181_3991; 1211_1268; goods-n-mediumhst_3991; goods-n-mediumjwst_5591", "GN-z11", "GOODS-N", 189.10605, 62.24205,
+     10.6036, "10.6036 (DR4 R1000); 10.6296 (H26)", "A(DR4)", "SECURE", -21.54, 1.0,
+     "RB25;JADES_DR4;H26", "Bunker+2023; Maiolino+2024; Curtis-Lake+2025",
+     "Flag A grating confirmation; hyper-luminous with NIII]/NIV] lines."),
+    ("CAPERS-UDS-z10", "UDS-136645; CAPERS-136645; 6368_136645", "CAPERS-UDS-z10", "UDS", 34.45602, -5.12195,
+     10.5620, "10.562+-0.034 (CAPERS26); 10.581 (RB25)", "zq=3(CAPERS)", "SECURE", -20.56, 1.0,
+     "RB25;H26;CAPERS26", "Kokorev+2025; CAPERS (2610.12322)",
+     "Confirmed CAPERS UDS source."),
+    ("GS-z10", "1210_... (H26)", "GS-z10", "GOODS-S", 53.14675, -27.79406,
+     10.5052, "10.5052 (H26)", "A/B/C(DJA)", "SECURE", -19.78, 1.0,
+     "H26", "Curtis-Lake+2023; Heintz+2026 (2606.30787)",
+     "Listed in Heintz+2026 Table 1 (DJA v4)."),
+    ("GHZ7", "Abell-2744-22302; 3073_22302", "GHZ7", "Abell 2744", 3.45137, -30.32072,
+     10.4770, "10.477 (RB25); 10.4597 (H26)", "A/B/C(DJA)", "SECURE", -19.96, 1.2,
+     "RB25;H26", "Napolitano+2025; Heintz+2026",
+     "GLASS Abell 2744 lensed source (mu=1.2)."),
+    ("GS-72355", "1286_20030133; goods-s-mediumjwst_20030133", "GS-72355", "GOODS-S", 53.16594, -27.83424,
+     10.4220, "10.422 (RB25/Weibel25); 10.2256 (DR4 flag D)", "A/B/C(DJA)", "SECURE", -19.85, 1.0,
+     "RB25;JADES_DR4", "Weibel+2025; Roberts-Borsani+2025",
+     "Confirmed in Weibel+2025 & RB25."),
+    ("EGS-54833", "CAPERS-EGS-54833", "EGS-54833", "EGS", 214.88597, 52.81906,
+     10.3900, "+-0.06", "zq=4(CAPERS)", "SECURE", -19.57, 1.0,
+     "CAPERS26", "CAPERS / Taylor+2026 (2610.12322)",
+     "New CAPERS quality-flag-4 spectroscopic confirmation."),
+    ("CAPERS-UDS-82699", "UDS-52799; UDS-82699; 6368_82699", "CAPERS-UDS-82699", "UDS", 34.41356, -5.24425,
+     10.3130, "10.313+-0.021 (CAPERS26); 10.302 (RB25); 10.396 (H26)", "zq=3(CAPERS)", "SECURE", -19.64, 1.0,
+     "RB25;H26;CAPERS26", "Weibel+2026; Heintz+2026; CAPERS (2610.12322)",
+     "Quality-flag-3 CAPERS UDS confirmation."),
+    ("CAPERS-COS-109917", "COSMOS-109917; CAPERS-109917; 6368_109917", "CAPERS-COS-109917", "COSMOS", 150.14291, 2.28802,
+     10.2807, "10.38 (CAPERS26); 10.2807 (H26); 10.272 (RB25)", "zq=3(CAPERS)", "SECURE", -19.65, 1.0,
+     "RB25;H26;CAPERS26", "Tang+2025; Heintz+2026; CAPERS (2610.12322)",
+     "Quality-flag-3 CAPERS COSMOS confirmation."),
+    ("GHZ8", "Abell-2744-23984; 3073_23984", "GHZ8", "Abell 2744", 3.45143, -30.32180,
+     10.2310, "10.231 (RB25); 10.3591 (H26)", "A/B/C(DJA)", "SECURE", -20.63, 1.2,
+     "RB25;H26", "Napolitano+2025; Heintz+2026",
+     "GLASS Abell 2744 lensed source (mu=1.2)."),
+    ("MACS0647-JD1", "JD1; 1433_3593", "MACS0647-JD", "MACS 0647", 101.98229, 70.24327,
+     10.1700, "10.17 (Hsiao+24)", "lines", "SECURE", -20.27, 8.0,
+     "RB25", "Hsiao+2023; Hsiao+2024",
+     "Lensed image 1 of MACS0647-JD physical system (mu=8.0)."),
+    ("MACS0647-JD2", "JD2; MACS0647-3349; 1433_3349", "MACS0647-JD", "MACS 0647", 101.97133, 70.23972,
+     10.1716, "10.1716 (H26); 10.170 (RB25)", "lines", "SECURE", -20.23, 5.3,
+     "RB25;H26", "Hsiao+2023; Hsiao+2024; Heintz+2026",
+     "Second lensed image of MACS0647-JD physical system (mu=5.3)."),
+    ("MACS0647-JD1c", "JD1c; 1433_3621", "MACS0647-JDc", "MACS 0647", 101.98280, 70.24387,
+     10.1700, "10.17 (Hsiao+24)", "lines", "SECURE", -17.14, 8.0,
+     "RB25", "Hsiao+2024",
+     "Companion source-plane clump ~3 kpc from JD (image 1c, mu=8.0)."),
+    ("MACS0647-JD2c", "JD2c; 1433_3314", "MACS0647-JDc", "MACS 0647", 101.96986, 70.23939,
+     10.1700, "10.17 (Hsiao+24)", "lines", "SECURE", -18.29, 5.3,
+     "RB25", "Hsiao+2024",
+     "Second lensed image of companion clump JDc (mu=5.3)."),
+    ("GHZ9", "3073_17724", "GHZ9", "Abell 2744", 3.47876, -30.34552,
+     10.1370, "10.137 (RB25)", "A/B/C(DJA)", "SECURE", -19.89, 1.3,
+     "RB25", "Napolitano+2025",
+     "GLASS Abell 2744 source (AGN candidate at z=10.14)."),
+    ("MoM-z10-1", "5224_144739", "MoM-z10-1", "UDS", 34.28225, -5.14288,
+     10.1160, "10.116 (RB25)", "A/B/C(DJA)", "SECURE", -20.05, 1.0,
+     "RB25", "Roberts-Borsani+2025 (2508.21708)",
+     "MoM UDS z=10.12 confirmation."),
+    ("CEERS-64", "CEERS2-7929; 2750_64", "CEERS-64", "EGS", 214.92278, 52.91153,
+     10.1000, "10.10 (AH23b/RB25)", "break", "SECURE", -19.99, 1.0,
+     "AH23b;RB25", "Arrabal Haro+2023 (2303.15431); Harikane+2024",
+     "Confirmed z=10.10 break in DDT-2750."),
+    ("COSMOS-107634", "CAPERS-COSMOS-107634", "COSMOS-107634", "COSMOS", 150.16169, 2.28338,
+     10.1000, "+0.11/-0.12", "zq=9(CAPERS)", "SECURE", -20.34, 1.0,
+     "CAPERS26", "CAPERS / Taylor+2026 (2610.12322)",
+     "CAPERS flag-9 single-feature/break confirmation."),
+    ("JADES-GS-z10-0", "GS-z10-0; 1210_14177; goods-s-deephst_10014177", "JADES-GS-z10-0", "GOODS-S", 53.15884, -27.77349,
+     10.3989, "10.4094 (DR4 flag C); 10.3989 (H26); 10.075 (RB25)", "C(DR4)", "SECURE", -18.49, 1.0,
+     "RB25;JADES_DR4;H26", "Curtis-Lake+2023; Curtis-Lake+2025; Heintz+2026",
+     "Original JADES DR1 z~10.4 Lya break galaxy."),
+    ("GLASS-z11-17225", "3073_18252", "GLASS-z11-17225", "Abell 2744", 3.50731, -30.34320,
+     10.0660, "10.066 (RB25)", "A/B/C(DJA)", "SECURE", -19.16, 1.4,
+     "RB25", "Napolitano+2025",
+     "GLASS Abell 2744 source (mu=1.4)."),
+    ("UNCOVER-26185", "2561_26185", "UNCOVER-26185", "Abell 2744", 3.56707, -30.37786,
+     10.0610, "10.061 (RB25)", "A/B/C(DJA)", "SECURE", -18.46, 4.1,
+     "RB25", "Fujimoto+2023; Alvarez+2026",
+     "Strongly magnified (mu=4.1) behind Abell 2744."),
+    ("UNCOVER-37126", "2561_37126", "UNCOVER-37126", "Abell 2744", 3.59011, -30.35974,
+     10.0190, "10.019 (RB25)", "A/B/C(DJA)", "SECURE", -19.92, 2.2,
+     "RB25", "Fujimoto+2023",
+     "Magnified mu=2.2 behind Abell 2744."),
+    ("CEERS-80041", "1345_80041", "CEERS-80041", "EGS", 214.73253, 52.75809,
+     10.0100, "10.010 (AH23/RB25)", "A/B/C(DJA)", "SECURE", -20.43, 1.0,
+     "RB25", "Arrabal Haro+2023b",
+     "Confirmed z=10.01 CEERS galaxy."),
+
+    # --- TENTATIVE JADES DR4 flag=D only (not counted in SECURE physical count) ---
+    ("goods-n-mediumjwst_72369", "JADES-72369", "JADES-GN-72369", "GOODS-N", 189.28609, 62.16988,
+     11.1670, "DR4 flag=D tentative", "D(DR4)", "TENTATIVE_D", None, 1.0,
+     "JADES_DR4", "Curtis-Lake+2025 (2510.01033)",
+     "Tentative visual redshift flag D in JADES DR4; excluded from primary count."),
+    ("goods-s-deepjwst_20064312", "JADES-20064312", "JADES-GS-20064312", "GOODS-S", 53.07248, -27.85535,
+     10.4800, "DR4 flag=D tentative", "D(DR4)", "TENTATIVE_D", None, 1.0,
+     "JADES_DR4", "Curtis-Lake+2025 (2510.01033)",
+     "Tentative visual redshift flag D in JADES DR4; excluded from primary count."),
+    ("goods-s-deepjwst_20015285", "JADES-20015285", "JADES-GS-20015285", "GOODS-S", 53.07905, -27.88860,
+     10.2615, "DR4 flag=D tentative", "D(DR4)", "TENTATIVE_D", None, 1.0,
+     "JADES_DR4", "Curtis-Lake+2025 (2510.01033)",
+     "Tentative visual redshift flag D in JADES DR4; excluded from primary count."),
+
+    # --- RECLASSIFIED / DISPUTED across compilations ---
+    ("CAPERS-EGS-65480", "EGS-65480; 6368_65480", "CAPERS-EGS-65480", "EGS", 214.80717, 52.79020,
+     5.8750, "5.875+-0.012 (CAPERS26) vs 12.344 (RB25)", "DISPUTED_REVISED", "RECLASSIFIED", -19.17, 1.0,
+     "RB25;CAPERS26", "Roberts-Borsani+2025 (12.344) -> CAPERS 2610.12322 Table 2 comment (5.875)",
+     "Originally listed at z=12.344 in RB25; commented out and revised to z_spec=5.875+-0.012 in CAPERS Oct 2026."),
+
+    # --- REJECTED INTERLOPERS (historically misidentified at z > 15) ---
+    ("CEERS-93316", "2750_0", "CEERS-93316", "EGS", 214.91455, 52.94302,
+     4.9120, "4.912+-0.001 (was z_phot=16.0-16.6)", "INTERLOPER_REJECTED", "REJECTED_INTERLOPER", None, 1.0,
+     "AH23", "Arrabal Haro+2023 Nature 622, 707 (2303.15431)",
+     "Retired legacy C4 anchor: strong Halpha+[OIII] line emission at z=4.912 mimicked a z~16.4 break."),
+    ("COSMOS-39810", "CAPERS-COSMOS-39810", "COSMOS-39810", "COSMOS", 150.14500, 2.28000,
+     3.6600, "3.66 (was z_phot~17)", "INTERLOPER_REJECTED", "REJECTED_INTERLOPER", None, 1.0,
+     "CAPERS26", "CAPERS / Taylor+2026 (2610.12322 Sec 4)",
+     "Example z_phot~17 interloper spectroscopically confirmed at z=3.66; resolved by evolving UVLF prior."),
+]
+
+
+def angsep_arcsec(ra1, dec1, ra2, dec2):
+    dra = ((ra1 - ra2 + 180.0) % 360.0 - 180.0) * math.cos(math.radians(0.5 * (dec1 + dec2)))
+    ddec = dec1 - dec2
+    return math.hypot(dra, ddec) * 3600.0
+
+
+def build_payload():
+    rows = []
+    for t in TARGETS:
+        (idp, aliases, phys, fld, ra, dec, zs, zrng, qt, tier, muv, mu, cats, pref, notes) = t
+        rows.append({
+            "id_primary": idp,
+            "aliases": aliases,
+            "physical_system": phys,
+            "field": fld,
+            "ra_deg": ra,
+            "dec_deg": dec,
+            "z_spec": zs,
+            "z_detail": zrng,
+            "quality_tier": qt,
+            "tier": tier,
+            "m_uv": muv,
+            "lensing_mu": mu,
+            "catalogs": cats,
+            "primary_ref": pref,
+            "notes": notes,
+        })
+
+    secure = [r for r in rows if r["tier"] == "SECURE"]
+    tent = [r for r in rows if r["tier"] == "TENTATIVE_D"]
+    reclass = [r for r in rows if r["tier"] == "RECLASSIFIED"]
+    interlopers = [r for r in rows if r["tier"] == "REJECTED_INTERLOPER"]
+
+    # Check invariants: no two rows in SECURE+TENTATIVE_D+RECLASSIFIED within 1.0 arcsec
+    active = secure + tent + reclass
+    for i in range(len(active)):
+        for j in range(i + 1, len(active)):
+            sep = angsep_arcsec(active[i]["ra_deg"], active[i]["dec_deg"], active[j]["ra_deg"], active[j]["dec_deg"])
+            if sep < 1.0:
+                raise AssertionError(f"Duplicate sky entry (<1.0 arcsec): {active[i]['id_primary']} vs {active[j]['id_primary']} ({sep:.3f}\")")
+
+    for r in secure + tent:
+        if r["z_spec"] < 10.0:
+            raise AssertionError(f"Expected z_spec >= 10.0 for {r['id_primary']}, got {r['z_spec']}")
+    if any(r["id_primary"] == "CEERS-93316" for r in secure):
+        raise AssertionError("Retired interloper CEERS-93316 leaked into SECURE")
+
+    phys_systems = sorted(set(r["physical_system"] for r in secure))
+    z_max = max(r["z_spec"] for r in secure)
+    summary = {
+        "generated": "2026-11-26",
+        "replaces": "Retired 18-galaxy legacy list and photometric z~16.4 CEERS-93316 anchor (Arrabal Haro+2023 z_spec=4.912)",
+        "n_secure_spectra": len(secure),
+        "n_secure_unique_physical_galaxies": len(phys_systems),
+        "n_tentative_flag_d": len(tent),
+        "n_reclassified_disputed": len(reclass),
+        "n_rejected_interlopers_logged": len(interlopers),
+        "z_spec_max_secure": z_max,
+        "z_spec_max_id": [r["id_primary"] for r in secure if r["z_spec"] == z_max][0],
+        "fields_secure_unique": {
+            fld: len(set(r["physical_system"] for r in secure if r["field"] == fld))
+            for fld in sorted(set(r["field"] for r in secure))
+        },
+        "source_compilations": [
+            "Naidu et al. 2025 (arXiv:2505.11263)",
+            "Roberts-Borsani et al. 2025 (arXiv:2508.21708v2)",
+            "Curtis-Lake et al. 2025 / JADES DR4 (arXiv:2510.01033, Combined_DR4_external_v1.2.1.fits)",
+            "Donnan et al. 2026 (arXiv:2601.11515)",
+            "Harikane et al. 2026 (arXiv:2601.21833)",
+            "Rodighiero et al. 2026 (arXiv:2603.15841, 2605.22914)",
+            "Witstok et al. 2026 (arXiv:2603.18775)",
+            "Heintz et al. 2026 (arXiv:2606.30787)",
+            "CAPERS / Taylor et al. 2026 (arXiv:2610.12322)",
+            "Arrabal Haro et al. 2023 (arXiv:2303.15431)",
+        ],
+    }
+    return {"summary": summary, "targets": rows}
+
+
+def render_csv(rows) -> str:
+    import io
+    buf = io.StringIO()
+    cols = ["id_primary", "aliases", "physical_system", "field", "ra_deg", "dec_deg",
+            "z_spec", "z_detail", "quality_tier", "tier", "m_uv", "lensing_mu",
+            "catalogs", "primary_ref", "notes"]
+    w = csv.DictWriter(buf, fieldnames=cols, lineterminator="\n")
+    w.writeheader()
+    for r in rows:
+        w.writerow(r)
+    return buf.getvalue()
+
+
+def render_md(payload) -> str:
+    s = payload["summary"]
+    rows = payload["targets"]
+    secure = [r for r in rows if r["tier"] == "SECURE"]
+    tent = [r for r in rows if r["tier"] == "TENTATIVE_D"]
+    reclass = [r for r in rows if r["tier"] == "RECLASSIFIED"]
+    interlopers = [r for r in rows if r["tier"] == "REJECTED_INTERLOPER"]
+
+    lines = [
+        "# JWST Spectroscopically Confirmed z >= 10 Target Catalog (2026-11-26)",
+        "",
+        "**Status:** `[D]` Observation-tier catalog compilation (replaces the retired 18-galaxy placeholder table).",
+        "**Generator & Verifier:** `03_observer_jwst/jwst_zgt10_targets.py` (`--check` verifies zero <1\" sky duplicates, z >= 10 cuts, and exact JSON/CSV parity).",
+        "",
+        "## Summary",
+        f"- **Secure spectroscopic confirmations (`z_spec >= 10.0`):** **{s['n_secure_spectra']}** NIRSpec/ALMA spectra covering **{s['n_secure_unique_physical_galaxies']}** unique physical galaxies (accounting for multiply-imaged MACS 0647 `JD1/JD2` and `JD1c/JD2c`).",
+        f"- **Highest confirmed redshift:** `{s['z_spec_max_id']}` at **`z_spec = {s['z_spec_max_secure']:.4f}`** (Naidu+2025 `2505.11263`, Heintz+2026 `2606.30787`).",
+        f"- **Tentative `flag=D` JADES DR4 entries (quarantined from primary count):** {s['n_tentative_flag_d']}.",
+        f"- **Disputed / revised (`CAPERS-EGS-65480`):** {s['n_reclassified_disputed']} (listed at 12.344 in RB25; revised to `z_spec = 5.875 +/- 0.012` in CAPERS `2610.12322` Table 2).",
+        f"- **Quarantined photometric interlopers (`CEERS-93316`, `COSMOS-39810`):** {s['n_rejected_interlopers_logged']} (including legacy optical-map anchor `CEERS-93316` at `z_spec = 4.912`).",
+        "- **Cosmic-variance / lensing-boost context:** Across 6 fields (GOODS-S, GOODS-N, EGS, UDS, COSMOS, Abell 2744, MACS 0647, BEACON parallel), confirmed `z > 10` galaxies span `10.01 <= z_spec <= 14.44`, replacing every unconfirmed `z > 15` photometric candidate previously cited on the optical tier (`C4`).",
+        "",
+        "## Secure Spectroscopically Confirmed z >= 10 Targets",
+        "",
+        "| # | Primary ID | Field | RA (deg) | Dec (deg) | z_spec | M_UV | mu | Quality | Catalogs | Primary Ref |",
+        "|---|------------|-------|----------|-----------|--------|------|----|---------|----------|-------------|",
+    ]
+    for i, r in enumerate(secure, 1):
+        muv_s = f"{r['m_uv']:.2f}" if r["m_uv"] is not None else "--"
+        lines.append(
+            f"| {i} | `{r['id_primary']}` | {r['field']} | {r['ra_deg']:.5f} | {r['dec_deg']:.5f} | "
+            f"{r['z_spec']:.4f} | {muv_s} | {r['lensing_mu']:.1f} | {r['quality_tier']} | {r['catalogs']} | {r['primary_ref']} |"
+        )
+
+    lines += [
+        "",
+        "## Tentative JADES DR4 `flag=D` Only (Excluded from Primary Count)",
+        "",
+        "| ID | Field | RA (deg) | Dec (deg) | z_spec | Quality | Notes |",
+        "|----|-------|----------|-----------|--------|---------|-------|",
+    ]
+    for r in tent:
+        lines.append(
+            f"| `{r['id_primary']}` | {r['field']} | {r['ra_deg']:.5f} | {r['dec_deg']:.5f} | "
+            f"{r['z_spec']:.4f} | {r['quality_tier']} | {r['notes']} |"
+        )
+
+    lines += [
+        "",
+        "## Reclassified / Retired Interlopers Audit",
+        "",
+        "| ID | Tier | RA (deg) | Dec (deg) | Revised z_spec | Prior Claim / Detail | Reference |",
+        "|----|------|----------|-----------|----------------|----------------------|-----------|",
+    ]
+    for r in reclass + interlopers:
+        lines.append(
+            f"| `{r['id_primary']}` | {r['tier']} | {r['ra_deg']:.5f} | {r['dec_deg']:.5f} | "
+            f"{r['z_spec']:.4f} | {r['z_detail']} | {r['primary_ref']} |"
+        )
+
+    lines += [
+        "",
+        "## Provenance Compilations Checked",
+    ]
+    for src in s["source_compilations"]:
+        lines.append(f"- {src}")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--check", action="store_true", help="Verify committed outputs match generator")
+    args = ap.parse_args()
+
+    payload = build_payload()
+    csv_text = render_csv(payload["targets"])
+    json_text = json.dumps(payload, indent=2) + "\n"
+    md_text = render_md(payload)
+
+    if args.check:
+        ok = True
+        for path, expected in [(CSV_OUT, csv_text), (JSON_OUT, json_text), (MD_OUT, md_text)]:
+            if not path.is_file():
+                print(f"FAIL missing {path}")
+                ok = False
+            elif path.read_text(encoding="utf-8") != expected:
+                print(f"FAIL drift in {path}")
+                ok = False
+        if not ok:
+            sys.exit(1)
+        s = payload["summary"]
+        print(f"PASS JWST z>=10 target list: {s['n_secure_spectra']} secure spectra "
+              f"({s['n_secure_unique_physical_galaxies']} unique galaxies), z_max={s['z_spec_max_secure']:.4f}")
+        return
+
+    CSV_OUT.write_text(csv_text, encoding="utf-8")
+    JSON_OUT.write_text(json_text, encoding="utf-8")
+    MD_OUT.write_text(md_text, encoding="utf-8")
+    s = payload["summary"]
+    print(f"Wrote {CSV_OUT.name}, {JSON_OUT.name}, {MD_OUT.name}: "
+          f"{s['n_secure_spectra']} secure spectra ({s['n_secure_unique_physical_galaxies']} unique), "
+          f"{s['n_tentative_flag_d']} tentative flag=D, {s['n_reclassified_disputed']} reclassified, "
+          f"{s['n_rejected_interlopers_logged']} rejected interlopers.")
+
+
+if __name__ == "__main__":
+    main()
