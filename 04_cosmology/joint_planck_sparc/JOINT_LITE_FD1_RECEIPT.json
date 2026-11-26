@@ -1,0 +1,211 @@
+{
+  "runner": "scripts/run_joint_cobaya.py",
+  "planck_receipt": null,
+  "planck_receipt_sha256": null,
+  "sparc_manifest": "/home/mega/research-os/01-chyren/geometrodynamica/res-nova/VERIFICATION_RUN_001/02_sparc_strict_135/RAW_DATA_MANIFEST.sha256",
+  "sparc_manifest_sha256": "e78c1d6883a7843ca69a6a6f23ebad228e4a362c4861e9cd81a01c43fae9a4e7",
+  "config": {
+    "theory": {
+      "camb": {
+        "extra_args": {
+          "num_massive_neutrinos": 1,
+          "mnu": 0.06
+        }
+      }
+    },
+    "likelihood": {
+      "planck_2018_highl_plik.TTTEEE_lite": {
+        "clik_file": "/home/mega/.chyren/cosmo/planck_like/baseline/plc_3.0/hi_l/plik_lite/plik_lite_v22_TTTEEE.clik"
+      },
+      "resnova_sparc": {
+        "class": "run_joint_cobaya.SparcLikelihoodFixedDistance",
+        "python_path": "/home/mega/research-os/01-chyren/geometrodynamica/res-nova/scripts",
+        "data_dir": "/home/mega/research-os/01-chyren/geometrodynamica/res-nova/02_galaxy_dynamics/sparc_data",
+        "min_points": 3
+      }
+    },
+    "params": {
+      "H0": {
+        "prior": {
+          "min": 50.0,
+          "max": 90.0
+        },
+        "ref": 70.0,
+        "proposal": 0.5
+      },
+      "ombh2": {
+        "prior": {
+          "min": 0.015,
+          "max": 0.03
+        },
+        "ref": 0.0224,
+        "proposal": 0.0002
+      },
+      "omch2": {
+        "prior": {
+          "min": 0.05,
+          "max": 0.25
+        },
+        "ref": 0.12,
+        "proposal": 0.002
+      },
+      "logA": {
+        "prior": {
+          "min": 1.5,
+          "max": 4.0
+        },
+        "ref": 3.044,
+        "proposal": 0.02,
+        "drop": true
+      },
+      "As": {
+        "value": "lambda logA: 1e-10 * np.exp(logA)",
+        "latex": "A_s"
+      },
+      "ns": {
+        "prior": {
+          "min": 0.8,
+          "max": 1.2
+        },
+        "ref": 0.965,
+        "proposal": 0.01
+      },
+      "tau": {
+        "prior": {
+          "dist": "norm",
+          "loc": 0.054,
+          "scale": 0.0073
+        },
+        "ref": 0.054,
+        "proposal": 0.005
+      },
+      "Yd": {
+        "prior": {
+          "dist": "norm",
+          "loc": 0.5,
+          "scale": 0.125
+        },
+        "ref": 0.5,
+        "proposal": 0.02
+      },
+      "Yb": {
+        "prior": {
+          "dist": "norm",
+          "loc": 0.7,
+          "scale": 0.175
+        },
+        "ref": 0.7,
+        "proposal": 0.03
+      },
+      "sigma_v": {
+        "prior": {
+          "min": 0.0,
+          "max": 30.0
+        },
+        "ref": 5.0,
+        "proposal": 0.5
+      },
+      "a0": {
+        "derived": "lambda H0: 1.0421152108506952e-10 * H0 / 67.4",
+        "latex": "a_0"
+      }
+    },
+    "sampler": {
+      "mcmc": {
+        "max_samples": 40000,
+        "Rminus1_stop": 0.05,
+        "Rminus1_cl_stop": 0.3,
+        "learn_proposal": true,
+        "max_tries": 10000
+      }
+    },
+    "output": "/home/mega/research-os/01-chyren/geometrodynamica/res-nova/04_cosmology/joint_planck_sparc/chains/lite_fd1"
+  },
+  "software": {
+    "numpy": "2.4.6",
+    "cobaya": "3.6.2",
+    "clipy": "0.15",
+    "camb": "2.0.5"
+  },
+  "convergence_summary": {
+    "converged": true,
+    "Rminus1_means_final": 0.042303,
+    "Rminus1_stop_target": 0.05,
+    "Rminus1_bounds_final": 0.134087,
+    "acceptance_rate_final": 0.789,
+    "completed_local_time": "2026-11-25T20:39:00-06:00"
+  },
+  "posterior_file": "04_cosmology/joint_planck_sparc/JOINT_LITE_FD1_POSTERIOR.json",
+  "key_posteriors": {
+    "H0": {
+      "mean": 69.41719142027738,
+      "std": 0.5804811064843906,
+      "median": 69.435152,
+      "p16": 68.849347,
+      "p84": 69.96214
+    },
+    "a0": {
+      "mean": 1.0733043186633237e-10,
+      "std": 8.975196275369948e-13,
+      "median": 1.073582e-10,
+      "p16": 1.0645245e-10,
+      "p84": 1.0817301e-10
+    },
+    "ombh2": {
+      "mean": 0.02274118520598606,
+      "std": 0.00014714812593057166,
+      "median": 0.022747073,
+      "p16": 0.022591847,
+      "p84": 0.022889034
+    },
+    "omch2": {
+      "mean": 0.11559865822220482,
+      "std": 0.0012447107347862863,
+      "median": 0.1155445,
+      "p16": 0.11443378,
+      "p84": 0.11687452
+    },
+    "ns": {
+      "mean": 0.975107653882316,
+      "std": 0.004030274308997779,
+      "median": 0.97510633,
+      "p16": 0.97116103,
+      "p84": 0.9789362136
+    },
+    "tau": {
+      "mean": 0.06272855605978218,
+      "std": 0.007343200254595374,
+      "median": 0.062700216,
+      "p16": 0.055341257,
+      "p84": 0.070172603
+    },
+    "Yd": {
+      "mean": 0.8544805291929796,
+      "std": 0.004524781115209746,
+      "median": 0.8544594483333333,
+      "p16": 0.8499694286,
+      "p84": 0.8589846684
+    },
+    "Yb": {
+      "mean": 0.8717496908085873,
+      "std": 0.0066413713661218525,
+      "median": 0.8716645225,
+      "p16": 0.8651211368,
+      "p84": 0.8785071028
+    },
+    "sigma_v": {
+      "mean": 21.73465708383609,
+      "std": 0.29595462574943077,
+      "median": 21.7304965,
+      "p16": 21.43961884,
+      "p84": 22.029686
+    },
+    "chi2": {
+      "mean": 31520.25601143932,
+      "std": 4.830014054762399,
+      "median": 31519.7555,
+      "p16": 31515.54916,
+      "p84": 31524.92892
+    }
+  }
+}
