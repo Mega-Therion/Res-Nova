@@ -1,0 +1,137 @@
+name: fresh-clone-nightly
+
+on:
+  schedule:
+    - cron: "37 7 * * *"
+  workflow_dispatch:
+    inputs:
+      record:
+        description: "Record receipt artifacts only (skip known-good comparison failure)"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: fresh-clone-nightly-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fresh-clone-repro:
+    name: Fresh-Clone Lean Reproduction & Receipt Gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    container:
+      image: ubuntu:24.04
+    steps:
+      - name: Install container prerequisites
+        run: |
+          export DEBIAN_FRONTEND=noninteractive
+          apt-get update
+          apt-get install -y --no-install-recommends \
+            build-essential \
+            ca-certificates \
+            curl \
+            git \
+            python3 \
+            tar \
+            xz-utils \
+            zstd
+          rm -rf /var/lib/apt/lists/*
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Fresh repository checkout (no .lake cache restore)
+        uses: actions/checkout@v4
+
+      - name: Install elan toolchain manager
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \
+            | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Fetch precompiled Mathlib cache
+        working-directory: 05_lean_formalization
+        run: lake exe cache get
+
+      - name: Run full Lean proof verification gate
+        id: gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/lean-receipt"
+          cd 05_lean_formalization
+          bash verify_all_proofs.sh 2>&1 | tee "$RUNNER_TEMP/gate.log"
+
+      - name: Build and verify deterministic Lean receipt
+        id: receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "${{ inputs.record }}" = "true" ]; then
+            python3 scripts/lean_receipt.py \
+              --write \
+              --log "$RUNNER_TEMP/gate.log" \
+              --out "$RUNNER_TEMP/lean-receipt"
+          else
+            python3 scripts/lean_receipt.py \
+              --write \
+              --check \
+              --log "$RUNNER_TEMP/gate.log" \
+              --out "$RUNNER_TEMP/lean-receipt"
+          fi
+
+      - name: Upload fresh-clone Lean receipt artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fresh-clone-lean-receipt-${{ github.run_id }}
+          if-no-files-found: ignore
+          path: |
+            ${{ runner.temp }}/lean-receipt/LEAN_RECEIPT.txt
+            ${{ runner.temp }}/lean-receipt/LEAN_RECEIPT.sha256
+            ${{ runner.temp }}/gate.log
+
+      - name: Alert on scheduled fresh-clone divergence or failure
+        if: failure() && github.event_name == 'schedule'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = 'Fresh-clone Lean reproduction diverged';
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const verdict = '${{ steps.receipt.outputs.verdict }}' || 'gate-failed';
+            const sha256 = '${{ steps.receipt.outputs.sha256 }}' || 'unavailable';
+            const expected = '${{ steps.receipt.outputs.expected }}' || 'unavailable';
+            const body = [
+              `Scheduled fresh-clone Lean reproduction failed on \`${context.sha.slice(0, 12)}\`.`,
+              '',
+              `- **Run:** ${runUrl}`,
+              `- **Receipt verdict:** \`${verdict}\``,
+              `- **Observed sha256:** \`${sha256}\``,
+              `- **Expected sha256:** \`${expected}\``,
+            ].join('\n');
+
+            const existing = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            });
+            const match = existing.find((i) => !i.pull_request && i.title === title);
+            if (match) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: match.number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            }
