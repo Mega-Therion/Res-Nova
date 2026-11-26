@@ -1,0 +1,117 @@
+{
+  "theory": {
+    "camb": {
+      "extra_args": {
+        "num_massive_neutrinos": 1,
+        "mnu": 0.06
+      }
+    }
+  },
+  "likelihood": {
+    "planck_2018_highl_plik.TTTEEE_lite": {
+      "clik_file": "/home/mega/.chyren/cosmo/planck_like/baseline/plc_3.0/hi_l/plik_lite/plik_lite_v22_TTTEEE.clik"
+    },
+    "resnova_sparc": {
+      "class": "run_joint_cobaya.SparcLikelihoodFixedDistance",
+      "python_path": "/home/mega/research-os/01-chyren/geometrodynamica/res-nova/scripts",
+      "data_dir": "/home/mega/research-os/01-chyren/geometrodynamica/res-nova/02_galaxy_dynamics/sparc_data",
+      "min_points": 3
+    }
+  },
+  "params": {
+    "H0": {
+      "prior": {
+        "min": 50.0,
+        "max": 90.0
+      },
+      "ref": 70.0,
+      "proposal": 0.5
+    },
+    "ombh2": {
+      "prior": {
+        "min": 0.015,
+        "max": 0.03
+      },
+      "ref": 0.0224,
+      "proposal": 0.0002
+    },
+    "omch2": {
+      "prior": {
+        "min": 0.05,
+        "max": 0.25
+      },
+      "ref": 0.12,
+      "proposal": 0.002
+    },
+    "logA": {
+      "prior": {
+        "min": 1.5,
+        "max": 4.0
+      },
+      "ref": 3.044,
+      "proposal": 0.02,
+      "drop": true
+    },
+    "As": {
+      "value": "lambda logA: 1e-10 * np.exp(logA)",
+      "latex": "A_s"
+    },
+    "ns": {
+      "prior": {
+        "min": 0.8,
+        "max": 1.2
+      },
+      "ref": 0.965,
+      "proposal": 0.01
+    },
+    "tau": {
+      "prior": {
+        "dist": "norm",
+        "loc": 0.054,
+        "scale": 0.0073
+      },
+      "ref": 0.054,
+      "proposal": 0.005
+    },
+    "Yd": {
+      "prior": {
+        "dist": "norm",
+        "loc": 0.5,
+        "scale": 0.125
+      },
+      "ref": 0.5,
+      "proposal": 0.02
+    },
+    "Yb": {
+      "prior": {
+        "dist": "norm",
+        "loc": 0.7,
+        "scale": 0.175
+      },
+      "ref": 0.7,
+      "proposal": 0.03
+    },
+    "sigma_v": {
+      "prior": {
+        "min": 0.0,
+        "max": 30.0
+      },
+      "ref": 5.0,
+      "proposal": 0.5
+    },
+    "a0": {
+      "derived": "lambda H0: 1.0421152108506952e-10 * H0 / 67.4",
+      "latex": "a_0"
+    }
+  },
+  "sampler": {
+    "mcmc": {
+      "max_samples": 40000,
+      "Rminus1_stop": 0.05,
+      "Rminus1_cl_stop": 0.3,
+      "learn_proposal": true,
+      "max_tries": 10000
+    }
+  },
+  "output": "/home/mega/research-os/01-chyren/geometrodynamica/res-nova/04_cosmology/joint_planck_sparc/chains/lite_fd1"
+}

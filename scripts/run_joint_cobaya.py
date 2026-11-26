@@ -170,6 +170,99 @@ class SparcLikelihood(_CobayaLikelihood):
         return loglike
 
 
+class SparcLikelihoodFixedDistance(SparcLikelihood):
+    """SPARC block with the distance scale fixed (fd = 1): SPARC's catalogued distances.
+
+    The global fd absorbed a0 (see the module docstring), so this variant removes it. H0 then
+    reaches the galaxies only through a0 = c H0 / (2 pi), and the block's H0 profile curves.
+    """
+
+    params = {"Yd": None, "Yb": None, "sigma_v": None}
+
+    def logp(self, **params_values):
+        params_values = dict(params_values)
+        params_values["fd"] = 1.0
+        return SparcLikelihood.logp(self, **params_values)
+
+
+def sparc_h0_profile(sparc_dir: Path, h0_grid: np.ndarray) -> dict[str, Any]:
+    """Profile of the fd = 1 SPARC block over H0: Yd, Yb, sigma_v optimised at each H0
+    (log-likelihood plus the same Gaussian priors on Yd and Yb used in the chains)."""
+    from scipy.optimize import minimize
+
+    like = SparcLikelihoodFixedDistance({"data_dir": str(sparc_dir), "min_points": 3})
+
+    def neg(p, h0):
+        yd, yb, sv = p
+        if yd <= 0 or yb < 0 or not (0.0 <= sv <= 30.0):
+            return 1e30
+        lp = like.logp(H0=h0, Yd=yd, Yb=yb, sigma_v=sv)
+        lp += -0.5 * ((yd - 0.5) / 0.125) ** 2 - 0.5 * ((yb - 0.7) / 0.175) ** 2
+        return -lp
+
+    rows, start = [], np.array([0.5, 0.7, 5.0])
+    for h0 in h0_grid:
+        best = minimize(neg, start, args=(float(h0),), method="Nelder-Mead",
+                        options={"xatol": 1e-5, "fatol": 1e-4, "maxiter": 4000})
+        start = best.x
+        rows.append({"H0": float(h0), "logL_profile": float(-best.fun), "Yd": float(best.x[0]),
+                     "Yb": float(best.x[1]), "sigma_v": float(best.x[2])})
+    top = max(r["logL_profile"] for r in rows)
+    for r in rows:
+        r["delta_chi2"] = 2.0 * (top - r["logL_profile"])
+    best_row = min(rows, key=lambda r: r["delta_chi2"])
+    return {
+        "block": "SPARC, fd fixed to 1, a0 = c H0 / (2 pi), Yd/Yb/sigma_v profiled",
+        "n_galaxies": len(like.galaxies),
+        "n_points": int(sum(len(g[0]) for g in like.galaxies)),
+        "H0_best": best_row["H0"],
+        "a0_at_H0_best": SparcLikelihood._a0_from_h0(best_row["H0"]),
+        "delta_chi2_range_60_90": max(r["delta_chi2"] for r in rows if 60 <= r["H0"] <= 90)
+        - min(r["delta_chi2"] for r in rows if 60 <= r["H0"] <= 90),
+        "rows": rows,
+    }
+
+
+def build_cobaya_info_lite(plik_lite_clik: str, sparc_dir: str, output_prefix: str | None = None,
+                           rminus1_stop: float = 0.05, max_samples: int = 40000) -> dict[str, Any]:
+    """Planck 2018 plik_lite TTTEEE (clik file read by clipy) + tau prior + fd = 1 SPARC.
+
+    Used for the first joint chain. plik_lite marginalises the foregrounds (one nuisance,
+    A_planck); the low-ell EE likelihood is replaced by the Planck 2018 lowE constraint on
+    tau, N(0.054, 0.0073), because only the plik_lite bundle is held locally.
+    """
+    info: dict[str, Any] = {
+        "theory": {"camb": {"extra_args": {"num_massive_neutrinos": 1, "mnu": 0.06}}},
+        "likelihood": {
+            "planck_2018_highl_plik.TTTEEE_lite": {"clik_file": str(Path(plik_lite_clik).resolve())},
+            "resnova_sparc": {
+                "class": "run_joint_cobaya.SparcLikelihoodFixedDistance",
+                "python_path": str(Path(__file__).resolve().parent),
+                "data_dir": str(Path(sparc_dir).resolve()),
+                "min_points": 3,
+            },
+        },
+        "params": {
+            "H0": {"prior": {"min": 50.0, "max": 90.0}, "ref": 70.0, "proposal": 0.5},
+            "ombh2": {"prior": {"min": 0.015, "max": 0.03}, "ref": 0.0224, "proposal": 0.0002},
+            "omch2": {"prior": {"min": 0.05, "max": 0.25}, "ref": 0.12, "proposal": 0.002},
+            "logA": {"prior": {"min": 1.5, "max": 4.0}, "ref": 3.044, "proposal": 0.02, "drop": True},
+            "As": {"value": "lambda logA: 1e-10 * np.exp(logA)", "latex": "A_s"},
+            "ns": {"prior": {"min": 0.8, "max": 1.2}, "ref": 0.965, "proposal": 0.01},
+            "tau": {"prior": {"dist": "norm", "loc": 0.054, "scale": 0.0073}, "ref": 0.054, "proposal": 0.005},
+            "Yd": {"prior": {"dist": "norm", "loc": 0.5, "scale": 0.125}, "ref": 0.5, "proposal": 0.02},
+            "Yb": {"prior": {"dist": "norm", "loc": 0.7, "scale": 0.175}, "ref": 0.7, "proposal": 0.03},
+            "sigma_v": {"prior": {"min": 0.0, "max": 30.0}, "ref": 5.0, "proposal": 0.5},
+            "a0": {"derived": "lambda H0: 1.0421152108506952e-10 * H0 / 67.4", "latex": "a_0"},
+        },
+        "sampler": {"mcmc": {"max_samples": max_samples, "Rminus1_stop": rminus1_stop,
+                             "Rminus1_cl_stop": 0.3, "learn_proposal": True, "max_tries": 10000}},
+    }
+    if output_prefix:
+        info["output"] = str(Path(output_prefix).resolve())
+    return info
+
+
 def build_cobaya_info(planck_paths: dict[str, str], sparc_dir: str, min_points: int,
                       packages_path: str | None = None, output_prefix: str | None = None) -> dict[str, Any]:
     """Build a full clik + CAMB + SPARC Cobaya input dictionary."""
@@ -263,9 +356,29 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--output-prefix", type=Path, default=None)
     parser.add_argument("--config", type=Path, default=None)
     parser.add_argument("--run", action="store_true", help="execute Cobaya after validating the full clik runtime")
+    parser.add_argument("--profile-sparc", type=Path, default=None,
+                        help="write the fd = 1 SPARC-block H0 profile (JSON) and exit")
+    parser.add_argument("--lite", type=Path, default=None,
+                        help="plik_lite TTTEEE .clik path: build the plik_lite + tau prior + fd = 1 SPARC config")
+    parser.add_argument("--rminus1-stop", type=float, default=0.05)
+    parser.add_argument("--resume", action="store_true", help="continue an existing chain from its checkpoint")
     args = parser.parse_args(argv)
 
-    if args.config:
+    if args.profile_sparc:
+        sparc = args.sparc_dir or args.repo_root.resolve() / "02_galaxy_dynamics/sparc_data"
+        prof = sparc_h0_profile(Path(sparc), np.arange(55.0, 90.5, 1.0))
+        args.profile_sparc.parent.mkdir(parents=True, exist_ok=True)
+        args.profile_sparc.write_text(json.dumps(prof, indent=2) + "\n")
+        print(f"Wrote SPARC H0 profile: {args.profile_sparc} (best H0 {prof['H0_best']}, "
+              f"delta chi2 range over 60-90 = {prof['delta_chi2_range_60_90']:.1f})")
+        return 0
+
+    if args.lite and not args.config:
+        sparc = args.sparc_dir or args.repo_root.resolve() / "02_galaxy_dynamics/sparc_data"
+        info = build_cobaya_info_lite(str(args.lite), str(sparc),
+                                      str(args.output_prefix) if args.output_prefix else None,
+                                      rminus1_stop=args.rminus1_stop)
+    elif args.config:
         info = json.loads(args.config.read_text())
     else:
         repo = args.repo_root.resolve()
@@ -288,7 +401,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.run:
         _require_runtime()
         from cobaya.run import run
-        run(info)
+        run(info, resume=args.resume)
     elif not config_path:
         parser.error("provide --write-config/--config or use --run")
     return 0
