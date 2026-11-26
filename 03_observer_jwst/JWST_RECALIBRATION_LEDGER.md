@@ -1,7 +1,10 @@
-# JWST Recalibration Ledger
+> **STATUS NOTICE — RETIRED (2026-11-26):**
+> This historical ledger pre-dates `OBSERVATION_TIER_DIRECTIVE_2026-11-25.md` and `OPTICAL_MAP_v0_2026-11-25.md`. Its three rows relied on retired branch artifacts (`v_yett = v_newton * (1 + 2/chi)` and uncalibrated `141.99` `CEERS-93316` $z \approx 16.7$ photometric excess, which JWST spectroscopy placed at $z_{\rm spec} = 4.912$).
+>
+> **Superseded by:**
+> - [`OPTICAL_MAP_v0_2026-11-25.md`](OPTICAL_MAP_v0_2026-11-25.md) (observation-tier optical map v0, C1–C4 hard constraints).
+> - [`JWST_ZGT10_SPEC_TARGETS_2026-11-26.md`](JWST_ZGT10_SPEC_TARGETS_2026-11-26.md) (authoritative spectroscopically confirmed $z_{\rm spec} \ge 10$ target catalog: 50 spectra / 48 unique physical galaxies, verified by `jwst_zgt10_targets.py --check`).
 
-| Object / Catalog | Baseline Inferred Quantity ($\Lambda$CDM) | ITT-Corrected Quantity | Equation / Code Path | Stated Uncertainty | Independent Validation Status |
-|---|---|---|---|---|---|
-| **JADES / CEERS Early Disks ($z > 8$)** | Over-massive stellar population ($M_* > 10^{10} M_\odot$), "impossible early galaxies" | Standard early stellar mass ($M_* \sim 10^8 M_\odot$) with apparent flux boost from optical tension $\mathcal{T}$ | $v_{\text{yett}} = v_{\text{newton}} \times (1 + 2/\chi)$ in `JWST_VALIDATION_DOSSIER.md` | $\pm 0.25$ dex in apparent magnitude | [O] Open — Not independently validated against spectroscopic baseline |
-| **COSMOS-Web Ultra-High Redshift ($z \approx 10-15$)** | Cosmological age tension: stars older than universe age at observed $z$ | Redshift-distance relation modified by effective metric $g_{\mu\nu}^{\text{opt}}$, restoring stellar age concordance | $1+z_{\text{obs}} = (1+z_{\text{cosm}})\cdot \mathcal{J}(\chi)$ in `IO_OI_FINAL_PAGE1.tex` | Systematic shift $\Delta z \approx 0.15 z$ | [C] Conjectured — Requires full spectroscopic slitless validation |
-| **Spitzer/HST/JWST Cross-Band Photometry** | Instrument-dependent flux calibration discrepancies | Unified AB magnitude reference frame with cross-instrument sensitivity maps | Normalization pass $C = \sum \omega_i \sigma_i$ in `TRINITY_CERTIFICATION_DOSSIER.md` | Claimed 5.9$\sigma$ convergence (on mixed/simulated sample) | [O] Open — Raw uncalibrated tables pending |
+# JWST Recalibration Ledger (RETIRED)
+
+*(Retained only as an audit stub pointing to the live observation-tier replacements above.)*
