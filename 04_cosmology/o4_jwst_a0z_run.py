@@ -93,42 +93,42 @@ def f_DA_planck_over_lit(z: float) -> float:
 # Fields per row:
 # id, tier, z, Re_disk_kpc, logMstar, SFR,
 # sig0, sig0_p, sig0_m, vrot22, vrot22_p, vrot22_m,
-# fdm, fdm_p, fdm_m, bt, bt_is_limit,
+# fdm, fdm_p, fdm_m, bt, bt_limit_dir (None/"<" /">"),
 # logMbar (None if upper limit), logMbar_upper,
 # mbar_stat_p, mbar_stat_m, mbar_sys_p, mbar_sys_m, flag_outlier
 MSA3D_ROWS = [
     # Golden sample (N = 24; 15 bounded + 9 upper limits)
-    ("2111",  "Golden", 0.575, 3.97,  9.97,  1.6, 53.2, 3.3, 12.3, 154.0, 12.0, 11.0, 0.71, 0.08, 0.13, 0.26, False, 10.05, None,  0.10, 0.11, 0.16, 0.09, False),
-    ("2145",  "Golden", 1.173, 3.16,  9.19,  1.4, 43.3, 2.0,  7.9,  76.0, 12.0,  8.0, 0.47, 0.27, 0.18, 0.02, True,   9.82, None,  0.10, 0.11, 0.13, 0.22, False),
-    ("2465",  "Golden", 1.245, 3.31,  9.30,  1.6, 43.4, 3.5,  7.5, 133.0,  7.0,  8.0, 0.76, 0.17, 0.25, 0.02, False,  9.82, None,  0.33, 0.34, 0.22, 0.21, False),
-    ("2824",  "Golden", 0.980, 2.47,  9.49,  0.7, 42.5, 4.2, 10.1, 173.0, 17.0, 17.0, 0.92, 0.03, 0.06, 0.21, False,  None,  9.43, 0.00, 0.00, 0.00, 0.00, False),
-    ("3399",  "Golden", 1.337, 2.65,  9.81,  3.5, 54.0, 1.9,  5.4, 108.0, 11.0, 10.0, 0.76, 0.05, 0.08, 0.32, False,  None,  9.61, 0.00, 0.00, 0.00, 0.00, False),
-    ("4391",  "Golden", 1.079, 1.43,  9.48,  2.7, 49.5, 5.2,  7.7, 136.0, 69.0, 34.0, 0.50, 0.46, 0.21, 0.05, True,   9.84, None,  0.29, 0.32, 0.20, 0.39, False),
-    ("6199",  "Golden", 1.592, 5.86, 10.00, 17.8, 45.2, 1.6,  5.3,  93.0, 20.0, 25.0, 0.66, 0.09, 0.09, 0.18, False,  None,  9.99, 0.00, 0.00, 0.00, 0.00, True),
-    ("6430",  "Golden", 1.172, 4.38,  9.79,  8.9, 58.4, 2.3,  6.3, 133.0, 24.0, 24.0, 0.83, 0.17, 0.40, 0.04, False,  9.82, None,  0.54, 0.15, 0.27, 0.51, True),
-    ("7314",  "Golden", 1.283, 1.60,  9.55,  4.8, 61.0, 2.7,  4.9, 101.0, 16.0, 17.0, 0.62, 0.38, 0.33, 0.09, True,   9.66, None,  0.32, 0.40, 0.12, 0.31, False),
-    ("7561",  "Golden", 1.029, 2.84,  9.21,  3.0, 48.0, 3.7,  6.9,  86.0, 12.0, 19.0, 0.13, 0.87, 0.13, 0.07, False, 10.14, None,  0.09, 0.29, 0.06, 0.39, False),
-    ("8365",  "Golden", 1.685, 2.09,  9.56,  3.4, 35.3, 2.4,  6.6, 132.0, 10.0, 10.0, 0.79, 0.06, 0.07, 0.02, False,  None,  9.53, 0.00, 0.00, 0.00, 0.00, False),
-    ("8576",  "Golden", 1.567, 2.38,  9.60,  3.3, 46.5, 3.0,  5.3, 179.0, 38.0, 27.0, 0.87, 0.06, 0.08, 0.02, False,  9.60, None,  0.25, 0.21, 0.12, 0.13, False),
-    ("8942",  "Golden", 1.176, 1.70,  9.86, 16.2, 53.1, 5.6,  6.2, 153.0, 26.0,  6.0, 0.69, 0.08, 0.06, 0.02, False,  None,  9.78, 0.00, 0.00, 0.00, 0.00, False),
-    ("9424",  "Golden", 0.976, 3.86,  9.76,  5.4, 43.1, 2.8,  9.8, 127.0, 12.0, 11.0, 0.71, 0.09, 0.20, 0.23, False,  9.84, None,  0.03, 0.02, 0.32, 0.14, True),
-    ("9636",  "Golden", 0.737, 3.28,  9.35,  1.7, 33.5, 3.6, 20.3, 106.0,  7.0,  6.0, 0.75, 0.13, 0.15, 0.02, False,  9.60, None,  0.19, 0.20, 0.14, 0.20, False),
-    ("9812",  "Golden", 0.738, 4.51,  9.97,  3.6, 42.4, 2.8, 13.4, 189.0, 34.0, 23.0, 0.44, 0.28, 0.25, 0.02, False, 10.59, None,  0.14, 0.21, 0.18, 0.17, False),
-    ("9960",  "Golden", 1.514, 2.69, 11.06,  6.0, 42.9, 3.6,  6.4, 300.0,  9.0,  9.0, 0.33, 0.19, 0.16, 0.30, True,  10.83, None,  0.08, 0.09, 0.13, 0.15, False),
-    ("10910", "Golden", 0.742, 4.98,  9.57,  1.5, 36.0, 3.3, 17.4, 150.0, 13.0, 11.0, 0.87, 0.10, 0.15, 0.02, False,  9.79, None,  0.37, 0.35, 0.21, 0.22, False),
-    ("11225", "Golden", 1.052, 3.39,  9.67, 12.6, 62.9, 1.8,  5.9, 102.0, 49.0,  6.0, 0.79, 0.09, 0.15, 0.02, False,  None,  9.80, 0.00, 0.00, 0.00, 0.00, False),
-    ("11843", "Golden", 1.465, 3.17, 10.74, 19.0, 53.7, 7.1,  6.5, 273.0, 15.0, 17.0, 0.69, 0.07, 0.14, 0.02, False,  None, 10.52, 0.00, 0.00, 0.00, 0.00, False),
-    ("12015", "Golden", 1.235, 2.39, 10.08, 11.2, 57.7, 2.2,  5.7, 167.0, 18.0, 16.0, 0.75, 0.10, 0.14, 0.02, False,  None,  9.89, 0.00, 0.00, 0.00, 0.00, False),
-    ("12239", "Golden", 0.894, 2.10,  9.49,  1.5, 56.1, 3.4,  8.2, 129.0, 18.0, 16.0, 0.85, 0.09, 0.13, 0.02, False,  9.43, None,  0.29, 0.25, 0.12, 0.19, False),
-    ("18586", "Golden", 0.756, 1.49,  9.01,  3.3, 42.8, 3.3, 13.1,  74.0, 12.0,  9.0, 0.67, 0.19, 0.23, 0.02, False,  9.26, None,  0.23, 0.24, 0.19, 0.25, False),
-    ("29470", "Golden", 1.042, 3.02,  9.71,  2.1, 39.8, 2.2, 10.1, 128.0, 15.0, 12.0, 0.83, 0.05, 0.05, 0.11, True,   None,  9.53, 0.00, 0.00, 0.00, 0.00, False),
+    ("2111",  "Golden", 0.575, 3.97,  9.97,  1.6, 53.2, 3.3, 12.3, 154.0, 12.0, 11.0, 0.71, 0.08, 0.13, 0.26, None,  10.05, None,  0.10, 0.11, 0.16, 0.09, False),
+    ("2145",  "Golden", 1.173, 3.16,  9.19,  1.4, 43.3, 2.0,  7.9,  76.0, 12.0,  8.0, 0.47, 0.27, 0.18, 0.02, "<",    9.82, None,  0.10, 0.11, 0.13, 0.22, False),
+    ("2465",  "Golden", 1.245, 3.31,  9.30,  1.6, 43.4, 3.5,  7.5, 133.0,  7.0,  8.0, 0.76, 0.17, 0.25, 0.02, None,   9.82, None,  0.33, 0.34, 0.22, 0.21, False),
+    ("2824",  "Golden", 0.980, 2.47,  9.49,  0.7, 42.5, 4.2, 10.1, 173.0, 17.0, 17.0, 0.92, 0.03, 0.06, 0.21, None,   None,  9.43, 0.00, 0.00, 0.00, 0.00, False),
+    ("3399",  "Golden", 1.337, 2.65,  9.81,  3.5, 54.0, 1.9,  5.4, 108.0, 11.0, 10.0, 0.76, 0.05, 0.08, 0.32, None,   None,  9.61, 0.00, 0.00, 0.00, 0.00, False),
+    ("4391",  "Golden", 1.079, 1.43,  9.48,  2.7, 49.5, 5.2,  7.7, 136.0, 69.0, 34.0, 0.50, 0.46, 0.21, 0.05, "<",    9.84, None,  0.29, 0.32, 0.20, 0.39, False),
+    ("6199",  "Golden", 1.592, 5.86, 10.00, 17.8, 45.2, 1.6,  5.3,  93.0, 20.0, 25.0, 0.66, 0.09, 0.09, 0.18, None,   None,  9.99, 0.00, 0.00, 0.00, 0.00, True),
+    ("6430",  "Golden", 1.172, 4.38,  9.79,  8.9, 58.4, 2.3,  6.3, 133.0, 24.0, 24.0, 0.83, 0.17, 0.40, 0.04, None,   9.82, None,  0.54, 0.15, 0.27, 0.51, True),
+    ("7314",  "Golden", 1.283, 1.60,  9.55,  4.8, 61.0, 2.7,  4.9, 101.0, 16.0, 17.0, 0.62, 0.38, 0.33, 0.09, "<",    9.66, None,  0.32, 0.40, 0.12, 0.31, False),
+    ("7561",  "Golden", 1.029, 2.84,  9.21,  3.0, 48.0, 3.7,  6.9,  86.0, 12.0, 19.0, 0.13, 0.87, 0.13, 0.07, None,  10.14, None,  0.09, 0.29, 0.06, 0.39, False),
+    ("8365",  "Golden", 1.685, 2.09,  9.56,  3.4, 35.3, 2.4,  6.6, 132.0, 10.0, 10.0, 0.79, 0.06, 0.07, 0.02, None,   None,  9.53, 0.00, 0.00, 0.00, 0.00, False),
+    ("8576",  "Golden", 1.567, 2.38,  9.60,  3.3, 46.5, 3.0,  5.3, 179.0, 38.0, 27.0, 0.87, 0.06, 0.08, 0.02, None,   9.60, None,  0.25, 0.21, 0.12, 0.13, False),
+    ("8942",  "Golden", 1.176, 1.70,  9.86, 16.2, 53.1, 5.6,  6.2, 153.0, 26.0,  6.0, 0.69, 0.08, 0.06, 0.02, None,   None,  9.78, 0.00, 0.00, 0.00, 0.00, False),
+    ("9424",  "Golden", 0.976, 3.86,  9.76,  5.4, 43.1, 2.8,  9.8, 127.0, 12.0, 11.0, 0.71, 0.09, 0.20, 0.23, ">",    9.84, None,  0.03, 0.02, 0.32, 0.14, True),
+    ("9636",  "Golden", 0.737, 3.28,  9.35,  1.7, 33.5, 3.6, 20.3, 106.0,  7.0,  6.0, 0.75, 0.13, 0.15, 0.02, None,   9.60, None,  0.19, 0.20, 0.14, 0.20, False),
+    ("9812",  "Golden", 0.738, 4.51,  9.97,  3.6, 42.4, 2.8, 13.4, 189.0, 34.0, 23.0, 0.44, 0.28, 0.25, 0.02, None,  10.59, None,  0.14, 0.21, 0.18, 0.17, False),
+    ("9960",  "Golden", 1.514, 2.69, 11.06,  6.0, 42.9, 3.6,  6.4, 300.0,  9.0,  9.0, 0.33, 0.19, 0.16, 0.30, "<",   10.83, None,  0.08, 0.09, 0.13, 0.15, False),
+    ("10910", "Golden", 0.742, 4.98,  9.57,  1.5, 36.0, 3.3, 17.4, 150.0, 13.0, 11.0, 0.87, 0.10, 0.15, 0.02, None,   9.79, None,  0.37, 0.35, 0.21, 0.22, False),
+    ("11225", "Golden", 1.052, 3.39,  9.67, 12.6, 62.9, 1.8,  5.9, 102.0, 49.0,  6.0, 0.79, 0.09, 0.15, 0.02, None,   None,  9.80, 0.00, 0.00, 0.00, 0.00, False),
+    ("11843", "Golden", 1.465, 3.17, 10.74, 19.0, 53.7, 7.1,  6.5, 273.0, 15.0, 17.0, 0.69, 0.07, 0.14, 0.02, None,   None, 10.52, 0.00, 0.00, 0.00, 0.00, False),
+    ("12015", "Golden", 1.235, 2.39, 10.08, 11.2, 57.7, 2.2,  5.7, 167.0, 18.0, 16.0, 0.75, 0.10, 0.14, 0.02, None,   None,  9.89, 0.00, 0.00, 0.00, 0.00, False),
+    ("12239", "Golden", 0.894, 2.10,  9.49,  1.5, 56.1, 3.4,  8.2, 129.0, 18.0, 16.0, 0.85, 0.09, 0.13, 0.02, None,   9.43, None,  0.29, 0.25, 0.12, 0.19, False),
+    ("18586", "Golden", 0.756, 1.49,  9.01,  3.3, 42.8, 3.3, 13.1,  74.0, 12.0,  9.0, 0.67, 0.19, 0.23, 0.02, None,   9.26, None,  0.23, 0.24, 0.19, 0.25, False),
+    ("29470", "Golden", 1.042, 3.02,  9.71,  2.1, 39.8, 2.2, 10.1, 128.0, 15.0, 12.0, 0.83, 0.05, 0.05, 0.11, "<",    None,  9.53, 0.00, 0.00, 0.00, 0.00, False),
     # Good sample (N = 6; 5 bounded + 1 upper limit)
-    ("8512",  "Good",   1.104, 5.45, 10.32,  3.2, 42.8, 2.0,  8.6, 177.0, 163.0, 106.0, 0.71, 0.29, 0.33, 0.22, False, 10.27, None, 0.37, 0.35, 0.12, 0.29, False),
-    ("9337",  "Good",   1.172, 5.56,  9.27,  3.9, 36.5, 2.4,  8.9,  57.0,  27.0,  48.0, 0.69, 0.19, 0.23, 0.11, True,  None,  9.59, 0.00, 0.00, 0.00, 0.00, False),
-    ("10107", "Good",   1.010, 3.24, 10.01,  3.6, 60.0, 2.5,  6.5, 112.0,  51.0,  22.0, 0.35, 0.42, 0.35, 0.10, False, 10.28, None, 0.32, 0.30, 0.51, 0.33, False),
-    ("13182", "Good",   1.540, 4.17, 10.25, 15.8, 64.6, 2.7,  6.6, 179.0, 206.0, 128.0, 0.60, 0.40, 0.60, 0.21, False, 10.39, None, 0.47, 0.42, 0.15, 0.41, False),
-    ("13416", "Good",   1.540, 2.30, 10.76, 20.0, 39.7, 4.2,  8.1, 169.0,  15.0,  13.0, 0.03, 0.09, 0.03, 0.60, False, 10.48, None, 0.04, 0.04, 0.13, 0.19, False),
-    ("18188", "Good",   0.822, 6.24,  9.56,  0.8, 43.9, 2.6, 11.4, 108.0,  29.0,  15.0, 0.69, 0.31, 0.25, 0.07, True,  10.07, None, 0.30, 0.30, 0.03, 0.40, False),
+    ("8512",  "Good",   1.104, 5.45, 10.32,  3.2, 42.8, 2.0,  8.6, 177.0, 163.0, 106.0, 0.71, 0.29, 0.33, 0.22, None, 10.27, None, 0.37, 0.35, 0.12, 0.29, False),
+    ("9337",  "Good",   1.172, 5.56,  9.27,  3.9, 36.5, 2.4,  8.9,  57.0,  27.0,  48.0, 0.69, 0.19, 0.23, 0.11, "<",  None,  9.59, 0.00, 0.00, 0.00, 0.00, False),
+    ("10107", "Good",   1.010, 3.24, 10.01,  3.6, 60.0, 2.5,  6.5, 112.0,  51.0,  22.0, 0.35, 0.42, 0.35, 0.10, None, 10.28, None, 0.32, 0.30, 0.51, 0.33, False),
+    ("13182", "Good",   1.540, 4.17, 10.25, 15.8, 64.6, 2.7,  6.6, 179.0, 206.0, 128.0, 0.60, 0.40, 0.60, 0.21, None, 10.39, None, 0.47, 0.42, 0.15, 0.41, False),
+    ("13416", "Good",   1.540, 2.30, 10.76, 20.0, 39.7, 4.2,  8.1, 169.0,  15.0,  13.0, 0.03, 0.09, 0.03, 0.60, None, 10.48, None, 0.04, 0.04, 0.13, 0.19, False),
+    ("18188", "Good",   0.822, 6.24,  9.56,  0.8, 43.9, 2.6, 11.4, 108.0,  29.0,  15.0, 0.69, 0.31, 0.25, 0.07, "<",  10.07, None, 0.30, 0.30, 0.03, 0.40, False),
 ]
 
 # 2. ALPINE-CRISTAL-JWST (arXiv:2611.07064, Tables 1 & 2)
@@ -217,7 +217,16 @@ def build_msa3d_mbar(
         mbar_msun = (10.0 ** logMbar) * (f_d ** 2)
         r22_kpc = R_FACTOR * re_use
 
-        if bt_lim:
+        if bt_lim == ">":
+            if bt_limit_mode == "half":
+                bt_eff = 0.5 * (bt + 1.0)
+            elif bt_limit_mode == "zero":
+                bt_eff = bt
+            elif bt_limit_mode == "upper":
+                bt_eff = 1.0
+            else:
+                raise ValueError(bt_limit_mode)
+        elif bt_lim:
             if bt_limit_mode == "half":
                 bt_eff = 0.5 * bt
             elif bt_limit_mode == "zero":
@@ -230,7 +239,7 @@ def build_msa3d_mbar(
             bt_eff = bt
 
         k_disk = M.k_spheroid(R_FACTOR, 1.0, 0.25)
-        k_bulge = M.k_spheroid(R_FACTOR * re_kpc / 1.0, 4.0, 1.0)
+        k_bulge = M.k_spheroid(R_FACTOR * re_use / 1.0, 4.0, 1.0)
         k_eff = (1.0 - bt_eff) * k_disk + bt_eff * k_bulge
 
         g_obs = (vc * 1e3) ** 2 / (r22_kpc * KPC)
@@ -380,7 +389,6 @@ def fit_bin_profile(data, route, grid):
     ez = np.array([E_z(zz) for zz in data["z"]], float)
     lnR = float(np.sum(w * np.log(ez)) / np.sum(w))
     g, dchi = s["dchi2_fn"]
-    P_raw, _ = lik.profile(grid)
     return {
         "n": int(len(data["z"])),
         "z_range": [float(data["z"].min()), float(data["z"].max())],
@@ -396,22 +404,24 @@ def fit_bin_profile(data, route, grid):
         "chi2_horizon": float(np.interp(math.log(A0_H0) + lnR, g, dchi)),
         "g": g,
         "dchi": dchi,
-        "P_raw": P_raw,
     }
 
 
-def evaluate_2bin(b1_info, b2_info, a0_const=A0_CONST):
+def evaluate_2bin(b1_info, b2_info, a0_const=A0_CONST, a0_h0=A0_H0):
     chi2_const = (
         float(np.interp(math.log(a0_const), b1_info["g"], b1_info["dchi"]))
         + float(np.interp(math.log(a0_const), b2_info["g"], b2_info["dchi"]))
     )
-    chi2_horizon = b1_info["chi2_horizon"] + b2_info["chi2_horizon"]
+    chi2_horizon = (
+        float(np.interp(math.log(a0_h0) + b1_info["lnR"], b1_info["g"], b1_info["dchi"]))
+        + float(np.interp(math.log(a0_h0) + b2_info["lnR"], b2_info["g"], b2_info["dchi"]))
+    )
     dchi2 = chi2_const - chi2_horizon
     sigma = math.sqrt(abs(dchi2)) * (1.0 if dchi2 >= 0 else -1.0)
 
     # Normalization-free shape test & continuous exponent fit a0(z) = A_piv * (E(z)/E1)^n
     bins = [b1_info, b2_info]
-    lnAs = math.log(A0_CONST) + np.arange(-2.5, 3.0 + 1e-9, 0.005)
+    lnAs = math.log(A0_CONST) + np.arange(-3.0, 3.5 + 1e-9, 0.005)
 
     def shape_min(lnRs):
         tot = np.zeros_like(lnAs)
@@ -427,7 +437,7 @@ def evaluate_2bin(b1_info, b2_info, a0_const=A0_CONST):
     # Profile exponent n across bins using exact bin dchi curves
     # Fix log-offset from b1, shift b2 by n * (lnR2 - lnR1)
     dlr = b2_info["lnR"] - b1_info["lnR"]
-    n_grid = np.linspace(-1.0, 2.5, 351)
+    n_grid = np.linspace(-4.0, 3.5, 751)
     dchi_n = []
     for n in n_grid:
         cmin, _ = shape_min([0.0, n * dlr])
@@ -436,9 +446,9 @@ def evaluate_2bin(b1_info, b2_info, a0_const=A0_CONST):
     c_min = float(dchi_n.min())
     dchi_n -= c_min
     i0 = int(np.argmin(dchi_n))
-    n_hat = float(n_grid[i0])
-    n_lo = next((float(n_grid[j]) for j in range(i0, 0, -1) if dchi_n[j - 1] > 1.0), None)
-    n_hi = next((float(n_grid[j]) for j in range(i0, len(n_grid) - 1) if dchi_n[j + 1] > 1.0), None)
+    n_hat = round(float(n_grid[i0]), 4)
+    n_lo = next((round(float(n_grid[j]), 4) for j in range(i0, 0, -1) if dchi_n[j - 1] > 1.0), None)
+    n_hi = next((round(float(n_grid[j]), 4) for j in range(i0, len(n_grid) - 1) if dchi_n[j + 1] > 1.0), None)
 
     if dchi2 <= -9.0:
         verdict = "H_CONST_FAVORED"
@@ -465,28 +475,32 @@ def evaluate_2bin(b1_info, b2_info, a0_const=A0_CONST):
     }
 
 
-def evaluate_multibin(bin_infos, a0_const=A0_CONST):
+def evaluate_multibin(bin_infos, a0_const=A0_CONST, a0_h0=A0_H0):
     chi2_const = sum(float(np.interp(math.log(a0_const), b["g"], b["dchi"])) for b in bin_infos)
-    chi2_horizon = sum(b["chi2_horizon"] for b in bin_infos)
+    chi2_horizon = sum(float(np.interp(math.log(a0_h0) + b["lnR"], b["g"], b["dchi"])) for b in bin_infos)
     dchi2 = chi2_const - chi2_horizon
-    lnAs = math.log(A0_CONST) + np.arange(-2.5, 3.0 + 1e-9, 0.005)
-    sh_c = min(sum(float(np.interp(la, b["g"], b["dchi"], left=1e6, right=1e6)) for b in bin_infos) for la in lnAs)
-    sh_h = min(sum(float(np.interp(la + b["lnR"], b["g"], b["dchi"], left=1e6, right=1e6)) for b in bin_infos) for la in lnAs)
+    lnAs = math.log(A0_CONST) + np.arange(-3.0, 3.5 + 1e-9, 0.005)
+    tot_c = np.zeros_like(lnAs)
+    tot_h = np.zeros_like(lnAs)
+    for b in bin_infos:
+        tot_c += np.interp(lnAs, b["g"], b["dchi"], left=1e6, right=1e6)
+        tot_h += np.interp(lnAs + b["lnR"], b["g"], b["dchi"], left=1e6, right=1e6)
+    sh_c = float(np.min(tot_c))
+    sh_h = float(np.min(tot_h))
     sh_d = sh_c - sh_h
-    n_grid = np.linspace(-1.0, 2.5, 351)
+    n_grid = np.linspace(-4.0, 3.5, 751)
     lr0 = bin_infos[0]["lnR"]
     vals = []
     for n in n_grid:
-        best = min(
-            sum(float(np.interp(la + n * (b["lnR"] - lr0), b["g"], b["dchi"], left=1e6, right=1e6)) for b in bin_infos)
-            for la in lnAs
-        )
-        vals.append(best)
+        tot = np.zeros_like(lnAs)
+        for b in bin_infos:
+            tot += np.interp(lnAs + n * (b["lnR"] - lr0), b["g"], b["dchi"], left=1e6, right=1e6)
+        vals.append(float(np.min(tot)))
     vals = np.array(vals) - min(vals)
     i0 = int(np.argmin(vals))
-    n_hat = float(n_grid[i0])
-    n_lo = next((float(n_grid[j]) for j in range(i0, 0, -1) if vals[j - 1] > 1.0), None)
-    n_hi = next((float(n_grid[j]) for j in range(i0, len(n_grid) - 1) if vals[j + 1] > 1.0), None)
+    n_hat = round(float(n_grid[i0]), 4)
+    n_lo = next((round(float(n_grid[j]), 4) for j in range(i0, 0, -1) if vals[j - 1] > 1.0), None)
+    n_hi = next((round(float(n_grid[j]), 4) for j in range(i0, len(n_grid) - 1) if vals[j + 1] > 1.0), None)
     return {
         "chi2_const": chi2_const,
         "chi2_horizon": chi2_horizon,
@@ -538,6 +552,16 @@ def run_self_test():
     assert len(ALPINE_CRISTAL_ROWS) == 5
     assert len(DEGRAAFF_ROWS) == 6
 
+    # 1b. Lower-limit B/T handling check (ID 9424: B/T > 0.23 in v14 Table 3)
+    row_9424 = [x for x in MSA3D_ROWS if x[0] == "9424"][0]
+    assert row_9424[16] == ">", f"Expected lower-limit flag '>' for 9424, got {row_9424[16]!r}"
+    gb_lo = build_msa3d_mbar("bounded", bt_limit_mode="zero")["g_bar"]
+    gb_mid = build_msa3d_mbar("bounded", bt_limit_mode="half")["g_bar"]
+    gb_hi = build_msa3d_mbar("bounded", bt_limit_mode="upper")["g_bar"]
+    idx_9424 = build_msa3d_mbar("bounded")["id"].index("9424")
+    # Bulge is denser than disk -> higher B/T increases k_eff and g_bar at 2.2 R_s
+    assert gb_lo[idx_9424] < gb_mid[idx_9424] < gb_hi[idx_9424]
+
     # 2. Cosmology conversion exact invariance of g_bar and f_D(z) sanity
     assert abs(f_DA_planck_over_lit(1.0) - 1.02) < 0.02
     a_no = build_alpine_cristal_mbar(planck_conv=False)
@@ -549,7 +573,7 @@ def run_self_test():
 
     # 3. Deterministic exactness (low-noise Asimov) + noisy Monte Carlo recovery (n=0 vs n=1)
     rng = np.random.default_rng(20261126)
-    grid = math.log(A0_CONST) + np.arange(math.log(0.15), math.log(35.0) + 1e-9, 0.03)
+    grid = math.log(A0_CONST) + np.arange(math.log(0.02), math.log(50.0) + 1e-9, 0.06)
     msa_real = build_msa3d_mbar("bounded")
     alp_real = build_alpine_cristal_mbar("dysmal")
     for test_kind in ("exact_asimov", "noisy_mc"):
@@ -590,7 +614,7 @@ def run_self_test():
 # ------------------------------------------------------------------ Main Execution
 def run_main():
     t0 = time.time()
-    grid = math.log(A0_CONST) + np.arange(math.log(0.15), math.log(40.0) + 1e-9, 0.02)
+    grid = math.log(A0_CONST) + np.arange(math.log(0.01), math.log(100.0) + 1e-9, 0.02)
 
     # Primary headline: MSA-3D (N=20 bounded mbar) + ALPINE-CRISTAL-JWST (N=5 DYSMALpy)
     d_msa = build_msa3d_mbar(subset="bounded")
@@ -653,7 +677,7 @@ def run_main():
     sens["joint_msa_err_lo"] = evaluate_2bin(b1_lo, b2, A0_CONST)
     sens["joint_msa_err_hi"] = evaluate_2bin(b1_hi, b2, A0_CONST)
     sens["joint_msa_thin_adc"] = evaluate_2bin(b1_thin, b2, A0_CONST)
-    sens["joint_sparc_T1_baseline"] = evaluate_2bin(b1, b2, A0_CONST_T1)
+    sens["joint_sparc_T1_baseline"] = evaluate_2bin(b1, b2, A0_CONST_T1, A0_CONST_T1)
 
     # S7: Combined RC100 (non-JWST, fdm 2-bin) + JWST (2-bin mbar) 4-bin meta-comparison
     d_rc = M.load_rc100()
@@ -729,6 +753,12 @@ def run_main():
     }, indent=2))
 
 
+def _fmt_ci(ci) -> str:
+    lo = "-inf" if ci[0] is None else f"{ci[0]:+.2f}"
+    hi = "+inf" if ci[1] is None else f"{ci[1]:+.2f}"
+    return f"[{lo}, {hi}]"
+
+
 def _format_record(res, d_msa, d_alp) -> str:
     h = res["headline_2bin_result"]
     b1 = res["primary_bins"]["bin1_msa3d_bounded_mbar"]
@@ -747,7 +777,7 @@ def _format_record(res, d_msa, d_alp) -> str:
         f"- **Verdict:** **`{h['verdict']}`**",
         f"- **Mechanical $\\Delta\\chi^2 = \\chi^2_{{\\rm const}} - \\chi^2_{{\\rm horizon}}$:** `{h['delta_chi2']:+.2f}` (`{h['sigma']:+.2f}`$\\sigma$)",
         f"- **Shape-only $\\Delta\\chi^2_{{\\rm shape}}$ (free overall normalization):** `{h['shape_delta_chi2']:+.2f}` (`{h['shape_sigma']:+.2f}`$\\sigma$)",
-        f"- **Fitted scaling exponent $n$ in $a_0(z) \\propto E(z)^n$:** `n = {n_fit['n_hat']:.2f}` (68% CI: `{n_fit['ci68']}`)",
+        f"- **Fitted scaling exponent $n$ in $a_0(z) \\propto E(z)^n$:** `n = {n_fit['n_hat']:.2f}` (68% CI: `{_fmt_ci(n_fit['ci68'])}`)",
         "",
         "| Bin | Sample | N | z_eff | E(z_eff) | a0_hat (1e-10 m/s^2) | 68% CI | sigma_int | chi2_const | chi2_horizon |",
         "|---|---|---|---|---|---|---|---|---|---|",
@@ -775,7 +805,7 @@ def _format_record(res, d_msa, d_alp) -> str:
         v = s[k]
         nf = v["n_exponent_fit"]
         lines.append(
-            f"| `{k}` | `{v['delta_chi2']:+.2f}` | `{v['shape_delta_chi2']:+.2f}` | `{nf['n_hat']:.2f}` ({nf['ci68']}) | {v.get('verdict', '4-bin meta')} |"
+            f"| `{k}` | `{v['delta_chi2']:+.2f}` | `{v['shape_delta_chi2']:+.2f}` | `{nf['n_hat']:.2f}` ({_fmt_ci(nf['ci68'])}) | {v.get('verdict', '4-bin meta')} |"
         )
     lines.extend([
         "",

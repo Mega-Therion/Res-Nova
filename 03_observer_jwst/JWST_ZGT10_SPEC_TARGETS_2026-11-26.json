@@ -289,23 +289,6 @@
       "notes": "Deep JADES GOODS-S confirmation."
     },
     {
-      "id_primary": "goods-s-mediumjwst_177075",
-      "aliases": "JADES-177075",
-      "physical_system": "JADES-GS-177075",
-      "field": "GOODS-S",
-      "ra_deg": 53.05613,
-      "dec_deg": -27.86398,
-      "z_spec": 11.1179,
-      "z_detail": "11.1179 (JADES DR4)",
-      "quality_tier": "C(DR4)",
-      "tier": "SECURE",
-      "m_uv": null,
-      "lensing_mu": 1.0,
-      "catalogs": "JADES_DR4",
-      "primary_ref": "Curtis-Lake+2025 (2510.01033); Heintz+2026",
-      "notes": "JADES DR4 medium-JWST flag C confirmation."
-    },
-    {
       "id_primary": "JADES-GS-z11-0",
       "aliases": "GS-z11-0; 1210_14220; 3215_20130158; goods-s-deephst_10014220; goods-s-ultradeep_20130158",
       "physical_system": "JADES-GS-z11-0",
@@ -321,6 +304,23 @@
       "catalogs": "RB25;JADES_DR4;H26",
       "primary_ref": "Curtis-Lake+2023; Witstok+2025_O3; Curtis-Lake+2025",
       "notes": "Observed across JADES DeepHST and UltraDeep."
+    },
+    {
+      "id_primary": "goods-s-mediumjwst_177075",
+      "aliases": "JADES-177075",
+      "physical_system": "JADES-GS-177075",
+      "field": "GOODS-S",
+      "ra_deg": 53.05613,
+      "dec_deg": -27.86398,
+      "z_spec": 11.1179,
+      "z_detail": "11.1179 (JADES DR4)",
+      "quality_tier": "C(DR4)",
+      "tier": "SECURE",
+      "m_uv": null,
+      "lensing_mu": 1.0,
+      "catalogs": "JADES_DR4",
+      "primary_ref": "Curtis-Lake+2025 (2510.01033); Heintz+2026",
+      "notes": "JADES DR4 medium-JWST flag C confirmation."
     },
     {
       "id_primary": "CEERS-10",
@@ -442,23 +442,6 @@
       "notes": "MoM UDS z~10.8 confirmation."
     },
     {
-      "id_primary": "GHZ4",
-      "aliases": "3073_16115",
-      "physical_system": "GHZ4",
-      "field": "Abell 2744",
-      "ra_deg": 3.51374,
-      "dec_deg": -30.35157,
-      "z_spec": 10.698,
-      "z_detail": "10.698 (RB25)",
-      "quality_tier": "A/B/C(DJA)",
-      "tier": "SECURE",
-      "m_uv": -19.47,
-      "lensing_mu": 1.6,
-      "catalogs": "RB25",
-      "primary_ref": "Napolitano+2025",
-      "notes": "GLASS Abell 2744 lensed source (mu=1.6)."
-    },
-    {
       "id_primary": "EGS-22637",
       "aliases": "CAPERS-22637; 1345_80073; 6368_22637",
       "physical_system": "EGS-22637",
@@ -476,6 +459,23 @@
       "notes": "Observed in both CEERS and CAPERS."
     },
     {
+      "id_primary": "GHZ4",
+      "aliases": "3073_16115",
+      "physical_system": "GHZ4",
+      "field": "Abell 2744",
+      "ra_deg": 3.51374,
+      "dec_deg": -30.35157,
+      "z_spec": 10.698,
+      "z_detail": "10.698 (RB25)",
+      "quality_tier": "A/B/C(DJA)",
+      "tier": "SECURE",
+      "m_uv": -19.47,
+      "lensing_mu": 1.6,
+      "catalogs": "RB25",
+      "primary_ref": "Napolitano+2025",
+      "notes": "GLASS Abell 2744 lensed source (mu=1.6)."
+    },
+    {
       "id_primary": "JADES-GS-20176151",
       "aliases": "JADES-20176151; 1287_20176151; 1286_20176151; goods-s-deepjwst_20176151; goods-s-mediumjwst_20176151",
       "physical_system": "JADES-GS-20176151",
@@ -483,8 +483,8 @@
       "ra_deg": 53.07076,
       "dec_deg": -27.86544,
       "z_spec": 10.619,
-      "z_detail": "10.619 (RB25); 10.537/10.408 (DR4)",
-      "quality_tier": "C(DR4)",
+      "z_detail": "10.619 (RB25/Tang25); 10.5368/10.4075 (DR4 flag C); 10.4599 (H26)",
+      "quality_tier": "C(DR4)+Tang25",
       "tier": "SECURE",
       "m_uv": -19.5,
       "lensing_mu": 1.0,
@@ -595,6 +595,23 @@
       "notes": "Confirmed in Weibel+2025 & RB25."
     },
     {
+      "id_primary": "JADES-GS-z10-0",
+      "aliases": "GS-z10-0; 1210_14177; goods-s-deephst_10014177",
+      "physical_system": "JADES-GS-z10-0",
+      "field": "GOODS-S",
+      "ra_deg": 53.15884,
+      "dec_deg": -27.77349,
+      "z_spec": 10.3989,
+      "z_detail": "10.4094 (DR4 flag C); 10.3989 (H26); 10.075 (RB25)",
+      "quality_tier": "C(DR4)",
+      "tier": "SECURE",
+      "m_uv": -18.49,
+      "lensing_mu": 1.0,
+      "catalogs": "RB25;JADES_DR4;H26",
+      "primary_ref": "Curtis-Lake+2023; Curtis-Lake+2025; Heintz+2026",
+      "notes": "Original JADES DR1 z~10.4 Lya break galaxy."
+    },
+    {
       "id_primary": "EGS-54833",
       "aliases": "CAPERS-EGS-54833",
       "physical_system": "EGS-54833",
@@ -663,23 +680,6 @@
       "notes": "GLASS Abell 2744 lensed source (mu=1.2)."
     },
     {
-      "id_primary": "MACS0647-JD1",
-      "aliases": "JD1; 1433_3593",
-      "physical_system": "MACS0647-JD",
-      "field": "MACS 0647",
-      "ra_deg": 101.98229,
-      "dec_deg": 70.24327,
-      "z_spec": 10.17,
-      "z_detail": "10.17 (Hsiao+24)",
-      "quality_tier": "lines",
-      "tier": "SECURE",
-      "m_uv": -20.27,
-      "lensing_mu": 8.0,
-      "catalogs": "RB25",
-      "primary_ref": "Hsiao+2023; Hsiao+2024",
-      "notes": "Lensed image 1 of MACS0647-JD physical system (mu=8.0)."
-    },
-    {
       "id_primary": "MACS0647-JD2",
       "aliases": "JD2; MACS0647-3349; 1433_3349",
       "physical_system": "MACS0647-JD",
@@ -695,6 +695,23 @@
       "catalogs": "RB25;H26",
       "primary_ref": "Hsiao+2023; Hsiao+2024; Heintz+2026",
       "notes": "Second lensed image of MACS0647-JD physical system (mu=5.3)."
+    },
+    {
+      "id_primary": "MACS0647-JD1",
+      "aliases": "JD1; 1433_3593",
+      "physical_system": "MACS0647-JD",
+      "field": "MACS 0647",
+      "ra_deg": 101.98229,
+      "dec_deg": 70.24327,
+      "z_spec": 10.17,
+      "z_detail": "10.17 (Hsiao+24)",
+      "quality_tier": "lines",
+      "tier": "SECURE",
+      "m_uv": -20.27,
+      "lensing_mu": 8.0,
+      "catalogs": "RB25",
+      "primary_ref": "Hsiao+2023; Hsiao+2024",
+      "notes": "Lensed image 1 of MACS0647-JD physical system (mu=8.0)."
     },
     {
       "id_primary": "MACS0647-JD1c",
@@ -797,23 +814,6 @@
       "catalogs": "CAPERS26",
       "primary_ref": "CAPERS / Taylor+2026 (2610.12322)",
       "notes": "CAPERS flag-9 single-feature/break confirmation."
-    },
-    {
-      "id_primary": "JADES-GS-z10-0",
-      "aliases": "GS-z10-0; 1210_14177; goods-s-deephst_10014177",
-      "physical_system": "JADES-GS-z10-0",
-      "field": "GOODS-S",
-      "ra_deg": 53.15884,
-      "dec_deg": -27.77349,
-      "z_spec": 10.3989,
-      "z_detail": "10.4094 (DR4 flag C); 10.3989 (H26); 10.075 (RB25)",
-      "quality_tier": "C(DR4)",
-      "tier": "SECURE",
-      "m_uv": -18.49,
-      "lensing_mu": 1.0,
-      "catalogs": "RB25;JADES_DR4;H26",
-      "primary_ref": "Curtis-Lake+2023; Curtis-Lake+2025; Heintz+2026",
-      "notes": "Original JADES DR1 z~10.4 Lya break galaxy."
     },
     {
       "id_primary": "GLASS-z11-17225",
