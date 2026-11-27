@@ -71,7 +71,7 @@
 \end{center}
 
 \vspace{4pt}
-\callout{Executive Summary (v2 Audited)}{This revised monograph incorporates every upgrade from the line-by-line formal audit: (i) full character-by-character $\operatorname{Spin}(16)$ weight verification across all $16{,}384$ weights of $\mathbf{128}_S\otimes\mathbf{128}_S$ proving $\operatorname{Hom}_{\mathfrak{so}(16)}(\operatorname{Sym}^2(\mathbf{128}_S),\mathfrak{so}(16))=0$ (\badgeX\ Floor-3 superalgebra), (ii) complete 6/6 $E_6$ $\mathbf{27}$-plet anomaly cancellation including cubic color $\operatorname{SU}(3)_c^3$, (iii) the exact $\mathbb{Z}_3$ orbifold level-matching obstruction ($3\cdot\frac{8}{9} = \frac{8}{3}\notin\mathbb{Z}$) and its order-9 twisted permutation resolution $g^3 = (\phi,\phi,\phi)$ projecting Floor~3 directly into Floor~2's $E_6\times\operatorname{SU}(3)$ chiral matrix $\Psi_{3\times 2}$, alongside the $26\times 26$ unimodular $\mathrm{II}_{25,1}$ Gram matrix, and (iv) the Gap~4 shared threshold invariant $\theta = 1/\sqrt{2}$, band-ceiling quartic $4\kappa^4 + 4\kappa^2 - 7 = 0$, and holographic entropy cancellation $(a_0^{\mathrm{KMS}}/a_{\mathrm{Pl}})^2\cdot 4\pi S_{\mathrm{dS}} = 1$. All 6 symbolic verification blocks pass with \texttt{exit=0} (\badgeD), mirrored in the standalone zero-Mathlib \texttt{UnifiedSpineGaps.lean} (v2, verified locally via Lean~4 kernel with \texttt{exit=0}, zero \texttt{sorry}, zero external axioms).}
+\callout{Executive Summary (v2 Audited)}{This revised monograph incorporates every upgrade from the line-by-line formal audit: (i) full character-by-character $\operatorname{Spin}(16)$ weight verification across all $16{,}384$ weights of $\mathbf{128}_S\otimes\mathbf{128}_S$ proving $\operatorname{Hom}_{\mathfrak{so}(16)}(\operatorname{Sym}^2(\mathbf{128}_S),\mathfrak{so}(16))=0$ (\badgeX\ Floor-3 superalgebra), (ii) complete 6/6 $E_6$ $\mathbf{27}$-plet anomaly cancellation including cubic color $\operatorname{SU}(3)_c^3$, (iii) the exact $\mathbb{Z}_3$ orbifold level-matching obstruction ($3\cdot\frac{8}{9} = \frac{8}{3}\notin\mathbb{Z}$) and its order-9 twisted permutation resolution $g^3 = (\phi,\phi,\phi)$ projecting Floor~3 directly into Floor~2's $E_6\times\operatorname{SU}(3)$ chiral matrix $\Psi_{3\times 2}$, alongside the $26\times 26$ unimodular $\mathrm{II}_{25,1}$ Gram matrix, and (iv) the Gap~4 module-local $1/\sqrt{2}$ evaluations ($\mu_{\mathrm{std}}(1) = 1/\sqrt{2}$, GKSL $C_{\max} = 1/\sqrt{2}$; cross-sector $\theta = 1/\sqrt{2}$ unification strictly retired \badgeX), exact quartic $4\chi_s^4 + 4\chi_s^2 - 7 = 0$ for $\chi_s = \sqrt{\sqrt{2} - 1/2}$ (distinct from $\kappa = 0.9539$ at $\theta = 0.70$), and holographic entropy cancellation $(a_0^{\mathrm{KMS}}/a_{\mathrm{Pl}})^2\cdot 4\pi S_{\mathrm{dS}} = 1$. All 6 symbolic verification blocks pass with \texttt{exit=0} (\badgeD), mirrored in the standalone zero-Mathlib \texttt{UnifiedSpineGaps.lean} (v2.1, verified locally via Lean~4 kernel with \texttt{exit=0}, admit-free, 26/26 \texttt{\#print axioms} checks with zero external axioms).}
 
 \tableofcontents
 \vspace{6pt}
@@ -214,7 +214,7 @@ Symbolically, for any 2-mode Euclidean Schwinger kernel $M_{\mathrm{OS}} = V^T W
 where $\rho(x_*)$ has strictly positive eigenvalues $(2\pm\sqrt{3})/4 > 0$ (\badgeD). Extending this stationary-horizon modular invariant to dynamically backreacted curved spacetimes remains \badgeO.
 
 % -----------------------------------------------------------------------------
-\subsection{Gap 4: Macro--Micro Scale Bridge, Shared $\theta = 1/\sqrt{2}$ Floor, \& Honest \badgeO\ Seam}
+\subsection{Gap 4: Macro--Micro Scale Bridge, Module-Local $1/\sqrt{2}$ Bounds, \& Honest \badgeO/\badgeX\ Seams}
 % -----------------------------------------------------------------------------
 
 Combining $a_0^{\mathrm{KMS}} = cH_0/(2\pi)$, Planck acceleration $a_{\mathrm{Pl}} = c^2/\ell_{\mathrm{Pl}}$, and de Sitter entropy $S_{\mathrm{dS}} = \pi L_H^2/\ell_{\mathrm{Pl}}^2$ ($S_{\mathrm{dS}}/k_B = 2.265\times 10^{122}$) yields two exact scale-cancellation algebraic identities (\badgeD):
@@ -222,13 +222,13 @@ Combining $a_0^{\mathrm{KMS}} = cH_0/(2\pi)$, Planck acceleration $a_{\mathrm{Pl
   \left(\frac{a_0^{\mathrm{KMS}}}{a_{\mathrm{Pl}}}\right)^{\!2} \cdot 4\pi S_{\mathrm{dS}} = 1 \;\Longleftrightarrow\; \frac{a_0^{\mathrm{KMS}}}{a_{\mathrm{Pl}}} = \frac{1}{2\sqrt{\pi S_{\mathrm{dS}}}} = 1.8742\times 10^{-62},
   \qquad T_{\mathrm{dS}}\,S_{\mathrm{dS}} = \rho_{\mathrm{crit}}\,V_H\,c^2.
 \end{equation}
-Furthermore, both ends of the spine lock onto the exact same dimensionless threshold invariant $\theta = 1/\sqrt{2}$ ($\theta^2 = 1/2$ \badgeP\ \badgeD):
+Furthermore, each end of the spine admits an independent module-local evaluation equal to $1/\sqrt{2}$ (squared value $1/2$ \badgeP\ \badgeD; promoting $\theta = 1/\sqrt{2}$ to a cross-sector physical unification constant remains retired \badgeX\ per \texttt{POSTULATE\_LAYER\_DIRECTIVE\_2026-11-24} Stage~1 and \texttt{CLM-Z-R3}):
 \begin{itemize}
-  \item \textbf{Macro (\texttt{MuStdFoundations.lean} \badgeP):} $\mu_{\mathrm{std}}(x) = x/\sqrt{1+x^2}$ (with $F_{\mathrm{std}}'(x) = x\mu_{\mathrm{std}}(x)$) crosses $x=1$ at $\mu_{\mathrm{std}}(1) = 1/\sqrt{2} = \theta$, with exact band ceiling $\kappa = \sqrt{\theta(2-\theta)} = \sqrt{\sqrt{2} - \frac{1}{2}} \approx 0.956145157584922$ satisfying the exact quartic
+  \item \textbf{Macro (\texttt{MuStdFoundations.lean} \badgeP):} $\mu_{\mathrm{std}}(x) = x/\sqrt{1+x^2}$ (with $F_{\mathrm{std}}'(x) = x\mu_{\mathrm{std}}(x)$) crosses $x=1$ at $\mu_{\mathrm{std}}(1) = 1/\sqrt{2}$, where the corresponding algebraic root $\chi_s = \sqrt{\frac{1}{\sqrt{2}}(2-\frac{1}{\sqrt{2}})} = \sqrt{\sqrt{2} - \frac{1}{2}} \approx 0.956145157584922$ (distinct from \texttt{Res-Nova}'s $\kappa = 0.9539$ at $\theta = 0.70$, per \texttt{ERRATA E-13}) satisfies the exact quartic
   \begin{equation}
-    4\kappa^4 + 4\kappa^2 - 7 = 0.
+    4\chi_s^4 + 4\chi_s^2 - 7 = 0.
   \end{equation}
-  \item \textbf{Micro (\texttt{TraceWindowChirality.lean} \badgeP) \& Dyadic Floor (\texttt{VisViva.lean} \badgeP):} GKSL chirality ceiling $C_{\max} = 1/\sqrt{2} = \theta$ at $\rho_{11}^* = 1/4$, and shell floor $E_j \ge 1/\sqrt{2} = \theta$.
+  \item \textbf{Micro (\texttt{TraceWindowChirality.lean} \badgeP) \& Dyadic Floor (\texttt{VisViva.lean} \badgeP):} Optical-Bloch GKSL steady-state coherence ceiling $C_{\max} = 1/\sqrt{2}$ at $\rho_{11}^* = 1/4$, and shell floor $E_j \ge 1/\sqrt{2}$ (each strictly scoped to its own mathematical domain \badgeP).
 \end{itemize}
 Verified no-go boundaries remain strictly enforced: naive $\mathbb{Z}_2$ Planck-cell counting gives $w_{\mathrm{eff}}=0$ (Hood \texttt{BLK-364} \badgeD), 5D $\mathrm{AdS}_5$ Dark Bubble fails to supply $1/(2\pi)$ (\badgeD), finite Seeley--DeWitt spectral actions cannot yield $X^{3/2}$ (\badgeX), and Cassini $Q_2$ ($+8.7\sigma$ bare exclusion) requires the Skordis--Złośnik AeST completion~\cite{SkordisZlosnik2021} (\texttt{SkordisZlosnikEmbedding.lean} \badgeP: $c_T=c$, $\gamma_{\mathrm{PPN}}=1$, $0<K_B<2$, $0\le\lambda_s<11.2788$, QUMOND $C\in[0.75,0.93]$). Dynamically deriving $\eta_{\mathrm{bridge}} = a_0^{\mathrm{SPARC}}/a_0^{\mathrm{KMS}} = 1.1137$ (inside SPARC systematic band $[1.031, 1.165]$ \badgeE) and embedding AeST into UV $E_6/E_8$ remains strictly \badgeO.
 
@@ -247,10 +247,10 @@ Gap 1A ($\operatorname{Spin}(16)$) & Full 16,384-weight character match; $\opera
 Gap 1B/1C ($E_6\ \mathbf{27}$) & Symbolic octonion $|xy|^2=|x|^2|y|^2$ \& Cartan $S_3$; 6/6 anomalies (incl.\ $\operatorname{SU}(3)_c^3$) $=0$ & \badgeD & \texttt{UnifiedSpineGaps.lean} \\
 Gap 2 ($\mathrm{II}_{25,1}$ \& $\mathbb{Z}_9$) & $26\times 26$ $\det=-1$ Gram matrix; $\mathbb{Z}_3$ anomaly $3\cdot\frac{8}{9}\notin\mathbb{Z}$; $\mathbb{Z}_9$ lift $g^3=(\phi,\phi,\phi)$ & \badgeD\ \badgeO & Refs.~\cite{FLM1988,Borcherds1992} \\
 Gap 3 (OS / GKSL) & 4-stop Dirac loop; $\rho(x_*)$ eigs $>0$; symbolic $M_{\mathrm{OS}}\ge 0$; fixed Lean \texttt{omega} & \badgeD\ \badgeO & Refs.~\cite{BisognanoWichmann1975,OsterwalderSchrader1975} \\
-Gap 4 ($\theta,\kappa,S_{\mathrm{dS}}$) & $\mu_{\mathrm{std}}(1)=C_{\max}=\frac{1}{\sqrt{2}}$; $4\kappa^4+4\kappa^2-7=0$; $(a_0^{\mathrm{KMS}}/a_{\mathrm{Pl}})^2 4\pi S_{\mathrm{dS}}=1$ & \badgeD\ \badgeO & Ref.~\cite{SkordisZlosnik2021}; $\eta_{\mathrm{bridge}}$ \badgeO \\
+Gap 4 ($\chi_s,S_{\mathrm{dS}}$) & Module-local $\mu_{\mathrm{std}}(1)=C_{\max}=\frac{1}{\sqrt{2}}$ (cross-sector $\theta$ \badgeX); $4\chi_s^4+4\chi_s^2-7=0$; $(a_0^{\mathrm{KMS}}/a_{\mathrm{Pl}})^2 4\pi S_{\mathrm{dS}}=1$ & \badgeD\ \badgeO\ \badgeX & Ref.~\cite{SkordisZlosnik2021}; $\eta_{\mathrm{bridge}}$ \badgeO \\
 \bottomrule
 \end{tabularx}
-\caption{Audited v2 epistemic ledger (6/6 SymPy blocks + 32/32 CAS checks \texttt{exit=0}; Lean~4 module verified \texttt{exit=0}, zero \texttt{sorry}, zero external axioms).}
+\caption{Audited v2.1 epistemic ledger (6/6 SymPy blocks + 32/32 CAS checks \texttt{exit=0}; Lean~4 module verified \texttt{exit=0}, admit-free, 26/26 \texttt{\#print axioms} checks with zero external axioms).}
 \end{table}
 
 \begin{thebibliography}{9}

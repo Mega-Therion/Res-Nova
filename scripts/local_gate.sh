@@ -29,7 +29,7 @@ step() {
   fi
 }
 
-step "py_compile" bash -c 'python3 -m py_compile 02_galaxy_dynamics/*.py scripts/check_claim_consistency.py 05_lean_formalization/check_manuscript_inventory.py 05_lean_formalization/verify_e8_cartan_bridge.py scripts/render_mvpc_fixtures.py scripts/run_mvpc_adapter.py 03_observer_jwst/gate2_inference.py 03_observer_jwst/jwst_zgt10_targets.py 03_observer_jwst/pom1v2_blind_kids_legacy.py 04_cosmology/o4_jwst_a0z_run.py'
+step "py_compile" bash -c 'python3 -m py_compile 02_galaxy_dynamics/*.py scripts/check_claim_consistency.py 05_lean_formalization/check_manuscript_inventory.py 05_lean_formalization/verify_e8_cartan_bridge.py scripts/render_mvpc_fixtures.py scripts/run_mvpc_adapter.py 03_observer_jwst/gate2_inference.py 03_observer_jwst/jwst_zgt10_targets.py 03_observer_jwst/pom1v2_blind_kids_legacy.py 03_observer_jwst/pom1_intrinsic_dipole_diagnostic.py 03_observer_jwst/trinity1_real_archive_crosscheck.py 04_cosmology/o4_jwst_a0z_run.py 06_unification_and_spin/unified_spine_v2/*.py'
 step "claim consistency" python3 scripts/check_claim_consistency.py
 step "claim registry" python3 scripts/validate_claim_registry.py
 step "claim registry fixtures" python3 scripts/test_claim_registry_fixtures.py
@@ -37,6 +37,11 @@ step "gate2 inference self-test" python3 03_observer_jwst/gate2_inference.py --s
 step "jwst z>=10 target check" python3 03_observer_jwst/jwst_zgt10_targets.py --check
 step "o4 jwst a0(z) self-test" python3 04_cosmology/o4_jwst_a0z_run.py --self-test
 step "pom1v2 blind kids-legacy self-test" python3 03_observer_jwst/pom1v2_blind_kids_legacy.py --self-test
+step "pom1 intrinsic/dipole self-test" python3 03_observer_jwst/pom1_intrinsic_dipole_diagnostic.py --self-test
+step "trinity1 archive self-test" python3 03_observer_jwst/trinity1_real_archive_crosscheck.py --self-test
+step "unified spine v2 verification" python3 06_unification_and_spin/unified_spine_v2/verify_unified_spine_gaps.py
+step "floor2 3-gen flavor probe" python3 06_unification_and_spin/unified_spine_v2/floor2_su3_flavor_probe.py
+step "mushroom toroidal vortex probe" python3 06_unification_and_spin/unified_spine_v2/mushroom_toroidal_vortex_probe.py
 step "lean target inventory" python3 05_lean_formalization/check_target_inventory.py
 step "E8 NumPy/SymPy Cartan check" python3 05_lean_formalization/verify_e8_cartan_bridge.py
 step "lean manuscript inventory" python3 05_lean_formalization/check_manuscript_inventory.py

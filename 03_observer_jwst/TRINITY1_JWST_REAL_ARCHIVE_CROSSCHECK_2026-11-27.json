@@ -1,0 +1,199 @@
+{
+  "date": "2026-11-27",
+  "status": "[E]/[D] real-archive reproduction & cross-telescope calibration check (zero synthetic RNG rows)",
+  "trinity_1_0_spitzer_aegis_irac": {
+    "source_provenance": "Chyren SQLite knowledge.db real Spitzer AEGIS EGS catalogs (2633 / 4798 / 2754 detections)",
+    "merged_catalog_rows": 2633,
+    "matched_irac1_irac3": 699,
+    "matched_all_3_bands": 215,
+    "band_distributions": {
+      "IRAC1": {
+        "n_detections": 2633,
+        "peak_flux_fit": {
+          "n_sources": 2633,
+          "f_min": 9.338916e-05,
+          "f_max": 0.2929888,
+          "powerlaw_alpha_mle": 1.7151,
+          "logL_powerlaw": 17232.95,
+          "logL_schechter": 17257.17,
+          "schechter_beta_fit": 1.6365,
+          "schechter_fstar_fit": 0.05193475,
+          "AIC_powerlaw": -34463.9,
+          "AIC_schechter": -34510.35,
+          "delta_AIC_pl_minus_sch": 46.45
+        },
+        "integrated_flux_fit": {
+          "n_sources": 2633,
+          "f_min": 0.0004658709,
+          "f_max": 722.2216,
+          "powerlaw_alpha_mle": 1.1564,
+          "logL_powerlaw": -4149.75,
+          "logL_schechter": -2828.27,
+          "schechter_beta_fit": 0.8231,
+          "schechter_fstar_fit": 12.94411,
+          "AIC_powerlaw": 8301.49,
+          "AIC_schechter": 5660.55,
+          "delta_AIC_pl_minus_sch": 2640.95
+        }
+      },
+      "IRAC3": {
+        "n_detections": 4798,
+        "peak_flux_fit": {
+          "n_sources": 4798,
+          "f_min": 0.0005041217,
+          "f_max": 0.6105111,
+          "powerlaw_alpha_mle": 2.0845,
+          "logL_powerlaw": 27596.52,
+          "logL_schechter": 27596.5,
+          "schechter_beta_fit": 2.0844,
+          "schechter_fstar_fit": 246.2885,
+          "AIC_powerlaw": -55191.04,
+          "AIC_schechter": -55189.0,
+          "delta_AIC_pl_minus_sch": -2.04
+        },
+        "integrated_flux_fit": {
+          "n_sources": 4798,
+          "f_min": 0.002516131,
+          "f_max": 1082.807,
+          "powerlaw_alpha_mle": 1.2263,
+          "logL_powerlaw": -4413.26,
+          "logL_schechter": -3624.41,
+          "schechter_beta_fit": 1.0499,
+          "schechter_fstar_fit": 58.31479,
+          "AIC_powerlaw": 8828.52,
+          "AIC_schechter": 7252.82,
+          "delta_AIC_pl_minus_sch": 1575.7
+        }
+      },
+      "IRAC4": {
+        "n_detections": 2754,
+        "peak_flux_fit": {
+          "n_sources": 2754,
+          "f_min": 0.000585152,
+          "f_max": 0.2340359,
+          "powerlaw_alpha_mle": 3.2887,
+          "logL_powerlaw": 18822.78,
+          "logL_schechter": 18822.72,
+          "schechter_beta_fit": 3.2886,
+          "schechter_fstar_fit": 94.41525,
+          "AIC_powerlaw": -37643.56,
+          "AIC_schechter": -37641.45,
+          "delta_AIC_pl_minus_sch": -2.11
+        },
+        "integrated_flux_fit": {
+          "n_sources": 2754,
+          "f_min": 0.002920167,
+          "f_max": 603.8848,
+          "powerlaw_alpha_mle": 1.2616,
+          "logL_powerlaw": -901.17,
+          "logL_schechter": -452.2,
+          "schechter_beta_fit": 1.0486,
+          "schechter_fstar_fit": 15.87302,
+          "AIC_powerlaw": 1804.34,
+          "AIC_schechter": 908.41,
+          "delta_AIC_pl_minus_sch": 895.93
+        }
+      }
+    }
+  },
+  "jwst_zgt10_and_ywr_audit": {
+    "secure_spectra_count": 50,
+    "unique_physical_galaxies": 48,
+    "quarantined_interlopers_count": 3,
+    "egs_aegis_footprint_overlap_count": 9,
+    "egs_aegis_footprint_galaxies": [
+      "EGS-z11-R0",
+      "Maisie",
+      "CEERS-10",
+      "CAPERS-EGS-43539",
+      "EGS-22637",
+      "EGS-69",
+      "EGS-54833",
+      "CEERS-64",
+      "CEERS-80041"
+    ],
+    "pom3_magnification_split": {
+      "cluster_lensed_count": 12,
+      "cluster_median_mu": 1.65,
+      "cluster_median_Muv_obs": -19.68,
+      "cluster_median_Muv_intrinsic_demagnified": -18.878,
+      "blank_field_count": 36,
+      "blank_median_Muv_obs": -19.85
+    },
+    "ywr_virial_bore_gauge_table": [
+      {
+        "log10_Mb_Msun": 8.5,
+        "Re_kpc": 0.15,
+        "gN_over_a0": 16.878,
+        "apparent_newtonian_virial_mass_over_true_Mb": 1.0017
+      },
+      {
+        "log10_Mb_Msun": 8.5,
+        "Re_kpc": 0.3,
+        "gN_over_a0": 4.2195,
+        "apparent_newtonian_virial_mass_over_true_Mb": 1.0263
+      },
+      {
+        "log10_Mb_Msun": 8.5,
+        "Re_kpc": 0.5,
+        "gN_over_a0": 1.519,
+        "apparent_newtonian_virial_mass_over_true_Mb": 1.1518
+      },
+      {
+        "log10_Mb_Msun": 8.5,
+        "Re_kpc": 0.8,
+        "gN_over_a0": 0.5934,
+        "apparent_newtonian_virial_mass_over_true_Mb": 1.5026
+      },
+      {
+        "log10_Mb_Msun": 9.0,
+        "Re_kpc": 0.15,
+        "gN_over_a0": 53.3729,
+        "apparent_newtonian_virial_mass_over_true_Mb": 1.0002
+      },
+      {
+        "log10_Mb_Msun": 9.0,
+        "Re_kpc": 0.3,
+        "gN_over_a0": 13.3432,
+        "apparent_newtonian_virial_mass_over_true_Mb": 1.0028
+      },
+      {
+        "log10_Mb_Msun": 9.0,
+        "Re_kpc": 0.5,
+        "gN_over_a0": 4.8036,
+        "apparent_newtonian_virial_mass_over_true_Mb": 1.0206
+      },
+      {
+        "log10_Mb_Msun": 9.0,
+        "Re_kpc": 0.8,
+        "gN_over_a0": 1.8764,
+        "apparent_newtonian_virial_mass_over_true_Mb": 1.1094
+      },
+      {
+        "log10_Mb_Msun": 9.5,
+        "Re_kpc": 0.15,
+        "gN_over_a0": 168.7801,
+        "apparent_newtonian_virial_mass_over_true_Mb": 1.0
+      },
+      {
+        "log10_Mb_Msun": 9.5,
+        "Re_kpc": 0.3,
+        "gN_over_a0": 42.195,
+        "apparent_newtonian_virial_mass_over_true_Mb": 1.0003
+      },
+      {
+        "log10_Mb_Msun": 9.5,
+        "Re_kpc": 0.5,
+        "gN_over_a0": 15.1902,
+        "apparent_newtonian_virial_mass_over_true_Mb": 1.0022
+      },
+      {
+        "log10_Mb_Msun": 9.5,
+        "Re_kpc": 0.8,
+        "gN_over_a0": 5.9337,
+        "apparent_newtonian_virial_mass_over_true_Mb": 1.0137
+      }
+    ]
+  },
+  "sha256_body": "dad47968d179bff3c4f34ad1ca8f4838ec63dfb40fdde03cf26068ffd4713b06"
+}

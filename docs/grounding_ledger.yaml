@@ -595,7 +595,7 @@ modules:
 
   - module: UnifiedSpineGaps
     tier: ARITH
-    theorems: 19
+    theorems: 26
     structures: 0
     plain_real_defs: 0
     denotes: "none. Exact integer and binomial arithmetic for Spin(16) exterior powers, E6 27-plet anomaly cancellation sums, II_{25,1} Gram norms, Z3/Z9 orbifold weights, and integer-cleared GKSL/quartic polynomial identities (companion to 06_unification_and_spin/unified_spine_v2)."

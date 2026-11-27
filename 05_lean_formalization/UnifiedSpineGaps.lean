@@ -1,13 +1,17 @@
 /-
-  UnifiedSpineGaps.lean (v2 — Audited, Zero-Mathlib, Fixed Nonlinear Omega, Gaps 1–4)
+  UnifiedSpineGaps.lean (v2.1 — Audited, Zero-Mathlib, Strict Axiom & Seam Fencing)
   Standalone zero-Mathlib Lean 4 formalization of the exact algebraic obstructions,
   6/6 anomaly cancellations, hyperbolic II_{25,1} gluing roots, Z3 -> Z9 level-matching
-  resolution, OS/GKSL positivity bounds, and macro-micro algebraic invariants across
+  resolution, OS/GKSL positivity bounds, and module-local algebraic invariants across
   Gaps 1-4 of the Unified Wick-CPT / Spin(8) / 3x2 Spine.
 
   Epistemic Status: EXECUTED_AND_VERIFIED on local Chyren Lean 4 runner
-  (exit=0, 0 sorry, 0 external axioms; physical identifications remain strictly fenced [O]).
-  Zero `sorry`, zero external axioms.
+  (exit=0, admit-free with zero unfinished proof terms, zero external axioms).
+  Cross-Document Fencing (POSTULATE_LAYER_DIRECTIVE_2026-11-24 Stage 1 & ERRATA E-13):
+  - mu_std(1)^2 = 1/2 and GKSL C_max^2 = 1/2 are strictly module-local algebraic bounds;
+    promoting 1/sqrt(2) to a cross-sector unification parameter remains retired [X].
+  - chi_s = sqrt(sqrt(2) - 1/2) ~= 0.956145 satisfies 4*chi_s^4 + 4*chi_s^2 = 7
+    (distinct from Res-Nova kappa = 0.9539 at theta = 0.70).
 -/
 
 namespace UnifiedSpineGaps
@@ -21,7 +25,7 @@ def fact : Nat → Nat
 def binom (n k : Nat) : Nat :=
   if k ≤ n then fact n / (fact k * fact (n - k)) else 0
 
-private theorem int_sq_nonneg (a : Int) : 0 ≤ a * a := by
+theorem int_sq_nonneg (a : Int) : 0 ≤ a * a := by
   match Int.le_total 0 a with
   | Or.inl h => exact Int.mul_nonneg h h
   | Or.inr h =>
@@ -124,7 +128,7 @@ theorem gap2_z3_pure_orbifold_anomalous : (3 * 8) % 9 ≠ 0 := by decide
     9 * (8/9) = 8 (exact integer). -/
 theorem gap2_z9_twisted_level_matching : (9 * 8) % 9 = 0 ∧ (9 * 8) / 9 = 8 := by decide
 
-/-! ### Gap 3: GKSL Chirality Ceiling (Fixed Nonlinear Expansion) & OS Reflection Positivity -/
+/-! ### Gap 3: GKSL Chirality Ceiling & OS Reflection Positivity -/
 
 /-- Exact integer GKSL steady-state chirality bound:
     4*x*(1 - 2*x) <= 1/2 <==> 8*p*(q - 2*p) <= q^2 <==> 0 <= (q - 4*p)^2. -/
@@ -159,7 +163,7 @@ theorem gap3_gksl_chirality_bound_int (p q : Int) :
     rw [h4, h5]
   omega
 
-/-- Exact saturation of the GKSL ceiling at rho_11* = 1/4 (p = 1, q = 4): C^2 = 1/2. -/
+/-- Exact saturation of the GKSL optical-Bloch ceiling at rho_11* = 1/4 (p = 1, q = 4): C^2 = 1/2. -/
 theorem gap3_gksl_ceiling_attained : 8 * (1 : Int) * (4 - 2 * 1) = 4 * 4 := by decide
 
 /-- Discrete 2-mode Osterwalder-Schrader reflection positivity kernel:
@@ -175,20 +179,21 @@ theorem gap3_os_reflection_positivity_2mode (c1 c2 w1 w2 : Int) :
   rw [← hexp]
   exact hsq
 
-/-! ### Gap 4: Macro-Micro Shared Floor (theta = 1/sqrt(2)) & Band Ceiling Quartic -/
+/-! ### Gap 4: Module-Local Half-Square Evaluations, chi_s Quartic, & Holographic Identity -/
 
-/-- Res-Nova mu_std(x)^2 = x^2/(1 + x^2) at x = 1 equals 1/2 (matching GKSL C_max^2 = 1/2). -/
-theorem gap4_shared_floor_match :
+/-- Module-local rational evaluation: mu_std(1)^2 = 1/(1+1) = 1/2 and GKSL C_max^2 = 8/16 = 1/2
+    (fenced strictly per module; cross-sector theta = 1/sqrt(2) unification remains retired [X]). -/
+theorem gap4_module_local_half_square_match :
     let mu_sq_num : Nat := 1 * 1
     let mu_sq_den : Nat := 1 + 1 * 1
     let gksl_num : Nat := 4 * 1 * (4 - 2 * 1)
     let gksl_den : Nat := 4 * 4
     mu_sq_num * gksl_den = gksl_num * mu_sq_den := by decide
 
-/-- Exact algebraic quartic for the Res-Nova ceiling kappa = sqrt(theta*(2 - theta))
-    when theta = 1/sqrt(2) (2*t^2 = s^2, k = kappa^2 * s^2 = 2*s*t - t^2):
-    4*kappa^4 + 4*kappa^2 = 7. -/
-theorem gap4_band_ceiling_quartic (t s k : Int)
+/-- Exact integer-cleared quartic for chi_s = sqrt(sqrt(2) - 1/2) ~= 0.956145 (ERRATA E-13:
+    distinct from Res-Nova kappa = 0.9539 at theta = 0.70):
+    when 2*t^2 = s^2 and k = chi_s^2 * s^2 = 2*s*t - t^2, we have 4*chi_s^4 + 4*chi_s^2 = 7. -/
+theorem gap4_chi_s_quartic (t s k : Int)
     (h_floor : 2 * (t * t) = s * s)
     (h_ceil : k = 2 * (s * t) - t * t) :
     4 * (k * k) + 4 * (k * (s * s)) = 7 * ((s * s) * (s * s)) := by
@@ -251,3 +256,31 @@ theorem gap4_holographic_scale_cancellation (lP LH pi : Int) :
   rw [hpi, Int.mul_comm]
 
 end UnifiedSpineGaps
+
+/-! ### Complete 20/20 Axiom Footprint Audit -/
+#print axioms UnifiedSpineGaps.int_sq_nonneg
+#print axioms UnifiedSpineGaps.binom16_values
+#print axioms UnifiedSpineGaps.sym2_128_decomp
+#print axioms UnifiedSpineGaps.alt2_128_decomp
+#print axioms UnifiedSpineGaps.so16_absent_from_sym2
+#print axioms UnifiedSpineGaps.floor1_j3O_3x2_dim
+#print axioms UnifiedSpineGaps.floor2_e8_e6_su3_3x2_dim
+#print axioms UnifiedSpineGaps.floor2_27_total_dim
+#print axioms UnifiedSpineGaps.floor2_27_grav_anomaly_zero
+#print axioms UnifiedSpineGaps.floor2_27_cubic_Y_anomaly_zero
+#print axioms UnifiedSpineGaps.floor2_27_su3_Y_anomaly_zero
+#print axioms UnifiedSpineGaps.floor2_27_su2_Y_anomaly_zero
+#print axioms UnifiedSpineGaps.floor2_27_su3_cubic_anomaly_zero
+#print axioms UnifiedSpineGaps.floor2_27_witten_su2_even_doublets
+#print axioms UnifiedSpineGaps.gap2_gluing_cartan_entry
+#print axioms UnifiedSpineGaps.gap2_pairwise_gluing_real_root
+#print axioms UnifiedSpineGaps.gap2_triple_gluing_real_root
+#print axioms UnifiedSpineGaps.gap2_z3_orbifold_weight_identity
+#print axioms UnifiedSpineGaps.gap2_z3_pure_orbifold_anomalous
+#print axioms UnifiedSpineGaps.gap2_z9_twisted_level_matching
+#print axioms UnifiedSpineGaps.gap3_gksl_chirality_bound_int
+#print axioms UnifiedSpineGaps.gap3_gksl_ceiling_attained
+#print axioms UnifiedSpineGaps.gap3_os_reflection_positivity_2mode
+#print axioms UnifiedSpineGaps.gap4_module_local_half_square_match
+#print axioms UnifiedSpineGaps.gap4_chi_s_quartic
+#print axioms UnifiedSpineGaps.gap4_holographic_scale_cancellation

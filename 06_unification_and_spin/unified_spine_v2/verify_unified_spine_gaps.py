@@ -282,19 +282,20 @@ def verify_gap3_wick_gksl_os() -> None:
 
 
 def verify_gap4_macro_micro_invariants() -> None:
-    print("[Gap 4] Verifying mu_std floor, kappa quartic, & holographic IR/UV entropy cancellation...")
+    print("[Gap 4] Verifying module-local 1/sqrt(2) bounds, chi_s quartic, & holographic entropy cancellation...")
     x = sp.Symbol("x", positive=True)
-    theta = 1 / sp.sqrt(2)
+    half_root = 1 / sp.sqrt(2)
     mu_std = x / sp.sqrt(1 + x ** 2)
     F_std = sp.Rational(1, 2) * (x * sp.sqrt(1 + x ** 2) - sp.asinh(x))
     assert sp.simplify(sp.diff(F_std, x) - x * mu_std) == 0
-    assert sp.simplify(mu_std.subs(x, 1) - theta) == 0
+    assert sp.simplify(mu_std.subs(x, 1) - half_root) == 0
 
-    kappa = sp.sqrt(theta * (2 - theta))
-    assert sp.simplify(kappa ** 2 - (sp.sqrt(2) - sp.Rational(1, 2))) == 0
-    assert sp.simplify(4 * kappa ** 4 + 4 * kappa ** 2 - 7) == 0
-    kappa_num = float(kappa.evalf(20))
-    assert abs(kappa_num - 0.956145157584922) < 1e-14
+    # ERRATA E-13 hygiene: chi_s = sqrt(sqrt(2) - 1/2) ~= 0.956145 (distinct from kappa = 0.9539 at theta = 0.70)
+    chi_s = sp.sqrt(half_root * (2 - half_root))
+    assert sp.simplify(chi_s ** 2 - (sp.sqrt(2) - sp.Rational(1, 2))) == 0
+    assert sp.simplify(4 * chi_s ** 4 + 4 * chi_s ** 2 - 7) == 0
+    chi_s_num = float(chi_s.evalf(20))
+    assert abs(chi_s_num - 0.956145157584922) < 1e-14
 
     c, lP, LH = sp.symbols("c lP LH", positive=True)
     H0 = c / LH
@@ -312,7 +313,7 @@ def verify_gap4_macro_micro_invariants() -> None:
     ratio_val = float(((a0_KMS / a_P).subs({c: c_val, LH: LH_val, lP: lP_val})).evalf(15))
     assert 1.03e-10 < a0_val < 1.06e-10
     assert 1e-62 < ratio_val < 1e-61
-    print(f"  PASS: mu_std(1)=theta=1/sqrt(2), kappa={kappa_num:.15f} (4k^4+4k^2-7=0), a0_KMS={a0_val:.4e} m/s^2.")
+    print(f"  PASS: mu_std(1)=1/sqrt(2), chi_s={chi_s_num:.15f} (4*chi_s^4+4*chi_s^2-7=0), a0_KMS={a0_val:.4e} m/s^2.")
 
 
 def main() -> int:
