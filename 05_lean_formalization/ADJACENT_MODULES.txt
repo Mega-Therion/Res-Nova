@@ -600,3 +600,7 @@ DispersionQuadrature.lean        # Zero-Mathlib Lean 4 companion for 02_galaxy_d
                                  # exact integer-cleared bounds for Q_3D^2 = (V^2 + 6*sig^2)/(V^2 + 3*sig^2),
                                  # cold-disk iff (sig=0), sphere iff (V=0 => Q_3D^2=2), strict monotonicity,
                                  # V^2 = 3*sig^2 midpoint, and V >= 10*sig cold-spiral enclosure. Not Table 2.
+ToeplitzYWRDual.lean             # Zero-Mathlib Lean 4 companion for 02_galaxy_dynamics/verify_toeplitz_ywr_dual.py:
+                                 # Toeplitz V_0 Hermitian signature bounds, Fejer-Riesz V_1 bounded winding window
+                                 # (arXiv:2609.40028), Fredholm index cancellation Ind(T_f + T_fbar) = 0, single-channel
+                                 # odd-holonomy Q_3D^2 inflation, and two-ended YWR DispersionQuadrature preservation. Not Table 2.

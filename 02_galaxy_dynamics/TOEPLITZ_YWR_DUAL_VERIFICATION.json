@@ -1,0 +1,163 @@
+{
+  "module": "verify_toeplitz_ywr_dual.py",
+  "timestamp_utc": "2026-11-27T23:55:53.435909+00:00",
+  "epistemic_tier": "[D]",
+  "all_passed": true,
+  "checks": [
+    {
+      "name": "toeplitz_shift_rank_defect_and_hermitian_dilation_balance",
+      "status": "PASS",
+      "n": 12,
+      "cases": [
+        {
+          "m": -3,
+          "rank": 9,
+          "nullity": 3,
+          "dilation_signature": 0
+        },
+        {
+          "m": -2,
+          "rank": 10,
+          "nullity": 2,
+          "dilation_signature": 0
+        },
+        {
+          "m": -1,
+          "rank": 11,
+          "nullity": 1,
+          "dilation_signature": 0
+        },
+        {
+          "m": 0,
+          "rank": 12,
+          "nullity": 0,
+          "dilation_signature": 0
+        },
+        {
+          "m": 1,
+          "rank": 11,
+          "nullity": 1,
+          "dilation_signature": 0
+        },
+        {
+          "m": 2,
+          "rank": 10,
+          "nullity": 2,
+          "dilation_signature": 0
+        },
+        {
+          "m": 3,
+          "rank": 9,
+          "nullity": 3,
+          "dilation_signature": 0
+        }
+      ]
+    },
+    {
+      "name": "fejer_riesz_v1_winding_and_ywr_direct_sum_cancellation",
+      "status": "PASS",
+      "symbolic_det_ywr": "(a + 2*b*cos(theta))**2",
+      "n_cutoff": 6,
+      "cases": [
+        {
+          "m": -4,
+          "single_winding": -4,
+          "single_fredholm_index": 4,
+          "conj_winding": 4,
+          "ywr_winding": 0,
+          "ywr_fredholm_index": 0,
+          "ywr_z_in": 10,
+          "sv_symmetry_max_err": 8.881784197001252e-16
+        },
+        {
+          "m": -3,
+          "single_winding": -3,
+          "single_fredholm_index": 3,
+          "conj_winding": 3,
+          "ywr_winding": 0,
+          "ywr_fredholm_index": 0,
+          "ywr_z_in": 10,
+          "sv_symmetry_max_err": 8.881784197001252e-16
+        },
+        {
+          "m": -2,
+          "single_winding": -2,
+          "single_fredholm_index": 2,
+          "conj_winding": 2,
+          "ywr_winding": 0,
+          "ywr_fredholm_index": 0,
+          "ywr_z_in": 10,
+          "sv_symmetry_max_err": 8.881784197001252e-16
+        },
+        {
+          "m": -1,
+          "single_winding": -1,
+          "single_fredholm_index": 1,
+          "conj_winding": 1,
+          "ywr_winding": 0,
+          "ywr_fredholm_index": 0,
+          "ywr_z_in": 10,
+          "sv_symmetry_max_err": 1.3322676295501878e-15
+        },
+        {
+          "m": 0,
+          "single_winding": 0,
+          "single_fredholm_index": 0,
+          "conj_winding": 0,
+          "ywr_winding": 0,
+          "ywr_fredholm_index": 0,
+          "ywr_z_in": 10,
+          "sv_symmetry_max_err": 0.0
+        },
+        {
+          "m": 1,
+          "single_winding": 1,
+          "single_fredholm_index": -1,
+          "conj_winding": -1,
+          "ywr_winding": 0,
+          "ywr_fredholm_index": 0,
+          "ywr_z_in": 10,
+          "sv_symmetry_max_err": 1.3322676295501878e-15
+        },
+        {
+          "m": 2,
+          "single_winding": 2,
+          "single_fredholm_index": -2,
+          "conj_winding": -2,
+          "ywr_winding": 0,
+          "ywr_fredholm_index": 0,
+          "ywr_z_in": 10,
+          "sv_symmetry_max_err": 8.881784197001252e-16
+        },
+        {
+          "m": 3,
+          "single_winding": 3,
+          "single_fredholm_index": -3,
+          "conj_winding": -3,
+          "ywr_winding": 0,
+          "ywr_fredholm_index": 0,
+          "ywr_z_in": 10,
+          "sv_symmetry_max_err": 8.881784197001252e-16
+        },
+        {
+          "m": 4,
+          "single_winding": 4,
+          "single_fredholm_index": -4,
+          "conj_winding": -4,
+          "ywr_winding": 0,
+          "ywr_fredholm_index": 0,
+          "ywr_z_in": 10,
+          "sv_symmetry_max_err": 8.881784197001252e-16
+        }
+      ]
+    },
+    {
+      "name": "symbolic_dispersion_quadrature_bias_and_ywr_invariance",
+      "status": "PASS",
+      "delta_q3d_sq_formula": "3*c**2*v**2*w**2/((3*sigma_0**2 + v**2)*(3*c**2*w**2 + 3*sigma_0**2 + v**2))",
+      "delta_q3d_sq_ywr": "0",
+      "cold_disk_intrinsic_q3d_sq": 1.029126,
+      "cold_disk_single_channel_biased_q3d_sq": 1.130435
+    }
+  ]
+}

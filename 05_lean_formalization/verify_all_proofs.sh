@@ -135,6 +135,7 @@ TARGETS=(
   UnifiedSpineGaps.lean
   HillVortexCore.lean
   DispersionQuadrature.lean
+  ToeplitzYWRDual.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------

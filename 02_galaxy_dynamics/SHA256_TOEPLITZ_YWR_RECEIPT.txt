@@ -1,0 +1,11 @@
+=== ANGLE 1: TOEPLITZ-YWR DUAL VERIFICATION RECEIPT ===
+Timestamp (UTC): 2026-11-27T23:55:53Z
+Lean Binary:     Lean (version 4.33.0-rc1, x86_64-unknown-linux-gnu, commit 62eed1db4d67327ec8120be05f1a1b0847d74561, Release)
+Sorry Scan:      0 matches
+
+SHA-256 Artifact Digests:
+b9475003f97f42644dbb65037a76ad9be9e0bbb0dbb1ba0e69f1cb0438da3f30  05_lean_formalization/DispersionQuadrature.lean
+54bd7f82c0c752a6fa98caa8c834392f526f74530e44780151cf9318a945a937  05_lean_formalization/ToeplitzYWRDual.lean
+ad09d5d3342e9cadbd63f64fdfb043d776598b3a587a6048d0c1ebbb5c3e5395  05_lean_formalization/lean_toeplitz_ywr_dual_axioms.txt
+eb23a334caa8d31a57d53607e8709e59c1dbb9246c1fddc83aaa324652da3383  02_galaxy_dynamics/verify_toeplitz_ywr_dual.py
+0d4a6ecf83a69b837910738f1d4e78818e64a299a5376a41bfaf0f5b16048cf2  02_galaxy_dynamics/TOEPLITZ_YWR_DUAL_VERIFICATION.json

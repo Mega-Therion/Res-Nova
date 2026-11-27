@@ -215,5 +215,7 @@ lean_lib «ResNovaFormal» where
     -- ADDED 2026-11-27. Zero-Mathlib Lean 4 companion for Hill spherical vortex core and AdS5 acceleration algebra.
     `HillVortexCore,
     -- ADDED 2026-11-27. Zero-Mathlib Lean 4 companion for 3D phase-space dispersion quadrature law Q_3D(V/sigma).
-    `DispersionQuadrature
+    `DispersionQuadrature,
+    -- ADDED 2026-11-27. Zero-Mathlib Lean 4 companion for Toeplitz / Fejer-Riesz YWR operator-system dual (arXiv:2609.40028).
+    `ToeplitzYWRDual
   ]
