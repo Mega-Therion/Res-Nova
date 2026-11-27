@@ -596,3 +596,7 @@ HillVortexCore.lean              # Zero-Mathlib Lean 4 companion for mushroom_to
                                  # quartic polynomial calculus over Int for Hill's spherical vortex, Stokes
                                  # operator R^2*r^2 cancellation, stalk-to-rim reversal, unique equatorial
                                  # vortex-ring core locus (2*r^2 = R^2), and AdS5 brane acceleration algebra. Not Table 2.
+DispersionQuadrature.lean        # Zero-Mathlib Lean 4 companion for 02_galaxy_dynamics/dispersion_quadrature_audit.py:
+                                 # exact integer-cleared bounds for Q_3D^2 = (V^2 + 6*sig^2)/(V^2 + 3*sig^2),
+                                 # cold-disk iff (sig=0), sphere iff (V=0 => Q_3D^2=2), strict monotonicity,
+                                 # V^2 = 3*sig^2 midpoint, and V >= 10*sig cold-spiral enclosure. Not Table 2.

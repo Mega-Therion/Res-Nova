@@ -41,6 +41,7 @@ step "pom1 intrinsic/dipole self-test" python3 03_observer_jwst/pom1_intrinsic_d
 step "trinity1 archive self-test" python3 03_observer_jwst/trinity1_real_archive_crosscheck.py --self-test
 step "highz kinematic ywr self-test" python3 03_observer_jwst/highz_kinematic_ywr_audit.py --self-test
 step "dipole multiprobe self-test" python3 04_cosmology/dipole_multiprobe_crosscheck.py --self-test
+step "dispersion quadrature self-test" python3 02_galaxy_dynamics/dispersion_quadrature_audit.py --self-test
 step "unified spine v2 verification" python3 06_unification_and_spin/unified_spine_v2/verify_unified_spine_gaps.py
 step "floor2 3-gen flavor probe" python3 06_unification_and_spin/unified_spine_v2/floor2_su3_flavor_probe.py
 step "mushroom toroidal vortex probe" python3 06_unification_and_spin/unified_spine_v2/mushroom_toroidal_vortex_probe.py

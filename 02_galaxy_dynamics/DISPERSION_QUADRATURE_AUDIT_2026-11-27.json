@@ -1,0 +1,124 @@
+{
+  "date": "2026-11-27",
+  "epistemic_tag": "[P] bounds in DispersionQuadrature.lean + [D]/[E] catalog evaluation + [O] physical Jeans/baryon bridge",
+  "formula": "Q_3D(V_rot / sigma_0) = sqrt(((V_rot / sigma_0)^2 + 6) / ((V_rot / sigma_0)^2 + 3))",
+  "a0_canonical_SI": 1.1607e-10,
+  "results": {
+    "analytic_ladder": [
+      {
+        "Vrot_over_sigma0": 15.0,
+        "Q_3D": 1.006557,
+        "Q_3D_squared": 1.013158
+      },
+      {
+        "Vrot_over_sigma0": 12.0,
+        "Q_3D": 1.010153,
+        "Q_3D_squared": 1.020408
+      },
+      {
+        "Vrot_over_sigma0": 10.0,
+        "Q_3D": 1.014459,
+        "Q_3D_squared": 1.029126
+      },
+      {
+        "Vrot_over_sigma0": 8.0,
+        "Q_3D": 1.022143,
+        "Q_3D_squared": 1.044776
+      },
+      {
+        "Vrot_over_sigma0": 1.7321,
+        "Q_3D": 1.224745,
+        "Q_3D_squared": 1.5
+      },
+      {
+        "Vrot_over_sigma0": 0.0,
+        "Q_3D": 1.414214,
+        "Q_3D_squared": 2.0
+      }
+    ],
+    "kinematic_tiers": {
+      "RC100_N100": {
+        "label": "RC100 (z = 0.60--2.53)",
+        "n": 100,
+        "median_z": 1.53,
+        "median_Vrot_over_sigma0": 4.538,
+        "iqr_Vrot_over_sigma0": [
+          3.132,
+          6.863
+        ],
+        "median_Q3D_individual": 1.0617,
+        "baseline_Q1_thin_disk": {
+          "median_gobs_over_gpred": 1.3755,
+          "median_dex_residual": 0.1385,
+          "rms_dex_residual": 0.2159,
+          "mean_sq_zscore": 0.467
+        },
+        "prescription_I_baryon_Q3D_xi_O": {
+          "median_gobs_over_gpred": 1.335,
+          "median_dex_residual": 0.1255,
+          "rms_dex_residual": 0.2115,
+          "mean_sq_zscore": 0.444
+        },
+        "prescription_II_virial_Q3D_sq_xi_O": {
+          "median_gobs_over_gpred": 1.155,
+          "median_dex_residual": 0.0626,
+          "rms_dex_residual": 0.214,
+          "mean_sq_zscore": 0.453
+        },
+        "ceiling_constant_Q_sqrt2_O": {
+          "median_gobs_over_gpred": 1.0516,
+          "median_dex_residual": 0.0218,
+          "rms_dex_residual": 0.1832,
+          "mean_sq_zscore": 0.328
+        }
+      },
+      "JWST_MSA3D_N20": {
+        "label": "JWST MSA-3D (z = 0.58--1.57)",
+        "n": 20,
+        "median_z": 1.054,
+        "median_Vrot_over_sigma0": 2.833,
+        "iqr_Vrot_over_sigma0": [
+          2.175,
+          3.921
+        ],
+        "median_Q3D_individual": 1.128,
+        "baseline_Q1_thin_disk": {
+          "median_gobs_over_gpred": 2.0402,
+          "median_dex_residual": 0.3096,
+          "rms_dex_residual": 0.3439,
+          "mean_sq_zscore": 1.029
+        },
+        "prescription_I_baryon_Q3D_xi_O": {
+          "median_gobs_over_gpred": 1.8775,
+          "median_dex_residual": 0.2736,
+          "rms_dex_residual": 0.3188,
+          "mean_sq_zscore": 0.895
+        },
+        "prescription_II_virial_Q3D_sq_xi_O": {
+          "median_gobs_over_gpred": 1.5342,
+          "median_dex_residual": 0.1855,
+          "rms_dex_residual": 0.271,
+          "mean_sq_zscore": 0.668
+        },
+        "ceiling_constant_Q_sqrt2_O": {
+          "median_gobs_over_gpred": 1.6257,
+          "median_dex_residual": 0.211,
+          "rms_dex_residual": 0.2737,
+          "mean_sq_zscore": 0.665
+        }
+      }
+    },
+    "weak_lensing_elliptical_endpoint": {
+      "n_true_disks": 39632,
+      "n_true_ellipticals": 5418,
+      "Q_3D_at_xi_0": 1.414214,
+      "ETG_chi2_ndof_at_Q1": "22.256/7",
+      "ETG_p_at_Q1": 0.0022943,
+      "ETG_chi2_ndof_at_Qsqrt2": "12.757/7",
+      "ETG_p_at_Qsqrt2": 0.078266,
+      "Joint_Hartlap_verdict_at_Qsqrt2": "PASS",
+      "Joint_Hartlap_p_at_Qsqrt2": 0.043815
+    }
+  },
+  "sha256_body": "8862e33930645488c36044b2951bb8fcff247896fc8cf514b9da25968f32e42f"
+}

@@ -134,6 +134,7 @@ TARGETS=(
   IharaGraphRH.lean
   UnifiedSpineGaps.lean
   HillVortexCore.lean
+  DispersionQuadrature.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------

@@ -593,6 +593,15 @@ modules:
     observable: "none (representation theory only)"
     falsifier: "none"
 
+  - module: DispersionQuadrature
+    tier: ARITH
+    theorems: 15
+    structures: 0
+    plain_real_defs: 0
+    denotes: "none. Exact integer-cleared polynomial bounds, endpoint iff characterizations, cross-multiplied strict antitonicity, equipartition midpoint, and cold-spiral enclosure for Q_3D^2(V, sigma) = (V^2 + 6*sigma^2)/(V^2 + 3*sigma^2) (companion to 02_galaxy_dynamics/dispersion_quadrature_audit.py)."
+    observable: "none"
+    falsifier: "none"
+
   - module: HillVortexCore
     tier: ARITH
     theorems: 12
