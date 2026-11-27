@@ -592,3 +592,12 @@ modules:
     denotes: "The concrete order-3 triality automorphism of so(8): M is the SO(8) matrix with M_orthogonal, M_order_three and M_det_ne_zero, acting as the permutation 8_v -> 8_s -> 8_c -> 8_v. T_maps_vector_to_spinor_weights is the vector-to-spinor weight map and T_vector_lands_in_odd_parity_class its parity class. Denotes the triality outer automorphism that cycles the three 8-dimensional representations."
     observable: "none (representation theory only)"
     falsifier: "none"
+
+  - module: UnifiedSpineGaps
+    tier: ARITH
+    theorems: 19
+    structures: 0
+    plain_real_defs: 0
+    denotes: "none. Exact integer and binomial arithmetic for Spin(16) exterior powers, E6 27-plet anomaly cancellation sums, II_{25,1} Gram norms, Z3/Z9 orbifold weights, and integer-cleared GKSL/quartic polynomial identities (companion to 06_unification_and_spin/unified_spine_v2)."
+    observable: "none"
+    falsifier: "none"

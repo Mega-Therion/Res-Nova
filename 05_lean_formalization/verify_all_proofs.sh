@@ -132,6 +132,7 @@ TARGETS=(
   BernoulliLegendreShell.lean
   RimOffset.lean
   IharaGraphRH.lean
+  UnifiedSpineGaps.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------
