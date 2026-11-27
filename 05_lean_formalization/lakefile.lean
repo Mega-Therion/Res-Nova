@@ -211,5 +211,7 @@ lean_lib «ResNovaFormal» where
     `RimOffset,
     `IharaGraphRH,
     -- ADDED 2026-11-27. Zero-Mathlib Lean 4 companion for Unified Wick-CPT / Spin(8) / 3x2 Spine v2 audit.
-    `UnifiedSpineGaps
+    `UnifiedSpineGaps,
+    -- ADDED 2026-11-27. Zero-Mathlib Lean 4 companion for Hill spherical vortex core and AdS5 acceleration algebra.
+    `HillVortexCore
   ]

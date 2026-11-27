@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-27",
+  "epistemic_tag": "[D]/[E] cross-probe synthesis on real KiDS-Legacy DR5 and Pantheon+ receipts",
+  "metrics": {
+    "cmb_apex_j2000_deg": [
+      167.942,
+      -6.944
+    ],
+    "probe_1_kids_legacy_unseen_dr5": {
+      "total_isolated_lenses": 107139,
+      "forward_N_DR5": {
+        "n_lenses": 62822,
+        "cos_cmb_dipole": 0.8708,
+        "ltg_median_obs_over_pred": 1.1711
+      },
+      "wake_S_DR5": {
+        "n_lenses": 44317,
+        "cos_cmb_dipole": -0.6456,
+        "ltg_median_obs_over_pred": 0.7577
+      },
+      "two_hemisphere_unweighted_mean": 0.9644,
+      "fractional_dipole_modulation": 0.2143
+    },
+    "probe_2_pantheon_plus_sne": {
+      "total_sne": 1590,
+      "forward_toward_apex": {
+        "n_sne": 556,
+        "omega_m_best": 0.318,
+        "omega_f_ceiling_best": 0.996,
+        "omega_f_1sigma": [
+          0.968,
+          0.996
+        ]
+      },
+      "wake_away_from_apex": {
+        "n_sne": 1034,
+        "omega_m_best": 0.342,
+        "omega_f_ceiling_best": 0.932,
+        "omega_f_1sigma": [
+          0.908,
+          0.96
+        ]
+      },
+      "two_hemisphere_unweighted_mean_omega_f": 0.964,
+      "omega_f_forward_minus_wake_sigma": 2.167,
+      "lcdm_omega_m_diff_sigma": 0.737,
+      "galactic_centre_control_omega_m_diff_sigma": 0.222
+    },
+    "gama_four_field_sightline_ladder": [
+      {
+        "field": "G12",
+        "n_lenses": 12290,
+        "cos_cmb_dipole": 0.9692,
+        "cos_virgo": 0.9641,
+        "ltg_obs_over_pred": 1.3974,
+        "etg_obs_over_pred": 1.3408
+      },
+      {
+        "field": "G09",
+        "n_lenses": 12265,
+        "cos_cmb_dipole": 0.8311,
+        "cos_virgo": 0.5938,
+        "ltg_obs_over_pred": 0.7691,
+        "etg_obs_over_pred": 1.9188
+      },
+      {
+        "field": "G15",
+        "n_lenses": 12440,
+        "cos_cmb_dipole": 0.6421,
+        "cos_virgo": 0.8482,
+        "ltg_obs_over_pred": 1.3535,
+        "etg_obs_over_pred": 2.0669
+      },
+      {
+        "field": "G23",
+        "n_lenses": 8055,
+        "cos_cmb_dipole": -0.7689,
+        "cos_virgo": -0.873,
+        "ltg_obs_over_pred": 0.6798,
+        "etg_obs_over_pred": 0.9959
+      }
+    ],
+    "cross_probe_mean_difference": 0.0004,
+    "reference_constants_distinct_errata_e13": {
+      "chi_s_sqrt_sqrt2_minus_half": 0.956145
+    }
+  },
+  "sha256_body": "1b637e179cba212f7e261e2585b11fe774fd6b1eed03ac24fef399ca4d1dde63"
+}

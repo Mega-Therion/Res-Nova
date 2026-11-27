@@ -593,6 +593,15 @@ modules:
     observable: "none (representation theory only)"
     falsifier: "none"
 
+  - module: HillVortexCore
+    tier: ARITH
+    theorems: 12
+    structures: 0
+    plain_real_defs: 0
+    denotes: "none. Exact univariate quartic polynomial calculus over Int for Hill's spherical vortex streamfunction, axisymmetric Stokes operator cancellation, stalk-to-rim velocity reversal, equatorial vortex-ring core locus 2*r^2 = R^2, and 5D AdS5 static brane proper-acceleration algebra (companion to mushroom_toroidal_vortex_probe.py)."
+    observable: "none"
+    falsifier: "none"
+
   - module: UnifiedSpineGaps
     tier: ARITH
     theorems: 26

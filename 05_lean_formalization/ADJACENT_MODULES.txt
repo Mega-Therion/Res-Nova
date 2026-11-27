@@ -592,3 +592,7 @@ IharaGraphRH.lean                # Graph RH <=> Ramanujan bound, pole-by-pole (I
 UnifiedSpineGaps.lean            # Zero-Mathlib Lean 4 companion for Unified Wick-CPT / Spin(8) / 3x2 Spine v2
                                  # audit in 06_unification_and_spin/unified_spine_v2/ (Spin(16) weights,
                                  # E6 27-plet 6/6 anomalies, II_{25,1} & Z3->Z9 lift, OS/GKSL, quartic). Not Table 2.
+HillVortexCore.lean              # Zero-Mathlib Lean 4 companion for mushroom_toroidal_vortex_probe.py:
+                                 # quartic polynomial calculus over Int for Hill's spherical vortex, Stokes
+                                 # operator R^2*r^2 cancellation, stalk-to-rim reversal, unique equatorial
+                                 # vortex-ring core locus (2*r^2 = R^2), and AdS5 brane acceleration algebra. Not Table 2.

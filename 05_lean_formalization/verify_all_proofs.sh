@@ -133,6 +133,7 @@ TARGETS=(
   RimOffset.lean
   IharaGraphRH.lean
   UnifiedSpineGaps.lean
+  HillVortexCore.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------

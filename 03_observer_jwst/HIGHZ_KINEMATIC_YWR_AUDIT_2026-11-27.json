@@ -1,0 +1,200 @@
+{
+  "date": "2026-11-27",
+  "epistemic_tag": "[D]/[E] resolved high-z rotation-curve YWR surface-density & dispersion audit (Q_3D=sqrt(2) fenced [O])",
+  "a0_canonical_SI": 1.1607e-10,
+  "results": {
+    "total_primary_galaxies": 125,
+    "spearman_r_y_vs_gobs_over_gbar": -0.7683,
+    "spearman_p_value": 1.3533e-25,
+    "surface_density_tertiles": [
+      {
+        "tertile": 1,
+        "n": 42,
+        "median_y_gbar_over_a0": 0.366,
+        "observed_median_gobs_over_gbar": 3.493,
+        "pred_ywr_Q1_gpred_over_gbar": 1.812,
+        "pred_ywr_Qsqrt2_gpred_over_gbar": 2.235
+      },
+      {
+        "tertile": 2,
+        "n": 41,
+        "median_y_gbar_over_a0": 1.395,
+        "observed_median_gobs_over_gbar": 1.721,
+        "pred_ywr_Q1_gpred_over_gbar": 1.172,
+        "pred_ywr_Qsqrt2_gpred_over_gbar": 1.557
+      },
+      {
+        "tertile": 3,
+        "n": 42,
+        "median_y_gbar_over_a0": 3.687,
+        "observed_median_gobs_over_gbar": 1.195,
+        "pred_ywr_Q1_gpred_over_gbar": 1.034,
+        "pred_ywr_Qsqrt2_gpred_over_gbar": 1.439
+      }
+    ],
+    "per_sample_comparison": {
+      "RC100_z0p6_2p5": {
+        "n": 100,
+        "median_z": 1.53,
+        "median_Ez": 2.406,
+        "median_V_over_sigma": 4.89,
+        "median_gbar_over_a0": 1.496,
+        "median_observed_gobs_over_gbar": 1.686,
+        "model_A_static_a0_Q1": {
+          "median_gobs_over_gpred": 1.3755,
+          "median_Vobs_over_Vpred": 1.1728,
+          "median_dex_residual": 0.1385,
+          "rms_dex_residual": 0.2159,
+          "mean_weighted_sq_zscore": 0.467
+        },
+        "model_B_horizon_a0z_Ez": {
+          "median_gobs_over_gpred": 1.0812,
+          "median_Vobs_over_Vpred": 1.0398,
+          "median_dex_residual": 0.0339,
+          "rms_dex_residual": 0.178,
+          "mean_weighted_sq_zscore": 0.329
+        },
+        "model_C_static_a0_Q3D_sqrt2_O": {
+          "median_gobs_over_gpred": 1.0516,
+          "median_Vobs_over_Vpred": 1.0255,
+          "median_dex_residual": 0.0218,
+          "rms_dex_residual": 0.1832,
+          "mean_weighted_sq_zscore": 0.328
+        }
+      },
+      "JWST_MSA3D_z0p6_1p6": {
+        "n": 20,
+        "median_z": 1.054,
+        "median_Ez": 1.849,
+        "median_V_over_sigma": 2.83,
+        "median_gbar_over_a0": 0.366,
+        "median_observed_gobs_over_gbar": 3.536,
+        "model_A_static_a0_Q1": {
+          "median_gobs_over_gpred": 2.0402,
+          "median_Vobs_over_Vpred": 1.4283,
+          "median_dex_residual": 0.3096,
+          "rms_dex_residual": 0.3439,
+          "mean_weighted_sq_zscore": 1.029
+        },
+        "model_B_horizon_a0z_Ez": {
+          "median_gobs_over_gpred": 1.6484,
+          "median_Vobs_over_Vpred": 1.2839,
+          "median_dex_residual": 0.217,
+          "rms_dex_residual": 0.2642,
+          "mean_weighted_sq_zscore": 0.654
+        },
+        "model_C_static_a0_Q3D_sqrt2_O": {
+          "median_gobs_over_gpred": 1.6257,
+          "median_Vobs_over_Vpred": 1.275,
+          "median_dex_residual": 0.211,
+          "rms_dex_residual": 0.2737,
+          "mean_weighted_sq_zscore": 0.665
+        }
+      },
+      "JWST_ALMA_ALPINE_CRISTAL_z4p4_5p7": {
+        "n": 5,
+        "median_z": 5.576,
+        "median_Ez": 9.505,
+        "median_V_over_sigma": null,
+        "median_gbar_over_a0": 6.855,
+        "median_observed_gobs_over_gbar": 0.949,
+        "model_A_static_a0_Q1": {
+          "median_gobs_over_gpred": 0.9354,
+          "median_Vobs_over_Vpred": 0.9671,
+          "median_dex_residual": -0.029,
+          "rms_dex_residual": 0.2958,
+          "mean_weighted_sq_zscore": 1.109
+        },
+        "model_B_horizon_a0z_Ez": {
+          "median_gobs_over_gpred": 0.7069,
+          "median_Vobs_over_Vpred": 0.8408,
+          "median_dex_residual": -0.1506,
+          "rms_dex_residual": 0.2128,
+          "mean_weighted_sq_zscore": 0.636
+        },
+        "model_C_static_a0_Q3D_sqrt2_O": {
+          "median_gobs_over_gpred": 0.6661,
+          "median_Vobs_over_Vpred": 0.8162,
+          "median_dex_residual": -0.1764,
+          "rms_dex_residual": 0.3108,
+          "mean_weighted_sq_zscore": 1.313
+        }
+      }
+    },
+    "aux_degraaff_z5p5_7p4_O": [
+      {
+        "id": "JADES-NS-00016745",
+        "z": 5.56616,
+        "E_z": 9.48393391296526,
+        "g_dyn": 3.267154323400214e-10,
+        "g_star_only": 1.2138629300403168e-11,
+        "g_bar_assumed_11x_mstar": 1.3352492230443486e-10,
+        "g_pred_const_11x": 1.621071996635879e-10,
+        "g_pred_horizon_11x": 3.8740618068662474e-10,
+        "ratio_dyn_over_const": 2.0154282660982106,
+        "ratio_dyn_over_horizon": 0.8433407844990051
+      },
+      {
+        "id": "JADES-NS-00019606",
+        "z": 5.88979,
+        "E_z": 10.188447749418748,
+        "g_dyn": 2.2617456483490522e-10,
+        "g_star_only": 5.302049321784289e-12,
+        "g_bar_assumed_11x_mstar": 5.832254253962719e-11,
+        "g_pred_const_11x": 9.18046412660448e-11,
+        "g_pred_horizon_11x": 2.604465402278245e-10,
+        "ratio_dyn_over_const": 2.463650657698926,
+        "ratio_dyn_over_horizon": 0.8684107096875234
+      },
+      {
+        "id": "JADES-NS-00022251",
+        "z": 5.79912,
+        "E_z": 9.989325541533766,
+        "g_dyn": 2.3484330712747005e-10,
+        "g_star_only": 2.242736171834891e-11,
+        "g_bar_assumed_11x_mstar": 2.46700978901838e-10,
+        "g_pred_const_11x": 2.6733424844674155e-10,
+        "g_pred_horizon_11x": 5.534342642891509e-10,
+        "ratio_dyn_over_const": 0.8784632290548273,
+        "ratio_dyn_over_horizon": 0.42433821373367714
+      },
+      {
+        "id": "JADES-NS-00047100",
+        "z": 7.43173,
+        "E_z": 13.77280025280781,
+        "g_dyn": 1.1479099715779683e-09,
+        "g_star_only": 5.494242556744398e-11,
+        "g_bar_assumed_11x_mstar": 6.043666812418837e-10,
+        "g_pred_const_11x": 6.142602684848638e-10,
+        "g_pred_horizon_11x": 1.0613840540816422e-09,
+        "ratio_dyn_over_const": 1.868768062126835,
+        "ratio_dyn_over_horizon": 1.0815217801356476
+      },
+      {
+        "id": "JADES-NS-10016374",
+        "z": 5.50411,
+        "E_z": 9.3508459270102,
+        "g_dyn": 7.776567633320417e-10,
+        "g_star_only": 1.9988856649103693e-11,
+        "g_bar_assumed_11x_mstar": 2.1987742314014062e-10,
+        "g_pred_const_11x": 2.421118393211681e-10,
+        "g_pred_horizon_11x": 5.041748990855596e-10,
+        "ratio_dyn_over_const": 3.2119732992505927,
+        "ratio_dyn_over_horizon": 1.5424345098149592
+      },
+      {
+        "id": "JADES-NS-20086025",
+        "z": 7.2627,
+        "E_z": 13.36224030285419,
+        "g_dyn": 4.197918304759471e-10,
+        "g_star_only": 1.4555729714493267e-11,
+        "g_bar_assumed_11x_mstar": 1.6011302685942593e-10,
+        "g_pred_const_11x": 1.8657113629155068e-10,
+        "g_pred_horizon_11x": 5.011890448005605e-10,
+        "ratio_dyn_over_const": 2.250036306901982,
+        "ratio_dyn_over_horizon": 0.8375917926198805
+      }
+    ]
+  },
+  "sha256_body": "76b59fe9da818949a51a93cd9d1030350085b1a37eff3dfffd34ea1d4456f6b5"
+}
