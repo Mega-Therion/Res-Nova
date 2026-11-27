@@ -35,10 +35,10 @@ import io
 import json
 import math
 import os
-import subprocess
 import sys
 import tarfile
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 import zlib
@@ -101,7 +101,15 @@ WL_FITS_GZ_BYTES = 7179531549
 
 # ------------------------------------------------------------------ Data Cache & Ingestion
 def resolve_paths(cache_dir: str | Path | None = None) -> dict[str, Path]:
-    base = Path(cache_dir or os.environ.get("KL_CACHE_DIR", "/tmp/kids_legacy_cache"))
+    safe_root = "/tmp/"
+    if cache_dir is None:
+        base = Path("/tmp/kids_legacy_cache")
+    else:
+        rel = os.path.relpath(os.path.abspath(os.fspath(cache_dir)), safe_root)
+        fullpath = os.path.normpath(os.path.join(safe_root, rel))
+        if not fullpath.startswith(safe_root):
+            raise ValueError(f"Unsafe cache_dir outside {safe_root}: {cache_dir!r}")
+        base = Path(fullpath)
     lens_dir = Path("/tmp/kids_lenses") if (Path("/tmp/kids_lenses/DistancesFramesv14.fits").exists()) else (base / "lenses")
     nz_alt = Path("/tmp/kids_test/KiDS_Legacy_cosmic_shear_data_release/data/KiDS_Legacy_xipm.fits")
     nz_alt2 = Path("/tmp/kl_data/KiDS_Legacy_cosmic_shear_data_release/data/KiDS_Legacy_xipm.fits")
@@ -134,21 +142,38 @@ def resolve_paths(cache_dir: str | Path | None = None) -> dict[str, Path]:
     }
 
 
-def _curl_download(url: str, dest: Path, expected_bytes: int | None = None):
+def _http_download(url: str, dest: Path, expected_bytes: int | None = None):
+    if not url.startswith("https://"):
+        raise ValueError(f"Refusing non-HTTPS download URL: {url}")
     dest.parent.mkdir(parents=True, exist_ok=True)
+    part = dest.with_name(dest.name + ".part")
     for _ in range(40):
         if expected_bytes is not None and dest.exists() and dest.stat().st_size == expected_bytes:
             return
-        cmd = [
-            "curl", "-fL", "-C", "-", "--connect-timeout", "20",
-            "--speed-time", "45", "--speed-limit", "20000",
-            "-o", str(dest), url,
-        ]
-        rc = subprocess.run(cmd, check=False).returncode
-        if rc == 0 and (expected_bytes is None or (dest.exists() and dest.stat().st_size == expected_bytes)):
-            return
-        if rc == 22:
-            raise RuntimeError(f"HTTP error (curl rc=22) fetching {url}")
+        cur = part.stat().st_size if part.exists() else 0
+        headers = {"User-Agent": "Res-Nova"}
+        if cur > 0:
+            headers["Range"] = f"bytes={cur}-"
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                mode = "ab" if (cur > 0 and resp.status == 206) else "wb"
+                with open(part, mode) as fout:
+                    while True:
+                        chunk = resp.read(262144)
+                        if not chunk:
+                            break
+                        fout.write(chunk)
+            if expected_bytes is None or part.stat().st_size == expected_bytes:
+                os.replace(part, dest)
+                return
+        except urllib.error.HTTPError as exc:
+            if exc.code == 416 and cur > 0:
+                part.unlink(missing_ok=True)
+            elif 400 <= exc.code < 500:
+                raise RuntimeError(f"HTTP {exc.code} error fetching {url}") from exc
+        except Exception:
+            pass
         time.sleep(2)
     raise RuntimeError(f"Failed downloading {url} -> {dest}")
 
@@ -308,7 +333,7 @@ def ensure_data(paths: dict[str, Path], drop_wl_gz_after: bool = False):
     # 1. KiDS-Legacy NZ_SOURCE tarball
     if not paths["nz_fits"].exists():
         tgz = paths["base"] / "KiDS_Legacy_cosmic_shear_data_release.tar.gz"
-        _curl_download(URLS["xipm_tar"], tgz)
+        _http_download(URLS["xipm_tar"], tgz)
         with tarfile.open(tgz, "r:gz") as tf:
             tf.extractall(paths["base"], filter="data")
         if not paths["nz_fits"].exists():
@@ -326,7 +351,7 @@ def ensure_data(paths: dict[str, Path], drop_wl_gz_after: bool = False):
     ):
         fp = paths["lens_dir"] / fname
         if not fp.exists():
-            _curl_download(URLS[key], fp)
+            _http_download(URLS[key], fp)
 
     # 3. DR5-minus-DR4 exact 341 tile list from ESO TAP + bright DR5 sample on those tiles
     if not paths["tiles_txt"].exists():
