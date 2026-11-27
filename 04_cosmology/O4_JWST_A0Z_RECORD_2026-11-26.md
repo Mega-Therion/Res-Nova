@@ -7,30 +7,30 @@
 ## 1. Headline Primary Result (Pure JWST/NIRSpec 2-Bin `mbar`, N = 25)
 
 - **Verdict:** **`CONFOUNDED`**
-- **Mechanical $\Delta\chi^2 = \chi^2_{\rm const} - \chi^2_{\rm horizon}$:** `+16.66` (`+4.08`$\sigma$)
-- **Shape-only $\Delta\chi^2_{\rm shape}$ (free overall normalization):** `-4.90` (`-2.21`$\sigma$)
-- **Fitted scaling exponent $n$ in $a_0(z) \propto E(z)^n$:** `n = 0.14` (68% CI: `[-0.30999999999999994, 0.49]`)
+- **Mechanical $\Delta\chi^2 = \chi^2_{\rm const} - \chi^2_{\rm horizon}$:** `+16.56` (`+4.07`$\sigma$)
+- **Shape-only $\Delta\chi^2_{\rm shape}$ (free overall normalization):** `-4.82` (`-2.20`$\sigma$)
+- **Fitted scaling exponent $n$ in $a_0(z) \propto E(z)^n$:** `n = 0.15` (68% CI: `[-0.31, +0.50]`)
 
 | Bin | Sample | N | z_eff | E(z_eff) | a0_hat (1e-10 m/s^2) | 68% CI | sigma_int | chi2_const | chi2_horizon |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | MSA-3D bounded (`2606.27853`) | 20 | 1.091 | 1.876 | 5.023 | 4.045--6.190 | 0.20 | 26.01 | 11.35 |
-| 2 | ALPINE-CRISTAL (`2611.07064`) | 5 | 5.327 | 8.938 | 6.281 | 3.130--10.388 | 0.00 | 2.83 | 0.82 |
+| 1 | MSA-3D bounded (`2606.27853`) | 20 | 1.091 | 1.876 | 4.982 | 4.011--6.142 | 0.20 | 25.68 | 11.16 |
+| 2 | ALPINE-CRISTAL (`2611.07064`) | 5 | 5.327 | 8.938 | 6.294 | 3.140--10.406 | 0.00 | 2.84 | 0.81 |
 
 ## 2. Sensitivity & Systematic Suite
 
 | Variant | Delta-chi2 | Shape Delta-chi2 | n_hat (68% CI) | Verdict / Note |
 |---|---|---|---|---|
-| `joint_msa3d_fdm30_plus_alpine5` | `+54.97` | `-12.57` | `-0.37` ([-0.8200000000000001, -0.040000000000000036]) | CONFOUNDED |
-| `joint_msa3d_N30_paper_gas_plus_alpine5` | `+20.02` | `-4.08` | `0.21` ([-0.26, 0.56]) | CONFOUNDED |
-| `joint_msa3d_N30_mstar_floor_plus_alpine5` | `+27.87` | `-6.81` | `-0.01` ([-0.47, 0.3400000000000001]) | CONFOUNDED |
-| `joint_clean_golden13_plus_alpine4` | `+9.62` | `-5.79` | `-1.00` ([None, 0.14000000000000012]) | CONFOUNDED |
-| `joint_msa20_plus_alpine_nonparam5` | `+13.89` | `-3.82` | `-0.23` ([None, 0.41999999999999993]) | CONFOUNDED |
-| `joint_msa20_plus_alpine_gas_minus_0p2dex` | `+19.93` | `-2.34` | `0.38` ([0.020000000000000018, 0.7]) | CONFOUNDED |
-| `joint_msa_err_lo` | `+17.78` | `-6.03` | `0.06` ([-0.39, 0.40000000000000013]) | CONFOUNDED |
-| `joint_msa_err_hi` | `+15.40` | `-3.85` | `0.21` ([-0.26, 0.5800000000000001]) | CONFOUNDED |
-| `joint_msa_thin_adc` | `+20.88` | `-8.00` | `-0.09` ([-0.55, 0.25]) | CONFOUNDED |
-| `joint_sparc_T1_baseline` | `+15.65` | `-4.90` | `0.14` ([-0.30999999999999994, 0.49]) | CONFOUNDED |
-| `combined_4bin_RC100_plus_JWST` | `+84.19` | `-22.09` | `-0.35` ([-0.62, -0.010000000000000009]) | 4-bin meta |
+| `joint_msa3d_fdm30_plus_alpine5` | `+55.01` | `-12.46` | `-0.37` ([-0.82, -0.04]) | CONFOUNDED |
+| `joint_msa3d_N30_paper_gas_plus_alpine5` | `+19.89` | `-4.02` | `0.22` ([-0.25, +0.56]) | CONFOUNDED |
+| `joint_msa3d_N30_mstar_floor_plus_alpine5` | `+27.74` | `-6.75` | `0.00` ([-0.46, +0.34]) | CONFOUNDED |
+| `joint_clean_golden13_plus_alpine4` | `+9.60` | `-5.78` | `-3.97` ([-inf, +0.13]) | CONFOUNDED |
+| `joint_msa20_plus_alpine_nonparam5` | `+13.76` | `-3.78` | `-0.22` ([-inf, +0.42]) | CONFOUNDED |
+| `joint_msa20_plus_alpine_gas_minus_0p2dex` | `+19.82` | `-2.26` | `0.39` ([+0.02, +0.71]) | CONFOUNDED |
+| `joint_msa_err_lo` | `+17.64` | `-5.93` | `0.07` ([-0.38, +0.41]) | CONFOUNDED |
+| `joint_msa_err_hi` | `+15.32` | `-3.79` | `0.22` ([-0.26, +0.59]) | CONFOUNDED |
+| `joint_msa_thin_adc` | `+20.77` | `-7.92` | `-0.09` ([-0.54, +0.26]) | CONFOUNDED |
+| `joint_sparc_T1_baseline` | `+16.22` | `-4.82` | `0.15` ([-0.31, +0.50]) | CONFOUNDED |
+| `combined_4bin_RC100_plus_JWST` | `+84.19` | `-21.97` | `-0.34` ([-0.62, -0.01]) | 4-bin meta |
 
 ## 3. Auxiliary de Graaff+2024 Check (`[O]`, Excluded from Primary)
 
