@@ -1,3 +1,6 @@
+> **Track:** `TRACK_I` | **Author:** Ryan W. Yett (`Mega-Therion`) | **ORCID:** `0009-0001-1303-7190`
+> **Epistemic Fencing:** `[P]` Proved · `[D]` Derived · `[E]` Empirical · `[O]` Open · `[X]` Falsified
+
 # Res-Nova
 
 <p align="center">
