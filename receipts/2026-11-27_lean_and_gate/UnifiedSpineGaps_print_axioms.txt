@@ -1,0 +1,26 @@
+'UnifiedSpineGaps.int_sq_nonneg' depends on axioms: [propext, Quot.sound]
+'UnifiedSpineGaps.binom16_values' does not depend on any axioms
+'UnifiedSpineGaps.sym2_128_decomp' does not depend on any axioms
+'UnifiedSpineGaps.alt2_128_decomp' does not depend on any axioms
+'UnifiedSpineGaps.so16_absent_from_sym2' does not depend on any axioms
+'UnifiedSpineGaps.floor1_j3O_3x2_dim' does not depend on any axioms
+'UnifiedSpineGaps.floor2_e8_e6_su3_3x2_dim' does not depend on any axioms
+'UnifiedSpineGaps.floor2_27_total_dim' does not depend on any axioms
+'UnifiedSpineGaps.floor2_27_grav_anomaly_zero' does not depend on any axioms
+'UnifiedSpineGaps.floor2_27_cubic_Y_anomaly_zero' does not depend on any axioms
+'UnifiedSpineGaps.floor2_27_su3_Y_anomaly_zero' does not depend on any axioms
+'UnifiedSpineGaps.floor2_27_su2_Y_anomaly_zero' does not depend on any axioms
+'UnifiedSpineGaps.floor2_27_su3_cubic_anomaly_zero' does not depend on any axioms
+'UnifiedSpineGaps.floor2_27_witten_su2_even_doublets' does not depend on any axioms
+'UnifiedSpineGaps.gap2_gluing_cartan_entry' does not depend on any axioms
+'UnifiedSpineGaps.gap2_pairwise_gluing_real_root' does not depend on any axioms
+'UnifiedSpineGaps.gap2_triple_gluing_real_root' does not depend on any axioms
+'UnifiedSpineGaps.gap2_z3_orbifold_weight_identity' does not depend on any axioms
+'UnifiedSpineGaps.gap2_z3_pure_orbifold_anomalous' does not depend on any axioms
+'UnifiedSpineGaps.gap2_z9_twisted_level_matching' does not depend on any axioms
+'UnifiedSpineGaps.gap3_gksl_chirality_bound_int' depends on axioms: [propext, Quot.sound]
+'UnifiedSpineGaps.gap3_gksl_ceiling_attained' does not depend on any axioms
+'UnifiedSpineGaps.gap3_os_reflection_positivity_2mode' depends on axioms: [propext, Quot.sound]
+'UnifiedSpineGaps.gap4_module_local_half_square_match' does not depend on any axioms
+'UnifiedSpineGaps.gap4_chi_s_quartic' depends on axioms: [propext, Quot.sound]
+'UnifiedSpineGaps.gap4_holographic_scale_cancellation' depends on axioms: [propext]
