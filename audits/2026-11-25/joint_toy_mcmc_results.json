@@ -1,0 +1,36 @@
+{
+  "configuration": {
+    "n_walkers": 64,
+    "n_steps": 30000,
+    "burn_in": 5000,
+    "thin": 10,
+    "acceptance_fraction": 0.7846536458333333,
+    "model": "eta_LLR=eta_A; eta_MIC=delta_xi_P with F=1",
+    "warning": "Conditional summary-statistic posterior; not a full ephemeris or MICROSCOPE time-series fit."
+  },
+  "summary": {
+    "quantiles": {
+      "eta_A": {
+        "2.5%": -7.709191664795236e-14,
+        "16%": -3.900179925151272e-14,
+        "50%": -2.114277727867878e-16,
+        "84%": 3.85641786916158e-14,
+        "97.5%": 7.590181902834121e-14
+      },
+      "delta_xi_P_Ti_minus_Pt": {
+        "2.5%": -6.870826366721556e-15,
+        "16%": -4.2202288455715255e-15,
+        "50%": -1.4973970651567277e-15,
+        "84%": 1.2086770856103595e-15,
+        "97.5%": 3.866100737343513e-15
+      }
+    },
+    "posterior_probability_eta_A_ge_res_nova_scan_min": 0.0,
+    "posterior_probability_abs_delta_xi_ge_1e_minus_14": 0.00100625,
+    "n_samples": 160000,
+    "sigma_llr": 3.9e-14,
+    "sigma_mic": 2.745906043549196e-15,
+    "wall_response_normalization_F": 1.0,
+    "seed": 20261125
+  }
+}
