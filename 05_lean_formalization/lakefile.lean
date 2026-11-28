@@ -217,5 +217,9 @@ lean_lib «ResNovaFormal» where
     -- ADDED 2026-11-27. Zero-Mathlib Lean 4 companion for 3D phase-space dispersion quadrature law Q_3D(V/sigma).
     `DispersionQuadrature,
     -- ADDED 2026-11-27. Zero-Mathlib Lean 4 companion for Toeplitz / Fejer-Riesz YWR operator-system dual (arXiv:2609.40028).
-    `ToeplitzYWRDual
+    `ToeplitzYWRDual,
+    -- ADDED 2026-11-27. Zero-Mathlib Lean 4 companion for AeST K_B curl-vortex energy balance (Angle 3).
+    `AeSTCurlVortexBalance,
+    -- ADDED 2026-11-27. Zero-Mathlib Lean 4 companion for Fata Morgana K-T risk bounds.
+    `FataMorganaKTRisk
   ]

@@ -7,7 +7,7 @@ or any file described as "archived," "legacy," or "historical." Those are frozen
 past states, kept for provenance, not current physics. This file and the two it points to
 are the only current physics.**
 
-**Last verified against the physics:** 2026-11-27 (UTC). The audit-cycle state below supersedes
+**Last verified against the physics:** 2026-11-28 (UTC). The audit-cycle state below supersedes
 any pre-2026-09-16 substrate claim not updated by it.
 
 **2026-11-26 / 2026-11-27 — Three optical/cosmology follow-ups executed & audited end-to-end:**

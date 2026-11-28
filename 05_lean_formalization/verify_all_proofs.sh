@@ -136,6 +136,8 @@ TARGETS=(
   HillVortexCore.lean
   DispersionQuadrature.lean
   ToeplitzYWRDual.lean
+  AeSTCurlVortexBalance.lean
+  FataMorganaKTRisk.lean
 )
 
 # --- Invariant: TARGETS must equal the lakefile roots -----------------------
